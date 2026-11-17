@@ -1,0 +1,423 @@
+{
+  "$defs": {
+    "BitVector": {
+      "additionalProperties": false,
+      "description": "Text character i is vector bit i, packed into byte i//8 at bit i%8.",
+      "properties": {
+        "bits": {
+          "maxLength": 65536,
+          "pattern": "^[01]*$",
+          "title": "Bits",
+          "type": "string"
+        },
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "width": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "encoding",
+        "width",
+        "bits"
+      ],
+      "title": "BitVector",
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedBlock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL",
+            "STALE",
+            "UNVERIFIED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freshness",
+        "checkedBlock"
+      ],
+      "title": "Integrity",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "gateCap": {
+          "default": 2500,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Gatecap",
+          "type": "integer"
+        },
+        "refDepthCap": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Refdepthcap",
+          "type": "integer"
+        },
+        "solverMemoryMiB": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Solvermemorymib",
+          "type": "integer"
+        },
+        "solverTimeoutMs": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Solvertimeoutms",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "Proof": {
+      "additionalProperties": false,
+      "properties": {
+        "candidateNState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Candidatenstate",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mappingValidation": {
+          "enum": [
+            "PASSED",
+            "UNVERIFIED"
+          ],
+          "title": "Mappingvalidation",
+          "type": "string"
+        },
+        "reasonCode": {
+          "anyOf": [
+            {
+              "enum": [
+                "NOT_IMPLEMENTED",
+                "INVALID_INPUT",
+                "UNSUPPORTED_SCHEMA_VERSION",
+                "WRONG_CHAIN",
+                "BAD_NETLIST",
+                "REF_DEPTH_EXCEEDED",
+                "RESOURCE_LIMIT",
+                "RPC_UNAVAILABLE",
+                "IMPLEMENTATION_CHANGED",
+                "SOLVER_TIMEOUT",
+                "WITNESS_REPLAY_FAILED",
+                "UNSUPPORTED_STATEFUL_PROOF",
+                "MISSING_REFERENCE",
+                "MISSING_MAPPING",
+                "INTERNAL_ERROR",
+                "UNRECOGNIZED_REVERT",
+                "STRUCTURAL_REJECTION"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reasoncode"
+        },
+        "referenceNState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Referencenstate",
+          "type": "integer"
+        },
+        "solverBackend": {
+          "enum": [
+            "Minisat22",
+            "NONE"
+          ],
+          "title": "Solverbackend",
+          "type": "string"
+        },
+        "solverOutcome": {
+          "enum": [
+            "UNSAT",
+            "SAT",
+            "NOT_RUN",
+            "INTERRUPTED"
+          ],
+          "title": "Solveroutcome",
+          "type": "string"
+        },
+        "sourceValidation": {
+          "enum": [
+            "PASSED",
+            "UNVERIFIED"
+          ],
+          "title": "Sourcevalidation",
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "EQUIVALENT",
+            "DIFFERENT",
+            "UNKNOWN"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "witness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Witness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "verdict",
+        "reasonCode",
+        "solverBackend",
+        "solverOutcome",
+        "referenceNState",
+        "candidateNState",
+        "sourceValidation",
+        "mappingValidation",
+        "witness"
+      ],
+      "title": "Proof",
+      "type": "object"
+    },
+    "Semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "referenceHash": {
+          "const": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+          "title": "Referencehash",
+          "type": "string"
+        },
+        "specificationHash": {
+          "const": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+          "title": "Specificationhash",
+          "type": "string"
+        },
+        "tap02Version": {
+          "const": "draft-2026-10-04",
+          "title": "Tap02Version",
+          "type": "string"
+        },
+        "testSuiteHash": {
+          "const": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+          "title": "Testsuitehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tap02Version",
+        "encoding",
+        "specificationHash",
+        "referenceHash",
+        "testSuiteHash"
+      ],
+      "title": "Semantics",
+      "type": "object"
+    },
+    "Witness": {
+      "additionalProperties": false,
+      "properties": {
+        "candidateOutputs": {
+          "$ref": "#/$defs/BitVector"
+        },
+        "inputs": {
+          "$ref": "#/$defs/BitVector"
+        },
+        "minimization": {
+          "enum": [
+            "NONE",
+            "HEURISTIC"
+          ],
+          "title": "Minimization",
+          "type": "string"
+        },
+        "referenceOutputs": {
+          "$ref": "#/$defs/BitVector"
+        },
+        "replay": {
+          "const": "REF_BEAT_REPRODUCED",
+          "title": "Replay",
+          "type": "string"
+        }
+      },
+      "required": [
+        "inputs",
+        "referenceOutputs",
+        "candidateOutputs",
+        "replay",
+        "minimization"
+      ],
+      "title": "Witness",
+      "type": "object"
+    }
+  },
+  "$id": "urn:flip:schema:comparison-report:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidateManifestHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Candidatemanifesthash",
+      "type": "string"
+    },
+    "chainId": {
+      "const": 196,
+      "title": "Chainid",
+      "type": "integer"
+    },
+    "inputMap": {
+      "items": {
+        "maximum": 65535,
+        "minimum": 0,
+        "type": "integer"
+      },
+      "maxItems": 65536,
+      "title": "Inputmap",
+      "type": "array"
+    },
+    "integrity": {
+      "$ref": "#/$defs/Integrity"
+    },
+    "intent": {
+      "enum": [
+        "TRUSTED_REFERENCE",
+        "UNDECLARED"
+      ],
+      "title": "Intent",
+      "type": "string"
+    },
+    "limits": {
+      "$ref": "#/$defs/Limits"
+    },
+    "outputMap": {
+      "items": {
+        "maximum": 65535,
+        "minimum": 0,
+        "type": "integer"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "title": "Outputmap",
+      "type": "array"
+    },
+    "projectHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Projecthash",
+      "type": "string"
+    },
+    "referenceManifestHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Referencemanifesthash",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "semantics": {
+      "$ref": "#/$defs/Semantics"
+    },
+    "toolVersion": {
+      "const": "0.1.0",
+      "title": "Toolversion",
+      "type": "string"
+    },
+    "trustAssertion": {
+      "anyOf": [
+        {
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Trustassertion"
+    },
+    "verification": {
+      "$ref": "#/$defs/Proof"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "chainId",
+    "projectHash",
+    "referenceManifestHash",
+    "candidateManifestHash",
+    "toolVersion",
+    "semantics",
+    "limits",
+    "verification",
+    "intent",
+    "trustAssertion",
+    "inputMap",
+    "outputMap",
+    "integrity"
+  ],
+  "title": "ComparisonReport",
+  "type": "object"
+}

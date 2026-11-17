@@ -1,0 +1,63 @@
+{
+  "$defs": {
+    "ErrorDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "NOT_IMPLEMENTED",
+            "INVALID_INPUT",
+            "UNSUPPORTED_SCHEMA_VERSION",
+            "WRONG_CHAIN",
+            "BAD_NETLIST",
+            "REF_DEPTH_EXCEEDED",
+            "RESOURCE_LIMIT",
+            "RPC_UNAVAILABLE",
+            "IMPLEMENTATION_CHANGED",
+            "SOLVER_TIMEOUT",
+            "WITNESS_REPLAY_FAILED",
+            "UNSUPPORTED_STATEFUL_PROOF",
+            "MISSING_REFERENCE",
+            "MISSING_MAPPING",
+            "INTERNAL_ERROR",
+            "UNRECOGNIZED_REVERT",
+            "STRUCTURAL_REJECTION"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "ErrorDetail",
+      "type": "object"
+    }
+  },
+  "$id": "urn:flip:schema:error-envelope:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "$ref": "#/$defs/ErrorDetail"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "error"
+  ],
+  "title": "ErrorEnvelope",
+  "type": "object"
+}

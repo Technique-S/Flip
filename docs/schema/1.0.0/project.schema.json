@@ -1,0 +1,386 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "NAND": "#/$defs/NandComponent",
+                "REF": "#/$defs/RefComponent"
+              },
+              "propertyName": "kind"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/RefComponent"
+              },
+              {
+                "$ref": "#/$defs/NandComponent"
+              }
+            ]
+          },
+          "maxItems": 5000,
+          "title": "Components",
+          "type": "array"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "nIn",
+        "components",
+        "outputs"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "CircuitIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Circuitid",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "processor",
+        "circuitId"
+      ],
+      "title": "CircuitIdentity",
+      "type": "object"
+    },
+    "ComparisonPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "inputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "title": "Inputmap",
+          "type": "array"
+        },
+        "intent": {
+          "enum": [
+            "TRUSTED_REFERENCE",
+            "UNDECLARED"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "outputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputmap",
+          "type": "array"
+        },
+        "referenceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Referencealias",
+          "type": "string"
+        },
+        "trustAssertion": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trustassertion"
+        }
+      },
+      "required": [
+        "kind",
+        "referenceAlias",
+        "intent",
+        "trustAssertion",
+        "inputMap",
+        "outputMap"
+      ],
+      "title": "ComparisonPlan",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "gateCap": {
+          "default": 2500,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Gatecap",
+          "type": "integer"
+        },
+        "refDepthCap": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Refdepthcap",
+          "type": "integer"
+        },
+        "solverMemoryMiB": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Solvermemorymib",
+          "type": "integer"
+        },
+        "solverTimeoutMs": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Solvertimeoutms",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "NandComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "NAND",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "inputs"
+      ],
+      "title": "NandComponent",
+      "type": "object"
+    },
+    "PinSource": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Component"
+        },
+        "pin": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Pin",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "component",
+        "pin"
+      ],
+      "title": "PinSource",
+      "type": "object"
+    },
+    "RefComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 255,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "REF",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sourceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Sourcealias",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "sourceAlias",
+        "inputs"
+      ],
+      "title": "RefComponent",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "alias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Alias",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alias",
+        "identity",
+        "manifestHash",
+        "nIn",
+        "nOut",
+        "nState"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "$id": "urn:flip:schema:project:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate": {
+      "$ref": "#/$defs/Candidate"
+    },
+    "chainId": {
+      "const": 196,
+      "title": "Chainid",
+      "type": "integer"
+    },
+    "comparison": {
+      "$ref": "#/$defs/ComparisonPlan"
+    },
+    "limits": {
+      "$ref": "#/$defs/Limits"
+    },
+    "projectId": {
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+      "title": "Projectid",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/Source"
+      },
+      "maxItems": 1251,
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "toolVersion": {
+      "const": "0.1.0",
+      "title": "Toolversion",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "chainId",
+    "toolVersion",
+    "sources",
+    "candidate",
+    "comparison",
+    "limits"
+  ],
+  "title": "Project",
+  "type": "object"
+}

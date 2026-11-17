@@ -1,0 +1,48 @@
+{
+  "sourceRevision": "527477ecb7cf68ee9e86d8292669d57fe1680572",
+  "verification": "Inspected upstream pack/unpack functions executed in isolation; packing only.",
+  "vectors": [
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 0,
+      "bits": "",
+      "packed": "0x"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 1,
+      "bits": "1",
+      "packed": "0x01"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 2,
+      "bits": "01",
+      "packed": "0x02"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 8,
+      "bits": "10000001",
+      "packed": "0x81"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 9,
+      "bits": "100000001",
+      "packed": "0x0101"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 9,
+      "bits": "000000001",
+      "packed": "0x0001"
+    },
+    {
+      "encoding": "tap02-lsb0-v1",
+      "width": 10,
+      "bits": "1000000011",
+      "packed": "0x0103"
+    }
+  ]
+}

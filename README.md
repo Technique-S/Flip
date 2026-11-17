@@ -1,4 +1,60 @@
-# Flip — M1 engineering workspace starter
+# Flip — M1-A foundations
+
+**Current status: contracts only.** Three Python packages provide versioned models,
+JSON Schemas, deterministic JSON/SHA-256, CLI and API scaffolds. No RPC, evaluator,
+composer or solver is implemented. Product operations return `NOT_IMPLEMENTED`.
+
+Tested locally: Windows x64, CPython **3.14.6**, uv **0.9.11**, Node **24.18.0**.
+The lockfile pins Python distributions and hashes. From the Codex worktree:
+
+```powershell
+python -m venv .bootstrap
+.\.bootstrap\Scripts\python.exe -m pip install uv==0.9.11
+.\.bootstrap\Scripts\uv.exe sync --locked
+.\.bootstrap\Scripts\uv.exe run --frozen pytest -q
+.\.bootstrap\Scripts\uv.exe run --frozen ruff check .
+.\.bootstrap\Scripts\uv.exe run --frozen ruff format --check .
+.\.bootstrap\Scripts\uv.exe run --frozen flip-schemas --out docs/schema/1.0.0 --check
+node docs/schema/check-canonical.mjs
+```
+
+On Linux use `.bootstrap/bin/python` and `.bootstrap/bin/uv`. With uv installed,
+use `uv` directly; `uv python install 3.14.6` can provision the exact runtime.
+CI targets Linux and Windows; local tests do not establish remote CI success.
+`--locked` checks config/lock consistency; `--frozen` consumes the existing lock.
+Pytest clears `packages/flip-core/.test-tmp` as disposable in-worktree scratch space.
+
+Second empty-environment installation on PowerShell:
+
+```powershell
+$env:UV_PROJECT_ENVIRONMENT = '.venv-clean'
+.\.bootstrap\Scripts\uv.exe sync --locked --no-cache --no-editable
+.\.venv-clean\Scripts\python.exe -m pytest -q
+Remove-Item Env:UV_PROJECT_ENVIRONMENT
+```
+
+Implemented usage:
+
+```powershell
+.\.venv\Scripts\flip.exe validate project docs/schema/examples/project.json
+.\.venv\Scripts\flip.exe canonical circuit-identity docs/schema/examples/circuit-identity.json
+.\.venv\Scripts\flip.exe hash manifest docs/schema/examples/manifest.json
+.\.venv\Scripts\uvicorn.exe flip_api.app:app --host 127.0.0.1 --port 8000
+```
+
+`validate`/`canonical` emit a normalized contract; success means schema consistency
+only. Examples are synthetic. API validation is
+`POST /api/v1/contracts/{kind}/validate`; `/healthz` reports only liveness and `/docs`
+exposes scaffold OpenAPI. Reserved product routes return HTTP 501 / CLI exit 6.
+
+See [frozen contracts](docs/schema/README.md), [CLI exits](docs/schema/CLI_EXIT_CODES.md),
+[licenses](docs/schema/DEPENDENCIES.md), and [handoff](docs/schema/M1_A_HANDOFF.md).
+Codex and OpenCode worktrees share seed commit `37c39b3`. Implementation remains
+on `codex/flip-m1-core`, separate from OpenCode-owned fixtures and from `main`.
+
+---
+
+## Historical starter instructions (retained for provenance)
 
 **Product:** Flip (formerly CircuitForge). **Status:** Planning approved, implementation not yet started.
 

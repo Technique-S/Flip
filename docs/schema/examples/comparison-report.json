@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "chainId": 196,
+  "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+  "referenceManifestHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+  "candidateManifestHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+  "toolVersion": "0.1.0",
+  "semantics": {
+    "tap02Version": "draft-2026-10-04",
+    "encoding": "tap02-lsb0-v1",
+    "specificationHash": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+    "referenceHash": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+    "testSuiteHash": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+  },
+  "limits": {
+    "gateCap": 2500,
+    "refDepthCap": 64,
+    "solverTimeoutMs": 5000,
+    "solverMemoryMiB": 64
+  },
+  "verification": {
+    "kind": "PAIRWISE_EQUIVALENCE",
+    "verdict": "UNKNOWN",
+    "reasonCode": "NOT_IMPLEMENTED",
+    "solverBackend": "NONE",
+    "solverOutcome": "NOT_RUN",
+    "referenceNState": 0,
+    "candidateNState": 0,
+    "sourceValidation": "UNVERIFIED",
+    "mappingValidation": "UNVERIFIED",
+    "witness": null
+  },
+  "intent": "UNDECLARED",
+  "trustAssertion": null,
+  "inputMap": [
+    0,
+    1
+  ],
+  "outputMap": [
+    0
+  ],
+  "integrity": {
+    "freshness": "UNVERIFIED",
+    "checkedBlock": null
+  }
+}
