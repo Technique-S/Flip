@@ -1,0 +1,17 @@
+# secrets and local environment
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+dist/
+build/
+coverage/
+playwright-report/
+.DS_Store
+# avoid accidental large private audit source copies
+/docs/evidence/raw/
