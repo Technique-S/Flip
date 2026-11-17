@@ -1,0 +1,90 @@
+{
+  "baseline": {
+    "label": "xor1",
+    "manifestHash": "0xb7c6e18daf408462f3fd23dd11ac40be96a696e5791b44667773bf89959601e3"
+  },
+  "negativeTests": [
+    {
+      "mutation": "same processor address on wrong chain (Base=8453)",
+      "detected": true,
+      "issues": [
+        "chain-mismatch: expected 196, got 8453"
+      ]
+    },
+    {
+      "mutation": "changed circuit ID (1 -> 2)",
+      "detected": true,
+      "issues": [
+        "circuit-id-mismatch: expected 1, got 2"
+      ]
+    },
+    {
+      "mutation": "changed netlist hash",
+      "detected": true,
+      "issues": [
+        "netlist-hash-changed",
+        "netlist-hash-vs-bytes-inconsistent"
+      ]
+    },
+    {
+      "mutation": "changed referenced dependency (core#102 -> core#101)",
+      "detected": true,
+      "issues": [
+        "dependency-set-changed"
+      ]
+    },
+    {
+      "mutation": "changed factory implementation slot",
+      "detected": true,
+      "issues": [
+        "factory-implementation-changed"
+      ]
+    },
+    {
+      "mutation": "changed beacon implementation",
+      "detected": true,
+      "issues": [
+        "beacon-implementation-changed"
+      ]
+    },
+    {
+      "mutation": "unexpected processor identity",
+      "detected": true,
+      "issues": [
+        "processor-mismatch: expected 0x839BDD6fA7A66416a609A735E11DE5411b98574E, got 0x2222222222222222222222222222222222222222"
+      ]
+    },
+    {
+      "mutation": "stale verification snapshot (old block)",
+      "detected": true,
+      "issues": [
+        "block-hash-changed"
+      ]
+    },
+    {
+      "mutation": "inconsistent RPC result (altered netlist bytes at another block)",
+      "detected": true,
+      "issues": [
+        "netlist-hash-vs-bytes-inconsistent"
+      ]
+    }
+  ],
+  "liveChecks": {
+    "chainIds": {
+      "xlayer": 196,
+      "base": 8453,
+      "distinct": true
+    },
+    "sameProcessorOnBase": {
+      "nextId": "0x000000000000000000000000000000000000000000000000000000000000000a",
+      "note": "Base nextId differs from X Layer's 104 \u2014 same address, different chain/state"
+    },
+    "netlistAtBlocks": {
+      "0x488875b": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001c0000000200000300000002000004000000030000040000000500000600000000",
+      "0x4888756": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001c0000000200000300000002000004000000030000040000000500000600000000",
+      "0x4888729": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001c0000000200000300000002000004000000030000040000000500000600000000"
+    },
+    "netlistStableAcrossBlocks": true
+  },
+  "allNegativeDetected": true
+}

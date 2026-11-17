@@ -1,0 +1,999 @@
+{
+  "environment": {
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 78 Stepping 3, GenuineIntel",
+    "backend": "python-sat Minisat22 (isolated vendor wheel) + original pure-Python DPLL"
+  },
+  "timeouts": {
+    "perCaseSeconds": 8,
+    "policy": "timeout -> UNKNOWN (never EQUIVALENT)"
+  },
+  "scales": [
+    {
+      "targetGates": 50,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 3200.71,
+              "p90RuntimeMs": 3369.39,
+              "wallMs": 3377.4,
+              "peakMemMiB": 0.18,
+              "cnfClauses": 293,
+              "cnfVars": null,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 154.46,
+              "p90RuntimeMs": 157.73,
+              "wallMs": 343.0,
+              "peakMemMiB": 3.24,
+              "cnfClauses": 293,
+              "cnfVars": 112,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 3451.79,
+              "p90RuntimeMs": 3671.02,
+              "wallMs": 3852.1,
+              "peakMemMiB": 0.18,
+              "cnfClauses": 293,
+              "cnfVars": null,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 158.86,
+              "p90RuntimeMs": 170.65,
+              "wallMs": 424.0,
+              "peakMemMiB": 3.24,
+              "cnfClauses": 293,
+              "cnfVars": 112,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 21.96,
+              "p90RuntimeMs": 24.6,
+              "wallMs": 200.2,
+              "peakMemMiB": 0.19,
+              "cnfClauses": 293,
+              "cnfVars": null,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 149.16,
+              "p90RuntimeMs": 157.94,
+              "wallMs": 336.1,
+              "peakMemMiB": 3.25,
+              "cnfClauses": 293,
+              "cnfVars": 112,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 3469.05,
+              "p90RuntimeMs": 3734.64,
+              "wallMs": 3654.5,
+              "peakMemMiB": 0.18,
+              "cnfClauses": 293,
+              "cnfVars": null,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 160.51,
+              "p90RuntimeMs": 160.84,
+              "wallMs": 363.4,
+              "peakMemMiB": 3.24,
+              "cnfClauses": 293,
+              "cnfVars": 112,
+              "nIn": 13,
+              "refs": 12,
+              "actualGates": 48,
+              "netlistBytes": 444,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 100,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8024.3,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 159.74,
+              "p90RuntimeMs": 160.6,
+              "wallMs": 353.6,
+              "peakMemMiB": 3.29,
+              "cnfClauses": 605,
+              "cnfVars": 229,
+              "nIn": 26,
+              "refs": 25,
+              "actualGates": 100,
+              "netlistBytes": 925,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8028.9,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 157.93,
+              "p90RuntimeMs": 158.29,
+              "wallMs": 366.9,
+              "peakMemMiB": 3.29,
+              "cnfClauses": 605,
+              "cnfVars": 229,
+              "nIn": 26,
+              "refs": 25,
+              "actualGates": 100,
+              "netlistBytes": 925,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 1880.9,
+              "p90RuntimeMs": 2184.85,
+              "wallMs": 2048.9,
+              "peakMemMiB": 0.59,
+              "cnfClauses": 605,
+              "cnfVars": null,
+              "nIn": 26,
+              "refs": 25,
+              "actualGates": 100,
+              "netlistBytes": 925,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 154.79,
+              "p90RuntimeMs": 155.18,
+              "wallMs": 348.5,
+              "peakMemMiB": 3.29,
+              "cnfClauses": 605,
+              "cnfVars": 229,
+              "nIn": 26,
+              "refs": 25,
+              "actualGates": 100,
+              "netlistBytes": 925,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8023.7,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 147.02,
+              "p90RuntimeMs": 152.4,
+              "wallMs": 333.6,
+              "peakMemMiB": 3.29,
+              "cnfClauses": 605,
+              "cnfVars": 229,
+              "nIn": 26,
+              "refs": 25,
+              "actualGates": 100,
+              "netlistBytes": 925,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 250,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8019.0,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 191.26,
+              "p90RuntimeMs": 191.26,
+              "wallMs": 379.5,
+              "peakMemMiB": 3.41,
+              "cnfClauses": 1493,
+              "cnfVars": 562,
+              "nIn": 63,
+              "refs": 62,
+              "actualGates": 248,
+              "netlistBytes": 2294,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8019.2,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 166.29,
+              "p90RuntimeMs": 166.29,
+              "wallMs": 348.4,
+              "peakMemMiB": 3.41,
+              "cnfClauses": 1493,
+              "cnfVars": 562,
+              "nIn": 63,
+              "refs": 62,
+              "actualGates": 248,
+              "netlistBytes": 2294,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8033.9,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 156.79,
+              "p90RuntimeMs": 156.79,
+              "wallMs": 355.3,
+              "peakMemMiB": 3.44,
+              "cnfClauses": 1493,
+              "cnfVars": 562,
+              "nIn": 63,
+              "refs": 62,
+              "actualGates": 248,
+              "netlistBytes": 2294,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8027.8,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 168.05,
+              "p90RuntimeMs": 168.05,
+              "wallMs": 346.7,
+              "peakMemMiB": 3.41,
+              "cnfClauses": 1493,
+              "cnfVars": 562,
+              "nIn": 63,
+              "refs": 62,
+              "actualGates": 248,
+              "netlistBytes": 2294,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 500,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8021.3,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 206.12,
+              "p90RuntimeMs": 206.12,
+              "wallMs": 405.3,
+              "peakMemMiB": 3.61,
+              "cnfClauses": 3005,
+              "cnfVars": 1129,
+              "nIn": 126,
+              "refs": 125,
+              "actualGates": 500,
+              "netlistBytes": 4625,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8016.9,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 198.84,
+              "p90RuntimeMs": 198.84,
+              "wallMs": 388.6,
+              "peakMemMiB": 3.61,
+              "cnfClauses": 3005,
+              "cnfVars": 1129,
+              "nIn": 126,
+              "refs": 125,
+              "actualGates": 500,
+              "netlistBytes": 4625,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8026.7,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 184.35,
+              "p90RuntimeMs": 184.35,
+              "wallMs": 397.8,
+              "peakMemMiB": 3.65,
+              "cnfClauses": 3005,
+              "cnfVars": 1129,
+              "nIn": 126,
+              "refs": 125,
+              "actualGates": 500,
+              "netlistBytes": 4625,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "TIMEOUT",
+              "solverResult": null,
+              "verdict": "UNKNOWN",
+              "medianRuntimeMs": null,
+              "p90RuntimeMs": null,
+              "wallMs": 8018.6,
+              "peakMemMiB": null,
+              "cnfClauses": null,
+              "cnfVars": null,
+              "nIn": null,
+              "refs": null,
+              "actualGates": null,
+              "netlistBytes": null,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": false
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 221.73,
+              "p90RuntimeMs": 221.73,
+              "wallMs": 479.6,
+              "peakMemMiB": 3.61,
+              "cnfClauses": 3005,
+              "cnfVars": 1129,
+              "nIn": 126,
+              "refs": 125,
+              "actualGates": 500,
+              "netlistBytes": 4625,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 1000,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 297.44,
+              "p90RuntimeMs": 297.44,
+              "wallMs": 488.1,
+              "peakMemMiB": 4.05,
+              "cnfClauses": 6005,
+              "cnfVars": 2254,
+              "nIn": 251,
+              "refs": 250,
+              "actualGates": 1000,
+              "netlistBytes": 9250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 285.95,
+              "p90RuntimeMs": 285.95,
+              "wallMs": 480.4,
+              "peakMemMiB": 4.05,
+              "cnfClauses": 6005,
+              "cnfVars": 2254,
+              "nIn": 251,
+              "refs": 250,
+              "actualGates": 1000,
+              "netlistBytes": 9250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 271.58,
+              "p90RuntimeMs": 271.58,
+              "wallMs": 516.5,
+              "peakMemMiB": 4.18,
+              "cnfClauses": 6005,
+              "cnfVars": 2254,
+              "nIn": 251,
+              "refs": 250,
+              "actualGates": 1000,
+              "netlistBytes": 9250,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 302.53,
+              "p90RuntimeMs": 302.53,
+              "wallMs": 489.8,
+              "peakMemMiB": 4.05,
+              "cnfClauses": 6005,
+              "cnfVars": 2254,
+              "nIn": 251,
+              "refs": 250,
+              "actualGates": 1000,
+              "netlistBytes": 9250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 2500,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 599.65,
+              "p90RuntimeMs": 599.65,
+              "wallMs": 794.2,
+              "peakMemMiB": 5.31,
+              "cnfClauses": 15005,
+              "cnfVars": 5629,
+              "nIn": 626,
+              "refs": 625,
+              "actualGates": 2500,
+              "netlistBytes": 23125,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 552.8,
+              "p90RuntimeMs": 552.8,
+              "wallMs": 755.6,
+              "peakMemMiB": 5.31,
+              "cnfClauses": 15005,
+              "cnfVars": 5629,
+              "nIn": 626,
+              "refs": 625,
+              "actualGates": 2500,
+              "netlistBytes": 23125,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 389.04,
+              "p90RuntimeMs": 389.04,
+              "wallMs": 718.8,
+              "peakMemMiB": 5.39,
+              "cnfClauses": 15005,
+              "cnfVars": 5629,
+              "nIn": 626,
+              "refs": 625,
+              "actualGates": 2500,
+              "netlistBytes": 23125,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 580.08,
+              "p90RuntimeMs": 580.08,
+              "wallMs": 780.4,
+              "peakMemMiB": 5.31,
+              "cnfClauses": 15005,
+              "cnfVars": 5629,
+              "nIn": 626,
+              "refs": 625,
+              "actualGates": 2500,
+              "netlistBytes": 23125,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "targetGates": 5000,
+      "cases": {
+        "self": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 1383.92,
+              "p90RuntimeMs": 1383.92,
+              "wallMs": 1598.7,
+              "peakMemMiB": 7.44,
+              "cnfClauses": 30005,
+              "cnfVars": 11254,
+              "nIn": 1251,
+              "refs": 1250,
+              "actualGates": 5000,
+              "netlistBytes": 46250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "equivalent": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 1277.53,
+              "p90RuntimeMs": 1277.53,
+              "wallMs": 1493.0,
+              "peakMemMiB": 7.44,
+              "cnfClauses": 30005,
+              "cnfVars": 11254,
+              "nIn": 1251,
+              "refs": 1250,
+              "actualGates": 5000,
+              "netlistBytes": 46250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        },
+        "different": {
+          "expectedVerdict": "DIFFERENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "SAT",
+              "verdict": "DIFFERENT",
+              "medianRuntimeMs": 684.17,
+              "p90RuntimeMs": 684.17,
+              "wallMs": 1170.6,
+              "peakMemMiB": 7.9,
+              "cnfClauses": 30005,
+              "cnfVars": 11254,
+              "nIn": 1251,
+              "refs": 1250,
+              "actualGates": 5000,
+              "netlistBytes": 46250,
+              "witnessVerifiedBySim": true,
+              "matchesExpected": true
+            }
+          }
+        },
+        "fault_reverse_one": {
+          "expectedVerdict": "EQUIVALENT",
+          "backends": {
+            "dpll": {
+              "status": "SKIPPED",
+              "verdict": "UNKNOWN",
+              "reason": "pure-Python DPLL not viable above 500 gates; see small-scale measurements"
+            },
+            "minisat": {
+              "status": "OK",
+              "solverResult": "UNSAT",
+              "verdict": "EQUIVALENT",
+              "medianRuntimeMs": 1168.97,
+              "p90RuntimeMs": 1168.97,
+              "wallMs": 1389.9,
+              "peakMemMiB": 7.44,
+              "cnfClauses": 30005,
+              "cnfVars": 11254,
+              "nIn": 1251,
+              "refs": 1250,
+              "actualGates": 5000,
+              "netlistBytes": 46250,
+              "witnessVerifiedBySim": null,
+              "matchesExpected": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "correctnessSafeguards": [],
+  "statefulKBeat": {}
+}
