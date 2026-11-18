@@ -1,4 +1,4 @@
-"""Shared read-only importer API; composition/proof/preflight remain unimplemented."""
+"""Read-only import, composition, local verification and evidence API."""
 
 import os
 from threading import BoundedSemaphore
@@ -16,7 +16,7 @@ from flip_core.rpc import RpcSettings
 from pydantic import ValidationError
 from starlette.concurrency import run_in_threadpool
 
-app = FastAPI(title="Flip M1-A contracts", version="0.1.0")
+app = FastAPI(title="Flip local workbench", version="0.1.0")
 MAX_BODY_BYTES = 1_048_576
 _slots = BoundedSemaphore(2)
 _cache = ContentCache()
@@ -28,15 +28,7 @@ def execute_import(kind, model, block_number):
     try:
         service = getattr(app.state, "import_service", None)
         if service is None:
-            try:
-                settings = RpcSettings(
-                    os.getenv("FLIP_RPC_URL", "https://rpc.xlayer.tech"),
-                    int(os.getenv("FLIP_RPC_TIMEOUT_MS", "5000")),
-                    int(os.getenv("FLIP_RPC_RETRIES", "1")),
-                )
-            except (ValueError, ContractError) as exc:
-                raise ContractError("RPC_UNAVAILABLE", "Invalid server RPC configuration.") from exc
-            service = ImportService(settings, cache=_cache)
+            service = ImportService(RpcSettings.from_environment(), cache=_cache)
         if kind == "manifest":
             return service.revalidate(model)
         return service.import_circuit(model, block_number)
@@ -177,13 +169,15 @@ async def m3_request(request: Request, operation: str) -> Response:
         value = load_json(bytes(raw))
         # Frozen report shapes, fabricated claims and legacy placeholders never
         # opt into execution. New execution requires an explicit additive version.
+        product_op = operation in ("export", "verify-bundle", "preflight", "new-project")
+        kind = "M3_CONSUMPTION" if operation == "consume" else "M3_EXECUTION"
         if not isinstance(value, dict) or value.get("kind") != (
-            "M3_CONSUMPTION" if operation == "consume" else "M3_EXECUTION"
+            "PRODUCT_REQUEST" if product_op else kind
         ):
             return json_response(not_implemented(), 501)
         if request.query_params:
             raise ContractError("INVALID_INPUT", "Unknown M3 query parameter.")
-        if operation in ("compare", "consume") and (
+        if operation in ("compare", "consume", "export", "verify-bundle") and (
             os.getenv("FLIP_LOCAL_SOLVER") != "1"
             or request.client is None
             or request.client.host not in ("127.0.0.1", "::1")
@@ -194,7 +188,12 @@ async def m3_request(request: Request, operation: str) -> Response:
         if not _slots.acquire(blocking=False):
             raise ContractError("RESOURCE_LIMIT", "Local execution concurrency exceeded.")
         try:
-            result = await run_in_threadpool(execute, operation, bytes(raw))
+            if product_op:
+                from flip_core.workflow import product
+
+                result = await run_in_threadpool(product, operation, value)
+            else:
+                result = await run_in_threadpool(execute, operation, bytes(raw))
         finally:
             _slots.release()
         return json_response(result)
@@ -226,13 +225,31 @@ async def consume_proof(request: Request) -> Response:
     return await m3_request(request, "consume")
 
 
-for operation in ("preflight", "export"):
-    app.add_api_route(
-        f"/api/v1/{operation}",
-        unavailable,
-        methods=["POST"],
-        name=operation,
-        status_code=501,
-        response_model=ErrorEnvelope,
-        responses={501: {"model": ErrorEnvelope}},
-    )
+@app.post("/api/v1/new-project")
+async def new_project(request: Request) -> Response:
+    return await m3_request(request, "new-project")
+
+
+@app.post("/api/v1/preflight")
+async def structural_preflight(request: Request) -> Response:
+    return await m3_request(request, "preflight")
+
+
+@app.post("/api/v1/export")
+async def export_evidence(request: Request) -> Response:
+    return await m3_request(request, "export")
+
+
+@app.post("/api/v1/verify-bundle")
+async def replay_evidence(request: Request) -> Response:
+    return await m3_request(request, "verify-bundle")
+
+
+@app.get("/api/v1/sample/{variant}")
+async def historical_sample(variant: str) -> Response:
+    from flip_core.workflow import sample
+
+    try:
+        return json_response(sample(variant))
+    except ContractError as exc:
+        return json_response(exc.envelope(), 404)

@@ -1,5 +1,6 @@
 """Bounded synchronous JSON-RPC transport, with read methods/selectors only."""
 
+import os
 import re
 import time
 from dataclasses import dataclass
@@ -22,6 +23,17 @@ class RpcSettings:
     endpoint: str = "https://rpc.xlayer.tech"
     timeout_ms: int = 5000
     retries: int = 1
+
+    @classmethod
+    def from_environment(cls):
+        try:
+            return cls(
+                os.getenv("FLIP_RPC_URL", "https://rpc.xlayer.tech"),
+                int(os.getenv("FLIP_RPC_TIMEOUT_MS", "5000")),
+                int(os.getenv("FLIP_RPC_RETRIES", "1")),
+            )
+        except (ValueError, ContractError) as exc:
+            raise ContractError("RPC_UNAVAILABLE", "Invalid local RPC configuration.") from exc
 
     def __post_init__(self):
         if not isinstance(self.endpoint, str):
@@ -97,6 +109,11 @@ class RpcClient:
                 or not re.fullmatch(r"0x[0-9a-f]+", data)
             ):
                 raise ContractError("INVALID_INPUT", "Contract selector is not allowlisted.")
+        return self._read(method, params)
+
+    def _read(self, method, params, *, capture_revert=False):
+        if method not in READ_METHODS:
+            raise ContractError("INVALID_INPUT", "Only read-only RPC methods are supported.")
         for attempt in range(self.settings.retries + 1):
             if self.calls >= self.budget.maxRequests:
                 raise ContractError("RESOURCE_LIMIT", "RPC request budget exceeded.")
@@ -131,6 +148,15 @@ class RpcClient:
                     raise ValueError("ambiguous result")
                 if "error" in result:
                     error = result["error"]
+                    if (
+                        capture_revert
+                        and isinstance(error, dict)
+                        and type(error.get("code")) is int
+                        and error["code"] in (3, -32000)
+                        and isinstance(error.get("message"), str)
+                        and error["message"].lower().startswith("execution reverted")
+                    ):
+                        return {"revert": error.get("data")}
                     lookup = method == "eth_call" and params[0]["data"][2:10] in (
                         SELECTORS["circuitInfo"],
                         SELECTORS["netlist"],
@@ -146,7 +172,7 @@ class RpcClient:
                                 "MISSING_REFERENCE", "Circuit lookup reports no existing circuit."
                             )
                     raise ValueError("RPC error")
-                return result["result"]
+                return None if capture_revert else result["result"]
             except ContractError:
                 raise
             except (httpx.HTTPError, ValueError, TypeError, UnicodeError, RecursionError) as exc:
