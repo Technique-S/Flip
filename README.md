@@ -1,4 +1,17 @@
-# Flip — M3-A deterministic composition and Wiring Canary
+# Flip · Local circuit workbench
+
+Import X Layer circuits, compose TAP-02 netlists, compare a wiring change and export reproducible evidence from the web or CLI. The historical half-adder works offline.
+
+```sh
+uv sync --locked
+npm ci --prefix apps/web
+npm run build --prefix apps/web
+uv run --frozen python -m flip_api.local
+```
+
+Open http://127.0.0.1:8000. To run the native solver, set `FLIP_LOCAL_SOLVER=1` in the launcher's environment. Start with **Open sample**. See the [M4-A local setup, CLI walkthrough, evidence format and hosting limits](docs/milestones/M4_A_HANDOFF.md).
+
+## M3 baseline
 
 Flip now evaluates TAP-02 snapshots locally, compiles explicit REF recipes and
 checks stateless pairwise equivalence with isolated Minisat22 workers. Every
