@@ -1,0 +1,12 @@
+{
+  "scope": "Live read-only CLI/API parity at an explicit historical block; no proof or preflight.",
+  "block": {
+    "hash": "0xce4394c5238d339ccf96d476e42a4f7b52d6fc24796a7f6c77dd93c914fff948",
+    "number": "76206482"
+  },
+  "manifestHash": "0x9cb088822cbcef579df1062c03d43ee9f81b1c5e34a4101341dd54423187ad57",
+  "cliExit": 0,
+  "httpStatus": 200,
+  "canonicalMatch": true,
+  "freshness": "HISTORICAL"
+}

@@ -7,7 +7,7 @@ name = "flip-core"
 version = "0.1.0"
 description = "Flip M1 versioned contracts and canonical JSON"
 requires-python = "==3.14.6"
-dependencies = ["pydantic==2.12.4"]
+dependencies = ["pydantic==2.12.4", "httpx==0.28.1"]
 
 [project.scripts]
 flip-schemas = "flip_core.schema_export:main"

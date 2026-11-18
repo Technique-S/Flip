@@ -13,3 +13,4 @@
 /docs/evidence/derived/recomputed_checks.json -text
 /scripts/** text eol=lf
 /docs/milestones/** text eol=lf
+/conftest.py text eol=lf

@@ -33,7 +33,7 @@ def validate_contract(kind: str, data: str | bytes) -> Contract:
             raise ContractError(
                 "UNSUPPORTED_SCHEMA_VERSION", "Only schemaVersion 1.0.0 is supported."
             ) from exc
-        if any(e["loc"][-1:] == ("chainId",) for e in errors):
+        if any(e["loc"][-1:] == ("chainId",) and e["type"] != "missing" for e in errors):
             raise ContractError("WRONG_CHAIN", "Only integer chainId 196 is supported.") from exc
         raise ContractError("INVALID_INPUT", "Payload violates the contract.") from exc
     except (ValueError, TypeError, UnicodeError, RecursionError) as exc:

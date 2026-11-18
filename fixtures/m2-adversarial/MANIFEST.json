@@ -1,0 +1,29 @@
+{
+  "artifacts": [
+    {
+      "bytes": 33160,
+      "path": "fixtures/m2-adversarial/tap02-malformed.json",
+      "sha256": "f40900cf151471bbfaff344c297322f048b3e339514f512775e30754e7b3d65c"
+    },
+    {
+      "bytes": 8352,
+      "path": "fixtures/m2-adversarial/rpc-failures.json",
+      "sha256": "1aa1aface3e080bcbfdd07b468f3a178018d93f5ffea0660f1c85f2f458dc609"
+    },
+    {
+      "bytes": 8990,
+      "path": "fixtures/m2-adversarial/integrity-negatives.json",
+      "sha256": "cd770d0e24c0156464b1dc7959f7765f41233969683efb414d95d143e49cd7ea"
+    },
+    {
+      "bytes": 4170,
+      "path": "fixtures/m2-adversarial/m1-regressions.json",
+      "sha256": "15ac9ab3f972ecdb0014a5920001a32919970211667f0e734c381bb53053b605"
+    }
+  ],
+  "deterministic": true,
+  "generated_by": "docs/evidence/m2-adversarial/build_corpus.py",
+  "generator_sha256": "f6860d7d82ee34c66a46e93c272f3a28197d8dcbdd9ccf687e3dd67b6dd0f73c",
+  "note": "SHA-256 over exact file bytes; no embedded credentials; all synthetic cases explicitly labelled.",
+  "schema": "flip-m2-adversarial/manifest/1"
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "urn:flip:schema:import-budget:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deadlineMs": {
+      "default": 60000,
+      "maximum": 120000,
+      "minimum": 1,
+      "title": "Deadlinems",
+      "type": "integer"
+    },
+    "maxCircuits": {
+      "default": 128,
+      "maximum": 1251,
+      "minimum": 1,
+      "title": "Maxcircuits",
+      "type": "integer"
+    },
+    "maxDepth": {
+      "default": 64,
+      "maximum": 64,
+      "minimum": 1,
+      "title": "Maxdepth",
+      "type": "integer"
+    },
+    "maxGates": {
+      "default": 2500,
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Maxgates",
+      "type": "integer"
+    },
+    "maxNetlistBytes": {
+      "default": 250000,
+      "maximum": 1000000,
+      "minimum": 1,
+      "title": "Maxnetlistbytes",
+      "type": "integer"
+    },
+    "maxRecords": {
+      "default": 5000,
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Maxrecords",
+      "type": "integer"
+    },
+    "maxRequests": {
+      "default": 256,
+      "maximum": 8192,
+      "minimum": 1,
+      "title": "Maxrequests",
+      "type": "integer"
+    },
+    "maxTotalBytes": {
+      "default": 1000000,
+      "maximum": 1000000,
+      "minimum": 1,
+      "title": "Maxtotalbytes",
+      "type": "integer"
+    },
+    "maxTotalRecords": {
+      "default": 5000,
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Maxtotalrecords",
+      "type": "integer"
+    }
+  },
+  "title": "ImportBudget",
+  "type": "object"
+}

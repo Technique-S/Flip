@@ -1,0 +1,80 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "claim": "Specification derived from review evidence; not an integrated test result.",
+      "current_observed": {
+        "code": "WRONG_CHAIN"
+      },
+      "desired": {
+        "code": "INVALID_INPUT",
+        "reason": "field absent is not a wrong-chain value"
+      },
+      "frozen_schema_modified": false,
+      "id": "M1-REG-001",
+      "reproduction": "Remove chainId from docs/schema/examples/circuit-identity.json and call validate_contract('circuit-identity', payload).",
+      "requires_contract_revision": true,
+      "source_finding": "M1 independent review F-01 (Medium)",
+      "status": "SPEC_ONLY_NOT_PASSING_AGAINST_FROZEN_M1",
+      "test_specification": "assert ContractError.code == 'INVALID_INPUT' for missing chainId; assert WRONG_CHAIN only for present-but-invalid values.",
+      "title": "Missing-chainId error classification"
+    },
+    {
+      "claim": "Specification derived from review evidence; not an integrated test result.",
+      "current_observed": {
+        "accepted": true
+      },
+      "desired": {
+        "accepted": false,
+        "reason": "map widths must be resolved against the referenced project/manifests before a conclusive verdict"
+      },
+      "frozen_schema_modified": false,
+      "id": "M1-REG-002",
+      "reproduction": "From comparison-report example set verdict EQUIVALENT/UNSAT, source+mappingValidation PASSED, integrity HISTORICAL, then inputMap=[] and outputMap=[0]; validate_contract currently accepts.",
+      "requires_contract_revision": true,
+      "source_finding": "M1 independent review F-02 (Medium)",
+      "status": "SPEC_ONLY_NOT_PASSING_AGAINST_FROZEN_M1",
+      "test_specification": "assert rejection when map lengths disagree with referenced artifact widths; assert rejection when referenced artifacts cannot be resolved/hash-checked; permit zero-input circuits only when the project itself declares zero inputs.",
+      "title": "Width/reference binding before proof acceptance"
+    },
+    {
+      "claim": "Specification derived from review evidence; not an integrated test result.",
+      "current_observed": {
+        "accepted": true
+      },
+      "desired": {
+        "accepted": false,
+        "reason": "a conclusive structural receipt must carry observed revert evidence or be UNKNOWN"
+      },
+      "frozen_schema_modified": false,
+      "id": "M1-REG-003",
+      "reproduction": "Set preflight example status STRUCTURALLY_ACCEPTED, reasonCode null, classification KNOWN_BURN_STAGE, revertData '0x', matching CURRENT blocks; validate_contract currently accepts.",
+      "requires_contract_revision": true,
+      "source_finding": "M1 independent review F-04 (Low); MVP_CONSTRAINTS.md §8",
+      "status": "SPEC_ONLY_NOT_PASSING_AGAINST_FROZEN_M1",
+      "test_specification": "assert rejection of empty revertData for KNOWN_BURN_STAGE/KNOWN_STRUCTURAL_REJECTION; assert UNKNOWN when classification is unsupported or observation is absent.",
+      "title": "Empty revert data and incorrect pre-flight classification"
+    },
+    {
+      "claim": "Specification derived from review evidence; not an integrated test result.",
+      "current_observed": {
+        "code": "INVALID_INPUT"
+      },
+      "desired": {
+        "code": "WRONG_CHAIN",
+        "note": "or document the distinction explicitly in CLI_EXIT_CODES.md"
+      },
+      "frozen_schema_modified": false,
+      "id": "M1-REG-004",
+      "reproduction": "Set circuitId example chainId to 196.0; load_json rejects it before Pydantic and validate_contract returns INVALID_INPUT.",
+      "requires_contract_revision": false,
+      "source_finding": "M1 independent review F-03 (Low)",
+      "status": "SPEC_ONLY_NOT_PASSING_AGAINST_FROZEN_M1",
+      "test_specification": "assert an exact code for all non-196 chain values and add exact-code assertions to test_wrong_chain.",
+      "title": "Float chainId error taxonomy"
+    }
+  ],
+  "generated_by": "docs/evidence/m2-adversarial/build_corpus.py (stdlib only)",
+  "purpose": "Regression specifications for M1 review findings; Codex-owned contracts remain frozen",
+  "schema": "flip-m2-adversarial/m1-regressions/1"
+}

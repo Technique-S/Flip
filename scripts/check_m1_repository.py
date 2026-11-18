@@ -11,6 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 SEED = "37c39b3cf06edad908a6c579b7b0a78f1b42c202"
 CORE = "6dc21e0b97ffe03273a62ea1e9499e6346244d32"
 FIXTURES = "e4de86ef8870fb9b85adf94ace400791a479f985"
+M1 = "8e9b6b928b5d08b7383ae2413dec26d6068ea44e"
+M2_A = "e5c47e55ff1600a62ef2cb96c19abb51b33d32f5"
+M2_B = "3cdbf14f59eb842f395da368e2e08d1f5708aa28"
+# M2-C narrows the historical REPORT_ONLY assertion to permit registered synthetic
+# adversarial JSON. Pin that exact reviewed correction; all other baseline tests
+# remain byte-identical. No test is removed/skipped and historical gaps stay gaps.
+M2C_REPORT_ONLY_TEST_SHA = "5f6cb596e5e669c4efe64fc270391768645bde6207a8fef4812e2040f4f9eaf2"
+M2C_TEST_CORRECTION = {"packages/flip-core/tests/test_m1_integration.py": M2C_REPORT_ONLY_TEST_SHA}
 
 
 def git(*args: str) -> bytes:
@@ -79,13 +87,40 @@ def review() -> dict:
     )
     for path in evidence_paths:
         require(blob("HEAD", path) == blob(FIXTURES, path), f"archival evidence altered: {path}")
-    frozen = ["docs/schema", "uv.lock"]
-    for package in ("flip-core", "flip-cli", "flip-api"):
-        frozen += [f"packages/{package}/src", f"packages/{package}/pyproject.toml"]
+    # M2 adds runtime modules and promotes the already pinned httpx dependency.
+    # Freeze existing wire schemas/examples and canonical rules, not future code.
+    frozen = git("ls-tree", "-r", "--name-only", CORE, "--", "docs/schema").decode().splitlines()
+    frozen += [
+        f"packages/flip-core/src/flip_core/{name}.py"
+        for name in ("models", "canonical", "schema_export")
+    ]
     require(not git("diff", CORE, "HEAD", "--", *frozen), "frozen M1-A contracts changed")
-    for path in git("ls-tree", "-r", "--name-only", CORE, "--", "packages").decode().splitlines():
+    for path in git("ls-tree", "-r", "--name-only", M2_A, "--", "packages").decode().splitlines():
         if "/tests/" in path:
-            require(blob("HEAD", path) == blob(CORE, path), f"baseline tests changed: {path}")
+            current = blob("HEAD", path)
+            baseline = blob(M2_A, path)
+            corrected = hashlib.sha256(current).hexdigest() == M2C_TEST_CORRECTION.get(path)
+            require(current == baseline or corrected, f"baseline tests changed: {path}")
+    require(
+        not git(
+            "diff",
+            M2_A,
+            "HEAD",
+            "--",
+            "docs/schema/m2/1.0.0",
+            "packages/flip-core/src/flip_core/import_models.py",
+        ),
+        "M2 wire contract changed",
+    )
+    for path in git("diff", "--name-only", M2_B + "^", M2_B).decode().splitlines():
+        require(
+            path.startswith(("fixtures/m2-adversarial/", "docs/evidence/m2-adversarial/")),
+            "M2-B ownership breach",
+        )
+        require(blob("HEAD", path) == blob(M2_B, path), f"M2-B evidence changed: {path}")
+        require(
+            (ROOT / path).read_bytes() == blob(M2_B, path), f"M2-B checkout bytes changed: {path}"
+        )
     require(blob("HEAD", ".gitignore") == blob(CORE, ".gitignore"), ".gitignore changed")
     require(b"/docs/evidence/raw/\n" in blob("HEAD", ".gitignore"), "raw ignore rule removed")
     tracked = git("ls-files", "-z").decode().strip("\0").split("\0")

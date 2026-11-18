@@ -1,0 +1,2 @@
+# Preserve deterministic fixture bytes exactly on every platform.
+* -text

@@ -28,7 +28,11 @@ addopts = "-ra --basetemp=packages/flip-core/.test-tmp"
 target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
-extend-exclude = ["docs/evidence/derived/recompute_checks.py"]
+extend-exclude = [
+    "docs/evidence/derived/recompute_checks.py",
+    "docs/evidence/m2-adversarial/build_corpus.py",
+    "docs/evidence/m2-adversarial/verify_corpus.py",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
