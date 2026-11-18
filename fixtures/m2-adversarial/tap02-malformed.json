@@ -1,0 +1,913 @@
+{
+  "case_count": 18,
+  "cases": [
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "truncated-netlist",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "truncated record"
+      },
+      "id": "TAP-MAL-001",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x0000000200",
+      "netlist_bytes": 5,
+      "netlist_sha256": "182cf10a4a3cc9c7ed07a46bfc0327a406e14b2e892b62471a523ceea8cb7664",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.truncated_record",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "invalid-opcode",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "unknown opcode 0x03"
+      },
+      "id": "TAP-MAL-002",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x03000002000003",
+      "netlist_bytes": 7,
+      "netlist_sha256": "f236bd6881983aa2e03087d20fcc6151fa89207549a802f51b22e43048a0cad1",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.unknown_opcode",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "future-signal-reference",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "signal 5 referenced by element at 4 is not available"
+      },
+      "id": "TAP-MAL-003",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x0000000200000500000002000003",
+      "netlist_bytes": 14,
+      "netlist_sha256": "09f231a2ca0d1fd4a0c7fbadbdd1f810f12b8095b038771ca10251fd0a3b5722",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.nand_forward_reference",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "invalid-ref-arity",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "REF arity does not match the target circuit"
+      },
+      "id": "TAP-MAL-004",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x0200000000000000000000000000000000000000aa00000000000000010201000002000003",
+      "netlist_bytes": 37,
+      "netlist_sha256": "823e6a66d9e55e59ed98492bd834612718f14f31e4da03296209712ead5bdad6",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.ref_arity_mismatch",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "incorrect-output-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "nIn/nOut out of range"
+      },
+      "id": "TAP-MAL-005",
+      "nIn": 2,
+      "nOut": 0,
+      "netlist": "0x00000002000003",
+      "netlist_bytes": 7,
+      "netlist_sha256": "8c4e1575e55c1449c6f270b830daad25afacfdde9f27ad7b434bd28fb049346c",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.nOut_zero",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "incorrect-output-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "too few signals for outputs"
+      },
+      "id": "TAP-MAL-006",
+      "nIn": 1,
+      "nOut": 1,
+      "netlist": "0x",
+      "netlist_bytes": 0,
+      "netlist_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.output_is_an_input",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "incorrect-output-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "too few signals for outputs"
+      },
+      "id": "TAP-MAL-007",
+      "nIn": 2,
+      "nOut": 2,
+      "netlist": "0x00000002000003",
+      "netlist_bytes": 7,
+      "netlist_sha256": "8c4e1575e55c1449c6f270b830daad25afacfdde9f27ad7b434bd28fb049346c",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.more_outputs_than_elements",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "unregistered-ref-target",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "REF target is not a circuit of a registered processor"
+      },
+      "id": "TAP-MAL-008",
+      "nIn": 1,
+      "nOut": 1,
+      "netlist": "0x0200000000000000000000000000000000000000aa00000000000000090101000002",
+      "netlist_bytes": 34,
+      "netlist_sha256": "ccd712b2da635e66aecf0826c26e1a101fca63856f6688cbfe2fb8b5f8fe457e",
+      "note": "",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.ref_target_not_registered",
+      "refs": [
+        {
+          "cpu": "0x00000000000000000000000000000000000000aa",
+          "id": 1,
+          "nIn": 1,
+          "nOut": 1,
+          "netlist": "0x0100000700000003000002000000030000040000000200000400000005000006"
+        }
+      ],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 well-formedness; archived reference.py decode()/load() (MIT, pinned in M1 Semantics)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "invalid-ref-header",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "truncated record"
+      },
+      "id": "TAP-MAL-009",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x02aaaaaaaaaaaaaaaaaaaa",
+      "netlist_bytes": 11,
+      "netlist_sha256": "5c4523d35e09ebf44aaf920819855ecfd93f6e44f5c6320d016eed01a828d93d",
+      "note": "REF cpu field deliberately truncated to 10 bytes.",
+      "provenance": "SYNTHETIC: deterministic 10-of-20-byte cpu header",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 REF record: 20-byte cpu + 8-byte id + nIns/nOuts; truncated header is malformed"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "invalid-ref-header",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "truncated record"
+      },
+      "id": "TAP-MAL-010",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x02839BDD6fA7A66416a609A735E11DE5411b98574E00000000000000",
+      "netlist_bytes": 28,
+      "netlist_sha256": "3df4e07bbf1c90cf762003f43f393d35797840399579a184a819cb4d51a38e4a",
+      "note": "REF circuit-id field deliberately truncated.",
+      "provenance": "SYNTHETIC: 3-of-8-byte circuit id using real processor address",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 REF record (8-byte circuit id); truncated header is malformed"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "invalid-ref-header",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "truncated record"
+      },
+      "id": "TAP-MAL-011",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x02839BDD6fA7A66416a609A735E11DE5411b98574E0000000000000001",
+      "netlist_bytes": 29,
+      "netlist_sha256": "c8b6114f6b3e22e90519bc2fc2001f8d2d77bbf7f2092350b4e18302b863e936",
+      "note": "ni/no count bytes deliberately absent.",
+      "provenance": "SYNTHETIC: REF record with ni/no bytes omitted",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 REF record (nIns and nOuts bytes required)"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "excessive-declared-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "nIn/nOut out of range"
+      },
+      "id": "TAP-MAL-012",
+      "nIn": 65537,
+      "nOut": 1,
+      "netlist": "0x",
+      "netlist_bytes": 0,
+      "netlist_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "",
+      "provenance": "SYNTHETIC: declared nIn = MAX_PINS + 1",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 MAX_PINS = 2^16; reference.py load() nIn/nOut check"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "excessive-declared-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "nIn/nOut out of range"
+      },
+      "id": "TAP-MAL-013",
+      "nIn": 1,
+      "nOut": 65537,
+      "netlist": "0x",
+      "netlist_bytes": 0,
+      "netlist_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "note": "",
+      "provenance": "SYNTHETIC: declared nOut = MAX_PINS + 1",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 MAX_PINS = 2^16; reference.py load() nIn/nOut check"
+    },
+    {
+      "archived_reference_decoder_execution": "reference_decoder_safe",
+      "category": "excessive-declared-count",
+      "expected_outcome": {
+        "kind": "reject",
+        "reason_prefix": "more than 2^24 signals"
+      },
+      "id": "TAP-MAL-014",
+      "nIn": 16777216,
+      "nOut": 1,
+      "netlist": "0x00000000000001",
+      "netlist_bytes": 7,
+      "netlist_sha256": "775c289a33950216a75d18dfa06fa12239e3cca498e8de7e71ab51117fd09938",
+      "note": "Bounded: decoder computes n_sig before any large allocation.",
+      "provenance": "SYNTHETIC: declared nIn = 2^24 with one small NAND record",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "TAP-02 §3 MAX_SIGNALS = 2^24; reference.py load() signal-count check"
+    },
+    {
+      "archived_reference_decoder_execution": "SKIPPED_NO_CYCLE_GUARD_IN_ARCHIVED_DECODER",
+      "category": "recursive-dependency-cycle",
+      "expected_outcome": {
+        "code": "REF_CYCLE",
+        "kind": "reject",
+        "reason": "A -> B -> A cycle must be detected and bounded"
+      },
+      "id": "TAP-MAL-015",
+      "nIn": 0,
+      "nOut": 1,
+      "netlist": "0x0200000000000000000000000000000000000000a100000000000000010001",
+      "netlist_bytes": 31,
+      "netlist_sha256": "a1b578f7e00ef118eb1381d75fe730fb0e9ecc5950da5016a44a995e2d251afe",
+      "note": "Archived reference.py has no cycle guard; executing it would recurse. Specification-only.",
+      "provenance": "SYNTHETIC: two-processor REF cycle",
+      "refs": [],
+      "resolver": {
+        "cpuA": {
+          "cpu": "0x00000000000000000000000000000000000000a1",
+          "id": 1,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x0200000000000000000000000000000000000000b200000000000000010001"
+        },
+        "cpuB": {
+          "cpu": "0x00000000000000000000000000000000000000b2",
+          "id": 1,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x0200000000000000000000000000000000000000a100000000000000010001"
+        }
+      },
+      "spec_reference": "MVP_CONSTRAINTS.md §3 (bound records/REF depth/expanded gates) and §6 (5,000-gate / 5s / 64MiB ceilings); TAP-02 §3 REF closure must form a DAG"
+    },
+    {
+      "archived_reference_decoder_execution": "SKIPPED_DEEP_RESOLUTION",
+      "category": "deep-dependency-chain",
+      "expected_outcome": {
+        "cap": 64,
+        "code": "REF_DEPTH_EXCEEDED",
+        "depth": 65,
+        "kind": "bounded"
+      },
+      "id": "TAP-MAL-016",
+      "nIn": 0,
+      "nOut": 1,
+      "netlist": "0x02000000000000000000000000000000000000000100000000000000010001",
+      "netlist_bytes": 31,
+      "netlist_sha256": "0d2cdd04d137806a86806b335dba9c4a9f873ff765cff8a0e335fdf6d48fd8f7",
+      "note": "Expected outcome is bounded rejection, not acceptance; no resolver execution claimed.",
+      "provenance": "SYNTHETIC: 65-link REF chain, one link beyond the frozen cap",
+      "refs": [],
+      "resolver": {
+        "id1": {
+          "cpu": "0x0000000000000000000000000000000000000001",
+          "id": 1,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000200000000000000020001"
+        },
+        "id10": {
+          "cpu": "0x000000000000000000000000000000000000000a",
+          "id": 10,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000b000000000000000b0001"
+        },
+        "id11": {
+          "cpu": "0x000000000000000000000000000000000000000b",
+          "id": 11,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000c000000000000000c0001"
+        },
+        "id12": {
+          "cpu": "0x000000000000000000000000000000000000000c",
+          "id": 12,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000d000000000000000d0001"
+        },
+        "id13": {
+          "cpu": "0x000000000000000000000000000000000000000d",
+          "id": 13,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000e000000000000000e0001"
+        },
+        "id14": {
+          "cpu": "0x000000000000000000000000000000000000000e",
+          "id": 14,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000f000000000000000f0001"
+        },
+        "id15": {
+          "cpu": "0x000000000000000000000000000000000000000f",
+          "id": 15,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001000000000000000100001"
+        },
+        "id16": {
+          "cpu": "0x0000000000000000000000000000000000000010",
+          "id": 16,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001100000000000000110001"
+        },
+        "id17": {
+          "cpu": "0x0000000000000000000000000000000000000011",
+          "id": 17,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001200000000000000120001"
+        },
+        "id18": {
+          "cpu": "0x0000000000000000000000000000000000000012",
+          "id": 18,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001300000000000000130001"
+        },
+        "id19": {
+          "cpu": "0x0000000000000000000000000000000000000013",
+          "id": 19,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001400000000000000140001"
+        },
+        "id2": {
+          "cpu": "0x0000000000000000000000000000000000000002",
+          "id": 2,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000300000000000000030001"
+        },
+        "id20": {
+          "cpu": "0x0000000000000000000000000000000000000014",
+          "id": 20,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001500000000000000150001"
+        },
+        "id21": {
+          "cpu": "0x0000000000000000000000000000000000000015",
+          "id": 21,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001600000000000000160001"
+        },
+        "id22": {
+          "cpu": "0x0000000000000000000000000000000000000016",
+          "id": 22,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001700000000000000170001"
+        },
+        "id23": {
+          "cpu": "0x0000000000000000000000000000000000000017",
+          "id": 23,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001800000000000000180001"
+        },
+        "id24": {
+          "cpu": "0x0000000000000000000000000000000000000018",
+          "id": 24,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001900000000000000190001"
+        },
+        "id25": {
+          "cpu": "0x0000000000000000000000000000000000000019",
+          "id": 25,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001a000000000000001a0001"
+        },
+        "id26": {
+          "cpu": "0x000000000000000000000000000000000000001a",
+          "id": 26,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001b000000000000001b0001"
+        },
+        "id27": {
+          "cpu": "0x000000000000000000000000000000000000001b",
+          "id": 27,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001c000000000000001c0001"
+        },
+        "id28": {
+          "cpu": "0x000000000000000000000000000000000000001c",
+          "id": 28,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001d000000000000001d0001"
+        },
+        "id29": {
+          "cpu": "0x000000000000000000000000000000000000001d",
+          "id": 29,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001e000000000000001e0001"
+        },
+        "id3": {
+          "cpu": "0x0000000000000000000000000000000000000003",
+          "id": 3,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000400000000000000040001"
+        },
+        "id30": {
+          "cpu": "0x000000000000000000000000000000000000001e",
+          "id": 30,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000001f000000000000001f0001"
+        },
+        "id31": {
+          "cpu": "0x000000000000000000000000000000000000001f",
+          "id": 31,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002000000000000000200001"
+        },
+        "id32": {
+          "cpu": "0x0000000000000000000000000000000000000020",
+          "id": 32,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002100000000000000210001"
+        },
+        "id33": {
+          "cpu": "0x0000000000000000000000000000000000000021",
+          "id": 33,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002200000000000000220001"
+        },
+        "id34": {
+          "cpu": "0x0000000000000000000000000000000000000022",
+          "id": 34,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002300000000000000230001"
+        },
+        "id35": {
+          "cpu": "0x0000000000000000000000000000000000000023",
+          "id": 35,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002400000000000000240001"
+        },
+        "id36": {
+          "cpu": "0x0000000000000000000000000000000000000024",
+          "id": 36,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002500000000000000250001"
+        },
+        "id37": {
+          "cpu": "0x0000000000000000000000000000000000000025",
+          "id": 37,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002600000000000000260001"
+        },
+        "id38": {
+          "cpu": "0x0000000000000000000000000000000000000026",
+          "id": 38,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002700000000000000270001"
+        },
+        "id39": {
+          "cpu": "0x0000000000000000000000000000000000000027",
+          "id": 39,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002800000000000000280001"
+        },
+        "id4": {
+          "cpu": "0x0000000000000000000000000000000000000004",
+          "id": 4,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000500000000000000050001"
+        },
+        "id40": {
+          "cpu": "0x0000000000000000000000000000000000000028",
+          "id": 40,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002900000000000000290001"
+        },
+        "id41": {
+          "cpu": "0x0000000000000000000000000000000000000029",
+          "id": 41,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002a000000000000002a0001"
+        },
+        "id42": {
+          "cpu": "0x000000000000000000000000000000000000002a",
+          "id": 42,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002b000000000000002b0001"
+        },
+        "id43": {
+          "cpu": "0x000000000000000000000000000000000000002b",
+          "id": 43,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002c000000000000002c0001"
+        },
+        "id44": {
+          "cpu": "0x000000000000000000000000000000000000002c",
+          "id": 44,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002d000000000000002d0001"
+        },
+        "id45": {
+          "cpu": "0x000000000000000000000000000000000000002d",
+          "id": 45,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002e000000000000002e0001"
+        },
+        "id46": {
+          "cpu": "0x000000000000000000000000000000000000002e",
+          "id": 46,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000002f000000000000002f0001"
+        },
+        "id47": {
+          "cpu": "0x000000000000000000000000000000000000002f",
+          "id": 47,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003000000000000000300001"
+        },
+        "id48": {
+          "cpu": "0x0000000000000000000000000000000000000030",
+          "id": 48,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003100000000000000310001"
+        },
+        "id49": {
+          "cpu": "0x0000000000000000000000000000000000000031",
+          "id": 49,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003200000000000000320001"
+        },
+        "id5": {
+          "cpu": "0x0000000000000000000000000000000000000005",
+          "id": 5,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000600000000000000060001"
+        },
+        "id50": {
+          "cpu": "0x0000000000000000000000000000000000000032",
+          "id": 50,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003300000000000000330001"
+        },
+        "id51": {
+          "cpu": "0x0000000000000000000000000000000000000033",
+          "id": 51,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003400000000000000340001"
+        },
+        "id52": {
+          "cpu": "0x0000000000000000000000000000000000000034",
+          "id": 52,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003500000000000000350001"
+        },
+        "id53": {
+          "cpu": "0x0000000000000000000000000000000000000035",
+          "id": 53,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003600000000000000360001"
+        },
+        "id54": {
+          "cpu": "0x0000000000000000000000000000000000000036",
+          "id": 54,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003700000000000000370001"
+        },
+        "id55": {
+          "cpu": "0x0000000000000000000000000000000000000037",
+          "id": 55,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003800000000000000380001"
+        },
+        "id56": {
+          "cpu": "0x0000000000000000000000000000000000000038",
+          "id": 56,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003900000000000000390001"
+        },
+        "id57": {
+          "cpu": "0x0000000000000000000000000000000000000039",
+          "id": 57,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003a000000000000003a0001"
+        },
+        "id58": {
+          "cpu": "0x000000000000000000000000000000000000003a",
+          "id": 58,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003b000000000000003b0001"
+        },
+        "id59": {
+          "cpu": "0x000000000000000000000000000000000000003b",
+          "id": 59,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003c000000000000003c0001"
+        },
+        "id6": {
+          "cpu": "0x0000000000000000000000000000000000000006",
+          "id": 6,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000700000000000000070001"
+        },
+        "id60": {
+          "cpu": "0x000000000000000000000000000000000000003c",
+          "id": 60,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003d000000000000003d0001"
+        },
+        "id61": {
+          "cpu": "0x000000000000000000000000000000000000003d",
+          "id": 61,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003e000000000000003e0001"
+        },
+        "id62": {
+          "cpu": "0x000000000000000000000000000000000000003e",
+          "id": 62,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000003f000000000000003f0001"
+        },
+        "id63": {
+          "cpu": "0x000000000000000000000000000000000000003f",
+          "id": 63,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000004000000000000000400001"
+        },
+        "id64": {
+          "cpu": "0x0000000000000000000000000000000000000040",
+          "id": 64,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000004100000000000000410001"
+        },
+        "id65": {
+          "cpu": "0x0000000000000000000000000000000000000041",
+          "id": 65,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x00000000000001"
+        },
+        "id7": {
+          "cpu": "0x0000000000000000000000000000000000000007",
+          "id": 7,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000800000000000000080001"
+        },
+        "id8": {
+          "cpu": "0x0000000000000000000000000000000000000008",
+          "id": 8,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000900000000000000090001"
+        },
+        "id9": {
+          "cpu": "0x0000000000000000000000000000000000000009",
+          "id": 9,
+          "nIn": 0,
+          "nOut": 1,
+          "netlist": "0x02000000000000000000000000000000000000000a000000000000000a0001"
+        }
+      },
+      "spec_reference": "MVP_CONSTRAINTS.md §3 (bound records/REF depth/expanded gates) and §6 (5,000-gate / 5s / 64MiB ceilings); M1 Limits.refDepthCap <= 64"
+    },
+    {
+      "archived_reference_decoder_execution": "SKIPPED_OVERSIZED_EXPANSION",
+      "category": "oversized-expansion",
+      "expected_outcome": {
+        "cap": 5000,
+        "code": "RESOURCE_LIMIT",
+        "expanded_gates": 5004,
+        "kind": "bounded",
+        "verdict": "UNKNOWN"
+      },
+      "id": "TAP-MAL-017",
+      "nIn": 0,
+      "nOut": 1,
+      "netlist": "0x0200000000000000000000000000000000000003e900000000000000010001",
+      "netlist_bytes": 31,
+      "netlist_sha256": "95cf47a402cb493cc2c05ffc9468a07c504eb39d84a0c4220dfd7521e9136371",
+      "note": "Expected bounded UNKNOWN/RESOURCE_LIMIT; never EQUIVALENT. Resolver is a deterministic pattern, not expanded bytes.",
+      "provenance": "SYNTHETIC: 1,251-link chain pattern flattening to 5,004 NAND gates",
+      "refs": [],
+      "resolver": {
+        "cid_start": 1,
+        "cpu_encoding": "18 zero bytes + 2-byte big-endian tag (see build_corpus.synth_cpu)",
+        "cpu_tag_base": 1001,
+        "expanded_gates": 5004,
+        "kind": "synthetic_ref_chain",
+        "links": 1251,
+        "nIn": 0,
+        "nOut": 1,
+        "terminal_record": "NAND(0,1) -> 4 NAND gates after full flattening"
+      },
+      "spec_reference": "MVP_CONSTRAINTS.md §3 (bound records/REF depth/expanded gates) and §6 (5,000-gate / 5s / 64MiB ceilings); MVP_CONSTRAINTS.md §5 (timeout/limit => UNKNOWN)"
+    },
+    {
+      "archived_reference_decoder_execution": "SKIPPED_NOT_DECODEABLE_BYTES",
+      "category": "malformed-hex",
+      "expected_outcome": {
+        "code": "INVALID_INPUT",
+        "kind": "reject",
+        "reason": "odd-length hex byte string"
+      },
+      "id": "TAP-MAL-018",
+      "nIn": 2,
+      "nOut": 1,
+      "netlist": "0x0000000200000",
+      "netlist_bytes": null,
+      "netlist_sha256": null,
+      "note": "Import layer must reject before decoder; bytes.fromhex cannot decode this value.",
+      "provenance": "SYNTHETIC: odd-length hex payload",
+      "refs": [],
+      "resolver": {},
+      "spec_reference": "flip-json-v1 HexBytes profile (even-length lowercase 0x hex); M1 models.py HexBytes"
+    }
+  ],
+  "execution_legend": {
+    "SKIPPED_*": "Not executed by design; expected outcome is a specification, not a reproduced result.",
+    "reference_decoder_safe": "Archived reference.py decode()/load() may be executed for an offline reason check."
+  },
+  "generated_by": "docs/evidence/m2-adversarial/build_corpus.py (stdlib only)",
+  "immutable_archive_sha256": {
+    "docs/evidence/raw/M0/vectors.json": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+  },
+  "provenance_legend": {
+    "ARCHIVED_VECTOR": "Exact illFormed record from committed vectors.json; bytes not modified.",
+    "SYNTHETIC": "Constructed deterministically; NOT an observation from any chain or audit run."
+  },
+  "purpose": "Deterministic malformed TAP-02 netlist corpus for M2 importer negative tests",
+  "schema": "flip-m2-adversarial/tap02-malformed/1"
+}

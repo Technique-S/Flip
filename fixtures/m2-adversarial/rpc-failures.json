@@ -1,0 +1,279 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "expected_outcome": {
+        "action": "reject before any REF resolution",
+        "code": "WRONG_CHAIN"
+      },
+      "id": "RPC-001",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "reality": "0x2105 is Base mainnet (8453), not X Layer (196)",
+      "request": {
+        "method": "eth_chainId",
+        "params": []
+      },
+      "response": {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "result": "0x2105"
+      },
+      "scenario": "wrong-chain-id",
+      "spec_reference": "MVP_CONSTRAINTS.md §1 (chain 196 only, verify eth_chainId per session)"
+    },
+    {
+      "expected_outcome": {
+        "action": "reject unregistered processor",
+        "code": "MISSING_REFERENCE"
+      },
+      "id": "RPC-002",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_getCode",
+        "params": [
+          "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "latest"
+        ]
+      },
+      "response": {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "result": "0x"
+      },
+      "scenario": "empty-contract-code",
+      "spec_reference": "MVP_CONSTRAINTS.md §4 (REF targets must be registered processors with existing circuits)"
+    },
+    {
+      "expected_outcome": {
+        "action": "reject; never cache as a valid circuit",
+        "code": "MISSING_REFERENCE"
+      },
+      "id": "RPC-003",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "circuitInfo(uint256)",
+        "params": [
+          "999999"
+        ]
+      },
+      "response": {
+        "error": {
+          "code": -32000,
+          "message": "no circuit"
+        },
+        "id": 3,
+        "jsonrpc": "2.0"
+      },
+      "scenario": "missing-circuit",
+      "spec_reference": "MVP_CONSTRAINTS.md §3-4; M0 audit B4 (selector/ABI provenance)"
+    },
+    {
+      "expected_outcome": {
+        "action": "reject; do not hash truncated bytes",
+        "code": "INVALID_ABI_RESPONSE"
+      },
+      "id": "RPC-004",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "reality": "one byte cannot encode an ABI dynamic bytes value (offset+length+data)",
+      "request": {
+        "method": "netlist(uint256)",
+        "params": [
+          "1"
+        ]
+      },
+      "response": {
+        "id": 4,
+        "jsonrpc": "2.0",
+        "result": "0x01"
+      },
+      "scenario": "invalid-abi-response",
+      "spec_reference": "MVP_CONSTRAINTS.md §3 (explicit ABI validation); M0 audit B4 (decoder hazard)"
+    },
+    {
+      "expected_outcome": {
+        "action": "reject same-block divergence; no cached report reuse",
+        "code": "IMPLEMENTATION_CHANGED"
+      },
+      "id": "RPC-005",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_getBlockByNumber",
+        "params": [
+          "0x488875b",
+          false
+        ]
+      },
+      "response": {
+        "id": 5,
+        "jsonrpc": "2.0",
+        "result": {
+          "hash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+          "number": "0x488875b"
+        }
+      },
+      "scenario": "inconsistent-pinned-block",
+      "second_response": {
+        "id": 6,
+        "jsonrpc": "2.0",
+        "result": {
+          "hash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+          "number": "0x488875b"
+        }
+      },
+      "spec_reference": "MVP_CONSTRAINTS.md §3 (pin block + hash; revalidate environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "action": "never EQUIVALENT",
+        "code": "RPC_UNAVAILABLE",
+        "verdict": "UNKNOWN"
+      },
+      "id": "RPC-006",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_call",
+        "params": [
+          {
+            "data": "0x",
+            "to": "0x839BDD6fA7A66416a609A735E11DE5411b98574E"
+          }
+        ]
+      },
+      "response": {
+        "transport": {
+          "elapsed_ms": 8000,
+          "timed_out": true
+        }
+      },
+      "scenario": "timeout",
+      "spec_reference": "MVP_CONSTRAINTS.md §5 (timeout/resource limit => UNKNOWN) and §6 (5s check ceiling)"
+    },
+    {
+      "expected_outcome": {
+        "action": "bounded retry only; no proof claim",
+        "code": "RPC_UNAVAILABLE",
+        "verdict": "UNKNOWN"
+      },
+      "id": "RPC-007",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_getStorageAt",
+        "params": [
+          "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "0x0",
+          "latest"
+        ]
+      },
+      "response": {
+        "error": {
+          "code": -32000,
+          "message": "rate limited"
+        },
+        "id": 7,
+        "jsonrpc": "2.0",
+        "retryAfterSeconds": 5
+      },
+      "scenario": "rate-limiting",
+      "spec_reference": "MVP_CONSTRAINTS.md §5; M0 R7 (public RPC latency/failure)"
+    },
+    {
+      "expected_outcome": {
+        "action": "reject non-hex result",
+        "code": "INVALID_ABI_RESPONSE"
+      },
+      "id": "RPC-008",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_call",
+        "params": [
+          {
+            "data": "0x",
+            "to": "0x839BDD6fA7A66416a609A735E11DE5411b98574E"
+          }
+        ]
+      },
+      "response": {
+        "id": 8,
+        "jsonrpc": "2.0",
+        "result": "0xzz"
+      },
+      "scenario": "malformed-hex",
+      "spec_reference": "flip-json-v1 HexBytes (even-length lowercase hex); M0 audit B4 (result validation)"
+    },
+    {
+      "expected_outcome": {
+        "action": "invalidate cached manifest and report",
+        "code": "IMPLEMENTATION_CHANGED"
+      },
+      "id": "RPC-009",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "pinned_observed_value": "0x977f217887e085d298cb3819cdad5a0ee35f29b2",
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_call",
+        "params": [
+          {
+            "data": "0xbeaconImplementation()",
+            "to": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c"
+          }
+        ]
+      },
+      "response": {
+        "id": 9,
+        "jsonrpc": "2.0",
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "scenario": "changed-beacon-implementation",
+      "spec_reference": "MVP_CONSTRAINTS.md §3/§7; Gate B beacon-implementation-changed negative"
+    },
+    {
+      "expected_outcome": {
+        "action": "invalidate cached manifest and report",
+        "code": "IMPLEMENTATION_CHANGED"
+      },
+      "id": "RPC-010",
+      "no_keys_or_signing": true,
+      "not_an_observation": true,
+      "pinned_observed_value": "0x336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+      "provenance": "SYNTHETIC_MOCK",
+      "request": {
+        "method": "eth_getStorageAt",
+        "params": [
+          "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "0x000000000000000000000000336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+          "latest"
+        ]
+      },
+      "response": {
+        "id": 10,
+        "jsonrpc": "2.0",
+        "result": "0x0000000000000000000000002222222222222222222222222222222222222222"
+      },
+      "scenario": "changed-factory-implementation",
+      "spec_reference": "MVP_CONSTRAINTS.md §3/§7; Gate B factory-implementation-changed negative"
+    }
+  ],
+  "generated_by": "docs/evidence/m2-adversarial/build_corpus.py (stdlib only)",
+  "pinned_values_source": "docs/evidence/raw/M05/gate_b_manifest.json",
+  "provenance_note": "Pinned historical values come from committed gate_b_manifest.json; all responses are synthetic.",
+  "purpose": "Mocked JSON-RPC failure responses for M2 importer negative tests",
+  "safety": "No private keys, no wallet, no signing, no transaction, no live RPC call.",
+  "schema": "flip-m2-adversarial/rpc-failures/1"
+}

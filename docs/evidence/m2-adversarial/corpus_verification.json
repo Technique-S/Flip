@@ -1,0 +1,218 @@
+{
+  "scope": "M2-B offline corpus verification; not importer/integrity-engine integration",
+  "hash_checks": [
+    {
+      "path": "fixtures/m2-adversarial/tap02-malformed.json",
+      "bytes": 33160,
+      "expected_sha256": "f40900cf151471bbfaff344c297322f048b3e339514f512775e30754e7b3d65c",
+      "actual_sha256": "f40900cf151471bbfaff344c297322f048b3e339514f512775e30754e7b3d65c",
+      "match": true
+    },
+    {
+      "path": "fixtures/m2-adversarial/rpc-failures.json",
+      "bytes": 8352,
+      "expected_sha256": "1aa1aface3e080bcbfdd07b468f3a178018d93f5ffea0660f1c85f2f458dc609",
+      "actual_sha256": "1aa1aface3e080bcbfdd07b468f3a178018d93f5ffea0660f1c85f2f458dc609",
+      "match": true
+    },
+    {
+      "path": "fixtures/m2-adversarial/integrity-negatives.json",
+      "bytes": 8990,
+      "expected_sha256": "cd770d0e24c0156464b1dc7959f7765f41233969683efb414d95d143e49cd7ea",
+      "actual_sha256": "cd770d0e24c0156464b1dc7959f7765f41233969683efb414d95d143e49cd7ea",
+      "match": true
+    },
+    {
+      "path": "fixtures/m2-adversarial/m1-regressions.json",
+      "bytes": 4170,
+      "expected_sha256": "15ac9ab3f972ecdb0014a5920001a32919970211667f0e734c381bb53053b605",
+      "actual_sha256": "15ac9ab3f972ecdb0014a5920001a32919970211667f0e734c381bb53053b605",
+      "match": true
+    }
+  ],
+  "all_hashes_match": true,
+  "exact_regeneration": true,
+  "regeneration_differences": [],
+  "decoder_checks": [
+    {
+      "id": "TAP-MAL-001",
+      "executed": true,
+      "rejected": true,
+      "reason": "truncated record at byte 4",
+      "reason_prefix_expected": "truncated record",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-002",
+      "executed": true,
+      "rejected": true,
+      "reason": "unknown opcode 0x03 at byte 0",
+      "reason_prefix_expected": "unknown opcode 0x03",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-003",
+      "executed": true,
+      "rejected": true,
+      "reason": "signal 5 referenced by element at 4 is not available",
+      "reason_prefix_expected": "signal 5 referenced by element at 4 is not available",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-004",
+      "executed": true,
+      "rejected": true,
+      "reason": "REF arity does not match the target circuit",
+      "reason_prefix_expected": "REF arity does not match the target circuit",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-005",
+      "executed": true,
+      "rejected": true,
+      "reason": "nIn/nOut out of range",
+      "reason_prefix_expected": "nIn/nOut out of range",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-006",
+      "executed": true,
+      "rejected": true,
+      "reason": "too few signals for outputs",
+      "reason_prefix_expected": "too few signals for outputs",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-007",
+      "executed": true,
+      "rejected": true,
+      "reason": "too few signals for outputs",
+      "reason_prefix_expected": "too few signals for outputs",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-008",
+      "executed": true,
+      "rejected": true,
+      "reason": "REF target is not a circuit of a registered processor",
+      "reason_prefix_expected": "REF target is not a circuit of a registered processor",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-009",
+      "executed": true,
+      "rejected": true,
+      "reason": "truncated record at byte 1",
+      "reason_prefix_expected": "truncated record",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-010",
+      "executed": true,
+      "rejected": true,
+      "reason": "truncated record at byte 21",
+      "reason_prefix_expected": "truncated record",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-011",
+      "executed": true,
+      "rejected": true,
+      "reason": "truncated record at byte 29",
+      "reason_prefix_expected": "truncated record",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-012",
+      "executed": true,
+      "rejected": true,
+      "reason": "nIn/nOut out of range",
+      "reason_prefix_expected": "nIn/nOut out of range",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-013",
+      "executed": true,
+      "rejected": true,
+      "reason": "nIn/nOut out of range",
+      "reason_prefix_expected": "nIn/nOut out of range",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-014",
+      "executed": true,
+      "rejected": true,
+      "reason": "more than 2^24 signals",
+      "reason_prefix_expected": "more than 2^24 signals",
+      "reason_prefix_match": true
+    },
+    {
+      "id": "TAP-MAL-015",
+      "executed": false,
+      "reason": "SKIPPED_NO_CYCLE_GUARD_IN_ARCHIVED_DECODER",
+      "expected_outcome": {
+        "code": "REF_CYCLE",
+        "kind": "reject",
+        "reason": "A -> B -> A cycle must be detected and bounded"
+      }
+    },
+    {
+      "id": "TAP-MAL-016",
+      "executed": false,
+      "reason": "SKIPPED_DEEP_RESOLUTION",
+      "expected_outcome": {
+        "cap": 64,
+        "code": "REF_DEPTH_EXCEEDED",
+        "depth": 65,
+        "kind": "bounded"
+      }
+    },
+    {
+      "id": "TAP-MAL-017",
+      "executed": false,
+      "reason": "SKIPPED_OVERSIZED_EXPANSION",
+      "expected_outcome": {
+        "cap": 5000,
+        "code": "RESOURCE_LIMIT",
+        "expanded_gates": 5004,
+        "kind": "bounded",
+        "verdict": "UNKNOWN"
+      }
+    },
+    {
+      "id": "TAP-MAL-018",
+      "executed": false,
+      "reason": "SKIPPED_NOT_DECODEABLE_BYTES",
+      "expected_outcome": {
+        "code": "INVALID_INPUT",
+        "kind": "reject",
+        "reason": "odd-length hex byte string"
+      }
+    }
+  ],
+  "safe_cases_rejected": 14,
+  "safe_cases_total": 14,
+  "m1_current_behaviour": [
+    {
+      "id": "M1-REG-001",
+      "observed": {
+        "outcome": "REJECTED",
+        "code": "WRONG_CHAIN"
+      }
+    },
+    {
+      "id": "M1-REG-002",
+      "observed": {
+        "outcome": "ACCEPTED"
+      }
+    },
+    {
+      "id": "M1-REG-003",
+      "observed": {
+        "outcome": "ACCEPTED"
+      }
+    }
+  ],
+  "credential_pattern_hits": [],
+  "largest_fixture_bytes": 33160
+}
