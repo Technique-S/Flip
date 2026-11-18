@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import subprocess
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -20,6 +21,11 @@ def main():
         for t in tree.iter("testcase")
     }
     cases = []
+    nodes = {
+        t.get("name"): t.get("classname", "").replace(".", "/") + ".py::" + t.get("name")
+        for t in tree.iter("testcase")
+    }
+    total_tests = list(tree.iter("testcase"))
     for test in tree.iter("testcase"):
         for prop in test.findall("./properties/property"):
             if prop.get("name") == "m4_case":
@@ -58,7 +64,8 @@ def main():
                 expected=title,
                 actual=dict(python=matched, chromium=rendered),
                 status="PASS" if ok else "FAIL",
-                command="pytest selectors and npm test -- --grep selectors listed in actual",
+                command=[f'python -m pytest "{nodes[n]}" -q' for n in matched]
+                + [f'npm test -- --grep "{n}"' for n in rendered],
                 reason=None,
                 boundary="Executed product operations; mappings identify tested portions",
             )
@@ -128,7 +135,16 @@ def main():
             m4a="f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
             m4b="52814f5cef02716f4a9e49842ae520cdf7937a31",
         ),
-        suite=dict(total=len(tests), passed=sum(tests.values())),
+        testedCommit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT)
+        .decode()
+        .strip(),
+        suite=dict(
+            total=len(total_tests),
+            passed=sum(
+                not any(t.find(k) is not None for k in ("failure", "error", "skipped"))
+                for t in total_tests
+            ),
+        ),
         browser=browser_tests,
         cases=cases,
         result="PASS"
