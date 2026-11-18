@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "m4-ux-acceptance-1",
+  "title": "Flip M4-B independent golden user journeys",
+  "baseline": "af8ba1f109a2a1c59fe36be044bc025a127ea025",
+  "statusLegend": {
+    "EXECUTED_CLI": "command reproduced on the accepted M3 baseline in this task",
+    "PARTIAL": "CLI portion executed; web or planned M4 portion is specification only",
+    "SPEC_ONLY": "web/M4 capability not available on the baseline; no execution claimed"
+  },
+  "journeys": [
+    {
+      "id": "J01",
+      "title": "First-time sample-project walkthrough",
+      "source": ["PRD UC-01", "PRD FR-001", "PRD J-01", "AT-01"],
+      "status": "PARTIAL",
+      "initialState": "Fresh browser session, no wallet, no account, no saved project. A built-in audited half-adder sample and a miswired candidate are offered as clearly labelled pinned fixtures.",
+      "userAction": "Choose Try a sample; observe both source identities and the connection summary; declare baseline as oracle or accept behavioural-diff mode; run Compare behavior on the miswired candidate; inspect the replayed witness; apply the predefined Fix mapping action; rerun; download the evidence bundle.",
+      "expectedResponse": "First run returns DIFFERENT with a replayed counterexample (input bits 01; reference outputs 01; candidate outputs 10). After the fix, rerun returns EQUIVALENT, solver outcome UNSAT. Both verdicts are shown beside a HISTORICAL / pinned-fixture badge. The downloaded bundle carries project, manifests, witness and reproduction request.",
+      "trustFreshness": {
+        "classification": "HISTORICAL (pinned sample); freshness axis shown separately from verdict",
+        "rationale": "No new chain observation is made. If live RPC is unavailable the sample remains a demo, never 'live chain verified now'. With UNDECLARED intent the EQUIVALENT result is pairwise behavioural equivalence only."
+      },
+      "failureHandling": "RPC unavailable: keep the sample usable and display 'pinned fixture — no current chain check'. Missing witness replay: show UNKNOWN and block export of a trusted DIFFERENT claim. Mapping invalid: return to Compose with a pin-level error. Never blank the screen or lose the project.",
+      "accessibility": "Sample button has an explicit label; verdict and freshness are text, not colour alone; the witness table has row/column headers; focus moves to the result region after comparison; status changes are announced in a polite live region; download has a descriptive link name.",
+      "reproducibleInput": {
+        "cliCases": ["C03", "C04", "C05", "C26", "C29"],
+        "fixtures": ["half-adder-equivalent.json", "half-adder-different-output-order.json"],
+        "webScenario": "B01 sample walkthrough in browser/playwright-spec.md"
+      },
+      "provenance": "CLI-equivalent steps executed on M3 baseline; web journey is a specification only because no M4 web application exists in this branch."
+    },
+    {
+      "id": "J02",
+      "title": "Live X Layer circuit import",
+      "source": ["PRD UC-02", "PRD FR-010-015", "PRD J-02", "MVP_CONSTRAINTS §1, §3"],
+      "status": "PARTIAL",
+      "initialState": "User enters a processor address and decimal circuit ID. The session has verified eth_chainId = 196 and has a reachable, explicitly configured RPC endpoint.",
+      "userAction": "Submit the import; wait for the read-only snapshot; expand the REF dependency closure; inspect numbered pins, widths, state count and the integrity manifest.",
+      "expectedResponse": "A decoded circuit snapshot with numbered pins (no invented semantic names), a bounded REF closure, a manifest binding chainId/processor/id/block/netlist hash/environment hashes, and integrity.freshness = CURRENT for a genuinely fresh observation. The observation is labelled SINGLE_RPC.",
+      "trustFreshness": {
+        "classification": "CURRENT only for a fresh RPC observation; otherwise HISTORICAL",
+        "rationale": "Chain labels are never trusted from a URL; eth_chainId is checked each session. Single-RPC observation is not malicious-RPC resistance or multi-operator consensus."
+      },
+      "failureHandling": "Wrong chain 8453 -> WRONG_CHAIN before any state read; unreachable endpoint -> RPC_UNAVAILABLE with retry controls; absent circuit -> MISSING_REFERENCE; malformed netlist or bad ABI -> INVALID_INPUT; oversized REF tree -> RESOURCE_LIMIT. No partial result is presented as a complete import.",
+      "accessibility": "Form fields have persistent visible labels and programmatic associations; chain identity, block and freshness are announced as text; long imports expose progress and a cancellable control; errors are linked to the offending field and focused after failure.",
+      "reproducibleInput": {
+        "cliCases": ["C11", "C13", "C14", "C27", "C28"],
+        "fixtures": ["import-manifest.json", "import-manifest-local-double.json"],
+        "webScenario": "B02 import and failure states"
+      },
+      "provenance": "Executed against a LOCAL RPC DOUBLE reusing the repository's committed offline transport and archived M0/M0.5 bytes. No live X Layer call was made in this task."
+    },
+    {
+      "id": "J03",
+      "title": "Offline / historical fixture selection",
+      "source": ["PRD UC-01", "PRD FR-014", "PRD FR-044", "M3 interface README"],
+      "status": "EXECUTED_CLI",
+      "initialState": "No RPC configured or deliberately offline; the archived XOR#1/NAND#2 captures at block 76206482 are available as a pinned project.",
+      "userAction": "Select the offline sample source set; compose and compare; attempt to export or promote the result as current.",
+      "expectedResponse": "Verification completes normally but the report integrity.freshness remains HISTORICAL, checkedBlock is null, and the context states local replay of single-RPC assertions. A caller-supplied CURRENT flag in the import does not change this.",
+      "trustFreshness": {
+        "classification": "HISTORICAL; never CURRENT from cached input",
+        "rationale": "Freshness is an independent axis. Historical evidence stays reviewable and reproducible but cannot be badged current."
+      },
+      "failureHandling": "If revalidation is attempted without RPC, return RPC_UNAVAILABLE / UNKNOWN and keep the historical result intact. Never silently upgrade HISTORICAL to CURRENT.",
+      "accessibility": "The HISTORICAL badge is text with a definition, not an icon or colour; the blocked CURRENT action explains why it is disabled in text; focus remains on the result region.",
+      "reproducibleInput": {
+        "cliCases": ["C08", "C22", "C04"],
+        "fixtures": ["half-adder-current-freshness-claim.json", "consumption-current-relabel.json"],
+        "webScenario": "B04 freshness restrictions"
+      },
+      "provenance": "Executed on the pinned M3 baseline; no chain access."
+    },
+    {
+      "id": "J04",
+      "title": "Two-circuit composition",
+      "source": ["PRD UC-03", "PRD FR-020-023", "PRD J-02"],
+      "status": "EXECUTED_CLI",
+      "initialState": "Two imported stateless sources (XOR #1, NAND #2) are available with numbered pins and matching environment context.",
+      "userAction": "Map source outputs to target inputs by explicit numeric pin index, add restricted NAND glue for the carry inverter, choose output order, preview and compile.",
+      "expectedResponse": "A deterministic TAP-02 netlist with backward signal ordering and explicit REF edges; the preview reports byte count, gate/REF counts, dependency identities and the exact pin map; the compiled candidate is the audited 81-byte half-adder.",
+      "trustFreshness": {
+        "classification": "No independent freshness for composition; inherits source HISTORICAL/CURRENT",
+        "rationale": "Composition proves only that a well-formed netlist was produced from declared sources. It does not verify behaviour or chain state."
+      },
+      "failureHandling": "Invalid arity, out-of-range pin or undefined source -> INVALID_INPUT before compile; forward reference or cycle -> BAD_NETLIST; unresolved source blocks any 'verified' report or export; user is returned to the mapping table with the offending pin highlighted.",
+      "accessibility": "The mapping table uses real table headers, per-cell labels and keyboard navigation; errors identify row and pin in text; the preview is an expanding region with a descriptive name; no graph-only information.",
+      "reproducibleInput": {
+        "cliCases": ["C03", "C12", "C29"],
+        "fixtures": ["half-adder-equivalent.json", "invalid-pin-map.json"],
+        "webScenario": "B03 pin mapping"
+      },
+      "provenance": "Executed on the pinned M3 baseline; web mapping interaction is specification only."
+    },
+    {
+      "id": "J05",
+      "title": "Deterministic half-adder build",
+      "source": ["PRD FR-022", "AT-05", "MVP_CONSTRAINTS §4"],
+      "status": "EXECUTED_CLI",
+      "initialState": "The audited XOR #1 + NAND #2 recipe with explicit carry-inverter glue.",
+      "userAction": "Run the composition 100 times on the same pinned inputs and compare the resulting netlist bytes and truth table.",
+      "expectedResponse": "All 100 builds yield the identical 81-byte netlist with SHA-256 0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce and the complete 4-row truth table.",
+      "trustFreshness": {
+        "classification": "Determinism result; historical semantics version",
+        "rationale": "Byte determinism is a property of the pinned compiler and inputs. It is not a proof of intent, correctness or current chain state."
+      },
+      "failureHandling": "Any differing byte or missing truth-table row fails the journey and is reported with the first divergent build index; no average or partial pass is reported.",
+      "accessibility": "The reproducibility result is expressed as text (100/100 identical, digest shown) rather than a green indicator; the digest is selectable and copyable.",
+      "reproducibleInput": {
+        "cliCases": ["C29", "C03"],
+        "fixtures": ["half-adder-equivalent.json"],
+        "webScenario": "B05 repeated workflow"
+      },
+      "provenance": "Executed: 100 CLI compose runs in this task; the same digest is recorded in M3 acceptance evidence."
+    },
+    {
+      "id": "J06",
+      "title": "Equivalent refactor",
+      "source": ["PRD UC-04", "PRD FR-024, FR-027", "AT-06"],
+      "status": "EXECUTED_CLI",
+      "initialState": "A reference candidate and a behaviour-preserving candidate (the pinned half-adder pair), with an explicit input/output mapping and a declared relation.",
+      "userAction": "Declare the oracle mode (trusted reference, previous version, or undeclared behavioural diff), confirm the pin correspondence and run Compare behavior.",
+      "expectedResponse": "EQUIVALENT with solver outcome UNSAT, source and mapping validation PASSED, freshness HISTORICAL. With UNDECLARED intent the result reads 'same behaviour; intended correctness unknown'.",
+      "trustFreshness": {
+        "classification": "EQUIVALENT within pinned stateless TAP-02 semantics; HISTORICAL",
+        "rationale": "UNSAT proves pairwise equivalence under the declared model and mapping. It does not prove either circuit matches a real-world intention or is secure."
+      },
+      "failureHandling": "Timeout, worker kill or replay failure -> UNKNOWN, never EQUIVALENT; incompatible maps or missing reference -> INVALID_INPUT/UNKNOWN with a mapping prompt; an untrusted oracle is visibly labelled rather than silently assumed.",
+      "accessibility": "The intent selector has a legend explaining each mode; the EQUIVALENT conclusion and its scope are announced as text; solver outcome and freshness are separate labelled rows.",
+      "reproducibleInput": {
+        "cliCases": ["C04", "C22", "C07"],
+        "fixtures": ["half-adder-equivalent.json", "half-adder-vectors.json", "consumption-valid.json"],
+        "webScenario": "B06 result announcement"
+      },
+      "provenance": "Executed on the pinned M3 baseline."
+    },
+    {
+      "id": "J07",
+      "title": "Differing wiring with counterexample",
+      "source": ["PRD UC-05", "PRD FR-028", "PRD J-01", "AT-01"],
+      "status": "EXECUTED_CLI",
+      "initialState": "A candidate whose declared outputs are swapped relative to the reference, with the same input map and explicit output correspondence.",
+      "userAction": "Run Compare behavior and open the counterexample panel; replay the input in the local evaluator; optionally export the witness.",
+      "expectedResponse": "DIFFERENT (CLI exit 1) with a replayed witness: inputs bits 01; reference outputs 01; candidate outputs 10; replay REF_BEAT_REPRODUCED; minimization HEURISTIC, explicitly not claimed globally minimal.",
+      "trustFreshness": {
+        "classification": "DIFFERENT with replayed witness; HISTORICAL",
+        "rationale": "A detected difference does not mean the user's circuit is wrong. Without a trusted oracle the report states only that the two behaviours differ."
+      },
+      "failureHandling": "If independent replay does not reproduce the difference, return UNKNOWN with WITNESS_REPLAY_FAILED and block export; if the claim is serialized with a non-replaying witness, the trusted consumer rejects it with INVALID_INPUT / WITNESS_REPLAY_FAILED.",
+      "accessibility": "Witness bits are presented in a labelled table with bit indices and both output columns named; differing bits are marked in text as well as visually; the panel is reachable by keyboard and announced on open.",
+      "reproducibleInput": {
+        "cliCases": ["C05", "C26", "C23"],
+        "fixtures": ["half-adder-different-output-order.json", "consumption-different.json", "consumption-forged-verdict.json"],
+        "webScenario": "B07 witness presentation"
+      },
+      "provenance": "Executed on the pinned M3 baseline; witness bytes come from actual CLI output."
+    },
+    {
+      "id": "J08",
+      "title": "Unknown result from timeout",
+      "source": ["PRD FR-029, FR-030", "MVP_CONSTRAINTS §5, §6", "AT-07"],
+      "status": "EXECUTED_CLI",
+      "initialState": "A valid comparison request whose solver deadline is set to the minimum supported 1 ms.",
+      "userAction": "Run Compare behavior and read the result, reason code, coverage and resource metrics.",
+      "expectedResponse": "UNKNOWN (CLI exit 2), reasonCode SOLVER_TIMEOUT, solverOutcome INTERRUPTED, coverage INCONCLUSIVE, no witness, no EQUIVALENT badge; the worker is killed and reaped.",
+      "trustFreshness": {
+        "classification": "UNKNOWN / inconclusive; HISTORICAL",
+        "rationale": "A timeout or resource ceiling is never evidence of equivalence or difference."
+      },
+      "failureHandling": "The failure is the expected outcome: keep the project, offer a higher allowed deadline (at most 5 s) or smaller gate cap, and allow rerun. A subsequent completed job must still work, proving cleanup succeeded.",
+      "accessibility": "The status text reads 'Inconclusive — solver timed out' with the reason exposed as text; a spinner is not the only indicator; the retry control is focusable and labelled with the new budget.",
+      "reproducibleInput": {
+        "cliCases": ["C06"],
+        "fixtures": ["half-adder-unknown-timeout.json"],
+        "webScenario": "B08 loading, timeout and error states"
+      },
+      "provenance": "Executed on the pinned M3 baseline with a real native worker timeout."
+    },
+    {
+      "id": "J09",
+      "title": "Changed dependency manifest",
+      "source": ["PRD FR-014, FR-041, FR-044", "MVP_CONSTRAINTS §7", "AT-08"],
+      "status": "PARTIAL",
+      "initialState": "A previously completed comparison pinned to a specific reference manifest hash, followed by a simulated beacon implementation upgrade in the local double.",
+      "userAction": "Revalidate the pinned manifest against the current environment; then attempt to consume the old claim with its original pinned reference hash.",
+      "expectedResponse": "Revalidation reports freshness STALE (CLI exit 7) for the changed environment; the historical report remains reviewable but cannot be badged current. A consumer pinning a different reference hash rejects the report with INVALID_INPUT before recomputation.",
+      "trustFreshness": {
+        "classification": "STALE for the old evidence; historical report retained",
+        "rationale": "Dependency or implementation change invalidates current status without erasing past evidence."
+      },
+      "failureHandling": "If the environment cannot be read, revalidation is UNKNOWN/RPC_UNAVAILABLE, not STALE and not CURRENT. The user is told exactly which hash changed and that a fresh import is required.",
+      "accessibility": "STALE is text with an explanation, not a colour; the changed hash is shown in a labelled, copyable field; the historical report stays available with an explicit 'not current' label.",
+      "reproducibleInput": {
+        "cliCases": ["C30", "C24", "C21"],
+        "fixtures": ["import-manifest-local-double.json", "consumption-changed-reference.json"],
+        "webScenario": "B09 stale evidence"
+      },
+      "provenance": "C30 executed against the local double with a simulated beacon upgrade; no live chain state was changed."
+    },
+    {
+      "id": "J10",
+      "title": "Failed RPC import",
+      "source": ["PRD P-05", "PRD FR-062", "NFR-06", "MVP_CONSTRAINTS §1, §7"],
+      "status": "EXECUTED_CLI",
+      "initialState": "Import configured with an unreachable loopback endpoint, 200 ms timeout and zero retries.",
+      "userAction": "Submit an import or inspection for a valid circuit identity.",
+      "expectedResponse": "RPC_UNAVAILABLE (CLI exit 4) with a plain-language explanation, a retry action and a clear statement that no current verification was performed. No cached result is displayed as fresh.",
+      "trustFreshness": {
+        "classification": "UNKNOWN / infrastructure failure; no proof verdict",
+        "rationale": "Transport failure is not a verification result and must never be promoted to EQUIVALENT or CURRENT."
+      },
+      "failureHandling": "Preserve entered project state and RPC settings; offer corrected endpoint/retry; switch to offline historical fixture if available, clearly labelled. Repeated attempts must not create partial manifests.",
+      "accessibility": "The error is announced assertively, associated with the import control, and offers a labelled retry; the page does not lose focus context or clear the form.",
+      "reproducibleInput": {
+        "cliCases": ["C14", "C27"],
+        "fixtures": [],
+        "webScenario": "B02 RPC unavailable"
+      },
+      "provenance": "Executed on the pinned M3 baseline using an unreachable loopback endpoint."
+    },
+    {
+      "id": "J11",
+      "title": "Invalid pin mapping",
+      "source": ["PRD FR-020, FR-025", "PRD J-02 failure handling", "AT-12"],
+      "status": "EXECUTED_CLI",
+      "initialState": "A comparison request whose outputMap references candidate output index 2 while only outputs 0 and 1 exist.",
+      "userAction": "Attempt compose or compare with the invalid mapping.",
+      "expectedResponse": "INVALID_INPUT (CLI exit 3) before any SAT work, with a message naming the offending pin index and the valid range. No 'verified' badge and no partial report.",
+      "trustFreshness": {
+        "classification": "Invalid input; no verdict and no freshness claim",
+        "rationale": "Undefined correspondence cannot be silently repaired by the engine or inferred from names."
+      },
+      "failureHandling": "Return the user to the pin table with the invalid row identified; require an explicit correction; allow the corrected request to proceed normally.",
+      "accessibility": "The error names the exact field and index in text; the offending table cell receives focus and has an aria-describedby explanation; correction guidance is not conveyed by colour alone.",
+      "reproducibleInput": {
+        "cliCases": ["C12", "C03"],
+        "fixtures": ["invalid-pin-map.json"],
+        "webScenario": "B03 invalid mapping"
+      },
+      "provenance": "Executed on the pinned M3 baseline."
+    },
+    {
+      "id": "J12",
+      "title": "Evidence export and re-import",
+      "source": ["PRD UC-06", "PRD FR-043, FR-044", "PRD J-04", "AT-09"],
+      "status": "PARTIAL",
+      "initialState": "A completed comparison result with manifests, project definition and (for DIFFERENT) a replayed witness.",
+      "userAction": "Export a portable bundle, move it to a clean environment, verify checksums and feed the captured claim plus consumer-pinned hashes into the trusted consumption path.",
+      "expectedResponse": "A valid captured claim is recomputed and accepted (CLI exit 0) with freshness still HISTORICAL. Forged verdicts, changed reference pins, CURRENT relabels and non-replaying witnesses are rejected with INVALID_INPUT or WITNESS_REPLAY_FAILED. Bundle verification never makes a single-RPC report current.",
+      "trustFreshness": {
+        "classification": "HISTORICAL after re-import; trust comes from recomputation, not from serialized flags",
+        "rationale": "Evidence is a reproducible claim, not a signed proof certificate or a fresh chain observation."
+      },
+      "failureHandling": "Checksum mismatch, missing file or unsafe archive path rejects the bundle; changed implementation rejects the claim as IMPLEMENTATION_CHANGED; no secret or credential material is included in the bundle.",
+      "accessibility": "The export link names the file and format; the verification result and every rejection reason are text; a machine-readable summary has an accessible HTML counterpart; downloads do not trigger-only status changes.",
+      "reproducibleInput": {
+        "cliCases": ["C18", "C19", "C20", "C22", "C23", "C24", "C25", "C26"],
+        "fixtures": ["consumption-valid.json", "consumption-forged-verdict.json", "consumption-changed-reference.json", "consumption-current-relabel.json", "consumption-different.json"],
+        "webScenario": "B10 export accessibility"
+      },
+      "provenance": "Trusted-consumption portion executed; `export` and `verify-bundle` remain reserved and return NOT_IMPLEMENTED (exit 6) on the M3 baseline."
+    },
+    {
+      "id": "J13",
+      "title": "Read-only structural pre-flight",
+      "source": ["PRD UC-07", "PRD FR-050-052", "PRD J-05", "MVP_CONSTRAINTS §8", "AT-10"],
+      "status": "SPEC_ONLY",
+      "initialState": "A valid composed candidate netlist, a verified current fee read via TAPEOUT_FEE(), and no wallet, key or signing capability in the process.",
+      "userAction": "Run read-only structural pre-flight and inspect the status, the current fee as observed, and the exact scope statement.",
+      "expectedResponse": "Exactly one of STRUCTURALLY ACCEPTED, REJECTED with a precise reason, or UNKNOWN. A known resource-burn-stage revert is classified structural only; the report explicitly states that no transaction was broadcast, no burn paid and nothing was published.",
+      "trustFreshness": {
+        "classification": "Independent pre-flight axis; never an alias for verification verdict or publication",
+        "rationale": "Structural acceptance is not simulation success, mint success or onchain publication."
+      },
+      "failureHandling": "RPC failure, missing storage override or unrecognised revert -> UNKNOWN, never STRUCTURALLY ACCEPTED; a structural rejection names the failed check; the user is never offered a wallet or broadcast action.",
+      "accessibility": "Pre-flight status is a labelled text statement with an explicit definition; the fee is shown with its observation context; the no-publication caveat is a persistent text region, not a tooltip only.",
+      "reproducibleInput": {
+        "cliCases": ["C18"],
+        "fixtures": [],
+        "webScenario": "B11 pre-flight status separation"
+      },
+      "provenance": "Not executed. `flip preflight` is a reserved M4 command and returned NOT_IMPLEMENTED (exit 6) on the accepted M3 baseline in C18."
+    }
+  ]
+}
