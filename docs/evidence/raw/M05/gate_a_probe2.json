@@ -1,0 +1,45 @@
+{
+  "tokenCodeLen": 295,
+  "tokenDirect": {
+    "name()": "ERR:execution reverted",
+    "symbol()": "ERR:execution reverted",
+    "decimals()": "ERR:execution reverted",
+    "totalSupply()": "ERR:execution reverted",
+    "balanceOf(address,uint256)": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "uri_0": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000",
+  "overrideTest": {
+    "erc7201BaseSlot": "3a8e79826d53842322cdcc810d4a989eb01ac46cfabfd48dcc021625ce13c200",
+    "balancesId0CallerSlot": "eae3a2e7402432b90c06a5ab9512aa0e8967299bc385366c76555222d9c0eaad"
+  },
+  "overrideSupported": false,
+  "overrideBalanceResult": "ERR:Invalid params",
+  "tapeoutSimFull": {
+    "netlistBytes": 81,
+    "status": "reverted",
+    "result": null,
+    "error": "Invalid params"
+  },
+  "tapeoutEstimateGas": {
+    "code": -32003,
+    "message": "EVM error: OutOfFunds"
+  },
+  "gasPriceWei": 20000001,
+  "revertArgDecode": [
+    {
+      "case": "composed half-adder (well-formed)",
+      "args": [
+        61453,
+        0,
+        1,
+        0
+      ],
+      "fields": {
+        "sender": "0xf00d",
+        "balance": 0,
+        "needed": 1,
+        "id": 0
+      }
+    }
+  ]
+}

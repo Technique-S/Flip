@@ -1,0 +1,83 @@
+{
+  "label": "READ_ONLY_REGENERATED",
+  "generated_by": "bounded local python re-derivation of committed raw fixtures; no network/RPC/product code",
+  "chain_block_provenance": {
+    "xlayer_circuits": {
+      "rpc": "https://rpc.xlayer.tech",
+      "chainId": 196,
+      "headBlock": 76020961,
+      "generated_utc": "2026-11-16T00:46:40Z"
+    },
+    "gate_b_manifest": {
+      "rpcX": "https://rpc.xlayer.tech",
+      "chainIdX": 196,
+      "blockNumberX": 76056306,
+      "blockHashX": "0x198e4a83d2cd97e06b56d60f787eaf3b29cb55042e086e8c6639d217f81a3e1f",
+      "tap02Version": "draft-2026-10-04",
+      "testSuiteHash": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+    }
+  },
+  "recomputed_netlist_digests": {
+    "xor1": {
+      "source_netlist": "0x00000002000003000000020000040000000300000400000005000006",
+      "bytes": 28,
+      "sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+      "recorded_netlistSha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+      "match": true
+    },
+    "nand2": {
+      "source_netlist": "0x000000020000030000000400000400000005000005",
+      "bytes": 21,
+      "sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+      "recorded_netlistSha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+      "match": true
+    },
+    "composed_half_adder": {
+      "source_netlist": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+      "bytes": 81,
+      "sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+      "recorded_composedNetlistBytes": 81,
+      "match_bytes": true
+    }
+  },
+  "counts": {
+    "wiring_mutation_cases": 4,
+    "wiring_scale_test_present": true,
+    "integrity_negative_cases": 9,
+    "all_negative_detected": true,
+    "scale_target_counts": 7,
+    "scale_mode_cases": 28,
+    "correctness_safeguards": 7,
+    "correctness_safeguards_all_passed": true,
+    "stateful_beats": 8,
+    "stateful_first_difference_beat": 0,
+    "stateful_reproducible": true
+  },
+  "stateful_trace_matches_embedded_copy": true,
+  "preflight_revert_evidence": {
+    "revertArgDecode": [
+      {
+        "case": "composed half-adder (well-formed)",
+        "args": [
+          61453,
+          0,
+          1,
+          0
+        ],
+        "fields": {
+          "sender": "0xf00d",
+          "balance": 0,
+          "needed": 1,
+          "id": 0
+        }
+      }
+    ],
+    "tapeoutSimFull": {
+      "netlistBytes": 81,
+      "status": "reverted",
+      "result": null,
+      "error": "Invalid params"
+    },
+    "overrideSupported": false
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "CallObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "classification": {
+          "enum": [
+            "KNOWN_BURN_STAGE",
+            "KNOWN_STRUCTURAL_REJECTION",
+            "UNRECOGNIZED"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "feeWei": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Feewei",
+          "type": "string"
+        },
+        "manifestRevalidated": {
+          "const": true,
+          "title": "Manifestrevalidated",
+          "type": "boolean"
+        },
+        "revertData": {
+          "maxLength": 2000002,
+          "pattern": "^0x(?:[0-9a-f]{2})*$",
+          "title": "Revertdata",
+          "type": "string"
+        }
+      },
+      "required": [
+        "block",
+        "feeWei",
+        "manifestRevalidated",
+        "revertData",
+        "classification"
+      ],
+      "title": "CallObservation",
+      "type": "object"
+    },
+    "Integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedBlock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL",
+            "STALE",
+            "UNVERIFIED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freshness",
+        "checkedBlock"
+      ],
+      "title": "Integrity",
+      "type": "object"
+    }
+  },
+  "$id": "urn:flip:schema:preflight:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidateNetlistHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Candidatenetlisthash",
+      "type": "string"
+    },
+    "chainId": {
+      "const": 196,
+      "title": "Chainid",
+      "type": "integer"
+    },
+    "integrity": {
+      "$ref": "#/$defs/Integrity"
+    },
+    "manifestHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Manifesthash",
+      "type": "string"
+    },
+    "mode": {
+      "const": "READ_ONLY_ETH_CALL",
+      "title": "Mode",
+      "type": "string"
+    },
+    "observation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CallObservation"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reasonCode": {
+      "anyOf": [
+        {
+          "enum": [
+            "NOT_IMPLEMENTED",
+            "INVALID_INPUT",
+            "UNSUPPORTED_SCHEMA_VERSION",
+            "WRONG_CHAIN",
+            "BAD_NETLIST",
+            "REF_DEPTH_EXCEEDED",
+            "RESOURCE_LIMIT",
+            "RPC_UNAVAILABLE",
+            "IMPLEMENTATION_CHANGED",
+            "SOLVER_TIMEOUT",
+            "WITNESS_REPLAY_FAILED",
+            "UNSUPPORTED_STATEFUL_PROOF",
+            "MISSING_REFERENCE",
+            "MISSING_MAPPING",
+            "INTERNAL_ERROR",
+            "UNRECOGNIZED_REVERT",
+            "STRUCTURAL_REJECTION"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reasoncode"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "STRUCTURALLY_ACCEPTED",
+        "REJECTED",
+        "UNKNOWN"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "chainId",
+    "candidateNetlistHash",
+    "manifestHash",
+    "mode",
+    "status",
+    "reasonCode",
+    "observation",
+    "integrity"
+  ],
+  "title": "Preflight",
+  "type": "object"
+}

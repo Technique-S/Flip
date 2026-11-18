@@ -1,0 +1,62 @@
+{
+  "profile": "flip-json-v1",
+  "vectors": [
+    {
+      "input": {},
+      "canonical": "{}",
+      "utf8Hex": "7b7d",
+      "sha256": "0x44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "input": [],
+      "canonical": "[]",
+      "utf8Hex": "5b5d",
+      "sha256": "0x4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "input": {
+        "b": 2,
+        "a": 1
+      },
+      "canonical": "{\"a\":1,\"b\":2}",
+      "utf8Hex": "7b2261223a312c2262223a327d",
+      "sha256": "0x43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777"
+    },
+    {
+      "input": {
+        "chainId": 196,
+        "circuitId": "18446744073709551615",
+        "processor": "0xabababababababababababababababababababab"
+      },
+      "canonical": "{\"chainId\":196,\"circuitId\":\"18446744073709551615\",\"processor\":\"0xabababababababababababababababababababab\"}",
+      "utf8Hex": "7b22636861696e4964223a3139362c22636972637569744964223a223138343436373434303733373039353531363135222c2270726f636573736f72223a22307861626162616261626162616261626162616261626162616261626162616261626162616261626162227d",
+      "sha256": "0x0735b6d19a32954a31aa84374e05bb242295554fd2041689bd9cb570830732df"
+    },
+    {
+      "input": {
+        "unicode": "café\n雪",
+        "nested": {
+          "z": null,
+          "a": [
+            true,
+            false,
+            0
+          ]
+        }
+      },
+      "canonical": "{\"nested\":{\"a\":[true,false,0],\"z\":null},\"unicode\":\"café\\n雪\"}",
+      "utf8Hex": "7b226e6573746564223a7b2261223a5b747275652c66616c73652c305d2c227a223a6e756c6c7d2c22756e69636f6465223a22636166c3a95c6ee99baa227d",
+      "sha256": "0x95ef1f7f458e9ebf39dd0dc9359df00c94b4d696e5954da4acdd536f11d5bd1d"
+    },
+    {
+      "input": {
+        "2": "two",
+        "10": "ten",
+        "string": "line\tquote\"slash/\\"
+      },
+      "canonical": "{\"10\":\"ten\",\"2\":\"two\",\"string\":\"line\\tquote\\\"slash/\\\\\"}",
+      "utf8Hex": "7b223130223a2274656e222c2232223a2274776f222c22737472696e67223a226c696e655c7471756f74655c22736c6173682f5c5c227d",
+      "sha256": "0xfaab53f69efc377485c333fba17f83f094959ed5512f6399e831688468591b18"
+    }
+  ]
+}

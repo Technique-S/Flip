@@ -1,0 +1,325 @@
+{
+  "experiment": "wiring-canary-harness",
+  "circuits": "real X Layer processor-0 XOR #1 / NAND #2",
+  "satSelfTest": {
+    "baseVsBase": {
+      "diffFound": false,
+      "witness": null,
+      "cnfClauses": 55,
+      "ok": true
+    }
+  },
+  "rows": [
+    {
+      "wiring": "mutant1 reversed inputs (both REFs)",
+      "exhaustive": {
+        "counterexample": null,
+        "candOut": null,
+        "baseOut": null,
+        "evals": 8,
+        "ms": 0.09,
+        "verdict": "EQUIVALENT (exhaustive proof over 4 inputs)"
+      },
+      "randomized64": {
+        "counterexample": null,
+        "candOut": null,
+        "baseOut": null,
+        "evals": 8,
+        "ms": 0.13,
+        "verdict": "no difference found in 64 samples"
+      },
+      "sat": {
+        "diffFound": false,
+        "witness": null,
+        "cnfClauses": 55,
+        "ms": 0.57,
+        "verdict": "EQUIVALENT (UNSAT proof)",
+        "agreesWithExhaustive": true
+      },
+      "modeA_vs_expected": {
+        "mismatches": {},
+        "verdict": "matches declared spec"
+      },
+      "modeB_vs_reference": {
+        "verdict": "equivalent to reference"
+      },
+      "modeC_unknownIntent": {
+        "verdict": "EQUIVALENT: no behavioral difference exists (reversed wiring of symmetric gates); a structural linter may still flag it"
+      }
+    },
+    {
+      "wiring": "mutant2 XOR inputs swapped",
+      "exhaustive": {
+        "counterexample": null,
+        "candOut": null,
+        "baseOut": null,
+        "evals": 8,
+        "ms": 0.06,
+        "verdict": "EQUIVALENT (exhaustive proof over 4 inputs)"
+      },
+      "randomized64": {
+        "counterexample": null,
+        "candOut": null,
+        "baseOut": null,
+        "evals": 8,
+        "ms": 0.11,
+        "verdict": "no difference found in 64 samples"
+      },
+      "sat": {
+        "diffFound": false,
+        "witness": null,
+        "cnfClauses": 55,
+        "ms": 0.49,
+        "verdict": "EQUIVALENT (UNSAT proof)",
+        "agreesWithExhaustive": true
+      },
+      "modeA_vs_expected": {
+        "mismatches": {},
+        "verdict": "matches declared spec"
+      },
+      "modeB_vs_reference": {
+        "verdict": "equivalent to reference"
+      },
+      "modeC_unknownIntent": {
+        "verdict": "EQUIVALENT: no behavioral difference exists (reversed wiring of symmetric gates); a structural linter may still flag it"
+      }
+    },
+    {
+      "wiring": "mutant3 glue wired to input bit",
+      "exhaustive": {
+        "counterexample": [
+          0,
+          0
+        ],
+        "candOut": [
+          1,
+          0
+        ],
+        "baseOut": [
+          0,
+          0
+        ],
+        "evals": 2,
+        "ms": 0.02,
+        "verdict": "DIFFERENT"
+      },
+      "randomized64": {
+        "counterexample": [
+          0,
+          0
+        ],
+        "candOut": [
+          1,
+          0
+        ],
+        "baseOut": [
+          0,
+          0
+        ],
+        "evals": 4,
+        "ms": 0.1,
+        "verdict": "DIFFERENT"
+      },
+      "sat": {
+        "diffFound": true,
+        "witness": [
+          0,
+          0
+        ],
+        "cnfClauses": 55,
+        "ms": 0.33,
+        "verdict": "DIFFERENT (SAT)",
+        "witnessVerifiedBySim": true,
+        "witnessCandOut": [
+          1,
+          0
+        ],
+        "witnessBaseOut": [
+          0,
+          0
+        ],
+        "agreesWithExhaustive": true
+      },
+      "modeA_vs_expected": {
+        "mismatches": {
+          "(0, 0)": [
+            1,
+            0
+          ],
+          "(0, 1)": [
+            1,
+            1
+          ],
+          "(1, 1)": [
+            0,
+            0
+          ]
+        },
+        "verdict": "WIRING DOES NOT MATCH DECLARED SPEC"
+      },
+      "modeB_vs_reference": {
+        "verdict": "differs from reference implementation on >=1 input"
+      },
+      "modeC_unknownIntent": {
+        "verdict": "AMBIGUOUS: behaviorally distinguishable from base; which wiring is correct requires the developer's intent"
+      },
+      "minimizedCounterexample": [
+        0,
+        0
+      ]
+    },
+    {
+      "wiring": "mutant4 outputs (sum, nand)",
+      "exhaustive": {
+        "counterexample": [
+          0,
+          0
+        ],
+        "candOut": [
+          0,
+          1
+        ],
+        "baseOut": [
+          0,
+          0
+        ],
+        "evals": 2,
+        "ms": 0.02,
+        "verdict": "DIFFERENT"
+      },
+      "randomized64": {
+        "counterexample": [
+          1,
+          0
+        ],
+        "candOut": [
+          1,
+          1
+        ],
+        "baseOut": [
+          0,
+          1
+        ],
+        "evals": 2,
+        "ms": 0.04,
+        "verdict": "DIFFERENT"
+      },
+      "sat": {
+        "diffFound": true,
+        "witness": [
+          0,
+          0
+        ],
+        "cnfClauses": 52,
+        "ms": 0.33,
+        "verdict": "DIFFERENT (SAT)",
+        "witnessVerifiedBySim": true,
+        "witnessCandOut": [
+          0,
+          1
+        ],
+        "witnessBaseOut": [
+          0,
+          0
+        ],
+        "agreesWithExhaustive": true
+      },
+      "modeA_vs_expected": {
+        "mismatches": {
+          "(0, 0)": [
+            0,
+            1
+          ],
+          "(1, 0)": [
+            1,
+            1
+          ],
+          "(0, 1)": [
+            1,
+            1
+          ],
+          "(1, 1)": [
+            0,
+            0
+          ]
+        },
+        "verdict": "WIRING DOES NOT MATCH DECLARED SPEC"
+      },
+      "modeB_vs_reference": {
+        "verdict": "differs from reference implementation on >=1 input"
+      },
+      "modeC_unknownIntent": {
+        "verdict": "AMBIGUOUS: behaviorally distinguishable from base; which wiring is correct requires the developer's intent"
+      },
+      "minimizedCounterexample": [
+        0,
+        0
+      ]
+    }
+  ],
+  "scaleTest": {
+    "structural": {
+      "baseLoads": true,
+      "mutantLoads": true,
+      "baseNandGates": 28,
+      "mutantNandGates": 28,
+      "note": "both wirings pass TAP-02 \u00a73 well-formedness; fault is invisible structurally"
+    },
+    "exhaustive": {
+      "counterexample": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "baseOut": [
+        1
+      ],
+      "mutantOut": [
+        0
+      ],
+      "evals": 4,
+      "ms": 0.51,
+      "verdict": "DIFFERENT"
+    },
+    "sat": {
+      "diffFound": true,
+      "witness": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cnfClauses": 173,
+      "ms": 11.02,
+      "verdict": "DIFFERENT (SAT)",
+      "witnessVerifiedBySim": true,
+      "witnessBaseOut": [
+        1
+      ],
+      "witnessMutantOut": [
+        0
+      ]
+    },
+    "minimizedWitness": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "agreesWithExhaustive": true
+  },
+  "wallSeconds": 0.02
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "chainId": 196,
+  "block": {
+    "number": "9007199254740993",
+    "hash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "root": {
+    "identity": {
+      "schemaVersion": "1.0.0",
+      "chainId": 196,
+      "processor": "0xabababababababababababababababababababab",
+      "circuitId": "18446744073709551615"
+    },
+    "netlistHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+    "nIn": 2,
+    "nOut": 1,
+    "nState": 0,
+    "expandedGates": 1,
+    "environment": {
+      "factory": {
+        "address": "0xabababababababababababababababababababab",
+        "codeHash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "factoryImplementationSlot": "0x1111111111111111111111111111111111111111111111111111111111111111",
+      "factoryImplementation": {
+        "address": "0xabababababababababababababababababababab",
+        "codeHash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "factorySealed": false,
+      "beacon": {
+        "address": "0xabababababababababababababababababababab",
+        "codeHash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "beaconImplementation": {
+        "address": "0xabababababababababababababababababababab",
+        "codeHash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "processorCodeHash": "0x1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  },
+  "dependencies": [],
+  "edges": [],
+  "semantics": {
+    "tap02Version": "draft-2026-10-04",
+    "encoding": "tap02-lsb0-v1",
+    "specificationHash": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+    "referenceHash": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+    "testSuiteHash": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+  },
+  "toolVersion": "0.1.0",
+  "observation": "OFFLINE_SNAPSHOT"
+}

@@ -15,3 +15,8 @@ playwright-report/
 .DS_Store
 # avoid accidental large private audit source copies
 /docs/evidence/raw/
+.bootstrap/
+.venv-clean/
+.ruff_cache/
+*.egg-info/
+.test-tmp/

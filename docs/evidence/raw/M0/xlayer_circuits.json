@@ -1,0 +1,660 @@
+{
+  "rpc": "https://rpc.xlayer.tech",
+  "chainId": 196,
+  "headBlock": 76020961,
+  "generated_utc": "2026-11-16T00:46:40Z",
+  "processors": {
+    "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b": {
+      "nextId": 100,
+      "sample": [
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 1,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 2,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 3,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 4,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 5,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 48,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 49,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 50,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 51,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 52,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 95,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 96,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 97,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 98,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x0565EA48CA41Ae559d8d491dbb0a9ec945DB551b",
+          "circuitId": 99,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        }
+      ]
+    },
+    "0x839BDD6fA7A66416a609A735E11DE5411b98574E": {
+      "nextId": 104,
+      "sample": [
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 1,
+          "nIn": 2,
+          "nOut": 1,
+          "nState": 0,
+          "gateCount": 4,
+          "netlist": "0x00000002000003000000020000040000000300000400000005000006",
+          "decodeRoundTrip": true,
+          "records": 4,
+          "opCounts": {
+            "NAND": 4
+          },
+          "maxSignal": 8,
+          "evalCases": [
+            {
+              "inputs": "00",
+              "onchain": "00"
+            },
+            {
+              "inputs": "01",
+              "onchain": "01"
+            },
+            {
+              "inputs": "02",
+              "onchain": "01"
+            },
+            {
+              "inputs": "03",
+              "onchain": "00"
+            }
+          ]
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 2,
+          "nIn": 2,
+          "nOut": 1,
+          "nState": 0,
+          "gateCount": 3,
+          "netlist": "0x000000020000030000000400000400000005000005",
+          "decodeRoundTrip": true,
+          "records": 3,
+          "opCounts": {
+            "NAND": 3
+          },
+          "maxSignal": 7,
+          "evalCases": [
+            {
+              "inputs": "00",
+              "onchain": "01"
+            },
+            {
+              "inputs": "01",
+              "onchain": "01"
+            },
+            {
+              "inputs": "02",
+              "onchain": "01"
+            },
+            {
+              "inputs": "03",
+              "onchain": "00"
+            }
+          ]
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 3,
+          "nIn": 2,
+          "nOut": 1,
+          "nState": 0,
+          "gateCount": 3,
+          "netlist": "0x000000020000030000000400000400000005000005",
+          "decodeRoundTrip": true,
+          "records": 3,
+          "opCounts": {
+            "NAND": 3
+          },
+          "maxSignal": 7,
+          "evalCases": [
+            {
+              "inputs": "00",
+              "onchain": "01"
+            },
+            {
+              "inputs": "01",
+              "onchain": "01"
+            },
+            {
+              "inputs": "02",
+              "onchain": "01"
+            },
+            {
+              "inputs": "03",
+              "onchain": "00"
+            }
+          ]
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 4,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 5,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 50,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 51,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 52,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 53,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 54,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 99,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 100,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 101,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+          "decodeRoundTrip": true,
+          "records": 1,
+          "opCounts": {
+            "REF": 1
+          },
+          "maxSignal": 3,
+          "stepCase": {
+            "state": "00",
+            "inputs": "00",
+            "newState": "01",
+            "outputs": "01"
+          }
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 102,
+          "nIn": 0,
+          "nOut": 1,
+          "nState": 2,
+          "gateCount": 10,
+          "error": "netlist: transport:URLError"
+        },
+        {
+          "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+          "circuitId": 103,
+          "error": "circuitInfo: transport:URLError"
+        }
+      ]
+    },
+    "0x550992F2dc407bffDD82C516c0984dc5e00b37d3": {
+      "nextId": null,
+      "sample": []
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "sources": [
+    {
+      "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "id": 1,
+      "function": "XOR",
+      "netlistSha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"
+    },
+    {
+      "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "id": 2,
+      "function": "NAND",
+      "netlistSha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"
+    }
+  ],
+  "composedNetlist": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+  "composedNetlistBytes": 81,
+  "deterministic": true,
+  "records": [
+    {
+      "op": "REF",
+      "ins": null,
+      "ref": [
+        "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "op": "NAND",
+      "ins": [
+        4,
+        1
+      ],
+      "ref": null
+    },
+    {
+      "op": "REF",
+      "ins": null,
+      "ref": [
+        "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+        1,
+        2,
+        1
+      ]
+    }
+  ],
+  "officialLoad": "ok",
+  "independentLoad": "ok",
+  "truthTable": [
+    {
+      "in": "00",
+      "expected": "00",
+      "official": "00",
+      "independent": "00",
+      "pass": true
+    },
+    {
+      "in": "01",
+      "expected": "02",
+      "official": "02",
+      "independent": "02",
+      "pass": true
+    },
+    {
+      "in": "02",
+      "expected": "02",
+      "official": "02",
+      "independent": "02",
+      "pass": true
+    },
+    {
+      "in": "03",
+      "expected": "01",
+      "official": "01",
+      "independent": "01",
+      "pass": true
+    }
+  ],
+  "semanticsPass": true,
+  "faultInjection": [
+    {
+      "fault": "reversed input order (both REFs)",
+      "structurallyValid": true,
+      "rejectReason": "",
+      "simOutForIn01": "02",
+      "describe": "NAND and XOR are symmetric -> behaviorally EQUIVALENT to base; shows reversal can be undetectable"
+    },
+    {
+      "fault": "swap inputs into XOR REF only",
+      "structurallyValid": true,
+      "rejectReason": "",
+      "simOutForIn01": "02",
+      "describe": "XOR symmetric -> behaviorally equivalent; exposes mapping-equivalence ambiguity"
+    },
+    {
+      "fault": "glue NAND wired to input bit instead of NAND-ref output",
+      "structurallyValid": true,
+      "rejectReason": "",
+      "simOutForIn01": "02",
+      "describe": "carry bit becomes NOT(a) - behaviorally different, structurally valid"
+    },
+    {
+      "fault": "output order swapped (sum, NAND) instead of (carry, sum)",
+      "structurallyValid": true,
+      "rejectReason": "",
+      "simOutForIn01": "03",
+      "describe": "outputs become (sum, nand) - structurally valid, behaviorally different"
+    },
+    {
+      "fault": "REF nOuts=2 on 1-output target",
+      "structurallyValid": false,
+      "rejectReason": "REF arity does not match the target circuit"
+    },
+    {
+      "fault": "NAND forward reference (reads own output)",
+      "structurallyValid": false,
+      "rejectReason": "signal 4 referenced by element at 4 is not available"
+    }
+  ],
+  "faultSummary": {
+    "structurallyRejected": 2,
+    "structurallyValidButBehaviorallyDifferent": 2,
+    "structurallyValidAndEquivalent": 1
+  }
+}

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flip-api"
+version = "0.1.0"
+description = "Flip read-only API contract scaffold"
+requires-python = "==3.14.6"
+dependencies = ["flip-core==0.1.0", "fastapi==0.121.1", "uvicorn==0.38.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
