@@ -29,6 +29,8 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    "fixtures/m4-independent-review/generators/run_review_cases.py",
+    "fixtures/m4-independent-review/generators/run_trust_probes.py",
     "docs/evidence/derived/recompute_checks.py",
     "docs/evidence/m2-adversarial/build_corpus.py",
     "docs/evidence/m2-adversarial/verify_corpus.py",

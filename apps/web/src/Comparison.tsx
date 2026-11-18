@@ -20,7 +20,7 @@ export function Verdict({ value }: { value: Proof }) {
 					? "The evaluator reproduced different outputs for this input."
 					: v.verdict === "EQUIVALENT"
 						? "Every mapped output agrees for every input in this stateless comparison."
-						: `The solver could not establish a conclusion. ${v.reasonCode === "SOLVER_TIMEOUT" ? "The solver timed out (SOLVER_TIMEOUT). Retry with a higher timeout." : v.reasonCode === "SOLVER_TIMEOUT" ? "The solver timed out (SOLVER_TIMEOUT). Retry with a higher timeout." : (v.reasonCode ?? "")}`}
+						: `The solver could not establish a conclusion. ${v.reasonCode === "SOLVER_TIMEOUT" ? "The solver timed out (SOLVER_TIMEOUT). Retry with a higher timeout." : (v.reasonCode ?? "")}`}
 			</p>
 			<p className="mono">
 				{v.solverOutcome} · {value.resources.totalMs} ms ·{" "}

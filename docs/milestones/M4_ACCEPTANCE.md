@@ -8,7 +8,7 @@ All 100 M4-B paths remain byte-identical to their source commit. Existing schema
 
 ## Product acceptance scope
 
-The machine-readable [case results](M4_CASE_RESULTS.json) are extracted from actual JUnit properties and Chromium JSON results. They include the 30 independent CLI cases, planned capabilities, ten neutral regenerations, ten proof attacks, concurrency, and explicit mappings for J01Ã¢â‚¬â€œJ13, E01Ã¢â‚¬â€œE12 and B01Ã¢â‚¬â€œB11. Mappings list the executed paths supporting each scenario. The historical M4-B labels remain intact.
+The machine-readable [case results](M4_CASE_RESULTS.json) are extracted from actual JUnit properties and Chromium JSON results. They include the 30 independent CLI cases, planned capabilities, ten neutral regenerations, ten proof attacks, concurrency, and explicit mappings for J01-J13, E01-E12 and B01-B11. Mappings list the executed paths supporting each scenario. The historical M4-B labels remain intact.
 
 C18 now executes the implemented pre-flight with a refused loopback endpoint and yields UNKNOWN. C19 exports JSON evidence. C20 preserves the legacy bare sample behavior. P04 invokes the explicit half-adder variant. P02 and P03 exercise the implemented JSON evidence format and independent project pins. The ZIP/SHA256SUMS proposal is inapplicable to this implementation.
 
@@ -69,3 +69,13 @@ The design detector flagged existing typography and accent-border conventions. T
 **M4 PASS for the automated local product acceptance scope.**
 
 M4 acceptance is limited to the local developer workflow with the explicitly documented manual screen-reader limitation. M5 readiness requires independent review of this integration. Public hosting remains blocked pending deployment-specific authentication, process isolation, aggregate budgets and request controls. M4-C adds no signing, wallet, payment or transaction broadcast path.
+
+## Independent review closure
+
+OpenCode reviewed integration head d6a00352edac93f930184d58605a646f021e1023. Its independent report and all 207 supporting files from commit 7a4d85e9d7b280b6a2d11fa4420889f555d499f0 are retained byte-for-byte through a history-preserving merge. The contribution totals 806,503 bytes, with a maximum individual file size of 22,802 bytes. The repository checker enforces custody for every imported review file. The two archived generators are excluded from formatting, while their bytes remain checked and all files remain credential-scanned.
+
+F-02 is corrected with CSS Unicode escapes for the selected mapping arrow and closed/open disclosure markers. The focused Chromium regression checks their actual computed pseudo-element content. Pin indices and endpoint labels remain visible, independently of color. Garbled range separators in this acceptance document are corrected. Historical review text and captures remain unchanged.
+
+F-03 removes the duplicate SOLVER_TIMEOUT conditional. Timeout copy retains the exact machine code, UNKNOWN verdict, higher-timeout guidance, keyboard-accessible execution control and accurate live-region announcement. The focused regression runs a 1 ms timeout followed by a keyboard-triggered completed comparison. Solver limits and trusted proof consumption are unchanged.
+
+Manual auditory screen-reader testing remains unexecuted. Accepted scope remains the local single-developer workflow. Public hosting requires deployment-specific authentication, process isolation, aggregate budgets and request controls. No M5 deployment is authorized by this acceptance.
