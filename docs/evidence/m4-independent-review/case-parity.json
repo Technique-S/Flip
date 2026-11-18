@@ -1,0 +1,304 @@
+{
+  "fallbackTarget": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+  "integrationTarget": "d6a00352edac93f930184d58605a646f021e1023",
+  "caseCount": 37,
+  "exitCodeDiffs": [],
+  "cases": [
+    {
+      "id": "C01",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip --version",
+      "description": "version",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C02",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip --help",
+      "description": "help",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C03",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip compose --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "description": "compose baseline",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C04",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "description": "compare EQUIVALENT",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C05",
+      "fallbackExit": 1,
+      "integrationExit": 1,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-different-output-order.json",
+      "description": "compare DIFFERENT",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C06",
+      "fallbackExit": 2,
+      "integrationExit": 2,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-unknown-timeout.json",
+      "description": "compare UNKNOWN timeout",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C07",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip vectors --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-vectors.json",
+      "description": "vectors",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C08",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-current-freshness-claim.json",
+      "description": "caller CURRENT flag",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C09",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\malformed-request.json",
+      "description": "malformed input",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C10",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\unsupported-version.json",
+      "description": "unsupported version",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C11",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip inspect --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "description": "wrong chain inspect",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C12",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\invalid-pin-map.json",
+      "description": "invalid pin map",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C13",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip import --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "description": "wrong chain import",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C14",
+      "fallbackExit": 4,
+      "integrationExit": 4,
+      "command": "flip inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "description": "RPC unavailable",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C15",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip validate circuit-identity docs/schema/examples/circuit-identity.json",
+      "description": "validate contract",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C16",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip canonical circuit-identity docs/schema/examples/circuit-identity.json",
+      "description": "canonical contract",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C17",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip hash manifest docs/schema/examples/manifest.json",
+      "description": "hash manifest",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C18",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip preflight --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "description": "preflight baseline",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C19",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "description": "export baseline",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C20",
+      "fallbackExit": 6,
+      "integrationExit": 6,
+      "command": "flip sample",
+      "description": "sample baseline",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C21",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip revalidate --chain-id 8453 --manifest C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\import-manifest.json",
+      "description": "revalidate wrong chain",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C22",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-valid.json",
+      "description": "consume valid claim",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C23",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-forged-verdict.json",
+      "description": "consume forged verdict",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C24",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-changed-reference.json",
+      "description": "consume changed reference",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C25",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-current-relabel.json",
+      "description": "consume CURRENT relabel",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C26",
+      "fallbackExit": 1,
+      "integrationExit": 1,
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-different.json",
+      "description": "consume DIFFERENT witness",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C27",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:57797 --timeout-ms 2000 --retries 0",
+      "description": "import success local double",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C28",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:64127 --timeout-ms 2000 --retries 0",
+      "description": "circuit not found local double",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C30",
+      "fallbackExit": 7,
+      "integrationExit": 7,
+      "command": "flip revalidate --manifest C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\import-manifest-local-double.json --rpc-url http://127.0.0.1:64144 --timeout-ms 2000 --retries 0",
+      "description": "revalidate after beacon upgrade",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C29",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip compose --project .../half-adder-equivalent.json (x10)",
+      "description": "10 deterministic compose builds",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "M01",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip sample half-adder --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed\\M01-project.json",
+      "description": "sample half-adder",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M02",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip sample swapped --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed\\M02-mutation.json",
+      "description": "sample swapped",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M03",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed\\M03-evidence.json",
+      "description": "export from downloaded project",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M04",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip inspect-evidence --bundle C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\evidence.json",
+      "description": "inspect browser evidence",
+      "provenance": "BROWSER_DOWNLOADED_EVIDENCE"
+    },
+    {
+      "id": "M05",
+      "fallbackExit": 0,
+      "integrationExit": 0,
+      "command": "flip verify-bundle --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --bundle C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\evidence.json",
+      "description": "verify browser evidence",
+      "provenance": "BROWSER_DOWNLOADED_EVIDENCE"
+    },
+    {
+      "id": "M06",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip preflight --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "description": "preflight offline project",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M07",
+      "fallbackExit": 3,
+      "integrationExit": 3,
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --observe-chain --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0 --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed\\M07-observe.json",
+      "description": "export with unreachable chain observation",
+      "provenance": "M4_PRODUCT_COMMAND"
+    }
+  ]
+}

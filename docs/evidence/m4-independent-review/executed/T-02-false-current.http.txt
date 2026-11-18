@@ -1,0 +1,2 @@
+HTTP 422
+{"error":{"code":"INVALID_INPUT","message":"Untrusted report is incomplete or invalid."},"schemaVersion":"1.0.0"}

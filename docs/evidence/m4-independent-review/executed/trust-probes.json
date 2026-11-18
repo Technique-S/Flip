@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "m4-independent-review-1",
+  "probes": [
+    {
+      "id": "01-forged-verdict",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "verdict relabelled EQUIVALENT -> DIFFERENT",
+      "capture": "docs/evidence/m4-independent-review/executed/T-01-forged-verdict.http.txt"
+    },
+    {
+      "id": "02-false-current",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "freshness relabelled HISTORICAL -> CURRENT",
+      "capture": "docs/evidence/m4-independent-review/executed/T-02-false-current.http.txt"
+    },
+    {
+      "id": "03-stale-reference",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "consumer reference pin replaced",
+      "capture": "docs/evidence/m4-independent-review/executed/T-03-stale-reference.http.txt"
+    },
+    {
+      "id": "04-wrong-chain-execution",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "manifest root chainId changed to 8453",
+      "capture": "docs/evidence/m4-independent-review/executed/T-04-wrong-chain-execution.http.txt"
+    },
+    {
+      "id": "05-malformed-mapping",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "outputMap [0,2]",
+      "capture": "docs/evidence/m4-independent-review/executed/T-05-malformed-mapping.http.txt"
+    },
+    {
+      "id": "06-malformed-upload",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "raw malformed body",
+      "capture": "docs/evidence/m4-independent-review/executed/T-06-malformed-upload.http.txt"
+    },
+    {
+      "id": "07-oversized",
+      "status": 413,
+      "errorCode": "RESOURCE_LIMIT",
+      "verdict": null,
+      "note": "1.1 MiB body",
+      "capture": "docs/evidence/m4-independent-review/executed/T-07-oversized.http.txt"
+    },
+    {
+      "id": "08-host-bypass",
+      "status": 400,
+      "errorCode": null,
+      "verdict": null,
+      "note": "spoofed Host",
+      "capture": "docs/evidence/m4-independent-review/executed/T-08-host-bypass.http.txt"
+    },
+    {
+      "id": "09-origin-bypass",
+      "status": 403,
+      "errorCode": null,
+      "verdict": null,
+      "note": "cross-origin header",
+      "capture": "docs/evidence/m4-independent-review/executed/T-09-origin-bypass.http.txt"
+    },
+    {
+      "id": "10-cross-site",
+      "status": 403,
+      "errorCode": null,
+      "verdict": null,
+      "note": "cross-site fetch header",
+      "capture": "docs/evidence/m4-independent-review/executed/T-10-cross-site.http.txt"
+    },
+    {
+      "id": "11-caller-current",
+      "status": 200,
+      "errorCode": null,
+      "verdict": "EQUIVALENT",
+      "note": "expect HISTORICAL in 200 body",
+      "capture": "docs/evidence/m4-independent-review/executed/T-11-caller-current.http.txt"
+    },
+    {
+      "id": "12-cross-project-bundle",
+      "status": 422,
+      "errorCode": "INVALID_INPUT",
+      "verdict": null,
+      "note": "bundle from different project",
+      "capture": "docs/evidence/m4-independent-review/executed/T-12-cross-project-bundle.http.txt"
+    },
+    {
+      "id": "13-manipulated-witness",
+      "status": 200,
+      "errorCode": null,
+      "verdict": "DIFFERENT",
+      "note": "witness input bit changed",
+      "capture": "docs/evidence/m4-independent-review/executed/T-13-manipulated-witness.http.txt"
+    },
+    {
+      "id": "14-parallel-exhaustion",
+      "status": [
+        200,
+        200,
+        429,
+        429,
+        429,
+        429
+      ],
+      "errorCode": null,
+      "verdict": null,
+      "note": "six concurrent compare requests; documented concurrency is two",
+      "capture": "docs/evidence/m4-independent-review/executed/T-14-parallel-exhaustion.http.txt"
+    }
+  ]
+}
