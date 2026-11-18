@@ -8,7 +8,7 @@ All 100 M4-B paths remain byte-identical to their source commit. Existing schema
 
 ## Product acceptance scope
 
-The machine-readable [case results](M4_CASE_RESULTS.json) are extracted from actual JUnit properties and Chromium JSON results. They include the 30 independent CLI cases, planned capabilities, ten neutral regenerations, ten proof attacks, concurrency, and explicit mappings for J01â€“J13, E01â€“E12 and B01â€“B11. Mappings list the executed paths supporting each scenario. The historical M4-B labels remain intact.
+The machine-readable [case results](M4_CASE_RESULTS.json) are extracted from actual JUnit properties and Chromium JSON results. They include the 30 independent CLI cases, planned capabilities, ten neutral regenerations, ten proof attacks, concurrency, and explicit mappings for J01Ã¢â‚¬â€œJ13, E01Ã¢â‚¬â€œE12 and B01Ã¢â‚¬â€œB11. Mappings list the executed paths supporting each scenario. The historical M4-B labels remain intact.
 
 C18 now executes the implemented pre-flight with a refused loopback endpoint and yields UNKNOWN. C19 exports JSON evidence. C20 preserves the legacy bare sample behavior. P04 invokes the explicit half-adder variant. P02 and P03 exercise the implemented JSON evidence format and independent project pins. The ZIP/SHA256SUMS proposal is inapplicable to this implementation.
 
@@ -56,6 +56,16 @@ CI executes the same Python and browser suites on Windows and Linux, plus Ruff, 
 
 See [local usage and trust boundaries](M4_A_HANDOFF.md) for installation and supported CLI commands. Session storage now retains the active project through refresh within the same browser session. A saved project file remains the portable recovery format.
 
+## Executed results
+
+The tested integration commit is **e749e7d**. Linux CI run **44325254548** passed **514/514 Python tests** and **10/10 Chromium tests**, including all 465 inherited cases. The committed case report is the actual Linux CI artifact, with per-case commands, expected/actual outcomes and provenance mappings. Browser checks also passed locally. The Windows job runs the same matrix and its completion is reported with the PR.
+
+The initial full runs found the namespace allowlist conflict and normalized-Git-byte pin mismatch, which were corrected. A local run overlapped two suites and timed out in the inherited 120-second independent M3 regeneration subprocess. The deadline was retained. The isolated CI regeneration passed. No security assertion or native resource limit was weakened.
+
+The design detector flagged existing typography and accent-border conventions. These are retained under the approved Flip styling. Automated accessibility checks passed.
+
 ## Decision
+
+**M4 PASS for the automated local product acceptance scope.**
 
 M4 acceptance is limited to the local developer workflow with the explicitly documented manual screen-reader limitation. M5 readiness requires independent review of this integration. Public hosting remains blocked pending deployment-specific authentication, process isolation, aggregate budgets and request controls. M4-C adds no signing, wallet, payment or transaction broadcast path.
