@@ -1,0 +1,65 @@
+{
+  "baseline": "09f2482beae84be6d919ecd6957c4153d1924cca",
+  "files": {
+    ".gitattributes": {
+      "bytes": 62,
+      "sha256": "5e9d88edc02f7d4f70a0b3c42d361f7a32184793276782d95529002ca5c01058"
+    },
+    "cli-run/01-sample.stdout.json": {
+      "bytes": 6329,
+      "sha256": "1c9c621563ea5fafbb8c251cf053c1f57fd576177d1e551038154d698e9e7da1"
+    },
+    "cli-run/02-compose.stdout.json": {
+      "bytes": 3587,
+      "sha256": "5fb2395a0d7104a8a8782c1b0de33a4e749427de34ec46073e983f42b5106c1b"
+    },
+    "cli-run/03-compare.stdout.json": {
+      "bytes": 15954,
+      "sha256": "65fce444634265dc3c3e28dd608aab76d08126c744eeac3ed67218dfefce2f95"
+    },
+    "cli-run/03-comparison.json": {
+      "bytes": 15952,
+      "sha256": "7ff6d05033e804c604e33d90a505d170ee0cae3a8e5647a7542d08693660126e"
+    },
+    "cli-run/04-swapped.stdout.json": {
+      "bytes": 6329,
+      "sha256": "0aab1b9bc2d125e416738f0006d7d962fb8d1d795ce19a7a47c9fb58b9cb340b"
+    },
+    "cli-run/05-compare-swapped.stdout.json": {
+      "bytes": 16205,
+      "sha256": "5a97cd8e8f797aadd1956c5b328b918c01789589dc749d7f72dcf60016dffd13"
+    },
+    "cli-run/05-difference.json": {
+      "bytes": 16203,
+      "sha256": "6cbc86bb139fa859f9d0d4593b58470db761e2d1eff886bb52b54b1fd08a1006"
+    },
+    "cli-run/06-export.stdout.json": {
+      "bytes": 16586,
+      "sha256": "951bc3486d584f23e61bbd51c4ee194123bdf3b677c11566727f575846140f11"
+    },
+    "cli-run/07-inspect.json": {
+      "bytes": 451,
+      "sha256": "ff87081d0f2bb29bfd13cf41b3159e68bdbc62c773c533fc67e5aa4146c1b52a"
+    },
+    "cli-run/08-verify.json": {
+      "bytes": 16205,
+      "sha256": "8bb78ed03352800af670303f287abb9d51876875d14548b93cded2f06cfcd62d"
+    },
+    "cli-run/composition.json": {
+      "bytes": 3585,
+      "sha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96"
+    },
+    "cli-run/evidence.json": {
+      "bytes": 16584,
+      "sha256": "fb68eb093660080c2bf4a1d3dd3fd7648d0f5cf52311952673b7298b2458c6f4"
+    },
+    "cli-run/mutation.json": {
+      "bytes": 6327,
+      "sha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1"
+    },
+    "cli-run/project.json": {
+      "bytes": 6327,
+      "sha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11"
+    }
+  }
+}
