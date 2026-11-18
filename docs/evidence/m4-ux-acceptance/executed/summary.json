@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "m4-ux-acceptance-1",
+  "baseline": "af8ba1f109a2a1c59fe36be044bc025a127ea025",
+  "caseCount": 30,
+  "cases": [
+    {
+      "id": "C01",
+      "exitCode": 0,
+      "command": "flip --version",
+      "semantic": {
+        "parse": "NOT_JSON"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C02",
+      "exitCode": 0,
+      "command": "flip --help",
+      "semantic": {
+        "parse": "NOT_JSON"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C03",
+      "exitCode": 0,
+      "command": "flip compose --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "semantic": {
+        "kind": "COMPOSITION_RESULT",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C04",
+      "exitCode": 0,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C05",
+      "exitCode": 1,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-different-output-order.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "DIFFERENT",
+        "reasonCode": null,
+        "solverOutcome": "SAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": "REF_BEAT_REPRODUCED"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C06",
+      "exitCode": 2,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-unknown-timeout.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "UNKNOWN",
+        "reasonCode": "SOLVER_TIMEOUT",
+        "solverOutcome": "INTERRUPTED",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C07",
+      "exitCode": 0,
+      "command": "flip vectors --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-vectors.json",
+      "semantic": {
+        "kind": "USER_VECTOR_RESULT",
+        "verdict": "VECTORS_MATCH",
+        "coverage": "EXHAUSTIVE_DECLARED_DOMAIN",
+        "freshness": "HISTORICAL"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C08",
+      "exitCode": 0,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-current-freshness-claim.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C09",
+      "exitCode": 3,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/malformed-request.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C10",
+      "exitCode": 3,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/unsupported-version.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C11",
+      "exitCode": 3,
+      "command": "flip inspect --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C12",
+      "exitCode": 3,
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/invalid-pin-map.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C13",
+      "exitCode": 3,
+      "command": "flip import --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C14",
+      "exitCode": 4,
+      "command": "flip inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "semantic": {
+        "errorCode": "RPC_UNAVAILABLE"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C15",
+      "exitCode": 0,
+      "command": "flip validate circuit-identity docs/schema/examples/circuit-identity.json",
+      "semantic": {
+        "keys": [
+          "chainId",
+          "circuitId",
+          "processor",
+          "schemaVersion"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C16",
+      "exitCode": 0,
+      "command": "flip canonical circuit-identity docs/schema/examples/circuit-identity.json",
+      "semantic": {
+        "keys": [
+          "chainId",
+          "circuitId",
+          "processor",
+          "schemaVersion"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C17",
+      "exitCode": 0,
+      "command": "flip hash manifest docs/schema/examples/manifest.json",
+      "semantic": {
+        "keys": [
+          "hash",
+          "profile"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C18",
+      "exitCode": 6,
+      "command": "flip preflight --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C19",
+      "exitCode": 6,
+      "command": "flip export --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C20",
+      "exitCode": 6,
+      "command": "flip sample",
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C21",
+      "exitCode": 3,
+      "command": "flip revalidate --chain-id 8453 --manifest fixtures/m4-ux-acceptance/cli-cases/requests/import-manifest.json",
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C22",
+      "exitCode": 0,
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-valid.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C23",
+      "exitCode": 3,
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-forged-verdict.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C24",
+      "exitCode": 3,
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-changed-reference.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C25",
+      "exitCode": 3,
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-current-relabel.json",
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C26",
+      "exitCode": 1,
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-different.json",
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "DIFFERENT",
+        "reasonCode": null,
+        "solverOutcome": "SAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": "REF_BEAT_REPRODUCED"
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    },
+    {
+      "id": "C27",
+      "exitCode": 0,
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:49496 --timeout-ms 2000 --retries 0",
+      "semantic": {
+        "freshness": "CURRENT"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES"
+    },
+    {
+      "id": "C28",
+      "exitCode": 3,
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:49621 --timeout-ms 2000 --retries 0",
+      "semantic": {
+        "errorCode": "MISSING_REFERENCE"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES"
+    },
+    {
+      "id": "C30",
+      "exitCode": 7,
+      "command": "flip revalidate --manifest fixtures\\m4-ux-acceptance\\cli-cases\\requests\\import-manifest-local-double.json --rpc-url http://127.0.0.1:49637 --timeout-ms 2000 --retries 0",
+      "semantic": {
+        "freshness": "STALE"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES"
+    },
+    {
+      "id": "C29",
+      "exitCode": 0,
+      "command": "flip compose --project .../half-adder-equivalent.json (x100)",
+      "semantic": {
+        "distinctNetlistHashes": [
+          "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+        ],
+        "auditedDigest": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "builds": 100
+      },
+      "provenance": "PINNED_M3_BASELINE"
+    }
+  ]
+}

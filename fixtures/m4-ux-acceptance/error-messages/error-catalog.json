@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "m4-ux-acceptance-1",
+  "title": "Flip M4-B plain-language error catalogue",
+  "reviewPrinciples": [
+    "State what happened, what it does not mean, and the next safe action.",
+    "Never say a detected DIFFERENT result means the user's circuit is wrong or broken.",
+    "A timeout or resource ceiling is always UNKNOWN, never EQUIVALENT and never a failure of the user's design.",
+    "Keep the machine code visible, but place it inside an expandable 'Technical details' disclosure.",
+    "Never use 'safe', 'verified on chain', 'published', 'formally correct application' or 'guaranteed' as a status label.",
+    "Status must be conveyed by text, not colour or icon alone."
+  ],
+  "errors": [
+    {
+      "id": "E01",
+      "topic": "Wrong network",
+      "title": "This circuit is on the wrong network",
+      "plainLanguage": "Flip only works with X Layer mainnet (chain 196). The connected network or the circuit identity says a different chain, so nothing was read from it.",
+      "doesNotMean": "It does not mean the circuit is invalid on its own chain; it means Flip cannot reason about it under its supported network rules.",
+      "nextAction": "Connect to X Layer mainnet and start again. Flip checks the chain ID each session; a URL label is never trusted.",
+      "technicalDetails": {
+        "code": "WRONG_CHAIN",
+        "cliExit": 3,
+        "detectedBy": "chain check before any state read",
+        "executedCases": ["C11", "C13", "C21"]
+      },
+      "ux": "Show the expected chain (196) and the observed chain as separate labelled values."
+    },
+    {
+      "id": "E02",
+      "topic": "Circuit not found",
+      "title": "That circuit ID could not be found",
+      "plainLanguage": "The processor is registered, but it reports that this circuit ID does not exist at the observed block.",
+      "doesNotMean": "It does not mean the processor is broken or that another chain has no such circuit.",
+      "nextAction": "Check the decimal circuit ID, then try again. If you expected it to exist, verify the processor address and the block you are reading.",
+      "technicalDetails": {
+        "code": "MISSING_REFERENCE",
+        "cliExit": 3,
+        "detectedBy": "nextId comparison before netlist read",
+        "executedCases": ["C28"]
+      },
+      "ux": "Keep the entered identity in the form so the user can correct a single field."
+    },
+    {
+      "id": "E03",
+      "topic": "Invalid input mapping",
+      "title": "A pin mapping points somewhere that does not exist",
+      "plainLanguage": "One of the declared input or output pins refers to a position the circuit does not have. Flip stopped before solving anything.",
+      "doesNotMean": "It does not mean the wiring idea is wrong; it means the numeric description of it is incomplete or out of range.",
+      "nextAction": "Open the mapping table, correct the highlighted pin index, and confirm the widths on both sides.",
+      "technicalDetails": {
+        "code": "INVALID_INPUT",
+        "cliExit": 3,
+        "detectedBy": "interface validation before SAT",
+        "executedCases": ["C12"]
+      },
+      "ux": "Name the exact field, the supplied index and the valid range in text; focus the offending cell."
+    },
+    {
+      "id": "E04",
+      "topic": "Stale verification",
+      "title": "This evidence is no longer current",
+      "plainLanguage": "The environment or a dependency changed after this comparison was made. The old report is still available to read, but Flip will not label it current.",
+      "doesNotMean": "It does not mean the old result was wrong when it was produced, and it does not mean the new environment behaves differently.",
+      "nextAction": "Re-import the changed sources and run the comparison again. Keep the historical report for review if you need it.",
+      "technicalDetails": {
+        "code": "STALE (freshness) / IMPLEMENTATION_CHANGED (binding)",
+        "cliExit": 7,
+        "detectedBy": "revalidation of manifest/environment hashes; consumer pin check",
+        "executedCases": ["C24", "C30"]
+      },
+      "ux": "Show 'not current' as a persistent text label on the historical report, not a greyed-out colour alone."
+    },
+    {
+      "id": "E05",
+      "topic": "Changed processor implementation",
+      "title": "The processor implementation changed behind the same address",
+      "plainLanguage": "The proxy address is unchanged, but the implementation or beacon code it points to is different from the one pinned in the evidence. Proxy identity alone is not enough to carry a verification forward.",
+      "doesNotMean": "It does not prove malicious behaviour or a bug in your circuit.",
+      "nextAction": "Treat the previous report as historical, refresh the environment snapshot and repeat the comparison.",
+      "technicalDetails": {
+        "code": "IMPLEMENTATION_CHANGED",
+        "cliExit": 7,
+        "detectedBy": "environment implementation/code hash comparison",
+        "executedCases": ["C30"]
+      },
+      "ux": "List which hash changed (factory implementation, beacon implementation or processor code) with copyable values."
+    },
+    {
+      "id": "E06",
+      "topic": "Solver timeout",
+      "title": "The comparison could not finish in the allowed time",
+      "plainLanguage": "The solver reached its time limit before it could decide the question. The result is inconclusive (UNKNOWN). Flip did not decide that the circuits are equal.",
+      "doesNotMean": "It does not mean either circuit is correct, incorrect, equal or different.",
+      "nextAction": "Retry with a larger allowed deadline (up to 5 seconds) or a smaller circuit, then read the new result on its own merits.",
+      "technicalDetails": {
+        "code": "SOLVER_TIMEOUT → UNKNOWN",
+        "cliExit": 2,
+        "reasonCode": "SOLVER_TIMEOUT",
+        "solverOutcome": "INTERRUPTED",
+        "executedCases": ["C06"]
+      },
+      "ux": "The text 'Inconclusive — solver timed out' must be present; a spinner alone is not an error message."
+    },
+    {
+      "id": "E07",
+      "topic": "Resource limit exceeded",
+      "title": "The circuit is too large for the supported budget",
+      "plainLanguage": "Flip stopped before finishing because the circuit would exceed its published gate, depth, memory or request limits. The result is UNKNOWN.",
+      "doesNotMean": "It does not mean the circuit can never be compared; it means this bounded engine did not complete it.",
+      "nextAction": "Reduce gate count or REF depth within the documented caps (2,500 default, 5,000 maximum, depth 64) and retry.",
+      "technicalDetails": {
+        "code": "RESOURCE_LIMIT → UNKNOWN",
+        "cliExit": 2,
+        "limits": "2,500 gates default / 5,000 max / 5 s / 64 MiB / REF depth 64",
+        "executedCases": ["C06 (deadline boundary)"]
+      },
+      "ux": "Name the specific limit reached and the allowed maximum; do not present a generic 'error'."
+    },
+    {
+      "id": "E08",
+      "topic": "Missing reference or intent",
+      "title": "Flip needs a comparison target — and a declared reason for trusting it",
+      "plainLanguage": "A pairwise comparison needs a second circuit or an explicit pin correspondence. If those are missing, Flip cannot compare. If only the intent declaration is missing, a behavioural diff is still possible, but Flip will say that intended correctness is unknown.",
+      "doesNotMean": "A missing intent declaration does not erase a valid pairwise EQUIVALENT or DIFFERENT finding; it only limits what you may claim about correctness.",
+      "nextAction": "Choose a trusted reference or previous version and declare why you trust it, or select behavioural diff and read the result as 'same/different behaviour, intent unknown'.",
+      "technicalDetails": {
+        "code": "INVALID_INPUT / UNKNOWN for missing target or map; intent UNDECLARED is valid and labelled",
+        "cliExit": "3 for invalid input, 2 for UNKNOWN",
+        "executedCases": ["C04 (UNDECLARED behavioural result)", "C12 (missing/invalid map)"]
+      },
+      "ux": "The intent control needs a visible legend: trusted reference, previous version, or undeclared behavioural diff."
+    },
+    {
+      "id": "E09",
+      "topic": "Different circuit behavior",
+      "title": "The two circuits behave differently on at least one input",
+      "plainLanguage": "Flip found a concrete input where the two circuits produce different outputs and replayed it independently on both circuits. The input and both outputs are shown so you can investigate.",
+      "doesNotMean": "It does not mean your circuit is wrong, buggy or unsafe. Without a trusted oracle, Flip cannot say which behaviour is the intended one — only that they differ.",
+      "nextAction": "Inspect the counterexample, decide which behaviour is intended for your use case, and adjust the mapping or implementation accordingly.",
+      "technicalDetails": {
+        "code": "DIFFERENT (verdict, not an error)",
+        "cliExit": 1,
+        "witnessReplay": "REF_BEAT_REPRODUCED",
+        "minimization": "HEURISTIC — not claimed globally minimal",
+        "executedCases": ["C05", "C26"]
+      },
+      "ux": "Use wording 'the two circuits differ', never 'your circuit failed' or 'bug detected'. Compare output columns by name and bit index."
+    },
+    {
+      "id": "E10",
+      "topic": "RPC unavailable",
+      "title": "The network reader could not be reached",
+      "plainLanguage": "Flip could not complete the read-only network request, so no current chain information was obtained.",
+      "doesNotMean": "It is not a verification verdict and not evidence that the circuit does not exist.",
+      "nextAction": "Check the endpoint and retry. You can continue with an explicitly labelled offline historical fixture, but it will not be marked current.",
+      "technicalDetails": {
+        "code": "RPC_UNAVAILABLE",
+        "cliExit": 4,
+        "executedCases": ["C14"]
+      },
+      "ux": "Offer a labelled retry with editable endpoint/timeout; preserve the entered form state."
+    },
+    {
+      "id": "E11",
+      "topic": "Structural pre-flight rejection",
+      "title": "The structural readiness check rejected this candidate",
+      "plainLanguage": "The read-only publication checks reached a known structural validator and it rejected the candidate for a specific reason. No transaction was sent.",
+      "doesNotMean": "It does not mean the chain is unavailable for every candidate, and it does not mean publication succeeded or failed financially.",
+      "nextAction": "Read the named failed check, correct the candidate, and run pre-flight again.",
+      "technicalDetails": {
+        "code": "STRUCTURALLY_REJECTED (frozen exit 8, reserved in M3)",
+        "cliExit": 8,
+        "baselineObservation": "not executed; preflight returned NOT_IMPLEMENTED (C18)",
+        "plannedCase": "P01"
+      },
+      "ux": "Show the exact rejected check and keep 'read-only, no transaction was broadcast' visible."
+    },
+    {
+      "id": "E12",
+      "topic": "Inconclusive pre-flight",
+      "title": "Structural readiness could not be determined",
+      "plainLanguage": "Flip could not complete the read-only structural check, so the pre-flight status is UNKNOWN. This is not a structural pass.",
+      "doesNotMean": "It does not mean the circuit is structurally acceptable, and it must never be reported as a successful simulation or publication.",
+      "nextAction": "Retry when the reader/override is available. If the reason is unrecognised, keep the status UNKNOWN and report the raw reason in technical details.",
+      "technicalDetails": {
+        "code": "UNKNOWN (preflight status; separate from verification UNKNOWN)",
+        "cliExit": "completed attempt uses the UNKNOWN result class; no dedicated frozen preflight exit was exercised",
+        "baselineObservation": "not executed; specification only",
+        "plannedCase": "P01"
+      },
+      "ux": "Never render UNKNOWN pre-flight in the same visual style as STRUCTURALLY_ACCEPTED."
+    }
+  ]
+}

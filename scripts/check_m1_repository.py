@@ -21,6 +21,7 @@ M3_B = "4822a05163166ec67b791328e2d1de490fa1c35f"
 # remain byte-identical. No test is removed/skipped and historical gaps stay gaps.
 M2C_REPORT_ONLY_TEST_SHA = "5f6cb596e5e669c4efe64fc270391768645bde6207a8fef4812e2040f4f9eaf2"
 M2C_TEST_CORRECTION = {"packages/flip-core/tests/test_m1_integration.py": M2C_REPORT_ONLY_TEST_SHA}
+M4C_REPORT_ONLY_TEST_SHA = "81ffaa464609a66d2356104a1c4db6a0c5f1b81e3cd326f8f114063f46125680"
 M3C_REPORT_ONLY_TEST_SHA = "f29d3b9983ee9df7472d9a7ac306ab1032d4a1182c75391048acf029dc853f49"
 
 
@@ -56,6 +57,21 @@ def review() -> dict:
             ).returncode
             == 0,
             f"agent commit absent from integration history: {commit}",
+        )
+    m4b = "52814f5cef02716f4a9e49842ae520cdf7937a31"
+    for path in git("diff", "--name-only", m4b + "^", m4b).decode().splitlines():
+        require(blob("HEAD", path) == blob(m4b, path), f"M4-B archival file changed: {path}")
+        require((ROOT / path).read_bytes() == blob(m4b, path), f"M4-B checkout changed: {path}")
+    review_commit = "7a4d85e9d7b280b6a2d11fa4420889f555d499f0"
+    for path in (
+        git("diff", "--name-only", review_commit + "^", review_commit).decode().splitlines()
+    ):
+        require(
+            blob("HEAD", path) == blob(review_commit, path), f"Independent review altered: {path}"
+        )
+        require(
+            (ROOT / path).read_bytes() == blob(review_commit, path),
+            f"Review checkout altered: {path}",
         )
     protected = ("AGENTS.md", "docs/product", "docs/architecture", "docs/audits")
     require(not git("diff", SEED, "HEAD", "--", *protected), "protected seed content changed")
@@ -104,6 +120,9 @@ def review() -> dict:
             baseline = blob(M2_A, path)
             corrected = hashlib.sha256(current).hexdigest() in {
                 M2C_TEST_CORRECTION.get(path),
+                M4C_REPORT_ONLY_TEST_SHA
+                if path == "packages/flip-core/tests/test_m1_integration.py"
+                else None,
                 M3C_REPORT_ONLY_TEST_SHA
                 if path == "packages/flip-core/tests/test_m1_integration.py"
                 else None,
@@ -136,7 +155,8 @@ def review() -> dict:
         if "/tests/" in path:
             corrected = (
                 path == "packages/flip-core/tests/test_m1_integration.py"
-                and hashlib.sha256(blob("HEAD", path)).hexdigest() == M3C_REPORT_ONLY_TEST_SHA
+                and hashlib.sha256(blob("HEAD", path)).hexdigest()
+                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA)
             )
             require(
                 blob("HEAD", path) == blob(M3_A, path) or corrected, f"M3-A test altered: {path}"

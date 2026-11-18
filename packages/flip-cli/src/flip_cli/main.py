@@ -14,6 +14,18 @@ from flip_core.models import CONTRACTS
 from pydantic import ValidationError
 
 
+def write_result(path, result):
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
+            temporary = handle.name
+            handle.write(canonical_bytes(result) + b"\n")
+        os.replace(temporary, path)
+    finally:
+        if temporary and os.path.exists(temporary):
+            os.unlink(temporary)
+
+
 def import_operation(args):
     from flip_core.import_models import ImportBudget
     from flip_core.importer import ImportService
@@ -65,15 +77,7 @@ def import_operation(args):
             result = service.import_circuit(identity, args.block_number)
         if args.out:
             # Complete validated JSON only, replaced atomically in the requested directory.
-            temporary = None
-            try:
-                with tempfile.NamedTemporaryFile(dir=args.out.parent, delete=False) as handle:
-                    temporary = handle.name
-                    handle.write(canonical_bytes(result) + b"\n")
-                os.replace(temporary, args.out)
-            finally:
-                if temporary and os.path.exists(temporary):
-                    os.unlink(temporary)
+            write_result(args.out, result)
         return result
     except (ValidationError, OSError) as exc:
         raise ContractError(
@@ -112,33 +116,43 @@ def main(argv: list[str] | None = None) -> int:
         command = commands.add_parser(operation, help=f"{operation} a versioned contract")
         command.add_argument("kind", choices=CONTRACTS)
         command.add_argument("file", type=Path)
-    for operation in (
-        "sample",
-        "import",
-        "inspect",
-        "compose",
-        "compare",
-        "vectors",
-        "consume",
-        "preflight",
-        "revalidate",
-        "export",
-        "verify-bundle",
-    ):
-        supported = operation in (
-            "import",
-            "inspect",
-            "revalidate",
-            "compose",
-            "compare",
-            "vectors",
-            "consume",
+    operations = {
+        "sample": "Open the historical half-adder or swapped-output project",
+        "import": "Read and pin an X Layer circuit and its dependency closure",
+        "inspect": "Inspect an X Layer circuit by processor address and ID",
+        "new-project": "Wrap an imported stateless circuit as a candidate and baseline",
+        "compose": "Build deterministic TAP-02 bytes from a pinned project",
+        "compare": "Run bounded local stateless verification and replay differences",
+        "vectors": "Evaluate user-supplied input/output rows",
+        "consume": "Replay an M3 report against externally pinned identities",
+        "preflight": "Probe current X Layer structure with a read-only call",
+        "revalidate": "Re-read a manifest and report changed dependencies",
+        "export": "Run comparison and save portable evidence",
+        "inspect-evidence": "Inspect recorded evidence claims without trusting them",
+        "verify-bundle": "Recompute evidence against a separately selected project",
+    }
+    for operation, help_text in operations.items():
+        command = commands.add_parser(operation, help=help_text, description=help_text)
+        if operation == "new-project":
+            command.add_argument("--source", type=Path, help="Validated circuit import JSON")
+        if operation == "sample":
+            command.add_argument(
+                "variant",
+                nargs="?",
+                choices=["half-adder", "swapped"],
+                help="Historical half-adder or its swapped-output mutation",
+            )
+        if operation in ("inspect-evidence", "verify-bundle"):
+            command.add_argument("--bundle", type=Path, help="Evidence to replay against --project")
+        if operation == "export":
+            command.add_argument(
+                "--observe-chain",
+                action="store_true",
+                help="Attach a fresh read-only structural observation",
+            )
+        command.add_argument(
+            "--project", type=Path, help="Execution request with project and pinned source imports"
         )
-        command = commands.add_parser(
-            operation,
-            help="shared core operation" if supported else "reserved; returns NOT_IMPLEMENTED",
-        )
-        command.add_argument("--project", type=Path)
         command.add_argument("--out", type=Path)
         command.add_argument("--format", choices=["json"], default="json")
         if operation in ("import", "inspect", "revalidate"):
@@ -157,6 +171,71 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if (
+            (args.command == "inspect-evidence" and args.bundle)
+            or (args.command == "new-project" and args.source)
+            or (args.command == "sample" and args.variant)
+            or (args.command in ("export", "verify-bundle", "preflight") and args.project)
+        ):
+            from flip_core.canonical import load_json
+            from flip_core.workflow import VERSION, inspect_evidence, product, sample
+
+            def read_file(path):
+                if path is None:
+                    raise ContractError(
+                        "INVALID_INPUT", "Evidence replay requires --bundle and --project."
+                    )
+                with path.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                if len(raw) > 1_048_576:
+                    raise ContractError("RESOURCE_LIMIT", "Product input exceeds 1 MiB.")
+                return load_json(raw)
+
+            try:
+                if args.command == "inspect-evidence":
+                    result = inspect_evidence(read_file(args.bundle))
+                elif args.command == "new-project":
+                    result = product(
+                        "new-project",
+                        dict(
+                            kind="PRODUCT_REQUEST",
+                            schemaVersion=VERSION,
+                            source=read_file(args.source),
+                        ),
+                    )
+                elif args.command == "sample":
+                    result = sample(args.variant)
+                else:
+                    body = dict(
+                        schemaVersion=VERSION,
+                        kind="PRODUCT_REQUEST",
+                        executionRequest=read_file(args.project),
+                    )
+                    if args.command == "verify-bundle":
+                        body["bundle"] = read_file(args.bundle)
+                    if args.command == "export":
+                        body["observeChain"] = args.observe_chain
+                    result = product(args.command, body)
+                if args.out:
+                    write_result(args.out, result)
+            except ContractError:
+                raise
+            except (OSError, ValueError, RecursionError) as exc:
+                raise ContractError(
+                    "INVALID_INPUT", "Invalid product input or output file."
+                ) from exc
+            emit(result)
+            outcome = (
+                result.get("comparison", result)
+                .get("report", {})
+                .get("verification", {})
+                .get("verdict")
+            )
+            if outcome == "DIFFERENT":
+                return ExitCode.DIFFERENT
+            if result.get("status") == "REJECTED":
+                return ExitCode.STRUCTURALLY_REJECTED
+            return ExitCode.UNKNOWN if "UNKNOWN" in (outcome, result.get("status")) else ExitCode.OK
         if args.command in ("compose", "compare", "vectors", "consume") and args.project:
             from flip_core.verification import execute
 
@@ -167,7 +246,7 @@ def main(argv: list[str] | None = None) -> int:
                     raise ContractError("RESOURCE_LIMIT", "M3 request file exceeds 4 MiB.")
                 result = execute(args.command, raw)
                 if args.out:
-                    args.out.write_bytes(canonical_bytes(result) + b"\n")
+                    write_result(args.out, result)
             except OSError as exc:
                 raise ContractError(
                     "INVALID_INPUT", "Cannot read/write M3 request/result file."

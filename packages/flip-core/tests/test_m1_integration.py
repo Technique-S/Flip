@@ -172,6 +172,11 @@ def test_report_only_gaps_are_not_executable_golden_fixtures():
         for path in (ROOT / "fixtures").rglob("*.json")
         if not any(
             path.is_relative_to(ROOT / namespace)
-            for namespace in ("fixtures/m2-adversarial", "fixtures/m3-verification")
+            for namespace in (
+                "fixtures/m2-adversarial",
+                "fixtures/m3-verification",
+                "fixtures/m4-ux-acceptance",
+                "fixtures/m4-independent-review",
+            )
         )
     ]

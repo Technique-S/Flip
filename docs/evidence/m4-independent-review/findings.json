@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "m4-independent-review-1",
+  "reviewedCommits": {
+    "fallbackTarget": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+    "integrationTarget": "d6a00352edac93f930184d58605a646f021e1023",
+    "mainMerge": "0bd006336d9ab710706e1e11aa0533636d7fae1e",
+    "m3Baseline": "af8ba1f109a2a1c59fe36be044bc025a127ea025"
+  },
+  "findings": [
+    {
+      "id": "F-01",
+      "severity": "LOW",
+      "status": "RESOLVED_IN_INTEGRATION",
+      "title": "prefers-reduced-motion was not honoured on the fallback target",
+      "target": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+      "evidence": "Emulation.setEmulatedMedia with prefers-reduced-motion=reduce; matchMedia true; getComputedStyle(button).transitionDuration remained '0.12s'. The wildcard rule lost to the element selector on specificity.",
+      "integrationEvidence": "Same emulation on d6a00352 yields transitionDuration '0s' after the ':root body *' specificity fix.",
+      "impact": "Reduced-motion users still saw a short button transition on the product-workflow build.",
+      "recommendation": "Keep the integrated CSS selector; add a regression assertion on computed transition duration."
+    },
+    {
+      "id": "F-02",
+      "severity": "LOW",
+      "status": "OPEN_IN_INTEGRATION",
+      "title": "Mojibake in CSS generated content markers",
+      "target": "d6a00352edac93f930184d58605a646f021e1023",
+      "evidence": "apps/web/src/style.css contains content: 'â–¸', 'â–¾' and 'â†’ ' instead of '▸', '▾' and '→ '. In the browser, getComputedStyle(document.querySelector('.selected th'),'::before').content returns '\"â†’ \"' after focusing a pin source select.",
+      "integrationEvidence": "Observed on the integrated build at 127.0.0.1:8002 with the historical sample open and a pin select focused.",
+      "impact": "The selected-pin cue and disclosure triangles render as garbled characters. A non-colour cue is still present, so this is not a complete loss of information.",
+      "recommendation": "Restore UTF-8 characters and pin the file bytes (for example with a .gitattributes text eol=lf rule) so future normalization cannot corrupt them again."
+    },
+    {
+      "id": "F-03",
+      "severity": "LOW",
+      "status": "OPEN_IN_INTEGRATION",
+      "title": "Duplicated SOLVER_TIMEOUT explanation branch",
+      "target": "d6a00352edac93f930184d58605a646f021e1023",
+      "evidence": "apps/web/src/Comparison.tsx: the nested ternary tests reasonCode === 'SOLVER_TIMEOUT' twice with identical text.",
+      "impact": "Dead code with no behavioral effect; indicates an unreviewed merge edit.",
+      "recommendation": "Remove the duplicate branch and add a unit assertion for the UNKNOWN/SOLVER_TIMEOUT copy."
+    },
+    {
+      "id": "F-04",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_IN_INTEGRATION",
+      "title": "Browser refresh lost the unsaved project on the fallback target",
+      "target": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+      "evidence": "After opening the sample and reloading, the UI returned to 'New project' with no restoration notice; M4-B scenario B09 expected state recovery.",
+      "integrationEvidence": "On d6a00352, sessionStorage 'flip-project' is written, a reload announces 'Project restored from this browser session.', and a confirmed Reset workspace control is present.",
+      "impact": "Loss of in-progress wiring on an ordinary refresh on the fallback target.",
+      "recommendation": "Retain the integrated session-recovery and confirmed-reset implementation."
+    },
+    {
+      "id": "F-05",
+      "severity": "LOW",
+      "status": "RESOLVED_IN_INTEGRATION",
+      "title": "Pre-flight panel did not state that no transaction is broadcast",
+      "target": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+      "evidence": "The fallback Evidence panel described the read-only probe but omitted the explicit no-broadcast caveat.",
+      "integrationEvidence": "The integrated panel reads '... read-only call. No transaction broadcast.'",
+      "impact": "Users could conflate structural acceptance with publication on the fallback build.",
+      "recommendation": "Keep the integrated copy."
+    },
+    {
+      "id": "F-06",
+      "severity": "INFORMATIONAL",
+      "status": "ACCEPTED_DESIGN",
+      "title": "HTTP 200 is used for completed UNKNOWN comparisons",
+      "evidence": "C06 CLI exit 2 with UNKNOWN/SOLVER_TIMEOUT; API acceptances return 200 with an UNKNOWN verdict. The integrated live region announces 'Result: UNKNOWN. Freshness: HISTORICAL. Intent: ...'.",
+      "impact": "Callers that treat 2xx as verification success would misread the result. The machine verdict and the UI announcement are authoritative.",
+      "recommendation": "Keep client-side checks on report.verification.verdict; never on HTTP status alone."
+    },
+    {
+      "id": "F-07",
+      "severity": "INFORMATIONAL",
+      "status": "DISCLOSED",
+      "title": "Corpus pre-flight cases used the CLI default live RPC",
+      "evidence": "C18 on both targets returned STRUCTURALLY_ACCEPTED with fresh live blocks 76243401 (f4d5b3a) and 76244659 (d6a00352), fee 1300000000000000 wei. These are genuine read-only live observations, not local-double results.",
+      "impact": "The corpus replay was not fully offline for C18. No wallet, signing, payment or broadcast was used.",
+      "recommendation": "Do not label C18 as synthetic; use FLIP_RPC_URL with a local double for fully offline replay."
+    },
+    {
+      "id": "F-08",
+      "severity": "INFORMATIONAL",
+      "status": "NO_DEFECT",
+      "title": "Manipulated witness probe was benign",
+      "evidence": "Changing a DIFFERENT claim's witness input from 01 to 10 still passed replay because 10 is also a valid counterexample; the trusted consumer returned a recomputed DIFFERENT with witness input 01, not the altered claim.",
+      "impact": "None. The returned result was recomputed by the consumer.",
+      "recommendation": "Use a witness input that does not reproduce the claimed outputs when testing rejection."
+    },
+    {
+      "id": "F-09",
+      "severity": "INFORMATIONAL",
+      "status": "OBSERVED",
+      "title": "Local-only controls verified; public hosting remains out of scope",
+      "evidence": "Listeners bound only to 127.0.0.1 on ports 8000/8001/8002; no-opt-in server returned 501 for /api/v1/compare; Host spoof 400, cross-origin 403, cross-site 403, 1.1 MiB body 413, six parallel compares produced [200,200,429,429,429,429].",
+      "impact": "No public solver exposure was found on the supported local deployment.",
+      "recommendation": "Do not deploy publicly without deployment-specific authentication, rate/concurrency controls and aggregate resource limits."
+    }
+  ],
+  "verdict": {
+    "forgedProofAcceptance": "NOT_OBSERVED",
+    "publicSolverExposure": "NOT_OBSERVED",
+    "releaseBlocker": false,
+    "m4FailRecommended": false,
+    "recommendation": "CONDITIONAL_ACCEPT for bounded local/offline deployment; fix F-02 and F-03; public hosting BLOCKED"
+  }
+}
