@@ -39,6 +39,10 @@ all three schema namespaces, original six Node canonical vectors plus the new
 full M3 request hash-parity test, real ASGI/CLI smoke, repository/provenance and
 tracked-text secret checks passed. The 86 added tests include the 28 benchmark
 cases. Native timeout/crash/memory probes were actually executed on Windows.
+The first Linux CI run exposed inherited pre-exec RSS telemetry (all solver
+verdicts passed). Worker-scoped address-space telemetry and parent validation
+corrected that issue without increasing any limit. The 28 benchmarks and worker
+probe were then rerun locally (29 passed); see the solver note for the distinction.
 
 The official vector corpus comprises five valid circuits, eight malformed cases
 and five packing-edge cases: **18/18** categories are parameterized and exercised.

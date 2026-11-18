@@ -13,9 +13,13 @@ import time
 
 def peak_bytes():
     if os.name == "posix":
-        import resource
-
-        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+        # ru_maxrss can retain the larger pre-exec fork image of the parent.
+        # VmPeak belongs to this exec's mm and measures the RLIMIT_AS domain.
+        with open("/proc/self/status", encoding="ascii") as handle:
+            for line in handle:
+                if line.startswith("VmPeak:"):
+                    return int(line.split()[1]) * 1024
+        raise RuntimeError("Worker virtual-memory telemetry unavailable")
     import ctypes
     from ctypes import wintypes
 
@@ -106,6 +110,7 @@ def main():
             "witness": witness,
             "minimizationAttempts": attempts,
             "peakBytes": peak_bytes(),
+            "peakMetric": "PRIVATE_COMMIT" if os.name == "nt" else "VIRTUAL_ADDRESS_SPACE",
         }
     print(json.dumps(result, separators=(",", ":")))
 

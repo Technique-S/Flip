@@ -86,9 +86,9 @@ lookup; circuit #1 bytes are the archived real XOR, not newly observed data.
 All 28 verdicts matched; each DIFFERENT completed independent replay.
 
 Windows 5,000-gate self-comparison: 11,254 variables, 30,007 clauses,
-1,395 ms worker wall time, 1,810 ms total validation/encoding/check time,
-30,842,880 bytes peak private commit (29.41 MiB). Across all 28 cases:
-maximum worker wall 1,395 ms, total 1,810 ms, private commit 30,842,880 bytes.
+1,118 ms worker wall time, 1,343 ms total validation/encoding/check time,
+30,785,536 bytes peak private commit (29.36 MiB). Across all 28 cases:
+maximum worker wall 1,118 ms, total 1,343 ms, private commit 31,219,712 bytes.
 The miter includes complete four-clause XOR Tseitin definitions; its clause counts
 are not required to equal the historical experimental encoder's counts.
 
@@ -97,3 +97,11 @@ complexity or production latency SLOs. CI also runs every scale under real Linux
 and Windows containment, and exports its fresh benchmark JSON as workflow
 artifacts. Unit tests actually sleep past a shortened deadline, crash a worker,
 deny an oversized allocation, run a subsequent solver, and reject replay failures.
+
+Linux telemetry uses the new worker image's `/proc/self/status`
+[VmPeak](https://www.kernel.org/doc/html/v6.16/filesystems/proc.html) and is
+explicitly labeled VIRTUAL_ADDRESS_SPACE; Windows uses peak private commit and
+labels PRIVATE_COMMIT. The first CI run exposed that Linux `getrusage().ru_maxrss`
+retained the parent's larger pre-exec fork high-water mark: all 28 solver verdicts
+passed but the metric assertions failed. It was replaced with the worker's own
+memory-map telemetry; no solver/memory limit or expected verdict was relaxed.

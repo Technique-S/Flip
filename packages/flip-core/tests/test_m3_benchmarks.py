@@ -19,5 +19,6 @@ def test_bounded_benchmark(target, mode, expected):
     result = compare(benchmark_request(target, mode))
     assert result["report"]["verification"]["verdict"] == expected, result["resources"]
     assert result["resources"]["peakBytes"] < 64 * 1024**2
+    assert result["resources"]["peakMetric"] in ("PRIVATE_COMMIT", "VIRTUAL_ADDRESS_SPACE")
     if expected == "DIFFERENT":
         assert result["report"]["verification"]["witness"]["replay"] == "REF_BEAT_REPRODUCED"

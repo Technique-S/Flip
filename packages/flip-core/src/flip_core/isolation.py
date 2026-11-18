@@ -132,6 +132,9 @@ def run_worker(clauses, inputs, limits, *, _probe=None):
                 isinstance(value, dict)
                 and value.get("outcome") in ("SAT", "UNSAT")
                 and type(value.get("peakBytes")) is int
+                and 0 < value["peakBytes"] <= limits.solverMemoryMiB * 1024**2
+                and value.get("peakMetric")
+                == ("PRIVATE_COMMIT" if os.name == "nt" else "VIRTUAL_ADDRESS_SPACE")
                 and type(value.get("minimizationAttempts")) is int
                 and 0 <= value["minimizationAttempts"] <= 64
                 and (
