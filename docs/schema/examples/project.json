@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "synthetic",
+  "chainId": 196,
+  "toolVersion": "0.1.0",
+  "sources": [
+    {
+      "alias": "baseline",
+      "identity": {
+        "schemaVersion": "1.0.0",
+        "chainId": 196,
+        "processor": "0xabababababababababababababababababababab",
+        "circuitId": "18446744073709551615"
+      },
+      "manifestHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+      "nIn": 2,
+      "nOut": 1,
+      "nState": 0
+    }
+  ],
+  "candidate": {
+    "nIn": 2,
+    "components": [
+      {
+        "kind": "REF",
+        "instanceId": "componentA",
+        "sourceAlias": "baseline",
+        "inputs": [
+          {
+            "component": null,
+            "pin": 0
+          },
+          {
+            "component": null,
+            "pin": 1
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "component": "componentA",
+        "pin": 0
+      }
+    ]
+  },
+  "comparison": {
+    "kind": "PAIRWISE_EQUIVALENCE",
+    "referenceAlias": "baseline",
+    "intent": "UNDECLARED",
+    "trustAssertion": null,
+    "inputMap": [
+      0,
+      1
+    ],
+    "outputMap": [
+      0
+    ]
+  },
+  "limits": {
+    "gateCap": 2500,
+    "refDepthCap": 64,
+    "solverTimeoutMs": 5000,
+    "solverMemoryMiB": 64
+  }
+}

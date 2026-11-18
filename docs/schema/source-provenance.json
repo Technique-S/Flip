@@ -1,0 +1,64 @@
+{
+  "seedCommit": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+  "upstreamRevision": "527477ecb7cf68ee9e86d8292669d57fe1680572",
+  "sources": [
+    {
+      "path": "TAPs/TAP-02.md",
+      "url": "https://raw.githubusercontent.com/TapeOutProtocol/TAPs/527477ecb7cf68ee9e86d8292669d57fe1680572/TAPs/TAP-02.md",
+      "sha256": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+      "provenance": "UPSTREAM_FETCHED"
+    },
+    {
+      "path": "assets/tap-02/reference.py",
+      "url": "https://raw.githubusercontent.com/TapeOutProtocol/TAPs/527477ecb7cf68ee9e86d8292669d57fe1680572/assets/tap-02/reference.py",
+      "sha256": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+      "provenance": "UPSTREAM_FETCHED"
+    },
+    {
+      "path": "assets/tap-02/vectors.json",
+      "url": "https://raw.githubusercontent.com/TapeOutProtocol/TAPs/527477ecb7cf68ee9e86d8292669d57fe1680572/assets/tap-02/vectors.json",
+      "sha256": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+      "provenance": "UPSTREAM_FETCHED"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "0xfca7a6894bd9ac5f4dac36e74b8e28c4c51af2669992dd916a7f0d88b17bc08c",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/product/CircuitForge_PRD_v1.md",
+      "sha256": "0x5088a4df264e10ba7e43fefc638d3b5d6ffb5b304be9a6d58e7afc17d372c416",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/audits/M05/MVP_CONSTRAINTS.md",
+      "sha256": "0x83aad24b10e24fcb4df14085c7b5f7e31c9367f06ee98ae5875deab0478b1825",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/architecture/FLIP_AGENT_OWNERSHIP_MATRIX.md",
+      "sha256": "0xb9d3b01dcb00e159b621c552424c04ba31abe2ad38f91e66a7f9b3e96b216cd9",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/architecture/FLIP_ARCHITECTURE_DECISIONS.md",
+      "sha256": "0xaa08f4038dafa90c0359c20fd5587f5e32a3a1a80790aa7d24fdf4be08f1040e",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/architecture/FLIP_IMPLEMENTATION_DEPENDENCIES.md",
+      "sha256": "0x44cfd25c2245ca6709a25aaf3d9a93acd249791b052f701d54955f1b3cd9377b",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/architecture/FLIP_SYSTEM_ARCHITECTURE.md",
+      "sha256": "0x63229a973f6f3a0ee95586ca999c59aace3a9708aed7628edca0d6f57517775b",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    },
+    {
+      "path": "docs/architecture/FLIP_TECHNICAL_DESIGN.md",
+      "sha256": "0xae9a0b631e91299ea77fe873b8b968f47915a8a44091a10d29f8b9260c047dfc",
+      "provenance": "UNCHANGED_SEED_GIT_BLOB"
+    }
+  ]
+}

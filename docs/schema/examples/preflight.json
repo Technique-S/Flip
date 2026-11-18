@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "chainId": 196,
+  "candidateNetlistHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+  "manifestHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+  "mode": "READ_ONLY_ETH_CALL",
+  "status": "UNKNOWN",
+  "reasonCode": "NOT_IMPLEMENTED",
+  "observation": null,
+  "integrity": {
+    "freshness": "UNVERIFIED",
+    "checkedBlock": null
+  }
+}

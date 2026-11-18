@@ -1,0 +1,32 @@
+[project]
+name = "flip-workspace"
+version = "0.1.0"
+requires-python = "==3.14.6"
+dependencies = ["flip-core==0.1.0", "flip-cli==0.1.0", "flip-api==0.1.0"]
+
+[dependency-groups]
+dev = ["pytest==9.0.1", "jsonschema==4.25.1", "httpx==0.28.1", "ruff==0.14.5", "setuptools==80.9.0"]
+
+[tool.uv]
+package = false
+required-version = "==0.9.11"
+constraint-dependencies = ["anyio==4.11.0"]
+
+[tool.uv.workspace]
+members = ["packages/flip-core", "packages/flip-cli", "packages/flip-api"]
+
+[tool.uv.sources]
+flip-core = { workspace = true }
+flip-cli = { workspace = true }
+flip-api = { workspace = true }
+
+[tool.pytest.ini_options]
+testpaths = ["packages/flip-core/tests", "packages/flip-cli/tests", "packages/flip-api/tests"]
+addopts = "-ra --basetemp=packages/flip-core/.test-tmp"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
