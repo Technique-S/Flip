@@ -1,0 +1,263 @@
+{
+  "archived_case_count": 9,
+  "archived_live_checks_note": "Historical cross-chain/block labels only; not re-fetched in this task.",
+  "baseline": {
+    "label": "xor1",
+    "manifestHash": "0xb7c6e18daf408462f3fd23dd11ac40be96a696e5791b44667773bf89959601e3"
+  },
+  "cases": [
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "chain-mismatch: expected 196, got 8453"
+        ]
+      },
+      "id": "INT-NEG-01",
+      "issues": [
+        "chain-mismatch: expected 196, got 8453"
+      ],
+      "mutation": "same processor address on wrong chain (Base=8453)",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "circuit-id-mismatch: expected 1, got 2"
+        ]
+      },
+      "id": "INT-NEG-02",
+      "issues": [
+        "circuit-id-mismatch: expected 1, got 2"
+      ],
+      "mutation": "changed circuit ID (1 -> 2)",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "netlist-hash-changed",
+          "netlist-hash-vs-bytes-inconsistent"
+        ]
+      },
+      "id": "INT-NEG-03",
+      "issues": [
+        "netlist-hash-changed",
+        "netlist-hash-vs-bytes-inconsistent"
+      ],
+      "mutation": "changed netlist hash",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "dependency-set-changed"
+        ]
+      },
+      "id": "INT-NEG-04",
+      "issues": [
+        "dependency-set-changed"
+      ],
+      "mutation": "changed referenced dependency (core#102 -> core#101)",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "factory-implementation-changed"
+        ]
+      },
+      "id": "INT-NEG-05",
+      "issues": [
+        "factory-implementation-changed"
+      ],
+      "mutation": "changed factory implementation slot",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "beacon-implementation-changed"
+        ]
+      },
+      "id": "INT-NEG-06",
+      "issues": [
+        "beacon-implementation-changed"
+      ],
+      "mutation": "changed beacon implementation",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "processor-mismatch: expected 0x839BDD6fA7A66416a609A735E11DE5411b98574E, got 0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "id": "INT-NEG-07",
+      "issues": [
+        "processor-mismatch: expected 0x839BDD6fA7A66416a609A735E11DE5411b98574E, got 0x2222222222222222222222222222222222222222"
+      ],
+      "mutation": "unexpected processor identity",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "block-hash-changed"
+        ]
+      },
+      "id": "INT-NEG-08",
+      "issues": [
+        "block-hash-changed"
+      ],
+      "mutation": "stale verification snapshot (old block)",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "detected": true,
+      "expected_outcome": {
+        "detected": true,
+        "issues": [
+          "netlist-hash-vs-bytes-inconsistent"
+        ]
+      },
+      "id": "INT-NEG-09",
+      "issues": [
+        "netlist-hash-vs-bytes-inconsistent"
+      ],
+      "mutation": "inconsistent RPC result (altered netlist bytes at another block)",
+      "not_a_live_observation_in_this_task": true,
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests"
+    },
+    {
+      "expected_outcome": {
+        "code": "INVALID_INPUT",
+        "detected": true,
+        "note": "Current frozen M1 maps missing chainId to WRONG_CHAIN (review F-01); desired taxonomy is INVALID_INPUT."
+      },
+      "id": "INT-EXT-001",
+      "mutation": "circuit identity with chainId field absent",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "Frozen manifest contract 1.0.0 (Snapshot/Environment/Digest/Block/Quantity); M1 independent review F-06; M1 independent review F-01"
+    },
+    {
+      "expected_outcome": {
+        "code": "INVALID_INPUT",
+        "detected": true
+      },
+      "id": "INT-EXT-002",
+      "mutation": "code hash written without the required 0x prefix",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "Frozen manifest contract 1.0.0 (Snapshot/Environment/Digest/Block/Quantity); M1 independent review F-06"
+    },
+    {
+      "expected_outcome": {
+        "code": "BLOCK_HASH_CHANGED",
+        "detected": true
+      },
+      "id": "INT-EXT-003",
+      "mutation": "stale pinned block hash while block number is unchanged",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "DEPENDENCY_HASH_CHANGED",
+        "detected": true
+      },
+      "id": "INT-EXT-004",
+      "mutation": "dependency netlistHash changed inside the closure",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "NETLIST_HASH_VS_BYTES_INCONSISTENT",
+        "detected": true
+      },
+      "id": "INT-EXT-005",
+      "mutation": "declared netlistHash disagrees with SHA-256 of supplied netlist bytes",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "DUPLICATE_CIRCUIT",
+        "detected": true
+      },
+      "id": "INT-EXT-006",
+      "mutation": "duplicate circuit identity appears twice in one closure",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "Frozen Manifest.unique_closure validator; MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "CHAIN_MISMATCH",
+        "detected": true
+      },
+      "id": "INT-EXT-007",
+      "mutation": "same processor address reused with chainId 8453",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "IMPLEMENTATION_CHANGED",
+        "detected": true
+      },
+      "id": "INT-EXT-008",
+      "mutation": "factory implementation hash replaced with beacon implementation hash",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    },
+    {
+      "expected_outcome": {
+        "code": "NETLIST_HASH_VS_BYTES_INCONSISTENT",
+        "detected": true
+      },
+      "id": "INT-EXT-009",
+      "mutation": "netlist bytes truncated at the pinned block but hash unchanged",
+      "not_an_observation": true,
+      "provenance": "SYNTHETIC_EXTENSION",
+      "spec_reference": "MVP_CONSTRAINTS.md §1/§7 (chain-bound identity, dependency closure, environment hashes)"
+    }
+  ],
+  "extension_count": 9,
+  "generated_by": "docs/evidence/m2-adversarial/build_corpus.py (stdlib only)",
+  "immutable_archive_sha256": {
+    "docs/evidence/raw/M05/gate_b_negative.json": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+  },
+  "purpose": "M0.5 nine-negative corpus reproduced verbatim plus synthetic integrity extensions",
+  "schema": "flip-m2-adversarial/integrity-negatives/1"
+}
