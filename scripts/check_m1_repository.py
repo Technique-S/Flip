@@ -148,5 +148,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-clean", action="store_true")
     if parser.parse_args().require_clean:
-        require(not git("status", "--porcelain"), "repository contains staged/unstaged/untracked files")
+        require(
+            not git("status", "--porcelain"), "repository contains staged/unstaged/untracked files"
+        )
     print(json.dumps(review(), indent=2))
