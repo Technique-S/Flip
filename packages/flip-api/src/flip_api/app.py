@@ -165,7 +165,68 @@ async def unavailable() -> Response:
     return json_response(not_implemented(), 501)
 
 
-for operation in ("compose", "compare", "preflight", "export"):
+async def m3_request(request: Request, operation: str) -> Response:
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Request exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    try:
+        value = load_json(bytes(raw))
+        # Frozen report shapes, fabricated claims and legacy placeholders never
+        # opt into execution. New execution requires an explicit additive version.
+        if not isinstance(value, dict) or value.get("kind") != (
+            "M3_CONSUMPTION" if operation == "consume" else "M3_EXECUTION"
+        ):
+            return json_response(not_implemented(), 501)
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown M3 query parameter.")
+        if operation in ("compare", "consume") and (
+            os.getenv("FLIP_LOCAL_SOLVER") != "1"
+            or request.client is None
+            or request.client.host not in ("127.0.0.1", "::1")
+        ):
+            return json_response(not_implemented(), 501)
+        from flip_core.verification import execute
+
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Local execution concurrency exceeded.")
+        try:
+            result = await run_in_threadpool(execute, operation, bytes(raw))
+        finally:
+            _slots.release()
+        return json_response(result)
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    except (ValueError, TypeError, ValidationError, RecursionError):
+        return json_response(
+            ContractError("INVALID_INPUT", "Invalid M3 execution request.").envelope(), 422
+        )
+
+
+@app.post("/api/v1/compose")
+async def compose_circuit(request: Request) -> Response:
+    return await m3_request(request, "compose")
+
+
+@app.post("/api/v1/compare")
+async def compare_circuits(request: Request) -> Response:
+    return await m3_request(request, "compare")
+
+
+@app.post("/api/v1/vectors")
+async def vector_check(request: Request) -> Response:
+    return await m3_request(request, "vectors")
+
+
+@app.post("/api/v1/consume")
+async def consume_proof(request: Request) -> Response:
+    return await m3_request(request, "consume")
+
+
+for operation in ("preflight", "export"):
     app.add_api_route(
         f"/api/v1/{operation}",
         unavailable,
