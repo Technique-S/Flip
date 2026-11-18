@@ -1,0 +1,49 @@
+{
+  "authored_files": [
+    {
+      "bytes": 162585,
+      "path": "fixtures/m3-verification/circuits/golden-compositions.json",
+      "sha256": "fac7da30ba27047af1dbfef3f0bcfe43c93a82e0cf8609824b2354aacd7285c0"
+    },
+    {
+      "bytes": 57965,
+      "path": "fixtures/m3-verification/sat/sat-corpus.json",
+      "sha256": "5823c5af97f4970aae2284a8f997856048f7bdbf98e135f8668c4ee356411fd2"
+    },
+    {
+      "bytes": 12796,
+      "path": "fixtures/m3-verification/witnesses/witness-corpus.json",
+      "sha256": "fa5a6642fffeddb971c1a93b07ab31fb2a2a0759cec0d6283103cd40a71f312d"
+    },
+    {
+      "bytes": 22072,
+      "path": "fixtures/m3-verification/proof-attacks/attack-corpus.json",
+      "sha256": "753e20b37111491e73caee1befa4ef24c59801ed4c018d8c58e95be3338ba3a8"
+    },
+    {
+      "bytes": 534927,
+      "path": "fixtures/m3-verification/benchmarks/benchmark-corpus.json",
+      "sha256": "795a3b2cccc429dbc9ee3efd1f4eeb5d019974eeb64b34249954135d8b4e76f8"
+    }
+  ],
+  "build_info": {
+    "bytes": 914,
+    "path": "fixtures/m3-verification/BUILD_INFO.json",
+    "sha256": "e296a463e5bb5659c3db07dd64eff39732c5d8e130d04950e53212999dc2be0b"
+  },
+  "core_version": "m3-core-1.0.0",
+  "generation_seed": 20261118,
+  "result_files": [
+    {
+      "bytes": 1001,
+      "path": "fixtures/m3-verification/results/verification-results.json",
+      "sha256": "76e53063d825038cb9f6ecd9c91981ef4a996b54166ba077ed68710acbd8f3b0"
+    },
+    {
+      "bytes": 60352,
+      "path": "fixtures/m3-verification/results/benchmark-measurements.json",
+      "sha256": "b75bf4af43b28758b362f1ea666b38726aa1be472dff3daa04fc645fe7cc1fc8"
+    }
+  ],
+  "schema": "flip-m3-verification-manifest/1"
+}

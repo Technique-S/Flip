@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "dual_evaluator_crosscheck": true,
+    "onchain_vector_crosscheck": [
+      {
+        "circuit": "0x839bdd6fa7a66416a609a735e11de5411b98574e:1",
+        "independent_evaluation": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "match": true,
+        "recorded_onchain": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "circuit": "0x839bdd6fa7a66416a609a735e11de5411b98574e:2",
+        "independent_evaluation": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "match": true,
+        "recorded_onchain": [
+          1,
+          1,
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  "core_version": "m3-core-1.0.0",
+  "generation_seed": 20261118,
+  "schema": "flip-m3-verification-results/1",
+  "task_a_case_count": 10,
+  "task_b_agreements": 17,
+  "task_b_case_count": 17,
+  "task_c_all_verified": true,
+  "task_c_witness_count": 8,
+  "task_d_attack_count": 12,
+  "task_e_spec_count": 7
+}
