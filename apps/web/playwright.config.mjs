@@ -13,6 +13,7 @@ const launch = (command) => ({
 });
 export default defineConfig({
 	testDir: "tests",
+ reporter: [["list"],["json",{outputFile:"../../.test-tmp/m4-browser.json"}]],
 	timeout: 60000,
 	workers: 1,
 	outputDir: "../../.test-tmp/browser",

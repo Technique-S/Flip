@@ -37,6 +37,7 @@ jobs:
       - run: uv run --frozen python -m flip_core.verification_schema_export --out docs/schema/m3/1.0.0 --check
       - run: uv run --frozen pytest -q --junitxml="${{ runner.temp }}/m3-tests.xml" -o junit_family=legacy
       - run: uv run --frozen python scripts/report_m3_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --out "${{ runner.temp }}/m3-acceptance.json"
+      - run: uv run --frozen python scripts/report_m4_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --browser .test-tmp/m4-browser.json --out "${{ runner.temp }}/m4-acceptance.json"
       - run: node docs/schema/check-canonical.mjs
       - run: uv run --frozen python scripts/check_m1_repository.py --require-clean
       - run: uv run --frozen python scripts/smoke_m1.py
@@ -49,3 +50,4 @@ jobs:
             ${{ runner.temp }}/m3-benchmark.json
             ${{ runner.temp }}/m3-acceptance.json
             ${{ runner.temp }}/m3-tests.xml
+            ${{ runner.temp }}/m4-acceptance.json

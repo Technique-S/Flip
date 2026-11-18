@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Comparison, Verdict } from "./Comparison";
 import { Composer } from "./Composer";
 import {
@@ -122,6 +122,40 @@ export default function App() {
 		rows: number;
 		mismatches: { inputs: { bits: string }; actual: { bits: string } }[];
 	} | null>(null);
+	const [storageMessage, setStorageMessage] = useState("");
+	const [resetting, setResetting] = useState(false);
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Restore once on mount.
+	useEffect(() => {
+		let saved: string | null = null;
+		try {
+			saved = sessionStorage.getItem("flip-project");
+		} catch {
+			setStorageMessage(
+				"Browser storage unavailable. Save a project file before refreshing.",
+			);
+		}
+		if (saved)
+			void work("Restoring project", async () => {
+				await api("compose", saved);
+				replace(JSON.parse(saved));
+				setOrigin("Restored snapshot");
+				setStorageMessage("Project restored from this browser session.");
+			});
+	}, []);
+	useEffect(() => {
+		if (error) document.getElementById("operation-error")?.focus();
+	}, [error]);
+	useEffect(() => {
+		if (req) {
+			try {
+				sessionStorage.setItem("flip-project", JSON.stringify(req));
+			} catch {
+				setStorageMessage(
+					"Browser storage is full or unavailable. Save the project file before refreshing.",
+				);
+			}
+		}
+	}, [req]);
 	const sampleRows = [
 		["00", "00"],
 		["01", "01"],
@@ -359,6 +393,40 @@ export default function App() {
 					</div>
 				</aside>
 				<main id="workspace" tabIndex={-1}>
+					{storageMessage && <p role="status">{storageMessage}</p>}
+					{req && (
+						<div className="actions">
+							<button type="button" onClick={() => setResetting(true)}>
+								Reset workspace
+							</button>
+							{resetting && (
+								<>
+									<span>Discard this session’s project?</span>
+									<button
+										type="button"
+										onClick={() => {
+											try {
+												sessionStorage.removeItem("flip-project");
+											} catch {}
+											setReq(null);
+											setProof(null);
+											setBuilt(null);
+											setObs(null);
+											setOrigin("");
+											go(0);
+											setResetting(false);
+											setStorageMessage("Workspace reset.");
+										}}
+									>
+										Confirm reset
+									</button>
+									<button type="button" onClick={() => setResetting(false)}>
+										Keep project
+									</button>
+								</>
+							)}
+						</div>
+					)}
 					<div className="trail">
 						Workbench <span>/</span> {pages[page]}
 					</div>
@@ -600,7 +668,7 @@ export default function App() {
 												})
 											}
 										>
-											Run and export evidence
+											Run and export evidence (JSON)
 										</button>
 										<button
 											type="button"
@@ -643,7 +711,8 @@ export default function App() {
 									<h2>Structural pre-flight</h2>
 									<p>
 										Read the current fee, check every pinned dependency, and
-										probe the first source processor with a read-only call.
+										probe the first source processor with a read-only call. No
+										transaction broadcast.
 									</p>
 									<button
 										type="button"
@@ -678,10 +747,22 @@ export default function App() {
 						)}
 					</fieldset>
 					<div role="status" aria-live="polite">
-						{busy || note}
+						{busy ||
+							note ||
+							(proof
+								? "Result: " +
+									proof.report.verification.verdict +
+									". Freshness: " +
+									proof.report.integrity.freshness +
+									". Intent: " +
+									req?.project.comparison.intent +
+									(proof.report.verification.witness
+										? ". Counterexample available."
+										: "")
+								: "")}
 					</div>
 					{error && (
-						<div role="alert">
+						<div role="alert" id="operation-error" tabIndex={-1}>
 							<b>Operation incomplete</b>
 							<p>{error}</p>
 						</div>

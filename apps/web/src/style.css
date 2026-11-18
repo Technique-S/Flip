@@ -372,10 +372,10 @@ input[type="checkbox"] {
 	justify-content: space-between;
 }
 .source summary:before {
-	content: "▸";
+	content: "â–¸";
 }
 .source[open] summary:before {
-	content: "▾";
+	content: "â–¾";
 }
 details summary {
 	cursor: pointer;
@@ -416,7 +416,7 @@ tbody th {
 	font-weight: 700;
 }
 .selected th:before {
-	content: "→ ";
+	content: "â†’ ";
 }
 .different td:nth-child(2),
 .different td:nth-child(3) {
@@ -560,11 +560,15 @@ pre {
 	}
 }
 @media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
+	:root body *,
+	:root body *::before,
+	:root body *::after {
 		transition: none;
 		animation: none;
 		scroll-behavior: auto;
 	}
+}
+#operation-error:focus {
+	outline: 3px solid var(--blue);
+	outline-offset: 3px;
 }
