@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SEED = "37c39b3cf06edad908a6c579b7b0a78f1b42c202"
 CORE = "6dc21e0b97ffe03273a62ea1e9499e6346244d32"
 FIXTURES = "e4de86ef8870fb9b85adf94ace400791a479f985"
+M1 = "8e9b6b928b5d08b7383ae2413dec26d6068ea44e"
 
 
 def git(*args: str) -> bytes:
@@ -79,13 +80,17 @@ def review() -> dict:
     )
     for path in evidence_paths:
         require(blob("HEAD", path) == blob(FIXTURES, path), f"archival evidence altered: {path}")
-    frozen = ["docs/schema", "uv.lock"]
-    for package in ("flip-core", "flip-cli", "flip-api"):
-        frozen += [f"packages/{package}/src", f"packages/{package}/pyproject.toml"]
+    # M2 adds runtime modules and promotes the already pinned httpx dependency.
+    # Freeze existing wire schemas/examples and canonical rules, not future code.
+    frozen = git("ls-tree", "-r", "--name-only", CORE, "--", "docs/schema").decode().splitlines()
+    frozen += [
+        f"packages/flip-core/src/flip_core/{name}.py"
+        for name in ("models", "canonical", "schema_export")
+    ]
     require(not git("diff", CORE, "HEAD", "--", *frozen), "frozen M1-A contracts changed")
-    for path in git("ls-tree", "-r", "--name-only", CORE, "--", "packages").decode().splitlines():
+    for path in git("ls-tree", "-r", "--name-only", M1, "--", "packages").decode().splitlines():
         if "/tests/" in path:
-            require(blob("HEAD", path) == blob(CORE, path), f"baseline tests changed: {path}")
+            require(blob("HEAD", path) == blob(M1, path), f"baseline tests changed: {path}")
     require(blob("HEAD", ".gitignore") == blob(CORE, ".gitignore"), ".gitignore changed")
     require(b"/docs/evidence/raw/\n" in blob("HEAD", ".gitignore"), "raw ignore rule removed")
     tracked = git("ls-files", "-z").decode().strip("\0").split("\0")

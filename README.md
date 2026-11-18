@@ -1,6 +1,21 @@
-# Flip — M1-A foundations
+# Flip — M2-A read-only importer
 
-**Current status: contracts only.** Three Python packages provide versioned models,
+M2 adds bounded X Layer imports, strict TAP-02 structural decoding, REF dependency
+inspection and canonical environment manifests. Proof, composition and preflight
+execution remain unimplemented. See [M2 interfaces](docs/schema/m2/README.md) and
+[M2-A handoff](docs/milestones/M2_A_HANDOFF.md) for limits and reproduction.
+
+```powershell
+.\.venv\Scripts\flip.exe inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1
+.\.venv\Scripts\python.exe -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check
+```
+
+Live smoke is opt-in: `python scripts/smoke_m2_live.py --out capture.json`.
+Mandatory CI uses offline transport fixtures and never contacts an RPC endpoint.
+
+## M1-A foundation notes
+
+**M1-A status (historical): contracts only.** Three Python packages provide versioned models,
 JSON Schemas, deterministic JSON/SHA-256, CLI and API scaffolds. No RPC, evaluator,
 composer or solver is implemented. Product operations return `NOT_IMPLEMENTED`.
 

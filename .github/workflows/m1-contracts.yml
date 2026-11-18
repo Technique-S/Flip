@@ -23,6 +23,7 @@ jobs:
       - run: uv run --frozen ruff check .
       - run: uv run --frozen ruff format --check .
       - run: uv run --frozen flip-schemas --out docs/schema/1.0.0 --check
+      - run: uv run --frozen python -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check
       - run: uv run --frozen pytest -q
       - run: node docs/schema/check-canonical.mjs
       - run: uv run --frozen python scripts/check_m1_repository.py --require-clean
