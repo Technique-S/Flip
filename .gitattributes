@@ -7,3 +7,9 @@
 /.github/** text eol=lf
 /packages/** text eol=lf
 /docs/schema/** text eol=lf
+# Archive bytes are evidence, including CRLF and the documented UTF-16 LE/BOM file.
+/docs/evidence/raw/** -text
+/docs/evidence/derived/recompute_checks.py -text
+/docs/evidence/derived/recomputed_checks.json -text
+/scripts/** text eol=lf
+/docs/milestones/** text eol=lf
