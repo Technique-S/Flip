@@ -74,7 +74,11 @@ def review() -> dict:
             f"Review checkout altered: {path}",
         )
     protected = ("AGENTS.md", "docs/product", "docs/architecture", "docs/audits")
-    require(not git("diff", SEED, "HEAD", "--", *protected), "protected seed content changed")
+    # Preserve every original planning file while allowing additive successor ADRs.
+    protected_files = (
+        git("ls-tree", "-r", "--name-only", SEED, "--", *protected).decode().splitlines()
+    )
+    require(not git("diff", SEED, "HEAD", "--", *protected_files), "protected seed content changed")
     evidence_paths = git("diff", "--name-only", SEED, FIXTURES).decode().splitlines()
     require(
         all(p.startswith(("docs/evidence/", "fixtures/")) for p in evidence_paths),
