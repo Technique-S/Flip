@@ -1,0 +1,404 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "CircuitBytes": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "netlist": {
+          "maxLength": 2000002,
+          "pattern": "^0x(?:[0-9a-f]{2})*$",
+          "title": "Netlist",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlist"
+      ],
+      "title": "CircuitBytes",
+      "type": "object"
+    },
+    "CircuitIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Circuitid",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "processor",
+        "circuitId"
+      ],
+      "title": "CircuitIdentity",
+      "type": "object"
+    },
+    "CodeIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Address",
+          "type": "string"
+        },
+        "codeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Codehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "codeHash"
+      ],
+      "title": "CodeIdentity",
+      "type": "object"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "parent": {
+          "$ref": "#/$defs/CircuitIdentity"
+        }
+      },
+      "required": [
+        "parent",
+        "child"
+      ],
+      "title": "Dependency",
+      "type": "object"
+    },
+    "Environment": {
+      "additionalProperties": false,
+      "properties": {
+        "beacon": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "beaconImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factory": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementationSlot": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Factoryimplementationslot",
+          "type": "string"
+        },
+        "factorySealed": {
+          "title": "Factorysealed",
+          "type": "boolean"
+        },
+        "processorCodeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Processorcodehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory",
+        "factoryImplementationSlot",
+        "factoryImplementation",
+        "factorySealed",
+        "beacon",
+        "beaconImplementation",
+        "processorCodeHash"
+      ],
+      "title": "Environment",
+      "type": "object"
+    },
+    "Integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedBlock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL",
+            "STALE",
+            "UNVERIFIED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freshness",
+        "checkedBlock"
+      ],
+      "title": "Integrity",
+      "type": "object"
+    },
+    "Manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "dependencies": {
+          "items": {
+            "$ref": "#/$defs/Snapshot"
+          },
+          "maxItems": 1250,
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/Dependency"
+          },
+          "maxItems": 5000,
+          "title": "Edges",
+          "type": "array"
+        },
+        "observation": {
+          "enum": [
+            "SINGLE_RPC",
+            "OFFLINE_SNAPSHOT"
+          ],
+          "title": "Observation",
+          "type": "string"
+        },
+        "root": {
+          "$ref": "#/$defs/Snapshot"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "semantics": {
+          "$ref": "#/$defs/Semantics"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "block",
+        "root",
+        "dependencies",
+        "edges",
+        "semantics",
+        "toolVersion",
+        "observation"
+      ],
+      "title": "Manifest",
+      "type": "object"
+    },
+    "Semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "referenceHash": {
+          "const": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+          "title": "Referencehash",
+          "type": "string"
+        },
+        "specificationHash": {
+          "const": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+          "title": "Specificationhash",
+          "type": "string"
+        },
+        "tap02Version": {
+          "const": "draft-2026-10-04",
+          "title": "Tap02Version",
+          "type": "string"
+        },
+        "testSuiteHash": {
+          "const": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+          "title": "Testsuitehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tap02Version",
+        "encoding",
+        "specificationHash",
+        "referenceHash",
+        "testSuiteHash"
+      ],
+      "title": "Semantics",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "expandedGates": {
+          "maximum": 5000,
+          "minimum": 0,
+          "title": "Expandedgates",
+          "type": "integer"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        },
+        "netlistHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Netlisthash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlistHash",
+        "nIn",
+        "nOut",
+        "nState",
+        "expandedGates",
+        "environment"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    }
+  },
+  "$id": "urn:flip:schema:import-result:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "circuits": {
+      "items": {
+        "$ref": "#/$defs/CircuitBytes"
+      },
+      "maxItems": 1251,
+      "minItems": 1,
+      "title": "Circuits",
+      "type": "array"
+    },
+    "integrity": {
+      "$ref": "#/$defs/Integrity"
+    },
+    "kind": {
+      "const": "CIRCUIT_IMPORT",
+      "title": "Kind",
+      "type": "string"
+    },
+    "manifest": {
+      "$ref": "#/$defs/Manifest"
+    },
+    "manifestHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Manifesthash",
+      "type": "string"
+    },
+    "pinning": {
+      "const": "NUMBER_WITH_HEADER_RECHECK",
+      "title": "Pinning",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "trust": {
+      "const": "SINGLE_RPC_OBSERVATION",
+      "title": "Trust",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "manifest",
+    "manifestHash",
+    "circuits",
+    "integrity",
+    "pinning",
+    "trust"
+  ],
+  "title": "ImportResult",
+  "type": "object"
+}
