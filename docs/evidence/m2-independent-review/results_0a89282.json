@@ -1,0 +1,490 @@
+{
+  "scope": "M2-C independent read-only review; mocked transport; no live RPC",
+  "implementation_commit": "e5c47e55ff1600a62ef2cb96c19abb51b33d32f5",
+  "fixture_commit": "3cdbf14f59eb842f395da368e2e08d1f5708aa28",
+  "checks": [
+    {
+      "case": "TAP02_CORPUS",
+      "outcome": "INFO",
+      "detail": {
+        "cases": [
+          {
+            "id": "TAP-MAL-001",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Truncated TAP-02 record.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "truncated record"
+            }
+          },
+          {
+            "id": "TAP-MAL-002",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Unknown TAP-02 opcode.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "unknown opcode 0x03"
+            }
+          },
+          {
+            "id": "TAP-MAL-003",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "NAND/REF contains a forward signal reference.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "signal 5 referenced by element at 4 is not available"
+            }
+          },
+          {
+            "id": "TAP-MAL-004",
+            "outcome": "ACCEPTED",
+            "records": 1,
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "REF arity does not match the target circuit"
+            }
+          },
+          {
+            "id": "TAP-MAL-005",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Invalid TAP-02 input/output counts.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "nIn/nOut out of range"
+            }
+          },
+          {
+            "id": "TAP-MAL-006",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Too few produced signals for outputs.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "too few signals for outputs"
+            }
+          },
+          {
+            "id": "TAP-MAL-007",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Too few produced signals for outputs.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "too few signals for outputs"
+            }
+          },
+          {
+            "id": "TAP-MAL-008",
+            "outcome": "ACCEPTED",
+            "records": 1,
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "REF target is not a circuit of a registered processor"
+            }
+          },
+          {
+            "id": "TAP-MAL-009",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Truncated TAP-02 record.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "truncated record"
+            }
+          },
+          {
+            "id": "TAP-MAL-010",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Truncated TAP-02 record.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "truncated record"
+            }
+          },
+          {
+            "id": "TAP-MAL-011",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Truncated TAP-02 record.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "truncated record"
+            }
+          },
+          {
+            "id": "TAP-MAL-012",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Invalid TAP-02 input/output counts.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "nIn/nOut out of range"
+            }
+          },
+          {
+            "id": "TAP-MAL-013",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Invalid TAP-02 input/output counts.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "nIn/nOut out of range"
+            }
+          },
+          {
+            "id": "TAP-MAL-014",
+            "outcome": "REJECTED",
+            "code": "BAD_NETLIST",
+            "message": "Invalid TAP-02 input/output counts.",
+            "expected": {
+              "kind": "reject",
+              "reason_prefix": "more than 2^24 signals"
+            }
+          },
+          {
+            "id": "TAP-MAL-015",
+            "outcome": "ACCEPTED",
+            "records": 1,
+            "expected": {
+              "code": "REF_CYCLE",
+              "kind": "reject",
+              "reason": "A -> B -> A cycle must be detected and bounded"
+            }
+          },
+          {
+            "id": "TAP-MAL-016",
+            "outcome": "ACCEPTED",
+            "records": 1,
+            "expected": {
+              "cap": 64,
+              "code": "REF_DEPTH_EXCEEDED",
+              "depth": 65,
+              "kind": "bounded"
+            }
+          },
+          {
+            "id": "TAP-MAL-017",
+            "outcome": "ACCEPTED",
+            "records": 1,
+            "expected": {
+              "cap": 5000,
+              "code": "RESOURCE_LIMIT",
+              "expanded_gates": 5004,
+              "kind": "bounded",
+              "verdict": "UNKNOWN"
+            }
+          },
+          {
+            "id": "TAP-MAL-018",
+            "outcome": "SKIPPED",
+            "reason": "odd-length hex cannot be decoded to bytes"
+          }
+        ]
+      }
+    },
+    {
+      "case": "WRONG_CHAIN_BEFORE_STATE_READS",
+      "outcome": "PASS",
+      "detail": {
+        "code": "WRONG_CHAIN",
+        "message": "RPC chainId is not X Layer mainnet 196.",
+        "expected_code": "WRONG_CHAIN"
+      }
+    },
+    {
+      "case": "WRONG_CHAIN_METHODS",
+      "outcome": "PASS",
+      "detail": {
+        "methods": [
+          "eth_chainId"
+        ]
+      }
+    },
+    {
+      "case": "RPC_FAILURE_CORPUS",
+      "outcome": "INFO",
+      "detail": {
+        "cases": [
+          {
+            "id": "RPC-001",
+            "outcome": "REJECTED",
+            "code": "WRONG_CHAIN",
+            "expected": {
+              "action": "reject before any REF resolution",
+              "code": "WRONG_CHAIN"
+            }
+          },
+          {
+            "id": "RPC-002",
+            "outcome": "REJECTED",
+            "code": "MISSING_REFERENCE",
+            "expected": {
+              "action": "reject unregistered processor",
+              "code": "MISSING_REFERENCE"
+            }
+          },
+          {
+            "id": "RPC-003",
+            "outcome": "REJECTED",
+            "code": "RPC_UNAVAILABLE",
+            "expected": {
+              "action": "reject; never cache as a valid circuit",
+              "code": "MISSING_REFERENCE"
+            }
+          },
+          {
+            "id": "RPC-004",
+            "outcome": "REJECTED",
+            "code": "INVALID_INPUT",
+            "expected": {
+              "action": "reject; do not hash truncated bytes",
+              "code": "INVALID_ABI_RESPONSE"
+            }
+          },
+          {
+            "id": "RPC-005",
+            "outcome": "REJECTED",
+            "code": "IMPLEMENTATION_CHANGED",
+            "expected": {
+              "action": "reject same-block divergence; no cached report reuse",
+              "code": "IMPLEMENTATION_CHANGED"
+            }
+          },
+          {
+            "id": "RPC-006",
+            "outcome": "REJECTED",
+            "code": "RPC_UNAVAILABLE",
+            "expected": {
+              "action": "never EQUIVALENT",
+              "code": "RPC_UNAVAILABLE",
+              "verdict": "UNKNOWN"
+            }
+          },
+          {
+            "id": "RPC-007",
+            "outcome": "REJECTED",
+            "code": "RPC_UNAVAILABLE",
+            "expected": {
+              "action": "bounded retry only; no proof claim",
+              "code": "RPC_UNAVAILABLE",
+              "verdict": "UNKNOWN"
+            }
+          },
+          {
+            "id": "RPC-008",
+            "outcome": "REJECTED",
+            "code": "INVALID_INPUT",
+            "expected": {
+              "action": "reject non-hex result",
+              "code": "INVALID_ABI_RESPONSE"
+            }
+          },
+          {
+            "id": "RPC-009",
+            "outcome": "ACCEPTED",
+            "expected": {
+              "action": "invalidate cached manifest and report",
+              "code": "IMPLEMENTATION_CHANGED"
+            }
+          },
+          {
+            "id": "RPC-010",
+            "outcome": "REJECTED",
+            "code": "MISSING_REFERENCE",
+            "expected": {
+              "action": "invalidate cached manifest and report",
+              "code": "IMPLEMENTATION_CHANGED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "BUDGET_MAX_GATES",
+      "outcome": "PASS",
+      "detail": {
+        "code": "RESOURCE_LIMIT",
+        "message": "Declared expanded gate/state budget exceeded.",
+        "expected_code": "RESOURCE_LIMIT"
+      }
+    },
+    {
+      "case": "BUDGET_MAX_NETLIST_BYTES",
+      "outcome": "PASS",
+      "detail": {
+        "code": "RESOURCE_LIMIT",
+        "message": "Netlist byte budget exceeded.",
+        "expected_code": "RESOURCE_LIMIT"
+      }
+    },
+    {
+      "case": "BUDGET_MAX_REQUESTS",
+      "outcome": "PASS",
+      "detail": {
+        "code": "RESOURCE_LIMIT",
+        "message": "RPC request budget exceeded.",
+        "expected_code": "RESOURCE_LIMIT"
+      }
+    },
+    {
+      "case": "CYCLE_REJECTED",
+      "outcome": "PASS",
+      "detail": {
+        "code": "BAD_NETLIST",
+        "message": "Dependency cycle detected.",
+        "expected_code": "BAD_NETLIST"
+      }
+    },
+    {
+      "case": "DEPTH_66_REJECTED",
+      "outcome": "PASS",
+      "detail": {
+        "code": "REF_DEPTH_EXCEEDED",
+        "message": "REF depth budget exceeded.",
+        "expected_code": "REF_DEPTH_EXCEEDED"
+      }
+    },
+    {
+      "case": "CACHE_HISTORICAL",
+      "outcome": "PASS",
+      "detail": {
+        "freshness": "HISTORICAL"
+      }
+    },
+    {
+      "case": "DEPENDENCY_MUTATION_INVALIDATES",
+      "outcome": "PASS",
+      "detail": {
+        "changes": [
+          "NETLIST_CHANGED"
+        ],
+        "freshness": "STALE"
+      }
+    },
+    {
+      "case": "CACHE_STALE_AFTER_REVALIDATION",
+      "outcome": "PASS",
+      "detail": {
+        "freshness": "STALE"
+      }
+    },
+    {
+      "case": "MISSING_CHAINID_INVALID_INPUT",
+      "outcome": "PASS",
+      "detail": {
+        "code": "INVALID_INPUT",
+        "message": "Payload violates the contract.",
+        "expected_code": "INVALID_INPUT"
+      }
+    },
+    {
+      "case": "MISSING_CHAINID_NOT_WRONG_CHAIN",
+      "outcome": "PASS",
+      "detail": {}
+    },
+    {
+      "case": "API_BLOCKED_/api/v1/compare",
+      "outcome": "PASS",
+      "detail": {
+        "status": 501
+      }
+    },
+    {
+      "case": "API_BLOCKED_/api/v1/preflight",
+      "outcome": "PASS",
+      "detail": {
+        "status": 501
+      }
+    },
+    {
+      "case": "API_BLOCKED_/api/v1/compose",
+      "outcome": "PASS",
+      "detail": {
+        "status": 501
+      }
+    },
+    {
+      "case": "CLI_BLOCKED_COMPARE",
+      "outcome": "PASS",
+      "detail": {
+        "exit": 6
+      }
+    },
+    {
+      "case": "RETRY_BOUND",
+      "outcome": "PASS",
+      "detail": {
+        "code": "RPC_UNAVAILABLE",
+        "attempts": 3
+      }
+    },
+    {
+      "case": "BLOCK_IDENTITY_CHANGED",
+      "outcome": "PASS",
+      "detail": {
+        "code": "IMPLEMENTATION_CHANGED",
+        "message": "Pinned block changed during import; retry from a new snapshot.",
+        "expected_code": "IMPLEMENTATION_CHANGED"
+      }
+    },
+    {
+      "case": "PROOF_FLAGS_BLOCKED",
+      "outcome": "PASS",
+      "detail": {
+        "status": 501
+      }
+    },
+    {
+      "case": "PREFLIGHT_BLOCKED",
+      "outcome": "PASS",
+      "detail": {
+        "status": 501
+      }
+    },
+    {
+      "case": "FACTORY_IMPL_CHANGE_REVALIDATION",
+      "outcome": "PASS",
+      "detail": {
+        "changes": [
+          "FACTORY_IMPLEMENTATION_CHANGED"
+        ],
+        "freshness": "STALE"
+      }
+    },
+    {
+      "case": "BEACON_IMPL_CHANGE_REVALIDATION",
+      "outcome": "PASS",
+      "detail": {
+        "changes": [
+          "BEACON_IMPLEMENTATION_CHANGED"
+        ],
+        "freshness": "STALE"
+      }
+    },
+    {
+      "case": "TAMPERED_MANIFEST_NOT_TRUSTED",
+      "outcome": "PASS",
+      "detail": {
+        "changes": [
+          "BEACON_IMPLEMENTATION_CHANGED"
+        ],
+        "freshness": "STALE"
+      }
+    },
+    {
+      "case": "DEPTH_CAP_BOUNDARY",
+      "outcome": "INFO",
+      "detail": {
+        "cap": 64,
+        "chain_nodes_accepted": 65,
+        "max_ref_edges_accepted": 64,
+        "note": "Implementation rejects only when depth > maxDepth; a chain with 64 REF edges is accepted."
+      }
+    }
+  ]
+}
