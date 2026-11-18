@@ -274,8 +274,10 @@ by the M2 PASS decision. Main is unchanged pending PR review and approval.
 ## Reproduction
 
 Full Git history, Python 3.14.6, uv 0.9.11 and Node 24.18.0 are required.
-Windows commands below were actually executed from the integration worktree
-(the pinned uv executable initially came from the adjacent Codex bootstrap):
+The validation commands from `sync` onward were actually executed from the
+integration worktree, using pinned uv from the adjacent Codex bootstrap. The first
+two commands below show how to bootstrap uv on a clean machine; they were not
+rerun in this integration worktree:
 
 ```powershell
 python -m venv .bootstrap
