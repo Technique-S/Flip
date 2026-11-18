@@ -1,0 +1,26 @@
+usage: python.exe C:\Users\Kazi\Documents\Flip\repo\.venv\Scripts\flip
+       [-h] [--version]
+       {validate,canonical,hash,sample,import,inspect,compose,compare,vectors,consume,preflight,revalidate,export,verify-bundle} ...
+
+Flip: read-only imports, REF composition and bounded local verification.
+
+positional arguments:
+  {validate,canonical,hash,sample,import,inspect,compose,compare,vectors,consume,preflight,revalidate,export,verify-bundle}
+    validate            validate a versioned contract
+    canonical           canonical a versioned contract
+    hash                hash a versioned contract
+    sample              reserved; returns NOT_IMPLEMENTED
+    import              shared core operation
+    inspect             shared core operation
+    compose             shared core operation
+    compare             shared core operation
+    vectors             shared core operation
+    consume             shared core operation
+    preflight           reserved; returns NOT_IMPLEMENTED
+    revalidate          shared core operation
+    export              reserved; returns NOT_IMPLEMENTED
+    verify-bundle       reserved; returns NOT_IMPLEMENTED
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

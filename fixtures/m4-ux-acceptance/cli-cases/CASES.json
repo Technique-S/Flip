@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "m4-ux-acceptance-1",
+  "baseline": "af8ba1f109a2a1c59fe36be044bc025a127ea025",
+  "executed": [
+    {
+      "id": "C01",
+      "description": "version",
+      "command": "flip --version",
+      "exitCode": 0,
+      "semantic": {
+        "parse": "NOT_JSON"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C01.stdout.txt"
+    },
+    {
+      "id": "C02",
+      "description": "help",
+      "command": "flip --help",
+      "exitCode": 0,
+      "semantic": {
+        "parse": "NOT_JSON"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C02.stdout.txt"
+    },
+    {
+      "id": "C03",
+      "description": "compose baseline",
+      "command": "flip compose --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "exitCode": 0,
+      "semantic": {
+        "kind": "COMPOSITION_RESULT",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C03.stdout.txt"
+    },
+    {
+      "id": "C04",
+      "description": "compare EQUIVALENT",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "exitCode": 0,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C04.stdout.txt"
+    },
+    {
+      "id": "C05",
+      "description": "compare DIFFERENT",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-different-output-order.json",
+      "exitCode": 1,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "DIFFERENT",
+        "reasonCode": null,
+        "solverOutcome": "SAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": "REF_BEAT_REPRODUCED"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C05.stdout.txt"
+    },
+    {
+      "id": "C06",
+      "description": "compare UNKNOWN timeout",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-unknown-timeout.json",
+      "exitCode": 2,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "UNKNOWN",
+        "reasonCode": "SOLVER_TIMEOUT",
+        "solverOutcome": "INTERRUPTED",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C06.stdout.txt"
+    },
+    {
+      "id": "C07",
+      "description": "vectors match",
+      "command": "flip vectors --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-vectors.json",
+      "exitCode": 0,
+      "semantic": {
+        "kind": "USER_VECTOR_RESULT",
+        "verdict": "VECTORS_MATCH",
+        "coverage": "EXHAUSTIVE_DECLARED_DOMAIN",
+        "freshness": "HISTORICAL"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C07.stdout.txt"
+    },
+    {
+      "id": "C08",
+      "description": "caller CURRENT flag cannot grant freshness",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-current-freshness-claim.json",
+      "exitCode": 0,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C08.stdout.txt"
+    },
+    {
+      "id": "C09",
+      "description": "malformed input",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/malformed-request.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C09.stdout.txt"
+    },
+    {
+      "id": "C10",
+      "description": "unsupported version",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/unsupported-version.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C10.stdout.txt"
+    },
+    {
+      "id": "C11",
+      "description": "wrong chain inspect",
+      "command": "flip inspect --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C11.stdout.txt"
+    },
+    {
+      "id": "C12",
+      "description": "invalid pin mapping",
+      "command": "flip compare --project fixtures/m4-ux-acceptance/cli-cases/requests/invalid-pin-map.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C12.stdout.txt"
+    },
+    {
+      "id": "C13",
+      "description": "wrong chain import",
+      "command": "flip import --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C13.stdout.txt"
+    },
+    {
+      "id": "C14",
+      "description": "RPC unavailable",
+      "command": "flip inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "exitCode": 4,
+      "semantic": {
+        "errorCode": "RPC_UNAVAILABLE"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C14.stdout.txt"
+    },
+    {
+      "id": "C15",
+      "description": "validate contract",
+      "command": "flip validate circuit-identity docs/schema/examples/circuit-identity.json",
+      "exitCode": 0,
+      "semantic": {
+        "keys": [
+          "chainId",
+          "circuitId",
+          "processor",
+          "schemaVersion"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C15.stdout.txt"
+    },
+    {
+      "id": "C16",
+      "description": "canonical contract",
+      "command": "flip canonical circuit-identity docs/schema/examples/circuit-identity.json",
+      "exitCode": 0,
+      "semantic": {
+        "keys": [
+          "chainId",
+          "circuitId",
+          "processor",
+          "schemaVersion"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C16.stdout.txt"
+    },
+    {
+      "id": "C17",
+      "description": "hash manifest",
+      "command": "flip hash manifest docs/schema/examples/manifest.json",
+      "exitCode": 0,
+      "semantic": {
+        "keys": [
+          "hash",
+          "profile"
+        ]
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C17.stdout.txt"
+    },
+    {
+      "id": "C18",
+      "description": "preflight reserved",
+      "command": "flip preflight --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "exitCode": 6,
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C18.stdout.txt"
+    },
+    {
+      "id": "C19",
+      "description": "export reserved",
+      "command": "flip export --project fixtures/m4-ux-acceptance/cli-cases/requests/half-adder-equivalent.json",
+      "exitCode": 6,
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C19.stdout.txt"
+    },
+    {
+      "id": "C20",
+      "description": "sample reserved",
+      "command": "flip sample",
+      "exitCode": 6,
+      "semantic": {
+        "errorCode": "NOT_IMPLEMENTED"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C20.stdout.txt"
+    },
+    {
+      "id": "C21",
+      "description": "revalidate wrong chain",
+      "command": "flip revalidate --chain-id 8453 --manifest fixtures/m4-ux-acceptance/cli-cases/requests/import-manifest.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "WRONG_CHAIN"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C21.stdout.txt"
+    },
+    {
+      "id": "C22",
+      "description": "consume unmodified captured claim",
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-valid.json",
+      "exitCode": 0,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "EQUIVALENT",
+        "reasonCode": null,
+        "solverOutcome": "UNSAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": null
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C22.stdout.txt"
+    },
+    {
+      "id": "C23",
+      "description": "consume forged DIFFERENT verdict",
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-forged-verdict.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C23.stdout.txt"
+    },
+    {
+      "id": "C24",
+      "description": "consume with changed reference pin",
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-changed-reference.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C24.stdout.txt"
+    },
+    {
+      "id": "C25",
+      "description": "consume with CURRENT relabel",
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-current-relabel.json",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "INVALID_INPUT"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C25.stdout.txt"
+    },
+    {
+      "id": "C26",
+      "description": "consume captured DIFFERENT witness",
+      "command": "flip consume --project fixtures/m4-ux-acceptance/cli-cases/requests/consumption-different.json",
+      "exitCode": 1,
+      "semantic": {
+        "kind": "TRUSTED_LOCAL_COMPARISON",
+        "verdict": "DIFFERENT",
+        "reasonCode": null,
+        "solverOutcome": "SAT",
+        "freshness": "HISTORICAL",
+        "witnessReplay": "REF_BEAT_REPRODUCED"
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C26.stdout.txt"
+    },
+    {
+      "id": "C27",
+      "description": "import success via local double",
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:49496 --timeout-ms 2000 --retries 0",
+      "exitCode": 0,
+      "semantic": {
+        "freshness": "CURRENT"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C27.stdout.txt"
+    },
+    {
+      "id": "C28",
+      "description": "circuit not found (MISSING_REFERENCE) via local double",
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:49621 --timeout-ms 2000 --retries 0",
+      "exitCode": 3,
+      "semantic": {
+        "errorCode": "MISSING_REFERENCE"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C28.stdout.txt"
+    },
+    {
+      "id": "C30",
+      "description": "revalidate after beacon implementation change via local double",
+      "command": "flip revalidate --manifest fixtures\\m4-ux-acceptance\\cli-cases\\requests\\import-manifest-local-double.json --rpc-url http://127.0.0.1:49637 --timeout-ms 2000 --retries 0",
+      "exitCode": 7,
+      "semantic": {
+        "freshness": "STALE"
+      },
+      "provenance": "LOCAL_DOUBLE_OFFLINE_ARCHIVED_BYTES",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C30.stdout.txt"
+    },
+    {
+      "id": "C29",
+      "description": "100 repeated compose builds, all bytes identical",
+      "command": "flip compose --project .../half-adder-equivalent.json (x100)",
+      "exitCode": 0,
+      "semantic": {
+        "distinctNetlistHashes": [
+          "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+        ],
+        "auditedDigest": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "builds": 100
+      },
+      "provenance": "PINNED_M3_BASELINE",
+      "stdoutFile": "docs/evidence/m4-ux-acceptance/executed/C29.stdout.txt"
+    }
+  ],
+  "plannedUnexecuted": [
+    {
+      "id": "P01",
+      "command": "flip preflight --project <project> --format json",
+      "precondition": "live read-only RPC and fresh TAPEOUT_FEE observation",
+      "expectedM4": "STRUCTURALLY_ACCEPTED / REJECTED(reason) / UNKNOWN only; no PUBLISHED",
+      "baselineObservation": "exit 6 NOT_IMPLEMENTED (C18)"
+    },
+    {
+      "id": "P02",
+      "command": "flip export --project <project> --out bundle.zip",
+      "precondition": "completed comparison",
+      "expectedM4": "path-safe bundle with SHA256SUMS; no secrets; HISTORICAL retained",
+      "baselineObservation": "exit 6 NOT_IMPLEMENTED (C19)"
+    },
+    {
+      "id": "P03",
+      "command": "flip verify-bundle --bundle bundle.zip --format json",
+      "precondition": "exported bundle in a clean environment",
+      "expectedM4": "checksum and repeated local checks; never upgrades HISTORICAL",
+      "baselineObservation": "no M3 implementation; specification only"
+    },
+    {
+      "id": "P04",
+      "command": "flip sample --out sample.flip.json",
+      "precondition": "none",
+      "expectedM4": "emits the pinned offline sample request for onboarding",
+      "baselineObservation": "exit 6 NOT_IMPLEMENTED (C20)"
+    },
+    {
+      "id": "P05",
+      "command": "flip import --processor <address> --id <id> --rpc-url <live endpoint>",
+      "precondition": "authorized RPC with per-session chain verification",
+      "expectedM4": "CURRENT single-RPC observation pinned to block number and hash",
+      "baselineObservation": "not executed; no live RPC authorized in M4-B"
+    },
+    {
+      "id": "P06",
+      "command": "Playwright E2E scenarios B01-B11",
+      "precondition": "M4 web application available",
+      "expectedM4": "see browser/ACCESSIBILITY_ACCEPTANCE_PLAN.md",
+      "baselineObservation": "no web application in this branch"
+    }
+  ]
+}

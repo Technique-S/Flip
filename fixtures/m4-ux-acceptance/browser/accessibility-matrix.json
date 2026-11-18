@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "m4-ux-acceptance-1",
+  "title": "Flip M4-B accessibility and browser acceptance matrix",
+  "executionStatus": "SPEC_ONLY_NOT_EXECUTED",
+  "reason": "No M4 web application exists on the accepted M3 baseline. No browser test in this matrix was run, and no passing result is claimed.",
+  "baseline": "af8ba1f109a2a1c59fe36be044bc025a127ea025",
+  "tools": ["Playwright", "axe-core", "screen reader smoke manual check", "browser devtools device emulation"],
+  "wcagTargets": ["2.1.1 Keyboard", "2.4.3 Focus Order", "2.4.7 Focus Visible", "4.1.2 Name Role Value", "4.1.3 Status Messages", "1.4.10 Reflow", "1.4.1 Use of Color", "3.3.1 Error Identification", "3.3.3 Error Suggestion"],
+  "scenarios": [
+    {
+      "id": "B01",
+      "name": "Keyboard-only operation",
+      "preconditions": "M4 web app reachable; sample available; no pointer input used.",
+      "steps": [
+        "Tab from the document start through Start, Import, Compose, Compare, Results and Export.",
+        "Activate every primary control with Enter or Space.",
+        "Complete J01 from sample selection through evidence download using only the keyboard."
+      ],
+      "passCriteria": [
+        "Every primary action is reachable and operable without a pointer.",
+        "No keyboard trap; focus can leave every region.",
+        "Download is triggered by a keyboard-activatable control with a descriptive name."
+      ],
+      "wcag": ["2.1.1"],
+      "linkedJourneys": ["J01", "J04", "J12"]
+    },
+    {
+      "id": "B02",
+      "name": "Focus order and focus visibility",
+      "preconditions": "Same as B01; include modal/error states.",
+      "steps": [
+        "Traverse the import form and pin-mapping table, recording the focus order.",
+        "Trigger WRONG_CHAIN and RPC_UNAVAILABLE states and observe focus placement.",
+        "Inspect the focus indicator at every stop for visible contrast."
+      ],
+      "passCriteria": [
+        "Focus order follows reading order and never jumps behind a dialog.",
+        "After a validation error, focus moves to an error summary or the offending field.",
+        "A visible focus indicator is present in every focusable element."
+      ],
+      "wcag": ["2.4.3", "2.4.7", "3.3.1"],
+      "linkedJourneys": ["J02", "J10", "J11"]
+    },
+    {
+      "id": "B03",
+      "name": "Accessible labels",
+      "preconditions": "Import form and composition table rendered.",
+      "steps": [
+        "Inspect accessible names of processor, circuit ID, chain, pin and output-map controls.",
+        "Check that numbered pins expose index and width as text, not only position.",
+        "Verify every icon-only control has an accessible name."
+      ],
+      "passCriteria": [
+        "No unlabelled form control or unnamed icon button.",
+        "Pin indices and bit widths are exposed in the accessibility tree.",
+        "Semantic pin names are either absent or visibly marked user-supplied."
+      ],
+      "wcag": ["4.1.2"],
+      "linkedJourneys": ["J02", "J04"]
+    },
+    {
+      "id": "B04",
+      "name": "Screen-reader-friendly result announcements",
+      "preconditions": "Sample comparison produces DIFFERENT then EQUIVALENT.",
+      "steps": [
+        "With a screen reader running, run the sample comparison.",
+        "Observe the announcement of verdict, freshness, oracle/intent and witness presence.",
+        "Open the counterexample table and navigate it by row and column."
+      ],
+      "passCriteria": [
+        "A polite live region announces 'Result: DIFFERENT' and separately 'Freshness: HISTORICAL'.",
+        "Verdict is not conveyed by colour or icon alone.",
+        "Witness table has row and column headers and labelled bit indices."
+      ],
+      "wcag": ["4.1.3", "1.4.1"],
+      "linkedJourneys": ["J01", "J06", "J07"]
+    },
+    {
+      "id": "B05",
+      "name": "Responsive layout",
+      "preconditions": "Viewports 320 px, 768 px and 1280 px.",
+      "steps": [
+        "Render each journey step at each viewport.",
+        "Check pin-mapping table, witness table and report header for overflow.",
+        "Operate primary controls at 320 px without horizontal scrolling of the document."
+      ],
+      "passCriteria": [
+        "No loss of content or function at 320 px; tables reflow or scroll within their labelled region.",
+        "Verdict, freshness and intent remain visible without scrolling sideways.",
+        "Touch targets meet minimum size where touch is supported."
+      ],
+      "wcag": ["1.4.10"],
+      "linkedJourneys": ["J01", "J04", "J07", "J13"]
+    },
+    {
+      "id": "B06",
+      "name": "Loading and error states",
+      "preconditions": "Configurable slow/failing stub for import and compare.",
+      "steps": [
+        "Trigger a slow import, a WRONG_CHAIN, an RPC_UNAVAILABLE and an INVALID_INPUT case.",
+        "Observe progress text, cancellability and the error message structure.",
+        "Verify that entered project state is preserved after each failure."
+      ],
+      "passCriteria": [
+        "Loading is described in text, not only by a spinner.",
+        "Errors match the plain-language catalogue and expose technical details in a disclosure.",
+        "Project inputs and focus context survive the error."
+      ],
+      "wcag": ["4.1.3", "3.3.1", "3.3.3"],
+      "linkedJourneys": ["J02", "J10", "J11"],
+      "cliCorrelates": ["C11", "C12", "C14"]
+    },
+    {
+      "id": "B07",
+      "name": "Timeouts",
+      "preconditions": "Comparison request with 1 ms solver deadline (C06 fixture).",
+      "steps": [
+        "Run the comparison and watch the progress state transition to UNKNOWN.",
+        "Check the reason code is exposed as text and no EQUIVALENT badge appears.",
+        "Retry with an allowed higher deadline and confirm a normal result."
+      ],
+      "passCriteria": [
+        "Text reads 'Inconclusive — solver timed out' with SOLVER_TIMEOUT in technical details.",
+        "No success styling or equivalent language is used.",
+        "A subsequent completed job succeeds, showing worker cleanup."
+      ],
+      "wcag": ["4.1.3", "1.4.1"],
+      "linkedJourneys": ["J08"],
+      "cliCorrelates": ["C06"]
+    },
+    {
+      "id": "B08",
+      "name": "Repeated workflow execution",
+      "preconditions": "Sample project ready; runs are repeatable.",
+      "steps": [
+        "Run compose/compare five times consecutively in the browser.",
+        "Compare the displayed digest, verdict and freshness across runs.",
+        "Confirm no duplicate live-region announcements or stale result fragments remain."
+      ],
+      "passCriteria": [
+        "All five runs show the same audited digest and verdict class.",
+        "Previous results are replaced, not accumulated.",
+        "Focus and announcements remain stable across repeats."
+      ],
+      "wcag": ["4.1.3"],
+      "linkedJourneys": ["J01", "J05"],
+      "cliCorrelates": ["C29"]
+    },
+    {
+      "id": "B09",
+      "name": "Browser refresh and project recovery",
+      "preconditions": "Project state stored locally; refresh and quota errors can be simulated.",
+      "steps": [
+        "Enter identities and a pin map, refresh the page, and observe restoration.",
+        "Explicitly reset and confirm the action.",
+        "Fill local storage to quota and observe the failure message."
+      ],
+      "passCriteria": [
+        "Unsaved work survives an ordinary refresh with a visible restored-state notice.",
+        "Reset requires confirmation and cannot be triggered accidentally.",
+        "Quota failure is reported in text and does not silently discard work."
+      ],
+      "wcag": ["3.3.1", "4.1.3"],
+      "linkedJourneys": ["J01", "J02"]
+    },
+    {
+      "id": "B10",
+      "name": "Export accessibility",
+      "preconditions": "A completed comparison and a planned M4 export action.",
+      "steps": [
+        "Inspect the export control name, the generated file name and the confirmation text.",
+        "Open the human-readable summary and verify it has headings, lists and table headers.",
+        "Check that no status is conveyed only by colour and that no secrets appear in the bundle."
+      ],
+      "passCriteria": [
+        "Export is keyboard operable with a descriptive name including the file format.",
+        "Human-readable summary is navigable by headings and has labelled tables.",
+        "Verification status and freshness remain separate text labels after re-import."
+      ],
+      "wcag": ["2.1.1", "4.1.2", "1.4.1"],
+      "linkedJourneys": ["J12"],
+      "cliCorrelates": ["C18", "C19", "C22", "C25"]
+    },
+    {
+      "id": "B11",
+      "name": "Pre-flight status separation",
+      "preconditions": "Planned M4 pre-flight UI with stubbed read-only responses.",
+      "steps": [
+        "Run pre-flight with STRUCTURALLY ACCEPTED, REJECTED and UNKNOWN stubs.",
+        "Compare the presentation with a verification verdict on the same screen.",
+        "Check that 'no transaction broadcast' and the observed fee are visible."
+      ],
+      "passCriteria": [
+        "Pre-flight status never reuses the EQUIVALENT/DIFFERENT/UNKNOWN verification badge.",
+        "UNKNOWN pre-flight is not styled as success.",
+        "No wallet, signing or broadcast control is present."
+      ],
+      "wcag": ["1.4.1", "4.1.3"],
+      "linkedJourneys": ["J13"],
+      "cliCorrelates": ["C18"]
+    }
+  ]
+}
