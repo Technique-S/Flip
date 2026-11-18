@@ -1,0 +1,101 @@
+{
+  "accepted": [
+    "valid_equivalent_replay",
+    "valid_different_witness_replay"
+  ],
+  "attack_cases": 11,
+  "cases": [
+    {
+      "SAFE": false,
+      "case": "valid_equivalent_replay",
+      "outcome": "ACCEPTED",
+      "verdict": "EQUIVALENT"
+    },
+    {
+      "SAFE": false,
+      "case": "valid_different_witness_replay",
+      "outcome": "ACCEPTED",
+      "verdict": "DIFFERENT"
+    },
+    {
+      "SAFE": true,
+      "case": "forged_equivalent_from_different",
+      "code": "INVALID_INPUT",
+      "message": "Recomputed proof does not validate the claimed result.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "empty_self_declared_maps",
+      "code": "INVALID_INPUT",
+      "message": "Untrusted report is incomplete or invalid.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "false_current_freshness",
+      "code": "INVALID_INPUT",
+      "message": "Untrusted report is incomplete or invalid.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "swapped_reference_identity",
+      "code": "INVALID_INPUT",
+      "message": "Report differs from consumer's pinned identities.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "project_hash_mismatch",
+      "code": "INVALID_INPUT",
+      "message": "Project differs from consumer's pinned project.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "replaced_candidate_identity",
+      "code": "IMPLEMENTATION_CHANGED",
+      "message": "Proof binding or execution implementation changed.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "altered_netlist_hash",
+      "code": "IMPLEMENTATION_CHANGED",
+      "message": "Proof binding or execution implementation changed.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "witness_without_difference",
+      "code": "INVALID_INPUT",
+      "message": "Untrusted report is incomplete or invalid.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "wrong_input_witness",
+      "code": "WITNESS_REPLAY_FAILED",
+      "message": "Serialized witness failed independent replay.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "unverified_source_flags",
+      "code": "INVALID_INPUT",
+      "message": "Untrusted report is incomplete or invalid.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "reused_proof_other_project",
+      "code": "INVALID_INPUT",
+      "message": "Report differs from consumer's pinned identities.",
+      "outcome": "REJECTED"
+    }
+  ],
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "safe_rejections": 11,
+  "schema": "flip-m3-independent-consumer-review/1"
+}

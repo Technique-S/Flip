@@ -1,0 +1,239 @@
+{
+  "agreements": 7,
+  "cases": [
+    {
+      "case": "self_equivalence",
+      "expected": "EQUIVALENT",
+      "independent_ground_truth": {
+        "candidate_gates": 8,
+        "distinguishing_input": null,
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "reference_gates": 8,
+        "verdict": "EQUIVALENT"
+      },
+      "independent_miter": {
+        "clauses": 55,
+        "result": "UNSAT",
+        "unsat_confirmed": true
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "UNSAT",
+      "production_verdict": "EQUIVALENT",
+      "requires_unsat": true
+    },
+    {
+      "case": "output_permutation",
+      "expected": "DIFFERENT",
+      "independent_ground_truth": {
+        "candidate_gates": 12,
+        "distinguishing_input": {
+          "candidate": [
+            1,
+            0
+          ],
+          "input": [
+            1,
+            0
+          ],
+          "reference": [
+            0,
+            1
+          ]
+        },
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0xf02b0cea9f503ebff7e88ecd8e7d8d6b4211f67f00bf4f23f52cd6e2b2af9323",
+        "reference_gates": 8,
+        "verdict": "DIFFERENT"
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "SAT",
+      "production_verdict": "DIFFERENT",
+      "witness_replay": {
+        "both_independent_evaluators_agree": true,
+        "candidate_out": [
+          1,
+          0
+        ],
+        "differs": true,
+        "input": [
+          0,
+          1
+        ],
+        "matches_production_witness": false,
+        "official_candidate_out": [
+          1,
+          0
+        ],
+        "official_reference_out": [
+          0,
+          1
+        ],
+        "reference_out": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "case": "commutative_inputs",
+      "expected": "EQUIVALENT",
+      "independent_ground_truth": {
+        "candidate_gates": 8,
+        "distinguishing_input": null,
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0xcef0e4dbef7b20b80af98150d1deff36f11763aae4279a3bee685aa2eb5aba24",
+        "reference_gates": 8,
+        "verdict": "EQUIVALENT"
+      },
+      "independent_miter": {
+        "clauses": 55,
+        "result": "UNSAT",
+        "unsat_confirmed": true
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "UNSAT",
+      "production_verdict": "EQUIVALENT",
+      "requires_unsat": true
+    },
+    {
+      "case": "glue_wrong_wiring",
+      "expected": "DIFFERENT",
+      "independent_ground_truth": {
+        "candidate_gates": 8,
+        "distinguishing_input": {
+          "candidate": [
+            1,
+            0
+          ],
+          "input": [
+            0,
+            0
+          ],
+          "reference": [
+            0,
+            0
+          ]
+        },
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0xb51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1",
+        "reference_gates": 8,
+        "verdict": "DIFFERENT"
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "SAT",
+      "production_verdict": "DIFFERENT",
+      "witness_replay": {
+        "both_independent_evaluators_agree": true,
+        "candidate_out": [
+          1,
+          0
+        ],
+        "differs": true,
+        "input": [
+          0,
+          0
+        ],
+        "matches_production_witness": false,
+        "official_candidate_out": [
+          1,
+          0
+        ],
+        "official_reference_out": [
+          0,
+          0
+        ],
+        "reference_out": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "case": "triple_output",
+      "expected": "EQUIVALENT",
+      "independent_ground_truth": {
+        "candidate_gates": 14,
+        "distinguishing_input": null,
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0x2754d632c6866d3df4346a0077521f95bfc09132657f3f88dfb1d05312d8a824",
+        "reference_gates": 14,
+        "verdict": "EQUIVALENT"
+      },
+      "independent_miter": {
+        "clauses": 93,
+        "result": "UNSAT",
+        "unsat_confirmed": true
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "UNSAT",
+      "production_verdict": "EQUIVALENT",
+      "requires_unsat": true
+    },
+    {
+      "case": "output_map_permutation",
+      "expected": "EQUIVALENT",
+      "independent_ground_truth": {
+        "candidate_gates": 12,
+        "distinguishing_input": null,
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0xf02b0cea9f503ebff7e88ecd8e7d8d6b4211f67f00bf4f23f52cd6e2b2af9323",
+        "reference_gates": 8,
+        "verdict": "EQUIVALENT"
+      },
+      "independent_miter": {
+        "clauses": 67,
+        "result": "SAT",
+        "unsat_confirmed": false
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "UNSAT",
+      "production_verdict": "EQUIVALENT",
+      "requires_unsat": true
+    },
+    {
+      "case": "input_map_reversal",
+      "expected": "EQUIVALENT",
+      "independent_ground_truth": {
+        "candidate_gates": 8,
+        "distinguishing_input": null,
+        "inputs_enumerated": 4,
+        "n_in": 2,
+        "netlist_hash": "0xcef0e4dbef7b20b80af98150d1deff36f11763aae4279a3bee685aa2eb5aba24",
+        "reference_gates": 8,
+        "verdict": "EQUIVALENT"
+      },
+      "independent_miter": {
+        "clauses": 55,
+        "result": "UNSAT",
+        "unsat_confirmed": true
+      },
+      "matches_expected": true,
+      "matches_independent": true,
+      "production_solver_outcome": "UNSAT",
+      "production_verdict": "EQUIVALENT",
+      "requires_unsat": true
+    }
+  ],
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "evaluators": [
+    "production execute/compare",
+    "OpenCode independent_core",
+    "official TAP-02 reference.py"
+  ],
+  "note": "EQUIVALENT is confirmed by completed UNSAT on both miters and full exhaustive enumeration over small input domains; no sampled claim is promoted to an equivalence proof.",
+  "schema": "flip-m3-independent-sat-review/1",
+  "total": 7
+}

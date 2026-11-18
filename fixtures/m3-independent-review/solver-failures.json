@@ -1,0 +1,89 @@
+{
+  "all_safe": true,
+  "cases": [
+    {
+      "SAFE": true,
+      "case": "forced_1ms_timeout",
+      "outcome": "INTERRUPTED",
+      "reason": "SOLVER_TIMEOUT",
+      "verdict": "UNKNOWN"
+    },
+    {
+      "SAFE": true,
+      "case": "minimum_memory_1mib",
+      "outcome": "INTERRUPTED",
+      "reason": "RESOURCE_LIMIT",
+      "verdict": "UNKNOWN"
+    },
+    {
+      "SAFE": true,
+      "case": "incomplete_dependency_resolution",
+      "code": "MISSING_REFERENCE",
+      "verdict": "CONTRACT_ERROR"
+    },
+    {
+      "SAFE": true,
+      "case": "gate_cap_overflow",
+      "code": "RESOURCE_LIMIT",
+      "verdict": "CONTRACT_ERROR"
+    },
+    {
+      "SAFE": true,
+      "case": "ref_depth_cap_1_single_level",
+      "note": "refDepthCap=1 permits a single REF level; a nested-REF fixture is required to exercise actual depth rejection.",
+      "outcome": "UNSAT",
+      "reason": null,
+      "verdict": "EQUIVALENT"
+    },
+    {
+      "SAFE": true,
+      "case": "bad_ref_arity",
+      "code": "INVALID_INPUT",
+      "verdict": "CONTRACT_ERROR"
+    },
+    {
+      "SAFE": true,
+      "case": "worker_timeout-probe",
+      "result": {
+        "containment": "WINDOWS_JOB_COMMIT",
+        "outcome": "INTERRUPTED",
+        "reason": "SOLVER_TIMEOUT",
+        "wallMs": 5015
+      }
+    },
+    {
+      "SAFE": true,
+      "case": "worker_crash-probe",
+      "result": {
+        "containment": "WINDOWS_JOB_COMMIT",
+        "outcome": "INTERRUPTED",
+        "reason": "RESOURCE_LIMIT",
+        "wallMs": 163
+      }
+    },
+    {
+      "SAFE": true,
+      "case": "worker_memory-probe",
+      "result": {
+        "containment": "WINDOWS_JOB_COMMIT",
+        "peakBytes": 16584704,
+        "probe": "MEMORY_BLOCKED",
+        "wallMs": 251
+      }
+    },
+    {
+      "SAFE": true,
+      "case": "malformed_worker_input",
+      "result": {
+        "containment": "WINDOWS_JOB_COMMIT",
+        "outcome": "INTERRUPTED",
+        "reason": "RESOURCE_LIMIT",
+        "wallMs": 346
+      }
+    }
+  ],
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "note": "Worker containment on this host is WINDOWS_JOB_COMMIT. Linux RLIMIT_AS/PDEATHSIG behavior was reviewed statically, not executed.",
+  "platform": "win32",
+  "schema": "flip-m3-independent-solver-review/1"
+}

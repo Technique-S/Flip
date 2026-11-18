@@ -1,0 +1,35 @@
+{
+  "all_safe": true,
+  "cases": [
+    {
+      "SAFE": true,
+      "case": "swap_imported_netlist_bytes",
+      "code": "INVALID_INPUT",
+      "message": "Invalid M3 request; source widths/maps must be explicit.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "alter_manifest_root_netlist_hash",
+      "code": "INVALID_INPUT",
+      "message": "Invalid M3 request; source widths/maps must be explicit.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "alter_project_source_processor",
+      "code": "INVALID_INPUT",
+      "message": "Source identity differs from actual imported root.",
+      "outcome": "REJECTED"
+    },
+    {
+      "SAFE": true,
+      "case": "alter_project_source_manifest_hash",
+      "code": "MISSING_REFERENCE",
+      "message": "Source manifest not supplied.",
+      "outcome": "REJECTED"
+    }
+  ],
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "schema": "flip-m3-independent-identity-review/1"
+}

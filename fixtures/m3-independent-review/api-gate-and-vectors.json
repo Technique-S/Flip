@@ -1,0 +1,24 @@
+{
+  "compare_without_local_solver_flag": {
+    "body": {
+      "error": {
+        "code": "NOT_IMPLEMENTED",
+        "message": "This operation is not implemented in M1-A. No verification was performed."
+      },
+      "schemaVersion": "1.0.0"
+    },
+    "status": 501
+  },
+  "gate_blocks_unsafe_compare": true,
+  "vectors": {
+    "coverage": "EXHAUSTIVE_DECLARED_DOMAIN",
+    "freshness": "HISTORICAL",
+    "never_equivalent": true,
+    "rows": 4,
+    "solver": {
+      "backend": "NONE",
+      "outcome": "NOT_RUN"
+    },
+    "verdict": "VECTORS_MATCH"
+  }
+}

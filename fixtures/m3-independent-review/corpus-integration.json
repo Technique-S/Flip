@@ -1,0 +1,33 @@
+{
+  "all_attacks_spec_only": true,
+  "all_blobs_identical": true,
+  "all_sat_expected_present": true,
+  "attack_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12"
+  ],
+  "counts": {
+    "attacks": 12,
+    "benchmarks": 7,
+    "task_a": 10,
+    "task_b": 17,
+    "witnesses": 8
+  },
+  "differing_files": [],
+  "files_compared": 18,
+  "integrated_commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "m3b_commit": "4822a05163166ec67b791328e2d1de490fa1c35f",
+  "schema": "flip-m3-independent-corpus-review/1",
+  "suspicious_live_claim_phrases": [],
+  "synthetic_denial_present": true
+}

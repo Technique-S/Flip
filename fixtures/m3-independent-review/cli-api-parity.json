@@ -1,0 +1,121 @@
+{
+  "api": {
+    "compare_different": {
+      "body_bytes": 16202,
+      "body_sha256": "fa5901056c903c27e0b0caa0177e56545ebe0cd938577f2a263336d89c7ce5d8",
+      "code": null,
+      "normalized_sha256": "009bd60dd088d007865125df400b28a93c65d8409a58fa7a3a09cb5f848ecc8d",
+      "status": 200,
+      "verdict": "DIFFERENT"
+    },
+    "compare_equivalent": {
+      "body_bytes": 15949,
+      "body_sha256": "740c0004ab7fd11014498638e67b865c1d492ace81fc415ad118cc68875f12b7",
+      "code": null,
+      "normalized_sha256": "47ad9248dbb6982cb7f24f45b8760f586896c7e35478bbbe8f5685df6a80b8a1",
+      "status": 200,
+      "verdict": "EQUIVALENT"
+    },
+    "consume_forged_equivalent": {
+      "body_bytes": 125,
+      "body_sha256": "16d412a31ebf7a13997b8c8a677a63d477d12612aa5e092ec475bd6bdf315d64",
+      "code": null,
+      "normalized_sha256": "16d412a31ebf7a13997b8c8a677a63d477d12612aa5e092ec475bd6bdf315d64",
+      "status": 422,
+      "verdict": null
+    },
+    "consume_invalid_shape": {
+      "body_bytes": 113,
+      "body_sha256": "13d10932afc9341a7537b13d87e3c61f89725fdda64f219b94b9bf1535e3bbe9",
+      "code": null,
+      "normalized_sha256": "13d10932afc9341a7537b13d87e3c61f89725fdda64f219b94b9bf1535e3bbe9",
+      "status": 422,
+      "verdict": null
+    },
+    "consume_valid": {
+      "body_bytes": 15949,
+      "body_sha256": "c11b20ad8032dc576490cba0ffc91d60874785ddad92aee4f7d83e4eb464e0c5",
+      "code": null,
+      "normalized_sha256": "47ad9248dbb6982cb7f24f45b8760f586896c7e35478bbbe8f5685df6a80b8a1",
+      "status": 200,
+      "verdict": "EQUIVALENT"
+    },
+    "frozen_v1_report": {
+      "body_bytes": 146,
+      "body_sha256": "fd512704d7e1f0f0e9ddc7cd8f02adab998c6a0f65a95f289f8badf1987e8422",
+      "code": null,
+      "normalized_sha256": "fd512704d7e1f0f0e9ddc7cd8f02adab998c6a0f65a95f289f8badf1987e8422",
+      "status": 501,
+      "verdict": null
+    },
+    "injected_verdict_field": {
+      "body_bytes": 127,
+      "body_sha256": "6027e8f13a4c6b6151b92424d490864eb0fe5327c2570c820c0f6bc830c923af",
+      "code": null,
+      "normalized_sha256": "6027e8f13a4c6b6151b92424d490864eb0fe5327c2570c820c0f6bc830c923af",
+      "status": 422,
+      "verdict": null
+    }
+  },
+  "cli": {
+    "compare_different": {
+      "normalized_sha256": "009bd60dd088d007865125df400b28a93c65d8409a58fa7a3a09cb5f848ecc8d",
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_bytes": 16202,
+      "stdout_sha256": "508134894bda7cac1ded2793f3ebbebcef326d9010e6a7211f9d7d3702e0e7c0",
+      "verdict": "DIFFERENT"
+    },
+    "compare_equivalent": {
+      "normalized_sha256": "47ad9248dbb6982cb7f24f45b8760f586896c7e35478bbbe8f5685df6a80b8a1",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_bytes": 15949,
+      "stdout_sha256": "07b256afe949c831329d119d15eef14fd3654291f7ab9984bba15fd15dc38332",
+      "verdict": "EQUIVALENT"
+    },
+    "compose": {
+      "normalized_sha256": "a784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_bytes": 3584,
+      "stdout_sha256": "a784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f",
+      "verdict": null
+    },
+    "consume_forged_equivalent": {
+      "normalized_sha256": "16d412a31ebf7a13997b8c8a677a63d477d12612aa5e092ec475bd6bdf315d64",
+      "returncode": 3,
+      "stderr_tail": "",
+      "stdout_bytes": 125,
+      "stdout_sha256": "16d412a31ebf7a13997b8c8a677a63d477d12612aa5e092ec475bd6bdf315d64",
+      "verdict": null
+    },
+    "consume_invalid_shape": {
+      "normalized_sha256": "13d10932afc9341a7537b13d87e3c61f89725fdda64f219b94b9bf1535e3bbe9",
+      "returncode": 3,
+      "stderr_tail": "",
+      "stdout_bytes": 113,
+      "stdout_sha256": "13d10932afc9341a7537b13d87e3c61f89725fdda64f219b94b9bf1535e3bbe9",
+      "verdict": null
+    },
+    "consume_valid": {
+      "normalized_sha256": "47ad9248dbb6982cb7f24f45b8760f586896c7e35478bbbe8f5685df6a80b8a1",
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_bytes": 15949,
+      "stdout_sha256": "446b36b4b6ff2442fee2ade0f989d41aad2772586e783112b5d9a4e96a979ac0",
+      "verdict": "EQUIVALENT"
+    }
+  },
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "comparisons": {
+    "cli_vs_api_different_canonical": true,
+    "cli_vs_api_equivalent_canonical": true,
+    "freshness_never_current": true
+  },
+  "freshness": "HISTORICAL",
+  "schema": "flip-m3-independent-parity-review/1",
+  "server": {
+    "healthz": 200
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "flip-m3-independent-worker-termination/1",
+  "commit": "59751e20590117f0cbc4ef41b9b30d836e533f84",
+  "platform": "win32",
+  "containment": "WINDOWS_JOB_COMMIT",
+  "procedure": "Snapshot solver_worker.py PIDs, run timeout-probe and crash-probe, snapshot immediately and after 2 seconds.",
+  "observed": {
+    "timeout_probe": {"outcome": "INTERRUPTED", "reason": "SOLVER_TIMEOUT"},
+    "crash_probe": {"outcome": "INTERRUPTED", "reason": "RESOURCE_LIMIT"},
+    "workers_before": 0,
+    "workers_immediately_after": 0,
+    "workers_after_2_seconds": 0,
+    "new_workers_persisting": 0
+  },
+  "conclusion": "On this Windows host the worker was killed and reaped; no orphan solver process persisted.",
+  "limitation": "Linux RLIMIT_AS / PR_SET_PDEATHSIG / killpg containment was reviewed statically only and was not executed."
+}
