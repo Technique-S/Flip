@@ -1,4 +1,24 @@
-# Flip — M2-A read-only importer
+# Flip — M3-A deterministic composition and Wiring Canary
+
+Flip now evaluates TAP-02 snapshots locally, compiles explicit REF recipes and
+checks stateless pairwise equivalence with isolated Minisat22 workers. Every
+DIFFERENT witness is replayed by the independent local evaluator. These are
+historical, reference-relative results; they do not establish current chain state
+or intended correctness.
+
+```powershell
+uv sync --locked
+uv run --frozen flip compose --project docs/schema/m3/examples/half-adder.request.json
+uv run --frozen flip compare --project docs/schema/m3/examples/half-adder.request.json
+```
+
+See [M3 interfaces and trust boundaries](docs/schema/m3/README.md),
+[solver containment/licensing](docs/milestones/M3_A_SOLVER.md), and
+[M3-A handoff](docs/milestones/M3_A_HANDOFF.md). Native solver HTTP operations are
+disabled by default; local-only opt-in is documented. Publication, wallets,
+preflight and web UI remain outside M3-A.
+
+## M2 importer
 
 M2 adds bounded X Layer imports, strict TAP-02 structural decoding, REF dependency
 inspection and canonical environment manifests. Proof, composition and preflight
