@@ -1,0 +1,318 @@
+{
+  "cases": [
+    {
+      "id": "INT-EXT-001",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-001]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-002",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-002]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-003",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-003]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-004",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-004]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-005",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-005]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-006",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-006]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-007",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-007]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-008",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-008]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-EXT-009",
+      "provenance": "SYNTHETIC_EXTENSION",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-EXT-009]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-01",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-01]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-02",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-02]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-03",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-03]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-04",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-04]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-05",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-05]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-06",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-06]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-07",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-07]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-08",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-08]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "INT-NEG-09",
+      "provenance": "ARCHIVED_OBSERVATION:gate_b_negative.json.negativeTests",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_integrity_corpus[INT-NEG-09]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "M1-REG-001",
+      "provenance": "SPEC_ONLY",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_m1_regression_corpus[M1-REG-001]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "M1-REG-002",
+      "provenance": "SPEC_ONLY",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_m1_regression_corpus[M1-REG-002]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "M1-REG-003",
+      "provenance": "SPEC_ONLY",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_m1_regression_corpus[M1-REG-003]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "M1-REG-004",
+      "provenance": "SPEC_ONLY",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_m1_regression_corpus[M1-REG-004]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-001",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-001]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-002",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-002]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-003",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-003]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-004",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-004]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-005",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-005]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-006",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-006]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-007",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-007]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-008",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-008]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-009",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-009]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "RPC-010",
+      "provenance": "SYNTHETIC_MOCK",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_rpc_corpus[RPC-010]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-001",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.truncated_record",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-001]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-002",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.unknown_opcode",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-002]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-003",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.nand_forward_reference",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-003]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-004",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.ref_arity_mismatch",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-004]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-005",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.nOut_zero",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-005]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-006",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.output_is_an_input",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-006]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-007",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.more_outputs_than_elements",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-007]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-008",
+      "provenance": "ARCHIVED_VECTOR:vectors.json.illFormed.ref_target_not_registered",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-008]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-009",
+      "provenance": "SYNTHETIC: deterministic 10-of-20-byte cpu header",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-009]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-010",
+      "provenance": "SYNTHETIC: 3-of-8-byte circuit id using real processor address",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-010]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-011",
+      "provenance": "SYNTHETIC: REF record with ni/no bytes omitted",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-011]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-012",
+      "provenance": "SYNTHETIC: declared nIn = MAX_PINS + 1",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-012]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-013",
+      "provenance": "SYNTHETIC: declared nOut = MAX_PINS + 1",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-013]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-014",
+      "provenance": "SYNTHETIC: declared nIn = 2^24 with one small NAND record",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_decoder_safe_corpus[TAP-MAL-014]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-015",
+      "provenance": "SYNTHETIC: two-processor REF cycle",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_transport_graph_and_expansion_boundaries[TAP-MAL-015]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-016",
+      "provenance": "SYNTHETIC: 65-link REF chain, one link beyond the frozen cap",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_transport_graph_and_expansion_boundaries[TAP-MAL-016]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-017",
+      "provenance": "SYNTHETIC: 1,251-link chain pattern flattening to 5,004 NAND gates",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_transport_graph_and_expansion_boundaries[TAP-MAL-017]",
+      "testOutcome": "PASS"
+    },
+    {
+      "id": "TAP-MAL-018",
+      "provenance": "SYNTHETIC: odd-length hex payload",
+      "test": "packages.flip-core.tests.test_m2_corpus::test_transport_graph_and_expansion_boundaries[TAP-MAL-018]",
+      "testOutcome": "PASS"
+    }
+  ],
+  "counts": {
+    "corpusCases": 50,
+    "errors": 0,
+    "failures": 0,
+    "priorCases": 217,
+    "skipped": 0,
+    "supplementalCases": 12,
+    "total": 279
+  },
+  "inputCommits": {
+    "M2_A": "e5c47e55ff1600a62ef2cb96c19abb51b33d32f5",
+    "M2_B": "3cdbf14f59eb842f395da368e2e08d1f5708aa28"
+  },
+  "scope": "Offline Flip integration acceptance; test PASS is not chain verification, proof or publication."
+}

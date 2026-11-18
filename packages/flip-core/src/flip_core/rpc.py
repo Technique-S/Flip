@@ -130,6 +130,21 @@ class RpcClient:
                 if ("result" in result) == ("error" in result):
                     raise ValueError("ambiguous result")
                 if "error" in result:
+                    error = result["error"]
+                    lookup = method == "eth_call" and params[0]["data"][2:10] in (
+                        SELECTORS["circuitInfo"],
+                        SELECTORS["netlist"],
+                    )
+                    if lookup and isinstance(error, dict) and type(error.get("code")) is int:
+                        # Closed known-revert classification only. Unknown provider
+                        # failures remain RPC_UNAVAILABLE; remote text is not echoed.
+                        if error["code"] in (-32000, 3) and error.get("message") in (
+                            "no circuit",
+                            "execution reverted: no circuit",
+                        ):
+                            raise ContractError(
+                                "MISSING_REFERENCE", "Circuit lookup reports no existing circuit."
+                            )
                     raise ValueError("RPC error")
                 return result["result"]
             except ContractError:

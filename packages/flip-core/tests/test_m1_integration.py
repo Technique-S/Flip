@@ -164,4 +164,11 @@ def test_report_only_gaps_are_not_executable_golden_fixtures():
         "xor1",
         "wrapper4",
     ]
-    assert not list((ROOT / "fixtures").rglob("*.json"))
+    # M2-C adds registered adversarial specifications, not missing historical
+    # observations. Keep the original restriction outside that audited namespace;
+    # the corpus tests independently verify its exact register and provenance.
+    assert not [
+        path
+        for path in (ROOT / "fixtures").rglob("*.json")
+        if not path.is_relative_to(ROOT / "fixtures/m2-adversarial")
+    ]

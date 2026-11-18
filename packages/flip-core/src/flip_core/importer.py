@@ -200,16 +200,18 @@ class PinnedReader:
         if address not in self.codes:
             raw = abi.hex_bytes(self.rpc.call("eth_getCode", [address, self.tag]), 250_000)
             if not raw:
-                raise ContractError("INVALID_INPUT", "Expected contract has empty code.")
+                raise ContractError("MISSING_REFERENCE", "Expected contract has empty code.")
             self.codes[address] = CodeIdentity(address=address, codeHash=sha(raw))
         return self.codes[address]
 
     def environment(self, processor: str) -> Environment:
         if processor not in self.environments:
             registered = abi.uint(self.call(abi.FACTORY, "isCPU", processor))
-            if registered != 1:
+            if registered not in (0, 1):
+                raise abi.malformed("Invalid processor registration boolean.")
+            if registered == 0:
                 raise ContractError(
-                    "INVALID_INPUT", "Processor is not registered with the X Layer factory."
+                    "MISSING_REFERENCE", "Processor is not registered with the X Layer factory."
                 )
             if abi.address(self.call(processor, "factory")) != abi.FACTORY:
                 raise ContractError("INVALID_INPUT", "Processor belongs to a different factory.")
@@ -237,15 +239,26 @@ class PinnedReader:
         self.loading.add(identity_key)
         environment = self.environment(identity.processor)
         cid = int(identity.circuitId)
-        if cid < 1 or cid >= abi.uint(self.call(identity.processor, "nextId")):
+        if cid < 1:
             raise ContractError("INVALID_INPUT", "Circuit ID does not exist.")
+        if cid >= abi.uint(self.call(identity.processor, "nextId")):
+            raise ContractError("MISSING_REFERENCE", "Circuit ID does not exist.")
         n_in, n_out, state, gates = abi.info(self.call(identity.processor, "circuitInfo", cid))
         if gates > self.budget.maxGates or state > 2**24:
             raise ContractError("RESOURCE_LIMIT", "Declared expanded gate/state budget exceeded.")
-        raw = abi.dynamic_bytes(
-            self.call(identity.processor, "netlist", cid), self.budget.maxNetlistBytes
+        remaining_bytes = min(
+            self.budget.maxNetlistBytes, self.budget.maxTotalBytes - self.total_bytes
         )
-        decoded = decode(raw, n_in, n_out, self.budget)
+        remaining_records = min(
+            self.budget.maxRecords, self.budget.maxTotalRecords - self.total_records
+        )
+        if remaining_bytes <= 0 or remaining_records <= 0:
+            raise ContractError("RESOURCE_LIMIT", "Total closure byte/record budget exhausted.")
+        raw = abi.dynamic_bytes(self.call(identity.processor, "netlist", cid), remaining_bytes)
+        node_budget = self.budget.model_copy(
+            update={"maxNetlistBytes": remaining_bytes, "maxRecords": remaining_records}
+        )
+        decoded = decode(raw, n_in, n_out, node_budget)
         self.total_bytes += len(raw)
         self.total_records += len(decoded.records)
         if (

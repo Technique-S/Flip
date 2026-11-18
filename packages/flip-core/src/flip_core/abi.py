@@ -68,6 +68,8 @@ def info(value: object) -> tuple[int, int, int, int]:
 
 
 def dynamic_bytes(value: object, cap: int) -> bytes:
+    if isinstance(value, str) and len(value) > 2 + 2 * (64 + ((cap + 31) // 32) * 32):
+        raise ContractError("RESOURCE_LIMIT", "ABI bytes exceed the remaining netlist budget.")
     raw = hex_bytes(value, 64 + ((cap + 31) // 32) * 32)
     if len(raw) < 64 or int.from_bytes(raw[:32], "big") != 32:
         raise malformed("Invalid ABI bytes offset.")
