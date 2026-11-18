@@ -24,7 +24,18 @@ jobs:
       - run: uv run --frozen ruff format --check .
       - run: uv run --frozen flip-schemas --out docs/schema/1.0.0 --check
       - run: uv run --frozen python -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check
-      - run: uv run --frozen pytest -q
+      - run: uv run --frozen python -m flip_core.verification_schema_export --out docs/schema/m3/1.0.0 --check
+      - run: uv run --frozen pytest -q --junitxml="${{ runner.temp }}/m3-tests.xml" -o junit_family=legacy
+      - run: uv run --frozen python scripts/report_m3_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --out "${{ runner.temp }}/m3-acceptance.json"
       - run: node docs/schema/check-canonical.mjs
       - run: uv run --frozen python scripts/check_m1_repository.py --require-clean
       - run: uv run --frozen python scripts/smoke_m1.py
+      - run: uv run --frozen python scripts/smoke_m3.py
+      - run: uv run --frozen python scripts/benchmark_m3.py --out "${{ runner.temp }}/m3-benchmark.json"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: m3-benchmark-${{ matrix.os }}
+          path: |
+            ${{ runner.temp }}/m3-benchmark.json
+            ${{ runner.temp }}/m3-acceptance.json
+            ${{ runner.temp }}/m3-tests.xml

@@ -1,0 +1,568 @@
+{
+  "attacks": [
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "INVALID_INPUT",
+      "expected_safe_behavior": "Reject: a report with empty maps cannot bind external widths. Return UNKNOWN / NOT_ACCEPTABLE, never EQUIVALENT.",
+      "id": "D01",
+      "name": "Empty self-declared width mapping",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "M2 acceptance M1-REG-002 showed a conclusive report with an empty self-declared map passing the v1 shape validator. Shape pass is not a trusted-consumer pass.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "inputMap/outputMap"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "UNVERIFIED"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "INVALID_INPUT",
+      "expected_safe_behavior": "Reject unless verdict is re-derived from hash-bound artifacts; self-declared EQUIVALENT with zero manifest binds nothing.",
+      "id": "D02",
+      "name": "Forged EQUIVALENT report",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "Verdicts must be recomputed or bound to real manifests and solver transcript.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "verification.verdict / manifest hashes"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "STALE",
+      "expected_safe_behavior": "Reject as IDENTITY_MISMATCH / STALE; the hash must match the project's declared reference.",
+      "id": "D03",
+      "name": "Replaced reference identity",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "MVP_CONSTRAINTS §7 requires both compared manifests embedded or hashed.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "referenceManifestHash"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x5555555555555555555555555555555555555555555555555555555555555555",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "STALE",
+      "expected_safe_behavior": "Reject as IDENTITY_MISMATCH / STALE.",
+      "id": "D04",
+      "name": "Replaced candidate identity",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "Candidate must bind the actual compared netlist.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "candidateManifestHash"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "netlistHash": "0x6666666666666666666666666666666666666666666666666666666666666666",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "suppliedNetlistSha256": "0x7777777777777777777777777777777777777777777777777777777777777777",
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "INVALID_INPUT",
+      "expected_safe_behavior": "Reject: declared hash must equal SHA-256 of bound netlist bytes.",
+      "id": "D05",
+      "name": "Altered netlist hash",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "M2 integrity negative INT-EXT-005 covers bytes-vs-hash mismatch.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "netlistHash vs supplied bytes"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "environment": {
+          "pinnedImplementationHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+          "processorImplementationHash": "0x8888888888888888888888888888888888888888888888888888888888888888"
+        },
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "STALE",
+      "expected_safe_behavior": "Downgrade to STALE / IMPLEMENTATION_CHANGED; no CURRENT badge.",
+      "id": "D06",
+      "name": "Changed implementation hash",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "MVP_CONSTRAINTS §3/§7: beacons are mutable; revalidate before a current claim.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "environment.processorImplementationHash"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "dependencyClosure": [
+          {
+            "id": "0x2222222222222222222222222222222222222222222222222222222222222222"
+          },
+          {
+            "id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "pinnedDependencyClosure": [
+          {
+            "id": "0x2222222222222222222222222222222222222222222222222222222222222222"
+          }
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "STALE",
+      "expected_safe_behavior": "Downgrade to STALE / DEPENDENCIES_CHANGED.",
+      "id": "D07",
+      "name": "Stale dependency closure",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "MVP_CONSTRAINTS §7; M2 integrity negative INT-NEG-04.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "dependencyClosure"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 8453,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "WRONG_CHAIN",
+      "expected_safe_behavior": "Reject WRONG_CHAIN before any comparison.",
+      "id": "D08",
+      "name": "Swapped chain ID",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "Base 8453 shares processor addresses with X Layer 196; reject cross-chain reuse.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "chainId"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 1,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "STALE",
+      "expected_safe_behavior": "Downgrade to HISTORICAL/STALE unless a fresh revalidation at current state exists.",
+      "id": "D09",
+      "name": "False CURRENT freshness",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "PRD §9: reproducible but stale must remain reviewable, not current.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "integrity.freshness"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "SAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "DIFFERENT",
+          "witness": {
+            "candidateOutput": [
+              0,
+              0
+            ],
+            "input": [
+              0,
+              0
+            ],
+            "referenceOutput": [
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "expected_code": "INVALID_INPUT",
+      "expected_safe_behavior": "Reject witness and downgrade verdict to UNKNOWN; require replay by the trusted evaluator.",
+      "id": "D10",
+      "name": "SAT witness with no actual difference",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "MVP_CONSTRAINTS §5: DIFFERENT only after witness reproduced by trusted evaluator on both circuits.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "verification.witness"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "TIMEOUT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "TIMEOUT",
+          "sourceValidation": "UNVERIFIED",
+          "timedOut": true,
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "UNKNOWN",
+      "expected_safe_behavior": "Force UNKNOWN. A timeout or resource breach must never be EQUIVALENT.",
+      "id": "D11",
+      "name": "UNKNOWN falsely relabelled EQUIVALENT",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "MVP_CONSTRAINTS §5/§6; FR-029.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "verification.verdict/reasonCode"
+    },
+    {
+      "crafted_report": {
+        "candidateManifestHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "chainId": 196,
+        "inputMap": [
+          0,
+          1
+        ],
+        "integrity": {
+          "checkedBlock": 76020961,
+          "freshness": "CURRENT"
+        },
+        "intent": "TRUSTED_BASELINE",
+        "knownProjectHashes": [
+          "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+          "0xefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+        ],
+        "outputMap": [
+          0
+        ],
+        "projectHash": "0xabababababababababababababababababababababababababababababababab",
+        "referenceManifestHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "schemaVersion": "1.0.0",
+        "semantics": {
+          "encoding": "tap02-lsb0-v1",
+          "tap02Version": "draft-2026-10-04"
+        },
+        "toolVersion": "0.1.0",
+        "verification": {
+          "kind": "PAIRWISE_EQUIVALENCE",
+          "mappingValidation": "UNVERIFIED",
+          "reasonCode": "SAT_UNSAT",
+          "solverBackend": "MINISAT22",
+          "solverOutcome": "UNSAT",
+          "sourceValidation": "UNVERIFIED",
+          "verdict": "EQUIVALENT",
+          "witness": null
+        }
+      },
+      "expected_code": "INVALID_INPUT",
+      "expected_safe_behavior": "Reject: all artifact hashes must resolve inside the declared project; never transplant a proof.",
+      "id": "D12",
+      "name": "Reused proof for a different project",
+      "note": "No M3 proof consumer is implemented on this branch. These are hostile fixture specifications for Codex to wire into the M3 consumer.",
+      "rationale": "PRD FR-043/FR-044 evidence bundle binding.",
+      "status": "SPEC_ONLY_NOT_EXECUTED_AGAINST_PRODUCTION",
+      "target_field": "projectHash / manifest hashes"
+    }
+  ],
+  "core_version": "m3-core-1.0.0",
+  "generator": "build_corpus.py",
+  "note": "These are hostile report specifications, not executed production results. No proof consumer exists to accept or reject them yet.",
+  "schema": "flip-m3-verification-proof-attacks/1"
+}

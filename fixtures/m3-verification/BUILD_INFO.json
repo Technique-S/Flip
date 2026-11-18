@@ -1,0 +1,16 @@
+{
+  "base_commit": "b71e48e4ad29b352a166230b8644a26f11c5fba8",
+  "core_sha256": "84895734a14862178989b659e2bd0e05c9c6c8b8ad498e6ad162831066c0ad85",
+  "core_version": "m3-core-1.0.0",
+  "determinism": "Fixtures contain no timestamps or host-dependent fields; results/*.json contain timing observations and are regenerated on each run.",
+  "generation_seed": 20261118,
+  "generator": "fixtures/m3-verification/generators/build_corpus.py",
+  "generator_sha256": "89dc4cac79bf298540c4acaa24ac4e59d5e4507071e128f4ba65f2d323d06c73",
+  "python": "3.14.6",
+  "reference_implementations": [
+    "TAP-02 reference.py (MIT, audit copy) - encoding/semantics specification source",
+    "M0 audit independent_eval.py - independent TAP-02 evaluator (design cross-check only)",
+    "m3_core.py in this corpus - self-contained reimplementation used for all generated results"
+  ],
+  "schema": "flip-m3-verification-build-info/1"
+}

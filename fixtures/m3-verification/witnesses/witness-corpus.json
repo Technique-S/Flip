@@ -1,0 +1,408 @@
+{
+  "additional_witnesses": [
+    {
+      "candidate_output": [
+        0,
+        1
+      ],
+      "case": "A04",
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "reference_output": [
+        0,
+        0
+      ],
+      "source": "exhaustive over 4 inputs",
+      "verified": true
+    },
+    {
+      "case": "A10-bad-substitution",
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "note": "see A10.substitution_bad.distinguishing_input; recorded in golden-compositions.json",
+      "verified": true
+    }
+  ],
+  "core_version": "m3-core-1.0.0",
+  "generator": "build_corpus.py",
+  "policy": "A witness is recorded only when both independent evaluators agree and the outputs actually differ. Otherwise the case stays UNKNOWN. No unverified counterexample is invented.",
+  "schema": "flip-m3-verification-witness-corpus/1",
+  "witnesses": [
+    {
+      "candidate_output_flat": [
+        1,
+        0
+      ],
+      "candidate_output_recursive": [
+        1,
+        0
+      ],
+      "case": "B02",
+      "differing_output_positions": [
+        0
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000200000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "n_in": 2,
+        "n_out": 2,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        0,
+        0
+      ],
+      "reference_output_recursive": [
+        0,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        0
+      ],
+      "candidate_output_recursive": [
+        0
+      ],
+      "case": "B06",
+      "differing_output_positions": [
+        0
+      ],
+      "distinguishing_input": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000300000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "n_in": 8,
+        "n_out": 1,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000b00000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        1
+      ],
+      "reference_output_recursive": [
+        1
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        0,
+        1
+      ],
+      "candidate_output_recursive": [
+        0,
+        1
+      ],
+      "case": "B07",
+      "differing_output_positions": [
+        1
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "n_in": 2,
+        "n_out": 2,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        0,
+        0
+      ],
+      "reference_output_recursive": [
+        0,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        1,
+        1
+      ],
+      "candidate_output_recursive": [
+        1,
+        1
+      ],
+      "case": "B08",
+      "differing_output_positions": [
+        0,
+        1
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x0000000200000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "n_in": 2,
+        "n_out": 2,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        0,
+        0
+      ],
+      "reference_output_recursive": [
+        0,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        0,
+        1
+      ],
+      "candidate_output_recursive": [
+        0,
+        1
+      ],
+      "case": "B09",
+      "differing_output_positions": [
+        0,
+        1
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x0000000100000100000000000000",
+        "n_in": 2,
+        "n_out": 2,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x0000000000000000000001000001",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        1,
+        0
+      ],
+      "reference_output_recursive": [
+        1,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        0
+      ],
+      "candidate_output_recursive": [
+        0
+      ],
+      "case": "B10",
+      "differing_output_positions": [
+        0
+      ],
+      "distinguishing_input": [],
+      "greedy_minimized_witness": [],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x00000001000001",
+        "n_in": 0,
+        "n_out": 1,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x00000000000000",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        1
+      ],
+      "reference_output_recursive": [
+        1
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        0,
+        1
+      ],
+      "candidate_output_recursive": [
+        0,
+        1
+      ],
+      "case": "B15",
+      "differing_output_positions": [
+        1
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "SUBSTITUTED_BANK",
+        "candidate_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "n_in": 2,
+        "n_out": 2,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        0,
+        0
+      ],
+      "reference_output_recursive": [
+        0,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "candidate_output_flat": [
+        1
+      ],
+      "candidate_output_recursive": [
+        1
+      ],
+      "case": "B16",
+      "differing_output_positions": [
+        0
+      ],
+      "distinguishing_input": [
+        0,
+        0
+      ],
+      "greedy_minimized_witness": [
+        0,
+        0
+      ],
+      "independent_evaluators_agree": true,
+      "minimal_reproduction": {
+        "candidate_bank": "ARCHIVED_REAL_BANK",
+        "candidate_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "n_in": 2,
+        "n_out": 1,
+        "reference_bank": "ARCHIVED_REAL_BANK",
+        "reference_netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "steps": [
+          "decode + load both netlists against the recorded bank",
+          "evaluate both on the distinguishing input with eval_recursive and eval_flat",
+          "confirm outputs differ by at least one bit position"
+        ]
+      },
+      "minimization_claim": "small witness by greedy bit clearing, NOT proven mathematically minimal",
+      "outputs_differ": true,
+      "reference_output_flat": [
+        0
+      ],
+      "reference_output_recursive": [
+        0
+      ],
+      "verified": true
+    }
+  ]
+}

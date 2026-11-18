@@ -1,0 +1,2112 @@
+{
+  "cases": [
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000030000020000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000003000002",
+        "netlist_sha256": "cef0e4dbef7b20b80af98150d1deff36f11763aae4279a3bee685aa2eb5aba24",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                3,
+                2
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                3,
+                2
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "clauses": 55,
+        "decisions": 6,
+        "solver_result": "UNSAT",
+        "timed_out": false,
+        "variables": 22,
+        "verdict": "EQUIVALENT"
+      },
+      "expected_result": "EQUIVALENT",
+      "id": "B01",
+      "method": "exhaustive over 4 inputs + Tseitin/DPLL miter UNSAT",
+      "note": "Reference is a real-source-derived audited half-adder; candidate reverses both REF input pairs.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "EQUIVALENT (symmetric rewiring)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000200000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "b51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                2,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          1,
+          0
+        ],
+        "clauses": 55,
+        "decisions": 3,
+        "flat_candidate_out": [
+          1,
+          0
+        ],
+        "flat_reference_out": [
+          0,
+          0
+        ],
+        "reference_out": [
+          0,
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 22,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B02",
+      "method": "exhaustive + SAT witness replayed by two evaluators",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "DIFFERENT (glue wired to input bit)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate_spec": {
+        "bank": "BANK without (PROC0, XOR#1)",
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003"
+      },
+      "exactness": "exact",
+      "executed": {
+        "resolution_error": "Malformed: REF target is not a circuit of a registered processor",
+        "verdict": "UNKNOWN"
+      },
+      "expected_result": "UNKNOWN",
+      "id": "B03",
+      "method": "resolution attempt against a bank lacking XOR#1",
+      "note": "Candidate REF target is unregistered: comparison must be UNKNOWN, never EQUIVALENT.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "UNKNOWN (missing oracle / unresolved REF)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "clauses": 55,
+        "decisions": 6,
+        "solver_result": "UNSAT",
+        "timed_out": false,
+        "variables": 22,
+        "verdict": "EQUIVALENT"
+      },
+      "expected_result": "EQUIVALENT",
+      "id": "B04",
+      "method": "self-miter must be UNSAT",
+      "note": "Regression for the historical false-positive witness [0,0] on base vs base.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Self-equivalence (false-positive regression)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000003000002",
+        "netlist_sha256": "4eac416375efce7105db067e842d77cd0c684b565179317d8a93613831e31d70",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                3,
+                2
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "clauses": 55,
+        "decisions": 6,
+        "solver_result": "UNSAT",
+        "timed_out": false,
+        "variables": 22,
+        "verdict": "EQUIVALENT"
+      },
+      "expected_result": "EQUIVALENT",
+      "id": "B05",
+      "method": "exhaustive + UNSAT",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Equivalent symmetric gates (XOR port swap)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000300000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "7208bf9a014d1e971a66f68f386d159a594f5194a27a5684d43376c666ca3215",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                3,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          0
+        ],
+        "clauses": 173,
+        "decisions": 72,
+        "flat_candidate_out": [
+          0
+        ],
+        "flat_reference_out": [
+          1
+        ],
+        "reference_out": [
+          1
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 67,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B06",
+      "method": "SAT over 28 flattened NAND + witness replay; exhaustive cross-check over 256 inputs",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000b00000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "f40db9962cee6bb686e3d39e254781049ccd7476185722cb2ca5343fa10c658f",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                11,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "title": "Non-equivalent behavior (8-input parity fan-out)"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 74,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "netlist_sha256": "8f6d578dbeb1f220a1a5886bfbf3d634a374c6bfb15a0093d3029255f026e5dc",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 7,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 6,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            }
+          ],
+          "records": 2,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          0,
+          1
+        ],
+        "clauses": 52,
+        "decisions": 3,
+        "flat_candidate_out": [
+          0,
+          1
+        ],
+        "flat_reference_out": [
+          0,
+          0
+        ],
+        "reference_out": [
+          0,
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 21,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B07",
+      "method": "exhaustive + SAT witness replay",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Output permutation"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 44,
+        "netlist_hex": "0x0000000200000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "netlist_sha256": "298e923badc05fb75a19ff8cf16d5e99ff79a5b22d5bd3032f1c94d021b24f01",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 4,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 6,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            }
+          ],
+          "records": 2,
+          "ref_records": 1
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          1,
+          1
+        ],
+        "clauses": 43,
+        "decisions": 4,
+        "flat_candidate_out": [
+          1,
+          1
+        ],
+        "flat_reference_out": [
+          0,
+          0
+        ],
+        "reference_out": [
+          0,
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 18,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B08",
+      "method": "exhaustive + SAT witness replay; both output positions recorded",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Multiple output differences"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 14,
+        "netlist_hex": "0x0000000100000100000000000000",
+        "netlist_sha256": "9cdcda785e63f94b7ebbf1f7afadd93b24b22d718988f6c24389d5579123ea36",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 2,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 6,
+          "n_state": 0,
+          "nand_glue_records": 2,
+          "record_detail": [
+            {
+              "ins": [
+                1,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                0,
+                0
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            }
+          ],
+          "records": 2,
+          "ref_records": 0
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          0,
+          1
+        ],
+        "clauses": 19,
+        "decisions": 1,
+        "flat_candidate_out": [
+          0,
+          1
+        ],
+        "flat_reference_out": [
+          1,
+          0
+        ],
+        "reference_out": [
+          1,
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 10,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B09",
+      "method": "exhaustive over 4 inputs + SAT (empty/any witness)",
+      "note": "Two constant-output circuits are not interchangeable when output order differs.",
+      "reference": {
+        "netlist_bytes": 14,
+        "netlist_hex": "0x0000000000000000000001000001",
+        "netlist_sha256": "b38976ce8c99812ed9b572cee9539b107927aec35eb58b8837c7998c47099d99",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 2,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 6,
+          "n_state": 0,
+          "nand_glue_records": 2,
+          "record_detail": [
+            {
+              "ins": [
+                0,
+                0
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                1,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            }
+          ],
+          "records": 2,
+          "ref_records": 0
+        }
+      },
+      "title": "Constant outputs"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 7,
+        "netlist_hex": "0x00000001000001",
+        "netlist_sha256": "42914870192ae213631c6de8430e480cab11b189feef173409454b178b2d6ca3",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 1,
+          "n_in": 0,
+          "n_out": 1,
+          "n_signals": 3,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                1,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            }
+          ],
+          "records": 1,
+          "ref_records": 0
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          0
+        ],
+        "clauses": 11,
+        "decisions": 0,
+        "flat_candidate_out": [
+          0
+        ],
+        "flat_reference_out": [
+          1
+        ],
+        "reference_out": [
+          1
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 5,
+        "verdict": "DIFFERENT",
+        "witness": [],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B10",
+      "method": "SAT over zero input variables; witness is the empty vector",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 7,
+        "netlist_hex": "0x00000000000000",
+        "netlist_sha256": "837885c8f8091aeaeb9ec3c3f85a6ff470a415e610b8ba3e49f9b33c9cf9d619",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 1,
+          "n_in": 0,
+          "n_out": 1,
+          "n_signals": 3,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                0,
+                0
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            }
+          ],
+          "records": 1,
+          "ref_records": 0
+        }
+      },
+      "title": "Zero-input circuits"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "load_error": "Malformed: nOut out of range",
+        "verdict": "UNKNOWN"
+      },
+      "expected_result": "UNKNOWN",
+      "id": "B11",
+      "method": "nOut=0 rejected before comparison",
+      "note": "nOut=0 is outside TAP-02 range; a comparison request with zero outputs is INVALID_INPUT/UNKNOWN.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Zero-output boundary"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 44,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000300000004000001",
+        "netlist_sha256": "94097340370102108a46e381bc89ff82be63f9dd069d05dec1596ef5f012dc86",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 5,
+          "n_in": 3,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            }
+          ],
+          "records": 2,
+          "ref_records": 1
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "reason": "width mismatch",
+        "verdict": "INVALID_INPUT"
+      },
+      "expected_result": "INVALID_INPUT",
+      "id": "B12",
+      "method": "interface compatibility check before SAT",
+      "note": "2-input vs 3-input interfaces cannot be compared; must not report EQUIVALENT.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Wrong input width"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 37,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "95cbed2edc0d6629ad3b8f42651d60ab3f75f9371ef9e618d02a7463cc5dbae3",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 4,
+          "n_in": 2,
+          "n_out": 1,
+          "n_signals": 5,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 1,
+          "ref_records": 1
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "reason": "width mismatch",
+        "verdict": "INVALID_INPUT"
+      },
+      "expected_result": "INVALID_INPUT",
+      "id": "B13",
+      "method": "interface compatibility check before SAT",
+      "note": "2-output baseline vs 1-output candidate. (xr has nIn=2,nOut=1.)",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Wrong output width"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate_spec": {
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000004000003"
+      },
+      "exactness": "exact",
+      "executed": {
+        "validation_error": "Malformed: signal 4 referenced by element at 4 is not available",
+        "verdict": "INVALID_INPUT"
+      },
+      "expected_result": "INVALID_INPUT",
+      "id": "B14",
+      "method": "TAP-02 backward-reference validation",
+      "note": "REF input signal 4 equals the element's first output -> forward reference rejected.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Unbound REF input"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 7,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          0,
+          1
+        ],
+        "clauses": 52,
+        "decisions": 2,
+        "flat_candidate_out": [
+          0,
+          1
+        ],
+        "flat_reference_out": [
+          0,
+          0
+        ],
+        "reference_out": [
+          0,
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 21,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B15",
+      "method": "SAT witness replayed by both evaluators; witness chosen to distinguish XOR from NAND",
+      "note": "XOR identity is resolved to the NAND#2 netlist. [1,1] cannot distinguish; a valid witness is required.",
+      "reference": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "title": "Faulty REF expansion"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 37,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+        "netlist_sha256": "fa2e690f0f8f5d45d244ee05f11224122da7bd938debd3e5d8859dfc5da0e2d3",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 3,
+          "n_in": 2,
+          "n_out": 1,
+          "n_signals": 5,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            }
+          ],
+          "records": 1,
+          "ref_records": 1
+        }
+      },
+      "exactness": "exact",
+      "executed": {
+        "candidate_out": [
+          1
+        ],
+        "clauses": 26,
+        "decisions": 2,
+        "flat_candidate_out": [
+          1
+        ],
+        "flat_reference_out": [
+          0
+        ],
+        "reference_out": [
+          0
+        ],
+        "solver_result": "SAT",
+        "timed_out": false,
+        "variables": 12,
+        "verdict": "DIFFERENT",
+        "witness": [
+          0,
+          0
+        ],
+        "witness_replayed": true
+      },
+      "expected_result": "DIFFERENT",
+      "id": "B16",
+      "method": "exhaustive + SAT witness replay",
+      "note": "",
+      "reference": {
+        "netlist_bytes": 37,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "95cbed2edc0d6629ad3b8f42651d60ab3f75f9371ef9e618d02a7463cc5dbae3",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 4,
+          "n_in": 2,
+          "n_out": 1,
+          "n_signals": 5,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 1,
+          "ref_records": 1
+        }
+      },
+      "title": "Changed circuit reference"
+    },
+    {
+      "agrees_with_expected": true,
+      "candidate": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000b00000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "f40db9962cee6bb686e3d39e254781049ccd7476185722cb2ca5343fa10c658f",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                11,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "exactness": "exact-for-harness-only",
+      "executed": {
+        "clauses": 173,
+        "decisions": 0,
+        "solver_result": "UNKNOWN",
+        "timed_out": true,
+        "variables": 67,
+        "verdict": "UNKNOWN"
+      },
+      "expected_result": "UNKNOWN",
+      "forced_decision_budget": 0,
+      "id": "B17",
+      "method": "DPLL decision budget exhausted by harness",
+      "note": "Harness-level UNKNOWN demonstration. NOT a production solver timing result.",
+      "reference": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000b00000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "f40db9962cee6bb686e3d39e254781049ccd7476185722cb2ca5343fa10c658f",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                11,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "title": "Solver timeout forced by decision budget"
+    }
+  ],
+  "core_version": "m3-core-1.0.0",
+  "evaluators": [
+    "m3_core.eval_recursive",
+    "m3_core.eval_flat",
+    "m3_core.cnf_miter+solve"
+  ],
+  "generator": "build_corpus.py",
+  "note": "EXACT means the verdict is decided over the full input domain or by a completed UNSAT/SAT proof with replayed witness. No case is classified EQUIVALENT from sampling alone.",
+  "schema": "flip-m3-verification-sat-corpus/1",
+  "seed": 20261118
+}

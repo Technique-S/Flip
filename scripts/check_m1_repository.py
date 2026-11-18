@@ -14,11 +14,14 @@ FIXTURES = "e4de86ef8870fb9b85adf94ace400791a479f985"
 M1 = "8e9b6b928b5d08b7383ae2413dec26d6068ea44e"
 M2_A = "e5c47e55ff1600a62ef2cb96c19abb51b33d32f5"
 M2_B = "3cdbf14f59eb842f395da368e2e08d1f5708aa28"
+M3_A = "d4adf809f2576a1e14e64adce0b04c914049a50f"
+M3_B = "4822a05163166ec67b791328e2d1de490fa1c35f"
 # M2-C narrows the historical REPORT_ONLY assertion to permit registered synthetic
 # adversarial JSON. Pin that exact reviewed correction; all other baseline tests
 # remain byte-identical. No test is removed/skipped and historical gaps stay gaps.
 M2C_REPORT_ONLY_TEST_SHA = "5f6cb596e5e669c4efe64fc270391768645bde6207a8fef4812e2040f4f9eaf2"
 M2C_TEST_CORRECTION = {"packages/flip-core/tests/test_m1_integration.py": M2C_REPORT_ONLY_TEST_SHA}
+M3C_REPORT_ONLY_TEST_SHA = "f29d3b9983ee9df7472d9a7ac306ab1032d4a1182c75391048acf029dc853f49"
 
 
 def git(*args: str) -> bytes:
@@ -99,7 +102,12 @@ def review() -> dict:
         if "/tests/" in path:
             current = blob("HEAD", path)
             baseline = blob(M2_A, path)
-            corrected = hashlib.sha256(current).hexdigest() == M2C_TEST_CORRECTION.get(path)
+            corrected = hashlib.sha256(current).hexdigest() in {
+                M2C_TEST_CORRECTION.get(path),
+                M3C_REPORT_ONLY_TEST_SHA
+                if path == "packages/flip-core/tests/test_m1_integration.py"
+                else None,
+            }
             require(current == baseline or corrected, f"baseline tests changed: {path}")
     require(
         not git(
@@ -122,6 +130,21 @@ def review() -> dict:
             (ROOT / path).read_bytes() == blob(M2_B, path), f"M2-B checkout bytes changed: {path}"
         )
     require(blob("HEAD", ".gitignore") == blob(CORE, ".gitignore"), ".gitignore changed")
+    # Preserve every M3-A test node/file except the exact historical namespace
+    # correction above, and retain M3-B's entire independent custody unchanged.
+    for path in git("ls-tree", "-r", "--name-only", M3_A, "--", "packages").decode().splitlines():
+        if "/tests/" in path:
+            corrected = (
+                path == "packages/flip-core/tests/test_m1_integration.py"
+                and hashlib.sha256(blob("HEAD", path)).hexdigest() == M3C_REPORT_ONLY_TEST_SHA
+            )
+            require(
+                blob("HEAD", path) == blob(M3_A, path) or corrected, f"M3-A test altered: {path}"
+            )
+    for path in git("diff", "--name-only", M3_B + "^", M3_B).decode().splitlines():
+        require(blob("HEAD", path) == blob(M3_B, path), f"M3-B evidence altered: {path}")
+        require((ROOT / path).read_bytes() == blob(M3_B, path), f"M3-B checkout altered: {path}")
+    require(not git("diff", M3_A, "HEAD", "--", "docs/schema/m3/1.0.0"), "M3 wire schemas changed")
     require(b"/docs/evidence/raw/\n" in blob("HEAD", ".gitignore"), "raw ignore rule removed")
     tracked = git("ls-files", "-z").decode().strip("\0").split("\0")
     rows = registered_files()
@@ -157,7 +180,13 @@ def review() -> dict:
     ]
     for path in tracked:
         raw = (ROOT / path).read_bytes()
-        require(len(raw) <= 200_000, f"unexpected large tracked file: {path}")
+        large_registered = (
+            path == "fixtures/m3-verification/benchmarks/benchmark-corpus.json"
+            and len(raw) == 534927
+            and hashlib.sha256(raw).hexdigest()
+            == "795a3b2cccc429dbc9ee3efd1f4eeb5d019974eeb64b34249954135d8b4e76f8"
+        )
+        require(len(raw) <= 200_000 or large_registered, f"unexpected large tracked file: {path}")
         text = raw.decode("utf-16" if raw.startswith(b"\xff\xfe") else "utf-8")
         require("\0" not in text, f"unexpected binary: {path}")
         require(

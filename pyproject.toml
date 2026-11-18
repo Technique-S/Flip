@@ -32,6 +32,9 @@ extend-exclude = [
     "docs/evidence/derived/recompute_checks.py",
     "docs/evidence/m2-adversarial/build_corpus.py",
     "docs/evidence/m2-adversarial/verify_corpus.py",
+    "fixtures/m3-verification/generators/build_corpus.py",
+    "fixtures/m3-verification/generators/m3_core.py",
+    "fixtures/m3-verification/generators/verify_corpus.py",
 ]
 
 [tool.ruff.lint]

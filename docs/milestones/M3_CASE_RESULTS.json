@@ -1,0 +1,1379 @@
+{
+  "caseCount": 75,
+  "cases": [
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A01]\" -q",
+      "expected": "LOAD_OK; outputs = a AND b (carry); 2 REF records, 7 expanded NAND gates; EQUIVALENT to the direct AND truth table over all 4 inputs",
+      "fixtureId": "A01",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 4,
+      "test": "test_golden_compositions[A01]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A02]\" -q",
+      "expected": "LOAD_OK; exactly 81 netlist bytes; 2 REF + 1 NAND glue; outputs (carry,sum) = (a AND b, a XOR b); 4/4 truth-table rows correct",
+      "fixtureId": "A02",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 4,
+      "test": "test_golden_compositions[A02]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A03]\" -q",
+      "expected": "LOAD_OK; EQUIVALENT to A02 over all 4 inputs (NAND and XOR are symmetric); SAT miter UNSAT",
+      "fixtureId": "A03",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 4,
+      "test": "test_golden_compositions[A03]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A04]\" -q",
+      "expected": "LOAD_OK; DIFFERENT from A02 (outputs are (sum, NAND) instead of (carry,sum)); witness required",
+      "fixtureId": "A04",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 4,
+      "test": "test_golden_compositions[A04]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A05]\" -q",
+      "expected": "Both LOAD_OK; both flatten to 28 NAND and pass TAP-02 \u00a73; DIFFERENT (3rd XOR reads raw input a2 instead of running parity)",
+      "fixtureId": "A05",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 0,
+      "test": "test_golden_compositions[A05]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_IMPORT_COMPOSE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A06]\" -q",
+      "expected": "LOAD_OK; 2 REF levels (top -> synthetic wrapper -> real XOR#1); outputs (xor, NAND); EQUIVALENT to A04 and to a direct XOR/NAND composition",
+      "fixtureId": "A06",
+      "outcome": "PASSED",
+      "reason": null,
+      "rows": 4,
+      "test": "test_golden_compositions[A06]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "M2_DECODER_RESOLVER",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A07]\" -q",
+      "expected": "REJECT / INVALID_INPUT",
+      "fixtureId": "A07",
+      "outcome": "PASSED",
+      "reason": "BAD_NETLIST",
+      "test": "test_golden_compositions[A07]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "M2_DECODER_RESOLVER",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A08]\" -q",
+      "expected": "REJECT / INVALID_INPUT",
+      "fixtureId": "A08",
+      "outcome": "PASSED",
+      "reason": "BAD_NETLIST",
+      "test": "test_golden_compositions[A08]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "M2_DECODER_RESOLVER",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A09]\" -q",
+      "expected": "REJECT / INVALID_INPUT",
+      "fixtureId": "A09",
+      "outcome": "PASSED",
+      "reason": "BAD_NETLIST",
+      "test": "test_golden_compositions[A09]"
+    },
+    {
+      "actual": "SAT_BAD_UNSAT_EQUIVALENT_BOTH_STALE",
+      "boundary": "PRODUCTION_SAT_EVALUATOR_MANIFEST_GUARD",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_golden_compositions[A10]\" -q",
+      "expected": "bad substitution => DIFFERENT with witness; equivalent substitution => same behavior but DEPENDENCY_CHANGED / STALE integrity (never CURRENT)",
+      "fixtureId": "A10",
+      "outcome": "PASSED",
+      "reason": "IMPLEMENTATION_CHANGED",
+      "test": "test_golden_compositions[A10]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B01]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "B01",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 8,
+        "clauses": 59,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20447232,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 278,
+        "variables": 22,
+        "wallMs": 255,
+        "witness": null
+      },
+      "test": "test_sat_corpus[B01]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B02]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B02",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 8,
+        "clauses": 59,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 2,
+        "outcome": "SAT",
+        "peakBytes": 20123648,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 287,
+        "variables": 22,
+        "wallMs": 251,
+        "witnessBits": "00"
+      },
+      "test": "test_sat_corpus[B02]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "PRODUCTION_IMPORT_PROJECT_VALIDATION",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B03]\" -q",
+      "expected": "UNKNOWN",
+      "fixtureId": "B03",
+      "outcome": "PASSED",
+      "reason": "MISSING_REFERENCE",
+      "test": "test_sat_corpus[B03]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B04]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "B04",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 8,
+        "clauses": 59,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20078592,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 288,
+        "variables": 22,
+        "wallMs": 262,
+        "witness": null
+      },
+      "test": "test_sat_corpus[B04]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B05]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "B05",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 8,
+        "clauses": 59,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20230144,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 283,
+        "variables": 22,
+        "wallMs": 257,
+        "witness": null
+      },
+      "test": "test_sat_corpus[B05]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B06]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B06",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 28,
+        "clauses": 175,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 7,
+        "outcome": "SAT",
+        "peakBytes": 20180992,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 28,
+        "totalMs": 302,
+        "variables": 67,
+        "wallMs": 273,
+        "witnessBits": "00100000"
+      },
+      "test": "test_sat_corpus[B06]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B07]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B07",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 7,
+        "clauses": 56,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 2,
+        "outcome": "SAT",
+        "peakBytes": 20103168,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 278,
+        "variables": 21,
+        "wallMs": 252,
+        "witnessBits": "00"
+      },
+      "test": "test_sat_corpus[B07]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B08]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B08",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 4,
+        "clauses": 47,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 2,
+        "outcome": "SAT",
+        "peakBytes": 20107264,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 8,
+        "totalMs": 277,
+        "variables": 18,
+        "wallMs": 252,
+        "witnessBits": "00"
+      },
+      "test": "test_sat_corpus[B08]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B09]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B09",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 2,
+        "clauses": 23,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "SAT",
+        "peakBytes": 20242432,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 2,
+        "totalMs": 292,
+        "variables": 10,
+        "wallMs": 269,
+        "witnessBits": "00"
+      },
+      "test": "test_sat_corpus[B09]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B10]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B10",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 1,
+        "clauses": 13,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "SAT",
+        "peakBytes": 19951616,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 1,
+        "totalMs": 317,
+        "variables": 5,
+        "wallMs": 293,
+        "witnessBits": ""
+      },
+      "test": "test_sat_corpus[B10]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "PRODUCTION_IMPORT_PROJECT_VALIDATION",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B11]\" -q",
+      "expected": "UNKNOWN",
+      "fixtureId": "B11",
+      "outcome": "PASSED",
+      "reason": "BAD_NETLIST",
+      "test": "test_sat_corpus[B11]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "PRODUCTION_IMPORT_PROJECT_VALIDATION",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B12]\" -q",
+      "expected": "INVALID_INPUT",
+      "fixtureId": "B12",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_sat_corpus[B12]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "PRODUCTION_IMPORT_PROJECT_VALIDATION",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B13]\" -q",
+      "expected": "INVALID_INPUT",
+      "fixtureId": "B13",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_sat_corpus[B13]"
+    },
+    {
+      "actual": "REJECTED",
+      "boundary": "PRODUCTION_IMPORT_PROJECT_VALIDATION",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B14]\" -q",
+      "expected": "INVALID_INPUT",
+      "fixtureId": "B14",
+      "outcome": "PASSED",
+      "reason": "BAD_NETLIST",
+      "test": "test_sat_corpus[B14]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_MITER_WORKER_TWO_VALIDATED_CONTEXTS",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B15]\" -q",
+      "consumerPolicy": "mixed identity closures rejected, see A10",
+      "expected": "DIFFERENT",
+      "fixtureId": "B15",
+      "outcome": "PASSED",
+      "reason": null,
+      "test": "test_sat_corpus[B15]",
+      "witness": [
+        0,
+        0
+      ]
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B16]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B16",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 3,
+        "clauses": 28,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "SAT",
+        "peakBytes": 20107264,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 4,
+        "totalMs": 298,
+        "variables": 12,
+        "wallMs": 274,
+        "witnessBits": "00"
+      },
+      "test": "test_sat_corpus[B16]"
+    },
+    {
+      "actual": "UNKNOWN",
+      "boundary": "PRODUCTION_COMPARISON",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_sat_corpus[B17]\" -q",
+      "expected": "UNKNOWN",
+      "fixtureId": "B17",
+      "outcome": "PASSED",
+      "reason": "SOLVER_TIMEOUT",
+      "resources": {
+        "candidateGates": 28,
+        "clauses": 175,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "outcome": "INTERRUPTED",
+        "reason": "SOLVER_TIMEOUT",
+        "referenceGates": 28,
+        "totalMs": 34,
+        "variables": 67,
+        "wallMs": 12
+      },
+      "test": "test_sat_corpus[B17]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        1,
+        0
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B02]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B02",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        0,
+        0
+      ],
+      "test": "test_independent_witnesses[B02]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        0
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B06]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B06",
+      "inputs": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        1
+      ],
+      "test": "test_independent_witnesses[B06]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        0,
+        1
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B07]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B07",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        0,
+        0
+      ],
+      "test": "test_independent_witnesses[B07]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        1,
+        1
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B08]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B08",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        0,
+        0
+      ],
+      "test": "test_independent_witnesses[B08]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        0,
+        1
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B09]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B09",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        1,
+        0
+      ],
+      "test": "test_independent_witnesses[B09]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        0
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B10]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B10",
+      "inputs": [],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        1
+      ],
+      "test": "test_independent_witnesses[B10]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        0,
+        1
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B15]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B15",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        0,
+        0
+      ],
+      "test": "test_independent_witnesses[B15]"
+    },
+    {
+      "actual": "REPLAYED",
+      "boundary": "PRODUCTION_DIRECT_EVALUATOR",
+      "candidateOutputs": [
+        1
+      ],
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_witnesses[B16]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "B16",
+      "inputs": [
+        0,
+        0
+      ],
+      "outcome": "PASSED",
+      "reason": null,
+      "referenceOutputs": [
+        0
+      ],
+      "test": "test_independent_witnesses[B16]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D01]\" -q",
+      "expected": "Reject: a report with empty maps cannot bind external widths. Return UNKNOWN / NOT_ACCEPTABLE, never EQUIVALENT.",
+      "fixtureId": "D01",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D01]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D02]\" -q",
+      "expected": "Reject unless verdict is re-derived from hash-bound artifacts; self-declared EQUIVALENT with zero manifest binds nothing.",
+      "fixtureId": "D02",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D02]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D03]\" -q",
+      "expected": "Reject as IDENTITY_MISMATCH / STALE; the hash must match the project's declared reference.",
+      "fixtureId": "D03",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D03]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D04]\" -q",
+      "expected": "Reject as IDENTITY_MISMATCH / STALE.",
+      "fixtureId": "D04",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D04]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D05]\" -q",
+      "expected": "Reject: declared hash must equal SHA-256 of bound netlist bytes.",
+      "fixtureId": "D05",
+      "outcome": "PASSED",
+      "reason": "IMPLEMENTATION_CHANGED",
+      "test": "test_proof_attacks[D05]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D06]\" -q",
+      "expected": "Downgrade to STALE / IMPLEMENTATION_CHANGED; no CURRENT badge.",
+      "fixtureId": "D06",
+      "outcome": "PASSED",
+      "reason": "IMPLEMENTATION_CHANGED",
+      "test": "test_proof_attacks[D06]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D07]\" -q",
+      "expected": "Downgrade to STALE / DEPENDENCIES_CHANGED.",
+      "fixtureId": "D07",
+      "outcome": "PASSED",
+      "reason": "IMPLEMENTATION_CHANGED",
+      "test": "test_proof_attacks[D07]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D08]\" -q",
+      "expected": "Reject WRONG_CHAIN before any comparison.",
+      "fixtureId": "D08",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D08]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D09]\" -q",
+      "expected": "Downgrade to HISTORICAL/STALE unless a fresh revalidation at current state exists.",
+      "fixtureId": "D09",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D09]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D10]\" -q",
+      "expected": "Reject witness and downgrade verdict to UNKNOWN; require replay by the trusted evaluator.",
+      "fixtureId": "D10",
+      "outcome": "PASSED",
+      "reason": "WITNESS_REPLAY_FAILED",
+      "test": "test_proof_attacks[D10]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D11]\" -q",
+      "expected": "Force UNKNOWN. A timeout or resource breach must never be EQUIVALENT.",
+      "fixtureId": "D11",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D11]"
+    },
+    {
+      "actual": "REJECTED_RAW_AND_BOUND_CLAIMS_ALL_INTERFACES",
+      "boundary": "TRUSTED_CONSUMER_CORE_CLI_API",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_proof_attacks[D12]\" -q",
+      "expected": "Reject: all artifact hashes must resolve inside the declared project; never transplant a proof.",
+      "fixtureId": "D12",
+      "outcome": "PASSED",
+      "reason": "INVALID_INPUT",
+      "test": "test_proof_attacks[D12]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00050-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00050-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 48,
+        "clauses": 295,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20201472,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 48,
+        "totalMs": 273,
+        "variables": 112,
+        "wallMs": 248,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00050-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00050-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00050-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 48,
+        "clauses": 295,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20123648,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 48,
+        "totalMs": 281,
+        "variables": 112,
+        "wallMs": 254,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00050-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00050-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-00050-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 48,
+        "clauses": 295,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 1,
+        "outcome": "SAT",
+        "peakBytes": 20123648,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 48,
+        "totalMs": 299,
+        "variables": 112,
+        "wallMs": 274,
+        "witnessBits": "1000000000000"
+      },
+      "test": "test_independent_benchmarks[E-00050-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00100-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00100-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 100,
+        "clauses": 607,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20123648,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 100,
+        "totalMs": 321,
+        "variables": 229,
+        "wallMs": 283,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00100-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00100-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00100-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 100,
+        "clauses": 607,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20267008,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 100,
+        "totalMs": 304,
+        "variables": 229,
+        "wallMs": 271,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00100-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00100-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-00100-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 100,
+        "clauses": 607,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 25,
+        "outcome": "SAT",
+        "peakBytes": 20488192,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 100,
+        "totalMs": 477,
+        "variables": 229,
+        "wallMs": 436,
+        "witnessBits": "00100000000000000000000000"
+      },
+      "test": "test_independent_benchmarks[E-00100-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00250-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00250-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 248,
+        "clauses": 1495,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20004864,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 248,
+        "totalMs": 358,
+        "variables": 562,
+        "wallMs": 311,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00250-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00250-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00250-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 248,
+        "clauses": 1495,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 19685376,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 248,
+        "totalMs": 429,
+        "variables": 562,
+        "wallMs": 376,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00250-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00250-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-00250-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 248,
+        "clauses": 1495,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 1,
+        "outcome": "SAT",
+        "peakBytes": 20447232,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 248,
+        "totalMs": 339,
+        "variables": 562,
+        "wallMs": 291,
+        "witnessBits": "100000000000000000000000000000000000000000000000000000000000000"
+      },
+      "test": "test_independent_benchmarks[E-00250-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00500-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00500-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 500,
+        "clauses": 3007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20168704,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 500,
+        "totalMs": 423,
+        "variables": 1129,
+        "wallMs": 342,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00500-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00500-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-00500-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 500,
+        "clauses": 3007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20099072,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 500,
+        "totalMs": 394,
+        "variables": 1129,
+        "wallMs": 328,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-00500-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-00500-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-00500-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 500,
+        "clauses": 3007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 64,
+        "outcome": "SAT",
+        "peakBytes": 20553728,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 500,
+        "totalMs": 432,
+        "variables": 1129,
+        "wallMs": 344,
+        "witnessBits": "001000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111111111111111111111111111111111"
+      },
+      "test": "test_independent_benchmarks[E-00500-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-01000-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-01000-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 1000,
+        "clauses": 6007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20725760,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 1000,
+        "totalMs": 534,
+        "variables": 2254,
+        "wallMs": 428,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-01000-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-01000-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-01000-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 1000,
+        "clauses": 6007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 20656128,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 1000,
+        "totalMs": 536,
+        "variables": 2254,
+        "wallMs": 383,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-01000-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-01000-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-01000-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 1000,
+        "clauses": 6007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 33,
+        "outcome": "SAT",
+        "peakBytes": 21745664,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 1000,
+        "totalMs": 515,
+        "variables": 2254,
+        "wallMs": 390,
+        "witnessBits": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "test": "test_independent_benchmarks[E-01000-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-02500-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-02500-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 2500,
+        "clauses": 15007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 24936448,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 2500,
+        "totalMs": 848,
+        "variables": 5629,
+        "wallMs": 636,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-02500-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-02500-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-02500-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 2500,
+        "clauses": 15007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 24821760,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 2500,
+        "totalMs": 1005,
+        "variables": 5629,
+        "wallMs": 691,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-02500-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-02500-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-02500-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 2500,
+        "clauses": 15007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 64,
+        "outcome": "SAT",
+        "peakBytes": 24248320,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 2500,
+        "totalMs": 633,
+        "variables": 5629,
+        "wallMs": 362,
+        "witnessBits": "00100000000000000000000000000000000000000000000000000000000000000111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "test": "test_independent_benchmarks[E-02500-different]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-self]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-05000-self",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 5000,
+        "clauses": 30007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 30978048,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 5000,
+        "totalMs": 2083,
+        "variables": 11254,
+        "wallMs": 1507,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-05000-self]"
+    },
+    {
+      "actual": "EQUIVALENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-equivalent]\" -q",
+      "expected": "EQUIVALENT",
+      "fixtureId": "E-05000-equivalent",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 5000,
+        "clauses": 30007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 0,
+        "outcome": "UNSAT",
+        "peakBytes": 30724096,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 5000,
+        "totalMs": 1609,
+        "variables": 11254,
+        "wallMs": 1162,
+        "witness": null
+      },
+      "test": "test_independent_benchmarks[E-05000-equivalent]"
+    },
+    {
+      "actual": "DIFFERENT",
+      "boundary": "PRODUCTION_COMPILE_COMPARE",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-different]\" -q",
+      "expected": "DIFFERENT",
+      "fixtureId": "E-05000-different",
+      "note": "fresh production metrics; independent fixture timing/CNF counts remain historical",
+      "outcome": "PASSED",
+      "reason": null,
+      "resources": {
+        "candidateGates": 5000,
+        "clauses": 30007,
+        "containment": "WINDOWS_JOB_COMMIT",
+        "minimizationAttempts": 64,
+        "outcome": "SAT",
+        "peakBytes": 31236096,
+        "peakMetric": "PRIVATE_COMMIT",
+        "referenceGates": 5000,
+        "totalMs": 1720,
+        "variables": 11254,
+        "wallMs": 1248,
+        "witnessBits": "001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000010000110011100101111100110011010010111101111010110000011001100100001000100011100011100100110111000011100011011010100010001000101111000011000011101010100001010101110110000110111001011001010110100110011001100111100101001011101100000100110011111100110101111110010100011000000110010011100111101010111101010010010100001010100000011011000100011101110000100001000000000000011001111111010100000101110100000011110100110100010000111101000110100100110000110100010000010100000000000001100110001100000001000000100010010101010100100100100110100111001101110011011110100000001000110110101101110101010111101011000100010111000000100011000011010001101100110010001000010001001010100000101100001000011100000001100001000000001010111010011011110101010110101000101000110011110001110001001010111000000001000110001011111011101100000011101011010010010011001000000101001110010111011010010000001001010100111100111011010010011011010110010110001000111100100100011001101000000001011100101001000000100000101000000010001001010011010011001001110001001100001101101011000100000000011000010100111101000110001010000110011110000010010100101000010111011"
+      },
+      "test": "test_independent_benchmarks[E-05000-different]"
+    },
+    {
+      "actual": "BYTE_IDENTICAL",
+      "boundary": "GIT_REGISTER_AND_SCRATCH_GENERATOR",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_custody_and_scratch_regeneration\" -q",
+      "expected": "UNCHANGED_AND_REGENERABLE",
+      "files": 18,
+      "fixtureId": "CUSTODY",
+      "note": "archival verifier's recorded SAT/witness booleans are not fresh production runs",
+      "outcome": "PASSED",
+      "reason": null,
+      "test": "test_custody_and_scratch_regeneration"
+    },
+    {
+      "actual": "FAIL_CLOSED_AND_SUBSEQUENT_JOBS_PASSED",
+      "boundary": "REAL_WORKER",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_platform_fail_closed_and_repeated_cleanup\" -q",
+      "expected": "BOUNDED_AND_RECOVERABLE",
+      "fixtureId": "CONTAINMENT",
+      "outcome": "PASSED",
+      "platform": "win32",
+      "reason": null,
+      "test": "test_platform_fail_closed_and_repeated_cleanup"
+    },
+    {
+      "actual": "IDENTICAL_SEMANTIC_HASHES",
+      "boundary": "REAL_CLI_AND_ASGI",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[compose]\" -q",
+      "exitCode": 0,
+      "expected": "CLI_API_PARITY",
+      "fixtureId": "PARITY-compose",
+      "outcome": "PASSED",
+      "reason": null,
+      "semanticHash": "0xd2b200bcdb69e15f161796bb5479caad0d4ab2223e50cfcb8fe53f3b1690c3d0",
+      "test": "test_supported_operation_parity[compose]"
+    },
+    {
+      "actual": "IDENTICAL_SEMANTIC_HASHES",
+      "boundary": "REAL_CLI_AND_ASGI",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[compare]\" -q",
+      "exitCode": 1,
+      "expected": "CLI_API_PARITY",
+      "fixtureId": "PARITY-compare",
+      "outcome": "PASSED",
+      "reason": null,
+      "semanticHash": "0xd241a1ea4e172ab9bdf9ca5942efed944a3864e84339c60d4e406279307ebe03",
+      "test": "test_supported_operation_parity[compare]"
+    },
+    {
+      "actual": "IDENTICAL_SEMANTIC_HASHES",
+      "boundary": "REAL_CLI_AND_ASGI",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[vectors]\" -q",
+      "exitCode": 0,
+      "expected": "CLI_API_PARITY",
+      "fixtureId": "PARITY-vectors",
+      "outcome": "PASSED",
+      "reason": null,
+      "semanticHash": "0x95fc22d29117c0e027427c7c44ab1b42d8ab28c832a011e92db7c4b40fb8110c",
+      "test": "test_supported_operation_parity[vectors]"
+    },
+    {
+      "actual": "IDENTICAL_SEMANTIC_HASHES",
+      "boundary": "REAL_CLI_AND_ASGI",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[consume]\" -q",
+      "exitCode": 1,
+      "expected": "CLI_API_PARITY",
+      "fixtureId": "PARITY-consume",
+      "outcome": "PASSED",
+      "reason": null,
+      "semanticHash": "0xd241a1ea4e172ab9bdf9ca5942efed944a3864e84339c60d4e406279307ebe03",
+      "test": "test_supported_operation_parity[consume]"
+    },
+    {
+      "actual": "UNKNOWN_THEN_VERIFIED_DIFFERENT",
+      "boundary": "REAL_CLI_AND_ASGI",
+      "command": "python -m pytest \"packages/flip-core/tests/test_m3_acceptance.py::test_interfaces_recover_after_timeout\" -q",
+      "expected": "CONSISTENT_RECOVERY_AND_VERSION_REJECTION",
+      "fixtureId": "FAILURE-RECOVERY",
+      "outcome": "PASSED",
+      "reason": null,
+      "test": "test_interfaces_recover_after_timeout"
+    }
+  ],
+  "engine": {
+    "nativeSolverHash": "0xd00aa5946dd1f444cb269aea1518ca74a586d43ad04dcab2a58927f019214413",
+    "profile": "flip-m3-engine-v1",
+    "pythonSatVersion": "1.9.dev23",
+    "pythonVersion": "3.14.6",
+    "solverWrapperHash": "0x91d6f6f803716fe453a7a25ca58b5cb42d97b33c25d5a886060acf45e70b2120",
+    "sources": {
+      "abi.py": "0x166dfd63e2478055c7d0f6e717b74076d9f20f2e7cc41e89093d2b461ec423c1",
+      "canonical.py": "0x8cb414632e63098312844fa2010698e470329f3795b7a64d33ec66331973ec8c",
+      "cnf.py": "0x45c4ecf0f92c125e5d35ff76b5c5983e6a30a6e0a76d439d4f7e79e86b9b99cf",
+      "composition.py": "0xd42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0",
+      "composition_models.py": "0x6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4",
+      "execution.py": "0x090e43a1b99d1ef5083b961869c1516fddd51c47f72b0ee837549f1c9768d9f2",
+      "import_models.py": "0xa264d7d6eb5b43045cebe6b7730a0002dfe0096c5f564c5d10c2af76fc3d2d2f",
+      "importer.py": "0x5b9547fd0118f37f52d1ff300d6fc4e87550af9352f5f182bb1e27ccce4d8b12",
+      "isolation.py": "0x29dac68372ca9064370d4584d71696933eedebb26a1a8a92c09a75326375b202",
+      "models.py": "0x5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72",
+      "solver_worker.py": "0x136ac35f6315e4fa9d91beb75fac22b2c95d1a82b868832d04113d2a5d663b59",
+      "tap02.py": "0x9e81c4f6011ed081168cf6b81a3b78f77727ed2b11e7a66f577a9ed820c157ca",
+      "verification.py": "0xcb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b"
+    }
+  },
+  "inputHashes": {
+    "fixtures/m3-verification/MANIFEST.json": "2233ec3035a2f62e713cffbe2e66dc14a8dda7d01baa37bf34aca114ddced0d2",
+    "packages/flip-core/tests/m3_c_adapter.py": "1c4c422644bfd849b8dee75a6863899208789e098b7c2478f0fe2edddff9e149",
+    "packages/flip-core/tests/test_m3_acceptance.py": "ccfca2ae7bf12e40bbc139d156ce4079927e85aa66bab24eb374485e77bcb280",
+    "scripts/check_m1_repository.py": "470210010950a8d6de27e9f28b0bae2fbc52783b5fe12942746e6fb0238c168e"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "result": "PASS",
+  "scope": "M3-C production execution; historical/synthetic fixture contexts, no live RPC",
+  "sourceCommits": {
+    "M3A": "d4adf809f2576a1e14e64adce0b04c914049a50f",
+    "M3B": "4822a05163166ec67b791328e2d1de490fa1c35f",
+    "main": "02463b1f370d39f6abab897d54d3438cd6056458"
+  },
+  "suite": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 440,
+    "skipped": 0
+  }
+}

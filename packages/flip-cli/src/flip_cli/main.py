@@ -103,7 +103,9 @@ class Parser(argparse.ArgumentParser):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = Parser(description="Flip M1-A contracts only; no RPC, solver or publication.")
+    parser = Parser(
+        description="Flip: read-only imports, REF composition and bounded local verification."
+    )
     parser.add_argument("--version", action="version", version=f"Flip {__version__}")
     commands = parser.add_subparsers(dest="command", required=True)
     for operation in ("validate", "canonical", "hash"):
@@ -116,12 +118,26 @@ def main(argv: list[str] | None = None) -> int:
         "inspect",
         "compose",
         "compare",
+        "vectors",
+        "consume",
         "preflight",
         "revalidate",
         "export",
         "verify-bundle",
     ):
-        command = commands.add_parser(operation, help="reserved; returns NOT_IMPLEMENTED")
+        supported = operation in (
+            "import",
+            "inspect",
+            "revalidate",
+            "compose",
+            "compare",
+            "vectors",
+            "consume",
+        )
+        command = commands.add_parser(
+            operation,
+            help="shared core operation" if supported else "reserved; returns NOT_IMPLEMENTED",
+        )
         command.add_argument("--project", type=Path)
         command.add_argument("--out", type=Path)
         command.add_argument("--format", choices=["json"], default="json")
@@ -141,6 +157,30 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if args.command in ("compose", "compare", "vectors", "consume") and args.project:
+            from flip_core.verification import execute
+
+            try:
+                with args.project.open("rb") as handle:
+                    raw = handle.read(4_194_305)
+                if len(raw) > 4_194_304:
+                    raise ContractError("RESOURCE_LIMIT", "M3 request file exceeds 4 MiB.")
+                result = execute(args.command, raw)
+                if args.out:
+                    args.out.write_bytes(canonical_bytes(result) + b"\n")
+            except OSError as exc:
+                raise ContractError(
+                    "INVALID_INPUT", "Cannot read/write M3 request/result file."
+                ) from exc
+            emit(result)
+            verdict = (
+                result.get("report", {})
+                .get("verification", {})
+                .get("verdict", result.get("verdict"))
+            )
+            if verdict in ("DIFFERENT", "VECTORS_MISMATCH"):
+                return ExitCode.DIFFERENT
+            return ExitCode.UNKNOWN if verdict == "UNKNOWN" else ExitCode.OK
         if args.command in ("import", "inspect", "revalidate") and (
             args.processor or args.circuit_id or args.identity or args.manifest
         ):

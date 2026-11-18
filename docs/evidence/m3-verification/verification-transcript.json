@@ -1,0 +1,100 @@
+{
+  "checks": {
+    "benchmark_cnf_counts": {
+      "all_match": true,
+      "details": [
+        {
+          "clauses_ok": true,
+          "id": "E-00050",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-00100",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-00250",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-00500",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-01000",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-02500",
+          "vars_ok": true
+        },
+        {
+          "clauses_ok": true,
+          "id": "E-05000",
+          "vars_ok": true
+        }
+      ]
+    },
+    "deterministic_regeneration": {
+      "authored_files_compared": 6,
+      "differing_files": [],
+      "exact": true,
+      "returncode": 0,
+      "stderr_tail": ""
+    },
+    "hash_register": {
+      "all_match": true,
+      "failures": [],
+      "files_checked": 10
+    },
+    "negative_rejections": {
+      "all_rejected": true,
+      "details": {
+        "A07_forward_ref": {
+          "reason": "Malformed: signal 4 referenced by element at 4 is not available",
+          "rejected": true
+        },
+        "A08_cycle": {
+          "reason": "Malformed: REF cycle at ('1111111111111111111111111111111111111111', 2)",
+          "rejected": true
+        },
+        "A09_arity": {
+          "reason": "Malformed: REF arity does not match the target circuit",
+          "rejected": true
+        }
+      }
+    },
+    "onchain_vector_crosscheck": {
+      "all_match": true,
+      "details": [
+        {
+          "circuit_id": 1,
+          "match": true
+        },
+        {
+          "circuit_id": 2,
+          "match": true
+        }
+      ]
+    },
+    "sat_verdicts": {
+      "cases_with_executed_verdict": 17,
+      "expected_matches": 17,
+      "mismatches": []
+    },
+    "witnesses": {
+      "all_verified": true,
+      "count": 8
+    }
+  },
+  "core_sha256": "84895734a14862178989b659e2bd0e05c9c6c8b8ad498e6ad162831066c0ad85",
+  "core_version": "m3-core-1.0.0",
+  "generator_sha256": "89dc4cac79bf298540c4acaa24ac4e59d5e4507071e128f4ba65f2d323d06c73",
+  "schema": "flip-m3-verification-transcript/1",
+  "wall_seconds": 57.292
+}

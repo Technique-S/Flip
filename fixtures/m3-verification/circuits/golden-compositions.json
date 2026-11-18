@@ -1,0 +1,9395 @@
+{
+  "cases": [
+    {
+      "category": "valid-composition",
+      "derived_function": "a AND b",
+      "expected_result": "LOAD_OK; outputs = a AND b (carry); 2 REF records, 7 expanded NAND gates; EQUIVALENT to the direct AND truth table over all 4 inputs",
+      "id": "A01",
+      "netlist_bytes": 74,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000002020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000004000001",
+      "netlist_sha256": "d22f34e6cb14601770a20278e93cc10996e6c2b67b44b95f239645502518820b",
+      "properties": {
+        "latch_records": 0,
+        "n_gates_expanded": 7,
+        "n_in": 2,
+        "n_out": 1,
+        "n_signals": 6,
+        "n_state": 0,
+        "nand_glue_records": 0,
+        "record_detail": [
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              2
+            ]
+          },
+          {
+            "ins": [
+              4,
+              1
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              1
+            ]
+          }
+        ],
+        "records": 2,
+        "ref_records": 2
+      },
+      "provenance": "REAL_SOURCES + SYNTHETIC_COMPOSITION_RECIPE",
+      "reproduction": "encode [REF(NAND#2,[2,3]), REF(XOR#1,[4,1])]; load(nIn=2,nOut=1,BANK)",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "title": "Real XOR and NAND combination",
+      "truth_basis": "exhaustive over 4 inputs",
+      "truth_table": [
+        {
+          "in": [
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1
+          ],
+          "in_packed": 2,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "out": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "audited_netlist_bytes_expected": 81,
+      "category": "valid-composition",
+      "derived_function": "(a AND b, a XOR b)",
+      "expected_result": "LOAD_OK; exactly 81 netlist bytes; 2 REF + 1 NAND glue; outputs (carry,sum) = (a AND b, a XOR b); 4/4 truth-table rows correct",
+      "id": "A02",
+      "netlist_bytes": 81,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+      "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+      "properties": {
+        "latch_records": 0,
+        "n_gates_expanded": 8,
+        "n_in": 2,
+        "n_out": 2,
+        "n_signals": 7,
+        "n_state": 0,
+        "nand_glue_records": 1,
+        "record_detail": [
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              2
+            ]
+          },
+          {
+            "ins": [
+              4,
+              1
+            ],
+            "n_out": 1,
+            "op": "NAND",
+            "ref": null
+          },
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              1
+            ]
+          }
+        ],
+        "records": 3,
+        "ref_records": 2
+      },
+      "provenance": "REAL_SOURCES + AUDITED_COMPOSITION_RECIPE",
+      "reproduction": "encode [REF(NAND#2,[2,3]), NAND(4,1), REF(XOR#1,[2,3])]; load(2,2,BANK)",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "title": "Half-adder composition (audited 81-byte recipe)",
+      "truth_basis": "exhaustive over 4 inputs",
+      "truth_table": [
+        {
+          "in": [
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0,
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1
+          ],
+          "in_packed": 2,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "out": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "category": "equivalent-wiring",
+      "compared_to": "A02",
+      "expected_result": "LOAD_OK; EQUIVALENT to A02 over all 4 inputs (NAND and XOR are symmetric); SAT miter UNSAT",
+      "id": "A03",
+      "netlist_bytes": 81,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000030000020000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000003000002",
+      "netlist_sha256": "cef0e4dbef7b20b80af98150d1deff36f11763aae4279a3bee685aa2eb5aba24",
+      "properties": {
+        "latch_records": 0,
+        "n_gates_expanded": 8,
+        "n_in": 2,
+        "n_out": 2,
+        "n_signals": 7,
+        "n_state": 0,
+        "nand_glue_records": 1,
+        "record_detail": [
+          {
+            "ins": [
+              3,
+              2
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              2
+            ]
+          },
+          {
+            "ins": [
+              4,
+              1
+            ],
+            "n_out": 1,
+            "op": "NAND",
+            "ref": null
+          },
+          {
+            "ins": [
+              3,
+              2
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              1
+            ]
+          }
+        ],
+        "records": 3,
+        "ref_records": 2
+      },
+      "provenance": "SYNTHETIC_MUTATION_OF_REAL_SOURCES",
+      "reproduction": "reverse both REF input pairs of A02; compare against A02",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "title": "Commutative-input rewiring",
+      "truth_table": [
+        {
+          "in": [
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0,
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1
+          ],
+          "in_packed": 2,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "out": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "category": "different-wiring",
+      "compared_to": "A02",
+      "expected_result": "LOAD_OK; DIFFERENT from A02 (outputs are (sum, NAND) instead of (carry,sum)); witness required",
+      "id": "A04",
+      "netlist_bytes": 74,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+      "netlist_sha256": "8f6d578dbeb1f220a1a5886bfbf3d634a374c6bfb15a0093d3029255f026e5dc",
+      "properties": {
+        "latch_records": 0,
+        "n_gates_expanded": 7,
+        "n_in": 2,
+        "n_out": 2,
+        "n_signals": 6,
+        "n_state": 0,
+        "nand_glue_records": 0,
+        "record_detail": [
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              1
+            ]
+          },
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              2
+            ]
+          }
+        ],
+        "records": 2,
+        "ref_records": 2
+      },
+      "provenance": "SYNTHETIC_MUTATION_OF_REAL_SOURCES",
+      "reproduction": "encode [REF(XOR#1,[2,3]), REF(NAND#2,[2,3])]; load(2,2,BANK); compare A02",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "title": "Non-equivalent output permutation",
+      "truth_table": [
+        {
+          "in": [
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            1,
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1
+          ],
+          "in_packed": 2,
+          "out": [
+            1,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "out": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000300000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "7208bf9a014d1e971a66f68f386d159a594f5194a27a5684d43376c666ca3215",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                3,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "candidate_truth_table": [
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 2,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 3,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 4,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 5,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 6,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 7,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 8,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 9,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 10,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 11,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 12,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 13,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 14,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 15,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 16,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 17,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 18,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 19,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 20,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 21,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 22,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 23,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 24,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 25,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 26,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 27,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 28,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 29,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 30,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 31,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 32,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 33,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 34,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 35,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 36,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 37,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 38,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 39,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 40,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 41,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 42,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 43,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 44,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 45,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 46,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 47,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 48,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 49,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 50,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 51,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 52,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 53,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 54,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 55,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 56,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 57,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 58,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 59,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 60,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 61,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 62,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 63,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 64,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 65,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 66,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 67,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 68,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 69,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 70,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 71,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 72,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 73,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 74,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 75,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 76,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 77,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 78,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 79,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 80,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 81,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 82,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 83,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 84,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 85,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 86,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 87,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 88,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 89,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 90,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 91,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 92,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 93,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 94,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 95,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 96,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 97,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 98,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 99,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 100,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 101,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 102,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 103,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 104,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 105,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 106,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 107,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 108,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 109,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 110,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 111,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 112,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 113,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 114,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 115,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 116,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 117,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 118,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 119,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 120,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 121,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 122,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 123,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 124,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 125,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 126,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 127,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 128,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 129,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 130,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 131,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 132,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 133,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 134,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 135,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 136,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 137,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 138,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 139,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 140,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 141,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 142,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 143,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 144,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 145,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 146,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 147,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 148,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 149,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 150,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 151,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 152,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 153,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 154,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 155,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 156,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 157,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 158,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 159,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 160,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 161,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 162,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 163,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 164,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 165,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 166,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 167,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 168,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 169,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 170,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 171,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 172,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 173,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 174,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 175,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 176,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 177,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 178,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 179,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 180,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 181,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 182,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 183,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 184,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 185,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 186,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 187,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 188,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 189,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 190,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 191,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 192,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 193,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 194,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 195,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 196,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 197,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 198,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 199,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 200,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 201,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 202,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 203,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 204,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 205,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 206,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 207,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 208,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 209,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 210,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 211,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 212,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 213,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 214,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 215,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 216,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 217,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 218,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 219,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 220,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 221,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 222,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 223,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 224,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 225,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 226,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 227,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 228,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 229,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 230,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 231,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 232,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 233,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 234,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 235,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 236,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 237,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 238,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 239,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 240,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 241,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 242,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 243,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 244,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 245,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 246,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 247,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 248,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 249,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 250,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 251,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 252,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 253,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 254,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 255,
+          "out": [
+            0
+          ]
+        }
+      ],
+      "category": "different-wiring",
+      "compared_to": "A05 reference",
+      "expected_result": "Both LOAD_OK; both flatten to 28 NAND and pass TAP-02 §3; DIFFERENT (3rd XOR reads raw input a2 instead of running parity)",
+      "id": "A05",
+      "provenance": "SYNTHETIC_MUTATION_OF_REAL_SOURCES",
+      "reference": {
+        "netlist_bytes": 259,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000a00000402839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000b00000502839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000c00000602839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000d00000702839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000e00000802839bdd6fa7a66416a609a735e11de5411b98574e0000000000000001020100000f000009",
+        "netlist_sha256": "f40db9962cee6bb686e3d39e254781049ccd7476185722cb2ca5343fa10c658f",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 28,
+          "n_in": 8,
+          "n_out": 1,
+          "n_signals": 17,
+          "n_state": 0,
+          "nand_glue_records": 0,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                10,
+                4
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                11,
+                5
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                12,
+                6
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                13,
+                7
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                14,
+                8
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            },
+            {
+              "ins": [
+                15,
+                9
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 7,
+          "ref_records": 7
+        }
+      },
+      "reference_truth_table": [
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 2,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 3,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 4,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 5,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 6,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 7,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 8,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 9,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 10,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 11,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 12,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 13,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 14,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 15,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 16,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 17,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 18,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 19,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 20,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 21,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 22,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 23,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 24,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 25,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 26,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 27,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 28,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 29,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 30,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "in_packed": 31,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 32,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 33,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 34,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 35,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 36,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 37,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 38,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 39,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 40,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 41,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 42,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 43,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 44,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 45,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 46,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 47,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 48,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 49,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 50,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 51,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 52,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 53,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 54,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 55,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 56,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 57,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 58,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 59,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 60,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 61,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 62,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "in_packed": 63,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 64,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 65,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 66,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 67,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 68,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 69,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 70,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 71,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 72,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 73,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 74,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 75,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 76,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 77,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 78,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 79,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 80,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 81,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 82,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 83,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 84,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 85,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 86,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 87,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 88,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 89,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 90,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 91,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 92,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 93,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 94,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "in_packed": 95,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 96,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 97,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 98,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 99,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 100,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 101,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 102,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 103,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 104,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 105,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 106,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 107,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 108,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 109,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 110,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 111,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 112,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 113,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 114,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 115,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 116,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 117,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 118,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 119,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 120,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 121,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 122,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 123,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 124,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 125,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 126,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "in_packed": 127,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 128,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 129,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 130,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 131,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 132,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 133,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 134,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 135,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 136,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 137,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 138,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 139,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 140,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 141,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 142,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 143,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 144,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 145,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 146,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 147,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 148,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 149,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 150,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 151,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 152,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 153,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 154,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 155,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 156,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 157,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 158,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "in_packed": 159,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 160,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 161,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 162,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 163,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 164,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 165,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 166,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 167,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 168,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 169,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 170,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 171,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 172,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 173,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 174,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 175,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 176,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 177,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 178,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 179,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 180,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 181,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 182,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 183,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 184,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 185,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 186,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 187,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 188,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 189,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 190,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "in_packed": 191,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 192,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 193,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 194,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 195,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 196,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 197,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 198,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 199,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 200,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 201,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 202,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 203,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 204,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 205,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 206,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 207,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 208,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 209,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 210,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 211,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 212,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 213,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 214,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 215,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 216,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 217,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 218,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 219,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 220,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 221,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 222,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "in_packed": 223,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 224,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 225,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 226,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 227,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 228,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 229,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 230,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 231,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 232,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 233,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 234,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 235,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 236,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 237,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 238,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 239,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 240,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 241,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 242,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 243,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 244,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 245,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 246,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 247,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 248,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 249,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 250,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 251,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 252,
+          "out": [
+            0
+          ]
+        },
+        {
+          "in": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 253,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 254,
+          "out": [
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "in_packed": 255,
+          "out": [
+            0
+          ]
+        }
+      ],
+      "reproduction": "encode 7 chained REF(XOR#1); fault at step 3 replaces running parity with input a2",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "title": "Duplicated-input fan-out (8-input parity)"
+    },
+    {
+      "category": "nested-composition",
+      "compared_to": "A04",
+      "expected_result": "LOAD_OK; 2 REF levels (top -> synthetic wrapper -> real XOR#1); outputs (xor, NAND); EQUIVALENT to A04 and to a direct XOR/NAND composition",
+      "id": "A06",
+      "netlist_bytes": 74,
+      "netlist_hex": "0x0211111111111111111111111111111111111111110000000000000001020100000200000302839bdd6fa7a66416a609a735e11de5411b98574e00000000000000020201000002000003",
+      "netlist_sha256": "2e09b3de5fe23432a033a3b4f5489527228d10d1bd1cf627a56b757fa851d886",
+      "properties": {
+        "latch_records": 0,
+        "n_gates_expanded": 7,
+        "n_in": 2,
+        "n_out": 2,
+        "n_signals": 6,
+        "n_state": 0,
+        "nand_glue_records": 0,
+        "record_detail": [
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x1111111111111111111111111111111111111111",
+              1
+            ]
+          },
+          {
+            "ins": [
+              2,
+              3
+            ],
+            "n_out": 1,
+            "op": "REF",
+            "ref": [
+              "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              2
+            ]
+          }
+        ],
+        "records": 2,
+        "ref_records": 2
+      },
+      "provenance": "SYNTHETIC_WRAPPER + REAL_SOURCES",
+      "ref_depth_actual": 2,
+      "reproduction": "register synthetic wrapper netlist [REF(XOR#1,[2,3])]; encode top [REF(wrapper,[2,3]), REF(NAND#2,[2,3])]",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "circuit_id": 1,
+          "function": "synthetic XOR wrapper (nested REF)",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "not_an_onchain_observation": true,
+          "processor": "0x1111111111111111111111111111111111111111",
+          "provenance": "SYNTHETIC"
+        }
+      ],
+      "title": "Multiple levels of REF composition",
+      "truth_table": [
+        {
+          "in": [
+            0,
+            0
+          ],
+          "in_packed": 0,
+          "out": [
+            0,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "out": [
+            1,
+            1
+          ]
+        },
+        {
+          "in": [
+            0,
+            1
+          ],
+          "in_packed": 2,
+          "out": [
+            1,
+            1
+          ]
+        },
+        {
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "out": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "category": "invalid",
+      "companion": "NAND(4,4) also rejected; signal 4 is the element's own output slot",
+      "expected_reason": "signal 4 referenced by element at 4 is not available",
+      "expected_result": "REJECT / INVALID_INPUT",
+      "id": "A07",
+      "n_in": 2,
+      "n_out": 1,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000004000003",
+      "note": "",
+      "observed": "Malformed: signal 4 referenced by element at 4 is not available",
+      "provenance": "SYNTHETIC_NEGATIVE",
+      "reproduction": "encode REF(XOR#1,[4,3]) and load(2,1,BANK)",
+      "title": "Invalid external pin mapping (forward REF/NAND signal)"
+    },
+    {
+      "banks": {
+        "0x1111111111111111111111111111111111111111:1": "0x02111111111111111111111111111111111111111100000000000000020201000002000003",
+        "0x1111111111111111111111111111111111111111:2": "0x02111111111111111111111111111111111111111100000000000000010201000002000003"
+      },
+      "category": "invalid",
+      "companion": "A->B->A and A->A both rejected by the recursion stack guard",
+      "expected_reason": "REF cycle",
+      "expected_result": "REJECT / INVALID_INPUT",
+      "id": "A08",
+      "n_in": 2,
+      "n_out": 1,
+      "netlist_hex": "0x02111111111111111111111111111111111111111100000000000000020201000002000003",
+      "note": "self-cycle circuit :3 is also embedded below",
+      "observed": "Malformed: REF cycle at ('1111111111111111111111111111111111111111', 2)",
+      "provenance": "SYNTHETIC_NEGATIVE",
+      "reproduction": "load netlist 0x02111111111111111111111111111111111111111100000000000000020201000002000003 against the embedded cyclic bank",
+      "self_cycle_observed": "Malformed: REF cycle at ('1111111111111111111111111111111111111111', 3)",
+      "self_cycle_spec": {
+        "circuit": "0x1111111111111111111111111111111111111111:3",
+        "netlist": "0x02111111111111111111111111111111111111111100000000000000030201000002000003"
+      },
+      "title": "Unsupported cycles (two-node and self REF cycle)"
+    },
+    {
+      "category": "invalid",
+      "companion": "",
+      "expected_reason": "REF arity does not match the target circuit",
+      "expected_result": "REJECT / INVALID_INPUT",
+      "id": "A09",
+      "n_in": 2,
+      "n_out": 1,
+      "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010202000002000003",
+      "note": "second variant: one NAND record declared nOut=2 -> 'too few signals for outputs'",
+      "observed": "Malformed: REF arity does not match the target circuit",
+      "provenance": "SYNTHETIC_NEGATIVE",
+      "reproduction": "encode REF(XOR#1, n_out=2) and load(2,1,BANK)",
+      "second_variant": {
+        "expected_reason": "too few signals for outputs",
+        "n_in": 2,
+        "n_out": 2,
+        "netlist_hex": "0x00000002000003"
+      },
+      "title": "Incorrect output-width mapping"
+    },
+    {
+      "base": {
+        "netlist_bytes": 81,
+        "netlist_hex": "0x02839bdd6fa7a66416a609a735e11de5411b98574e000000000000000202010000020000030000000400000102839bdd6fa7a66416a609a735e11de5411b98574e00000000000000010201000002000003",
+        "netlist_sha256": "3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        }
+      },
+      "category": "dependency-integrity",
+      "expected_result": "bad substitution => DIFFERENT with witness; equivalent substitution => same behavior but DEPENDENCY_CHANGED / STALE integrity (never CURRENT)",
+      "id": "A10",
+      "provenance": "SYNTHETIC_BANK_SUBSTITUTION_OF_REAL_SOURCES",
+      "reproduction": "keep REF identity fixed at (PROC0,XOR#1) but change the bank's netlist bytes",
+      "source_circuits": [
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 1,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "xor(a,b) = a XOR b (4 NAND)",
+          "label": "XOR#1",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x00000002000003000000020000040000000300000400000005000006",
+          "netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        },
+        {
+          "block": 76020961,
+          "chainId": 196,
+          "circuit_id": 2,
+          "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "function": "nand(a,b) = NOT(a AND b) (3 NAND)",
+          "label": "NAND#2",
+          "n_in": 2,
+          "n_out": 1,
+          "n_state": 0,
+          "netlist_hex": "0x000000020000030000000400000400000005000005",
+          "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+          "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B.",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "provenance": "ARCHIVED_RAW_XLAYER"
+        }
+      ],
+      "substitution_bad": {
+        "behavioral_result": "DIFFERENT",
+        "distinguishing_input": [
+          0,
+          0
+        ],
+        "netlist_properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 7,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        },
+        "netlist_sha256": "91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e",
+        "resolves_to": "NAND#2 netlist",
+        "substituted_identity": "0x839bdd6fa7a66416a609a735e11de5411b98574e:1"
+      },
+      "substitution_equivalent": {
+        "all_inputs_equal": true,
+        "alternative_xor_netlist_hex": "0x00000002000003000000030000040000000200000400000005000006",
+        "alternative_xor_netlist_sha256": "3061d044a2966e7c8918577ff507c17dac3365edbba0d33d1cdc03d9e7d762e4",
+        "behavioral_result": "EQUIVALENT over all 4 inputs",
+        "integrity_result": "DEPENDENCY_CHANGED / STALE (hash differs); must not be labelled CURRENT",
+        "netlist_properties": {
+          "latch_records": 0,
+          "n_gates_expanded": 8,
+          "n_in": 2,
+          "n_out": 2,
+          "n_signals": 7,
+          "n_state": 0,
+          "nand_glue_records": 1,
+          "record_detail": [
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                2
+              ]
+            },
+            {
+              "ins": [
+                4,
+                1
+              ],
+              "n_out": 1,
+              "op": "NAND",
+              "ref": null
+            },
+            {
+              "ins": [
+                2,
+                3
+              ],
+              "n_out": 1,
+              "op": "REF",
+              "ref": [
+                "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+                1
+              ]
+            }
+          ],
+          "records": 3,
+          "ref_records": 2
+        },
+        "original_xor_netlist_sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+        "substituted_identity": "0x839bdd6fa7a66416a609a735e11de5411b98574e:1"
+      },
+      "title": "Dependency-substitution scenarios"
+    }
+  ],
+  "chain_context": {
+    "block": 76020961,
+    "chainId": 196,
+    "fixture": "docs/evidence/raw/M0/xlayer_circuits.json",
+    "note": "Pinned historical X Layer mainnet read (M0 audit). Copied-byte provenance only; no live RPC was contacted for M3-B."
+  },
+  "core_version": "m3-core-1.0.0",
+  "generation_seed": 20261118,
+  "generator": "build_corpus.py",
+  "note": "All composed netlists are deterministic synthetic recipes built from archived real X Layer source circuits. No synthetic circuit was deployed on X Layer and no live RPC was contacted.",
+  "schema": "flip-m3-verification-golden-compositions/1"
+}
