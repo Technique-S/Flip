@@ -6,7 +6,7 @@ from flip_core.canonical import canonical_bytes, content_hash, load_json
 from flip_core.composition import compile_project
 from flip_core.contracts import ContractError
 from flip_core.import_models import ImportResult
-from flip_core.models import ComparisonReport
+from flip_core.models import ComparisonReport, Preflight
 from flip_core.preflight import preflight
 from flip_core.verification import compare, consume, parse_request
 
@@ -108,6 +108,17 @@ def inspect_evidence(bundle):
     }
 
 
+def preserve_staleness(request, observation):
+    if (
+        observation is not None
+        and Preflight.model_validate(observation).integrity.freshness == "STALE"
+    ):
+        request = request.model_copy(deep=True)
+        for item in request.imports:
+            item.integrity.freshness = "STALE"
+    return request
+
+
 def product(operation, body):
     if (
         operation == "new-project"
@@ -137,6 +148,7 @@ def product(operation, body):
         if type(observe) is not bool:
             raise ContractError("INVALID_INPUT", "observeChain must be a boolean.")
         observation = preflight(request) if observe else None
+        request = preserve_staleness(request, observation)
         result = compare(request)
         bundle = {
             "schemaVersion": VERSION,
@@ -152,10 +164,8 @@ def product(operation, body):
             schemaVersion=VERSION,
             kind="PRODUCT_REQUEST",
             executionRequest=request.model_dump(mode="json"),
-            bundle=bundle,
+            bundleText=canonical_bytes(bundle).decode(),
         )
-        replay.pop("bundle")
-        replay["bundleText"] = canonical_bytes(bundle).decode()
         if len(canonical_bytes(replay)) > 1_048_576:
             raise ContractError("RESOURCE_LIMIT", "Evidence exceeds the portable replay budget.")
         return bundle
@@ -186,6 +196,8 @@ def product(operation, body):
             != bundle["contentHash"]
         ):
             raise ContractError("INVALID_INPUT", "Invalid evidence format or checksum.")
+        # The file may conservatively reduce freshness. It cannot promote it.
+        request = preserve_staleness(request, bundle["chainObservation"])
         # Compute both pins from the caller's separately selected project.
         design = compile_project(request.project, request.imports)
         reference = (

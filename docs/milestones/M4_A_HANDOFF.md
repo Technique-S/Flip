@@ -69,6 +69,8 @@ A separate read on 2026-11-18 observed STRUCTURALLY_ACCEPTED for the original 81
 
 PR #3's reviewed production baseline was unchanged between review target `59751e20590117f0cbc4ef41b9b30d836e533f84` and accepted head `af8ba1f109a2a1c59fe36be044bc025a127ea025`. Both CI platforms passed. The merge preserving both parents is **0bd006336d9ab710706e1e11aa0533636d7fae1e**. The product branch starts at that merge. All 440 inherited test cases, frozen schema bytes and historical evidence are retained.
 
+The acceptance suite includes 440 inherited tests, 25 product regression cases and two Chromium end-to-end journeys. A stale chain observation conservatively downgrades the offline export and its replay while keeping the original manifest hashes intact.
+
 The combined suite covers the historical workflow, CLI and API parity, evidence recomputation, untrusted claims, source validation, strict burn decoding, all three pre-flight outcomes, transport errors, stale/reorganized blocks, the read-method boundary and local deployment controls. Chromium exercises desktop and 390 px layouts, keyboard input, reduced motion, actual downloads and replay through a separate CLI process. The import journey uses a synthetic loopback RPC. The mandatory tests have no live-chain dependency.
 
 ```sh

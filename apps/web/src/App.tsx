@@ -145,6 +145,15 @@ export default function App() {
 			);
 		});
 	}
+	const original = useRef<Execution["project"]["candidate"] | null>(null);
+	function rememberObservation(observation: Preflight | null) {
+		if (req && observation?.integrity.freshness === "STALE") {
+			const updated = structuredClone(req);
+			for (const item of updated.imports) item.integrity.freshness = "STALE";
+			replace(updated);
+		}
+		setObs(observation);
+	}
 	async function work(label: string, fn: () => Promise<void>) {
 		if (lock.current) return;
 		lock.current = true;
@@ -203,7 +212,9 @@ export default function App() {
 	}
 	function sample() {
 		void work("Opening historical sample", async () => {
-			replace(await api<Execution>("sample/half-adder"));
+			const historical = await api<Execution>("sample/half-adder");
+			original.current = structuredClone(historical.project.candidate);
+			replace(historical);
 			setOrigin("Historical sample");
 			setInspected(null);
 			go(1);
@@ -484,11 +495,11 @@ export default function App() {
 											type="button"
 											onClick={() =>
 												change((r) => {
-													const ref = r.project.referenceCandidate;
+													const ref = original.current;
 													if (ref) r.project.candidate = structuredClone(ref);
 												})
 											}
-											disabled={!req.project.referenceCandidate}
+											disabled={!original.current}
 										>
 											Restore original
 										</button>
@@ -581,8 +592,8 @@ export default function App() {
 														observeChain: observe,
 													});
 													download("evidence.json", b);
+													rememberObservation(b.chainObservation);
 													setProof(b.comparison);
-													setObs(b.chainObservation);
 													setNote(
 														`Exported a new ${b.comparison.report.verification.verdict} run.`,
 													);
@@ -639,7 +650,7 @@ export default function App() {
 										onClick={() =>
 											work("Checking current chain", async () => {
 												setObs(null);
-												setObs(
+												rememberObservation(
 													await api<Preflight>("preflight", productBody(req)),
 												);
 											})

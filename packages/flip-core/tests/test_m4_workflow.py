@@ -199,3 +199,30 @@ def test_invalid_rpc_config_is_inconclusive(monkeypatch):
     monkeypatch.setenv("FLIP_RPC_TIMEOUT_MS", "invalid")
     result = product("preflight", body(sample("half-adder")))
     assert (result["status"], result["reasonCode"]) == ("UNKNOWN", "RPC_UNAVAILABLE")
+
+
+def test_chain_change_downgrades_export_and_replay(monkeypatch):
+    from flip_core import workflow
+    from flip_core.verification import compose
+
+    request = body(sample("half-adder"))
+    built = compose(parse_request(request["executionRequest"]))
+    observation = dict(
+        schemaVersion="1.0.0",
+        chainId=196,
+        mode="READ_ONLY_ETH_CALL",
+        candidateNetlistHash=built["manifest"]["netlistHash"],
+        manifestHash=built["manifestHash"],
+        status="UNKNOWN",
+        reasonCode="IMPLEMENTATION_CHANGED",
+        observation=None,
+        integrity={"freshness": "STALE", "checkedBlock": None},
+    )
+    monkeypatch.setattr(workflow, "preflight", lambda request: observation)
+    bundle = product("export", {**request, "observeChain": True})
+    assert bundle["comparison"]["report"]["integrity"]["freshness"] == "STALE"
+    replay = product("verify-bundle", {**request, "bundle": bundle})
+    assert replay["report"]["integrity"]["freshness"] == "STALE"
+    assert all(
+        i["integrity"]["freshness"] != "STALE" for i in request["executionRequest"]["imports"]
+    )
