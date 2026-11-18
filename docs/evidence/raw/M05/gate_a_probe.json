@@ -1,0 +1,65 @@
+{
+  "errorSelectorCheck": {
+    "signature": "ERC1155InsufficientBalance(address,uint256,uint256,uint256)",
+    "computedSelector": "0x03dee4c5",
+    "observedRevertSelector": "0x03dee4c5",
+    "matches": true
+  },
+  "proc0Getters": {
+    "name()": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000e4f6e6c7954657374584c61796572000000000000000000000000000000000000",
+    "symbol()": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000e4f6e6c7954657374584c61796572000000000000000000000000000000000000",
+    "nextId()": "0x0000000000000000000000000000000000000000000000000000000000000068",
+    "owner()": "ERR:execution reverted",
+    "factory()": "0x0000000000000000000000001f09daefa827f02cbb40967cc91b259763760761",
+    "transistor()": "ERR:execution reverted",
+    "transistors()": "0x000000000000000000000000be0eee424c49d44592e4d498740f5b031ef8e26d",
+    "transistorToken()": "ERR:execution reverted",
+    "token()": "ERR:execution reverted",
+    "tapeoutFee()": "ERR:execution reverted",
+    "TAPEOUT_FEE()": "0x00000000000000000000000000000000000000000000000000049e57d6354000",
+    "fee()": "ERR:execution reverted",
+    "mintFee()": "ERR:execution reverted",
+    "beacon()": "ERR:execution reverted",
+    "circuitBeacon()": "ERR:execution reverted",
+    "isSealed()": "ERR:execution reverted"
+  },
+  "factoryGetters": {
+    "owner()": "0x000000000000000000000000b3d85b42a045c1a88d800cad0f55d2566a4d3138",
+    "isSealed()": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "cpuCount()": "0x00000000000000000000000000000000000000000000000000000000000001a8",
+    "beacon()": "ERR:execution reverted",
+    "circuitBeacon()": "0x000000000000000000000000f70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+    "transistors()": "ERR:execution reverted",
+    "transistor()": "ERR:execution reverted",
+    "tapeoutFee()": "ERR:execution reverted",
+    "fee()": "ERR:execution reverted",
+    "isCPU(PROC0)": "0x0000000000000000000000000000000000000000000000000000000000000001",
+    "isCPU(PROC1)": "0x0000000000000000000000000000000000000000000000000000000000000001"
+  },
+  "circuitImplBytecode": {
+    "address": "0x977f217887E085D298Cb3819cDAD5A0ee35F29B2",
+    "bytes": 12562,
+    "contains_03dee4c5": false,
+    "push20Addresses": [
+      "0x14d4d513d4914c97d5d492551157d19052531151",
+      "0x4c415443482064206f7574206f662072616e6765",
+      "0xebecedea36e598b64e17f8d519eb77441c539f76"
+    ]
+  },
+  "push20CandidateProbes": {
+    "0x14d4d513d4914c97d5d492551157d19052531151": {
+      "codeLen": 0
+    },
+    "0x4c415443482064206f7574206f662072616e6765": {
+      "codeLen": 0
+    },
+    "0xebecedea36e598b64e17f8d519eb77441c539f76": {
+      "codeLen": 0
+    }
+  },
+  "proc0NonZeroLowSlots": {
+    "slot_0": "0x000000000000000000000000be0eee424c49d44592e4d498740f5b031ef8e26d",
+    "slot_2": "0x0000000000000000000000000000000000000000000000000000000000000068",
+    "slot_3": "0x0000000000000000000000001f09daefa827f02cbb40967cc91b259763760761"
+  }
+}

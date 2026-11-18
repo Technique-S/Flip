@@ -1,0 +1,102 @@
+{
+  "rpcX": "https://rpc.xlayer.tech",
+  "rpcBase": "https://base-pokt.nodies.app",
+  "chainIdX": 196,
+  "blockNumberX": 76056306,
+  "blockHashX": "0x198e4a83d2cd97e06b56d60f787eaf3b29cb55042e086e8c6639d217f81a3e1f",
+  "tap02Version": "draft-2026-10-04",
+  "testSuiteHash": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+  "manifests": [
+    {
+      "label": "xor1",
+      "chainId": 196,
+      "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+      "circuitId": 1,
+      "blockNumber": 76056306,
+      "blockHash": "0x198e4a83d2cd97e06b56d60f787eaf3b29cb55042e086e8c6639d217f81a3e1f",
+      "nIn": 2,
+      "nOut": 1,
+      "nState": 0,
+      "gateCount": 4,
+      "netlist": "0x00000002000003000000020000040000000300000400000005000006",
+      "netlistBytes": 28,
+      "netlistHash": "0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+      "elements": 4,
+      "refs": [],
+      "processorCodeHash": "2ea683e275cbe6e51928a9bdefe80b6ff6a6a6e8535436bbe7eea02ee18306ae",
+      "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "factoryCodeHash": "d5e534164f234bee90da236f5e4fd09d4333dfbecd0591d4f93af1ee1713dd31",
+      "factoryImplSlot": "0x000000000000000000000000336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+      "factoryImplCodeHash": "a1a0613dac58ccb24454e7ab232d668e2483d3d0f092f43affae8c94885aaf5f",
+      "factoryImplAddress": "0x336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+      "factoryIsSealed": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "factoryCpuCount": "0x00000000000000000000000000000000000000000000000000000000000001a8",
+      "beacon": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "beaconCodeHash": "ecfed7a79dc46024e78f76be3f995c9fcecc2d8e730829b7cf03aef47be9e1a2",
+      "beaconImplementation": "0x977f217887e085d298cb3819cdad5a0ee35f29b2",
+      "beaconImplementationCodeHash": "0a5259a8b5a69197cde6dce70a4446fe807b622277bdae9e79919d5d8e9828a5",
+      "beaconOwner": "0x0000000000000000000000000000000000000000",
+      "dependencies": [],
+      "manifestHash": "0xb7c6e18daf408462f3fd23dd11ac40be96a696e5791b44667773bf89959601e3"
+    },
+    {
+      "label": "wrapper4",
+      "chainId": 196,
+      "processor": "0x839BDD6fA7A66416a609A735E11DE5411b98574E",
+      "circuitId": 4,
+      "blockNumber": 76056306,
+      "blockHash": "0x198e4a83d2cd97e06b56d60f787eaf3b29cb55042e086e8c6639d217f81a3e1f",
+      "nIn": 0,
+      "nOut": 1,
+      "nState": 2,
+      "gateCount": 10,
+      "netlist": "0x02f044d395c91e77459e6b2155015e14f0dd9b349f00000000000000660001",
+      "netlistBytes": 31,
+      "netlistHash": "0x0d6225ff61bc8e990c757c9152a136ab580b5630c39317f81b9e05edce8070ad",
+      "elements": 1,
+      "refs": [
+        {
+          "cpu": "0xf044d395c91e77459e6b2155015e14f0dd9b349f",
+          "id": 102,
+          "nIns": 0,
+          "nOuts": 1
+        }
+      ],
+      "processorCodeHash": "2ea683e275cbe6e51928a9bdefe80b6ff6a6a6e8535436bbe7eea02ee18306ae",
+      "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "factoryCodeHash": "d5e534164f234bee90da236f5e4fd09d4333dfbecd0591d4f93af1ee1713dd31",
+      "factoryImplSlot": "0x000000000000000000000000336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+      "factoryImplCodeHash": "a1a0613dac58ccb24454e7ab232d668e2483d3d0f092f43affae8c94885aaf5f",
+      "factoryImplAddress": "0x336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+      "factoryIsSealed": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "factoryCpuCount": "0x00000000000000000000000000000000000000000000000000000000000001a8",
+      "beacon": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "beaconCodeHash": "ecfed7a79dc46024e78f76be3f995c9fcecc2d8e730829b7cf03aef47be9e1a2",
+      "beaconImplementation": "0x977f217887e085d298cb3819cdad5a0ee35f29b2",
+      "beaconImplementationCodeHash": "0a5259a8b5a69197cde6dce70a4446fe807b622277bdae9e79919d5d8e9828a5",
+      "beaconOwner": "0x0000000000000000000000000000000000000000",
+      "dependencies": [
+        {
+          "ref": {
+            "cpu": "0xf044d395c91e77459e6b2155015e14f0dd9b349f",
+            "id": 102,
+            "nIns": 0,
+            "nOuts": 1
+          },
+          "target": {
+            "nIn": 0,
+            "nOut": 1,
+            "nState": 2,
+            "gateCount": 10,
+            "netlist": "0x0100000701000009000000020000020000000300000300000004000005000000060000060000000200000500000008000008000000070000070000000a00000a",
+            "netlistBytes": 64,
+            "netlistHash": "0xac765e17b369dbfe28b952685404eabb417d537d1d2a2a317827bb0b6e3c13a0",
+            "elements": 10,
+            "refs": []
+          }
+        }
+      ],
+      "manifestHash": "0xbab8fe68a0c0bbcd0ac9dca6615d8788d830e63dd25b08e9c91419129e55b66c"
+    }
+  ]
+}
