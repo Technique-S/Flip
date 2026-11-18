@@ -1,0 +1,2 @@
+HTTP 413
+{"error":{"code":"RESOURCE_LIMIT","message":"Request exceeds 1 MiB."},"schemaVersion":"1.0.0"}

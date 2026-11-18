@@ -1,0 +1,1 @@
+{"error":{"code":"WRONG_CHAIN","message":"Only integer chainId 196 is supported."},"schemaVersion":"1.0.0"}

@@ -1,0 +1,34 @@
+usage: python.exe C:\Users\Kazi\Documents\Flip\repo\.venv\Scripts\flip
+       [-h] [--version]
+       {validate,canonical,hash,sample,import,inspect,new-project,compose,compare,vectors,consume,preflight,revalidate,export,inspect-evidence,verify-bundle} ...
+
+Flip: read-only imports, REF composition and bounded local verification.
+
+positional arguments:
+  {validate,canonical,hash,sample,import,inspect,new-project,compose,compare,vectors,consume,preflight,revalidate,export,inspect-evidence,verify-bundle}
+    validate            validate a versioned contract
+    canonical           canonical a versioned contract
+    hash                hash a versioned contract
+    sample              Open the historical half-adder or swapped-output
+                        project
+    import              Read and pin an X Layer circuit and its dependency
+                        closure
+    inspect             Inspect an X Layer circuit by processor address and ID
+    new-project         Wrap an imported stateless circuit as a candidate and
+                        baseline
+    compose             Build deterministic TAP-02 bytes from a pinned project
+    compare             Run bounded local stateless verification and replay
+                        differences
+    vectors             Evaluate user-supplied input/output rows
+    consume             Replay an M3 report against externally pinned
+                        identities
+    preflight           Probe current X Layer structure with a read-only call
+    revalidate          Re-read a manifest and report changed dependencies
+    export              Run comparison and save portable evidence
+    inspect-evidence    Inspect recorded evidence claims without trusting them
+    verify-bundle       Recompute evidence against a separately selected
+                        project
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

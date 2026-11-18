@@ -1,0 +1,376 @@
+{
+  "schemaVersion": "m4-independent-review-1",
+  "reviewTarget": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+  "cases": [
+    {
+      "id": "C01",
+      "description": "version",
+      "command": "flip --version",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C01.stdout.txt",
+      "stdoutSha256": "3eb3ed93c3818aa2783e0a2147ddd774635f285aa4bfa49d3690b3342371573c",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C02",
+      "description": "help",
+      "command": "flip --help",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C02.stdout.txt",
+      "stdoutSha256": "644084f054e55cd75226d10ec9609b772b61f894209f95e71f261498a85c43af",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C03",
+      "description": "compose baseline",
+      "command": "flip compose --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C03.stdout.txt",
+      "stdoutSha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C04",
+      "description": "compare EQUIVALENT",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C04.stdout.txt",
+      "stdoutSha256": "1c790026dd476f8c805356ecf457966be67e4e2ae42416fba4971ce3efcbb82b",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C05",
+      "description": "compare DIFFERENT",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-different-output-order.json",
+      "exitCode": 1,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C05.stdout.txt",
+      "stdoutSha256": "1905c2fe51b522bbd444179351a84b6c5cf034b74765a54e0b13880bcc0413b2",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C06",
+      "description": "compare UNKNOWN timeout",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-unknown-timeout.json",
+      "exitCode": 2,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C06.stdout.txt",
+      "stdoutSha256": "34dc319331402136e4d8e41e02bd6a501149963ee815e7ae5564e15bb6772a71",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C07",
+      "description": "vectors",
+      "command": "flip vectors --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-vectors.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C07.stdout.txt",
+      "stdoutSha256": "9959a78bc5acc8e591eb60c18dc6abd42adf0bc36e48ecf3430bb13b4736bc54",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C08",
+      "description": "caller CURRENT flag",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-current-freshness-claim.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C08.stdout.txt",
+      "stdoutSha256": "8bb99dbb573012239bb1e21ddb13caf4cea237d489a527d852df5d3611457ca7",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C09",
+      "description": "malformed input",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\malformed-request.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C09.stdout.txt",
+      "stdoutSha256": "4ca24dbda3ffe9e9eea9c11cab8e94d1f1f4b27cdc1abf2bc7ae8f85a0d18f6c",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C10",
+      "description": "unsupported version",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\unsupported-version.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C10.stdout.txt",
+      "stdoutSha256": "4ca24dbda3ffe9e9eea9c11cab8e94d1f1f4b27cdc1abf2bc7ae8f85a0d18f6c",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C11",
+      "description": "wrong chain inspect",
+      "command": "flip inspect --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C11.stdout.txt",
+      "stdoutSha256": "af884737e6c0ced217e9c7f8be57af838396d6273e849b6ad6af46e9f795fe05",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C12",
+      "description": "invalid pin map",
+      "command": "flip compare --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\invalid-pin-map.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C12.stdout.txt",
+      "stdoutSha256": "4ca24dbda3ffe9e9eea9c11cab8e94d1f1f4b27cdc1abf2bc7ae8f85a0d18f6c",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C13",
+      "description": "wrong chain import",
+      "command": "flip import --chain-id 8453 --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C13.stdout.txt",
+      "stdoutSha256": "af884737e6c0ced217e9c7f8be57af838396d6273e849b6ad6af46e9f795fe05",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C14",
+      "description": "RPC unavailable",
+      "command": "flip inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "exitCode": 4,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C14.stdout.txt",
+      "stdoutSha256": "f4cd823b3af6776d2531c57ec613473e157cc8a7384583b36b3be92883b075db",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C15",
+      "description": "validate contract",
+      "command": "flip validate circuit-identity docs/schema/examples/circuit-identity.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C15.stdout.txt",
+      "stdoutSha256": "713dd37d64bd33d3c28405321a269a77d0a775e3d259c40683b91b611aa052d8",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C16",
+      "description": "canonical contract",
+      "command": "flip canonical circuit-identity docs/schema/examples/circuit-identity.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C16.stdout.txt",
+      "stdoutSha256": "713dd37d64bd33d3c28405321a269a77d0a775e3d259c40683b91b611aa052d8",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C17",
+      "description": "hash manifest",
+      "command": "flip hash manifest docs/schema/examples/manifest.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C17.stdout.txt",
+      "stdoutSha256": "6531a4a8303fd4fb5d2639e65a131b9a2167d52593b2423921a381e0958f0f1f",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C18",
+      "description": "preflight baseline",
+      "command": "flip preflight --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C18.stdout.txt",
+      "stdoutSha256": "f844dd9afba4e2412a36bf3c09e460ce2a2928fac401e714e851ddec7cd7a6b8",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C19",
+      "description": "export baseline",
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\half-adder-equivalent.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C19.stdout.txt",
+      "stdoutSha256": "3ad0d5dc801a2f8c10642f322a043453d6672324f3c8f83162974151baa42682",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C20",
+      "description": "sample baseline",
+      "command": "flip sample",
+      "exitCode": 6,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C20.stdout.txt",
+      "stdoutSha256": "095be6db605771e66716d47c96d2eb3ac17efff97f43af22fbf0688cb02b104c",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C21",
+      "description": "revalidate wrong chain",
+      "command": "flip revalidate --chain-id 8453 --manifest C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\import-manifest.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C21.stdout.txt",
+      "stdoutSha256": "af884737e6c0ced217e9c7f8be57af838396d6273e849b6ad6af46e9f795fe05",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C22",
+      "description": "consume valid claim",
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-valid.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C22.stdout.txt",
+      "stdoutSha256": "bc40b86b94a63ce6bf6de859eda318e279b9071dd73d81d5a3cad654e7524ad6",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C23",
+      "description": "consume forged verdict",
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-forged-verdict.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C23.stdout.txt",
+      "stdoutSha256": "12a2e7a62341525f1dc6aeff9a8ffa00668e57e5cc72b277f38c74e01381be96",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C24",
+      "description": "consume changed reference",
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-changed-reference.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C24.stdout.txt",
+      "stdoutSha256": "9ef0a6b2d96acb3661989e41fe2ce8aa5a0a8671508a8072d22445e28e38922e",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C25",
+      "description": "consume CURRENT relabel",
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-current-relabel.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C25.stdout.txt",
+      "stdoutSha256": "12a2e7a62341525f1dc6aeff9a8ffa00668e57e5cc72b277f38c74e01381be96",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C26",
+      "description": "consume DIFFERENT witness",
+      "command": "flip consume --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\consumption-different.json",
+      "exitCode": 1,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C26.stdout.txt",
+      "stdoutSha256": "5332cb2afc7fc1ac797251fc63acfcf26dcf39da676ee8b2f8b65773b3156094",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "C27",
+      "description": "import success local double",
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:61360 --timeout-ms 2000 --retries 0",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C27.stdout.txt",
+      "stdoutSha256": "bf9f69d2678be0f3d55441c05ad56a65b311776f87ae7c5565cb63955dcee19e",
+      "stderr": "",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C28",
+      "description": "circuit not found local double",
+      "command": "flip import --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1 --rpc-url http://127.0.0.1:61381 --timeout-ms 2000 --retries 0",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C28.stdout.txt",
+      "stdoutSha256": "43e3f2c256f2f84ecd0f5a653996fc9eb16be392226d9a02a16c648fbc49e345",
+      "stderr": "",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C30",
+      "description": "revalidate after beacon upgrade",
+      "command": "flip revalidate --manifest C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\corpus\\import-manifest-local-double.json --rpc-url http://127.0.0.1:51583 --timeout-ms 2000 --retries 0",
+      "exitCode": 7,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C30.stdout.txt",
+      "stdoutSha256": "e0e73a70074016dd3c8f916a7d301191de9fcaacb27b625f687519d8def00f01",
+      "stderr": "",
+      "provenance": "LOCAL_DOUBLE_OFFLINE"
+    },
+    {
+      "id": "C29",
+      "description": "10 deterministic compose builds",
+      "command": "flip compose --project .../half-adder-equivalent.json (x10)",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/C29.stdout.txt",
+      "stdoutSha256": "cf2242a69e9e13e28e10d6961be5787f018f4ce612d66c21e507114cac4c1bd1",
+      "stderr": "",
+      "provenance": "M3_CORPUS_REPLAY"
+    },
+    {
+      "id": "M01",
+      "description": "sample half-adder",
+      "command": "flip sample half-adder --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed-integration\\M01-project.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M01.stdout.txt",
+      "stdoutSha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11",
+      "stderr": "",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M02",
+      "description": "sample swapped",
+      "command": "flip sample swapped --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed-integration\\M02-mutation.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M02.stdout.txt",
+      "stdoutSha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1",
+      "stderr": "",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M03",
+      "description": "export from downloaded project",
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed-integration\\M03-evidence.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M03.stdout.txt",
+      "stdoutSha256": "1f1c6c84d78420c64b7eed72bcea329065b23d13ac3a3ede50469931bc0d6733",
+      "stderr": "",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M04",
+      "description": "inspect browser evidence",
+      "command": "flip inspect-evidence --bundle C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\evidence.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M04.stdout.txt",
+      "stdoutSha256": "4dfebdb4aea2208ba2a9de2faec391609288a43d7bf62b4cd10d92b8c1246577",
+      "stderr": "",
+      "provenance": "BROWSER_DOWNLOADED_EVIDENCE"
+    },
+    {
+      "id": "M05",
+      "description": "verify browser evidence",
+      "command": "flip verify-bundle --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --bundle C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\evidence.json",
+      "exitCode": 0,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M05.stdout.txt",
+      "stdoutSha256": "c755be4e065d3cb75c674f91093fa859c52a630e9821e0901f8ea1ea524bb88a",
+      "stderr": "",
+      "provenance": "BROWSER_DOWNLOADED_EVIDENCE"
+    },
+    {
+      "id": "M06",
+      "description": "preflight offline project",
+      "command": "flip preflight --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M06.stdout.txt",
+      "stdoutSha256": "a4edf4906d9a298920130dc00292caa679a142443928e77fd049b5928f525483",
+      "stderr": "",
+      "provenance": "M4_PRODUCT_COMMAND"
+    },
+    {
+      "id": "M07",
+      "description": "export with unreachable chain observation",
+      "command": "flip export --project C:\\Users\\Kazi\\Documents\\Flip\\repo\\fixtures\\m4-independent-review\\downloads\\project.json --observe-chain --rpc-url http://127.0.0.1:1 --timeout-ms 200 --retries 0 --out C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m4-independent-review\\executed-integration\\M07-observe.json",
+      "exitCode": 3,
+      "stdoutFile": "docs/evidence/m4-independent-review/executed-integration/M07.stdout.txt",
+      "stdoutSha256": "a4edf4906d9a298920130dc00292caa679a142443928e77fd049b5928f525483",
+      "stderr": "",
+      "provenance": "M4_PRODUCT_COMMAND"
+    }
+  ]
+}

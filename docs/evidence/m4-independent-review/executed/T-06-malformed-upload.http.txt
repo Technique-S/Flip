@@ -1,0 +1,2 @@
+HTTP 422
+{"error":{"code":"INVALID_INPUT","message":"Invalid M3 execution request."},"schemaVersion":"1.0.0"}
