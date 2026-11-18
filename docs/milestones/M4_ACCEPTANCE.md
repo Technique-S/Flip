@@ -79,3 +79,9 @@ F-02 is corrected with CSS Unicode escapes for the selected mapping arrow and cl
 F-03 removes the duplicate SOLVER_TIMEOUT conditional. Timeout copy retains the exact machine code, UNKNOWN verdict, higher-timeout guidance, keyboard-accessible execution control and accurate live-region announcement. The focused regression runs a 1 ms timeout followed by a keyboard-triggered completed comparison. Solver limits and trusted proof consumption are unchanged.
 
 Manual auditory screen-reader testing remains unexecuted. Accepted scope remains the local single-developer workflow. Public hosting requires deployment-specific authentication, process isolation, aggregate budgets and request controls. No M5 deployment is authorized by this acceptance.
+
+### Final closure validation
+
+Final reviewed implementation SHA **968cec9e59e7dfaa42e743434304ee3a7ff9acc5** closes F-02 and F-03. Windows and Linux each passed **514 Python tests and 11 Chromium tests** in [PR validation run 44418515179](https://github.com/Technique-S/Flip/actions/runs/44418515179). This includes the focused F-02/F-03 regression, native worker safety, frozen schema drift, Python/Node canonical parity, frontend lint/build, evidence custody and credential scans. The final documentation commit records these observed results without further runtime changes.
+
+**Final M4 decision: ACCEPTED for bounded local developer use.** The independent review's remaining actionable findings are resolved. Manual auditory screen-reader coverage and public-hosting isolation/authentication/aggregate-resource controls remain M5 risks. The approved merge preserves the independent review history and all original evidence.
