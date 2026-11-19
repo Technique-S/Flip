@@ -23,6 +23,8 @@ M2C_REPORT_ONLY_TEST_SHA = "5f6cb596e5e669c4efe64fc270391768645bde6207a8fef4812e
 M2C_TEST_CORRECTION = {"packages/flip-core/tests/test_m1_integration.py": M2C_REPORT_ONLY_TEST_SHA}
 M4C_REPORT_ONLY_TEST_SHA = "81ffaa464609a66d2356104a1c4db6a0c5f1b81e3cd326f8f114063f46125680"
 M3C_REPORT_ONLY_TEST_SHA = "f29d3b9983ee9df7472d9a7ac306ab1032d4a1182c75391048acf029dc853f49"
+# Only registers the independently hash-verified M45 synthetic fixture namespace.
+M45_REPORT_ONLY_TEST_SHA = "246cc510a2cd9c0c2e1c037dbfde887e8fea0683efd1fbcdca8ebeb96695919a"
 
 
 def git(*args: str) -> bytes:
@@ -120,6 +122,9 @@ def review() -> dict:
             baseline = blob(M2_A, path)
             corrected = hashlib.sha256(current).hexdigest() in {
                 M2C_TEST_CORRECTION.get(path),
+                M45_REPORT_ONLY_TEST_SHA
+                if path == "packages/flip-core/tests/test_m1_integration.py"
+                else None,
                 M4C_REPORT_ONLY_TEST_SHA
                 if path == "packages/flip-core/tests/test_m1_integration.py"
                 else None,
@@ -156,7 +161,7 @@ def review() -> dict:
             corrected = (
                 path == "packages/flip-core/tests/test_m1_integration.py"
                 and hashlib.sha256(blob("HEAD", path)).hexdigest()
-                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA)
+                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA, M45_REPORT_ONLY_TEST_SHA)
             )
             require(
                 blob("HEAD", path) == blob(M3_A, path) or corrected, f"M3-A test altered: {path}"
@@ -165,6 +170,10 @@ def review() -> dict:
         require(blob("HEAD", path) == blob(M3_B, path), f"M3-B evidence altered: {path}")
         require((ROOT / path).read_bytes() == blob(M3_B, path), f"M3-B checkout altered: {path}")
     require(not git("diff", M3_A, "HEAD", "--", "docs/schema/m3/1.0.0"), "M3 wire schemas changed")
+    research = "5c7bcfbc8babb58d5f040fe869e2017f4a8c46fd"
+    for path in git("diff", "--name-only", research + "^", research).decode().splitlines():
+        require(blob("HEAD", path) == blob(research, path), f"M45 research altered: {path}")
+        require((ROOT / path).read_bytes() == blob(research, path), f"M45 checkout altered: {path}")
     require(b"/docs/evidence/raw/\n" in blob("HEAD", ".gitignore"), "raw ignore rule removed")
     tracked = git("ls-files", "-z").decode().strip("\0").split("\0")
     rows = registered_files()

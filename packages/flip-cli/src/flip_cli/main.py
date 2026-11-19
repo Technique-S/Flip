@@ -112,6 +112,14 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--version", action="version", version=f"Flip {__version__}")
     commands = parser.add_subparsers(dest="command", required=True)
+    library = commands.add_parser("library", help="Read-only processor/circuit catalog operations")
+    library.add_argument(
+        "--request", type=Path, required=True, help="Versioned LIBRARY_REQUEST JSON"
+    )
+    library.add_argument(
+        "--catalog", type=Path, help="Local catalog; atomically updated after operation"
+    )
+    library.add_argument("--out", type=Path)
     for operation in ("validate", "canonical", "hash"):
         command = commands.add_parser(operation, help=f"{operation} a versioned contract")
         command.add_argument("kind", choices=CONTRACTS)
@@ -171,6 +179,40 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if args.command == "library":
+            from flip_core.canonical import load_json
+            from flip_core.library import LibraryService
+            from flip_core.library_models import Catalog, LibraryRequest
+            from flip_core.rpc import RpcSettings
+
+            def library_file(path):
+                with path.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                if len(raw) > 1_048_576:
+                    raise ContractError("RESOURCE_LIMIT", "Library input exceeds 1 MiB.")
+                return load_json(raw)
+
+            try:
+                model = LibraryRequest.model_validate(library_file(args.request))
+                if args.catalog and args.catalog.exists():
+                    model.catalog = Catalog.model_validate(library_file(args.catalog))
+                result = LibraryService(RpcSettings.from_environment()).execute(model)
+                if args.catalog:
+                    write_result(args.catalog, result.catalog)
+                if args.out:
+                    write_result(args.out, result)
+            except (OSError, ValueError, TypeError, RecursionError) as exc:
+                if isinstance(exc, ContractError):
+                    raise
+                raise ContractError(
+                    "INVALID_INPUT", "Invalid library contract or local file."
+                ) from exc
+            emit(result)
+            if result.status in ("UNKNOWN", "ABORTED", "VERIFICATION_FAILED"):
+                return ExitCode.UNKNOWN
+            if result.status in ("ENVIRONMENT_CHANGED", "REORGED"):
+                return ExitCode.STALE
+            return ExitCode.OK
         if (
             (args.command == "inspect-evidence" and args.bundle)
             or (args.command == "new-project" and args.source)
@@ -283,6 +325,13 @@ def main(argv: list[str] | None = None) -> int:
         else:
             emit(model)
         return ExitCode.OK
+    except KeyboardInterrupt:
+        emit(
+            ContractError(
+                "RESOURCE_LIMIT", "Operation aborted; no partial catalog saved."
+            ).envelope()
+        )
+        return ExitCode.UNKNOWN
     except ContractError as exc:
         emit(exc.envelope())
         if exc.code == "RPC_UNAVAILABLE":
