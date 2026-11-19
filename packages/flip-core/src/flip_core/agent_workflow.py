@@ -148,6 +148,7 @@ def controller_identity():
 
 
 def execute(raw, *, settings=None, cancelled=None):
+    started = monotonic()
     model = parse_workflow(raw)
     settings = settings or RpcSettings.from_environment()
     cancelled = cancelled or (lambda: False)
@@ -157,7 +158,7 @@ def execute(raw, *, settings=None, cancelled=None):
     original = content_hash(current) if current else None
     artifacts, logs, error, status = {}, [], None, "PREPARED"
     usage = dict(iterations=0, toolRequests=0, rpcRequests=0, rpcAccounting="EXACT")
-    budget, start, previous, size = model.budget, monotonic(), request_hash, 0
+    budget, start, previous, size = model.budget, started, request_hash, 0
 
     def issue(code, message):
         return dict(

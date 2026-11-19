@@ -63,6 +63,7 @@ def correction_steps():
 @contextmanager
 def chain_server(chain=None, delay=0):
     chain = chain or LibraryChain()
+    chain.received = []
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *_):
@@ -70,6 +71,9 @@ def chain_server(chain=None, delay=0):
 
         def do_POST(self):
             raw = self.rfile.read(int(self.headers["Content-Length"]))
+            # Observe wire arrival before the artificial provider-processing delay.
+            # A received request may finish server-side after its client was cancelled.
+            chain.received.append(json.loads(raw))
             time.sleep(delay)
             response = chain.handler(httpx.Request("POST", "http://localhost", content=raw))
             self.send_response(response.status_code)
@@ -340,9 +344,9 @@ def test_cancel_before_during_and_overall_deadline_stops_children():
             cancelled=lambda: time.monotonic() - start > 1,
         )
         assert r.status == "CANCELLED" and len(r.logs) == 1
-        count = len(chain.requests)
+        count = len(chain.received)
         time.sleep(0.5)
-        assert len(chain.requests) == count
+        assert len(chain.received) == count
         assert r.usage.rpcAccounting == "RESERVED_ON_INTERRUPTION"
     r = execute(request(dict(op="build"), dict(op="export"), budget=dict(deadlineMs=1)))
     assert r.status == "BUDGET_EXHAUSTED" and not any(e.status == "COMPLETE" for e in r.logs)
@@ -497,7 +501,7 @@ def test_repeated_apply_and_trace_limits_fail_closed():
     assert r.status == "UNKNOWN" and r.logs[0].output["connections"] == []
 
 
-def test_worker_crash_retry_is_bounded_and_cancellation_prevents_late_apply(monkeypatch):
+def test_worker_crash_retry_is_bounded(monkeypatch):
     calls = []
 
     def failed(payload, *_):
@@ -517,6 +521,36 @@ def test_worker_crash_retry_is_bounded_and_cancellation_prevents_late_apply(monk
     )
     assert r.status == "UNKNOWN" and len(calls) == 3 == r.usage.toolRequests
     assert [e.attempt for e in r.logs] == [1, 2, 3]
+
+
+def test_overall_deadline_includes_admission_and_identity_setup(monkeypatch):
+    original = agent_workflow.controller_identity
+
+    def slow_identity():
+        time.sleep(0.02)
+        return original()
+
+    monkeypatch.setattr(agent_workflow, "controller_identity", slow_identity)
+    r = execute(request(dict(op="build"), budget=dict(deadlineMs=1)))
+    assert r.status == "BUDGET_EXHAUSTED" and not r.logs and r.usage.toolRequests == 0
+
+
+def test_late_worker_revision_is_discarded_after_cancellation(monkeypatch):
+    stopped = [False]
+
+    def late(*_):
+        stopped[0] = True
+        return dict(
+            error=None,
+            output=dict(kind="COMPOSITION_RESULT"),
+            rpcUsed=0,
+            executionRequest=ACTION.proposedRevision.model_dump(mode="json"),
+        )
+
+    monkeypatch.setattr(agent_workflow, "operation_worker", late)
+    r = execute(request(dict(op="build"), execution=PRIOR), cancelled=lambda: stopped[0])
+    assert r.status == "CANCELLED" and r.finalExecutionHash == HASH
+    assert r.logs[0].output is None
 
 
 def test_shipped_example_contract_and_protocol_operations():
