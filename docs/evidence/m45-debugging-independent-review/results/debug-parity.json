@@ -1,0 +1,86 @@
+{
+  "artifactType": "DEBUG_CLI_API_PARITY",
+  "passed": true,
+  "rows": [
+    {
+      "apiShape": {
+        "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "classification": "VERIFIED_DIFFERENCE",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [
+          0,
+          1
+        ],
+        "executionHash": "0x651541f590da9987b51ac82e43e2fdc2f1c62de74d417285538e37ea00ffce52",
+        "projectHash": "0xfd7ad2a6590f46b262ebeaf43bb49fa60e55f12976e520335b7f937e9f4674b0",
+        "semanticHash": "0x1145f40e6341a3667d8b942c6ca01af134173c0d016b1fbca69b7edb156dabb6"
+      },
+      "apiStatus": 200,
+      "cliExit": 1,
+      "cliShape": {
+        "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "classification": "VERIFIED_DIFFERENCE",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [
+          0,
+          1
+        ],
+        "executionHash": "0x651541f590da9987b51ac82e43e2fdc2f1c62de74d417285538e37ea00ffce52",
+        "projectHash": "0xfd7ad2a6590f46b262ebeaf43bb49fa60e55f12976e520335b7f937e9f4674b0",
+        "semanticHash": "0x1145f40e6341a3667d8b942c6ca01af134173c0d016b1fbca69b7edb156dabb6"
+      },
+      "name": "base",
+      "shapesMatch": true
+    },
+    {
+      "apiShape": {
+        "attribution": "NO_FAULT_ATTRIBUTION",
+        "classification": "NO_FAULT_ATTRIBUTION",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [],
+        "executionHash": "0xaff95973873c9e4bab04a5c1a92bc35a7c42dcc0877129dac22e2cadde755383",
+        "projectHash": "0x14b9c466c88cb706fc1b4caa5a3ca657b62914d590f53f7bc4f1bea5c97719a4",
+        "semanticHash": "0x6b3037af356dee1e46e93ca4a1d423f5436826369779312fbcdc30f258c7b2fd"
+      },
+      "apiStatus": 200,
+      "cliExit": 0,
+      "cliShape": {
+        "attribution": "NO_FAULT_ATTRIBUTION",
+        "classification": "NO_FAULT_ATTRIBUTION",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [],
+        "executionHash": "0xaff95973873c9e4bab04a5c1a92bc35a7c42dcc0877129dac22e2cadde755383",
+        "projectHash": "0x14b9c466c88cb706fc1b4caa5a3ca657b62914d590f53f7bc4f1bea5c97719a4",
+        "semanticHash": "0x6b3037af356dee1e46e93ca4a1d423f5436826369779312fbcdc30f258c7b2fd"
+      },
+      "name": "D08",
+      "shapesMatch": true
+    },
+    {
+      "apiShape": {
+        "attribution": "UNKNOWN_NO_ATTRIBUTION",
+        "classification": "UNKNOWN",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [],
+        "executionHash": "0x651541f590da9987b51ac82e43e2fdc2f1c62de74d417285538e37ea00ffce52",
+        "projectHash": "0xfd7ad2a6590f46b262ebeaf43bb49fa60e55f12976e520335b7f937e9f4674b0",
+        "semanticHash": "0x0434806e5610ee6984f41b8a59fcb0f5cef0e11ec021162e14ed5bf323d0368b"
+      },
+      "apiStatus": 200,
+      "cliExit": 2,
+      "cliShape": {
+        "attribution": "UNKNOWN_NO_ATTRIBUTION",
+        "classification": "UNKNOWN",
+        "diagnosticEngineHash": "0xeece9b8c013883dfb21f93c24809b5a14d39e2964e88aeda9d30400921c41324",
+        "differingOutputBits": [],
+        "executionHash": "0x651541f590da9987b51ac82e43e2fdc2f1c62de74d417285538e37ea00ffce52",
+        "projectHash": "0xfd7ad2a6590f46b262ebeaf43bb49fa60e55f12976e520335b7f937e9f4674b0",
+        "semanticHash": "0x0434806e5610ee6984f41b8a59fcb0f5cef0e11ec021162e14ed5bf323d0368b"
+      },
+      "name": "B08",
+      "shapesMatch": true
+    }
+  ],
+  "solverDisabledStatus": 501,
+  "testedSha": "b9d3fc3f87d34cc6bd46e2a716504fe113f44f48"
+}

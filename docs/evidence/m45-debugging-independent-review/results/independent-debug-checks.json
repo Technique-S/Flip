@@ -1,0 +1,112 @@
+{
+  "artifactType": "INDEPENDENT_DEBUG_CHECK",
+  "attacks": [
+    {
+      "classification": null,
+      "connections": 0,
+      "exit": 3,
+      "id": "B01",
+      "name": "Forged netlist bytes",
+      "outputExists": false,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "classification": "UNKNOWN",
+      "exit": 2,
+      "id": "B02",
+      "name": "Stale manifest freshness",
+      "passed": true,
+      "reason": "IMPLEMENTATION_CHANGED"
+    },
+    {
+      "classification": "UNKNOWN",
+      "correction": null,
+      "exit": 2,
+      "id": "B03",
+      "name": "Forged actionId cannot grant correction",
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "id": "A01",
+      "independentCandidate": [
+        1,
+        0
+      ],
+      "independentDifferingBits": [
+        0,
+        1
+      ],
+      "independentReference": [
+        0,
+        1
+      ],
+      "inputs": [
+        0,
+        1
+      ],
+      "name": "Independent witness replay",
+      "passed": true,
+      "productionCandidate": [
+        1,
+        0
+      ],
+      "productionDifferingBits": [
+        0,
+        1
+      ],
+      "productionReference": [
+        0,
+        1
+      ]
+    },
+    {
+      "compiledElements": 7,
+      "connectionCount": 56,
+      "id": "A02",
+      "invalidRefs": [],
+      "name": "Path-qualified connection membership",
+      "nestedIdentitiesBound": true,
+      "nestedPaths": [
+        "top/ref[0]",
+        "top/ref[2]"
+      ],
+      "passed": true
+    },
+    {
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "classification": "VERIFIED_DIFFERENCE",
+      "connectionClasses": [
+        "RELEVANT_CONNECTION"
+      ],
+      "id": "A03",
+      "name": "Relevance vs fault claim",
+      "passed": true,
+      "uniqueFaultClaim": false
+    },
+    {
+      "actions": 0,
+      "classification": "NO_FAULT_ATTRIBUTION",
+      "connections": 0,
+      "exit": 0,
+      "id": "A04",
+      "name": "Equivalent design has no fault attribution",
+      "passed": true
+    },
+    {
+      "classification": "VERIFIED_CORRECTION",
+      "exit": 0,
+      "id": "A05",
+      "name": "Verified correction replay",
+      "passed": true,
+      "revalidation": "PINNED_IDENTITIES_HASHES_AND_CLOSURE_REPLAYED",
+      "scope": "EXACT_STATELESS_SELECTED_REFERENCE_HISTORICAL"
+    }
+  ],
+  "independentCore": "debug-core-1.0.0",
+  "passed": 8,
+  "testedSha": "b9d3fc3f87d34cc6bd46e2a716504fe113f44f48",
+  "total": 8
+}

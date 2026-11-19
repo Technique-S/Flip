@@ -1,0 +1,337 @@
+{
+  "artifactType": "SHA256SUMS",
+  "files": [
+    {
+      "bytes": 773,
+      "path": "docs/evidence/m45-debugging-independent-review/HANDOFF.md",
+      "sha256": "7a10bbd80fe95142fc34b75c8b5d115a05987f58fdeefe20b98b0076468ad59c"
+    },
+    {
+      "bytes": 9241,
+      "path": "docs/evidence/m45-debugging-independent-review/M45_DEBUGGING_INDEPENDENT_REVIEW.md",
+      "sha256": "9950bd4d1e5e8e732a48b83cbbdb12549928c557605abd339239a52098bb3501"
+    },
+    {
+      "bytes": 6346,
+      "path": "docs/evidence/m45-debugging-independent-review/results/browser-playwright.log",
+      "sha256": "ef0d92e407ea660f1c2e6feebf398018aa52f02016d3eb829d381961c6f30053"
+    },
+    {
+      "bytes": 3800,
+      "path": "docs/evidence/m45-debugging-independent-review/results/debug-parity.json",
+      "sha256": "c6ff5cb54e22f09770181b910578c8f36a37cca61caa1a8c5dbba53342447083"
+    },
+    {
+      "bytes": 2439,
+      "path": "docs/evidence/m45-debugging-independent-review/results/independent-debug-checks.json",
+      "sha256": "2ac44f078c80f1afcc364b3db63165c9a7ad5635e4738267b51b6d61f0f832b2"
+    },
+    {
+      "bytes": 9441,
+      "path": "docs/evidence/m45-debugging-independent-review/results/production-case-matrix.json",
+      "sha256": "0083c014e159bd0394bd1d35018292ad7c9ec2b8cedabcebe7d1eadee430dc54"
+    },
+    {
+      "bytes": 1526,
+      "path": "docs/evidence/m45-debugging-independent-review/results/pytest-full.log",
+      "sha256": "0a0acaefe2abc619b646f9fab51824faf006d91ef5b77583b20908e6cdd315ba"
+    },
+    {
+      "bytes": 196181,
+      "path": "docs/evidence/m45-debugging-independent-review/results/pytest-full.xml",
+      "sha256": "962d5b4aa9526d367aeac9e628fb0393b75bac2ece135ca09b11d49f994a9efe"
+    },
+    {
+      "bytes": 10937,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-forged-action.request.json",
+      "sha256": "f125a36f6d64b0a0fb1eae787cdf579c45885ab0f08836c960f280e7abe81d46"
+    },
+    {
+      "bytes": 10937,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-forged-action.request.variant.json",
+      "sha256": "f125a36f6d64b0a0fb1eae787cdf579c45885ab0f08836c960f280e7abe81d46"
+    },
+    {
+      "bytes": 768,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-forged-action.result.json",
+      "sha256": "6c9371f278db97dabff06d02285b9a48a018e8c31b1937aa1c1442a16f1ca9f0"
+    },
+    {
+      "bytes": 10767,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-forged-netlist.request.json",
+      "sha256": "952fadb0a5ade2a0ccb2ae0623036b92f1eb6299a35c57855a3a5cdf0445d206"
+    },
+    {
+      "bytes": 10767,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-forged-netlist.request.variant.json",
+      "sha256": "952fadb0a5ade2a0ccb2ae0623036b92f1eb6299a35c57855a3a5cdf0445d206"
+    },
+    {
+      "bytes": 10807,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-stale.request.json",
+      "sha256": "374f1db5a4d2aa9b7d429bf7f7d8c55cd6509caf26fce8e2ba78f69ea9f1c2a9"
+    },
+    {
+      "bytes": 10807,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-stale.request.variant.json",
+      "sha256": "374f1db5a4d2aa9b7d429bf7f7d8c55cd6509caf26fce8e2ba78f69ea9f1c2a9"
+    },
+    {
+      "bytes": 768,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/attack-stale.result.json",
+      "sha256": "c6732b875a0149f1c6fd2de78f683b7ca88e28c4e6090dacc47b0198fc668dcd"
+    },
+    {
+      "bytes": 10815,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B04.request.json",
+      "sha256": "864c2ee5109b8f317f3c7a26c07d25b21cad2b2dd78c9e99687cfa2dc4375d42"
+    },
+    {
+      "bytes": 59107,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B04.result.json",
+      "sha256": "7409a448912c0995ddbcae26e12d520719a746c2e27a136bfc556c131df7324b"
+    },
+    {
+      "bytes": 10884,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B05.request.json",
+      "sha256": "dc94bfdea7f9cc32fc832b98b0ef5f28b0f84cdcbb63cdae09f05bbdb285ce76"
+    },
+    {
+      "bytes": 10899,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B06.request.json",
+      "sha256": "8e7790fda73c048651a58e253d0009784770562df84e2166d3c743078b94dc1d"
+    },
+    {
+      "bytes": 10933,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B07.request.json",
+      "sha256": "82b838bebbe78d7244f6c19b34b3d9058a5cc4962aed162f1e7efe65aa8e2a79"
+    },
+    {
+      "bytes": 768,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B07.result.json",
+      "sha256": "4dff1d3d9719534c7b03eb6a02c59bb5ebde742533efc780f9e5a49d2b38dc3e"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B08.cli-parity.json",
+      "sha256": "b56627fdee153830d27e99b461298a0365e036de7cd1a2766d7f5ee8c1dc305c"
+    },
+    {
+      "bytes": 10854,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B08.request.json",
+      "sha256": "adb69dbafdf3d1ca2d78f6972a681e79a560b464ea175fac0f751707c9a4c3d1"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B08.result.json",
+      "sha256": "b56627fdee153830d27e99b461298a0365e036de7cd1a2766d7f5ee8c1dc305c"
+    },
+    {
+      "bytes": 10854,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B09.request.json",
+      "sha256": "f801a284016e87d676b6f2477c6823becc2bc33961ad9c314f5f4fd4c6d2009d"
+    },
+    {
+      "bytes": 750,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B09.result.json",
+      "sha256": "b356493314993ad9fbd441fe63c0fb90339411c975162a02f4a2a1815ece90c6"
+    },
+    {
+      "bytes": 10982,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B10.request.json",
+      "sha256": "5993a0847b8e35d113d5dd72bb63562da92693f1a7e769ace72ea1b4f9befd36"
+    },
+    {
+      "bytes": 10819,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B11.request.json",
+      "sha256": "3587dbd7c1d01ecc7c0c6c43a55147b807384d2fdf8a5a18572fc80f5a74132a"
+    },
+    {
+      "bytes": 14108,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/B12.request.json",
+      "sha256": "ba603673fd6f95b6379896b9bd85a189cef9dd5c5b65430e9a1ff1bcfc57eaef"
+    },
+    {
+      "bytes": 59111,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.cli-parity.json",
+      "sha256": "5555e48b7eb4a59a98bad97630e152319ebe8045d19e59be8edc3a4b87ab4a0a"
+    },
+    {
+      "bytes": 10054,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.execution.json",
+      "sha256": "a4fe5ea7dd0c4fb51dd867f09d8d19c8ed8540c3f050df9e6647296a050b250b"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.request.json",
+      "sha256": "e96b32a68f3ddb0fd1ff7bde8cd60d2e21da6206a78e89128a5ce9fa3bb524ce"
+    },
+    {
+      "bytes": 10937,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.request.variant.json",
+      "sha256": "c40b5fda09f32abd9ca38f46ea1890c8ec463337641a42c8c99803645f6d2ffa"
+    },
+    {
+      "bytes": 59111,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.result.json",
+      "sha256": "5555e48b7eb4a59a98bad97630e152319ebe8045d19e59be8edc3a4b87ab4a0a"
+    },
+    {
+      "bytes": 118226,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/base.stdout.json",
+      "sha256": "ccf6bda66df3d6ae8411ef3494336dd71bc72b9d012c28f60c27cc967f4f457f"
+    },
+    {
+      "bytes": 3642,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/compiled.json",
+      "sha256": "e909ec25616697b97310a481b34fcfec00af507c69c4a69d14b1a6ea7394bc97"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D01.request.json",
+      "sha256": "47fb79cef4a2756239eb1e34637fe9e454b68dacfe6039231472cf6a36cc9f61"
+    },
+    {
+      "bytes": 59111,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D01.result.json",
+      "sha256": "5555e48b7eb4a59a98bad97630e152319ebe8045d19e59be8edc3a4b87ab4a0a"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D02.request.json",
+      "sha256": "2e5142ed8b1b83546668cf0a4f503f74b643a68565cedb584b8523a873ecbee8"
+    },
+    {
+      "bytes": 59303,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D02.result.json",
+      "sha256": "a623fc197b91681b91658545f40195a8813158b1b9a7be6213e831911b6e2ce1"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D03.request.json",
+      "sha256": "6f21c382d9a86b9ac97ddd65b72f6a6a9c444947a084ea58e617296da27f2c6d"
+    },
+    {
+      "bytes": 41619,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D03.result.json",
+      "sha256": "19036c191d2e1f80d36cc8d440d5c85f9d460b3ab1729f7d582962cdd18cd282"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D04.request.json",
+      "sha256": "49375bcdc4118c8b9eaef8568adf58634843f379276726348019674d4c8a5af9"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D05.request.json",
+      "sha256": "4116049f79d26c0566cd916dcf4c564a66a5dbc1b0032d55c6fef6596d7976d3"
+    },
+    {
+      "bytes": 59307,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D05.result.json",
+      "sha256": "d9c54a8c0b003ff8b6fda5585304b1c32c8acf31a481b93f9d3613d2744b9e99"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D06.request.json",
+      "sha256": "2e5142ed8b1b83546668cf0a4f503f74b643a68565cedb584b8523a873ecbee8"
+    },
+    {
+      "bytes": 59303,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D06.result.json",
+      "sha256": "a623fc197b91681b91658545f40195a8813158b1b9a7be6213e831911b6e2ce1"
+    },
+    {
+      "bytes": 10803,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D07.request.json",
+      "sha256": "4082d1be05d2934135bba63d6c51223448c6955287253b9f25d20f2789b1827b"
+    },
+    {
+      "bytes": 16561,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D08.cli-parity.json",
+      "sha256": "3fbe7f448224c941c4e6315287b6a374cc78acf20757828db263263a9fcc52c6"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D08.request.json",
+      "sha256": "d015ef291c8fd8ff28603f813e9372a14feef52184ae5297618b3c35934cdc5b"
+    },
+    {
+      "bytes": 16561,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D08.result.json",
+      "sha256": "3fbe7f448224c941c4e6315287b6a374cc78acf20757828db263263a9fcc52c6"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D09.request.json",
+      "sha256": "24a28990704aa1ed64d7bc141bbdd6ca798bd0c904ff6f27ce736eba23516500"
+    },
+    {
+      "bytes": 59499,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D09.result.json",
+      "sha256": "267ad3f5169edb96102db5793f3138838b87c86c2d798a97a10d73ddfcd866ac"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D10.request.json",
+      "sha256": "2e5142ed8b1b83546668cf0a4f503f74b643a68565cedb584b8523a873ecbee8"
+    },
+    {
+      "bytes": 59303,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/D10.result.json",
+      "sha256": "a623fc197b91681b91658545f40195a8813158b1b9a7be6213e831911b6e2ce1"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/equivalent.request.json",
+      "sha256": "d015ef291c8fd8ff28603f813e9372a14feef52184ae5297618b3c35934cdc5b"
+    },
+    {
+      "bytes": 10817,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/equivalent.request.variant.json",
+      "sha256": "d015ef291c8fd8ff28603f813e9372a14feef52184ae5297618b3c35934cdc5b"
+    },
+    {
+      "bytes": 16561,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/equivalent.result.json",
+      "sha256": "3fbe7f448224c941c4e6315287b6a374cc78acf20757828db263263a9fcc52c6"
+    },
+    {
+      "bytes": 75319,
+      "path": "docs/evidence/m45-debugging-independent-review/results/run/verified-correction.result.json",
+      "sha256": "c2190409b2be2e98911bb0e401a47bafcdfa179cccc786fe05ea6ba47e5eda38"
+    },
+    {
+      "bytes": 1117,
+      "path": "docs/evidence/m45-debugging-independent-review/results/trust-attacks.json",
+      "sha256": "392a64904b69e2849776e9c8864a17a6cef74788877324d2ba7b8e7b24c7fb8f"
+    },
+    {
+      "bytes": 3031,
+      "path": "fixtures/m45-debugging-independent-review/harness/debug_parity.py",
+      "sha256": "458e416e56655ba090c8fa2bd5a73fba94e19a2265e82c16050d981453275237"
+    },
+    {
+      "bytes": 13475,
+      "path": "fixtures/m45-debugging-independent-review/harness/independent_debug_checks.py",
+      "sha256": "d3814de6418c3efd4ca8da824e173fdc62932bb17265c3e54599dc3388637aca"
+    },
+    {
+      "bytes": 7959,
+      "path": "fixtures/m45-debugging-independent-review/harness/production_case_matrix.py",
+      "sha256": "9aae28e56133b0f1a064dd1698f1d01f7fa92c3708572cd8eaa482c5db9c29b2"
+    },
+    {
+      "bytes": 3594,
+      "path": "fixtures/m45-debugging-independent-review/harness/trust_attacks.py",
+      "sha256": "5b3c228e38676dd956779fe099156cb6c9389222e86d09b19a4f78e3e9977724"
+    },
+    {
+      "bytes": 1489,
+      "path": "fixtures/m45-debugging-independent-review/README.md",
+      "sha256": "f79e064ec4177039ab6c977764712de8b438a65f95278b4038d35424faaab9f5"
+    }
+  ],
+  "note": "Hash register for debugging review harness and evidence.",
+  "testedSha": "130dd341b622cc0ad68bffe7f6f37bb847de45c8"
+}
