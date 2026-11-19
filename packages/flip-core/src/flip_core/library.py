@@ -78,7 +78,8 @@ def search(catalog: Catalog, query: str, identity=None):
     records = {r.key: r for r in catalog.records}
     labels = {}
     for item in [*catalog.overlay.aliases, *catalog.overlay.favorites]:
-        labels[item.identity.key] = " ".join([item.label, item.description, *item.tags])
+        text = " ".join([item.label, item.description, *item.tags])
+        labels[item.identity.key] = " ".join([labels.get(item.identity.key, ""), text])
         if item.identity.key not in records:
             records[item.identity.key] = LibraryRecord(
                 identity=item.identity,
@@ -254,13 +255,23 @@ class LibraryService:
                     else:
                         proc = abi.address(reader.call(abi.FACTORY, "cpuAt", index))
                         env = reader.environment(proc)
+                        processor_digest = content_hash(env)
+                        for cached in catalog.records:
+                            if (
+                                cached.identity.processor == proc
+                                and cached.environment is not None
+                                and cached.environmentDigest != processor_digest
+                            ):
+                                cached.freshness = "STALE"
+                                result.status = "ENVIRONMENT_CHANGED"
+                                result.errorCode = "IMPLEMENTATION_CHANGED"
                         record = LibraryRecord(
                             identity=LibraryIdentity(processor=proc),
                             sources=["FACTORY_ENUMERATION"],
                             processorNumber=str(index),
                             block=reader.block,
                             environment=env,
-                            environmentDigest=content_hash(env),
+                            environmentDigest=processor_digest,
                             nextId=str(abi.uint(reader.call(proc, "nextId"))),
                             freshness="HISTORICAL",
                             existence="REGISTERED_PROCESSOR",

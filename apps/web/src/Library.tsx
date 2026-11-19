@@ -76,11 +76,14 @@ export function Library({
 	const [shown, setShown] = useState(12);
 	const current = useRef<Catalog | null>(null);
 	const controller = useRef<AbortController | null>(null);
+	const savedBytes = useRef<string | null>(null);
+	const rejectedRestore = useRef(false);
 
 	async function operate(
 		operation: string,
 		extra: object = {},
 		initial?: Catalog,
+		restoring = false,
 	) {
 		if (controller.current) return;
 		const abort = new AbortController();
@@ -88,22 +91,34 @@ export function Library({
 		setBusy(operation);
 		setError("");
 		try {
-			const response = await fetch("/api/library/v1/execute", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				signal: abort.signal,
-				body: JSON.stringify({
-					schemaVersion: "m45-library-1.0.0",
-					kind: "LIBRARY_REQUEST",
-					operation,
-					...((initial ?? current.current)
-						? { catalog: initial ?? current.current }
-						: {}),
-					limit: operation === "discover" ? 2 : 12,
-					...extra,
-				}),
-			});
-			const value = await response.json();
+			const body = {
+				schemaVersion: "m45-library-1.0.0",
+				kind: "LIBRARY_REQUEST",
+				operation,
+				...((initial ?? current.current)
+					? { catalog: initial ?? current.current }
+					: {}),
+				limit: operation === "discover" ? 2 : 12,
+				...extra,
+			};
+			const send = () =>
+				fetch("/api/library/v1/execute", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					signal: abort.signal,
+					body: JSON.stringify(body),
+				});
+			let response = await send();
+			let value = await response.json();
+			if (restoring && initial && response.status === 422) {
+				rejectedRestore.current = true;
+				setStorageNote(
+					"Saved library is invalid or unsupported. Known addresses loaded; original saved data retained for recovery.",
+				);
+				delete body.catalog;
+				response = await send();
+				value = await response.json();
+			}
 			if (!response.ok)
 				throw Error(value.error?.message ?? "Library request failed.");
 			const result = value as Result;
@@ -120,7 +135,13 @@ export function Library({
 					) ?? selected,
 				);
 			try {
-				localStorage.setItem(storageKey, JSON.stringify(result.catalog));
+				if (!restoring || !rejectedRestore.current) {
+					if (rejectedRestore.current && savedBytes.current !== null) {
+						localStorage.setItem(`${storageKey}-recovery`, savedBytes.current);
+					}
+					localStorage.setItem(storageKey, JSON.stringify(result.catalog));
+					rejectedRestore.current = false;
+				}
 			} catch {
 				setStorageNote(
 					"Browser storage unavailable. This library lasts until the page closes.",
@@ -151,13 +172,22 @@ export function Library({
 		let saved: Catalog | undefined;
 		try {
 			const raw = localStorage.getItem(storageKey);
+			savedBytes.current = raw;
 			if (raw) saved = JSON.parse(raw);
+			if (
+				raw &&
+				(!saved || typeof saved !== "object" || Array.isArray(saved))
+			) {
+				throw Error("Invalid saved catalog shape.");
+			}
 		} catch {
+			saved = undefined;
+			rejectedRestore.current = true;
 			setStorageNote(
-				"Saved library could not be read. Known addresses are available.",
+				"Saved library is invalid or unreadable. Known addresses loaded; original saved data retained for recovery.",
 			);
 		}
-		void operate("search", {}, saved);
+		void operate("search", {}, saved, true);
 		return () => controller.current?.abort();
 	}, []);
 
@@ -228,6 +258,12 @@ export function Library({
 			.split(/\s+/)
 			.every((token) => text.includes(token));
 	});
+	if (scope === "recents") {
+		const order = (r: Record) =>
+			pointers?.recents.findIndex((item) => same(item.identity, r.identity)) ??
+			-1;
+		filtered.sort((a, b) => order(a) - order(b));
+	}
 	return (
 		<section className="library" aria-label="Circuit Library">
 			<p>
