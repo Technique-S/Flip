@@ -83,6 +83,9 @@ L02 covers known-address fallback and retained stale favorites at 390px width.
 L03 exercises actual backend circuit cursors, missing IDs and stateful import
 blocking. L01/L02 also run axe and retain desktop/mobile screenshots in `.test-tmp`.
 Inherited browser journeys continue to cover the M4 workbench.
+The committed [browser run summary](M45_LIBRARY_BROWSER.json),
+[desktop capture](m45-library-browser/desktop.png) and
+[mobile capture](m45-library-browser/mobile.png) preserve those observed results.
 
 ## Validation record
 

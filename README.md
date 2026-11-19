@@ -11,6 +11,18 @@ uv run --frozen python -m flip_api.local
 
 Open http://127.0.0.1:8000. To run the native solver, set `FLIP_LOCAL_SOLVER=1` in the launcher's environment. Start with **Open sample**. See the [M4-A local setup, CLI walkthrough, evidence format and hosting limits](docs/milestones/M4_A_HANDOFF.md).
 
+## Circuit Library
+
+Open **Circuit Library** in the workbench to discover X Layer processors, browse
+bounded circuit pages, search saved metadata, manage favorites/recents and import a
+freshly inspected circuit into composition. Saved catalog observations are historical;
+import always rereads the complete circuit and its dependencies. No wallet is required.
+
+The same catalog operations are available through `flip library --request request.json
+--catalog catalog.json` and `POST /api/library/v1/execute`. See the
+[versioned library contract and examples](docs/schema/m45-library/README.md) and
+[M4.5 library handoff](docs/milestones/M45_LIBRARY_HANDOFF.md).
+
 ## M3 baseline
 
 Flip now evaluates TAP-02 snapshots locally, compiles explicit REF recipes and

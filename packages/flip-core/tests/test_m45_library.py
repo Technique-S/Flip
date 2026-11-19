@@ -411,3 +411,96 @@ def test_discovery_api_core_parity_and_metadata_boundaries():
             )
     finally:
         del app.state.library_service
+
+
+def test_api_domain_failures_and_openapi_references():
+    with TestClient(app) as client:
+        for operation in ("circuits", "favorite", "import", "revalidate"):
+            response = client.post("/api/library/v1/execute", json={"operation": operation})
+            assert response.status_code == 422
+            assert response.json()["error"]["code"] == "INVALID_INPUT"
+        document = client.get("/openapi.json").json()
+        body = document["paths"]["/api/library/v1/execute"]["post"]["requestBody"]
+        schema = body["content"]["application/json"]["schema"]
+        assert schema["properties"]["catalog"]["$ref"] == "#/components/schemas/Catalog"
+        assert "Catalog" in document["components"]["schemas"]
+
+
+def test_rpc_rate_limit_errors_and_unknown_reverts_are_not_absence():
+    chain = LibraryChain()
+    attempts = []
+
+    def handler(req):
+        value = json.loads(req.content)
+        attempts.append(value)
+        if len(attempts) <= 2:
+            return httpx.Response(
+                200,
+                json={
+                    "jsonrpc": "2.0",
+                    "id": value["id"],
+                    "error": {"code": -32005, "message": "throttled"},
+                },
+            )
+        return chain.handler(req)
+
+    result = LibraryService(RpcSettings(retries=2), transport=httpx.MockTransport(handler)).execute(
+        request()
+    )
+    assert result.status == "COMPLETE" and result.retriesUsed == 2
+    assert result.rpcCallsUsed == len(attempts)
+
+    def reverted(req):
+        value = json.loads(req.content)
+        if value["method"] == "eth_call" and value["params"][0]["data"].startswith(
+            "0x" + abi.SELECTORS["ownerOf"]
+        ):
+            return httpx.Response(
+                200,
+                json={
+                    "jsonrpc": "2.0",
+                    "id": value["id"],
+                    "error": {"code": 3, "message": "execution reverted: unknown"},
+                },
+            )
+        return chain.handler(req)
+
+    result = LibraryService(
+        RpcSettings(retries=0), transport=httpx.MockTransport(reverted)
+    ).execute(request("circuits", identity=identity()))
+    assert result.status == "UNKNOWN" and result.missingIds == []
+
+
+def test_abort_mid_page_and_deadline_preserve_prior_catalog():
+    chain = LibraryChain()
+    service = chain.library()
+    service.aborted = lambda: len(chain.requests) >= 15
+    prior = seed_catalog()
+    result = service.execute(request(catalog=prior))
+    assert result.status == "ABORTED" and result.catalog == prior
+    assert result.rpcCallsUsed <= 16 and result.cursor is None
+
+    import time
+
+    def delayed(req):
+        time.sleep(0.01)
+        return chain.handler(req)
+
+    service = LibraryService(
+        RpcSettings(retries=0), ImportBudget(deadlineMs=1), httpx.MockTransport(delayed)
+    )
+    result = service.execute(request(catalog=prior))
+    assert result.status == "UNKNOWN" and result.errorCode == "RESOURCE_LIMIT"
+    assert result.catalog == prior
+
+
+def test_overlay_quota_never_evicts_favorites_silently():
+    from flip_core.contracts import ContractError
+
+    catalog = seed_catalog()
+    catalog.overlay.favorites = [
+        Favorite(identity=identity(cid=str(n)), tags=["x" * 256] * 16) for n in range(1, 130)
+    ]
+    with pytest.raises(ContractError, match="quota"):
+        LibraryService().execute(request("search", catalog=catalog))
+    assert len(catalog.overlay.favorites) == 129
