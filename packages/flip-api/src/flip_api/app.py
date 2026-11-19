@@ -363,3 +363,61 @@ async def debug_connections(request: Request) -> Response:
     finally:
         if acquired:
             _slots.release()
+
+
+@app.post("/api/agent/v1/execute")
+async def agent_workflow(request: Request) -> Response:
+    """Stateless loopback-only workflows. Disconnect cancels and reaps active work."""
+    from threading import Event
+
+    import anyio
+    from flip_core.agent_workflow import execute, parse_workflow
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Workflow exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    acquired = False
+    try:
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown workflow query parameter.")
+        if (
+            os.getenv("FLIP_LOCAL_SOLVER") != "1"
+            or request.client is None
+            or request.client.host not in ("127.0.0.1", "::1")
+        ):
+            return json_response(not_implemented(), 501)
+        model = parse_workflow(bytes(raw))
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Workflow concurrency exceeded.")
+        acquired = True
+        stopped = Event()
+
+        async def watch_disconnect():
+            while True:
+                if await request.is_disconnected():
+                    stopped.set()
+                    return
+                await anyio.sleep(0.05)
+
+        def run():
+            try:
+                return execute(model.model_dump(mode="json"), cancelled=stopped.is_set)
+            except ContractError as exc:
+                return exc
+
+        async with anyio.create_task_group() as group:
+            group.start_soon(watch_disconnect)
+            result = await run_in_threadpool(run)
+            group.cancel_scope.cancel()
+        if isinstance(result, ContractError):
+            raise result
+        return json_response(result)
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    finally:
+        if acquired:
+            _slots.release()

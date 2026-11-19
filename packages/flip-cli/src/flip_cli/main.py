@@ -112,6 +112,10 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--version", action="version", version=f"Flip {__version__}")
     commands = parser.add_subparsers(dest="command", required=True)
+    workflow = commands.add_parser("workflow", help="Execute a bounded declarative agent workflow")
+    workflow.add_argument("--request", type=Path, required=True)
+    workflow.add_argument("--out", type=Path)
+    workflow.add_argument("--cancel-file", type=Path, help="Stop if this local file exists")
     debugging = commands.add_parser(
         "debug", help="Trace a replayed mismatch; test an explicit candidate revision"
     )
@@ -184,6 +188,36 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if args.command == "workflow":
+            import signal
+            from threading import Event
+
+            from flip_core.agent_workflow import execute as execute_workflow
+
+            stopped = Event()
+            previous = signal.signal(signal.SIGINT, lambda *_: stopped.set())
+            try:
+                with args.request.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                result = execute_workflow(
+                    raw,
+                    cancelled=lambda: stopped.is_set()
+                    or (args.cancel_file is not None and args.cancel_file.exists()),
+                )
+                if args.out:
+                    write_result(args.out, result)
+            except OSError as exc:
+                raise ContractError("INVALID_INPUT", "Cannot read or save workflow file.") from exc
+            finally:
+                signal.signal(signal.SIGINT, previous)
+            emit(result)
+            return {
+                "COMPLETE": ExitCode.OK,
+                "DIFFERENT": ExitCode.DIFFERENT,
+                "INVALID_INPUT": ExitCode.INVALID_INPUT,
+                "STALE": ExitCode.STALE,
+                "STOP_AUTHORIZATION": 9,
+            }.get(result.status, ExitCode.UNKNOWN)
         if args.command == "debug":
             from flip_core.debugging import execute as debug_execute
 

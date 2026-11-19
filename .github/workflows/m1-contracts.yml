@@ -38,6 +38,7 @@ jobs:
       - run: uv run --frozen python -m flip_core.library_schema_export --out docs/schema/m45-library/1.0.0 --check
       - run: uv run --frozen python -m flip_core.library_schema_export --version 1.1.0 --out docs/schema/m45-library/1.1.0 --check
       - run: uv run --frozen python -m flip_core.debugging_schema_export --out docs/schema/m45-debugging/1.0.0 --check
+      - run: uv run --frozen python -m flip_core.agent_schema_export --out docs/schema/m45-agent-workflow/1.0.0 --check
       - run: uv run --frozen python fixtures/m45-library-discovery/generators/verify_fixtures.py
       - run: uv run --frozen pytest -q --junitxml="${{ runner.temp }}/m3-tests.xml" -o junit_family=legacy
       - run: uv run --frozen python scripts/report_m3_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --out "${{ runner.temp }}/m3-acceptance.json"

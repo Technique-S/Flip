@@ -14,7 +14,7 @@ from flip_core.contracts import ContractError
 
 
 class WindowsJob:
-    def __init__(self, process, memory_mib):
+    def __init__(self, process, memory_mib, *, max_processes=1):
         import ctypes
         from ctypes import wintypes
 
@@ -70,7 +70,7 @@ class WindowsJob:
             raise OSError("CreateJobObject failed")
         limit = Extended()
         limit.basic.flags = 0x2000 | 0x100 | 0x8  # kill on close, process memory, one process
-        limit.basic.active = 1
+        limit.basic.active = max_processes
         limit.processMemory = memory_mib * 1024**2
         if not kernel.SetInformationJobObject(
             self.handle, 9, ctypes.byref(limit), ctypes.sizeof(limit)
