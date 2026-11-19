@@ -1,0 +1,968 @@
+{
+  "artifactType": "INDEPENDENT_PRODUCTION_CHECK",
+  "checks": [
+    {
+      "checkError": null,
+      "description": "Bounded processor enumeration and second page",
+      "id": "A01",
+      "observed": {
+        "cpuAtCalls": 3,
+        "first": {
+          "cursorOffset": "2",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "Processor <display only>",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            },
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "4",
+              "onchainName": "Processor <display only>",
+              "processor": "0x0505050505050505050505050505050505050505",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 29,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        },
+        "second": {
+          "cursorOffset": null,
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "4",
+              "onchainName": "Processor <display only>",
+              "processor": "0xacacacacacacacacacacacacacacacacacacacac",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 22,
+          "status": "COMPLETE",
+          "total": "3"
+        },
+        "visited": [
+          "0x8383838383838383838383838383838383838383",
+          "0x0505050505050505050505050505050505050505"
+        ]
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Sparse circuit IDs below nextId",
+      "id": "A02",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": null,
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [
+          "3"
+        ],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": "1",
+            "existence": "OWNER_OF",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": "2",
+            "existence": "OWNER_OF",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": "4",
+            "existence": "OWNER_OF",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 128,
+        "rpcCallsUsed": 24,
+        "status": "COMPLETE_WITH_GAPS",
+        "total": "5"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Search by address, circuit ID and local alias",
+      "id": "A03",
+      "observed": {
+        "addressMatches": 1,
+        "aliasMatches": 1,
+        "aliasStatus": "COMPLETE",
+        "idMatches": 7
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Onchain display metadata normalization",
+      "id": "A04",
+      "observed": {
+        "controlChars": [],
+        "first": {
+          "cursorOffset": "1",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "<img src=x onerror=alert(1)>XOR",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 21,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Favorites and recent imports persist in catalog",
+      "id": "A05",
+      "observed": {
+        "favoriteStatus": "COMPLETE",
+        "favoritesAfter": 1,
+        "import": {
+          "cursorOffset": null,
+          "errorCode": null,
+          "favorites": 1,
+          "hasCursor": false,
+          "importProduced": true,
+          "missingIds": [],
+          "recents": 1,
+          "results": [
+            {
+              "circuitId": "1",
+              "existence": "IMPORTED",
+              "freshness": "HISTORICAL",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "USER_IMPORT"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 256,
+          "rpcCallsUsed": 0,
+          "status": "COMPLETE",
+          "total": null
+        },
+        "recentsAfter": 1
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Revalidation detects changed beacon implementation",
+      "id": "A07",
+      "observed": {
+        "first": {
+          "cursorOffset": null,
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": true,
+          "missingIds": [],
+          "recents": 1,
+          "results": [
+            {
+              "circuitId": "1",
+              "existence": "IMPORTED",
+              "freshness": "HISTORICAL",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "USER_IMPORT"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 256,
+          "rpcCallsUsed": 0,
+          "status": "COMPLETE",
+          "total": null
+        },
+        "freshness": [
+          "STALE"
+        ],
+        "second": {
+          "cursorOffset": null,
+          "errorCode": "IMPLEMENTATION_CHANGED",
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 1,
+          "results": [
+            {
+              "circuitId": "1",
+              "existence": "IMPORTED",
+              "freshness": "STALE",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "USER_IMPORT"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 256,
+          "rpcCallsUsed": 0,
+          "status": "ENVIRONMENT_CHANGED",
+          "total": null
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Failed revalidation produces no executable import",
+      "id": "A08",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": "MISSING_REFERENCE",
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [],
+        "retriesUsed": 0,
+        "rpcCallBudget": 256,
+        "rpcCallsUsed": 0,
+        "status": "VERIFICATION_FAILED",
+        "total": null
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Partial bounded discovery and RPC outage",
+      "id": "A09",
+      "observed": {
+        "outage": {
+          "cursorOffset": null,
+          "errorCode": "RPC_UNAVAILABLE",
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "SEED_HINT",
+              "freshness": "UNKNOWN",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              "sources": [
+                "KNOWN_SEED"
+              ]
+            },
+            {
+              "circuitId": "1",
+              "existence": "SEED_HINT",
+              "freshness": "UNKNOWN",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              "sources": [
+                "KNOWN_SEED"
+              ]
+            },
+            {
+              "circuitId": "2",
+              "existence": "SEED_HINT",
+              "freshness": "UNKNOWN",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+              "sources": [
+                "KNOWN_SEED"
+              ]
+            },
+            {
+              "circuitId": null,
+              "existence": "SEED_HINT",
+              "freshness": "UNKNOWN",
+              "nextId": null,
+              "onchainName": "",
+              "processor": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+              "sources": [
+                "KNOWN_SEED"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 1,
+          "status": "UNKNOWN",
+          "total": null
+        },
+        "partial": {
+          "cursorOffset": "1",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "Processor <display only>",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 21,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Rate limiting with bounded retry",
+      "id": "A10",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": null,
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "Processor <display only>",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "4",
+            "onchainName": "Processor <display only>",
+            "processor": "0x0505050505050505050505050505050505050505",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "4",
+            "onchainName": "Processor <display only>",
+            "processor": "0xacacacacacacacacacacacacacacacacacacacac",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 128,
+        "rpcCallsUsed": 37,
+        "status": "COMPLETE",
+        "total": "3"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Cursor belongs-to-scan and offset safety",
+      "id": "A11",
+      "observed": {
+        "tamperedOffset": {
+          "errorCode": null,
+          "status": "COMPLETE"
+        },
+        "wrongProcessor": {
+          "detail": "('INVALID_INPUT', 'Cursor belongs to a different scan.')",
+          "error": "ContractError",
+          "rejected": true
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Wrong-chain provider",
+      "id": "B01",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": "WRONG_CHAIN",
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": null,
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": "1",
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": "2",
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 128,
+        "rpcCallsUsed": 1,
+        "status": "UNKNOWN",
+        "total": null
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Malformed cpuCount ABI response",
+      "id": "B02",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": "INVALID_INPUT",
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": null,
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": "1",
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": "2",
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "SEED_HINT",
+            "freshness": "UNKNOWN",
+            "nextId": null,
+            "onchainName": "",
+            "processor": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+            "sources": [
+              "KNOWN_SEED"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 128,
+        "rpcCallsUsed": 11,
+        "status": "UNKNOWN",
+        "total": null
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Incorrect/huge cpuCount stays bounded",
+      "id": "B03",
+      "observed": {
+        "cursorOffset": "3",
+        "errorCode": null,
+        "favorites": 0,
+        "hasCursor": true,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "Processor <display only>",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "4",
+            "onchainName": "Processor <display only>",
+            "processor": "0x0505050505050505050505050505050505050505",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "4",
+            "onchainName": "Processor <display only>",
+            "processor": "0xacacacacacacacacacacacacacacacacacacacac",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 40,
+        "rpcCallsUsed": 37,
+        "status": "PARTIAL_BOUNDED",
+        "total": "18446744073709551616"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Duplicate processor addresses dedupe",
+      "id": "B04",
+      "observed": {
+        "cursorOffset": null,
+        "errorCode": null,
+        "favorites": 0,
+        "hasCursor": false,
+        "importProduced": false,
+        "missingIds": [],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "5",
+            "onchainName": "Processor <display only>",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": null,
+            "existence": "REGISTERED_PROCESSOR",
+            "freshness": "HISTORICAL",
+            "nextId": "4",
+            "onchainName": "Processor <display only>",
+            "processor": "0xacacacacacacacacacacacacacacacacacacacac",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 128,
+        "rpcCallsUsed": 33,
+        "status": "COMPLETE",
+        "total": "3"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Large nextId stays bounded",
+      "id": "B05",
+      "observed": {
+        "cursorOffset": "4",
+        "errorCode": null,
+        "favorites": 0,
+        "hasCursor": true,
+        "importProduced": false,
+        "missingIds": [
+          "3"
+        ],
+        "recents": 0,
+        "results": [
+          {
+            "circuitId": "1",
+            "existence": "OWNER_OF",
+            "freshness": "HISTORICAL",
+            "nextId": "18446744073709551616",
+            "onchainName": "",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          },
+          {
+            "circuitId": "2",
+            "existence": "OWNER_OF",
+            "freshness": "HISTORICAL",
+            "nextId": "18446744073709551616",
+            "onchainName": "",
+            "processor": "0x8383838383838383838383838383838383838383",
+            "sources": [
+              "FACTORY_ENUMERATION"
+            ]
+          }
+        ],
+        "retriesUsed": 0,
+        "rpcCallBudget": 40,
+        "rpcCallsUsed": 22,
+        "status": "PARTIAL_BOUNDED",
+        "total": "18446744073709551616"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Factory implementation change between pages",
+      "id": "B06",
+      "observed": {
+        "first": {
+          "cursorOffset": "1",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "Processor <display only>",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 21,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        },
+        "second": {
+          "cursorOffset": null,
+          "errorCode": "IMPLEMENTATION_CHANGED",
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 10,
+          "status": "ENVIRONMENT_CHANGED",
+          "total": null
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Beacon implementation change between pages",
+      "id": "B07",
+      "observed": {
+        "first": {
+          "cursorOffset": "1",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "Processor <display only>",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 21,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        },
+        "second": {
+          "cursorOffset": null,
+          "errorCode": "IMPLEMENTATION_CHANGED",
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 10,
+          "status": "ENVIRONMENT_CHANGED",
+          "total": null
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Reorg between discovery pages",
+      "id": "B08",
+      "observed": {
+        "first": {
+          "cursorOffset": "1",
+          "errorCode": null,
+          "favorites": 0,
+          "hasCursor": true,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [
+            {
+              "circuitId": null,
+              "existence": "REGISTERED_PROCESSOR",
+              "freshness": "HISTORICAL",
+              "nextId": "5",
+              "onchainName": "Processor <display only>",
+              "processor": "0x8383838383838383838383838383838383838383",
+              "sources": [
+                "FACTORY_ENUMERATION"
+              ]
+            }
+          ],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 21,
+          "status": "PARTIAL_BOUNDED",
+          "total": "3"
+        },
+        "second": {
+          "cursorOffset": null,
+          "errorCode": "BLOCK_IDENTITY_MISMATCH",
+          "favorites": 0,
+          "hasCursor": false,
+          "importProduced": false,
+          "missingIds": [],
+          "recents": 0,
+          "results": [],
+          "retriesUsed": 0,
+          "rpcCallBudget": 128,
+          "rpcCallsUsed": 10,
+          "status": "REORGED",
+          "total": null
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Untrusted markup and authority fields",
+      "id": "B09",
+      "observed": {
+        "authorityFieldsAccepted": false,
+        "error": "ValidationError",
+        "rejectedAtValidation": true
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Corrupted persisted favorites rejected",
+      "id": "B10",
+      "observed": {
+        "accepted": false,
+        "error": "ValidationError"
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Cross-network and cross-project substitution",
+      "id": "B11",
+      "observed": {
+        "wrong_chain": {
+          "accepted": false,
+          "error": "ValidationError"
+        },
+        "wrong_factory": {
+          "accepted": false,
+          "error": "ValidationError"
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Production selectors match verified values",
+      "id": "B12",
+      "observed": {
+        "matches": {
+          "circuitInfo": true,
+          "cpuAt": true,
+          "cpuCount": true,
+          "isCPU": true,
+          "name": true,
+          "netlist": true,
+          "nextId": true,
+          "ownerOf": true,
+          "symbol": true
+        }
+      }
+    },
+    {
+      "checkError": null,
+      "description": "Registered fixture hashes unchanged",
+      "id": "B13",
+      "observed": {
+        "files": 19,
+        "mismatches": []
+      }
+    },
+    {
+      "checkError": null,
+      "description": "User-favorite-only record provenance label",
+      "id": "B14",
+      "observed": {
+        "existence": "USER_POINTER",
+        "metadataTrust": "USER_SUPPLIED",
+        "netlistHash": null,
+        "onchainReadPerformed": false,
+        "sources": [
+          "USER_FAVORITE_ONLY"
+        ]
+      }
+    }
+  ],
+  "count": 24,
+  "errors": [],
+  "productionEntryPoint": "flip_core.library.LibraryService.execute",
+  "rpcDouble": "OpenCode-owned IndependentChain (httpx.MockTransport)",
+  "testedSha": "786cbca056c6cd61ca0e7a5b61ddbc772a55a800"
+}
