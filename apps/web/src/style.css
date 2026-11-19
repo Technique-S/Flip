@@ -636,6 +636,56 @@ pre {
 	overflow-wrap: anywhere;
 	font-variant-numeric: tabular-nums;
 }
+.debugger {
+	border-top: 1px solid var(--line);
+	margin-top: 40px;
+	padding-top: 16px;
+}
+.debugger > p {
+	max-width: 72ch;
+}
+.debug-traces {
+	overflow: auto;
+	max-height: 520px;
+}
+.debug-traces table {
+	min-width: 580px;
+}
+.debug-traces code {
+	overflow-wrap: anywhere;
+	white-space: normal;
+}
+.debug-relevant {
+	background: #e8f0ff;
+}
+.debug-edit,
+.debug-proposal {
+	margin: 24px 0;
+}
+.debugger td,
+.debugger th {
+	font-variant-numeric: tabular-nums;
+}
+.debug-choice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 16px 0;
+}
+.debug-choice input[type="radio"] {
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	flex: none;
+	accent-color: var(--blue);
+}
+.debugger button {
+	margin: 4px 8px 4px 0;
+}
+.debug-witness .different td {
+	text-decoration: underline double;
+	text-underline-offset: 4px;
+}
 .library-inspector .actions {
 	flex-wrap: wrap;
 	margin: 16px 0;

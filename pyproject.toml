@@ -29,6 +29,15 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    # Frozen independent debugger review; exact blobs and manifest checked by custody.
+    "fixtures/m45-debugging-independent-review/harness/debug_parity.py",
+    "fixtures/m45-debugging-independent-review/harness/independent_debug_checks.py",
+    "fixtures/m45-debugging-independent-review/harness/production_case_matrix.py",
+    "fixtures/m45-debugging-independent-review/harness/trust_attacks.py",
+    # Immutable debugging corpus; original bytes are pinned by the custody guard.
+    "fixtures/m45-debugging/generators/build_corpus.py",
+    "fixtures/m45-debugging/generators/debug_core.py",
+    "fixtures/m45-debugging/generators/verify_corpus.py",
     # Immutable, separately reviewed harnesses; exact blobs/manifests checked by custody.
     "fixtures/m45-library-independent-review/harness/independent_cli_api_checks.py",
     "fixtures/m45-library-independent-review/harness/independent_core_checks.py",

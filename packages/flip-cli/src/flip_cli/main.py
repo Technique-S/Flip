@@ -112,6 +112,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--version", action="version", version=f"Flip {__version__}")
     commands = parser.add_subparsers(dest="command", required=True)
+    debugging = commands.add_parser(
+        "debug", help="Trace a replayed mismatch; test an explicit candidate revision"
+    )
+    debugging.add_argument("--request", type=Path, required=True)
+    debugging.add_argument("--out", type=Path)
     library = commands.add_parser("library", help="Read-only processor/circuit catalog operations")
     library.add_argument(
         "--request", type=Path, required=True, help="Versioned LIBRARY_REQUEST JSON"
@@ -179,6 +184,35 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if args.command == "debug":
+            from flip_core.debugging import execute as debug_execute
+
+            try:
+                with args.request.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                if len(raw) > 1_048_576:
+                    raise ContractError("RESOURCE_LIMIT", "Diagnostic input exceeds 1 MiB.")
+                result = debug_execute(raw)
+                if args.out:
+                    write_result(args.out, result)
+            except OSError as exc:
+                raise ContractError(
+                    "INVALID_INPUT", "Cannot read or save diagnostic file."
+                ) from exc
+            emit(result)
+            if result.classification == "UNKNOWN":
+                return ExitCode.UNKNOWN
+            if result.correction is not None:
+                return (
+                    ExitCode.OK
+                    if result.correction.classification == "VERIFIED_CORRECTION"
+                    else ExitCode.UNKNOWN
+                )
+            return (
+                ExitCode.DIFFERENT
+                if result.classification == "VERIFIED_DIFFERENCE"
+                else ExitCode.OK
+            )
         if args.command == "library":
             from flip_core.canonical import load_json
             from flip_core.library import LibraryService

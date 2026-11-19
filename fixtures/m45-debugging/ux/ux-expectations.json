@@ -1,0 +1,141 @@
+{
+  "accessibleDescriptions": [
+    "Text label accompanies every highlighted pair; color is never the sole signal.",
+    "Differing output bits use a non-color double underline plus text 'differs at output N'.",
+    "Announce witness, differing bit count and diagnostic scope as text.",
+    "Bidirectional/control characters in any label are made visible or removed."
+  ],
+  "artifactId": "ux-expectations",
+  "candidateOutputs": "Mapped candidate output bits for the replayed witness, or null when no comparison ran.",
+  "caseRenderExpectations": [
+    {
+      "caseId": "D01",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        0,
+        1
+      ],
+      "highlightCount": 2
+    },
+    {
+      "caseId": "D02",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        0
+      ],
+      "highlightCount": 2
+    },
+    {
+      "caseId": "D03",
+      "diagnosticClass": "SUSPECTED_CANDIDATE",
+      "differingBits": [
+        0
+      ],
+      "highlightCount": 1
+    },
+    {
+      "caseId": "D04",
+      "diagnosticClass": "STRUCTURAL_REJECTION_NO_ATTRIBUTION",
+      "differingBits": [],
+      "highlightCount": 0
+    },
+    {
+      "caseId": "D05",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        1,
+        2
+      ],
+      "highlightCount": 3
+    },
+    {
+      "caseId": "D06",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        0,
+        1
+      ],
+      "highlightCount": 3
+    },
+    {
+      "caseId": "D07",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        0
+      ],
+      "highlightCount": 2
+    },
+    {
+      "caseId": "D08",
+      "diagnosticClass": "NO_FAULT_ATTRIBUTION",
+      "differingBits": [],
+      "highlightCount": 0
+    },
+    {
+      "caseId": "D09",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        1
+      ],
+      "highlightCount": 3
+    },
+    {
+      "caseId": "D10",
+      "diagnosticClass": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "differingBits": [
+        0
+      ],
+      "highlightCount": 2
+    }
+  ],
+  "cliReadableOutput": {
+    "exitCodes": {
+      "0": "completed match",
+      "1": "DIFFERENT",
+      "2": "UNKNOWN",
+      "3": "INVALID_INPUT",
+      "7": "stale closure"
+    },
+    "fields": [
+      "caseId",
+      "verdict",
+      "witness",
+      "differingBits",
+      "cone",
+      "diagnosticClass",
+      "suspectedConnections",
+      "netlistSha256"
+    ],
+    "format": "structured JSON on stdout; diagnostics on stderr",
+    "note": "Exit codes follow docs/schema/CLI_EXIT_CODES.md and m3 conventions; a DIFFERENT exit is not a proof of a faulty connection."
+  },
+  "confidenceScopeLabels": [
+    "PROVEN_BEHAVIORAL_DIFFERENCE",
+    "RELEVANT_COMPUTATION",
+    "SUSPECTED_CANDIDATE",
+    "AMBIGUOUS_MULTIPLE_CAUSES",
+    "NO_FAULT_ATTRIBUTION",
+    "UNKNOWN_NO_ATTRIBUTION",
+    "STRUCTURAL_REJECTION_NO_ATTRIBUTION"
+  ],
+  "connectionTraceability": "connectionRef -> path + elementIndex + inputPin + sourceSignal + netlistHex sha256 in the identity block.",
+  "conventionsSource": "docs/schema/m3/README.md; fixtures/m4-ux-acceptance/browser",
+  "differingOutputBits": "Zero-based output indices where replayed bits differ; empty for EQUIVALENT/UNKNOWN/rejection.",
+  "highlightedPinPairs": "Each suspected connection is shown as source description -> destination path/path-qualified input pin (for example const1 -> top/element[1].in[0]).",
+  "noConfidenceProbabilities": true,
+  "referenceOutputs": "Mapped reference output bits for the replayed witness, or null when no comparison ran.",
+  "requiredFields": [
+    "highlightedPinPairs",
+    "witnessInputs",
+    "referenceOutputs",
+    "candidateOutputs",
+    "differingOutputBits",
+    "confidenceScopeLabels",
+    "connectionTraceability",
+    "accessibleDescriptions",
+    "cliReadableOutput"
+  ],
+  "schemaVersion": "1.0.0",
+  "status": "SPEC_ONLY_NOT_PRODUCTION",
+  "witnessInputs": "BitVector inputs in LSB0 order with explicit decimal index; no semantic pin names."
+}

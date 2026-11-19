@@ -1,0 +1,446 @@
+{
+  "artifactType": "M45_DEBUGGING_IMPLEMENTATION_VALIDATION",
+  "verdict": "PASS_FOR_HANDOFF_NOT_MERGE",
+  "baseline": "1136b187bd68328cea4975caea50904ccece08fd",
+  "testedCode": "ad5d0fdf5e574a736d019f9bd6a4e5402746e886",
+  "fixtureRevision": "8fc4efb71cb750cced98b4e88540796d665b616a",
+  "fixtureMerge": "3edfa2349df05621e7fa352b59de6f2a1d91b62f",
+  "ciRun": "https://github.com/Technique-S/Flip/actions/runs/44521242685",
+  "ci": {
+    "ubuntu-latest": {
+      "python": {
+        "tests": 576,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 54.558,
+        "custodySeconds": 2.412,
+        "archivalRegenerationSeconds": 21.453
+      },
+      "chromiumTests": 21,
+      "browserCases": {
+        "B01 keyboard-only complete export journey": true,
+        "B02 focus recovery and B06 error state": true,
+        "B03 accessible labels and B05 responsive axe audit": true,
+        "B04 result announcement, mappings, and semantic differences": true,
+        "B07 timeout recovery and B08 repeated runs": true,
+        "B09 refresh recovery, confirmed reset and storage failure": true,
+        "B10 download name and replay is covered by workflow suite": true,
+        "B11 preflight separates three structural outcomes": true,
+        "debugger replays paths, verifies a separate correction, applies and reverts with CLI parity": true,
+        "debugger narrow viewport, reduced motion and production resource UNKNOWN": true,
+        "debugger discards an in-flight result when the project mapping changes": true,
+        "F-01 exact malformed-favorites restore retains bytes and recovers seeds": true,
+        "F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration": true,
+        "LC01 invalid saved catalog recovers known addresses without overwriting saved bytes": true,
+        "LC02 recent imports display most recent first after browser restore": true,
+        "L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence": true,
+        "L02 known-address fallback, stale favorites, bounded pagination and mobile": true,
+        "L03 resumes a pinned circuit page and skips missing IDs": true,
+        "F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry": true,
+        "historical sample, swapped outputs, repair, CLI parity and evidence replay": true,
+        "keyboard and narrow screen, import, inspect, add source and revalidate": true
+      },
+      "testedCommit": "ad5d0fdf5e574a736d019f9bd6a4e5402746e886",
+      "junitSha256": "3a12710cb63678c6db036282e4dbdbef81c88d6320f0b4227c43e7302ea76ee0"
+    },
+    "windows-latest": {
+      "python": {
+        "tests": 576,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 92.911,
+        "custodySeconds": 36.951,
+        "archivalRegenerationSeconds": 15.895
+      },
+      "chromiumTests": 21,
+      "browserCases": {
+        "B01 keyboard-only complete export journey": true,
+        "B02 focus recovery and B06 error state": true,
+        "B03 accessible labels and B05 responsive axe audit": true,
+        "B04 result announcement, mappings, and semantic differences": true,
+        "B07 timeout recovery and B08 repeated runs": true,
+        "B09 refresh recovery, confirmed reset and storage failure": true,
+        "B10 download name and replay is covered by workflow suite": true,
+        "B11 preflight separates three structural outcomes": true,
+        "debugger replays paths, verifies a separate correction, applies and reverts with CLI parity": true,
+        "debugger narrow viewport, reduced motion and production resource UNKNOWN": true,
+        "debugger discards an in-flight result when the project mapping changes": true,
+        "F-01 exact malformed-favorites restore retains bytes and recovers seeds": true,
+        "F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration": true,
+        "LC01 invalid saved catalog recovers known addresses without overwriting saved bytes": true,
+        "LC02 recent imports display most recent first after browser restore": true,
+        "L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence": true,
+        "L02 known-address fallback, stale favorites, bounded pagination and mobile": true,
+        "L03 resumes a pinned circuit page and skips missing IDs": true,
+        "F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry": true,
+        "historical sample, swapped outputs, repair, CLI parity and evidence replay": true,
+        "keyboard and narrow screen, import, inspect, add source and revalidate": true
+      },
+      "testedCommit": "ad5d0fdf5e574a736d019f9bd6a4e5402746e886",
+      "junitSha256": "1e7f1481c1e73d0a1d55ffba0ace4f9430c68ed67295d77484b45a87c77edc1f"
+    }
+  },
+  "localPython": {
+    "tests": 576,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 11085.936,
+    "custodySeconds": 10879.267,
+    "archivalRegenerationSeconds": 68.685
+  },
+  "localChromium": {
+    "startTime": "2026-11-19T12:09:22.111Z",
+    "duration": 100633.338,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "focusedTests": 33,
+  "inheritedPythonTests": 543,
+  "inheritedChromiumTests": 18,
+  "fixtureInventory": [
+    {
+      "path": "docs/evidence/m45-debugging/ACCEPTANCE_MATRIX.md",
+      "bytes": 6099,
+      "sha256": "9d8063d240c1d62ea11818a09a67e37c4a82cabc15783f7c4c51c464b7e0c391"
+    },
+    {
+      "path": "docs/evidence/m45-debugging/DIAGNOSTIC_MODEL.md",
+      "bytes": 8531,
+      "sha256": "460a123164040052703c4268bcad2d372b1b5749110df112546e01e1608f0469"
+    },
+    {
+      "path": "docs/evidence/m45-debugging/HANDOFF.md",
+      "bytes": 5072,
+      "sha256": "fee7097db416eb94474a9ccec2932752cdd8a7e9d668cba5aa7e0c7794433d3c"
+    },
+    {
+      "path": "docs/evidence/m45-debugging/verification-transcript.json",
+      "bytes": 1139,
+      "sha256": "64dc0d4773f23b3b909e63d64f28424c6fc2613e78427189395e29b505e6f4f1"
+    },
+    {
+      "path": "fixtures/m45-debugging/BUILD_INFO.json",
+      "bytes": 350,
+      "sha256": "5f2a29251003608140de997af793099221f22908f428e9a5a07d7f7d8f365e99"
+    },
+    {
+      "path": "fixtures/m45-debugging/MANIFEST.json",
+      "bytes": 1592,
+      "sha256": "262f8a2e6ad8ff3a5ba31007619d39db5a0210b5aafb4f57ed12d9a7be6ee906"
+    },
+    {
+      "path": "fixtures/m45-debugging/README.md",
+      "bytes": 2536,
+      "sha256": "58161455d7c824e676f94cc9de033d26b9c2cd722f37ffb30683eac4618cb761"
+    },
+    {
+      "path": "fixtures/m45-debugging/acceptance/acceptance-corpus.json",
+      "bytes": 4420,
+      "sha256": "505f6551a3e17ba83e29c817872d143fe5a5c9f67b78779ebea3016522499ef4"
+    },
+    {
+      "path": "fixtures/m45-debugging/cases/debugging-corpus.json",
+      "bytes": 101302,
+      "sha256": "2cc342ee74ebc3b7ff9e1ebc51f64e4c4f2df0ae13da3e8914e04a52e8b41485"
+    },
+    {
+      "path": "fixtures/m45-debugging/diagnostics/correction-guidance.json",
+      "bytes": 3707,
+      "sha256": "94a5be5ba68ce96052553b52a45bf9826f69d18e726d92a397bec75c1ab20756"
+    },
+    {
+      "path": "fixtures/m45-debugging/diagnostics/diagnostic-rules.json",
+      "bytes": 5051,
+      "sha256": "c4d9fde23a7df2869569c70721c489a1a476e69760450889c2efc8c94d319692"
+    },
+    {
+      "path": "fixtures/m45-debugging/generators/build_corpus.py",
+      "bytes": 29859,
+      "sha256": "ef75870a8297fdb2538a8dddbdf62833c1d821d29b8d7ba3f5786b8ca939f443"
+    },
+    {
+      "path": "fixtures/m45-debugging/generators/debug_core.py",
+      "bytes": 13704,
+      "sha256": "f4a4409efd184fbfa2be348da433d47b0fe5446a6bf33dc10b2cf192adc48aa2"
+    },
+    {
+      "path": "fixtures/m45-debugging/generators/verify_corpus.py",
+      "bytes": 12488,
+      "sha256": "8405c59dd5e14344a0c2bf63b83600702a7fee39c2e1dd50a61e4e80906854c0"
+    },
+    {
+      "path": "fixtures/m45-debugging/ux/ux-expectations.json",
+      "bytes": 4096,
+      "sha256": "aa00fadd1bd1015fab18759f3374bb995e45fac979e581365a4d12879d2bee45"
+    }
+  ],
+  "productionCorpus": [
+    {
+      "caseId": "D01",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D02",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D03",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "SUSPECTED_CANDIDATE",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D04",
+      "fixtureVerdict": "INVALID_INPUT",
+      "attribution": "STRUCTURAL_REJECTION_NO_ATTRIBUTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D05",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D06",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D07",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D08",
+      "fixtureVerdict": "EQUIVALENT",
+      "attribution": "NO_FAULT_ATTRIBUTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D09",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "caseId": "D10",
+      "fixtureVerdict": "DIFFERENT",
+      "attribution": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "productionAcceptance": "PASS"
+    }
+  ],
+  "guidanceCoverage": [
+    {
+      "id": "G01",
+      "caseId": "D01",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G02",
+      "caseId": "D02",
+      "classification": "VERIFIED_CORRECTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G03",
+      "caseId": "D04",
+      "classification": "EXPLANATION_ONLY",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G04",
+      "caseId": "D05",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G05",
+      "caseId": "D03",
+      "classification": "VERIFIED_CORRECTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G06",
+      "caseId": "D06",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G07",
+      "caseId": "D08",
+      "classification": "EXPLANATION_ONLY",
+      "productionAcceptance": "PASS"
+    },
+    {
+      "id": "G08",
+      "caseId": "D10",
+      "classification": "EXPLANATION_ONLY",
+      "productionAcceptance": "PASS"
+    }
+  ],
+  "custody": {
+    "scope": "M1 offline repository consistency; not chain verification or solver replay",
+    "seed": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+    "core": "6dc21e0b97ffe03273a62ea1e9499e6346244d32",
+    "fixtures": "e4de86ef8870fb9b85adf94ace400791a479f985",
+    "raw_files": 12,
+    "registered_blob_checks": [
+      {
+        "path": "docs/evidence/raw/M0/xlayer_circuits.json",
+        "bytes": 18711,
+        "sha256": "a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30"
+      },
+      {
+        "path": "docs/evidence/raw/M0/vectors.json",
+        "bytes": 22185,
+        "sha256": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+      },
+      {
+        "path": "docs/evidence/raw/M0/composition_poc.json",
+        "bytes": 3415,
+        "sha256": "8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0"
+      },
+      {
+        "path": "docs/evidence/raw/M0/wiring_canary.json",
+        "bytes": 7224,
+        "sha256": "7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_compose_rerun.json",
+        "bytes": 6836,
+        "sha256": "9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_probe.json",
+        "bytes": 3188,
+        "sha256": "53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_probe2.json",
+        "bytes": 1325,
+        "sha256": "ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_b_manifest.json",
+        "bytes": 4895,
+        "sha256": "1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_b_negative.json",
+        "bytes": 2932,
+        "sha256": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_scale.json",
+        "bytes": 36860,
+        "sha256": "3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_scale_partial.json",
+        "bytes": 32210,
+        "sha256": "51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_stateful.json",
+        "bytes": 3137,
+        "sha256": "57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264"
+      },
+      {
+        "path": "docs/evidence/derived/recompute_checks.py",
+        "bytes": 5249,
+        "sha256": "a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a"
+      },
+      {
+        "path": "docs/evidence/derived/recomputed_checks.json",
+        "bytes": 2754,
+        "sha256": "6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499"
+      }
+    ],
+    "tracked_files_scanned": 634,
+    "credential_pattern_findings": 0,
+    "registered_browser_captures": [
+      "docs/evidence/m45-library-final-review/results/library-desktop-observed.png",
+      "docs/evidence/m45-library-final-review/results/library-mobile-observed.png",
+      "docs/evidence/m45-library-independent-review/results/library-desktop-observed.png",
+      "docs/evidence/m45-library-independent-review/results/library-mobile-observed.png",
+      "docs/milestones/m45-library-browser/desktop.png",
+      "docs/milestones/m45-library-browser/mobile.png"
+    ],
+    "library_independent_reviews": [
+      {
+        "revision": "9741e66ae385979dc0d18c89aec4ec6ed93ff285",
+        "target": "dec9420bb76e9245c6740bf3d92031d175e408ec",
+        "files": 16
+      },
+      {
+        "revision": "96187da8718bcf7d14a452685f7de84231895920",
+        "target": "786cbca056c6cd61ca0e7a5b61ddbc772a55a800",
+        "files": 16
+      }
+    ],
+    "debugging_fixture_evidence": {
+      "revision": "8fc4efb71cb750cced98b4e88540796d665b616a",
+      "files": 15,
+      "manifestEntries": 9
+    },
+    "provenance_limit": "Audited originals unavailable; imported observations are historical.",
+    "result": "PASS"
+  },
+  "otherChecks": {
+    "ruff": "PASS: 70 files formatted",
+    "frontendLintBuild": "PASS",
+    "schemaProfiles": [
+      "M1 1.0.0",
+      "M2 1.0.0",
+      "M3 1.0.0",
+      "library 1.0.0",
+      "library 1.1.0",
+      "debugging 1.0.0"
+    ],
+    "schemaChecks": "PASS",
+    "frozenSchemas": "UNCHANGED",
+    "nodeCanonicalVectors": 6,
+    "discoveryFixtures": "PASS: 19 manifest files / 12 cases",
+    "debuggingFixtures": "PASS: 15 original Git files / 9 manifest entries / scratch regeneration",
+    "offlineM1Smoke": "PASS",
+    "offlineM3Smoke": "PASS",
+    "credentialFindings": 0,
+    "cliApiCanonicalParity": "PASS",
+    "browserCliDiagnosticParity": "PASS"
+  },
+  "supersededFailures": [
+    "Initial new unit mock used unsupported solverOutcome UNKNOWN; corrected the mock to the existing INTERRUPTED timeout contract. No production or frozen contract weakened.",
+    "Initial full browser run: 17 passed, 1 failed, 3 not run due to an unfinished route handler in the new stale-response test. The test now awaits fulfillment; inherited library tests unchanged; final 21 passed."
+  ],
+  "limitations": [
+    "D-RUNNER-001: local Git custody test wall-time anomaly; cause unestablished. Both supported CI platforms pass. No timeout or assertion changed.",
+    "F03-PERF-001 remains open; local inherited archival regeneration passed in 68.685 seconds with original 120-second limit.",
+    "Pinned historical snapshot verification only; no live/current-chain revalidation claimed or mandatory live network tests performed.",
+    "Stateless NAND/REF support only; automatic proposals require declared local prior mappings and matching topology/source bindings.",
+    "Undo is workspace-session memory; persisted version history across refresh is not implemented.",
+    "Human screen-reader/usability sessions and independent production delta review remain unperformed."
+  ],
+  "supersededCiInfrastructureFailure": {
+    "run": "https://github.com/Technique-S/Flip/actions/runs/44520204724",
+    "head": "5973a30459e9e88d5720591127445ad58b38b322",
+    "windows": "SUCCESS",
+    "ubuntu": "FAILURE before product tests",
+    "stage": "npx playwright install --with-deps chromium",
+    "observed": "Ubuntu apt package fetches failed with resource-unavailable/select errors; installation exit 100",
+    "rawFailedLogSha256": "c66b24113507b379596d466ca4c35b12ab23a64d30e30afe4bd7d5fa78e3e51c",
+    "disposition": "Final source CI 44521242685 passed both platforms; installer step and dependencies unchanged"
+  }
+}

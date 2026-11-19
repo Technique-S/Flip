@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Comparison, Verdict } from "./Comparison";
 import { Composer } from "./Composer";
+import type { DebugEdit } from "./Debugger";
 import { Library } from "./Library";
 import {
 	api,
@@ -108,6 +109,7 @@ function SourceCard({ item, alias }: { item: Imported; alias: string }) {
 	);
 }
 export default function App() {
+	const [debugEdit, setDebugEdit] = useState<DebugEdit | null>(null);
 	const [page, go] = useState(0),
 		[req, setReq] = useState<Execution | null>(null),
 		[origin, setOrigin] = useState("");
@@ -417,6 +419,7 @@ export default function App() {
 												sessionStorage.removeItem("flip-project");
 											} catch {}
 											setReq(null);
+											setDebugEdit(null);
 											setProof(null);
 											setBuilt(null);
 											setObs(null);
@@ -651,6 +654,8 @@ export default function App() {
 						)}
 						{page === 2 && req && (
 							<Comparison
+								debugEdit={debugEdit}
+								setDebugEdit={setDebugEdit}
 								r={req}
 								change={change}
 								run={compare}

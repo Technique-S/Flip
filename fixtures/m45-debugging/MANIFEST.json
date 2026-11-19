@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "bytes": 4420,
+      "path": "acceptance/acceptance-corpus.json",
+      "sha256": "505f6551a3e17ba83e29c817872d143fe5a5c9f67b78779ebea3016522499ef4"
+    },
+    {
+      "bytes": 101302,
+      "path": "cases/debugging-corpus.json",
+      "sha256": "2cc342ee74ebc3b7ff9e1ebc51f64e4c4f2df0ae13da3e8914e04a52e8b41485"
+    },
+    {
+      "bytes": 3707,
+      "path": "diagnostics/correction-guidance.json",
+      "sha256": "94a5be5ba68ce96052553b52a45bf9826f69d18e726d92a397bec75c1ab20756"
+    },
+    {
+      "bytes": 5051,
+      "path": "diagnostics/diagnostic-rules.json",
+      "sha256": "c4d9fde23a7df2869569c70721c489a1a476e69760450889c2efc8c94d319692"
+    },
+    {
+      "bytes": 29859,
+      "path": "generators/build_corpus.py",
+      "sha256": "ef75870a8297fdb2538a8dddbdf62833c1d821d29b8d7ba3f5786b8ca939f443"
+    },
+    {
+      "bytes": 13704,
+      "path": "generators/debug_core.py",
+      "sha256": "f4a4409efd184fbfa2be348da433d47b0fe5446a6bf33dc10b2cf192adc48aa2"
+    },
+    {
+      "bytes": 12488,
+      "path": "generators/verify_corpus.py",
+      "sha256": "8405c59dd5e14344a0c2bf63b83600702a7fee39c2e1dd50a61e4e80906854c0"
+    },
+    {
+      "bytes": 2536,
+      "path": "README.md",
+      "sha256": "58161455d7c824e676f94cc9de033d26b9c2cd722f37ffb30683eac4618cb761"
+    },
+    {
+      "bytes": 4096,
+      "path": "ux/ux-expectations.json",
+      "sha256": "aa00fadd1bd1015fab18759f3374bb995e45fac979e581365a4d12879d2bee45"
+    }
+  ],
+  "manifestType": "SHA256SUMS",
+  "note": "SHA-256 over all authored fixture bytes.",
+  "schemaVersion": "1.0.0"
+}

@@ -1,0 +1,41 @@
+{
+  "artifactType": "DEBUG_TRUST_ATTACKS",
+  "passed": 3,
+  "rows": [
+    {
+      "caseId": "B10",
+      "classification": null,
+      "connections": 0,
+      "correction": null,
+      "exit": 3,
+      "name": "Forged witness inputs injected into request",
+      "passed": true,
+      "safe": true,
+      "stdoutSha256": "d23fbb84dc033b2b98b4f8518f035945eee758777dd278cbb67ea5e749f348fd"
+    },
+    {
+      "caseId": "B11",
+      "classification": null,
+      "connections": 0,
+      "correction": null,
+      "exit": 3,
+      "name": "Changed candidate circuit identity",
+      "passed": true,
+      "safe": true,
+      "stdoutSha256": "d23fbb84dc033b2b98b4f8518f035945eee758777dd278cbb67ea5e749f348fd"
+    },
+    {
+      "caseId": "B12",
+      "classification": "UNKNOWN",
+      "connections": 0,
+      "correction": null,
+      "exit": 2,
+      "name": "Duplicated substituted dependency closure",
+      "passed": true,
+      "safe": true,
+      "stdoutSha256": "ee729f060c6ab81900d5e239bac0b64ef410cfb965d5ef2207488092da90ccaa"
+    }
+  ],
+  "testedSha": "b9d3fc3f87d34cc6bd46e2a716504fe113f44f48",
+  "total": 3
+}

@@ -330,3 +330,36 @@ async def library_operation(request: Request) -> Response:
     finally:
         if acquired:
             _slots.release()
+
+
+@app.post("/api/v1/debug")
+async def debug_connections(request: Request) -> Response:
+    """Same opt-in, loopback-only solver and concurrency boundary as comparison."""
+    from flip_core.debugging import execute
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Diagnostic input exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    acquired = False
+    try:
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown diagnostic query parameter.")
+        if (
+            os.getenv("FLIP_LOCAL_SOLVER") != "1"
+            or request.client is None
+            or request.client.host not in ("127.0.0.1", "::1")
+        ):
+            return json_response(not_implemented(), 501)
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Diagnostic concurrency exceeded.")
+        acquired = True
+        return json_response(await run_in_threadpool(execute, bytes(raw)))
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    finally:
+        if acquired:
+            _slots.release()
