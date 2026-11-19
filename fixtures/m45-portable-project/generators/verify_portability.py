@@ -17,6 +17,10 @@ def main():
     for item in m["files"]:
         p = EVID / item["path"]
         data = p.read_bytes() if p.exists() else b""
+        # Git blobs are LF; Windows checkouts may convert to CRLF. Normalize for
+        # verification so the committed LF-byte register is compared correctly.
+        if b"\r\n" in data:
+            data = data.replace(b"\r\n", b"\n")
         if hashlib.sha256(data).hexdigest() != item["sha256"] or len(data) != item["bytes"]:
             errors.append(f"hash mismatch {item['path']}")
     checks.append({"name": "manifest", "files": len(m["files"])})
