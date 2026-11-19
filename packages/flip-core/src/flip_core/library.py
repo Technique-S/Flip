@@ -22,6 +22,8 @@ from flip_core.library_models import (
     Recent,
     display_text,
 )
+from flip_core.library_models_v1 import LibraryRequest as RequestV1
+from flip_core.library_models_v1 import LibraryResult as ResultV1
 from flip_core.models import Block, CircuitIdentity
 from flip_core.rpc import RpcClient, RpcSettings
 
@@ -132,8 +134,7 @@ class LibraryService:
         self.transport = transport
         self.aborted = aborted or (lambda: False)
 
-    def execute(self, request: LibraryRequest) -> LibraryResult:
-        from flip_core.library_models_v1 import LibraryRequest as RequestV1
+    def execute(self, request: LibraryRequest | RequestV1) -> LibraryResult | ResultV1:
         from flip_core.library_protocol import legacy_result, upgrade_request
 
         if isinstance(request, RequestV1):

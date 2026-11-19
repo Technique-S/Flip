@@ -66,6 +66,7 @@ def test_F02_cli_api_core_use_same_versioned_pointer_representation(tmp_path, ve
 
 
 def test_frozen_v1_cannot_encode_user_trust_and_returns_explicit_upgrade_status():
+    assert isinstance(parse_library_request({"operation": "search"}), v1.LibraryRequest)
     request = parse_library_request(
         {
             "schemaVersion": v1.VERSION,

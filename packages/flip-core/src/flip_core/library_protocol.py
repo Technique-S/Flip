@@ -5,7 +5,7 @@ from flip_core.library_models import VERSION, LibraryRequest
 
 
 def parse_library_request(value):
-    if isinstance(value, dict) and value.get("schemaVersion") == v1.VERSION:
+    if isinstance(value, dict) and value.get("schemaVersion", v1.VERSION) == v1.VERSION:
         return v1.LibraryRequest.model_validate(value)
     return LibraryRequest.model_validate(value)
 

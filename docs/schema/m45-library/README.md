@@ -8,6 +8,8 @@ The original Python model implementation is retained byte-for-byte in
 `library_models_v1.py`; the schema exporter defaults to that frozen version. Current
 callers use `library_models.py` (1.1). Both wire versions use the existing major-v1
 HTTP endpoint and CLI, with dispatch by explicit `schemaVersion`.
+Omitting the wire version preserves the original 1.0 default; current callers and
+the workbench explicitly send 1.1. The current Python request model defaults to 1.1.
 
 Version 1.0 has only `ONCHAIN_DISPLAY_ONLY` in its enum, so it cannot truthfully
 encode a favorite-only record. Legacy requests still receive valid 1.0 envelopes:
