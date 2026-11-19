@@ -432,5 +432,15 @@
     "Stateless NAND/REF support only; automatic proposals require declared local prior mappings and matching topology/source bindings.",
     "Undo is workspace-session memory; persisted version history across refresh is not implemented.",
     "Human screen-reader/usability sessions and independent production delta review remain unperformed."
-  ]
+  ],
+  "supersededCiInfrastructureFailure": {
+    "run": "https://github.com/Technique-S/Flip/actions/runs/44520204724",
+    "head": "5973a30459e9e88d5720591127445ad58b38b322",
+    "windows": "SUCCESS",
+    "ubuntu": "FAILURE before product tests",
+    "stage": "npx playwright install --with-deps chromium",
+    "observed": "Ubuntu apt package fetches failed with resource-unavailable/select errors; installation exit 100",
+    "rawFailedLogSha256": "c66b24113507b379596d466ca4c35b12ab23a64d30e30afe4bd7d5fa78e3e51c",
+    "disposition": "Final source CI 44521242685 passed both platforms; installer step and dependencies unchanged"
+  }
 }

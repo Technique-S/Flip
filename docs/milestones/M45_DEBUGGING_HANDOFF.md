@@ -145,6 +145,12 @@ full browser run had 17 passes, one failure and three unexecuted cases because t
 stale-response test ended before its route handler; it now awaits fulfillment. No inherited
 library test or production verdict contract was changed to suppress these failures.
 
+The superseded [CI run 44520204724](https://github.com/Technique-S/Flip/actions/runs/44520204724)
+at `5973a30` passed Windows, but Ubuntu failed in Playwright dependency installation
+before product tests: Ubuntu package fetches reported resource-unavailable/select errors
+and apt exited 100. Final source run `44521242685` passed both platforms with the same
+installer step. No dependency, install check or timeout was weakened to obtain that pass.
+
 ## Runtime follow-ups and limits
 
 **F03-PERF-001 remains open** in [the library follow-up](M45_LIBRARY_FOLLOWUPS.md).
