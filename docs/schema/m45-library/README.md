@@ -24,6 +24,8 @@ and total; the browser additionally pages saved records locally.
 `discover` reads the current count, never a historical constant. `circuits` reads
 the selected processor's exclusive `nextId` bound. Each request scans at most 50
 indices (default 12), with at most 256 RPC attempts / 60 seconds by default. A
+workbench processor page requests two entries to allow room for environment reads
+on the public provider; circuit pages request 12 candidates. A
 cursor binds offset, processor, block number/hash and environment digest. Resume
 uses that same historical block; refresh without a cursor observes a new block.
 Single-provider number pinning includes a final chain/header recheck, matching M2.

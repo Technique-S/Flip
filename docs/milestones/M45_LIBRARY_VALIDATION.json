@@ -1,0 +1,195 @@
+{
+  "classification": "EXECUTED_LOCAL_WINDOWS_VALIDATION",
+  "baseline": "09f2482beae84be6d919ecd6957c4153d1924cca",
+  "research": "5c7bcfbc8babb58d5f040fe869e2017f4a8c46fd",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "fullRegression": {
+    "implementationCommit": "7fabe52",
+    "command": "python -m pytest -q --junitxml=.test-tmp/m45-python.xml -o junit_family=legacy",
+    "tests": 531,
+    "failures": 0,
+    "skipped": 0,
+    "sha256": "95f819fe2b22b96fe36b872ab227992e0b59b77f63005031c579b95191569adc"
+  },
+  "finalFocused": {
+    "scope": "21 library plus 30 API/CLI tests; covers subsequent API domain-error/OpenAPI correction",
+    "command": "python -m pytest packages/flip-core/tests/test_m45_library.py packages/flip-api/tests packages/flip-cli/tests -q --junitxml=.test-tmp/m45-focused.xml -o junit_family=legacy",
+    "tests": 51,
+    "failures": 0,
+    "skipped": 0,
+    "sha256": "ba8051c661c9fc214757409a596be1cc488a060b513d20f903b71fc55e12523e"
+  },
+  "fullChromium": {
+    "startTime": "2026-11-19T00:23:52.159Z",
+    "duration": 73338.232,
+    "expected": 14,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "libraryChromiumRerun": {
+    "startTime": "2026-11-19T00:37:25.281Z",
+    "duration": 17670.498,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "benchmark": {
+    "cases": 28,
+    "allMatched": true
+  },
+  "checks": {
+    "ruffCheck": "PASS",
+    "ruffFormat": "PASS",
+    "frontendLint": "PASS",
+    "frontendBuild": "PASS",
+    "schemaDriftM1M2M3M45": "PASS",
+    "canonicalNodeVectors": 6,
+    "independentKeccakSignatures": 11,
+    "additionalInheritedSelectorsRecomputed": 4,
+    "researchManifestFiles": 19,
+    "researchFilesPreserved": 24,
+    "externalCliApiSmokeM1": "PASS",
+    "externalCliApiSmokeM3": "PASS",
+    "custodyCredentialScan": {
+      "scope": "M1 offline repository consistency; not chain verification or solver replay",
+      "seed": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+      "core": "6dc21e0b97ffe03273a62ea1e9499e6346244d32",
+      "fixtures": "e4de86ef8870fb9b85adf94ace400791a479f985",
+      "raw_files": 12,
+      "registered_blob_checks": [
+        {
+          "path": "docs/evidence/raw/M0/xlayer_circuits.json",
+          "bytes": 18711,
+          "sha256": "a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30"
+        },
+        {
+          "path": "docs/evidence/raw/M0/vectors.json",
+          "bytes": 22185,
+          "sha256": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+        },
+        {
+          "path": "docs/evidence/raw/M0/composition_poc.json",
+          "bytes": 3415,
+          "sha256": "8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0"
+        },
+        {
+          "path": "docs/evidence/raw/M0/wiring_canary.json",
+          "bytes": 7224,
+          "sha256": "7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_a_compose_rerun.json",
+          "bytes": 6836,
+          "sha256": "9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_a_probe.json",
+          "bytes": 3188,
+          "sha256": "53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_a_probe2.json",
+          "bytes": 1325,
+          "sha256": "ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_b_manifest.json",
+          "bytes": 4895,
+          "sha256": "1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_b_negative.json",
+          "bytes": 2932,
+          "sha256": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_c_scale.json",
+          "bytes": 36860,
+          "sha256": "3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_c_scale_partial.json",
+          "bytes": 32210,
+          "sha256": "51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a"
+        },
+        {
+          "path": "docs/evidence/raw/M05/gate_c_stateful.json",
+          "bytes": 3137,
+          "sha256": "57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264"
+        },
+        {
+          "path": "docs/evidence/derived/recompute_checks.py",
+          "bytes": 5249,
+          "sha256": "a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a"
+        },
+        {
+          "path": "docs/evidence/derived/recomputed_checks.json",
+          "bytes": 2754,
+          "sha256": "6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499"
+        }
+      ],
+      "tracked_files_scanned": 552,
+      "credential_pattern_findings": 0,
+      "registered_browser_captures": [
+        "docs/milestones/m45-library-browser/desktop.png",
+        "docs/milestones/m45-library-browser/mobile.png"
+      ],
+      "provenance_limit": "Audited originals unavailable; imported observations are historical.",
+      "result": "PASS"
+    },
+    "pngGitCheckoutAndCrc": "PASS: two exact registered synthetic captures"
+  },
+  "liveReadOnly": {
+    "endpointHost": "rpc.xlayer.tech",
+    "signingOrBroadcast": false,
+    "processors": {
+      "status": "PARTIAL_BOUNDED",
+      "total": "430",
+      "block": {
+        "hash": "0x16df129617fd2a7d5f1763fc622456e0d5b3b77fbbf977b5ecb648a12103b156",
+        "number": "76279044"
+      },
+      "calls": 21,
+      "budget": 64,
+      "results": 1
+    },
+    "circuits": {
+      "status": "PARTIAL_BOUNDED",
+      "total": "104",
+      "block": {
+        "hash": "0xa30f7cd6d16da5383e68d5755fe0cc564f42f8e813e7d538575afe883486f69a",
+        "number": "76279060"
+      },
+      "calls": 21,
+      "budget": 64,
+      "results": 2
+    }
+  },
+  "sourceSha256": {
+    "apps/web/src/App.tsx": "1c2767ebce2d26dd76aae79be94e62a2f59f57427854084a07b1b62aa7e793eb",
+    "apps/web/src/Library.tsx": "c68edde408c471ff1d53f52e10223bc72f81436ae98bce149ac1b1b61a08bc31",
+    "apps/web/src/style.css": "16a8d93d33a2d1f1d2d89e595d9d9dd791df449c2a76f176b6357b3f72a1a871",
+    "packages/flip-api/src/flip_api/app.py": "e7721a08cdd30bb95c8c706ddae64af54b9ab83ae89f3891b40bbf884b0c1695",
+    "packages/flip-cli/src/flip_cli/main.py": "3091573520c2d8392fa8643556cf314fc82c88697ead6209cfb393a722c9c91f",
+    "packages/flip-core/src/flip_core/abi.py": "968a22c50bcd779fc82a49ba93df7f6f803ac28770add66407a6b40a6dcd5ffa",
+    "packages/flip-core/src/flip_core/importer.py": "69f40e0df2c4dde41c8ee3511b53a36ecaee8cd8000f284c74c9834951f25f9e",
+    "packages/flip-core/src/flip_core/library.py": "846572db90f8a797bbbe677a4c13a0e8f66061d5456a60014187e74f2e7e95d0",
+    "packages/flip-core/src/flip_core/library_models.py": "7bc1af5fc48d6071f3d44bdc6f72c5d141c13acba71645169de196f1ffd2c5ff",
+    "packages/flip-core/src/flip_core/library_schema_export.py": "c22cbd647801e1fbbc00c55b0dde774f37531418bff4c4a438f4ede9d8756f1e",
+    "packages/flip-core/src/flip_core/rpc.py": "2d723a726571203414f9f451367b055c9b5bad4861047e041232d0e985c0c75b",
+    "packages/flip-core/tests/test_m1_integration.py": "246cc510a2cd9c0c2e1c037dbfde887e8fea0683efd1fbcdca8ebeb96695919a",
+    "packages/flip-core/tests/test_m45_library.py": "b685d368b9c783090620a89d247eec9fda796139981c72dbb81af214fe0ca106",
+    "scripts/check_m1_repository.py": "e24d47d388b43e0b34754bd46c7dbda4f3369c9ffa4c4ecc683b73cf04525522",
+    "scripts/smoke_m45_library_live.py": "c55f7ecb58b4933a9cc62673f2075cad504a97073832dfa27162c8dc1e98fb22"
+  },
+  "limits": [
+    "Local Windows and Chromium execution only; Linux CI not observed here.",
+    "No human screen-reader or developer usability session claimed.",
+    "Single untrusted RPC observations; saved catalog never CURRENT.",
+    "Mandatory tests are deterministic/offline; live capture is separate."
+  ],
+  "result": "PASS"
+}

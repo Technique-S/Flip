@@ -91,6 +91,16 @@ The committed [browser run summary](M45_LIBRARY_BROWSER.json),
 
 Final command results are recorded in `M45_LIBRARY_VALIDATION.json` alongside this
 handoff. Mandatory tests are offline; conftest forbids external network access.
+Windows results: 531 full-suite tests passed, followed by 51 focused library/API/CLI
+tests after the API error-envelope correction. All 14 Chromium tests passed; the
+three library journeys were rerun after that correction and the final processor
+page adjustment. All 28 inherited benchmark cases matched. Python/Node canonical
+parity, all four schema drift checks, lint, formatting, build and both external
+CLI/API smoke scripts passed. The custody/credential scan reports zero findings.
+Two synthetic screenshots are admitted by exact path, length and SHA-256 in the
+custody guard; other unknown binary files remain rejected. The workbench requests
+two processors per page and 12 circuit candidates per page within the same bounded
+reader budgets.
 Live smoke is opt-in via `scripts/smoke_m45_library_live.py` and is absent from CI.
 The separate [live read-only capture](M45_LIBRARY_LIVE_SMOKE.json) records chain
 196, factory count, bounded processor/circuit pages, block/hash, code identities,

@@ -99,7 +99,7 @@ export function Library({
 					...((initial ?? current.current)
 						? { catalog: initial ?? current.current }
 						: {}),
-					limit: 12,
+					limit: operation === "discover" ? 2 : 12,
 					...extra,
 				}),
 			});
