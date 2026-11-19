@@ -374,6 +374,27 @@
           "title": "Side",
           "type": "string"
         },
+        "sourceIdentity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CircuitIdentity"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "sourceNetlistHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Sourcenetlisthash",
+          "type": "string"
+        },
+        "sourcePath": {
+          "maxLength": 2048,
+          "title": "Sourcepath",
+          "type": "string"
+        },
         "sourceSignal": {
           "title": "Sourcesignal",
           "type": "integer"
@@ -385,6 +406,8 @@
         "connectionRef",
         "kind",
         "sourceSignal",
+        "sourcePath",
+        "sourceNetlistHash",
         "destination",
         "netlistHash"
       ],

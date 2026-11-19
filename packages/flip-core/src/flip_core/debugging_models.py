@@ -41,6 +41,9 @@ class Connection(Contract):
     inputPin: int | None = None
     outputPin: int | None = None
     sourceSignal: int
+    sourcePath: str = Field(max_length=2048)
+    sourceNetlistHash: Digest
+    sourceIdentity: CircuitIdentity | None = None
     destination: str = Field(max_length=2200)
     netlistHash: Digest
     identity: CircuitIdentity | None = None

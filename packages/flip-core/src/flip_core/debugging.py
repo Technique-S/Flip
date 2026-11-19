@@ -10,7 +10,7 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from flip_core.canonical import content_hash, load_json
+from flip_core.canonical import canonical_bytes, content_hash, load_json
 from flip_core.composition import compile_project
 from flip_core.composition_models import LocalProject
 from flip_core.contracts import ContractError
@@ -39,17 +39,21 @@ class ConeTracer:
         self.nodes = self.indexed = 0
         self.connections = {}
 
-    def edge(self, scope, side, ref, kind, signal, destination, **fields):
+    def edge(self, scope, side, ref, kind, signal, destination, *, source_scope=None, **fields):
         key = side, ref
         if key not in self.connections:
             if len(self.connections) >= self.budget.maxConnections:
                 raise ContractError("RESOURCE_LIMIT", "Connection trace budget exceeded.")
+            source = source_scope or scope
             self.connections[key] = Connection(
                 side=side,
                 path=scope["path"],
                 connectionRef=ref,
                 kind=kind,
                 sourceSignal=signal,
+                sourcePath=source["path"],
+                sourceNetlistHash=source["hash"],
+                sourceIdentity=source["identity"],
                 destination=destination,
                 netlistHash=scope["hash"],
                 identity=scope["identity"],
@@ -186,8 +190,9 @@ class ConeTracer:
                     side,
                     f"{path}/element[{index}].out[{output_pin}]",
                     "REF_OUTPUT",
-                    signal,
-                    f"{child_path}/output[{output_pin}]",
+                    child_signal,
+                    f"{path}/element[{index}].out[{output_pin}]",
+                    source_scope=child,
                     elementIndex=index,
                     outputPin=output_pin,
                     instanceId=component.instanceId if component else None,
@@ -241,9 +246,16 @@ def prior_action(request):
 
 def execute(raw):
     try:
+        encoded = raw.encode("utf-8") if isinstance(raw, str) else raw
+        if not isinstance(encoded, bytes):
+            encoded = canonical_bytes(encoded)
+        if len(encoded) > 1_048_576:
+            raise ContractError("RESOURCE_LIMIT", "Diagnostic input exceeds 1 MiB.")
         request = DebugRequest.model_validate(
             load_json(raw) if isinstance(raw, (str, bytes)) else raw
         )
+    except ContractError:
+        raise
     except (ValueError, TypeError, ValidationError, RecursionError) as exc:
         raise ContractError(
             "INVALID_INPUT", "Invalid versioned diagnostic request or structure."

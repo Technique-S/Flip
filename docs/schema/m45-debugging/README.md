@@ -41,7 +41,9 @@ An unused REF output's computation is excluded. Constants terminate traversal.
 Connections are sorted by `(side, connectionRef)` and identified by side plus a stable
 `top/ref[index]/element[index].in[pin]` path. Repeated instances retain distinct paths
 even when the resolver shares an immutable child circuit. Each edge binds its local
-netlist hash; nested scopes include the exact circuit identity. Root recipe components
+netlist hash; nested scopes include the exact circuit identity. REF output edges run
+from the child's output signal to the parent's REF output pin, with separate source
+path/hash/identity fields. Dataflow is not reversed by backward traversal. Root recipe components
 include instance IDs and original numeric `projectPin` mappings. Compiler-generated
 copy/inverter records remain explicitly generated, not invented user components.
 `projectPin` describes the recipe before the compiler's accepted NAND canonicalization;

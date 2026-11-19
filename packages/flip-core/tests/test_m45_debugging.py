@@ -16,7 +16,7 @@ from flip_core.contracts import ContractError
 from flip_core.debugging import ConeTracer, execute
 from flip_core.debugging_models import TraceBudget
 from flip_core.verification import mapped_outputs
-from m45_debug_adapter import CASES, CORPUS, GUIDANCE, ROOT, execution, request
+from m45_debug_adapter import CASES, CORPUS, GUIDANCE, ROOT, bank, execution, request
 
 
 @pytest.mark.parametrize("case", CASES, ids=lambda c: c["caseId"])
@@ -159,6 +159,14 @@ def test_output_specific_ref_cone_and_repeated_instances():
     paths = [c.path for c in tracer.connections.values()]
     assert any("/ref[0]/ref[0]" in p for p in paths)
     assert not any("/ref[0]/ref[1]" in p for p in paths)
+    for edge in tracer.connections.values():
+        if edge.kind == "REF_OUTPUT":
+            assert edge.sourcePath.startswith(edge.path + "/ref[")
+            assert edge.destination == edge.connectionRef
+            assert edge.sourceIdentity is not None
+        else:
+            assert edge.sourcePath == edge.path
+            assert edge.sourceNetlistHash == edge.netlistHash
     result = execute(request(CASES[0]))
     assert {c.instanceId for c in result.connections if c.side == "candidate"} >= {
         "element0",
@@ -262,3 +270,31 @@ def test_missing_closure_witness_failure_deadline_and_repeated_child(monkeypatch
     tracer.trace(compiled.candidate, [0, 1], "candidate", parsed.project.candidate)
     paths = {c.path for c in tracer.connections.values()}
     assert "top/ref[0]" in paths and "top/ref[1]" in paths
+
+
+def test_shared_engine_raw_input_bound():
+    with pytest.raises(ContractError) as error:
+        execute(b" " * 1_048_577)
+    assert error.value.code == "RESOURCE_LIMIT"
+
+
+def test_adapter_uses_exact_frozen_dependency_bytes():
+    # Read the frozen declaration in an isolated interpreter; never use its evaluator
+    # to calculate a production verdict or truth table.
+    code = (
+        "import runpy,sys,json,hashlib; m=runpy.run_path(sys.argv[1]); "
+        "print(json.dumps(sorted([[cpu,cid,ni,no,hashlib.sha256(raw).hexdigest()] "
+        "for (cpu,cid),(ni,no,raw) in m['BANK'].items()])))"
+    )
+    declared = json.loads(
+        subprocess.check_output(
+            [sys.executable, "-B", "-c", code, str(CORPUS / "generators/build_corpus.py")]
+        )
+    )
+    actual = sorted(
+        [
+            [cpu[2:], cid, ni, no, hashlib.sha256(raw).hexdigest()]
+            for (cpu, cid), (ni, no, raw) in bank().items()
+        ]
+    )
+    assert actual == declared

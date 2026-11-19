@@ -41,6 +41,8 @@ type Diagnostic = {
 		side: string;
 		connectionRef: string;
 		sourceSignal: number;
+		sourcePath: string;
+		sourceNetlistHash: string;
 		destination: string;
 		instanceId: string | null;
 		inputPin: number | null;
@@ -268,8 +270,8 @@ export function Debugger({ r, available, change, run, undo, setUndo }: Props) {
 														<code>{c.connectionRef}</code>
 													</th>
 													<td>
-														Signal {c.sourceSignal} →{" "}
-														<code>{c.destination}</code>
+														<code>{c.sourcePath}</code> signal {c.sourceSignal}{" "}
+														→ <code>{c.destination}</code>
 														<br />
 														Relevant connection
 													</td>
@@ -388,7 +390,10 @@ export function Debugger({ r, available, change, run, undo, setUndo }: Props) {
 										diagnostic.comparison?.report.candidateManifestHash,
 									connectionNetlists: [
 										...new Set(
-											diagnostic.connections.map((c) => c.netlistHash),
+											diagnostic.connections.flatMap((c) => [
+												c.netlistHash,
+												c.sourceNetlistHash,
+											]),
 										),
 									],
 									freshness:
