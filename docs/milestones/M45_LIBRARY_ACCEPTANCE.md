@@ -14,6 +14,9 @@ required independent review.
   parent of library merge `9867dcb`; its first parent is accepted M4.
 - Acceptance branch: `codex/flip-m45-library-acceptance`.
 - First corrections commit: `72278a15e2cd7c6aefc4bf00c57253cf094d01f9`.
+- Fully checked acceptance head before this handoff update:
+  `9b5df5ebd69f1e696881e09a53d1aafed2bc87b8`. The following handoff update adds
+  only evidence/reporting; production code remains the corrections commit's state.
 - Remote main remains unchanged. Local `main` points to the older historical
   `02463b1`; it is not the acceptance base and was not changed.
 - The proposed authority-design branch is not merged. No debugging fixtures,
@@ -93,13 +96,13 @@ That does not substitute for CI on the corrected acceptance head.
 | New browser reproductions after corrections | PASS — 2 tests |
 | Complete inherited production suite and additional tests | CI PASS — 538 tests on each OS; see local timeout/rerun detail below |
 | Complete browser regression suite | PASS — 16 tests locally and on both CI platforms |
-| Ubuntu/Windows CI on acceptance code | PASS — PR run 44484376094 at fbef352; both jobs and all steps succeeded |
+| Ubuntu/Windows CI on acceptance code | PASS — PR run 44484376094 at fbef352 and latest run 44486873838 at 9b5df5e; both OS jobs succeeded |
 | Independent Keccak selectors | PASS — 11 research signatures |
 | Fixture hashes | PASS — 19 registered files / 12 synthetic scenarios |
 | M1/M2/M3/library schema drift | PASS |
 | Python/Node canonical hash parity | PASS — six vectors |
 | Frontend lint/build; Python lint/format | PASS |
-| Custody/credential scan | PASS in both platform CI jobs; final local standalone scan pending |
+| Custody/credential scan | PASS in both platform CI jobs and local standalone require-clean scan at 9b5df5e; zero findings |
 | Separate live read-only smoke | PASS — bounded processor and circuit pages; 21/64 requests each |
 
 The complete starting head contains 535 tests: the earlier 531-test run plus four
@@ -108,6 +111,9 @@ starting test was removed, excluded or rewritten. Downloaded CI JUnit artifacts
 show **538 passed, zero failed/skipped on Ubuntu and Windows**, with M3/M4 reports
 PASS. Their actual job metadata and counts are in
 [ci-results.json](m45-library-acceptance/ci-results.json).
+The later [9b5df5e PR matrix](https://github.com/Technique-S/Flip/actions/runs/44486873838)
+also passed both platforms. The [standalone custody result](m45-library-acceptance/custody-results.json)
+records its exact checked commit and credential/registered-evidence results.
 
 The first local full run produced 537 passes and one inherited M3 scratch-generator
 timeout under a custom temporary-directory override. A focused custom-layout rerun
@@ -149,3 +155,19 @@ screen-reader/developer usability session claimed by automated tests.
 **Readiness for debugging integration: NOT YET ACCEPTED.** The library must pass
 the independent review and final platform checks first. Preparing this acceptance
 PR does not authorize merging it or starting the separate debugging implementation.
+
+## Handoff and outstanding gate
+
+[PR #5](https://github.com/Technique-S/Flip/pull/5) targets remote main and remains
+draft and unmerged. Original library branch `codex/flip-m45-circuit-library` remains
+at `dec9420`; only the dedicated acceptance branch was updated. Acceptance changes
+touch `library.py`, `Library.tsx`, two new acceptance test files and this report's
+evidence directory. No dependencies, frozen schemas, historical tests, research
+fixtures or reviewer report were changed during this milestone.
+
+The sole missing integration evidence is the completed, published OpenCode review.
+When supplied, fetch its exact SHA, verify ancestry and file inventory, inspect its
+actual reproductions, address any remaining verified defect with regression tests,
+rerun affected checks and update the verdict. Do not mark independent review complete
+from the presence of a local branch or uncommitted artifact directories. No main
+merge or approval to begin debugging integration is granted by this report.
