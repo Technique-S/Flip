@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "bytes": 3025,
+      "path": "cases/01_multiple_processors.json",
+      "sha256": "c2fd5632bcd655412c480041059cc18f0a5a7dacd290c11d2a004bee6777448a"
+    },
+    {
+      "bytes": 4234,
+      "path": "cases/02_multiple_circuit_ids.json",
+      "sha256": "71d26df5f274fca80fd58f3a5e3b03e4fcf319b7bbfbaf02be455c5dd912efe0"
+    },
+    {
+      "bytes": 4522,
+      "path": "cases/03_missing_noncontiguous_ids.json",
+      "sha256": "e9dfa322ea88cfff81ac1f358d8995c7d9a783ebd97504b0379486741296c975"
+    },
+    {
+      "bytes": 3968,
+      "path": "cases/04_pagination.json",
+      "sha256": "9460fe25ec315a6c43b175c36c5788dc50bd125f373b8dbebd274bd3a461a88d"
+    },
+    {
+      "bytes": 2178,
+      "path": "cases/05_rpc_outages.json",
+      "sha256": "b05c1664bdc07d4695e47a7ca2492486905d971e0567fef66fd8ac541fb5aa4f"
+    },
+    {
+      "bytes": 2071,
+      "path": "cases/06_rate_limits.json",
+      "sha256": "92dcd38f9974737df1f3329233e8a8ce81aecbf33cb548d57d9d63e7d7daa009"
+    },
+    {
+      "bytes": 2463,
+      "path": "cases/07_factory_implementation_changed.json",
+      "sha256": "cafe5f22ea5d791aba9e28900c7f9c62ffd27ab18055cdc81517e03900624d6f"
+    },
+    {
+      "bytes": 2497,
+      "path": "cases/08_processor_implementation_changed.json",
+      "sha256": "9712c474242c455e22877c9851ece0aadb270095e8a0ae04ef1f506cd808d95a"
+    },
+    {
+      "bytes": 2131,
+      "path": "cases/09_chain_reorganization.json",
+      "sha256": "67cbac6e1ccf9fb18164c0d5e1ac1361f193507b78159ae43f4579c0fbf3a721"
+    },
+    {
+      "bytes": 2835,
+      "path": "cases/10_duplicate_discovery_records.json",
+      "sha256": "432a86c947f75950cbac5971b4e7525fd039e13abc180a5a8cd2a039b6b3d7d5"
+    },
+    {
+      "bytes": 2103,
+      "path": "cases/11_favorites_stale_snapshot.json",
+      "sha256": "3d0b90eb0cd3ae351131e9d7c8c0b7506fe5d40c2fbb8103b1ad0d040f852df0"
+    },
+    {
+      "bytes": 2093,
+      "path": "cases/12_untrusted_descriptive_metadata.json",
+      "sha256": "f1ae4f2669de595805023bd8e52af94540d884169dfb1e3565044cf572986b4a"
+    },
+    {
+      "bytes": 20072,
+      "path": "generators/build_fixtures.py",
+      "sha256": "c091afd34577c3b5717a42c37b7bfba64776477bb33e1a4c2ab971f499ab52b3"
+    },
+    {
+      "bytes": 10526,
+      "path": "generators/capture_live_readonly.py",
+      "sha256": "7f5cda8a9e82f860c2d0fce5b3aae3c37af8daa4a1bfe3f696e9d889ddd5acd7"
+    },
+    {
+      "bytes": 5662,
+      "path": "generators/keccak_selectors.py",
+      "sha256": "bb5618c6e545e2c0994b350628ba7ce2b836d6f8daf987a0c4ed6f5a0fda6a5b"
+    },
+    {
+      "bytes": 3099,
+      "path": "generators/verify_fixtures.py",
+      "sha256": "122970b7afabd486a5aaee6cef42c268a3866da68ea94f1e49cad5627dc791e9"
+    },
+    {
+      "bytes": 5647,
+      "path": "observations/live_xlayer_observation_0x48be576.json",
+      "sha256": "8c0878dd5cf909b12d9103c268d123f3b1d3aa4121e02f9fa99a3e1847faf46c"
+    },
+    {
+      "bytes": 2230,
+      "path": "README.md",
+      "sha256": "aa4955ca0862f51d06c3a94443cd2357d5620dc91bb8a4946e7fb14253bf60ca"
+    },
+    {
+      "bytes": 1439,
+      "path": "seeds/verified_known_addresses.json",
+      "sha256": "4f9021b5b6c74a2fbe1ff41827eb118f6333075ce144582a317ac2d6708d02ba"
+    }
+  ],
+  "manifestType": "SHA256SUMS",
+  "note": "SHA-256 over all committed fixture bytes. Re-run generators then verify_fixtures.py.",
+  "schemaVersion": "1.0.0"
+}

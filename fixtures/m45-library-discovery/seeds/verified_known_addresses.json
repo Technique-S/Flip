@@ -1,0 +1,39 @@
+{
+  "artifactId": "verified_known_addresses",
+  "authorityNote": "Seed membership is a discovery hint only; executable status requires fresh importer validation.",
+  "chainId": 196,
+  "derivation": "Values transcribed from docs/evidence/PROVENANCE_INDEX.md and the live observation in observations/. These are known-address seeds for a truthful fallback catalog, not permanent proof of unchanged implementation.",
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "factoryImplementation": "0x336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+  "observedAtBlock": 76277110,
+  "observedAtBlockHash": "0x1941877104961218ad35b6650582da1bf23fdd4628105cc984e731bb6b7910dc",
+  "provenance": "OBSERVED_READ_ONLY_DERIVED",
+  "schemaVersion": "1.0.0",
+  "seeds": [
+    {
+      "aliasProvenance": "LOCAL_IDENTIFIER_NOT_VERIFIED_DESCRIPTION",
+      "aliases": [
+        "XOR#1",
+        "NAND#2"
+      ],
+      "circuitIds": [
+        "1",
+        "2"
+      ],
+      "netlistSha256Circuit1": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+      "nextId": 104,
+      "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "processorNumber": 0
+    },
+    {
+      "aliasProvenance": "ONCHAIN_NAME_DISPLAY_ONLY_NOT_IDENTITY",
+      "aliases": [
+        "My4004"
+      ],
+      "circuitIds": [],
+      "nextId": 100,
+      "processor": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+      "processorNumber": 1
+    }
+  ]
+}

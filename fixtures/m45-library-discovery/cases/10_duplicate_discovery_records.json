@@ -1,0 +1,85 @@
+{
+  "assertions": [
+    "Case differences in address hex do not create duplicate identities.",
+    "A user import cannot override an onchain-verified record's executable status."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C10",
+  "chainId": 196,
+  "description": "The same processor/circuit appears via factory enumeration, a known seed and a user import.",
+  "expected": {
+    "addressNormalization": "lowercase",
+    "authorityPrecedence": "ONCHAIN_VERIFIED > KNOWN_SEED > USER_IMPORT",
+    "canonicalKey": "196:0x1f09daefa827f02cbb40967cc91b259763760761:0x1111111111111111111111111111111111111111:1",
+    "catalogRecordCount": 1,
+    "provenanceSources": [
+      "FACTORY_ENUMERATION",
+      "KNOWN_SEED",
+      "USER_IMPORT"
+    ]
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "inputRecords": [
+    {
+      "chainId": 196,
+      "circuitId": "1",
+      "processor": "0x1111111111111111111111111111111111111111",
+      "source": "FACTORY_ENUMERATION"
+    },
+    {
+      "chainId": 196,
+      "circuitId": "1",
+      "processor": "0x1111111111111111111111111111111111111111",
+      "source": "KNOWN_SEED"
+    },
+    {
+      "chainId": 196,
+      "circuitId": "1",
+      "processor": "0X1111111111111111111111111111111111111111",
+      "source": "USER_IMPORT"
+    }
+  ],
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [
+        0
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 1,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000003"
+      },
+      "selector": "0x61b8ce8c",
+      "seq": 2,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000004"
+      },
+      "selector": "0x084d60f1",
+      "seq": 3,
+      "to": "0x1111111111111111111111111111111111111111"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Duplicate discovery records collapse to one identity"
+}

@@ -1,0 +1,73 @@
+{
+  "assertions": [
+    "Proxy address alone is not an environment identity.",
+    "A verified address is not permanent proof of unchanged implementation."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "baselineSnapshot": {
+    "blockNumber": 1000,
+    "factoryImplementation": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "factoryImplementationCodeHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+    "isSealed": 0
+  },
+  "caseId": "M45-2L-C07",
+  "chainId": 196,
+  "description": "cpuCount enumeration succeeds but factory ERC-1967 implementation and code hash differ.",
+  "expected": {
+    "compositionAllowed": false,
+    "discoveryStatus": "ENVIRONMENT_CHANGED",
+    "existingCatalogEntries": "STALE",
+    "favorites": "PRESERVED_AS_USER_DATA",
+    "revalidationRequired": true
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "observedEnvironmentChange": {
+    "blockNumber": 1001,
+    "factoryImplementation": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "factoryImplementationCodeHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+    "isSealed": 0
+  },
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [],
+      "block": 1001,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000002"
+      },
+      "selector": "0xa94da8a7",
+      "seq": 1,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        0
+      ],
+      "block": 1001,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 2,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1001,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000002222222222222222222222222222222222222222"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 3,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Factory implementation changed between snapshots"
+}
