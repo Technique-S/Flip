@@ -1,173 +1,158 @@
-# M4.5-2L-C Circuit Library acceptance
+# M4.5-2L-D Independent review reconciliation
 
-Assessment date: 2026-11-19. **Integration verdict: FAIL — independent OpenCode
-evidence is still pending.** The corrected production interfaces pass platform CI
-and focused acceptance. This report does not substitute those results for the
-required independent review.
+Assessment date: 2026-11-19. **Reconciliation verdict: PASS — ready for final independent delta review.**
+The merge gate remains open: PR #5 must stay unmerged until that review confirms the fixes.
+Codex validated the later changes below. OpenCode's original review remains frozen at its
+original target and does not certify these changes.
 
-## Exact starting state and provenance
+## Exact revisions and preservation decision
 
-- Accepted remote main: `09f2482beae84be6d919ecd6957c4153d1924cca`.
-- Original library head: `dec9420bb76e9245c6740bf3d92031d175e408ec`, locally clean
-  and equal to its origin ref before acceptance work.
-- Research: `5c7bcfbc8babb58d5f040fe869e2017f4a8c46fd`, preserved as the second
-  parent of library merge `9867dcb`; its first parent is accepted M4.
-- Acceptance branch: `codex/flip-m45-library-acceptance`.
-- First corrections commit: `72278a15e2cd7c6aefc4bf00c57253cf094d01f9`.
-- Fully checked acceptance head before this handoff update:
-  `9b5df5ebd69f1e696881e09a53d1aafed2bc87b8`. The following handoff update adds
-  only evidence/reporting; production code remains the corrections commit's state.
-- Remote main remains unchanged. Local `main` points to the older historical
-  `02463b1`; it is not the acceptance base and was not changed.
-- The proposed authority-design branch is not merged. No debugging fixtures,
-  diagnostic production code, wallet, signer or transaction functionality is added.
+| Role | Commit / artifact |
+|---|---|
+| Accepted remote main | `09f2482beae84be6d919ecd6957c4153d1924cca` — unchanged |
+| Original library reviewed by OpenCode | `dec9420bb76e9245c6740bf3d92031d175e408ec` |
+| PR #5 starting acceptance head | `60d9e94c4cfec9306492cb4016c4c6b60444a73f` |
+| Completed independent review | `9741e66ae385979dc0d18c89aec4ec6ed93ff285` |
+| Versioned provenance implementation | `9629391e419a996f40a76e313373f9a56320eef4` |
+| Final tested code, including legacy wire defaults | `a184d776c896476be77f518b87885529a4038539` |
+| Production acceptance PR | [PR #5](https://github.com/Technique-S/Flip/pull/5) |
+| Frozen independent-review evidence PR | [PR #6](https://github.com/Technique-S/Flip/pull/6) |
 
-All 24 research files and their 19-file byte manifest remain unchanged. Historical
-audit, M1/M2/M3 schemas, evidence and original tests are preserved. New reproductions
-are in separate Codex acceptance test files, not the reviewer's directories.
+The explicitly documented independent-review PR option was selected. PR #6 preserves
+all **16 OpenCode-owned files unchanged**: report, manifest, harnesses, JSON observations,
+UTF-16 logs and screenshots. All **15 manifest entries** match the exact Git blob sizes
+and SHA-256 digests at `9741e66`. The manifest itself is also pinned in the inventory.
+There are no production-source changes in that review branch's delta from `dec9420`.
+See [independent-review-custody.json](m45-library-reconciliation/independent-review-custody.json).
 
-## Independent review coordination
+The report is preserved at
+[the original review commit](https://github.com/Technique-S/Flip/blob/9741e66ae385979dc0d18c89aec4ec6ed93ff285/docs/evidence/m45-library-independent-review/M45_LIBRARY_INDEPENDENT_REVIEW.md).
+It records CONDITIONAL PASS at `dec9420`, zero CRITICAL/HIGH findings and no authority
+bypass. Its findings were not rewritten. Its cited baseline pytest log/XML are not
+among the committed manifest entries; no missing raw result was reconstructed. New
+Codex runs and platform CI provide the later validation evidence.
 
-The user identified OpenCode M4.5-2L-V as assigned to
-`opencode/flip-m45-library-independent-review`, with expected report
-`docs/evidence/m45-library-independent-review/M45_LIBRARY_INDEPENDENT_REVIEW.md`
-and supporting `fixtures/m45-library-independent-review/`.
+The original research merge and all 24 research files remain intact. The authorization
+architecture was not merged. PR #6 is an evidence-preservation PR, not approval of the
+later production delta or a request to merge the old implementation into main.
 
-The local review branch exists at the original library head and the reviewer is
-assembling its own artifact directories. No completed review commit has been
-supplied or fetched yet. **Independent review is pending.**
-No OpenCode finding, approval or reproduction is claimed. Fetch and inventory that
-branch when pushed; inspect and reproduce actual findings, preserve its report,
-then update this section with exact commit, findings and dispositions. Do not merge
-this PR before that evidence is available and required checks are green.
+## Finding-by-finding disposition
 
-## Codex acceptance findings and corrections
-
-These findings were reproduced against the actual production core/API or browser
-at the original library head; they are not attributed to OpenCode.
-
-| ID | Reproduction before correction | Correction and focused evidence |
+| Finding | Disposition | Actual reproduction and evidence |
 |---|---|---|
-| C-L01 | Save an alias, then favorite the same circuit: core search for the alias returns zero results. Favorite text overwrites alias text in the index. | Accumulate both independent metadata sources. New core/API test searches alias, alias tag, favorite label and description. |
-| C-L02 | Discover circuits, change processor bytecode only, refresh factory discovery: response says COMPLETE and cached circuits remain HISTORICAL. | Compare each observed processor environment with its cached records; mark affected circuits STALE and emit ENVIRONMENT_CHANGED. Favorite remains, and no import payload is returned. |
-| C-L03 | Restore an unsupported JSON catalog in browser storage: validation rejects it and the library is empty despite known-address fallback. | Retry only the offline search with a seed catalog; retain original saved bytes. On a later explicit edit, preserve a recovery copy before saving the new catalog. New browser test checks initial bytes and recovery copy. |
-| C-L04 | Import #1 then #2 and restore the browser: Recent imports displays #1 first. | Sort the recent collection by the persisted recent-import order. New browser test imports through the production API and checks #2 first after restoration. |
+| F-01 MEDIUM — malformed favorites disable fallback | RESOLVED BY EXISTING FIX; preserved | The exact reviewer sequence was run on the existing PR fix before provenance changes: put an object without identity into `overlay.favorites`, reload, reopen Library. The focused browser test passed. The final 18-test browser suite repeats it with an explicit legacy catalog: two seed rows return, a meaningful invalid-data warning appears, Loading known addresses disappears, original bytes remain unchanged, and rows are UNKNOWN rather than CURRENT. |
+| F-02 LOW — favorite-only metadata says onchain | RESOLVED IN VERSIONED CONTRACT | Library 1.1 emits `metadataTrust=USER_SUPPLIED` for user-only records, with USER_POINTER existence, UNKNOWN freshness, no block/environment/netlist/manifest evidence and zero RPC calls. UI, API and CLI regressions verify the representation. Frozen 1.0 schemas and their model implementation are retained unchanged, with explicit compatibility behavior below. |
+| F-03 LOW — inherited 120-second scratch timeout | INVESTIGATED; runtime-margin follow-up retained | The unchanged custody test passed serially in default and custom layouts. Default: 96.22 seconds total; custom: 87.27 seconds. Python startup was 0.10–0.11 seconds, fixture copying about 0.035 seconds and hashing 0.17–0.21 seconds. Execution inside the inherited test dominated. Historical failures are retained; no timeout or assertion was relaxed. |
 
-Before corrections, the core reproductions produced **2 failures and 1 security
-test pass**; the browser reproductions produced **2 failures**. After corrections,
-the existing 21 library tests plus three new core tests passed (**24/24**) and both
-new browser tests passed (**2/2**). No historical assertion or corpus expectation
-was weakened to suppress a failure.
+F-01 production recovery logic was not replaced. Changes to that path only add the
+separate valid-1.0 catalog migration/backup behavior required by F-02. Corrupt catalogs
+are still rejected in full, never sanitized into claimed valid/executable state. Their
+original bytes remain until an explicit edit, with a recovery copy preserved first.
 
-The additional security test rejects persisted CURRENT claims and confirms a
-previously imported circuit cannot be re-imported after isCPU becomes false.
-Library import into composition consumes only a fresh complete M2 import, never a saved
-catalog record, favorite, alias or recent pointer.
+The F-01 test is `apps/web/tests/library-acceptance.spec.ts`, titled
+`F-01 exact malformed-favorites restore retains bytes and recovers seeds`. F-02's focused
+core/API/CLI tests are in `packages/flip-core/tests/test_m45_library_provenance.py`, and
+its UI test covers USER_SUPPLIED display and legacy-storage backup. The earlier Codex
+alias-search, processor-code invalidation and recent-order fixes remain present.
 
-## Required acceptance coverage
+## F-02 contract compatibility decision
 
-| Requirement | Executable evidence |
+The frozen 1.0 enum can express only ONCHAIN_DISPLAY_ONLY; adding USER_SUPPLIED there
+would silently change a historical contract. Instead:
+
+- The original three schemas in `docs/schema/m45-library/1.0.0/` remain byte-identical.
+- The original model implementation is preserved byte-for-byte as `library_models_v1.py`.
+- `library_models.py` and `docs/schema/m45-library/1.1.0/` define the current 1.1 profile.
+- The existing HTTP endpoint and CLI dispatch on the explicit envelope version. Omitting
+  the wire version retains the old 1.0 default. Current UI/examples explicitly send 1.1.
+- Ordinary 1.0 observations still return valid 1.0 envelopes. When a user-only result
+  cannot be represented truthfully, the legacy response reports UNKNOWN /
+  UNSUPPORTED_SCHEMA_VERSION, omits that record and retains the pointer in the overlay.
+  It never casts USER_SUPPLIED back to ONCHAIN_DISPLAY_ONLY. A 1.1 request retrieves it.
+- A known 1.0 catalog is completely validated before migration into a 1.1 request.
+  Unknown versions and authority fields are rejected. Identities and user collections
+  are preserved; user-pointer provenance is corrected explicitly.
+- Browser restore keeps valid original 1.0 bytes until an edit, then saves a 1.0 backup
+  before writing 1.1. Corrupt-data recovery has its separate recovery copy.
+
+The same-version API/CLI/core parity checks cover both wire versions, including legacy
+exit 2 for the explicit upgrade status. The full decision and examples are documented
+in [the library contract](../schema/m45-library/README.md). The schema exporter defaults
+to frozen 1.0; `--version 1.1.0` checks the new profile. Both are checked in CI and the
+repository custody guard now pins the frozen 1.0 schemas and model bytes.
+
+## F-03 investigation and tracked follow-up
+
+The optional development probe runs the original custody test serially in both layouts,
+records startup/copy/hash timings, exact commands and output, interpreter/platform,
+source hashes and elapsed time. The inner subprocess limit remains **120 seconds**.
+No generator, historical fixture or test assertion was changed. Source hashes remain
+unchanged, and the independent stdlib generator does not import the production library.
+
+Both layouts passed in the current probe and the full local suite also passed. These
+observations do not establish a unique cause for the earlier timeouts or show that the
+directory name caused them. Measured startup and initial file-copy/hash work were too
+small to account for the observed runtime. No genuine library regression was reproduced.
+Runtime margin and host/environment variability remain qualified limitations.
+
+Evidence: [regeneration-probe.json](m45-library-reconciliation/regeneration-probe.json).
+Tracked follow-up: [F03-PERF-001](M45_LIBRARY_FOLLOWUPS.md). Earlier local timeout traces
+remain in [the preceding acceptance evidence](m45-library-acceptance/local-test-results.json).
+A repeat supported-runner failure reopens the gate; skipping the check or increasing its
+limit to hide a regression is not an accepted resolution.
+
+## Final validation and tested state
+
+[validation-results.json](m45-library-reconciliation/validation-results.json) records the
+actual local and downloaded CI results. Platform CI on the final code is
+[run 44500076045](https://github.com/Technique-S/Flip/actions/runs/44500076045).
+
+| Check | Outcome |
 |---|---|
-| cpuCount/cpuAt/isCPU, processor pagination, duplicate addresses | Existing C01/C04/C10 core tests and pinned cursor tests |
-| Exclusive nextId, sparse/nonexistent IDs, large ranges | C02/C03/C04, known/unknown revert classification, L03 browser journey |
-| Known-address fallback, invalid stored catalog recovery | C05/C11, L02 and new LC01 browser tests |
-| Search, display metadata, aliases, authority rejection | C01/C02/C12 and new C-L01 core/API test |
-| Favorites, recents, browser persistence and order | C11, bounded-recents test, L01, new LC01/LC02 |
-| Factory/beacon/processor execution changes | C07/C08 and new C-L02 processor-code test |
-| Revalidation before composition/import transition | Complete M2 import/revalidation tests, L01/L03, unregistered-import acceptance test |
-| Reorg, wrong chain, RPC outage/throttling | C05/C06/C09, retry/error tests, canonical pinned-header checks |
-| CLI/API parity, safe CURRENT boundary | Existing byte-parity tests and new saved-CURRENT/unregistered-import test |
-| Resource bounds, deadlines and abort | 50-ID limit, request/retry budgets, callback abort/deadline tests and overlay quota test |
+| Full local Python suite, started at implementation `9629391` | PASS — 543 tests, 376.78 seconds |
+| Final focused library + API/CLI checks at `a184d77` | PASS — 59 tests |
+| Final complete Chromium suite at `a184d77` | PASS — 18 tests |
+| Linux and Windows full CI at `a184d77` | PASS — 543 tests per platform, zero failed/skipped; M3/M4 reports PASS |
+| CLI/API same-version parity | PASS — both 1.0 and 1.1 pointer profiles, plus inherited interfaces |
+| Frontend lint and build; Python lint and formatting | PASS |
+| M1/M2/M3/library 1.0/library 1.1 schema drift | PASS |
+| Canonical Python/Node hash parity | PASS — six vectors; canonical profile unchanged |
+| Selector and research fixture custody | PASS — inherited independent Keccak proofs and 19 registered research files |
+| Independent-review evidence custody | PASS — 15 manifest entries, all 16 owned files pinned unchanged |
+| Standalone repository/credential scan at `a184d77` | PASS — 574 tracked files; zero credential findings |
+| F-03 serial default/custom probes | PASS — unchanged 120-second test limit |
+| External CLI/API M3 smoke | PASS |
+| External M1 smoke | Concurrent startup attempt failed; identical serial rerun PASS; script and limit unchanged |
 
-The research scripts are synthetic scenario descriptions, not complete raw wire
-recordings. The existing test adapter's documented in-memory tuple normalization
-and synthetic environment supplementation remain unchanged. Fixtures are never
-rewritten to repair their malformed delimiters.
+The last code adjustment after the full local run preserves the historical omitted-wire-
+version default and adds truthful service union annotations. It is covered by the final
+focused tests, Chromium rerun and both complete platform CI jobs at `a184d77`. This
+handoff update changes only documentation/evidence. No later production code change is
+implied by a newer report commit.
 
-## Validation outcomes
+The concurrent M1 ASGI startup failure is retained in the validation record. Its cause is
+UNKNOWN; it was not hidden by changing its startup deadline. Both platform CI smoke
+steps passed. Browser validation used a fresh build; OpenCode I-01/I-02's install/build
+preconditions remain in the normal setup documentation. Cursor replay remains bounded,
+deduplicated and advisory (I-03). OpenCode's discarded harness endpoint attempt (I-04)
+is not promoted into live observation evidence.
 
-Original-head CI was inspected: [run 44430900962](https://github.com/Technique-S/Flip/actions/runs/44430900962)
-at `dec9420bb76e9245c6740bf3d92031d175e408ec` passed both Ubuntu and Windows jobs.
-That does not substitute for CI on the corrected acceptance head.
+## Safety boundary, limits and delta-review handoff
 
-| Check | Current outcome |
-|---|---|
-| Focused library tests at first corrections state | PASS — 24 tests |
-| New browser reproductions after corrections | PASS — 2 tests |
-| Complete inherited production suite and additional tests | CI PASS — 538 tests on each OS; see local timeout/rerun detail below |
-| Complete browser regression suite | PASS — 16 tests locally and on both CI platforms |
-| Ubuntu/Windows CI on acceptance code | PASS — PR run 44484376094 at fbef352 and latest run 44486873838 at 9b5df5e; both OS jobs succeeded |
-| Independent Keccak selectors | PASS — 11 research signatures |
-| Fixture hashes | PASS — 19 registered files / 12 synthetic scenarios |
-| M1/M2/M3/library schema drift | PASS |
-| Python/Node canonical hash parity | PASS — six vectors |
-| Frontend lint/build; Python lint/format | PASS |
-| Custody/credential scan | PASS in both platform CI jobs and local standalone require-clean scan at 9b5df5e; zero findings |
-| Separate live read-only smoke | PASS — bounded processor and circuit pages; 21/64 requests each |
+All network chain operations remain read-only and bounded. No wallet/signing/broadcast
+or spending path was added. Catalog records cannot express CURRENT. Labels, favorites,
+recents and migrated pointers cannot grant proof or permissions; library import into
+composition still requires a fresh full M2 import, registration and closure validation.
+Frozen historical schemas, original tests, research bytes and the reviewer's report are
+preserved. No transaction architecture or debugging feature was implemented.
 
-The complete starting head contains 535 tests: the earlier 531-test run plus four
-later M4.5 guards. The three Codex acceptance core tests bring this to 538. No
-starting test was removed, excluded or rewritten. Downloaded CI JUnit artifacts
-show **538 passed, zero failed/skipped on Ubuntu and Windows**, with M3/M4 reports
-PASS. Their actual job metadata and counts are in
-[ci-results.json](m45-library-acceptance/ci-results.json).
-The later [9b5df5e PR matrix](https://github.com/Technique-S/Flip/actions/runs/44486873838)
-also passed both platforms. The [standalone custody result](m45-library-acceptance/custody-results.json)
-records its exact checked commit and credential/registered-evidence results.
+Remaining limits: single-provider trust, bounded explicit discovery rather than a full
+chain index, historical saved observations, no human screen-reader/usability claim,
+and the F03-PERF-001 runtime-margin follow-up. No fresh live call was required for this
+reconciliation; prior live captures remain separately labeled historical observations.
 
-The first local full run produced 537 passes and one inherited M3 scratch-generator
-timeout under a custom temporary-directory override. A focused custom-layout rerun
-also exceeded its unchanged 120-second timeout. The same unmodified test then passed
-in the prescribed default layout in 85.56 seconds. Both failures and the successful
-rerun are preserved in [local-test-results.json](m45-library-acceptance/local-test-results.json).
-No timeout was increased, test expectation changed or archive rewritten. The cause
-of the two custom-layout timeouts has not been established; the results are reported
-separately from the clean full-platform CI passes.
-
-The [browser result summary](m45-library-acceptance/browser-results.json) records all
-16 completed local journeys. The [separate live capture](m45-library-acceptance/live-readonly.json)
-records processor count 430 at block 76306412 / hash
-`0xcabd495802f540c45043dfe57102002e9f21b4a3c3ba6e4d6a03c1420b01ea1f`
-and two circuit candidates below exclusive nextId 104 at block 76306422 / hash
-`0xd59720f75402e4e6b9117409dfbd5c0b7f6681452a6cb1163ef46fa65590b298`.
-Both observations came from `rpc.xlayer.tech`, verified chain 196, used 21 of 64
-requests and were PARTIAL_BOUNDED. They are single-provider read observations,
-not proof of a complete catalog, current execution or publication.
-
-Mandatory tests prohibit external networking. Live observations will be run and
-recorded separately; timeouts remain UNKNOWN. The public RPC is a single untrusted
-provider and cannot establish independent consensus truth.
-
-## Security and remaining limits
-
-Only inherited read-allowlisted RPC methods and fixed read selectors are used.
-Saved catalog freshness cannot express CURRENT. Metadata is escaped React text,
-stripped of controls, bounded and structurally forbidden from adding authority
-fields. Cursors bind block number/hash and environment and have bounded offsets;
-all scans have page/request/deadline limits. Unknown failures do not establish
-absence. Every selected executable import rereads registration and the full REF
-closure via M2.
-
-The original known limitations remain: bounded explicit discovery, historical
-saved observations, single-provider trust, no complete global index, and no human
-screen-reader/developer usability session claimed by automated tests.
-
-**Readiness for debugging integration: NOT YET ACCEPTED.** The library must pass
-the independent review and final platform checks first. Preparing this acceptance
-PR does not authorize merging it or starting the separate debugging implementation.
-
-## Handoff and outstanding gate
-
-[PR #5](https://github.com/Technique-S/Flip/pull/5) targets remote main and remains
-draft and unmerged. Original library branch `codex/flip-m45-circuit-library` remains
-at `dec9420`; only the dedicated acceptance branch was updated. Acceptance changes
-touch `library.py`, `Library.tsx`, two new acceptance test files and this report's
-evidence directory. No dependencies, frozen schemas, historical tests, research
-fixtures or reviewer report were changed during this milestone.
-
-The sole missing integration evidence is the completed, published OpenCode review.
-When supplied, fetch its exact SHA, verify ancestry and file inventory, inspect its
-actual reproductions, address any remaining verified defect with regression tests,
-rerun affected checks and update the verdict. Do not mark independent review complete
-from the presence of a local branch or uncommitted artifact directories. No main
-merge or approval to begin debugging integration is granted by this report.
+PR #5 is ready for an independent delta review of `60d9e94..HEAD`, concentrating on
+version negotiation, pointer provenance, known catalog migration and unchanged custody
+limits. PR #6 preserves the original review separately. The final independent reviewer
+must confirm these fixes before PR #5 is merged. Main remains at the accepted M4 SHA;
+no merge authorization or readiness to begin debugging implementation is granted here.
