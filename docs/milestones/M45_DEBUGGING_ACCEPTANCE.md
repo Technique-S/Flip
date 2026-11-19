@@ -1,5 +1,51 @@
 # M4.5-2D-C — Debugging acceptance and integration readiness
 
+## Final acceptance and authorized merge — 2026-11-19
+
+**ACCEPTED within the bounded local/offline scope.** OpenCode's independent production
+review at `fe807d3eb2bf7752973468c8ec9441c1691b1209` records **PASS, no blocking
+findings**, for exact PR #7 head `130dd341b622cc0ad68bffe7f6f37bb847de45c8`.
+The user subsequently authorized the merge. The pending-review gate in the historical
+record below is therefore superseded, subject to green final integration checks.
+
+The actual remote PR head still matched the independently reviewed SHA before this
+integration; no newer product delta existed. Original head CI was green on Windows and
+Linux for both push and PR workflows. Product core/API/CLI/frontend code, tests,
+dependencies/lockfiles, frozen schemas and the original audited corpus remain unchanged
+from that reviewed head.
+
+OpenCode's report and all supporting evidence are preserved through history-preserving
+merge `30aa7d419e7fb8453c1ca86bd8946a967c1a6082`. All **67 original files** remain
+byte-identical to the review commit, including its manifest. All **66 manifest entries**
+verify; the manifest itself is pinned by its original Git blob. The original findings,
+environment observations and wording are not rewritten or credited with later testing.
+See the [frozen report](../evidence/m45-debugging-independent-review/M45_DEBUGGING_INDEPENDENT_REVIEW.md).
+
+For provenance clarity: the original review prose records 21 Chromium tests, and its
+handoff says 65 manifest-hashed files. The actual frozen manifest contains 66 entries;
+our reviewed-head CI artifacts independently confirmed 601 Python / 23 Chromium tests.
+These observations are recorded separately rather than editing the reviewer evidence.
+
+Integration-only changes register exact review history/blob/manifest/checkout custody,
+preserve archive line endings with `-text`, and exclude exactly four frozen review
+Python harnesses from reformatting/linting. The batched Git blob reader avoids hundreds
+of added process startups in the tracked local Git-custody runtime issue. The normal
+credential scan, tracked-file size limit, inherited tests and timeouts remain unchanged.
+UTF-16 logs remain scan inputs, with their original BOM/bytes preserved. No general
+archive or binary exemption is added.
+
+Acceptance remains reference-relative and historical: structural relevance never proves
+a unique defective wire; VERIFIED_CORRECTION still requires a new trusted comparison.
+Undo is session-only, live chain freshness is not established, and no public solver
+deployment is authorized. F03-PERF-001 and D-RUNNER-001 remain tracked without relaxed
+limits. No wallet, signing, transaction, spending or authorization architecture change
+is part of this merge.
+
+Final integration checks, the resulting main SHA and post-merge verification are
+recorded in [PR #7](https://github.com/Technique-S/Flip/pull/7)'s final merge record.
+
+## Historical pre-review acceptance record
+
 Assessment date: 2026-11-19. **Recommendation: PASS for independent review.**
 **Merge approval: PENDING. Do not merge until OpenCode's independent production review
 passes and required checks remain green.** This is Codex's implementation audit and

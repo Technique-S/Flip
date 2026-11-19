@@ -142,6 +142,76 @@ def debugging_fixture_evidence() -> dict:
     return {"revision": revision, "files": len(paths), "manifestEntries": 9}
 
 
+def debugging_review_evidence() -> dict:
+    """Preserve the final independent review without rewriting its findings or fixtures."""
+    revision = "fe807d3eb2bf7752973468c8ec9441c1691b1209"
+    target = "130dd341b622cc0ad68bffe7f6f37bb847de45c8"
+    scopes = (
+        "docs/evidence/m45-debugging-independent-review/",
+        "fixtures/m45-debugging-independent-review/",
+    )
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "independent debugger review history missing",
+    )
+    paths = git("diff", "--name-only", target, revision).decode().splitlines()
+    require(
+        len(paths) == 67 and all(p.startswith(scopes) for p in paths),
+        "debugger review inventory/ownership changed",
+    )
+    require(
+        set(git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines())
+        == set(paths),
+        "debugger review archive inventory changed",
+    )
+    # Read all pinned/current blobs with one Git process. Avoid adding hundreds of
+    # process startups to the tracked Windows Git-custody runtime-margin issue.
+    queries = [(ref, path) for path in paths for ref in (revision, "HEAD")]
+    raw = subprocess.check_output(
+        ["git", "cat-file", "--batch"],
+        cwd=ROOT,
+        input="".join(f"{ref}:{path}\n" for ref, path in queries).encode(),
+    )
+    cursor, blobs = 0, {}
+    for ref, path in queries:
+        end = raw.index(b"\n", cursor)
+        header = raw[cursor:end].split()
+        require(len(header) == 3 and header[1] == b"blob", f"missing review blob: {path}")
+        size = int(header[2])
+        cursor = end + 1
+        blobs[ref, path] = raw[cursor : cursor + size]
+        require(
+            len(blobs[ref, path]) == size and raw[cursor + size : cursor + size + 1] == b"\n",
+            "invalid review blob frame",
+        )
+        cursor += size + 1
+    require(cursor == len(raw), "unexpected review blob output")
+    for path in paths:
+        original = blobs[revision, path]
+        require(blobs["HEAD", path] == original, f"independent debugger review altered: {path}")
+        require(
+            (ROOT / path).read_bytes() == original, f"independent debugger checkout altered: {path}"
+        )
+    manifest_path = scopes[0] + "MANIFEST.json"
+    manifest = json.loads(blobs[revision, manifest_path])
+    require(manifest["testedSha"] == target, "independent debugger review target changed")
+    entries = manifest["files"]
+    require(
+        len(entries) == 66 and {e["path"] for e in entries} == set(paths) - {manifest_path},
+        "independent debugger manifest coverage changed",
+    )
+    for entry in entries:
+        data = blobs[revision, entry["path"]]
+        require(
+            len(data) == entry["bytes"] and hashlib.sha256(data).hexdigest() == entry["sha256"],
+            f"independent debugger manifest mismatch: {entry['path']}",
+        )
+    return {"revision": revision, "target": target, "files": 67, "manifestEntries": 66}
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -333,6 +403,7 @@ def review() -> dict:
     review_captures, library_reviews = library_review_evidence()
     captures.update(review_captures)
     debugging_fixtures = debugging_fixture_evidence()
+    debugging_review = debugging_review_evidence()
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -370,6 +441,7 @@ def review() -> dict:
         "registered_browser_captures": sorted(captures),
         "library_independent_reviews": library_reviews,
         "debugging_fixture_evidence": debugging_fixtures,
+        "debugging_independent_review": debugging_review,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }
