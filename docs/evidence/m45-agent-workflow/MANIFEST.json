@@ -1,0 +1,157 @@
+{
+  "baselineSha": "1136b187bd68328cea4975caea50904ccece08fd",
+  "files": [
+    {
+      "bytes": 5008,
+      "path": "docs/evidence/m45-agent-workflow/ACCEPTANCE_MATRIX.md",
+      "sha256": "62898ef1dfc7c6ee70f2243162cac5a6d75f1f69d52c8575e339888da87f6604"
+    },
+    {
+      "bytes": 24058,
+      "path": "docs/evidence/m45-agent-workflow/cases/agent-workflow-cases.json",
+      "sha256": "d3f9e766437e2e2caf9490830123ccfafa2bad072f580a91dbf87394316d86b3"
+    },
+    {
+      "bytes": 2436,
+      "path": "docs/evidence/m45-agent-workflow/cases/negative-cases.json",
+      "sha256": "8fc3031e537d47d4e040aa65932bdfc51963f95674d167fea040bbdfabaa0dd9"
+    },
+    {
+      "bytes": 4978,
+      "path": "docs/evidence/m45-agent-workflow/HANDOFF.md",
+      "sha256": "ff56ebe6195df2169905356a3494c65e74f0a68687c375028e115b3ade4896ff"
+    },
+    {
+      "bytes": 2881,
+      "path": "docs/evidence/m45-agent-workflow/protocol/agent-workflow-protocol.json",
+      "sha256": "4b44f5b557a1af2e616bb79bc1d7f67daf697e9cfe3107c96193c2a615ab1ba6"
+    },
+    {
+      "bytes": 6831,
+      "path": "docs/evidence/m45-agent-workflow/requests/half-adder-vectors.json",
+      "sha256": "6a527df567772b51f7028908ada8688809a52b4aa4d02d035c48c736be608885"
+    },
+    {
+      "bytes": 57,
+      "path": "docs/evidence/m45-agent-workflow/requests/invalid-schema.json",
+      "sha256": "f029c6a40c8da014a4d727ec3e8d7ee48b333ac6e44624cd5530040331780c2b"
+    },
+    {
+      "bytes": 113,
+      "path": "docs/evidence/m45-agent-workflow/requests/library-search.json",
+      "sha256": "4534ef4f8c61179067a563b64ed5f8e9a290842a81ccf7f34512df338fb38c07"
+    },
+    {
+      "bytes": 9996,
+      "path": "docs/evidence/m45-agent-workflow/requests/timeout-project.json",
+      "sha256": "1d4b07a4177b8ec9f37f24169c702e1047186d8bf950c506bd2b262a0357f296"
+    },
+    {
+      "bytes": 19917,
+      "path": "docs/evidence/m45-agent-workflow/results/executed-commands.json",
+      "sha256": "ea02335fe264dfc3a77216295f01344995cdb6112679abb51ca8b16e1ceb399c"
+    },
+    {
+      "bytes": 16331,
+      "path": "docs/evidence/m45-agent-workflow/results/run/bundle.json",
+      "sha256": "93d8cf08af5379bcf9e7c772cb0fbac53a11ed206bc7ea626ca33fb915155e1f"
+    },
+    {
+      "bytes": 15950,
+      "path": "docs/evidence/m45-agent-workflow/results/run/compare.json",
+      "sha256": "14ce58f591127fb6296acbe535c33110663dc601c2ff7fb73e925a99522d797c"
+    },
+    {
+      "bytes": 3585,
+      "path": "docs/evidence/m45-agent-workflow/results/run/composition.json",
+      "sha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96"
+    },
+    {
+      "bytes": 16203,
+      "path": "docs/evidence/m45-agent-workflow/results/run/difference.json",
+      "sha256": "43dd6216976f23edb7f6c0a8c3e54069026c3dfeeec2e0913083f75f26b9b7d6"
+    },
+    {
+      "bytes": 6327,
+      "path": "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+      "sha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11"
+    },
+    {
+      "bytes": 6240,
+      "path": "docs/evidence/m45-agent-workflow/results/run/library-search.result.json",
+      "sha256": "467a924220364fcfdfde14166bc9dda60fa89eda2491901f5013584191660406"
+    },
+    {
+      "bytes": 1989,
+      "path": "docs/evidence/m45-agent-workflow/results/run/manifest.json",
+      "sha256": "9c59c56a66379c719652c4920cc2f20bd250f7babd75bbaaaf457c5db16edd59"
+    },
+    {
+      "bytes": 374,
+      "path": "docs/evidence/m45-agent-workflow/results/run/preflight.json",
+      "sha256": "77a3f33b501f06738cd03befb81354de5285b40c59dd7d96518d64d0ec4a5ec3"
+    },
+    {
+      "bytes": 15950,
+      "path": "docs/evidence/m45-agent-workflow/results/run/recheck.json",
+      "sha256": "cd4c17ba8cd293a8e55058fa39a806bb552ab0bc3e0bd3c0bbd1f9d6dbeb2419"
+    },
+    {
+      "bytes": 15950,
+      "path": "docs/evidence/m45-agent-workflow/results/run/replay.json",
+      "sha256": "325a492fe44cda814e9811603efd4ce85cc20ad064fb0811cc9bd0ed158ee6c6"
+    },
+    {
+      "bytes": 15950,
+      "path": "docs/evidence/m45-agent-workflow/results/run/retry.json",
+      "sha256": "5a0e9c9f7b33cf00cc574a79f9ad2dc59201813cace579f4471140c01263ec6e"
+    },
+    {
+      "bytes": 2541,
+      "path": "docs/evidence/m45-agent-workflow/results/run/revalidate.json",
+      "sha256": "353135f231c185dfc8b8f0a4fc0226ab9782703f52fbc797d7b9b694237c77d4"
+    },
+    {
+      "bytes": 2224,
+      "path": "docs/evidence/m45-agent-workflow/results/run/source.json",
+      "sha256": "bf9f69d2678be0f3d55441c05ad56a65b311776f87ae7c5565cb63955dcee19e"
+    },
+    {
+      "bytes": 6327,
+      "path": "docs/evidence/m45-agent-workflow/results/run/swapped.json",
+      "sha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1"
+    },
+    {
+      "bytes": 15886,
+      "path": "docs/evidence/m45-agent-workflow/results/run/unknown.json",
+      "sha256": "4333a559923b126642b288179f6bc5e0c17b5c1981cafa6d6540d2c8977628af"
+    },
+    {
+      "bytes": 12291,
+      "path": "docs/evidence/m45-agent-workflow/results/run/vectors.json",
+      "sha256": "8a01a0a971e2303ff00216b0e0fc6beaa3d01f747373d3b447d199cf579c1a65"
+    },
+    {
+      "bytes": 20130,
+      "path": "fixtures/m45-agent-workflow/generators/build_corpus.py",
+      "sha256": "423b7e25a2cf21854c52d00fce48ceb6b633e52fab0938f72c7fcf5f5d99fa10"
+    },
+    {
+      "bytes": 6251,
+      "path": "fixtures/m45-agent-workflow/generators/run_cli_cases.py",
+      "sha256": "3328773a1c9becf1dc0474b2c3ee8372de9f4f36d1fabb2d4630429f6d76e111"
+    },
+    {
+      "bytes": 3811,
+      "path": "fixtures/m45-agent-workflow/generators/verify_corpus.py",
+      "sha256": "edc3e33bec205ce306674eb5d8e76a8ef054895d6626ceb4609ff223de513fc8"
+    },
+    {
+      "bytes": 1271,
+      "path": "fixtures/m45-agent-workflow/README.md",
+      "sha256": "dac8ad3bc5cd21b9f3148faab151ac149db7a1268baa02b2ddfd9cd8aa5324f8"
+    }
+  ],
+  "manifestType": "SHA256SUMS",
+  "schemaVersion": "1.0.0"
+}

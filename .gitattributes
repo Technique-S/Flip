@@ -27,3 +27,5 @@
 /docs/evidence/m45-debugging/** -text
 /docs/evidence/m45-debugging-independent-review/** -text
 /fixtures/m45-debugging-independent-review/** -text
+/docs/evidence/m45-agent-workflow/** -text
+/fixtures/m45-agent-workflow/** -text

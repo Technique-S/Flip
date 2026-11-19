@@ -1,0 +1,79 @@
+{
+  "artifactId": "agent-workflow-negative-cases",
+  "baselineSha": "1136b187bd68328cea4975caea50904ccece08fd",
+  "cases": [
+    {
+      "caseId": "AW-N01",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [],
+      "expected": {
+        "safeBehavior": "Parse failure maps to UNKNOWN; no verdict or export."
+      },
+      "provenance": "SYNTHETIC",
+      "scenario": "Comparison stdout is replaced with non-JSON text",
+      "schemaVersion": "1.0.0",
+      "title": "Malformed output"
+    },
+    {
+      "caseId": "AW-N02",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "validate",
+            "project",
+            "docs/evidence/m45-agent-workflow/requests/invalid-schema.json"
+          ],
+          "env": {},
+          "expectedExit": 3,
+          "expectedFields": {}
+        }
+      ],
+      "expected": {
+        "safeBehavior": "Exit 3 INVALID_INPUT; no composition or proof."
+      },
+      "provenance": "SYNTHETIC",
+      "scenario": "Agent submits a request with an unknown schemaVersion",
+      "schemaVersion": "1.0.0",
+      "title": "Invalid schema"
+    },
+    {
+      "caseId": "AW-N03",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [],
+      "expected": {
+        "safeBehavior": "STALE; revalidation required; no trusted composition input."
+      },
+      "provenance": "SYNTHETIC",
+      "scenario": "Source manifest hash differs from the imported bytes",
+      "schemaVersion": "1.0.0",
+      "title": "Stale bindings"
+    },
+    {
+      "caseId": "AW-N04",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [],
+      "expected": {
+        "safeBehavior": "Reject before solving; UNKNOWN/INVALID_INPUT, never EQUIVALENT."
+      },
+      "provenance": "SYNTHETIC",
+      "scenario": "Stateful circuit submitted for stateless equivalence",
+      "schemaVersion": "1.0.0",
+      "title": "Unsupported circuit"
+    },
+    {
+      "caseId": "AW-N05",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [],
+      "expected": {
+        "safeBehavior": "Stop with UNKNOWN and deterministic partial log; no silent loop."
+      },
+      "provenance": "SYNTHETIC",
+      "scenario": "Step and RPC budgets both reach their caps",
+      "schemaVersion": "1.0.0",
+      "title": "Exhausted budget"
+    }
+  ],
+  "schemaVersion": "1.0.0"
+}
