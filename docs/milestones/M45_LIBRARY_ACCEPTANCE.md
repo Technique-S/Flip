@@ -1,8 +1,9 @@
 # M4.5-2L-C Circuit Library acceptance
 
-Assessment date: 2026-11-19. **Integration verdict: FAIL — pending independent
-OpenCode evidence and final acceptance checks.** This is a gate status, not a claim
-that the focused tests failed. This report is updated as checks finish.
+Assessment date: 2026-11-19. **Integration verdict: FAIL — independent OpenCode
+evidence is still pending.** The corrected production interfaces pass platform CI
+and focused acceptance. This report does not substitute those results for the
+required independent review.
 
 ## Exact starting state and provenance
 
@@ -29,7 +30,9 @@ The user identified OpenCode M4.5-2L-V as assigned to
 `docs/evidence/m45-library-independent-review/M45_LIBRARY_INDEPENDENT_REVIEW.md`
 and supporting `fixtures/m45-library-independent-review/`.
 
-No review commit has been supplied or fetched yet. **Independent review is pending.**
+The local review branch exists at the original library head and the reviewer is
+assembling its own artifact directories. No completed review commit has been
+supplied or fetched yet. **Independent review is pending.**
 No OpenCode finding, approval or reproduction is claimed. Fetch and inventory that
 branch when pushed; inspect and reproduce actual findings, preserve its report,
 then update this section with exact commit, findings and dispositions. Do not merge
@@ -55,7 +58,7 @@ was weakened to suppress a failure.
 
 The additional security test rejects persisted CURRENT claims and confirms a
 previously imported circuit cannot be re-imported after isCPU becomes false.
-Composition continues to consume only a fresh complete M2 import, never a saved
+Library import into composition consumes only a fresh complete M2 import, never a saved
 catalog record, favorite, alias or recent pointer.
 
 ## Required acceptance coverage
@@ -88,16 +91,42 @@ That does not substitute for CI on the corrected acceptance head.
 |---|---|
 | Focused library tests at first corrections state | PASS — 24 tests |
 | New browser reproductions after corrections | PASS — 2 tests |
-| Complete inherited production suite and additional tests | RUNNING |
-| Complete browser regression suite | RUNNING |
-| Ubuntu/Windows CI on acceptance head | PENDING |
+| Complete inherited production suite and additional tests | CI PASS — 538 tests on each OS; see local timeout/rerun detail below |
+| Complete browser regression suite | PASS — 16 tests locally and on both CI platforms |
+| Ubuntu/Windows CI on acceptance code | PASS — PR run 44484376094 at fbef352; both jobs and all steps succeeded |
 | Independent Keccak selectors | PASS — 11 research signatures |
 | Fixture hashes | PASS — 19 registered files / 12 synthetic scenarios |
 | M1/M2/M3/library schema drift | PASS |
 | Python/Node canonical hash parity | PASS — six vectors |
 | Frontend lint/build; Python lint/format | PASS |
-| Final custody/credential scan | PENDING |
-| Separate live read-only smoke | PENDING |
+| Custody/credential scan | PASS in both platform CI jobs; final local standalone scan pending |
+| Separate live read-only smoke | PASS — bounded processor and circuit pages; 21/64 requests each |
+
+The complete starting head contains 535 tests: the earlier 531-test run plus four
+later M4.5 guards. The three Codex acceptance core tests bring this to 538. No
+starting test was removed, excluded or rewritten. Downloaded CI JUnit artifacts
+show **538 passed, zero failed/skipped on Ubuntu and Windows**, with M3/M4 reports
+PASS. Their actual job metadata and counts are in
+[ci-results.json](m45-library-acceptance/ci-results.json).
+
+The first local full run produced 537 passes and one inherited M3 scratch-generator
+timeout under a custom temporary-directory override. A focused custom-layout rerun
+also exceeded its unchanged 120-second timeout. The same unmodified test then passed
+in the prescribed default layout in 85.56 seconds. Both failures and the successful
+rerun are preserved in [local-test-results.json](m45-library-acceptance/local-test-results.json).
+No timeout was increased, test expectation changed or archive rewritten. The cause
+of the two custom-layout timeouts has not been established; the results are reported
+separately from the clean full-platform CI passes.
+
+The [browser result summary](m45-library-acceptance/browser-results.json) records all
+16 completed local journeys. The [separate live capture](m45-library-acceptance/live-readonly.json)
+records processor count 430 at block 76306412 / hash
+`0xcabd495802f540c45043dfe57102002e9f21b4a3c3ba6e4d6a03c1420b01ea1f`
+and two circuit candidates below exclusive nextId 104 at block 76306422 / hash
+`0xd59720f75402e4e6b9117409dfbd5c0b7f6681452a6cb1163ef46fa65590b298`.
+Both observations came from `rpc.xlayer.tech`, verified chain 196, used 21 of 64
+requests and were PARTIAL_BOUNDED. They are single-provider read observations,
+not proof of a complete catalog, current execution or publication.
 
 Mandatory tests prohibit external networking. Live observations will be run and
 recorded separately; timeouts remain UNKNOWN. The public RPC is a single untrusted
