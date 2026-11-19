@@ -1,0 +1,96 @@
+{
+  "artifactId": "correction-guidance",
+  "classificationLegend": {
+    "CANDIDATE_DIAGNOSTIC_ACTION": "An action to inspect or test; it does not assert a fault or change the design until the user applies it.",
+    "EXPLANATION_ONLY": "Informational text; no action, fault claim or repair.",
+    "VERIFIED_CORRECTION": "Re-applying this exact edit was re-compared in the fixture and restored equivalence to the selected reference; it is not absolute proof of intended behavior."
+  },
+  "llmOracle": "NONE",
+  "llmOracleNote": "No language model is used as a proof or fault oracle in this corpus.",
+  "schemaVersion": "1.0.0",
+  "status": "SPEC_ONLY_NOT_PRODUCTION",
+  "suggestions": [
+    {
+      "caseId": "D01",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "id": "G01",
+      "text": "Compare outputMap[0..n] with the declared prior pin order; each mapped pin is listed with its source signal.",
+      "title": "Inspect the output map",
+      "traceability": [
+        "top/outputMap[0]",
+        "top/outputMap[1]"
+      ]
+    },
+    {
+      "caseId": "D02",
+      "classification": "VERIFIED_CORRECTION",
+      "id": "G02",
+      "scope": "relative to the declared synthetic reference only",
+      "text": "Restoring the declared prior REF input order [2,3] was re-compared and restored EQUIVALENT over all four inputs.",
+      "title": "Review REF input order",
+      "traceability": [
+        "top/element[0].in[0]",
+        "top/element[0].in[1]"
+      ],
+      "verifiedBy": "exhaustive re-comparison in build_corpus.py"
+    },
+    {
+      "caseId": "D04",
+      "classification": "EXPLANATION_ONLY",
+      "id": "G03",
+      "text": "Signal 99 is not available before the REF element; the design was rejected structurally, so no behavioral diagnosis applies.",
+      "title": "Check interface widths and bound pins",
+      "traceability": []
+    },
+    {
+      "caseId": "D05",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "id": "G04",
+      "text": "Replay the recorded witness under the trusted evaluator and confirm each differing output bit before inspecting pin order.",
+      "title": "Replay the witness",
+      "traceability": [
+        1,
+        2
+      ]
+    },
+    {
+      "caseId": "D03",
+      "classification": "VERIFIED_CORRECTION",
+      "id": "G05",
+      "scope": "relative to the declared synthetic reference only",
+      "text": "Restoring the declared prior second REF input from signal 2 to signal 3 was re-compared and restored EQUIVALENT.",
+      "title": "Restore a known prior mapping",
+      "traceability": [
+        "top/element[0].in[1]"
+      ],
+      "verifiedBy": "exhaustive re-comparison in build_corpus.py"
+    },
+    {
+      "caseId": "D06",
+      "classification": "CANDIDATE_DIAGNOSTIC_ACTION",
+      "id": "G06",
+      "text": "Apply one candidate at a time, rerun the trusted comparator over the full declared domain, and only then record a verified correction.",
+      "title": "Run a new comparison after edits",
+      "traceability": []
+    },
+    {
+      "caseId": "D08",
+      "classification": "EXPLANATION_ONLY",
+      "id": "G07",
+      "text": "XOR is commutative under input reversal; identical exhaustive behavior forbids any fault attribution.",
+      "title": "Explain an equivalent rewiring",
+      "traceability": []
+    },
+    {
+      "caseId": "D10",
+      "classification": "EXPLANATION_ONLY",
+      "id": "G08",
+      "text": "Two single-edge mutations yield the same wrong truth table; no observation can select one without an external oracle.",
+      "title": "Report indistinguishable causes",
+      "traceability": [
+        "top/element[1].in[1]",
+        "top/element[2].in[1]"
+      ]
+    }
+  ]
+}

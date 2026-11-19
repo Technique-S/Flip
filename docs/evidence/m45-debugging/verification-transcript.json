@@ -1,0 +1,55 @@
+{
+  "artifactType": "EXECUTED_CHECK_TRANSCRIPT",
+  "artifactVersion": "1.0.0",
+  "caseCount": 10,
+  "checks": [
+    {
+      "count": 9,
+      "name": "manifest_hash_and_size",
+      "result": "PASS"
+    },
+    {
+      "files": 5,
+      "name": "byte_identical_regeneration",
+      "result": "PASS"
+    },
+    {
+      "checks": 2,
+      "name": "trusted_vector_calibration",
+      "result": "PASS"
+    },
+    {
+      "differingCases": 8,
+      "name": "verdict_witness_cone_rederivation",
+      "result": "PASS"
+    },
+    {
+      "alternatives": 2,
+      "name": "d10_indistinguishable_causes",
+      "result": "PASS"
+    },
+    {
+      "cases": 2,
+      "name": "verified_prior_mapping_corrections",
+      "result": "PASS"
+    },
+    {
+      "cases": 2,
+      "name": "meta_missing_closure_and_resource_cap",
+      "result": "PASS"
+    },
+    {
+      "name": "correction_classification_vocabulary",
+      "result": "PASS",
+      "suggestions": 8
+    },
+    {
+      "cases": 10,
+      "name": "diagnostic_no_unique_fault_claim",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "generatorCore": "debug-core-1.0.0",
+  "result": "PASS"
+}

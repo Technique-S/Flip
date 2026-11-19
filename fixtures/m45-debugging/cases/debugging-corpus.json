@@ -1,0 +1,3772 @@
+{
+  "artifactId": "debugging-corpus",
+  "calibration": {
+    "checks": 2,
+    "coreVersion": "debug-core-1.0.0",
+    "nand_vector": [
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ]
+    ],
+    "xor_vector": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "candidate": {
+        "bytes": 74,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302cccccccccccccccccccccccccccccccccccccccc00000000000000030201000002000003",
+        "netlistSha256": "3b41eac7433207885c7b530a6fca8581dadb6a775ee63ef839e927b93b31e187",
+        "outputMap": [
+          5,
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 5",
+          "outputIndex": 0,
+          "sourceSignal": 5
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 4",
+          "outputIndex": 1,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D01",
+      "category": "swapped_outputs",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[1].in[1]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[1]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[1]",
+            "path": "top/ref[1]",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 14,
+        "outputSignals": [
+          5,
+          4
+        ],
+        "truncated": false
+      },
+      "description": "Two computed outputs are swapped in the candidate output map.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/outputMap[0]",
+          "top/outputMap[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              0,
+              1
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1,
+              0
+            ]
+          },
+          {
+            "candidate_out": [
+              0,
+              1
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              1,
+              0
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              0
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              1,
+              1
+            ],
+            "in_packed": 3,
+            "reference_out": [
+              0,
+              1
+            ]
+          }
+        ],
+        "differingBits": [
+          0,
+          1
+        ],
+        "differingOutputSignals": [
+          5,
+          4
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                1,
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            0,
+            1
+          ],
+          "differing_bits": [
+            0,
+            1
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1,
+            0
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "Output-map swap; both mapped pins lie in the differing output cones.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 74,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302cccccccccccccccccccccccccccccccccccccccc00000000000000030201000002000003",
+        "netlistSha256": "3b41eac7433207885c7b530a6fca8581dadb6a775ee63ef839e927b93b31e187",
+        "outputMap": [
+          4,
+          5
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee00000000000000050201000003000002",
+        "netlistSha256": "ff2414e810c5137af552a3da47be31fd93a1e7d9cb653380c9ad00135285ff28",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D02",
+      "category": "incorrect_ref_input_mapping",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[1]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 8,
+        "outputSignals": [
+          4
+        ],
+        "truncated": false
+      },
+      "description": "Asymmetric REF F(a,b)=a AND NOT b receives b,a instead of a,b.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/element[0].in[0]",
+          "top/element[0].in[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              0
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              1
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              0
+            ]
+          }
+        ],
+        "differingBits": [
+          0
+        ],
+        "differingOutputSignals": [
+          4
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            0
+          ],
+          "differing_bits": [
+            0
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "Both REF input pins are implicated; input order is not self-describing.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee00000000000000050201000002000003",
+        "netlistSha256": "f200c94db22309cf608c220f654980434f66b069c0c281b52a03040e4d69c068",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000002000002",
+        "netlistSha256": "96d75c9fca622f03a37a2760141546dda75bc0c335da9ee0b9a88473136a73e3",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D03",
+      "category": "duplicate_fan_out",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 8,
+        "outputSignals": [
+          4
+        ],
+        "truncated": false
+      },
+      "description": "XOR second input is duplicated from input a instead of input b.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "SUSPECTED_CANDIDATE",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/element[0].in[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              0
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              0
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              1
+            ]
+          }
+        ],
+        "differingBits": [
+          0
+        ],
+        "differingOutputSignals": [
+          4
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            0
+          ],
+          "differing_bits": [
+            0
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "One suspected pin under a declared prior mapping; still a candidate, not a proof.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000002000003",
+        "netlistSha256": "7424bb7ecb91a0360aebfc28495d4f901aef9860eb64c719a1441c30d0752d1a",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000002000063",
+        "netlistSha256": "611262ab296c20a7ccd51fa6b57c75d1a870084d5c2119af7fdf3ea22b22343e",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D04",
+      "category": "disconnected_or_unbound_pin",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": null,
+      "description": "REF input references signal 99, which is not available at that element.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "STRUCTURAL_REJECTION_NO_ATTRIBUTION",
+        "explanation": "No mapped comparison was executed; a structural rejection cannot localize a fault.",
+        "provenBehavioralDifference": false,
+        "suspectedConnections": [],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "differingBits": [],
+        "reason": "signal 99 at element 4 is not available",
+        "truthTables": null,
+        "verdict": "INVALID_INPUT",
+        "witness": null
+      },
+      "intentOracle": "NONE",
+      "note": "No comparison is executed; no fault attribution is permitted.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000002000003",
+        "netlistSha256": "7424bb7ecb91a0360aebfc28495d4f901aef9860eb64c719a1441c30d0752d1a",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 111,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 3,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302cccccccccccccccccccccccccccccccccccccccc0000000000000003020100000200000302dddddddddddddddddddddddddddddddddddddddd00000000000000040201000002000003",
+        "netlistSha256": "af2f8432158fee067be0e23a0d0b80c0fb68b8ce7d80be8c0216c55d6967453c",
+        "outputMap": [
+          6,
+          4,
+          5
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 6",
+          "outputIndex": 0,
+          "sourceSignal": 6
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 4",
+          "outputIndex": 1,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[2]",
+          "description": "output pin 2 selects signal 5",
+          "outputIndex": 2,
+          "sourceSignal": 5
+        }
+      ],
+      "caseId": "D05",
+      "category": "wrong_output_ordering",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[1]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[1]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[1]",
+            "path": "top/ref[1]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 14,
+        "outputSignals": [
+          4,
+          5
+        ],
+        "truncated": false
+      },
+      "description": "Three outputs are cyclically rotated in the candidate output map.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/outputMap[0]",
+          "top/outputMap[1]",
+          "top/outputMap[2]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              1,
+              1,
+              0
+            ],
+            "differing_bits": [
+              1,
+              2
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              1,
+              0
+            ],
+            "differing_bits": [
+              1,
+              2
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              0,
+              1
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              1,
+              1
+            ],
+            "in_packed": 3,
+            "reference_out": [
+              0,
+              1,
+              1
+            ]
+          }
+        ],
+        "differingBits": [
+          1,
+          2
+        ],
+        "differingOutputSignals": [
+          4,
+          5
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                1,
+                0,
+                1
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            1,
+            1,
+            0
+          ],
+          "differing_bits": [
+            1,
+            2
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1,
+            0,
+            1
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 111,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 3,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302cccccccccccccccccccccccccccccccccccccccc0000000000000003020100000200000302dddddddddddddddddddddddddddddddddddddddd00000000000000040201000002000003",
+        "netlistSha256": "af2f8432158fee067be0e23a0d0b80c0fb68b8ce7d80be8c0216c55d6967453c",
+        "outputMap": [
+          4,
+          5,
+          6
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        },
+        {
+          "connectionRef": "top/outputMap[2]",
+          "description": "output pin 2 selects signal 6",
+          "outputIndex": 2,
+          "sourceSignal": 6
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 74,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000300000202cccccccccccccccccccccccccccccccccccccccc00000000000000030201000002000003",
+        "netlistSha256": "1b9879e711a7c8832a5e2385ffb5b1aba0ebd9ecff0f7e07bca8ca1d188f4bc8",
+        "outputMap": [
+          5,
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 5",
+          "outputIndex": 0,
+          "sourceSignal": 5
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 4",
+          "outputIndex": 1,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D06",
+      "category": "multiple_changed_connections",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[1].in[1]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[1]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[1]",
+            "path": "top/ref[1]",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 14,
+        "outputSignals": [
+          5,
+          4
+        ],
+        "truncated": false
+      },
+      "description": "Candidate changes an REF input order and swaps both outputs.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/element[0].in[0]",
+          "top/outputMap[0]",
+          "top/outputMap[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              0,
+              1
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1,
+              0
+            ]
+          },
+          {
+            "candidate_out": [
+              0,
+              1
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              1,
+              0
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              0
+            ],
+            "differing_bits": [
+              0,
+              1
+            ],
+            "in": [
+              1,
+              1
+            ],
+            "in_packed": 3,
+            "reference_out": [
+              0,
+              1
+            ]
+          }
+        ],
+        "differingBits": [
+          0,
+          1
+        ],
+        "differingOutputSignals": [
+          5,
+          4
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                1,
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            0,
+            1
+          ],
+          "differing_bits": [
+            0,
+            1
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1,
+            0
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "Multiple edits in one cone; no unique cause.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 74,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302cccccccccccccccccccccccccccccccccccccccc00000000000000030201000002000003",
+        "netlistSha256": "3b41eac7433207885c7b530a6fca8581dadb6a775ee63ef839e927b93b31e187",
+        "outputMap": [
+          4,
+          5
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x021212121212121212121212121212121212121212000000000000000b0202000002000003",
+        "netlistSha256": "1d4c08189f0b464743ec18657c9bf60fbca6b6f3519e780d8e410e6d5a9a0254",
+        "outputMap": [
+          4,
+          5
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        }
+      ],
+      "caseId": "D07",
+      "category": "nested_ref_dependencies",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[1]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[1]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[0]/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 11,
+        "outputSignals": [
+          4
+        ],
+        "truncated": false
+      },
+      "description": "Top REF reaches XOR through a wrapper; the inner REF input order changed.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/ref[0]/element[0].in[0]",
+          "top/ref[0]/element[0].in[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              0,
+              0
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1,
+              0
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              0
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              0,
+              0
+            ]
+          }
+        ],
+        "differingBits": [
+          0
+        ],
+        "differingOutputSignals": [
+          4
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                1
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                0
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            0,
+            0
+          ],
+          "differing_bits": [
+            0
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1,
+            0
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "note": "Cone must cross the REF boundary and retain component paths.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 2,
+        "netlistHex": "0x021111111111111111111111111111111111111111000000000000000a0202000002000003",
+        "netlistSha256": "8a4b86c77370ae731b3fb56d29793dd070785fe49f9df6c33348e61fb1c07714",
+        "outputMap": [
+          4,
+          5
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000003000002",
+        "netlistSha256": "eafa2b6dbd5703bde4db850ef0f7b8fb7673f561ecfbd698793d7bb83a71b4b5",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D08",
+      "category": "equivalent_rewiring",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[0].in[1]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[0]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top/ref[0]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[0]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[0]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[0]/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[0].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[0]",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 9,
+        "outputSignals": [
+          4
+        ],
+        "truncated": false
+      },
+      "description": "XOR inputs are commutatively rewired; exhaustive behavior is unchanged.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "NO_FAULT_ATTRIBUTION",
+        "explanation": "Exhaustive behavior is identical; no connection may be labeled faulty.",
+        "provenBehavioralDifference": false,
+        "suspectedConnections": [],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "differingBits": [],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ]
+        },
+        "verdict": "EQUIVALENT",
+        "witness": null
+      },
+      "intentOracle": "NONE",
+      "note": "No fault attribution is allowed for an EQUIVALENT design.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 37,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000010201000002000003",
+        "netlistSha256": "7424bb7ecb91a0360aebfc28495d4f901aef9860eb64c719a1441c30d0752d1a",
+        "outputMap": [
+          4
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "candidate": {
+        "bytes": 111,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 3,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000300000202eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000005020100000300000202dddddddddddddddddddddddddddddddddddddddd00000000000000040201000002000003",
+        "netlistSha256": "1d813a38190e4e7058aba7bce69b6e20f79e590cf658078370b891925882d255",
+        "outputMap": [
+          6,
+          5,
+          4
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 6",
+          "outputIndex": 0,
+          "sourceSignal": 6
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        },
+        {
+          "connectionRef": "top/outputMap[2]",
+          "description": "output pin 2 selects signal 4",
+          "outputIndex": 2,
+          "sourceSignal": 4
+        }
+      ],
+      "caseId": "D09",
+      "category": "several_possible_contributing_connections",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[1]",
+            "origin": "element[1].in[0]",
+            "path": "top",
+            "signal": 3
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[1]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top/ref[1]",
+            "signal": 2
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[0].in[0]",
+            "path": "top/ref[1]",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "REF",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[1]/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[1].in[1]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/ref[1]/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[2].in[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/ref[1]/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/ref[1]/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "ref[1].out[0]",
+            "outputPin": 0,
+            "path": "top/ref[1]",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 8,
+        "outputSignals": [
+          5
+        ],
+        "truncated": false
+      },
+      "description": "Several REF inputs and the output map change in a three-output design.",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/element[1].in[0]",
+          "top/element[1].in[1]",
+          "top/outputMap[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              1,
+              0,
+              1
+            ],
+            "differing_bits": [
+              1
+            ],
+            "in": [
+              1,
+              0
+            ],
+            "in_packed": 1,
+            "reference_out": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              1,
+              1
+            ],
+            "differing_bits": [
+              1
+            ],
+            "in": [
+              0,
+              1
+            ],
+            "in_packed": 2,
+            "reference_out": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "candidate_out": [
+              1,
+              0,
+              0
+            ],
+            "differing_bits": [
+              0,
+              2
+            ],
+            "in": [
+              1,
+              1
+            ],
+            "in_packed": 3,
+            "reference_out": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "differingBits": [
+          1
+        ],
+        "differingOutputSignals": [
+          5
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                1,
+                0,
+                0
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1,
+                0,
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            1,
+            0,
+            1
+          ],
+          "differing_bits": [
+            1
+          ],
+          "in": [
+            1,
+            0
+          ],
+          "in_packed": 1,
+          "reference_out": [
+            1,
+            1,
+            1
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "NONE",
+      "note": "Only connections in the replayed differing-output cone are displayed as suspects; other edits elsewhere in the design are not attributed by this witness.",
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 111,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 3,
+        "netlistHex": "0x02aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000001020100000200000302eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee0000000000000005020100000200000302dddddddddddddddddddddddddddddddddddddddd00000000000000040201000002000003",
+        "netlistSha256": "7b2a9a10cb9d0ed7674201e5c10ce723bc088e8a131208765aa5fa117695af67",
+        "outputMap": [
+          4,
+          5,
+          6
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 4",
+          "outputIndex": 0,
+          "sourceSignal": 4
+        },
+        {
+          "connectionRef": "top/outputMap[1]",
+          "description": "output pin 1 selects signal 5",
+          "outputIndex": 1,
+          "sourceSignal": 5
+        },
+        {
+          "connectionRef": "top/outputMap[2]",
+          "description": "output pin 2 selects signal 6",
+          "outputIndex": 2,
+          "sourceSignal": 6
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "alternativeSingleEdgeCauses": [
+        {
+          "connectionRef": "top/element[1].in[1]",
+          "elementIndex": 1,
+          "inputPin": 1,
+          "priorSignal": 4,
+          "replacementSignal": 1
+        },
+        {
+          "connectionRef": "top/element[2].in[1]",
+          "elementIndex": 2,
+          "inputPin": 1,
+          "priorSignal": 4,
+          "replacementSignal": 1
+        }
+      ],
+      "candidate": {
+        "bytes": 28,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x00000002000003000000020000010000000300000400000005000006",
+        "netlistSha256": "072acea836575566567799c91b4d89e613f991808dc0b68e32a4c3443698246d",
+        "outputMap": [
+          7
+        ],
+        "processorHex": "f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2"
+      },
+      "candidateOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 7",
+          "outputIndex": 0,
+          "sourceSignal": 7
+        }
+      ],
+      "caseId": "D10",
+      "category": "defective_connection_not_uniquely_identifiable",
+      "chainContext": 196,
+      "chainContextNote": "context only; no chain observation or deployment is claimed",
+      "cone": {
+        "classification": "RELEVANT_COMPUTATION",
+        "coneBoundaries": [
+          {
+            "description": "input[0]",
+            "origin": "element[1].in[0]",
+            "path": "top",
+            "signal": 2
+          },
+          {
+            "description": "const1",
+            "origin": "element[1].in[1]",
+            "path": "top",
+            "signal": 1
+          },
+          {
+            "description": "input[1]",
+            "origin": "element[2].in[0]",
+            "path": "top",
+            "signal": 3
+          }
+        ],
+        "connections": [
+          {
+            "connectionRef": "top/element[0].in[0]",
+            "elementIndex": 0,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[2].in[1]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[0].in[1]",
+            "elementIndex": 0,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[2].in[1]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[1].in[0]",
+            "elementIndex": 1,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[0]",
+            "sourceSignal": 2
+          },
+          {
+            "connectionRef": "top/element[1].in[1]",
+            "elementIndex": 1,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[0]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "const1",
+            "sourceSignal": 1
+          },
+          {
+            "connectionRef": "top/element[2].in[0]",
+            "elementIndex": 2,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "input[1]",
+            "sourceSignal": 3
+          },
+          {
+            "connectionRef": "top/element[2].in[1]",
+            "elementIndex": 2,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "element[3].in[1]",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "NAND[4].out[0]",
+            "sourceSignal": 4
+          },
+          {
+            "connectionRef": "top/element[3].in[0]",
+            "elementIndex": 3,
+            "inputPin": 0,
+            "kind": "NAND",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "NAND[5].out[0]",
+            "sourceSignal": 5
+          },
+          {
+            "connectionRef": "top/element[3].in[1]",
+            "elementIndex": 3,
+            "inputPin": 1,
+            "kind": "NAND",
+            "origin": "out",
+            "outputPin": 0,
+            "path": "top",
+            "sourceDescription": "NAND[6].out[0]",
+            "sourceSignal": 6
+          }
+        ],
+        "nodeCap": 512,
+        "nodesVisited": 7,
+        "outputSignals": [
+          7
+        ],
+        "truncated": false
+      },
+      "description": "Two distinct single-edge mutations produce the same wrong behavior (OR instead of XOR).",
+      "diagnosticExpectation": {
+        "candidateRepairs": [],
+        "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+        "explanation": "The witness proves a behavioral difference, not which connection is defective. Suspected connections are in the replayed signal cone; applying any repair requires explicit user action and a fresh trusted comparison.",
+        "provenBehavioralDifference": true,
+        "provenScope": "candidate output differs from selected reference under a replayed witness",
+        "suspectedConnections": [
+          "top/element[1].in[1]",
+          "top/element[2].in[1]"
+        ],
+        "uniqueFaultClaim": false
+      },
+      "expected": {
+        "allDifferences": [
+          {
+            "candidate_out": [
+              1
+            ],
+            "differing_bits": [
+              0
+            ],
+            "in": [
+              1,
+              1
+            ],
+            "in_packed": 3,
+            "reference_out": [
+              0
+            ]
+          }
+        ],
+        "differingBits": [
+          0
+        ],
+        "differingOutputSignals": [
+          7
+        ],
+        "exhaustiveRows": 4,
+        "reason": null,
+        "truthTables": {
+          "candidate": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                1
+              ]
+            }
+          ],
+          "reference": [
+            {
+              "in": [
+                0,
+                0
+              ],
+              "in_packed": 0,
+              "out": [
+                0
+              ]
+            },
+            {
+              "in": [
+                1,
+                0
+              ],
+              "in_packed": 1,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                0,
+                1
+              ],
+              "in_packed": 2,
+              "out": [
+                1
+              ]
+            },
+            {
+              "in": [
+                1,
+                1
+              ],
+              "in_packed": 3,
+              "out": [
+                0
+              ]
+            }
+          ]
+        },
+        "verdict": "DIFFERENT",
+        "witness": {
+          "candidate_out": [
+            1
+          ],
+          "differing_bits": [
+            0
+          ],
+          "in": [
+            1,
+            1
+          ],
+          "in_packed": 3,
+          "reference_out": [
+            0
+          ]
+        },
+        "witnessReplayedBy": [
+          "recursive",
+          "flat"
+        ]
+      },
+      "intentOracle": "NONE",
+      "note": "No oracle can distinguish the two single-edge causes from behavior alone.",
+      "observedWrongTruthTable": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "provenance": "SYNTHETIC",
+      "reference": {
+        "bytes": 28,
+        "circuitId": "1",
+        "nIn": 2,
+        "nOut": 1,
+        "netlistHex": "0x00000002000003000000020000040000000300000400000005000006",
+        "netlistSha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+        "outputMap": [
+          7
+        ],
+        "processorHex": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      "referenceOutputMapConnections": [
+        {
+          "connectionRef": "top/outputMap[0]",
+          "description": "output pin 0 selects signal 7",
+          "outputIndex": 0,
+          "sourceSignal": 7
+        }
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ],
+  "coreVersion": "debug-core-1.0.0",
+  "provenance": "SYNTHETIC",
+  "schemaVersion": "1.0.0"
+}
