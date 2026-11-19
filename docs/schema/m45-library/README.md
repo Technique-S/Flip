@@ -1,16 +1,35 @@
-# Circuit Library contract v1
+# Circuit Library contracts 1.0 and 1.1
 
-Additive `schemaVersion: m45-library-1.0.0`. M1, M2, M3 and M4 contracts and hash
-profiles are unchanged. The three JSON Schemas in `1.0.0/` describe the request,
-result and persisted catalog. Unknown versions and unknown fields are rejected;
-there is no silent migration from an unknown version.
+Current `schemaVersion: m45-library-1.1.0`. M1, M2, M3, M4 and the library's frozen
+`1.0.0/` schemas remain unchanged. `1.1.0/` introduces truthful `USER_SUPPLIED`
+metadata provenance for user-only pointers. Unknown versions and fields are rejected.
+
+The original Python model implementation is retained byte-for-byte in
+`library_models_v1.py`; the schema exporter defaults to that frozen version. Current
+callers use `library_models.py` (1.1). Both wire versions use the existing major-v1
+HTTP endpoint and CLI, with dispatch by explicit `schemaVersion`.
+
+Version 1.0 has only `ONCHAIN_DISPLAY_ONLY` in its enum, so it cannot truthfully
+encode a favorite-only record. Legacy requests still receive valid 1.0 envelopes:
+ordinary observations continue to work; user-only records are omitted and the
+response reports `UNKNOWN / UNSUPPORTED_SCHEMA_VERSION` when a result requires
+their newer provenance value. Their pointers remain intact in the overlay. Send
+a 1.1 request to retrieve them as `USER_SUPPLIED`. This is an explicit upgrade
+requirement, never a changed enum in an old schema or a false onchain claim.
+
+A 1.1 request may carry a known 1.0 catalog. The complete old catalog is first
+validated against its frozen model; identity and overlay data are preserved, the
+catalog version changes to 1.1, and old user-pointer records get `USER_SUPPLIED`.
+Unknown/authority fields are rejected before migration. Browser restoration keeps
+original 1.0 bytes until the first edit, then writes a `flip-library-m45-v1-1.0.0-backup`
+copy before saving the new catalog. Corrupt-data recovery remains a separate path.
 
 HTTP: `POST /api/library/v1/execute`, JSON request/response. CLI:
 
 ```powershell
-flip library --request docs/schema/m45-library/examples/discover.json --catalog catalog.json --out page.json
-flip library --request docs/schema/m45-library/examples/search.json --catalog catalog.json
-flip library --request docs/schema/m45-library/examples/circuits.json --catalog catalog.json
+flip library --request docs/schema/m45-library/examples/1.1.0/discover.json --catalog catalog.json --out page.json
+flip library --request docs/schema/m45-library/examples/1.1.0/search.json --catalog catalog.json
+flip library --request docs/schema/m45-library/examples/1.1.0/circuits.json --catalog catalog.json
 ```
 
 Operations: `discover`, `circuits`, `search`, `favorite`, `unfavorite`, `alias`,
@@ -48,7 +67,8 @@ import/revalidation can accept that freshly inspected version. M2's CURRENT refe
 only to that fresh observation, never to saved catalog data. Importing stateful
 circuits is valid inspection; the composition UI refuses stateless composition.
 
-Onchain display names have `ONCHAIN_DISPLAY_ONLY` trust. Local labels are stored
+Onchain display names have `ONCHAIN_DISPLAY_ONLY` trust. Synthesized user-only
+pointers have `USER_SUPPLIED`, UNKNOWN freshness and no onchain evidence. Local labels are stored
 in the separate overlay and never rename identity. Text is NFKC normalized, stripped
 of nonprinting controls, limited to 256 characters and rendered as React text.
 Authority-looking unknown fields cause contract rejection. HTML-looking text remains
@@ -73,4 +93,5 @@ Generate/check schemas with:
 
 ```powershell
 python -m flip_core.library_schema_export --out docs/schema/m45-library/1.0.0 --check
+python -m flip_core.library_schema_export --version 1.1.0 --out docs/schema/m45-library/1.1.0 --check
 ```

@@ -8,7 +8,7 @@ from pydantic import Field, field_validator, model_validator
 from flip_core import abi
 from flip_core.models import Address, Block, Chain, Contract, Digest, Environment, Quantity
 
-VERSION = "m45-library-1.0.0"
+VERSION = "m45-library-1.1.0"
 Freshness = Literal["HISTORICAL", "STALE", "UNKNOWN", "REORGED", "VERIFICATION_FAILED"]
 Source = Literal["FACTORY_ENUMERATION", "KNOWN_SEED", "USER_IMPORT", "USER_FAVORITE_ONLY"]
 
@@ -55,7 +55,7 @@ class LibraryRecord(Contract):
     gateCount: int | None = Field(default=None, ge=0, le=2**32 - 1)
     onchainName: str = Field(default="", max_length=256)
     onchainSymbol: str = Field(default="", max_length=256)
-    metadataTrust: Literal["ONCHAIN_DISPLAY_ONLY"] = "ONCHAIN_DISPLAY_ONLY"
+    metadataTrust: Literal["ONCHAIN_DISPLAY_ONLY", "USER_SUPPLIED"] = "ONCHAIN_DISPLAY_ONLY"
     freshness: Freshness = "UNKNOWN"
     existence: Literal[
         "OWNER_OF", "SEED_HINT", "IMPORTED", "USER_POINTER", "REGISTERED_PROCESSOR"
@@ -73,6 +73,14 @@ class LibraryRecord(Contract):
     @classmethod
     def text(cls, value):
         return display_text(value)
+
+    @model_validator(mode="after")
+    def pointer_trust(self):
+        if (self.existence == "USER_POINTER" or self.sources == ["USER_FAVORITE_ONLY"]) and (
+            self.metadataTrust != "USER_SUPPLIED"
+        ):
+            raise ValueError("A user-only pointer has no onchain metadata observation.")
+        return self
 
 
 class Favorite(Contract):
@@ -105,10 +113,26 @@ class Overlay(Contract):
 
 
 class Catalog(Contract):
-    schemaVersion: Literal["m45-library-1.0.0"] = VERSION
+    schemaVersion: Literal["m45-library-1.1.0"] = VERSION
     kind: Literal["LIBRARY_CATALOG"] = "LIBRARY_CATALOG"
     records: Annotated[list[LibraryRecord], Field(max_length=1000)] = []
     overlay: Overlay = Field(default_factory=Overlay)
+
+    @model_validator(mode="before")
+    @classmethod
+    def migrate_v1(cls, value):
+        if isinstance(value, dict) and value.get("schemaVersion") == "m45-library-1.0.0":
+            from flip_core.library_models_v1 import Catalog as CatalogV1
+
+            # Validate the entire frozen contract before the explicit known migration.
+            value = CatalogV1.model_validate(value).model_dump(mode="json")
+            value["schemaVersion"] = VERSION
+            for record in value["records"]:
+                if record["existence"] == "USER_POINTER" or record["sources"] == [
+                    "USER_FAVORITE_ONLY"
+                ]:
+                    record["metadataTrust"] = "USER_SUPPLIED"
+        return value
 
 
 class Cursor(Contract):
@@ -119,7 +143,7 @@ class Cursor(Contract):
 
 
 class LibraryRequest(Contract):
-    schemaVersion: Literal["m45-library-1.0.0"] = VERSION
+    schemaVersion: Literal["m45-library-1.1.0"] = VERSION
     kind: Literal["LIBRARY_REQUEST"] = "LIBRARY_REQUEST"
     operation: Literal[
         "discover", "circuits", "search", "favorite", "unfavorite", "alias", "import", "revalidate"
@@ -133,7 +157,7 @@ class LibraryRequest(Contract):
 
 
 class LibraryResult(Contract):
-    schemaVersion: Literal["m45-library-1.0.0"] = VERSION
+    schemaVersion: Literal["m45-library-1.1.0"] = VERSION
     kind: Literal["LIBRARY_RESULT"] = "LIBRARY_RESULT"
     status: Literal[
         "COMPLETE",

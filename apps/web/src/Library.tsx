@@ -18,6 +18,7 @@ type Record = {
 	gateCount: number | null;
 	onchainName: string;
 	onchainSymbol: string;
+	metadataTrust: "ONCHAIN_DISPLAY_ONLY" | "USER_SUPPLIED";
 	processorNumber: string | null;
 	environmentDigest: string | null;
 	manifestHash: string | null;
@@ -78,6 +79,7 @@ export function Library({
 	const controller = useRef<AbortController | null>(null);
 	const savedBytes = useRef<string | null>(null);
 	const rejectedRestore = useRef(false);
+	const legacyRestore = useRef(false);
 
 	async function operate(
 		operation: string,
@@ -92,7 +94,7 @@ export function Library({
 		setError("");
 		try {
 			const body = {
-				schemaVersion: "m45-library-1.0.0",
+				schemaVersion: "m45-library-1.1.0",
 				kind: "LIBRARY_REQUEST",
 				operation,
 				...((initial ?? current.current)
@@ -135,12 +137,22 @@ export function Library({
 					) ?? selected,
 				);
 			try {
-				if (!restoring || !rejectedRestore.current) {
+				if (
+					!restoring ||
+					(!rejectedRestore.current && !legacyRestore.current)
+				) {
 					if (rejectedRestore.current && savedBytes.current !== null) {
 						localStorage.setItem(`${storageKey}-recovery`, savedBytes.current);
 					}
+					if (legacyRestore.current && savedBytes.current !== null) {
+						localStorage.setItem(
+							`${storageKey}-1.0.0-backup`,
+							savedBytes.current,
+						);
+					}
 					localStorage.setItem(storageKey, JSON.stringify(result.catalog));
 					rejectedRestore.current = false;
+					legacyRestore.current = false;
 				}
 			} catch {
 				setStorageNote(
@@ -174,6 +186,12 @@ export function Library({
 			const raw = localStorage.getItem(storageKey);
 			savedBytes.current = raw;
 			if (raw) saved = JSON.parse(raw);
+			if (saved?.schemaVersion === "m45-library-1.0.0") {
+				legacyRestore.current = true;
+				setStorageNote(
+					"Older saved library loaded with updated provenance labels. Original data retained; future edits save version 1.1 with a backup.",
+				);
+			}
 			if (
 				raw &&
 				(!saved || typeof saved !== "object" || Array.isArray(saved))
@@ -224,6 +242,7 @@ export function Library({
 				gateCount: null,
 				onchainName: "",
 				onchainSymbol: "",
+				metadataTrust: "USER_SUPPLIED",
 				processorNumber: null,
 				environmentDigest: null,
 				manifestHash: null,
@@ -429,10 +448,17 @@ export function Library({
 									? `${selected.block.number} / ${selected.block.hash}`
 									: "No chain observation"}
 							</dd>
-							<dt>Onchain display only</dt>
+							<dt>Metadata provenance</dt>
+							<dd>{selected.metadataTrust}</dd>
+							<dt>
+								{selected.metadataTrust === "USER_SUPPLIED"
+									? "User pointer"
+									: "Onchain display only"}
+							</dt>
 							<dd>
-								{selected.onchainName || "No name available"}{" "}
-								{selected.onchainSymbol}
+								{selected.metadataTrust === "USER_SUPPLIED"
+									? "No onchain metadata observed"
+									: `${selected.onchainName || "No name available"} ${selected.onchainSymbol}`}
 							</dd>
 							<dt>Numeric interface</dt>
 							<dd>
@@ -441,7 +467,12 @@ export function Library({
 									: `${selected.nIn} input pins / ${selected.nOut} output pins / ${selected.nState} state pins / ${selected.gateCount} gates`}
 							</dd>
 							<dt>Environment digest</dt>
-							<dd>{selected.environmentDigest ?? "Unverified seed hint"}</dd>
+							<dd>
+								{selected.environmentDigest ??
+									(selected.metadataTrust === "USER_SUPPLIED"
+										? "No onchain environment observed"
+										: "Unverified seed hint")}
+							</dd>
 							<dt>Netlist hash</dt>
 							<dd>{selected.netlistHash ?? "Not imported"}</dd>
 							<dt>Dependency hashes</dt>

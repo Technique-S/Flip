@@ -170,6 +170,16 @@ def review() -> dict:
         require(blob("HEAD", path) == blob(M3_B, path), f"M3-B evidence altered: {path}")
         require((ROOT / path).read_bytes() == blob(M3_B, path), f"M3-B checkout altered: {path}")
     require(not git("diff", M3_A, "HEAD", "--", "docs/schema/m3/1.0.0"), "M3 wire schemas changed")
+    library_v1 = "60d9e94c4cfec9306492cb4016c4c6b60444a73f"
+    require(
+        not git("diff", library_v1, "HEAD", "--", "docs/schema/m45-library/1.0.0"),
+        "frozen library 1.0 schemas changed",
+    )
+    require(
+        blob("HEAD", "packages/flip-core/src/flip_core/library_models_v1.py")
+        == blob(library_v1, "packages/flip-core/src/flip_core/library_models.py"),
+        "frozen library 1.0 model implementation changed",
+    )
     research = "5c7bcfbc8babb58d5f040fe869e2017f4a8c46fd"
     for path in git("diff", "--name-only", research + "^", research).decode().splitlines():
         require(blob("HEAD", path) == blob(research, path), f"M45 research altered: {path}")

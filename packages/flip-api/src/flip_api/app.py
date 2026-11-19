@@ -274,6 +274,7 @@ async def library_operation(request: Request) -> Response:
     from threading import Event
 
     from flip_core.library import LibraryService
+    from flip_core.library_protocol import parse_library_request
 
     raw = bytearray()
     async for chunk in request.stream():
@@ -286,7 +287,7 @@ async def library_operation(request: Request) -> Response:
     try:
         if request.query_params:
             raise ContractError("INVALID_INPUT", "Unknown library query parameter.")
-        model = LibraryRequest.model_validate(load_json(bytes(raw)))
+        model = parse_library_request(load_json(bytes(raw)))
         if not _slots.acquire(blocking=False):
             raise ContractError("RESOURCE_LIMIT", "Library concurrency budget exceeded.")
         acquired = True

@@ -182,7 +182,10 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "library":
             from flip_core.canonical import load_json
             from flip_core.library import LibraryService
-            from flip_core.library_models import Catalog, LibraryRequest
+            from flip_core.library_models import Catalog
+            from flip_core.library_models_v1 import Catalog as CatalogV1
+            from flip_core.library_models_v1 import LibraryRequest as RequestV1
+            from flip_core.library_protocol import parse_library_request
             from flip_core.rpc import RpcSettings
 
             def library_file(path):
@@ -193,9 +196,10 @@ def main(argv: list[str] | None = None) -> int:
                 return load_json(raw)
 
             try:
-                model = LibraryRequest.model_validate(library_file(args.request))
+                model = parse_library_request(library_file(args.request))
                 if args.catalog and args.catalog.exists():
-                    model.catalog = Catalog.model_validate(library_file(args.catalog))
+                    catalog_type = CatalogV1 if isinstance(model, RequestV1) else Catalog
+                    model.catalog = catalog_type.model_validate(library_file(args.catalog))
                 result = LibraryService(RpcSettings.from_environment()).execute(model)
                 if args.catalog:
                     write_result(args.catalog, result.catalog)

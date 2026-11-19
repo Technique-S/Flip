@@ -85,6 +85,7 @@ def search(catalog: Catalog, query: str, identity=None):
                 identity=item.identity,
                 sources=["USER_FAVORITE_ONLY"],
                 existence="USER_POINTER",
+                metadataTrust="USER_SUPPLIED",
             )
     tokens = display_text(query).casefold().split()
     return [
@@ -132,6 +133,14 @@ class LibraryService:
         self.aborted = aborted or (lambda: False)
 
     def execute(self, request: LibraryRequest) -> LibraryResult:
+        from flip_core.library_models_v1 import LibraryRequest as RequestV1
+        from flip_core.library_protocol import legacy_result, upgrade_request
+
+        if isinstance(request, RequestV1):
+            return legacy_result(self._execute(upgrade_request(request)))
+        return self._execute(request)
+
+    def _execute(self, request: LibraryRequest) -> LibraryResult:
         req = LibraryRequest.model_validate(request.model_dump(mode="json"))
         catalog = historical(req.catalog)
         compact(catalog)
