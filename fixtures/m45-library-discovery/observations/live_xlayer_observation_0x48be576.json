@@ -1,0 +1,118 @@
+{
+  "abiSourceProvenance": "Selectors recomputed locally with dependency-free Keccak-256 (self_test passed); cpuCount/cpuAt from experiments/src/xlayer_probe.py (M0 audit), nextId/circuitInfo/netlist/isCPU from packages/flip-core/src/flip_core/abi.py, ownerOf from EIP-721, factory interface from TAP-10 Appendix A.",
+  "artifactType": "OBSERVED_READ_ONLY",
+  "blockHash": "0x1941877104961218ad35b6650582da1bf23fdd4628105cc984e731bb6b7910dc",
+  "blockNumber": 76277110,
+  "blockTimestampHex": "0x6afe3b02",
+  "chainId": 196,
+  "endpointHost": "rpc.xlayer.tech",
+  "eventLogProbe": {
+    "address": "0x1f09daefa827f02cbb40967cc91b259763760761",
+    "fromBlock": "0x48be572",
+    "interpretation": "NONE - no factory registration event signature is defined in TAP-10; raw logs are recorded only as an availability observation.",
+    "rawResult": [],
+    "supported": true,
+    "toBlock": "0x48be576"
+  },
+  "factory": {
+    "address": "0x1f09daefa827f02cbb40967cc91b259763760761",
+    "cpuAtSample": {
+      "0": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "1": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+      "429": "0xac1d301231ab8f9dcf516ae5030e202883e8ef4d"
+    },
+    "cpuCount": 430,
+    "erc1967Implementation": "0x336e9f0f4c3fee7c8c803377e4dea00293f4ae2a",
+    "erc1967ImplementationCode": {
+      "bytes": 9376,
+      "ok": true,
+      "sha256": "a1a0613dac58ccb24454e7ab232d668e2483d3d0f092f43affae8c94885aaf5f"
+    },
+    "isCpuSample": {
+      "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b": 1,
+      "0x839bdd6fa7a66416a609a735e11de5411b98574e": 1,
+      "0xac1d301231ab8f9dcf516ae5030e202883e8ef4d": 1
+    },
+    "isSealed": 0,
+    "proxyCode": {
+      "bytes": 130,
+      "ok": true,
+      "sha256": "d5e534164f234bee90da236f5e4fd09d4333dfbecd0591d4f93af1ee1713dd31"
+    }
+  },
+  "headBlockHex": "0x48be576",
+  "methodsUsed": [
+    "eth_chainId",
+    "eth_blockNumber",
+    "eth_getBlockByNumber",
+    "eth_getCode",
+    "eth_getStorageAt",
+    "eth_call",
+    "eth_getLogs"
+  ],
+  "processors": {
+    "proc0": {
+      "address": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "beacon": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "beaconImplementation": "0x977f217887e085d298cb3819cdad5a0ee35f29b2",
+      "beaconImplementationCode": {
+        "bytes": 12562,
+        "ok": true,
+        "sha256": "0a5259a8b5a69197cde6dce70a4446fe807b622277bdae9e79919d5d8e9828a5"
+      },
+      "circuitInfo1": "0x0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004",
+      "circuitInfo2": "0x0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003",
+      "nameRaw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000e4f6e6c7954657374584c61796572000000000000000000000000000000000000",
+      "netlist1Sha256": "d3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f",
+      "nextId": 104,
+      "ownerOf1": "0x571d447f4f24688ec35ccf07f1d6993655f6af15",
+      "proxyCode": {
+        "bytes": 295,
+        "ok": true,
+        "sha256": "2ea683e275cbe6e51928a9bdefe80b6ff6a6a6e8535436bbe7eea02ee18306ae"
+      },
+      "symbolRaw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000e4f6e6c7954657374584c61796572000000000000000000000000000000000000"
+    },
+    "proc1": {
+      "address": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b",
+      "beacon": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "beaconImplementation": "0x977f217887e085d298cb3819cdad5a0ee35f29b2",
+      "beaconImplementationCode": {
+        "bytes": 12562,
+        "ok": true,
+        "sha256": "0a5259a8b5a69197cde6dce70a4446fe807b622277bdae9e79919d5d8e9828a5"
+      },
+      "nameRaw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000064d79343030340000000000000000000000000000000000000000000000000000",
+      "nextId": 100,
+      "proxyCode": {
+        "bytes": 295,
+        "ok": true,
+        "sha256": "2ea683e275cbe6e51928a9bdefe80b6ff6a6a6e8535436bbe7eea02ee18306ae"
+      },
+      "symbolRaw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000034350550000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "provenance": "LIVE_RPC_SINGLE_UNTRUSTED_PROVIDER",
+  "providerTrustAssumption": "One public RPC endpoint; response truth is NOT consensus-verified. No multi-operator agreement, no independent node cross-check.",
+  "rpcCallBudget": 40,
+  "rpcCallsUsed": 33,
+  "selectorProof": {
+    "empty_keccak256": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+    "selectors": {
+      "circuitInfo(uint256)": "084d60f1",
+      "cpuAt(uint256)": "4bc7cbbd",
+      "cpuCount()": "a94da8a7",
+      "isCPU(address)": "5f5a364f",
+      "name()": "06fdde03",
+      "netlist(uint256)": "3fc4be56",
+      "nextId()": "61b8ce8c",
+      "ownerOf(uint256)": "6352211e",
+      "symbol()": "95d89b41",
+      "tapeout(bytes,uint32,uint32)": "7bd3ac1d",
+      "totalSupply()": "18160ddd"
+    },
+    "verified_signatures": 11
+  },
+  "signingOrBroadcast": false,
+  "stateOverrides": false
+}

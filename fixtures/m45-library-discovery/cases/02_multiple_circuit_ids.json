@@ -1,0 +1,131 @@
+{
+  "assertions": [
+    "ID 0 is never emitted (valid circuit IDs start at 1).",
+    "Stateful circuits are labeled nState>0 and never treated as stateless-equivalent candidates."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C02",
+  "chainId": 196,
+  "description": "nextId=5; circuitInfo/ownerOf succeed for IDs 1,2,3,4.",
+  "expected": {
+    "circuitRecords": [
+      {
+        "circuitId": "1",
+        "gateCount": 4,
+        "nIn": 2,
+        "nOut": 1,
+        "nState": 0
+      },
+      {
+        "circuitId": "2",
+        "gateCount": 3,
+        "nIn": 2,
+        "nOut": 1,
+        "nState": 0
+      },
+      {
+        "circuitId": "3",
+        "gateCount": 6,
+        "nIn": 3,
+        "nOut": 2,
+        "nState": 0
+      },
+      {
+        "circuitId": "4",
+        "gateCount": 2,
+        "nIn": 1,
+        "nOut": 1,
+        "nState": 1
+      }
+    ],
+    "existenceEvidence": "ownerOf(1) succeeded; circuitInfo decoded at pinned block",
+    "search": {
+      "circuitId": "3",
+      "processorAddress": "0x1111111111111111111111111111111111111111",
+      "resultCount": 1
+    }
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000005"
+      },
+      "selector": "0x61b8ce8c",
+      "seq": 1,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000004"
+      },
+      "selector": "0x084d60f1",
+      "seq": 2,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        2
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000003"
+      },
+      "selector": "0x084d60f1",
+      "seq": 3,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        3
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000030x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000006"
+      },
+      "selector": "0x084d60f1",
+      "seq": 4,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        4
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000010x0000000000000000000000000000000000000000000000000000000000000002"
+      },
+      "selector": "0x084d60f1",
+      "seq": 5,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000002222222222222222222222222222222222222222"
+      },
+      "selector": "0x6352211e",
+      "seq": 6,
+      "to": "0x1111111111111111111111111111111111111111"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Multiple circuit IDs under one processor"
+}

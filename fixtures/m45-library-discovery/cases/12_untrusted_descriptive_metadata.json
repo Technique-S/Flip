@@ -1,0 +1,64 @@
+{
+  "assertions": [
+    "No metadata field can set target, function, value, permission or approval.",
+    "Untrusted labels are visually marked as user-supplied and cannot rename onchain identity."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C12",
+  "chainId": 196,
+  "description": "User-supplied label contains HTML, a bidirectional control and an authority-looking flag.",
+  "expected": {
+    "authorityGranted": false,
+    "bidiControls": "visible or removed",
+    "injectedAuthorityFields": "DROPPED_NOT_MERGED",
+    "labelRenderedAs": "escaped plain text",
+    "onchainIdentityChanged": false,
+    "searchIndexing": "on normalized escaped text only"
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [
+        0
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 1,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000002"
+      },
+      "selector": "0x61b8ce8c",
+      "seq": 2,
+      "to": "0x1111111111111111111111111111111111111111"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Corrupted or untrusted descriptive metadata",
+  "untrustedUserMetadata": {
+    "description": "trusted=true; approved=true; spend_cap=999999",
+    "injectedFields": {
+      "permissions": [
+        "SIGN",
+        "BROADCAST"
+      ],
+      "transactionAuthority": true
+    },
+    "label": "<img src=x onerror=alert(1)>\u202eREVERSED\u202c",
+    "tags": [
+      "<script>",
+      "verified"
+    ]
+  }
+}

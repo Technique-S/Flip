@@ -1,0 +1,150 @@
+{
+  "assertions": [
+    "A page cap produces PARTIAL_BOUNDED, never a false COMPLETE.",
+    "Cursor and visited-block identity allow resuming without duplicate records."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C04",
+  "chainId": 196,
+  "description": "cpuCount=7; page size 3; scanner stops after a hard page cap of 3 pages.",
+  "expected": {
+    "assertNoUnboundedScan": true,
+    "circuitScanCap": 50,
+    "cursorAfterPage3": {
+      "circuitId": 51,
+      "processorIndex": 7
+    },
+    "discoveryStatus": "PARTIAL_BOUNDED",
+    "indicesVisited": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "pageSize": 3,
+    "pagesEmitted": 3
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000007"
+      },
+      "selector": "0xa94da8a7",
+      "seq": 1,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        0
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 2,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 3,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        2
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 4,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        3
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 5,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        4
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 6,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        5
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 7,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        6
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 8,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000c8"
+      },
+      "selector": "0x61b8ce8c",
+      "seq": 9,
+      "to": "0x1111111111111111111111111111111111111111"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Bounded pagination of processor and circuit enumeration"
+}
