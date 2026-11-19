@@ -1,0 +1,92 @@
+{
+  "testedSha": "dec9420bb76e9245c6740bf3d92031d175e408ec",
+  "apiHealthy": true,
+  "steps": [
+    {
+      "name": "statusLanguage",
+      "value": [
+        "COMPLETE · 0/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "initialList",
+      "value": [
+        "Processor address0x839bdd6fa7a66416a609a735e11de5411b98574eUNKNOWN · KNOWN_SEED",
+        "Processor address0x0565ea48ca41ae559d8d491dbb0a9ec945db551bUNKNOWN · KNOWN_SEED"
+      ]
+    },
+    {
+      "name": "keyboardFocusReachedLibrary",
+      "value": true
+    },
+    {
+      "name": "keyboardEnterOpenedLibrary",
+      "value": true
+    },
+    {
+      "name": "discoveryStatus",
+      "value": [
+        "COMPLETE · 21/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "addressSearchCount",
+      "value": 1
+    },
+    {
+      "name": "idSearchCount",
+      "value": 2
+    },
+    {
+      "name": "inspectorText",
+      "value": "Processor detailsProcessor0x0565ea48ca41ae559d8d491dbb0a9ec945db551bFreshnessUNKNOWN · Revalidation required for useObservation block / hash76277110 / 0x1941877104961218ad35b6650582da1bf23fdd4628105cc984e731bb6b7910dcOnchain display onlyNo name available Numeric interfaceImport to inspectEnvironment digestUnverified seed hintNetlist hashNot importedDependency hashesNone observedAdd favoriteBrowse circuitsLocal display aliasSave alias"
+    },
+    {
+      "name": "favoriteAdded",
+      "value": true
+    },
+    {
+      "name": "corruptStorageAlert",
+      "value": [
+        "Invalid library request."
+      ]
+    },
+    {
+      "name": "corruptStorageListCount",
+      "value": 0
+    },
+    {
+      "name": "corruptStorageStatus",
+      "value": [
+        "Loading known addresses…",
+        ""
+      ]
+    },
+    {
+      "name": "fallbackText",
+      "value": [
+        "Enumeration unavailable. Known-address hints and saved favorites remain selectable. Retry discovery or revalidate a circuit."
+      ]
+    },
+    {
+      "name": "fallbackStatus",
+      "value": [
+        "UNKNOWN · RPC_UNAVAILABLE · 21/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "fallbackListSample",
+      "value": [
+        "Processor address0x0565ea48ca41ae559d8d491dbb0a9ec945db551bSTALE · KNOWN_SEED",
+        "Processor 00x839bdd6fa7a66416a609a735e11de5411b98574eSTALE · FACTORY_ENUMERATION, KNOWN_SEED"
+      ]
+    },
+    {
+      "name": "narrowOverflow",
+      "value": true
+    }
+  ]
+}
