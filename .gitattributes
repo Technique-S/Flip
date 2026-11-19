@@ -18,3 +18,4 @@
 # Independent library research manifests hash the exact LF Git blobs.
 /fixtures/m45-library-discovery/** text eol=lf
 /docs/evidence/m45-library-discovery/** text eol=lf
+/docs/milestones/m45-library-browser/*.png -text
