@@ -25,6 +25,8 @@ M4C_REPORT_ONLY_TEST_SHA = "81ffaa464609a66d2356104a1c4db6a0c5f1b81e3cd326f8f114
 M3C_REPORT_ONLY_TEST_SHA = "f29d3b9983ee9df7472d9a7ac306ab1032d4a1182c75391048acf029dc853f49"
 # Only registers the independently hash-verified M45 synthetic fixture namespace.
 M45_REPORT_ONLY_TEST_SHA = "246cc510a2cd9c0c2e1c037dbfde887e8fea0683efd1fbcdca8ebeb96695919a"
+# Registers only the immutable, independently hash-verified debugging corpus namespace.
+M45_DEBUG_REPORT_ONLY_TEST_SHA = "ec77774346875877ab7e6c5b887bacc62e788285d15bcac3e2b8658cfc0cea02"
 
 
 def git(*args: str) -> bytes:
@@ -104,6 +106,42 @@ def library_review_evidence() -> tuple[dict, list[dict]]:
     return captures, reviews
 
 
+def debugging_fixture_evidence() -> dict:
+    revision = "8fc4efb71cb750cced98b4e88540796d665b616a"
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "debugging fixture history missing",
+    )
+    paths = git("diff", "--name-only", revision + "^", revision).decode().splitlines()
+    require(len(paths) == 15, "debugging fixture inventory changed")
+    require(
+        all(
+            p.startswith(("fixtures/m45-debugging/", "docs/evidence/m45-debugging/")) for p in paths
+        ),
+        "debugging fixture ownership breach",
+    )
+    for path in paths:
+        require(blob("HEAD", path) == blob(revision, path), f"debugging evidence altered: {path}")
+        require(
+            (ROOT / path).read_bytes() == blob(revision, path),
+            f"debugging checkout altered: {path}",
+        )
+    manifest = json.loads(blob(revision, "fixtures/m45-debugging/MANIFEST.json"))
+    require(len(manifest["files"]) == 9, "debugging manifest inventory mismatch")
+    for entry in manifest["files"]:
+        path = "fixtures/m45-debugging/" + entry["path"]
+        require(path in paths, "unregistered debugging manifest path")
+        raw = blob(revision, path)
+        require(
+            len(raw) == entry["bytes"] and hashlib.sha256(raw).hexdigest() == entry["sha256"],
+            f"debugging manifest mismatch: {path}",
+        )
+    return {"revision": revision, "files": len(paths), "manifestEntries": 9}
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -180,6 +218,9 @@ def review() -> dict:
                 M45_REPORT_ONLY_TEST_SHA
                 if path == "packages/flip-core/tests/test_m1_integration.py"
                 else None,
+                M45_DEBUG_REPORT_ONLY_TEST_SHA
+                if path == "packages/flip-core/tests/test_m1_integration.py"
+                else None,
                 M4C_REPORT_ONLY_TEST_SHA
                 if path == "packages/flip-core/tests/test_m1_integration.py"
                 else None,
@@ -216,7 +257,12 @@ def review() -> dict:
             corrected = (
                 path == "packages/flip-core/tests/test_m1_integration.py"
                 and hashlib.sha256(blob("HEAD", path)).hexdigest()
-                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA, M45_REPORT_ONLY_TEST_SHA)
+                in (
+                    M3C_REPORT_ONLY_TEST_SHA,
+                    M4C_REPORT_ONLY_TEST_SHA,
+                    M45_REPORT_ONLY_TEST_SHA,
+                    M45_DEBUG_REPORT_ONLY_TEST_SHA,
+                )
             )
             require(
                 blob("HEAD", path) == blob(M3_A, path) or corrected, f"M3-A test altered: {path}"
@@ -286,6 +332,7 @@ def review() -> dict:
     }
     review_captures, library_reviews = library_review_evidence()
     captures.update(review_captures)
+    debugging_fixtures = debugging_fixture_evidence()
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -322,6 +369,7 @@ def review() -> dict:
         "credential_pattern_findings": 0,
         "registered_browser_captures": sorted(captures),
         "library_independent_reviews": library_reviews,
+        "debugging_fixture_evidence": debugging_fixtures,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }

@@ -178,6 +178,7 @@ def test_report_only_gaps_are_not_executable_golden_fixtures():
                 "fixtures/m4-ux-acceptance",
                 "fixtures/m4-independent-review",
                 "fixtures/m45-library-discovery",
+                "fixtures/m45-debugging",
             )
         )
     ]

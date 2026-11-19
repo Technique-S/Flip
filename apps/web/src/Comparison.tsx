@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { type DebugEdit, Debugger } from "./Debugger";
 import { type Execution, indices, type Proof } from "./model";
 
 type Props = {
+	debugEdit: DebugEdit | null;
+	setDebugEdit: (value: DebugEdit | null) => void;
 	r: Execution;
 	change: (fn: (r: Execution) => void) => void;
 	run: () => void;
@@ -79,7 +82,15 @@ export function Verdict({ value }: { value: Proof }) {
 		</section>
 	);
 }
-export function Comparison({ r, change, run, result, next }: Props) {
+export function Comparison({
+	r,
+	change,
+	run,
+	result,
+	next,
+	debugEdit,
+	setDebugEdit,
+}: Props) {
 	const [maps, setMaps] = useState(false);
 	const p = r.project,
 		plan = p.comparison;
@@ -242,6 +253,14 @@ export function Comparison({ r, change, run, result, next }: Props) {
 					</button>
 				</>
 			)}
+			<Debugger
+				r={r}
+				available={result !== null}
+				change={change}
+				run={run}
+				undo={debugEdit}
+				setUndo={setDebugEdit}
+			/>
 		</>
 	);
 }

@@ -25,6 +25,14 @@ The same catalog operations are available through `flip library --request reques
 
 ## M3 baseline
 
+### Connection debugger
+
+After comparing, select **Inspect connection paths** to trace a replayed mismatch
+through numeric NAND/REF pins. Relevant paths do not identify a uniquely defective
+wire. A declared local reference can produce a separate candidate revision to test,
+apply locally and revert. The same operation is available as `flip debug --request
+request.json` and `POST /api/v1/debug`; see the [diagnostics contract and example](docs/schema/m45-debugging/README.md).
+
 Flip now evaluates TAP-02 snapshots locally, compiles explicit REF recipes and
 checks stateless pairwise equivalence with isolated Minisat22 workers. Every
 DIFFERENT witness is replayed by the independent local evaluator. These are
