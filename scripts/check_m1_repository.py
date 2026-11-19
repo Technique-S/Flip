@@ -207,8 +207,29 @@ def review() -> dict:
             re.IGNORECASE,
         ),
     ]
+    # Only these visually inspected synthetic browser captures are admitted as binary.
+    # Pin exact bytes rather than allowing an arbitrary image/binary namespace.
+    captures = {
+        "docs/milestones/m45-library-browser/desktop.png": (
+            106119,
+            "5c5b21fe87e4031fdcf1b05671763479a49a1dbf0eef5a63ec8463f1b9f82c98",
+        ),
+        "docs/milestones/m45-library-browser/mobile.png": (
+            78765,
+            "a760c451e91f9f766d29c29a5726756aa199f634fe8dc7bdf59a371fee55a8ba",
+        ),
+    }
     for path in tracked:
         raw = (ROOT / path).read_bytes()
+        if path in captures:
+            size, digest = captures[path]
+            require(
+                len(raw) == size and hashlib.sha256(raw).hexdigest() == digest,
+                f"registered browser capture changed: {path}",
+            )
+            require(raw == blob("HEAD", path), f"browser capture checkout changed: {path}")
+            require(raw.startswith(b"\x89PNG\r\n\x1a\n"), f"invalid PNG capture: {path}")
+            continue
         large_registered = (
             path == "fixtures/m3-verification/benchmarks/benchmark-corpus.json"
             and len(raw) == 534927
@@ -232,6 +253,7 @@ def review() -> dict:
         "registered_blob_checks": results,
         "tracked_files_scanned": len(tracked),
         "credential_pattern_findings": 0,
+        "registered_browser_captures": sorted(captures),
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }
