@@ -1,0 +1,513 @@
+{
+  "artifactType": "EXECUTED_CLI_COMMANDS",
+  "baselineSha": "1136b187bd68328cea4975caea50904ccece08fd",
+  "entries": [
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "sample",
+        "half-adder",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json"
+      ],
+      "caseId": "AW-01",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "kind": {
+          "actual": "M3_EXECUTION",
+          "expected": "M3_EXECUTION",
+          "matches": true
+        },
+        "project.chainId": {
+          "actual": 196,
+          "expected": 196,
+          "matches": true
+        }
+      },
+      "outputBytes": 6327,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+      "outputSha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11",
+      "wallSeconds": 1.138
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "library",
+        "--request",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\requests\\library-search.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\library-search.result.json"
+      ],
+      "caseId": "AW-02",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "status": {
+          "actual": "COMPLETE",
+          "expected": "COMPLETE",
+          "matches": true
+        }
+      },
+      "outputBytes": 6240,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\library-search.result.json",
+      "outputSha256": "467a924220364fcfdfde14166bc9dda60fa89eda2491901f5013584191660406",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "467a924220364fcfdfde14166bc9dda60fa89eda2491901f5013584191660406",
+      "wallSeconds": 1.498
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "import",
+        "--processor",
+        "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+        "--id",
+        "1",
+        "--rpc-url",
+        "http://127.0.0.1:18762",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\source.json"
+      ],
+      "caseId": "AW-03",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "kind": {
+          "actual": "CIRCUIT_IMPORT",
+          "expected": "CIRCUIT_IMPORT",
+          "matches": true
+        },
+        "manifest.chainId": {
+          "actual": 196,
+          "expected": 196,
+          "matches": true
+        }
+      },
+      "outputBytes": 2224,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\source.json",
+      "outputSha256": "bf9f69d2678be0f3d55441c05ad56a65b311776f87ae7c5565cb63955dcee19e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "bf9f69d2678be0f3d55441c05ad56a65b311776f87ae7c5565cb63955dcee19e",
+      "wallSeconds": 1.383
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compose",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\composition.json"
+      ],
+      "caseId": "AW-04",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "manifest.netlistHash": {
+          "actual": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+          "expected": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+          "matches": true
+        }
+      },
+      "outputBytes": 3585,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\composition.json",
+      "outputSha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96",
+      "wallSeconds": 1.153
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "vectors",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\requests\\half-adder-vectors.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\vectors.json"
+      ],
+      "caseId": "AW-05",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "verdict": {
+          "actual": "VECTORS_MATCH",
+          "expected": "VECTORS_MATCH",
+          "matches": true
+        }
+      },
+      "outputBytes": 12291,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\vectors.json",
+      "outputSha256": "8a01a0a971e2303ff00216b0e0fc6beaa3d01f747373d3b447d199cf579c1a65",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "8a01a0a971e2303ff00216b0e0fc6beaa3d01f747373d3b447d199cf579c1a65",
+      "wallSeconds": 1.18
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compare",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\compare.json"
+      ],
+      "caseId": "AW-06",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "report.verification.solverOutcome": {
+          "actual": "UNSAT",
+          "expected": "UNSAT",
+          "matches": true
+        },
+        "report.verification.verdict": {
+          "actual": "EQUIVALENT",
+          "expected": "EQUIVALENT",
+          "matches": true
+        }
+      },
+      "outputBytes": 15950,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\compare.json",
+      "outputSha256": "14ce58f591127fb6296acbe535c33110663dc601c2ff7fb73e925a99522d797c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "14ce58f591127fb6296acbe535c33110663dc601c2ff7fb73e925a99522d797c",
+      "wallSeconds": 1.431
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "sample",
+        "swapped",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\swapped.json"
+      ],
+      "caseId": "AW-07",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {},
+      "outputBytes": 6327,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\swapped.json",
+      "outputSha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1",
+      "wallSeconds": 1.107
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compare",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\swapped.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\difference.json"
+      ],
+      "caseId": "AW-07",
+      "commandIndex": 1,
+      "exit": 1,
+      "exitMatches": true,
+      "expectedExit": 1,
+      "expectedFields": {
+        "report.verification.verdict": {
+          "actual": "DIFFERENT",
+          "expected": "DIFFERENT",
+          "matches": true
+        }
+      },
+      "outputBytes": 16203,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\difference.json",
+      "outputSha256": "43dd6216976f23edb7f6c0a8c3e54069026c3dfeeec2e0913083f75f26b9b7d6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "43dd6216976f23edb7f6c0a8c3e54069026c3dfeeec2e0913083f75f26b9b7d6",
+      "wallSeconds": 1.48
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "--help"
+      ],
+      "caseId": "AW-08",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {},
+      "outputBytes": null,
+      "outputFile": null,
+      "outputSha256": null,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "f45aeb873b507f7c622842f5b4b118ed8ca4b25c232c27575deee30aeabc09d3",
+      "wallSeconds": 0.719
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compare",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\recheck.json"
+      ],
+      "caseId": "AW-10",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "report.verification.verdict": {
+          "actual": "EQUIVALENT",
+          "expected": "EQUIVALENT",
+          "matches": true
+        }
+      },
+      "outputBytes": 15950,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\recheck.json",
+      "outputSha256": "cd4c17ba8cd293a8e55058fa39a806bb552ab0bc3e0bd3c0bbd1f9d6dbeb2419",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "cd4c17ba8cd293a8e55058fa39a806bb552ab0bc3e0bd3c0bbd1f9d6dbeb2419",
+      "wallSeconds": 1.432
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "export",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\bundle.json"
+      ],
+      "caseId": "AW-11",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "kind": {
+          "actual": "FLIP_EVIDENCE",
+          "expected": "FLIP_EVIDENCE",
+          "matches": true
+        }
+      },
+      "outputBytes": 16331,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\bundle.json",
+      "outputSha256": "93d8cf08af5379bcf9e7c772cb0fbac53a11ed206bc7ea626ca33fb915155e1f",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "93d8cf08af5379bcf9e7c772cb0fbac53a11ed206bc7ea626ca33fb915155e1f",
+      "wallSeconds": 1.503
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "verify-bundle",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--bundle",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\bundle.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\replay.json"
+      ],
+      "caseId": "AW-12",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "kind": {
+          "actual": "TRUSTED_LOCAL_COMPARISON",
+          "expected": "TRUSTED_LOCAL_COMPARISON",
+          "matches": true
+        }
+      },
+      "outputBytes": 15950,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\replay.json",
+      "outputSha256": "325a492fe44cda814e9811603efd4ce85cc20ad064fb0811cc9bd0ed158ee6c6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "325a492fe44cda814e9811603efd4ce85cc20ad064fb0811cc9bd0ed158ee6c6",
+      "wallSeconds": 1.418
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compare",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\requests\\timeout-project.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\unknown.json"
+      ],
+      "caseId": "AW-13",
+      "commandIndex": 0,
+      "exit": 2,
+      "exitMatches": true,
+      "expectedExit": 2,
+      "expectedFields": {
+        "report.verification.verdict": {
+          "actual": "UNKNOWN",
+          "expected": "UNKNOWN",
+          "matches": true
+        }
+      },
+      "outputBytes": 15886,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\unknown.json",
+      "outputSha256": "4333a559923b126642b288179f6bc5e0c17b5c1981cafa6d6540d2c8977628af",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "4333a559923b126642b288179f6bc5e0c17b5c1981cafa6d6540d2c8977628af",
+      "wallSeconds": 1.182
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "compare",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\retry.json"
+      ],
+      "caseId": "AW-13",
+      "commandIndex": 1,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {
+        "report.verification.verdict": {
+          "actual": "EQUIVALENT",
+          "expected": "EQUIVALENT",
+          "matches": true
+        }
+      },
+      "outputBytes": 15950,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\retry.json",
+      "outputSha256": "5a0e9c9f7b33cf00cc574a79f9ad2dc59201813cace579f4471140c01263ec6e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "5a0e9c9f7b33cf00cc574a79f9ad2dc59201813cace579f4471140c01263ec6e",
+      "wallSeconds": 1.51
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "revalidate",
+        "--manifest",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\manifest.json",
+        "--rpc-url",
+        "http://127.0.0.1:18762",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\revalidate.json"
+      ],
+      "caseId": "AW-14",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {},
+      "outputBytes": 2541,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\revalidate.json",
+      "outputSha256": "353135f231c185dfc8b8f0a4fc0226ab9782703f52fbc797d7b9b694237c77d4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "353135f231c185dfc8b8f0a4fc0226ab9782703f52fbc797d7b9b694237c77d4",
+      "wallSeconds": 1.345
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "--help"
+      ],
+      "caseId": "AW-15",
+      "commandIndex": 0,
+      "exit": 0,
+      "exitMatches": true,
+      "expectedExit": 0,
+      "expectedFields": {},
+      "outputBytes": null,
+      "outputFile": null,
+      "outputSha256": null,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "f45aeb873b507f7c622842f5b4b118ed8ca4b25c232c27575deee30aeabc09d3",
+      "wallSeconds": 0.71
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "preflight",
+        "--project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\half-adder.json",
+        "--out",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\preflight.json"
+      ],
+      "caseId": "AW-15",
+      "commandIndex": 1,
+      "exit": 2,
+      "exitMatches": true,
+      "expectedExit": 2,
+      "expectedFields": {
+        "status": {
+          "actual": "UNKNOWN",
+          "expected": "UNKNOWN",
+          "matches": true
+        }
+      },
+      "outputBytes": 374,
+      "outputFile": "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\results\\run\\preflight.json",
+      "outputSha256": "77a3f33b501f06738cd03befb81354de5285b40c59dd7d96518d64d0ec4a5ec3",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "77a3f33b501f06738cd03befb81354de5285b40c59dd7d96518d64d0ec4a5ec3",
+      "wallSeconds": 1.435
+    },
+    {
+      "argv": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\.venv\\Scripts\\flip.exe",
+        "validate",
+        "project",
+        "C:\\Users\\Kazi\\Documents\\Flip\\repo\\docs\\evidence\\m45-agent-workflow\\requests\\invalid-schema.json"
+      ],
+      "caseId": "AW-N02",
+      "commandIndex": 0,
+      "exit": 3,
+      "exitMatches": true,
+      "expectedExit": 3,
+      "expectedFields": {},
+      "outputBytes": null,
+      "outputFile": null,
+      "outputSha256": null,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrTail": "",
+      "stdoutSha256": "5efba80a513b5387ce80222a57ac1933bd2a23838acda5534589fbc058dccf9c",
+      "wallSeconds": 0.732
+    }
+  ],
+  "exitMatches": 18,
+  "productionEntrypoint": "flip CLI (real subprocess)",
+  "rpcDouble": "loopback synthetic JSON-RPC, chain 196",
+  "total": 18
+}
