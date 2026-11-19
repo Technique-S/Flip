@@ -57,11 +57,6 @@
       "sha256": "2248df60294641d77390fef8a945a8319a8942b65508161f96354cf0b3ff12c9"
     },
     {
-      "bytes": 34480,
-      "path": "fixtures/m45-library-independent-review/harness/__pycache__/independent_core_checks.cpython-314.pyc",
-      "sha256": "ec6e500eb053b09e378e78b3a23793776642c83668e9b94d8aab1fdcf0817fe9"
-    },
-    {
       "bytes": 6812,
       "path": "fixtures/m45-library-independent-review/harness/browser_observations.mjs",
       "sha256": "3846729fff2ad9570ff6ec6ec91f473ea4468882c1f3a19cd4197cacb16311f0"
@@ -82,6 +77,6 @@
       "sha256": "5c8f1069361af96ec2e174967eb3f1c907bd743f385d00e3aa22945f2bc744e8"
     }
   ],
-  "note": "Hash register for independent review harness, evidence and findings.",
+  "note": "Hash register for independent review harness, evidence and findings. Generated files and bytecode are excluded.",
   "testedSha": "dec9420bb76e9245c6740bf3d92031d175e408ec"
 }
