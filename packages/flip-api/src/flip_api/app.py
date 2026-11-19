@@ -11,6 +11,7 @@ from flip_core.contracts import ContractError, not_implemented, validate_contrac
 from flip_core.import_models import ImportResult, RevalidationResult
 from flip_core.importer import ImportService
 from flip_core.integrity import ContentCache
+from flip_core.library_models import LibraryRequest, LibraryResult
 from flip_core.models import ErrorEnvelope
 from flip_core.rpc import RpcSettings
 from pydantic import ValidationError
@@ -253,3 +254,79 @@ async def historical_sample(variant: str) -> Response:
         return json_response(sample(variant))
     except ContractError as exc:
         return json_response(exc.envelope(), 404)
+
+
+LIBRARY_BODY_SCHEMA = LibraryRequest.model_json_schema(ref_template="#/components/schemas/{model}")
+LIBRARY_BODY_SCHEMA.pop("$defs", None)
+
+
+@app.post(
+    "/api/library/v1/execute",
+    response_model=LibraryResult,
+    openapi_extra={
+        "requestBody": {
+            "required": True,
+            "content": {"application/json": {"schema": LIBRARY_BODY_SCHEMA}},
+        }
+    },
+)
+async def library_operation(request: Request) -> Response:
+    from threading import Event
+
+    from flip_core.library import LibraryService
+    from flip_core.library_protocol import parse_library_request
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Library input exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    acquired = False
+    try:
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown library query parameter.")
+        model = parse_library_request(load_json(bytes(raw)))
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Library concurrency budget exceeded.")
+        acquired = True
+        stopped = Event()
+        service = getattr(app.state, "library_service", None) or LibraryService(
+            RpcSettings.from_environment(),
+            aborted=stopped.is_set,
+        )
+        # Poll for a disconnected browser while the bounded synchronous reader runs.
+        import anyio
+
+        async def watch_disconnect():
+            while True:
+                if await request.is_disconnected():
+                    stopped.set()
+                    return
+                await anyio.sleep(0.1)
+
+        def execute_library():
+            # Return domain failures through the task group so its ExceptionGroup
+            # wrapper cannot turn an ordinary invalid selection into HTTP 500.
+            try:
+                return service.execute(model)
+            except (ContractError, ValueError, TypeError, RecursionError) as exc:
+                return exc
+
+        async with anyio.create_task_group() as group:
+            group.start_soon(watch_disconnect)
+            result = await run_in_threadpool(execute_library)
+            group.cancel_scope.cancel()
+        if isinstance(result, Exception):
+            raise result
+        return json_response(result)
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    except (ValueError, TypeError, ValidationError, RecursionError):
+        return json_response(
+            ContractError("INVALID_INPUT", "Invalid library request.").envelope(), 422
+        )
+    finally:
+        if acquired:
+            _slots.release()

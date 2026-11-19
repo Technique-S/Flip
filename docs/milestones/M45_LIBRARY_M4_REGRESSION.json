@@ -1,0 +1,1343 @@
+{
+  "schemaVersion": "m4-acceptance-1",
+  "sources": {
+    "m3": "0bd006336d9ab710706e1e11aa0533636d7fae1e",
+    "m4a": "f4d5b3a981d4cd5906c3ab11942c106f5becc7a9",
+    "m4b": "52814f5cef02716f4a9e49842ae520cdf7937a31"
+  },
+  "testedCommit": "b276e922082c1382daa2c8fc4edcdc5ac28a553d",
+  "suite": {
+    "total": 531,
+    "passed": 531
+  },
+  "browser": {
+    "B01 keyboard-only complete export journey": true,
+    "B02 focus recovery and B06 error state": true,
+    "B03 accessible labels and B05 responsive axe audit": true,
+    "B04 result announcement, mappings, and semantic differences": true,
+    "B07 timeout recovery and B08 repeated runs": true,
+    "B09 refresh recovery, confirmed reset and storage failure": true,
+    "B10 download name and replay is covered by workflow suite": true,
+    "B11 preflight separates three structural outcomes": true,
+    "L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence": true,
+    "L02 known-address fallback, stale favorites, bounded pagination and mobile": true,
+    "L03 resumes a pinned circuit page and skips missing IDs": true,
+    "F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry": true,
+    "historical sample, swapped outputs, repair, CLI parity and evidence replay": true,
+    "keyboard and narrow screen, import, inspect, add source and revalidate": true
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C01] -q",
+      "reason": null
+    },
+    {
+      "id": "C02",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C02] -q",
+      "reason": null
+    },
+    {
+      "id": "C03",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C03] -q",
+      "reason": null
+    },
+    {
+      "id": "C04",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C04] -q",
+      "reason": null
+    },
+    {
+      "id": "C05",
+      "expected": "exit 1",
+      "actual": "exit 1",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C05] -q",
+      "reason": null
+    },
+    {
+      "id": "C06",
+      "expected": "exit 2",
+      "actual": "exit 2",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C06] -q",
+      "reason": null
+    },
+    {
+      "id": "C07",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C07] -q",
+      "reason": null
+    },
+    {
+      "id": "C08",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C08] -q",
+      "reason": null
+    },
+    {
+      "id": "C09",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C09] -q",
+      "reason": null
+    },
+    {
+      "id": "C10",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C10] -q",
+      "reason": null
+    },
+    {
+      "id": "C11",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C11] -q",
+      "reason": null
+    },
+    {
+      "id": "C12",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C12] -q",
+      "reason": null
+    },
+    {
+      "id": "C13",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C13] -q",
+      "reason": null
+    },
+    {
+      "id": "C14",
+      "expected": "exit 4",
+      "actual": "exit 4",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C14] -q",
+      "reason": null
+    },
+    {
+      "id": "C15",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C15] -q",
+      "reason": null
+    },
+    {
+      "id": "C16",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C16] -q",
+      "reason": null
+    },
+    {
+      "id": "C17",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C17] -q",
+      "reason": null
+    },
+    {
+      "id": "C18",
+      "expected": "exit 2",
+      "actual": "exit 2",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C18] -q",
+      "reason": null
+    },
+    {
+      "id": "C19",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C19] -q",
+      "reason": null
+    },
+    {
+      "id": "C20",
+      "expected": "exit 6",
+      "actual": "exit 6",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C20] -q",
+      "reason": null
+    },
+    {
+      "id": "C21",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C21] -q",
+      "reason": null
+    },
+    {
+      "id": "C22",
+      "expected": "exit 7",
+      "actual": "exit 7",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C22] -q",
+      "reason": null
+    },
+    {
+      "id": "C23",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C23] -q",
+      "reason": null
+    },
+    {
+      "id": "C24",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C24] -q",
+      "reason": null
+    },
+    {
+      "id": "C25",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C25] -q",
+      "reason": null
+    },
+    {
+      "id": "C26",
+      "expected": "exit 7",
+      "actual": "exit 7",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C26] -q",
+      "reason": null
+    },
+    {
+      "id": "C27",
+      "expected": "exit 0",
+      "actual": "exit 0",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C27] -q",
+      "reason": null
+    },
+    {
+      "id": "C28",
+      "expected": "exit 3",
+      "actual": "exit 3",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C28] -q",
+      "reason": null
+    },
+    {
+      "id": "C30",
+      "expected": "exit 7",
+      "actual": "exit 7",
+      "boundary": "CLI main; local double imports; historical engine binding and current replay",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C30] -q",
+      "reason": null
+    },
+    {
+      "id": "C29",
+      "expected": "100 identical 81-byte builds",
+      "actual": "100 identical 81-byte builds",
+      "boundary": "production composer x100",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C29] -q",
+      "reason": null
+    },
+    {
+      "id": "N-half-adder-current-freshness-claim.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-half-adder-different-output-order.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-half-adder-equivalent.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-half-adder-unknown-timeout.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-half-adder-vectors.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-import-manifest.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-invalid-pin-map.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-malformed-request.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-unsupported-version.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "N-wrong-chain.json",
+      "expected": "exact scratch regeneration",
+      "actual": "exact scratch regeneration",
+      "boundary": "independent generator",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_custody_and_neutral_regeneration -q",
+      "reason": null
+    },
+    {
+      "id": "T-verdict",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Recomputed proof does not validate the claimed result."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[verdict] -q",
+      "reason": null
+    },
+    {
+      "id": "T-witness",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "WITNESS_REPLAY_FAILED",
+          "message": "Serialized witness failed independent replay."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[witness] -q",
+      "reason": null
+    },
+    {
+      "id": "T-project",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Report differs from consumer's pinned identities."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[project] -q",
+      "reason": null
+    },
+    {
+      "id": "T-reference",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "IMPLEMENTATION_CHANGED",
+          "message": "Proof binding or execution implementation changed."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[reference] -q",
+      "reason": null
+    },
+    {
+      "id": "T-manifest",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Recomputed proof does not validate the claimed result."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[manifest] -q",
+      "reason": null
+    },
+    {
+      "id": "T-current",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Recomputed proof does not validate the claimed result."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[current] -q",
+      "reason": null
+    },
+    {
+      "id": "T-engine",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "IMPLEMENTATION_CHANGED",
+          "message": "Proof binding or execution implementation changed."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[engine] -q",
+      "reason": null
+    },
+    {
+      "id": "T-different-project",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Report differs from consumer's pinned identities."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[different-project] -q",
+      "reason": null
+    },
+    {
+      "id": "T-corrupt",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Invalid evidence format or checksum."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[corrupt] -q",
+      "reason": null
+    },
+    {
+      "id": "T-closure",
+      "expected": "reject without proof",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Invalid M3 request; source widths/maps must be explicit."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "HTTP -> product -> trusted consumer",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_bundle_attacks[closure] -q",
+      "reason": null
+    },
+    {
+      "id": "S-concurrency",
+      "expected": "429 RESOURCE_LIMIT",
+      "actual": {
+        "error": {
+          "code": "RESOURCE_LIMIT",
+          "message": "Local execution concurrency exceeded."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "real shared semaphore",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_concurrency_closed -q",
+      "reason": null
+    },
+    {
+      "id": "P02",
+      "expected": "EQUIVALENT historical JSON evidence",
+      "actual": "EQUIVALENT",
+      "boundary": "M4 JSON format replaces planned ZIP; caller pins project",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_planned_product_cases[export] -q",
+      "reason": null
+    },
+    {
+      "id": "P03",
+      "expected": "EQUIVALENT historical JSON evidence",
+      "actual": "EQUIVALENT",
+      "boundary": "M4 JSON format replaces planned ZIP; caller pins project",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_planned_product_cases[verify-bundle] -q",
+      "reason": null
+    },
+    {
+      "id": "P04",
+      "expected": "explicit historical sample",
+      "actual": "emitted sample",
+      "boundary": "CLI requires explicit variant",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_planned_sample -q",
+      "reason": null
+    },
+    {
+      "id": "P01",
+      "expected": "strict historical burn decode",
+      "actual": "STRUCTURALLY_ACCEPTED at recorded block 76234348",
+      "boundary": "archived M4-A observation; no fresh RPC",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_historical_preflight_fixture -q",
+      "reason": null
+    },
+    {
+      "id": "E03",
+      "expected": "structured rejection",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Invalid M3 request; source widths/maps must be explicit."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "actual composer API boundary",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E03-<lambda>] -q",
+      "reason": null
+    },
+    {
+      "id": "E07",
+      "expected": "structured rejection",
+      "actual": {
+        "error": {
+          "code": "RESOURCE_LIMIT",
+          "message": "Declared expanded gate/state budget exceeded."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "actual composer API boundary",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E07-<lambda>] -q",
+      "reason": null
+    },
+    {
+      "id": "E08",
+      "expected": "structured rejection",
+      "actual": {
+        "error": {
+          "code": "INVALID_INPUT",
+          "message": "Invalid M3 request; source widths/maps must be explicit."
+        },
+        "schemaVersion": "1.0.0"
+      },
+      "boundary": "actual composer API boundary",
+      "status": "PASS",
+      "command": "python -m pytest packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E08-<lambda>] -q",
+      "reason": null
+    },
+    {
+      "id": "J01",
+      "expected": "First-time sample-project walkthrough",
+      "actual": {
+        "python": [
+          "test_product_roundtrip[half-adder-0]",
+          "test_product_roundtrip[swapped-1]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_product_roundtrip[half-adder-0]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_product_roundtrip[swapped-1]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J02",
+      "expected": "Live X Layer circuit import",
+      "actual": {
+        "python": [
+          "test_independent_cli[C27]",
+          "test_independent_cli[C28]"
+        ],
+        "chromium": [
+          "keyboard and narrow screen, import, inspect, add source and revalidate"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C27]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C28]\" -q",
+        "npm test -- --grep \"keyboard and narrow screen, import, inspect, add source and revalidate\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J03",
+      "expected": "Offline / historical fixture selection",
+      "actual": {
+        "python": [
+          "test_independent_cli[C08]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C08]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J04",
+      "expected": "Two-circuit composition",
+      "actual": {
+        "python": [
+          "test_independent_cli[C03]"
+        ],
+        "chromium": [
+          "keyboard and narrow screen, import, inspect, add source and revalidate"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C03]\" -q",
+        "npm test -- --grep \"keyboard and narrow screen, import, inspect, add source and revalidate\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J05",
+      "expected": "Deterministic half-adder build",
+      "actual": {
+        "python": [
+          "test_independent_cli[C29]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C29]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J06",
+      "expected": "Equivalent refactor",
+      "actual": {
+        "python": [
+          "test_C04_pages_large_ranges_and_dedup",
+          "test_independent_cli[C04]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C04_pages_large_ranges_and_dedup\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C04]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J07",
+      "expected": "Differing wiring with counterexample",
+      "actual": {
+        "python": [
+          "test_C05_outage_retains_snapshot_and_overlay",
+          "test_independent_cli[C05]",
+          "test_independent_cli[C26]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C05_outage_retains_snapshot_and_overlay\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C05]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C26]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J08",
+      "expected": "Unknown result from timeout",
+      "actual": {
+        "python": [
+          "test_C06_rate_limits_retry_budget",
+          "test_independent_cli[C06]"
+        ],
+        "chromium": [
+          "B07 timeout recovery and B08 repeated runs"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C06_rate_limits_retry_budget\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C06]\" -q",
+        "npm test -- --grep \"B07 timeout recovery and B08 repeated runs\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J09",
+      "expected": "Changed dependency manifest",
+      "actual": {
+        "python": [
+          "test_independent_cli[C30]",
+          "test_chain_change_downgrades_export_and_replay"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C30]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_chain_change_downgrades_export_and_replay\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J10",
+      "expected": "Failed RPC import",
+      "actual": {
+        "python": [
+          "test_independent_cli[C14]"
+        ],
+        "chromium": [
+          "B02 focus recovery and B06 error state"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C14]\" -q",
+        "npm test -- --grep \"B02 focus recovery and B06 error state\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J11",
+      "expected": "Invalid pin mapping",
+      "actual": {
+        "python": [
+          "test_C12_metadata_rejects_authority_and_removes_controls",
+          "test_independent_cli[C12]"
+        ],
+        "chromium": [
+          "B04 result announcement, mappings, and semantic differences"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C12_metadata_rejects_authority_and_removes_controls\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C12]\" -q",
+        "npm test -- --grep \"B04 result announcement, mappings, and semantic differences\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J12",
+      "expected": "Evidence export and re-import",
+      "actual": {
+        "python": [
+          "test_product_roundtrip[half-adder-0]",
+          "test_product_roundtrip[swapped-1]"
+        ],
+        "chromium": [
+          "historical sample, swapped outputs, repair, CLI parity and evidence replay"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_product_roundtrip[half-adder-0]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_product_roundtrip[swapped-1]\" -q",
+        "npm test -- --grep \"historical sample, swapped outputs, repair, CLI parity and evidence replay\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "J13",
+      "expected": "Read-only structural pre-flight",
+      "actual": {
+        "python": [
+          "test_historical_preflight_fixture",
+          "test_preflight_transport[burn-STRUCTURALLY_ACCEPTED-None]",
+          "test_preflight_transport[structural-REJECTED-STRUCTURAL_REJECTION]",
+          "test_preflight_transport[empty-UNKNOWN-UNRECOGNIZED_REVERT]",
+          "test_preflight_transport[success-UNKNOWN-UNRECOGNIZED_REVERT]",
+          "test_preflight_transport[rpc-UNKNOWN-RPC_UNAVAILABLE]",
+          "test_preflight_transport[stale-UNKNOWN-IMPLEMENTATION_CHANGED]",
+          "test_preflight_transport[chain-UNKNOWN-WRONG_CHAIN]",
+          "test_preflight_transport[implementation-UNKNOWN-IMPLEMENTATION_CHANGED]",
+          "test_preflight_transport[reorg-UNKNOWN-IMPLEMENTATION_CHANGED]"
+        ],
+        "chromium": [
+          "B11 preflight separates three structural outcomes"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_historical_preflight_fixture\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[burn-STRUCTURALLY_ACCEPTED-None]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[structural-REJECTED-STRUCTURAL_REJECTION]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[empty-UNKNOWN-UNRECOGNIZED_REVERT]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[success-UNKNOWN-UNRECOGNIZED_REVERT]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[rpc-UNKNOWN-RPC_UNAVAILABLE]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[stale-UNKNOWN-IMPLEMENTATION_CHANGED]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[chain-UNKNOWN-WRONG_CHAIN]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[implementation-UNKNOWN-IMPLEMENTATION_CHANGED]\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[reorg-UNKNOWN-IMPLEMENTATION_CHANGED]\" -q",
+        "npm test -- --grep \"B11 preflight separates three structural outcomes\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E01",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_C11_favorite_survives_stale_eviction_and_roundtrip",
+          "test_independent_cli[C11]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C11_favorite_survives_stale_eviction_and_roundtrip\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C11]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E02",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_independent_cli[C28]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C28]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E03",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_error_requests[E03-<lambda>]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E03-<lambda>]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E04",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_chain_change_downgrades_export_and_replay"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_chain_change_downgrades_export_and_replay\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E05",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_independent_cli[C30]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C30]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E06",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_C06_rate_limits_retry_budget",
+          "test_independent_cli[C06]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C06_rate_limits_retry_budget\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C06]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E07",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_error_requests[E07-<lambda>]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E07-<lambda>]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E08",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_error_requests[E08-<lambda>]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_error_requests[E08-<lambda>]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E09",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_C05_outage_retains_snapshot_and_overlay",
+          "test_independent_cli[C05]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m45_library.py::test_C05_outage_retains_snapshot_and_overlay\" -q",
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C05]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E10",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_independent_cli[C14]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C14]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E11",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_preflight_transport[structural-REJECTED-STRUCTURAL_REJECTION]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[structural-REJECTED-STRUCTURAL_REJECTION]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "E12",
+      "expected": "Error scenario exercised at product boundary",
+      "actual": {
+        "python": [
+          "test_preflight_transport[empty-UNKNOWN-UNRECOGNIZED_REVERT]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_workflow.py::test_preflight_transport[empty-UNKNOWN-UNRECOGNIZED_REVERT]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B01",
+      "expected": "Chromium accessibility scenario B01",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B01 keyboard-only complete export journey"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B01 keyboard-only complete export journey\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B02",
+      "expected": "Chromium accessibility scenario B02",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B02 focus recovery and B06 error state"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B02 focus recovery and B06 error state\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B03",
+      "expected": "Chromium accessibility scenario B03",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B03 accessible labels and B05 responsive axe audit"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B03 accessible labels and B05 responsive axe audit\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B04",
+      "expected": "Chromium accessibility scenario B04",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B04 result announcement, mappings, and semantic differences"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B04 result announcement, mappings, and semantic differences\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B05",
+      "expected": "Chromium accessibility scenario B05",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B03 accessible labels and B05 responsive axe audit"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B03 accessible labels and B05 responsive axe audit\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B06",
+      "expected": "Chromium accessibility scenario B06",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B02 focus recovery and B06 error state"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B02 focus recovery and B06 error state\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B07",
+      "expected": "Chromium accessibility scenario B07",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B07 timeout recovery and B08 repeated runs"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B07 timeout recovery and B08 repeated runs\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B08",
+      "expected": "Chromium accessibility scenario B08",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B07 timeout recovery and B08 repeated runs"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B07 timeout recovery and B08 repeated runs\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B09",
+      "expected": "Chromium accessibility scenario B09",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B09 refresh recovery, confirmed reset and storage failure"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B09 refresh recovery, confirmed reset and storage failure\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B10",
+      "expected": "Chromium accessibility scenario B10",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B10 download name and replay is covered by workflow suite"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B10 download name and replay is covered by workflow suite\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "B11",
+      "expected": "Chromium accessibility scenario B11",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B11 preflight separates three structural outcomes"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B11 preflight separates three structural outcomes\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "P05",
+      "expected": "Controlled RPC import, chain check and pinned single-RPC observation",
+      "actual": {
+        "python": [
+          "test_independent_cli[C27]"
+        ],
+        "chromium": []
+      },
+      "status": "PASS",
+      "command": [
+        "python -m pytest \"packages/flip-core/tests/test_m4_acceptance.py::test_independent_cli[C27]\" -q"
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "P06",
+      "expected": "Chromium application acceptance",
+      "actual": {
+        "python": [],
+        "chromium": [
+          "B01 keyboard-only complete export journey",
+          "B03 accessible labels and B05 responsive axe audit",
+          "B11 preflight separates three structural outcomes"
+        ]
+      },
+      "status": "PASS",
+      "command": [
+        "npm test -- --grep \"B01 keyboard-only complete export journey\"",
+        "npm test -- --grep \"B03 accessible labels and B05 responsive axe audit\"",
+        "npm test -- --grep \"B11 preflight separates three structural outcomes\""
+      ],
+      "reason": null,
+      "boundary": "Executed product operations; mappings identify tested portions"
+    },
+    {
+      "id": "MANUAL-SCREEN-READER",
+      "expected": "Auditory screen-reader smoke",
+      "actual": null,
+      "status": "BLOCKED",
+      "command": null,
+      "reason": "No screen-reader session available. Chromium accessibility tree, live region text and axe were exercised.",
+      "boundary": "manual assistive technology"
+    }
+  ],
+  "result": "PASS",
+  "limitations": [
+    "Journey mappings report exercised product paths. M4-B capture/plan metadata remains historical.",
+    "P02/P03 use JSON evidence with independent project pins. ZIP and SHA256SUMS plan is inapplicable.",
+    "P04 uses explicit half-adder variant. P05 uses controlled RPC, not fresh mainnet.",
+    "B04 manual speech output remains unexecuted. All automated checks must pass."
+  ]
+}

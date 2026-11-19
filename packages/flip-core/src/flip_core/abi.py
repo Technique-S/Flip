@@ -10,6 +10,11 @@ BEACON_SLOT = "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5
 # TAP-02 section 6; remaining selectors verified against the inspected audit
 # Keccak-256 helper. No SHA3-256 substitution and no dynamic ABI/RPC proxy.
 SELECTORS = {
+    "cpuCount": "a94da8a7",
+    "cpuAt": "4bc7cbbd",
+    "ownerOf": "6352211e",
+    "name": "06fdde03",
+    "symbol": "95d89b41",
     "nextId": "61b8ce8c",
     "circuitInfo": "084d60f1",
     "netlist": "3fc4be56",

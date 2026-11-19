@@ -1,0 +1,696 @@
+{
+  "codeCommit": "a184d776c896476be77f518b87885529a4038539",
+  "fullLocal": {
+    "startedAtCommit": "9629391e419a996f40a76e313373f9a56320eef4",
+    "tests": 543,
+    "failures": 0,
+    "skipped": 0,
+    "sourceSha256": "dd2e315a07701bb6eb9716b59770cbc99a7633638efc64f35d0e9a071e785d28"
+  },
+  "focusedFinal": {
+    "tests": 59,
+    "failures": 0,
+    "skipped": 0,
+    "sourceSha256": "8967db911c79dcff25df5ad8b9513ca0db471f6bb2d033892525dd3b8f55ec7c"
+  },
+  "chromiumFinal": {
+    "startTime": "2026-11-19T09:52:33.079Z",
+    "duration": 115144.64,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "platformCI": {
+    "run": {
+      "conclusion": "success",
+      "headSha": "a184d776c896476be77f518b87885529a4038539",
+      "jobs": [
+        {
+          "completedAt": "2026-11-19T10:00:50Z",
+          "conclusion": "success",
+          "databaseId": 135477213381,
+          "name": "contracts (ubuntu-latest)",
+          "startedAt": "2026-11-19T09:50:24Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-19T09:50:27Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-19T09:50:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:29Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "number": 2,
+              "startedAt": "2026-11-19T09:50:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:36Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+              "number": 3,
+              "startedAt": "2026-11-19T09:50:29Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:40Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "number": 4,
+              "startedAt": "2026-11-19T09:50:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:41Z",
+              "conclusion": "success",
+              "name": "Run python -m pip install uv==0.9.11",
+              "number": 5,
+              "startedAt": "2026-11-19T09:50:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:42Z",
+              "conclusion": "success",
+              "name": "Run uv sync --locked",
+              "number": 6,
+              "startedAt": "2026-11-19T09:50:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:44Z",
+              "conclusion": "success",
+              "name": "Run npm ci",
+              "number": 7,
+              "startedAt": "2026-11-19T09:50:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:44Z",
+              "conclusion": "success",
+              "name": "Run npm run lint",
+              "number": 8,
+              "startedAt": "2026-11-19T09:50:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:44Z",
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 9,
+              "startedAt": "2026-11-19T09:50:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:26Z",
+              "conclusion": "success",
+              "name": "Run npx playwright install --with-deps chromium",
+              "number": 10,
+              "startedAt": "2026-11-19T09:50:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:50Z",
+              "conclusion": "success",
+              "name": "Run npm test",
+              "number": 11,
+              "startedAt": "2026-11-19T09:59:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:50Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff check .",
+              "number": 12,
+              "startedAt": "2026-11-19T09:59:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:50Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff format --check .",
+              "number": 13,
+              "startedAt": "2026-11-19T09:59:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:50Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen flip-schemas --out docs/schema/1.0.0 --check",
+              "number": 14,
+              "startedAt": "2026-11-19T09:59:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:50Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check",
+              "number": 15,
+              "startedAt": "2026-11-19T09:59:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:51Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.verification_schema_export --out docs/schema/m3/1.0.0 --check",
+              "number": 16,
+              "startedAt": "2026-11-19T09:59:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:51Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.library_schema_export --out docs/schema/m45-library/1.0.0 --check",
+              "number": 17,
+              "startedAt": "2026-11-19T09:59:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:51Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.library_schema_export --version 1.1.0 --out docs/schema/m45-library/1.1.0 --check",
+              "number": 18,
+              "startedAt": "2026-11-19T09:59:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:59:51Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python fixtures/m45-library-discovery/generators/verify_fixtures.py",
+              "number": 19,
+              "startedAt": "2026-11-19T09:59:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:36Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen pytest -q --junitxml=\"/home/runner/work/_temp/m3-tests.xml\" -o junit_family=legacy",
+              "number": 20,
+              "startedAt": "2026-11-19T09:59:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:36Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/report_m3_acceptance.py --junit \"/home/runner/work/_temp/m3-tests.xml\" --out \"/home/runner/work/_temp/m3-acceptance.json\"",
+              "number": 21,
+              "startedAt": "2026-11-19T10:00:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:36Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/report_m4_acceptance.py --junit \"/home/runner/work/_temp/m3-tests.xml\" --browser .test-tmp/m4-browser.json --out \"/home/runner/work/_temp/m4-acceptance.json\"",
+              "number": 22,
+              "startedAt": "2026-11-19T10:00:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:36Z",
+              "conclusion": "success",
+              "name": "Run node docs/schema/check-canonical.mjs",
+              "number": 23,
+              "startedAt": "2026-11-19T10:00:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:38Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/check_m1_repository.py --require-clean",
+              "number": 24,
+              "startedAt": "2026-11-19T10:00:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:39Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/smoke_m1.py",
+              "number": 25,
+              "startedAt": "2026-11-19T10:00:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:40Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/smoke_m3.py",
+              "number": 26,
+              "startedAt": "2026-11-19T10:00:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:45Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/benchmark_m3.py --out \"/home/runner/work/_temp/m3-benchmark.json\"",
+              "number": 27,
+              "startedAt": "2026-11-19T10:00:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:46Z",
+              "conclusion": "success",
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "number": 28,
+              "startedAt": "2026-11-19T10:00:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:46Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "number": 54,
+              "startedAt": "2026-11-19T10:00:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:46Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+              "number": 55,
+              "startedAt": "2026-11-19T10:00:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:46Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "number": 56,
+              "startedAt": "2026-11-19T10:00:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T10:00:46Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 57,
+              "startedAt": "2026-11-19T10:00:46Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/Technique-S/Flip/actions/runs/44500076045/job/135477213381"
+        },
+        {
+          "completedAt": "2026-11-19T09:58:45Z",
+          "conclusion": "success",
+          "databaseId": 135477213997,
+          "name": "contracts (windows-latest)",
+          "startedAt": "2026-11-19T09:50:24Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-19T09:50:27Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-19T09:50:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:50:32Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "number": 2,
+              "startedAt": "2026-11-19T09:50:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:16Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+              "number": 3,
+              "startedAt": "2026-11-19T09:50:32Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:25Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "number": 4,
+              "startedAt": "2026-11-19T09:51:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:28Z",
+              "conclusion": "success",
+              "name": "Run python -m pip install uv==0.9.11",
+              "number": 5,
+              "startedAt": "2026-11-19T09:51:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:34Z",
+              "conclusion": "success",
+              "name": "Run uv sync --locked",
+              "number": 6,
+              "startedAt": "2026-11-19T09:51:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:39Z",
+              "conclusion": "success",
+              "name": "Run npm ci",
+              "number": 7,
+              "startedAt": "2026-11-19T09:51:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:40Z",
+              "conclusion": "success",
+              "name": "Run npm run lint",
+              "number": 8,
+              "startedAt": "2026-11-19T09:51:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:51:41Z",
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 9,
+              "startedAt": "2026-11-19T09:51:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:54:52Z",
+              "conclusion": "success",
+              "name": "Run npx playwright install --with-deps chromium",
+              "number": 10,
+              "startedAt": "2026-11-19T09:51:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:24Z",
+              "conclusion": "success",
+              "name": "Run npm test",
+              "number": 11,
+              "startedAt": "2026-11-19T09:54:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:25Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff check .",
+              "number": 12,
+              "startedAt": "2026-11-19T09:55:24Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:26Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff format --check .",
+              "number": 13,
+              "startedAt": "2026-11-19T09:55:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:26Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen flip-schemas --out docs/schema/1.0.0 --check",
+              "number": 14,
+              "startedAt": "2026-11-19T09:55:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:27Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check",
+              "number": 15,
+              "startedAt": "2026-11-19T09:55:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:28Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.verification_schema_export --out docs/schema/m3/1.0.0 --check",
+              "number": 16,
+              "startedAt": "2026-11-19T09:55:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:29Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.library_schema_export --out docs/schema/m45-library/1.0.0 --check",
+              "number": 17,
+              "startedAt": "2026-11-19T09:55:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:29Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python -m flip_core.library_schema_export --version 1.1.0 --out docs/schema/m45-library/1.1.0 --check",
+              "number": 18,
+              "startedAt": "2026-11-19T09:55:29Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:55:30Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python fixtures/m45-library-discovery/generators/verify_fixtures.py",
+              "number": 19,
+              "startedAt": "2026-11-19T09:55:29Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:57:40Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen pytest -q --junitxml=\"D:\\a\\_temp/m3-tests.xml\" -o junit_family=legacy",
+              "number": 20,
+              "startedAt": "2026-11-19T09:55:30Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:57:41Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/report_m3_acceptance.py --junit \"D:\\a\\_temp/m3-tests.xml\" --out \"D:\\a\\_temp/m3-acceptance.json\"",
+              "number": 21,
+              "startedAt": "2026-11-19T09:57:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:57:42Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/report_m4_acceptance.py --junit \"D:\\a\\_temp/m3-tests.xml\" --browser .test-tmp/m4-browser.json --out \"D:\\a\\_temp/m4-acceptance.json\"",
+              "number": 22,
+              "startedAt": "2026-11-19T09:57:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:57:42Z",
+              "conclusion": "success",
+              "name": "Run node docs/schema/check-canonical.mjs",
+              "number": 23,
+              "startedAt": "2026-11-19T09:57:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:26Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/check_m1_repository.py --require-clean",
+              "number": 24,
+              "startedAt": "2026-11-19T09:57:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:28Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/smoke_m1.py",
+              "number": 25,
+              "startedAt": "2026-11-19T09:58:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:31Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/smoke_m3.py",
+              "number": 26,
+              "startedAt": "2026-11-19T09:58:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:38Z",
+              "conclusion": "success",
+              "name": "Run uv run --frozen python scripts/benchmark_m3.py --out \"D:\\a\\_temp/m3-benchmark.json\"",
+              "number": 27,
+              "startedAt": "2026-11-19T09:58:31Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:40Z",
+              "conclusion": "success",
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "number": 28,
+              "startedAt": "2026-11-19T09:58:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:40Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+              "number": 54,
+              "startedAt": "2026-11-19T09:58:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:40Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+              "number": 55,
+              "startedAt": "2026-11-19T09:58:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:42Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "number": 56,
+              "startedAt": "2026-11-19T09:58:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-19T09:58:42Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 57,
+              "startedAt": "2026-11-19T09:58:42Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/Technique-S/Flip/actions/runs/44500076045/job/135477213997"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/Technique-S/Flip/actions/runs/44500076045"
+    },
+    "artifacts": [
+      {
+        "platform": "m3-benchmark-ubuntu-latest",
+        "tests": 543,
+        "failures": 0,
+        "skipped": 0,
+        "sourceSha256": "e1daf163fa19e0d30df9fa2f347bc3fbf6c2b2fd976578be97fea455f91e8448",
+        "reports": {
+          "m3-acceptance.json": "PASS",
+          "m4-acceptance.json": "PASS"
+        }
+      },
+      {
+        "platform": "m3-benchmark-windows-latest",
+        "tests": 543,
+        "failures": 0,
+        "skipped": 0,
+        "sourceSha256": "8313f2b79645f7f1efd2250cadfc220ed1583474cf183a38c9af8a2b72aa3d4f",
+        "reports": {
+          "m3-acceptance.json": "PASS",
+          "m4-acceptance.json": "PASS"
+        }
+      }
+    ]
+  },
+  "custodyFinal": {
+    "scope": "M1 offline repository consistency; not chain verification or solver replay",
+    "seed": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+    "core": "6dc21e0b97ffe03273a62ea1e9499e6346244d32",
+    "fixtures": "e4de86ef8870fb9b85adf94ace400791a479f985",
+    "raw_files": 12,
+    "registered_blob_checks": [
+      {
+        "path": "docs/evidence/raw/M0/xlayer_circuits.json",
+        "bytes": 18711,
+        "sha256": "a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30"
+      },
+      {
+        "path": "docs/evidence/raw/M0/vectors.json",
+        "bytes": 22185,
+        "sha256": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+      },
+      {
+        "path": "docs/evidence/raw/M0/composition_poc.json",
+        "bytes": 3415,
+        "sha256": "8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0"
+      },
+      {
+        "path": "docs/evidence/raw/M0/wiring_canary.json",
+        "bytes": 7224,
+        "sha256": "7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_compose_rerun.json",
+        "bytes": 6836,
+        "sha256": "9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_probe.json",
+        "bytes": 3188,
+        "sha256": "53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_a_probe2.json",
+        "bytes": 1325,
+        "sha256": "ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_b_manifest.json",
+        "bytes": 4895,
+        "sha256": "1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_b_negative.json",
+        "bytes": 2932,
+        "sha256": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_scale.json",
+        "bytes": 36860,
+        "sha256": "3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_scale_partial.json",
+        "bytes": 32210,
+        "sha256": "51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a"
+      },
+      {
+        "path": "docs/evidence/raw/M05/gate_c_stateful.json",
+        "bytes": 3137,
+        "sha256": "57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264"
+      },
+      {
+        "path": "docs/evidence/derived/recompute_checks.py",
+        "bytes": 5249,
+        "sha256": "a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a"
+      },
+      {
+        "path": "docs/evidence/derived/recomputed_checks.json",
+        "bytes": 2754,
+        "sha256": "6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499"
+      }
+    ],
+    "tracked_files_scanned": 574,
+    "credential_pattern_findings": 0,
+    "registered_browser_captures": [
+      "docs/milestones/m45-library-browser/desktop.png",
+      "docs/milestones/m45-library-browser/mobile.png"
+    ],
+    "provenance_limit": "Audited originals unavailable; imported observations are historical.",
+    "result": "PASS"
+  },
+  "checks": {
+    "pythonLintFormat": "PASS",
+    "frontendLintBuild": "PASS",
+    "schemasM1M2M3Library10Library11": "PASS",
+    "canonicalNodeVectors": 6,
+    "researchManifestFiles": 19,
+    "independentReviewManifestFiles": 15,
+    "M3CliApiSmoke": "PASS",
+    "M1Smoke": {
+      "initialConcurrentAttempt": "ASGI startup failed",
+      "unchangedSerialRerun": "PASS",
+      "cause": "UNKNOWN",
+      "timeoutChanged": false
+    }
+  },
+  "sourceChangesAfterFullLocal": "Only legacy omitted-wire-version default and truthful service union annotations; covered by final focused tests and both full CI jobs.",
+  "result": "PASS_FOR_INDEPENDENT_DELTA_REVIEW"
+}

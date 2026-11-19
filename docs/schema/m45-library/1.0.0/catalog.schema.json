@@ -1,0 +1,477 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "CodeIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Address",
+          "type": "string"
+        },
+        "codeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Codehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "codeHash"
+      ],
+      "title": "CodeIdentity",
+      "type": "object"
+    },
+    "Environment": {
+      "additionalProperties": false,
+      "properties": {
+        "beacon": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "beaconImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factory": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementationSlot": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Factoryimplementationslot",
+          "type": "string"
+        },
+        "factorySealed": {
+          "title": "Factorysealed",
+          "type": "boolean"
+        },
+        "processorCodeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Processorcodehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory",
+        "factoryImplementationSlot",
+        "factoryImplementation",
+        "factorySealed",
+        "beacon",
+        "beaconImplementation",
+        "processorCodeHash"
+      ],
+      "title": "Environment",
+      "type": "object"
+    },
+    "Favorite": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Description",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Label",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "maxLength": 256,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "title": "Favorite",
+      "type": "object"
+    },
+    "LibraryIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "default": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Circuitid"
+        },
+        "factory": {
+          "const": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "default": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "title": "Factory",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "processor"
+      ],
+      "title": "LibraryIdentity",
+      "type": "object"
+    },
+    "LibraryRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "dependencyHashes": {
+          "default": [],
+          "items": {
+            "pattern": "^0x[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 1251,
+          "title": "Dependencyhashes",
+          "type": "array"
+        },
+        "environment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Environment"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "environmentDigest": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Environmentdigest"
+        },
+        "existence": {
+          "default": "SEED_HINT",
+          "enum": [
+            "OWNER_OF",
+            "SEED_HINT",
+            "IMPORTED",
+            "USER_POINTER",
+            "REGISTERED_PROCESSOR"
+          ],
+          "title": "Existence",
+          "type": "string"
+        },
+        "freshness": {
+          "default": "UNKNOWN",
+          "enum": [
+            "HISTORICAL",
+            "STALE",
+            "UNKNOWN",
+            "REORGED",
+            "VERIFICATION_FAILED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        },
+        "gateCount": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gatecount"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "manifestHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manifesthash"
+        },
+        "metadataTrust": {
+          "const": "ONCHAIN_DISPLAY_ONLY",
+          "default": "ONCHAIN_DISPLAY_ONLY",
+          "title": "Metadatatrust",
+          "type": "string"
+        },
+        "nIn": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nin"
+        },
+        "nOut": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nout"
+        },
+        "nState": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nstate"
+        },
+        "netlistHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Netlisthash"
+        },
+        "nextId": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nextid"
+        },
+        "onchainName": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Onchainname",
+          "type": "string"
+        },
+        "onchainSymbol": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Onchainsymbol",
+          "type": "string"
+        },
+        "processorNumber": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Processornumber"
+        },
+        "sources": {
+          "items": {
+            "enum": [
+              "FACTORY_ENUMERATION",
+              "KNOWN_SEED",
+              "USER_IMPORT",
+              "USER_FAVORITE_ONLY"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "identity",
+        "sources"
+      ],
+      "title": "LibraryRecord",
+      "type": "object"
+    },
+    "Overlay": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Favorite"
+          },
+          "maxItems": 256,
+          "title": "Aliases",
+          "type": "array"
+        },
+        "favorites": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Favorite"
+          },
+          "maxItems": 256,
+          "title": "Favorites",
+          "type": "array"
+        },
+        "recents": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Recent"
+          },
+          "maxItems": 30,
+          "title": "Recents",
+          "type": "array"
+        }
+      },
+      "title": "Overlay",
+      "type": "object"
+    },
+    "Recent": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "manifestHash",
+        "block"
+      ],
+      "title": "Recent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "LIBRARY_CATALOG",
+      "default": "LIBRARY_CATALOG",
+      "title": "Kind",
+      "type": "string"
+    },
+    "overlay": {
+      "$ref": "#/$defs/Overlay"
+    },
+    "records": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/LibraryRecord"
+      },
+      "maxItems": 1000,
+      "title": "Records",
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "m45-library-1.0.0",
+      "default": "m45-library-1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    }
+  },
+  "title": "Catalog",
+  "type": "object"
+}

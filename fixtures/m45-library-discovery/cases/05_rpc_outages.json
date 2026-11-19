@@ -1,0 +1,74 @@
+{
+  "assertions": [
+    "Timeout is never silently converted to 'processor absent'.",
+    "Outage does not delete favorites, recents, or the last verified snapshot."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C05",
+  "chainId": 196,
+  "description": "eth_call times out mid-scan; discovery stops with UNKNOWN and retains prior snapshot.",
+  "expected": {
+    "discoveryStatus": "UNKNOWN",
+    "favoritesUnchanged": true,
+    "partialResultsLabeled": "INCOMPLETE",
+    "retainPriorSnapshot": true,
+    "retryPolicy": "bounded_backoff_then_stop"
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000003"
+      },
+      "selector": "0xa94da8a7",
+      "seq": 1,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        0
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000001111111111111111111111111111111111111111"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 2,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "error": "transport: TimeoutError after 15s"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 3,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    },
+    {
+      "args": [
+        2
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "error": "transport: TimeoutError after 15s"
+      },
+      "selector": "0x4bc7cbbd",
+      "seq": 4,
+      "to": "0x1f09daefa827f02cbb40967cc91b259763760761"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "RPC outage during discovery"
+}

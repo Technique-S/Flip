@@ -1,0 +1,112 @@
+{
+  "testedSha": "786cbca056c6cd61ca0e7a5b61ddbc772a55a800",
+  "apiHealthy": true,
+  "steps": [
+    {
+      "name": "statusLanguage",
+      "value": [
+        "COMPLETE · 0/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "initialList",
+      "value": [
+        "Processor address0x839bdd6fa7a66416a609a735e11de5411b98574eUNKNOWN · KNOWN_SEED",
+        "Processor address0x0565ea48ca41ae559d8d491dbb0a9ec945db551bUNKNOWN · KNOWN_SEED"
+      ]
+    },
+    {
+      "name": "keyboardFocusReachedLibrary",
+      "value": true
+    },
+    {
+      "name": "keyboardEnterOpenedLibrary",
+      "value": true
+    },
+    {
+      "name": "discoveryStatus",
+      "value": [
+        "COMPLETE · 21/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "addressSearchCount",
+      "value": 1
+    },
+    {
+      "name": "idSearchCount",
+      "value": 2
+    },
+    {
+      "name": "inspectorText",
+      "value": "Processor detailsProcessor0x0565ea48ca41ae559d8d491dbb0a9ec945db551bFreshnessUNKNOWN · Revalidation required for useObservation block / hash76277110 / 0x1941877104961218ad35b6650582da1bf23fdd4628105cc984e731bb6b7910dcMetadata provenanceONCHAIN_DISPLAY_ONLYOnchain display onlyNo name available Numeric interfaceImport to inspectEnvironment digestUnverified seed hintNetlist hashNot importedDependency hashesNone observedAdd favoriteBrowse circuitsLocal display aliasSave alias"
+    },
+    {
+      "name": "favoriteAdded",
+      "value": true
+    },
+    {
+      "name": "corruptStorageAlert",
+      "value": []
+    },
+    {
+      "name": "corruptStorageListCount",
+      "value": 2
+    },
+    {
+      "name": "corruptStorageStatus",
+      "value": [
+        "Saved library is invalid or unsupported. Known addresses loaded; original saved data retained for recovery.",
+        "COMPLETE · 0/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "F01RecoveryCopy",
+      "value": false
+    },
+    {
+      "name": "F01RecoveredRows",
+      "value": [
+        "Processor address0x839bdd6fa7a66416a609a735e11de5411b98574eUNKNOWN · KNOWN_SEED",
+        "Processor address0x0565ea48ca41ae559d8d491dbb0a9ec945db551bUNKNOWN · KNOWN_SEED"
+      ]
+    },
+    {
+      "name": "F02Inspector",
+      "value": "Circuit #77Processor0x7777777777777777777777777777777777777777FreshnessUNKNOWN · Revalidation required for useObservation block / hashNo chain observationMetadata provenanceUSER_SUPPLIEDUser pointerNo onchain metadata observedNumeric interfaceImport to inspectEnvironment digestNo onchain environment observedNetlist hashNot importedDependency hashesNone observedRemove favoriteBrowse circuitsLocal display aliasSave aliasRevalidate circuitImport into composition"
+    },
+    {
+      "name": "F02Rows",
+      "value": [
+        "Circuit #770x7777777777777777777777777777777777777777UNKNOWN · USER_FAVORITE_ONLY"
+      ]
+    },
+    {
+      "name": "fallbackText",
+      "value": [
+        "Enumeration unavailable. Known-address hints and saved favorites remain selectable. Retry discovery or revalidate a circuit."
+      ]
+    },
+    {
+      "name": "fallbackStatus",
+      "value": [
+        "UNKNOWN · RPC_UNAVAILABLE · 21/256 RPC reads",
+        ""
+      ]
+    },
+    {
+      "name": "fallbackListSample",
+      "value": [
+        "Processor address0x0565ea48ca41ae559d8d491dbb0a9ec945db551bSTALE · KNOWN_SEED",
+        "Processor 00x839bdd6fa7a66416a609a735e11de5411b98574eSTALE · FACTORY_ENUMERATION, KNOWN_SEED"
+      ]
+    },
+    {
+      "name": "narrowOverflow",
+      "value": true
+    }
+  ]
+}

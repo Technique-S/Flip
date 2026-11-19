@@ -48,12 +48,14 @@ class ImportService:
         budget: ImportBudget | None = None,
         transport=None,
         cache=None,
+        aborted=None,
     ):
         self.settings = settings or RpcSettings()
         self.budget = ImportBudget.model_validate(
             (budget or ImportBudget()).model_dump(mode="json")
         )
         self.transport = transport
+        self.aborted = aborted or (lambda: False)
         self.cache = cache if cache is not None else ContentCache()
 
     def revalidate(self, manifest: Manifest):
@@ -77,6 +79,7 @@ class ImportService:
         if block_number is not None:
             TypeAdapter(Quantity).validate_python(block_number)
         with RpcClient(self.settings, self.budget, self.transport) as rpc:
+            rpc.aborted = self.aborted
             reader = PinnedReader(rpc, self.budget, block_number)
             resolved = reader.resolve(identity, (), 0)
             prior_canonical = (

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Comparison, Verdict } from "./Comparison";
 import { Composer } from "./Composer";
+import { Library } from "./Library";
 import {
 	api,
 	type Built,
@@ -15,12 +16,19 @@ import {
 	source,
 } from "./model";
 
-const pages = ["Sources", "Composition", "Wiring Canary", "Evidence"] as const;
+const pages = [
+	"Sources",
+	"Composition",
+	"Wiring Canary",
+	"Evidence",
+	"Circuit Library",
+] as const;
 const copy = [
 	"Import and inspect circuit sources.",
 	"Connect pins and build a TAP-02 netlist.",
 	"Compare a candidate against its reference.",
 	"Export a run or replay evidence against the open project.",
+	"Find processors, inspect circuit interfaces and reuse verified imports.",
 ];
 function FileInput({
 	label,
@@ -376,7 +384,7 @@ export default function App() {
 							<button
 								type="button"
 								key={name}
-								disabled={!!busy || (!req && i > 0)}
+								disabled={!!busy || (!req && i > 0 && i < 4)}
 								onClick={() => navigate(i)}
 								aria-current={page === i ? "page" : undefined}
 							>
@@ -437,6 +445,25 @@ export default function App() {
 							{origin && <small>{origin}</small>}
 						</div>
 						<p className="intro">{copy[page]}</p>
+						{page === 4 && (
+							<Library
+								onImport={async (item) => {
+									if (item.manifest.root.nState)
+										throw Error(
+											"Stateful circuit inspected. Stateless composition is unavailable.",
+										);
+									const project = await api<Execution>("new-project", {
+										schemaVersion: "m4-1.0.0",
+										kind: "PRODUCT_REQUEST",
+										source: item,
+									});
+									replace(project);
+									setInspected(item);
+									setOrigin("Library import snapshot");
+									go(1);
+								}}
+							/>
+						)}
 						{page === 0 && (
 							<>
 								{!req && (

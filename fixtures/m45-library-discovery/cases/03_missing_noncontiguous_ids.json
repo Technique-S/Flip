@@ -1,0 +1,135 @@
+{
+  "assertions": [
+    "nextId is an exclusive upper bound, not proof that every lower ID exists.",
+    "A reverted existence probe is recorded as MISSING, not as a transport failure."
+  ],
+  "authorityBoundary": "No fixture grants transaction authority. User labels, favorites and discovered records are advisory only; executable status requires fresh trusted-importer validation.",
+  "caseId": "M45-2L-C03",
+  "chainId": 196,
+  "description": "nextId=8 but circuitInfo reverts for IDs 3 and 6; scan must skip, not assume contiguity.",
+  "expected": {
+    "catalogNeverClaims": "contiguous 1..7",
+    "existingIds": [
+      "1",
+      "2",
+      "4",
+      "5",
+      "7"
+    ],
+    "missingIds": [
+      "3",
+      "6"
+    ],
+    "nextId": 8,
+    "scanStatus": "COMPLETE_WITH_GAPS"
+  },
+  "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+  "provenance": "SYNTHETIC",
+  "provenanceNote": "Mocked RPC and catalog outcomes; not a live chain observation.",
+  "rpcScript": [
+    {
+      "args": [],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000008"
+      },
+      "selector": "0x61b8ce8c",
+      "seq": 1,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        1
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000004"
+      },
+      "selector": "0x084d60f1",
+      "seq": 2,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        2
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000003"
+      },
+      "selector": "0x084d60f1",
+      "seq": 3,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        3
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "error": "execution reverted: no circuit"
+      },
+      "selector": "0x084d60f1",
+      "seq": 4,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        4
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000002"
+      },
+      "selector": "0x084d60f1",
+      "seq": 5,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        5
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000002"
+      },
+      "selector": "0x084d60f1",
+      "seq": 6,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        6
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "error": "execution reverted: no circuit"
+      },
+      "selector": "0x084d60f1",
+      "seq": 7,
+      "to": "0x1111111111111111111111111111111111111111"
+    },
+    {
+      "args": [
+        7
+      ],
+      "block": 1000,
+      "method": "eth_call",
+      "response": {
+        "result": "0x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000020x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000005"
+      },
+      "selector": "0x084d60f1",
+      "seq": 8,
+      "to": "0x1111111111111111111111111111111111111111"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "title": "Missing and noncontiguous circuit IDs below nextId"
+}

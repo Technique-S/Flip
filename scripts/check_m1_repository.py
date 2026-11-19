@@ -23,6 +23,8 @@ M2C_REPORT_ONLY_TEST_SHA = "5f6cb596e5e669c4efe64fc270391768645bde6207a8fef4812e
 M2C_TEST_CORRECTION = {"packages/flip-core/tests/test_m1_integration.py": M2C_REPORT_ONLY_TEST_SHA}
 M4C_REPORT_ONLY_TEST_SHA = "81ffaa464609a66d2356104a1c4db6a0c5f1b81e3cd326f8f114063f46125680"
 M3C_REPORT_ONLY_TEST_SHA = "f29d3b9983ee9df7472d9a7ac306ab1032d4a1182c75391048acf029dc853f49"
+# Only registers the independently hash-verified M45 synthetic fixture namespace.
+M45_REPORT_ONLY_TEST_SHA = "246cc510a2cd9c0c2e1c037dbfde887e8fea0683efd1fbcdca8ebeb96695919a"
 
 
 def git(*args: str) -> bytes:
@@ -45,6 +47,61 @@ def registered_files() -> list[tuple[str, int, str]]:
         text,
     )
     return [(path, int(size.replace(",", "")), digest) for path, size, digest in rows]
+
+
+def library_review_evidence() -> tuple[dict, list[dict]]:
+    """Pin both independent reviews, including manifests, to their original Git blobs."""
+    captures = {}
+    reviews = []
+    for revision, target, scopes in (
+        (
+            "9741e66ae385979dc0d18c89aec4ec6ed93ff285",
+            "dec9420bb76e9245c6740bf3d92031d175e408ec",
+            (
+                "docs/evidence/m45-library-independent-review/",
+                "fixtures/m45-library-independent-review/",
+            ),
+        ),
+        (
+            "96187da8718bcf7d14a452685f7de84231895920",
+            "786cbca056c6cd61ca0e7a5b61ddbc772a55a800",
+            ("docs/evidence/m45-library-final-review/",),
+        ),
+    ):
+        require(
+            subprocess.run(
+                ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+            ).returncode
+            == 0,
+            f"library review history missing: {revision}",
+        )
+        paths = git("diff", "--name-only", target, revision).decode().splitlines()
+        require(len(paths) == 16, f"unexpected review inventory: {revision}")
+        require(all(p.startswith(scopes) for p in paths), "review ownership breach")
+        archived = git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes)
+        require(set(archived.decode().splitlines()) == set(paths), "review inventory changed")
+        for path in paths:
+            original = blob(revision, path)
+            require(blob("HEAD", path) == original, f"library review altered: {path}")
+            require((ROOT / path).read_bytes() == original, f"review checkout altered: {path}")
+            if path.endswith(".png"):
+                require(original.startswith(b"\x89PNG\r\n\x1a\n"), "invalid review capture")
+                captures[path] = (len(original), hashlib.sha256(original).hexdigest())
+        manifest_path = scopes[0] + "RESULTS_MANIFEST.json"
+        entries = json.loads(blob(revision, manifest_path))["files"]
+        require(len(entries) == 15, "unexpected review manifest size")
+        require(
+            {entry["path"] for entry in entries} == set(paths) - {manifest_path},
+            "review manifest coverage mismatch",
+        )
+        for entry in entries:
+            raw = blob(revision, entry["path"])
+            require(
+                len(raw) == entry["bytes"] and hashlib.sha256(raw).hexdigest() == entry["sha256"],
+                f"review manifest mismatch: {entry['path']}",
+            )
+        reviews.append({"revision": revision, "target": target, "files": len(paths)})
+    return captures, reviews
 
 
 def review() -> dict:
@@ -120,6 +177,9 @@ def review() -> dict:
             baseline = blob(M2_A, path)
             corrected = hashlib.sha256(current).hexdigest() in {
                 M2C_TEST_CORRECTION.get(path),
+                M45_REPORT_ONLY_TEST_SHA
+                if path == "packages/flip-core/tests/test_m1_integration.py"
+                else None,
                 M4C_REPORT_ONLY_TEST_SHA
                 if path == "packages/flip-core/tests/test_m1_integration.py"
                 else None,
@@ -156,7 +216,7 @@ def review() -> dict:
             corrected = (
                 path == "packages/flip-core/tests/test_m1_integration.py"
                 and hashlib.sha256(blob("HEAD", path)).hexdigest()
-                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA)
+                in (M3C_REPORT_ONLY_TEST_SHA, M4C_REPORT_ONLY_TEST_SHA, M45_REPORT_ONLY_TEST_SHA)
             )
             require(
                 blob("HEAD", path) == blob(M3_A, path) or corrected, f"M3-A test altered: {path}"
@@ -165,6 +225,20 @@ def review() -> dict:
         require(blob("HEAD", path) == blob(M3_B, path), f"M3-B evidence altered: {path}")
         require((ROOT / path).read_bytes() == blob(M3_B, path), f"M3-B checkout altered: {path}")
     require(not git("diff", M3_A, "HEAD", "--", "docs/schema/m3/1.0.0"), "M3 wire schemas changed")
+    library_v1 = "60d9e94c4cfec9306492cb4016c4c6b60444a73f"
+    require(
+        not git("diff", library_v1, "HEAD", "--", "docs/schema/m45-library/1.0.0"),
+        "frozen library 1.0 schemas changed",
+    )
+    require(
+        blob("HEAD", "packages/flip-core/src/flip_core/library_models_v1.py")
+        == blob(library_v1, "packages/flip-core/src/flip_core/library_models.py"),
+        "frozen library 1.0 model implementation changed",
+    )
+    research = "5c7bcfbc8babb58d5f040fe869e2017f4a8c46fd"
+    for path in git("diff", "--name-only", research + "^", research).decode().splitlines():
+        require(blob("HEAD", path) == blob(research, path), f"M45 research altered: {path}")
+        require((ROOT / path).read_bytes() == blob(research, path), f"M45 checkout altered: {path}")
     require(b"/docs/evidence/raw/\n" in blob("HEAD", ".gitignore"), "raw ignore rule removed")
     tracked = git("ls-files", "-z").decode().strip("\0").split("\0")
     rows = registered_files()
@@ -198,8 +272,31 @@ def review() -> dict:
             re.IGNORECASE,
         ),
     ]
+    # Only these visually inspected synthetic browser captures are admitted as binary.
+    # Pin exact bytes rather than allowing an arbitrary image/binary namespace.
+    captures = {
+        "docs/milestones/m45-library-browser/desktop.png": (
+            106119,
+            "5c5b21fe87e4031fdcf1b05671763479a49a1dbf0eef5a63ec8463f1b9f82c98",
+        ),
+        "docs/milestones/m45-library-browser/mobile.png": (
+            78765,
+            "a760c451e91f9f766d29c29a5726756aa199f634fe8dc7bdf59a371fee55a8ba",
+        ),
+    }
+    review_captures, library_reviews = library_review_evidence()
+    captures.update(review_captures)
     for path in tracked:
         raw = (ROOT / path).read_bytes()
+        if path in captures:
+            size, digest = captures[path]
+            require(
+                len(raw) == size and hashlib.sha256(raw).hexdigest() == digest,
+                f"registered browser capture changed: {path}",
+            )
+            require(raw == blob("HEAD", path), f"browser capture checkout changed: {path}")
+            require(raw.startswith(b"\x89PNG\r\n\x1a\n"), f"invalid PNG capture: {path}")
+            continue
         large_registered = (
             path == "fixtures/m3-verification/benchmarks/benchmark-corpus.json"
             and len(raw) == 534927
@@ -223,6 +320,8 @@ def review() -> dict:
         "registered_blob_checks": results,
         "tracked_files_scanned": len(tracked),
         "credential_pattern_findings": 0,
+        "registered_browser_captures": sorted(captures),
+        "library_independent_reviews": library_reviews,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }

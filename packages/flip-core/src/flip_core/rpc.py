@@ -18,6 +18,10 @@ READ_METHODS = frozenset(
 )
 
 
+class RpcRateLimit(ValueError):
+    """Provider throttle with no provider text retained."""
+
+
 @dataclass(frozen=True)
 class RpcSettings:
     endpoint: str = "https://rpc.xlayer.tech"
@@ -61,6 +65,7 @@ class RpcClient:
     def __init__(self, settings: RpcSettings, budget: ImportBudget, transport=None):
         self.settings, self.budget = settings, budget
         self.calls = 0
+        self.retries_used = 0
         self.deadline = time.monotonic() + budget.deadlineMs / 1000
         self.client = httpx.Client(
             transport=transport,
@@ -76,6 +81,8 @@ class RpcClient:
         self.client.close()
 
     def remaining(self) -> float:
+        if getattr(self, "aborted", lambda: False)():
+            raise ContractError("RESOURCE_LIMIT", "Read operation aborted.")
         remaining = self.deadline - time.monotonic()
         if remaining <= 0:
             raise ContractError("RESOURCE_LIMIT", "Import deadline exceeded.")
@@ -91,6 +98,11 @@ class RpcClient:
                 )
             data = params[0]["data"]
             lengths = {
+                "cpuCount": 10,
+                "cpuAt": 74,
+                "ownerOf": 74,
+                "name": 10,
+                "symbol": 10,
                 "nextId": 10,
                 "circuitInfo": 74,
                 "netlist": 74,
@@ -148,6 +160,8 @@ class RpcClient:
                     raise ValueError("ambiguous result")
                 if "error" in result:
                     error = result["error"]
+                    if isinstance(error, dict) and error.get("code") == -32005:
+                        raise RpcRateLimit()
                     if (
                         capture_revert
                         and isinstance(error, dict)
@@ -160,6 +174,7 @@ class RpcClient:
                     lookup = method == "eth_call" and params[0]["data"][2:10] in (
                         SELECTORS["circuitInfo"],
                         SELECTORS["netlist"],
+                        SELECTORS["ownerOf"],
                     )
                     if lookup and isinstance(error, dict) and type(error.get("code")) is int:
                         # Closed known-revert classification only. Unknown provider
@@ -167,16 +182,24 @@ class RpcClient:
                         if error["code"] in (-32000, 3) and error.get("message") in (
                             "no circuit",
                             "execution reverted: no circuit",
+                            "execution reverted: ERC721: invalid token ID",
+                            "execution reverted: ERC721: owner query for nonexistent token",
                         ):
                             raise ContractError(
                                 "MISSING_REFERENCE", "Circuit lookup reports no existing circuit."
                             )
+                        if (
+                            params[0]["data"][2:10] == SELECTORS["ownerOf"]
+                            and error["code"] in (-32000, 3)
+                            and error.get("data") == "0x7e273289" + params[0]["data"][10:]
+                        ):
+                            raise ContractError("MISSING_REFERENCE", "ERC721 token does not exist.")
                     raise ValueError("RPC error")
                 return None if capture_revert else result["result"]
             except ContractError:
                 raise
             except (httpx.HTTPError, ValueError, TypeError, UnicodeError, RecursionError) as exc:
-                transient = isinstance(exc, httpx.TransportError) or (
+                transient = isinstance(exc, (httpx.TransportError, RpcRateLimit)) or (
                     isinstance(exc, httpx.HTTPStatusError)
                     and (exc.response.status_code == 429 or exc.response.status_code >= 500)
                 )
@@ -184,6 +207,7 @@ class RpcClient:
                     raise ContractError(
                         "RPC_UNAVAILABLE", "RPC request failed or returned malformed data."
                     ) from exc
+                self.retries_used += 1
                 time.sleep(min(0.1 * (2**attempt), self.remaining()))
         raise ContractError("RPC_UNAVAILABLE", "RPC retries exhausted.")
 

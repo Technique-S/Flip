@@ -6,9 +6,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "packages/flip-core/tests"))
-from test_m2_import import FakeChain  # noqa: E402
+from test_m45_library import LibraryChain  # noqa: E402
 
-chain = FakeChain()
+chain = LibraryChain()
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -17,7 +17,9 @@ class Handler(BaseHTTPRequestHandler):
         record = {"jsonrpc": "2.0", "id": value["id"]}
         try:
             record["result"] = chain.answer(value["method"], value["params"])
-        except (KeyError, ValueError, StopIteration):
+        except KeyError:
+            record["error"] = {"code": 3, "message": "execution reverted: no circuit"}
+        except (ValueError, StopIteration):
             record["error"] = {"code": -32000, "message": "fixture lookup failed"}
         raw = json.dumps(record).encode()
         self.send_response(200)
