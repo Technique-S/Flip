@@ -1,0 +1,149 @@
+{
+  "artifactId": "diagnostic-rules",
+  "caseExpectations": [
+    {
+      "caseId": "D01",
+      "category": "swapped_outputs",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/outputMap[0]",
+        "top/outputMap[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D02",
+      "category": "incorrect_ref_input_mapping",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/element[0].in[0]",
+        "top/element[0].in[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D03",
+      "category": "duplicate_fan_out",
+      "class": "SUSPECTED_CANDIDATE",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/element[0].in[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D04",
+      "category": "disconnected_or_unbound_pin",
+      "class": "STRUCTURAL_REJECTION_NO_ATTRIBUTION",
+      "intentOracle": "NONE",
+      "provenBehavioralDifference": false,
+      "suspectedConnections": [],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D05",
+      "category": "wrong_output_ordering",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/outputMap[0]",
+        "top/outputMap[1]",
+        "top/outputMap[2]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D06",
+      "category": "multiple_changed_connections",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/element[0].in[0]",
+        "top/outputMap[0]",
+        "top/outputMap[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D07",
+      "category": "nested_ref_dependencies",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "DECLARED_PRIOR_MAPPING",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/ref[0]/element[0].in[0]",
+        "top/ref[0]/element[0].in[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D08",
+      "category": "equivalent_rewiring",
+      "class": "NO_FAULT_ATTRIBUTION",
+      "intentOracle": "NONE",
+      "provenBehavioralDifference": false,
+      "suspectedConnections": [],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D09",
+      "category": "several_possible_contributing_connections",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "NONE",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/element[1].in[0]",
+        "top/element[1].in[1]",
+        "top/outputMap[1]"
+      ],
+      "uniqueFaultClaim": false
+    },
+    {
+      "caseId": "D10",
+      "category": "defective_connection_not_uniquely_identifiable",
+      "class": "AMBIGUOUS_MULTIPLE_CAUSES",
+      "intentOracle": "NONE",
+      "provenBehavioralDifference": true,
+      "suspectedConnections": [
+        "top/element[1].in[1]",
+        "top/element[2].in[1]"
+      ],
+      "uniqueFaultClaim": false
+    }
+  ],
+  "principles": [
+    "A replayed witness proves a behavioral difference relative to the selected reference; it never proves which connection is defective.",
+    "A signal cone is RELEVANT_COMPUTATION, not a fault location.",
+    "Suspected connections require a declared prior mapping or declared edit set and must be visibly labeled as unconfirmed candidates.",
+    "No connection may be called wrong without sufficient evidence plus a declared intent oracle; user labels and aliases are never an oracle.",
+    "EQUIVALENT, UNKNOWN, structural rejection and stale/missing closure produce no fault attribution.",
+    "Diagnostics never modify verdicts, permissions, transactions or netlist bytes."
+  ],
+  "schemaVersion": "1.0.0",
+  "status": "SPEC_ONLY_NOT_PRODUCTION",
+  "traceAlgorithm": {
+    "input": "candidate output map pin for each differing output bit",
+    "outputClasses": [
+      "RELEVANT_COMPUTATION",
+      "SUSPECTED_CANDIDATE",
+      "AMBIGUOUS_MULTIPLE_CAUSES",
+      "NO_FAULT_ATTRIBUTION",
+      "UNKNOWN_NO_ATTRIBUTION",
+      "STRUCTURAL_REJECTION_NO_ATTRIBUTION"
+    ],
+    "steps": [
+      "Resolve the emitting element by signal number and record elementIndex, outputPin and component path.",
+      "Record each input pin as a connection with sourceSignal and sourceDescription.",
+      "Recurse on non-constant source signals; stop at const0/const1 or top-level inputs.",
+      "On a REF element, descend into the resolved sub-circuit with a path-qualified prefix.",
+      "Stop at nodeCap and mark the cone truncated; a truncated cone yields UNKNOWN localization."
+    ]
+  }
+}

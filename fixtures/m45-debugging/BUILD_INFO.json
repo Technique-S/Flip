@@ -1,0 +1,11 @@
+{
+  "baseCommit": "09f2482beae84be6d919ecd6957c4153d1924cca",
+  "branch": "opencode/flip-m45-debugging-fixtures",
+  "caseCount": 10,
+  "coreVersion": "debug-core-1.0.0",
+  "generator": "fixtures/m45-debugging/generators/build_corpus.py",
+  "manifestFiles": 9,
+  "provenance": "SYNTHETIC",
+  "schemaVersion": "1.0.0",
+  "seed": "NONE_DETERMINISTIC"
+}

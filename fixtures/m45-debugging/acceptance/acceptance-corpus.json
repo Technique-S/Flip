@@ -1,0 +1,177 @@
+{
+  "artifactId": "acceptance-corpus",
+  "caseIds": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10"
+  ],
+  "executableChecks": [
+    {
+      "cases": [
+        "D01",
+        "D02",
+        "D03",
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "check": "Every DIFFERENT witness replays under recursive and flat evaluators with recorded outputs.",
+      "id": "E01",
+      "name": "Correct witness replay"
+    },
+    {
+      "cases": [
+        "D01",
+        "D05",
+        "D09"
+      ],
+      "check": "Differing output indices match an independent full truth-table diff.",
+      "id": "E02",
+      "name": "Accurate affected-bit identification"
+    },
+    {
+      "cases": [
+        "D08"
+      ],
+      "check": "Verdict EQUIVALENT and suspectedConnections empty.",
+      "id": "E03",
+      "name": "Equivalent designs receive no fault attribution"
+    },
+    {
+      "cases": [
+        "D04",
+        "M07"
+      ],
+      "check": "No verdict, no suspected connection and no verified correction is emitted.",
+      "id": "E04",
+      "name": "UNKNOWN yields no definitive correction"
+    },
+    {
+      "cases": [
+        "D10"
+      ],
+      "check": "At least two distinct single-edge causes replay to the same wrong truth table; uniqueFaultClaim false.",
+      "id": "E05",
+      "name": "Multiple plausible causes stay ambiguous"
+    },
+    {
+      "cases": [
+        "M07"
+      ],
+      "check": "Missing REF target yields structural rejection and UNKNOWN localization, not a fault claim.",
+      "id": "E06",
+      "name": "Missing or stale dependency closure"
+    },
+    {
+      "cases": [
+        "M08"
+      ],
+      "check": "Truncated cone sets UNKNOWN_NO_ATTRIBUTION and never ranks a connection.",
+      "id": "E07",
+      "name": "Resource-limit handling"
+    },
+    {
+      "cases": [
+        "CAL01"
+      ],
+      "check": "Archived XOR#1 [0,1,1,0] and NAND#2 [1,1,1,0] vectors reproduce.",
+      "id": "E08",
+      "name": "Trusted vector calibration"
+    },
+    {
+      "cases": [
+        "ALL"
+      ],
+      "check": "Every guidance item uses one of the three allowed classifications.",
+      "id": "E09",
+      "name": "Correction classification vocabulary"
+    }
+  ],
+  "metaCases": {
+    "CAL01": {
+      "description": "Archived XOR#1 and NAND#2 vectors used to calibrate the independent evaluator.",
+      "expected": {
+        "nand": [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "xor": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      }
+    },
+    "M07": {
+      "description": "Top REF points at a circuit ID absent from the dependency bank.",
+      "expectedDiagnosticClass": "UNKNOWN_NO_ATTRIBUTION",
+      "expectedVerdict": "INVALID_INPUT"
+    },
+    "M08": {
+      "description": "Cone traversal capped at 1 node while a differing output has a larger cone.",
+      "expectedDiagnosticClass": "UNKNOWN_NO_ATTRIBUTION",
+      "expectedTruncated": true
+    }
+  },
+  "schemaVersion": "1.0.0",
+  "specificationOnly": [
+    {
+      "id": "S01",
+      "name": "Production UI highlighted pin pairs",
+      "reason": "No M4.5-2D production component exists on the accepted M4 baseline."
+    },
+    {
+      "id": "S02",
+      "name": "Browser accessibility announcements",
+      "reason": "Requires the future web diagnostic view and a real assistive-technology session."
+    },
+    {
+      "id": "S03",
+      "name": "CLI diagnostic command JSON/exit codes",
+      "reason": "No diagnostic CLI command is implemented; only the output contract is specified."
+    },
+    {
+      "id": "S04",
+      "name": "Applying a candidate repair and rerunning trusted comparison",
+      "reason": "Requires production composition/edit flow; fixture verifies the repair result in isolation only."
+    },
+    {
+      "id": "S05",
+      "name": "Human first-time-developer usability",
+      "reason": "Requires a real developer session with an unfamiliar mutation."
+    },
+    {
+      "id": "S06",
+      "name": "Live chain closure freshness",
+      "reason": "No live RPC or publication is authorized; all identities are synthetic."
+    }
+  ]
+}
