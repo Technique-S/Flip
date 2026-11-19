@@ -29,6 +29,11 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    # Immutable, separately reviewed harnesses; exact blobs/manifests checked by custody.
+    "fixtures/m45-library-independent-review/harness/independent_cli_api_checks.py",
+    "fixtures/m45-library-independent-review/harness/independent_core_checks.py",
+    "docs/evidence/m45-library-final-review/harness/independent_cli_api_checks.py",
+    "docs/evidence/m45-library-final-review/harness/independent_core_checks.py",
     # Immutable independent M45 research; hash-verified rather than reformatted.
     "fixtures/m45-library-discovery/generators/",
     "fixtures/m4-independent-review/generators/run_review_cases.py",

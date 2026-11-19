@@ -49,6 +49,61 @@ def registered_files() -> list[tuple[str, int, str]]:
     return [(path, int(size.replace(",", "")), digest) for path, size, digest in rows]
 
 
+def library_review_evidence() -> tuple[dict, list[dict]]:
+    """Pin both independent reviews, including manifests, to their original Git blobs."""
+    captures = {}
+    reviews = []
+    for revision, target, scopes in (
+        (
+            "9741e66ae385979dc0d18c89aec4ec6ed93ff285",
+            "dec9420bb76e9245c6740bf3d92031d175e408ec",
+            (
+                "docs/evidence/m45-library-independent-review/",
+                "fixtures/m45-library-independent-review/",
+            ),
+        ),
+        (
+            "96187da8718bcf7d14a452685f7de84231895920",
+            "786cbca056c6cd61ca0e7a5b61ddbc772a55a800",
+            ("docs/evidence/m45-library-final-review/",),
+        ),
+    ):
+        require(
+            subprocess.run(
+                ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+            ).returncode
+            == 0,
+            f"library review history missing: {revision}",
+        )
+        paths = git("diff", "--name-only", target, revision).decode().splitlines()
+        require(len(paths) == 16, f"unexpected review inventory: {revision}")
+        require(all(p.startswith(scopes) for p in paths), "review ownership breach")
+        archived = git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes)
+        require(set(archived.decode().splitlines()) == set(paths), "review inventory changed")
+        for path in paths:
+            original = blob(revision, path)
+            require(blob("HEAD", path) == original, f"library review altered: {path}")
+            require((ROOT / path).read_bytes() == original, f"review checkout altered: {path}")
+            if path.endswith(".png"):
+                require(original.startswith(b"\x89PNG\r\n\x1a\n"), "invalid review capture")
+                captures[path] = (len(original), hashlib.sha256(original).hexdigest())
+        manifest_path = scopes[0] + "RESULTS_MANIFEST.json"
+        entries = json.loads(blob(revision, manifest_path))["files"]
+        require(len(entries) == 15, "unexpected review manifest size")
+        require(
+            {entry["path"] for entry in entries} == set(paths) - {manifest_path},
+            "review manifest coverage mismatch",
+        )
+        for entry in entries:
+            raw = blob(revision, entry["path"])
+            require(
+                len(raw) == entry["bytes"] and hashlib.sha256(raw).hexdigest() == entry["sha256"],
+                f"review manifest mismatch: {entry['path']}",
+            )
+        reviews.append({"revision": revision, "target": target, "files": len(paths)})
+    return captures, reviews
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -229,6 +284,8 @@ def review() -> dict:
             "a760c451e91f9f766d29c29a5726756aa199f634fe8dc7bdf59a371fee55a8ba",
         ),
     }
+    review_captures, library_reviews = library_review_evidence()
+    captures.update(review_captures)
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -264,6 +321,7 @@ def review() -> dict:
         "tracked_files_scanned": len(tracked),
         "credential_pattern_findings": 0,
         "registered_browser_captures": sorted(captures),
+        "library_independent_reviews": library_reviews,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }

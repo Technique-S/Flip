@@ -1,5 +1,44 @@
 # M4.5-2L-D Independent review reconciliation
 
+## Final merge authorization and evidence integration — 2026-11-19
+
+OpenCode's final delta review at `96187da8718bcf7d14a452685f7de84231895920`
+independently recommends **PASS** for the exact reviewed product tree at
+`786cbca056c6cd61ca0e7a5b61ddbc772a55a800`. The user subsequently authorized the
+final library merge, superseding the pending-review gate recorded in the historical
+reconciliation below.
+
+Both reviews are preserved through history-preserving merges into PR #5:
+
+- Original review `9741e66ae385979dc0d18c89aec4ec6ed93ff285` / PR #6:
+  merge `d6fb6a22b0c6c87d801ae500634486119cb7b3bd`.
+- Final delta review `96187da8718bcf7d14a452685f7de84231895920`:
+  merge `4ffaf0bb0431342a1e8f6c1850b77fbd17ff0d86`.
+
+All 32 archived files, including both original manifests, remain byte-identical to
+their respective review commits. Each manifest covers 15 artifacts and is itself
+pinned to its original blob. No reviewer report was rewritten or credited with
+testing a later implementation. Product code, tests, dependencies, lockfiles,
+frozen schemas and discovery fixtures remain identical to the reviewed head.
+
+The integration-only changes register both reviews in the custody guard, preserve
+their original line endings with `-text`, and exclude only four frozen Python
+harnesses from Ruff formatting/linting, as with earlier independent archives.
+The guard requires both review commits in history and checks all archive bytes,
+manifest coverage, hashes and checkout identity. The four reviewed PNG files are
+admitted by exact hash and signature; all review text, including UTF-16 logs,
+still undergoes the credential scan. No general binary or directory exemption is
+introduced. Windows checkout line-ending conversion was corrected from the original
+Git blobs before validation; the archived Git evidence was never changed.
+
+The final integration checks, resulting main merge SHA and post-merge checks are
+recorded in [PR #5](https://github.com/Technique-S/Flip/pull/5)'s final merge record.
+F03-PERF-001 remains open in [the tracked follow-ups](M45_LIBRARY_FOLLOWUPS.md), with
+the inherited 120-second limit and custody assertions unchanged. The unrelated
+release-readiness branch is not included. This is library acceptance only.
+
+## Historical reconciliation record
+
 Assessment date: 2026-11-19. **Reconciliation verdict: PASS — ready for final independent delta review.**
 The merge gate remains open: PR #5 must stay unmerged until that review confirms the fixes.
 Codex validated the later changes below. OpenCode's original review remains frozen at its
