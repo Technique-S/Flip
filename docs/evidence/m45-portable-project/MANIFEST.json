@@ -97,9 +97,9 @@
       "sha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96"
     },
     {
-      "bytes": 25070,
+      "bytes": 24439,
       "path": "results/run/corrupt-hash.json",
-      "sha256": "486deeef4b628e2971c4520b0fd03d807a05a567ebb6d7bd59ab7d5037310d3f"
+      "sha256": "d542cac9324d2086371693c0f8a15f6181950ab3fbaaa0b935b0be15073e9004"
     },
     {
       "bytes": 16331,
@@ -147,9 +147,9 @@
       "sha256": "aca243f6dccd063670d29494b8f9483c549dcbb906082ab31891d68c3bdb7f90"
     },
     {
-      "bytes": 25530,
+      "bytes": 24886,
       "path": "results/run/stale-evidence.json",
-      "sha256": "9d7eba1ce56a45f90e015061ee57220cbdd5be0d2c639c7ab9fcc54a5795a26a"
+      "sha256": "a6b5cee92dcd9bbd665aee7ac031d50703a6c10b4255d2675dd8e2d2d55c81d8"
     },
     {
       "bytes": 4521,
