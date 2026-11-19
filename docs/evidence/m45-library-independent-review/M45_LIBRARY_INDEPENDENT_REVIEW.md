@@ -49,7 +49,8 @@ npm test -- --reporter=list
 
 Captured outputs are registered in
 `docs/evidence/m45-library-independent-review/RESULTS_MANIFEST.json`
-(16 files: harnesses, logs, JSON observations and two screenshots).
+(15 tracked files: harnesses, logs, JSON observations and two screenshots; generated
+bytecode is excluded).
 
 ## 3. Passed / failed / skipped
 

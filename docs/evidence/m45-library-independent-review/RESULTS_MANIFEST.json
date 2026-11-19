@@ -2,9 +2,9 @@
   "artifactType": "SHA256SUMS",
   "files": [
     {
-      "bytes": 13143,
+      "bytes": 13183,
       "path": "docs/evidence/m45-library-independent-review/M45_LIBRARY_INDEPENDENT_REVIEW.md",
-      "sha256": "efcef450adb7c79a4e68fd92f8276e4820b7907a237c23424da611d999c2f4e4"
+      "sha256": "be7170527d088709009b6afc9157be9aed12b1f4d65f813d7bfb884fa2af03da"
     },
     {
       "bytes": 2420,
