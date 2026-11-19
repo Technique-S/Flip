@@ -1,0 +1,46 @@
+{
+  "apiHttpCode": 200,
+  "apiShape": {
+    "errorCode": null,
+    "freshness": [
+      "HISTORICAL",
+      "UNKNOWN"
+    ],
+    "keys": [
+      "0x8383838383838383838383838383838383838383:None",
+      "0x0505050505050505050505050505050505050505:None"
+    ],
+    "status": "PARTIAL_BOUNDED",
+    "total": "3"
+  },
+  "apiStatus": "PARTIAL_BOUNDED",
+  "catalogPersisted": true,
+  "cliExit": 0,
+  "cliShape": {
+    "errorCode": null,
+    "freshness": [
+      "HISTORICAL",
+      "UNKNOWN"
+    ],
+    "keys": [
+      "0x8383838383838383838383838383838383838383:None",
+      "0x0505050505050505050505050505050505050505:None"
+    ],
+    "status": "PARTIAL_BOUNDED",
+    "total": "3"
+  },
+  "cliStatus": "PARTIAL_BOUNDED",
+  "cliStderrTail": "",
+  "corruptCatalogCode": "INVALID_INPUT",
+  "corruptCatalogHttp": 422,
+  "invalidOperationHttp": 422,
+  "persistedKeys": [
+    "0x839bdd6fa7a66416a609a735e11de5411b98574e:None",
+    "0x839bdd6fa7a66416a609a735e11de5411b98574e:1",
+    "0x839bdd6fa7a66416a609a735e11de5411b98574e:2",
+    "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b:None",
+    "0x8383838383838383838383838383838383838383:None",
+    "0x0505050505050505050505050505050505050505:None"
+  ],
+  "shapesMatch": true
+}
