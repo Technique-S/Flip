@@ -1,0 +1,284 @@
+{
+  "artifactId": "portability-cases",
+  "baselineSha": "bba6f3d301b08c0dcbbfd0b363b99a15179414db",
+  "cases": [
+    {
+      "auditedFields": [
+        "schemaVersion",
+        "project.identity",
+        "processor/circuit identities",
+        "component mappings",
+        "import snapshots",
+        "dependency closure"
+      ],
+      "caseId": "P01",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip compose --project web-export.json",
+        "flip compare --project web-export.json"
+      ],
+      "expected": {
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "status": "COMPLETE"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Browser 'Save project' emits an M3 execution request; CLI compose/compare import it",
+      "schemaVersion": "1.0.0",
+      "setup": "Web save uses the in-memory Execution object (App.tsx download('project.json', req)); identical shape to CLI --project.",
+      "title": "Web export to CLI import"
+    },
+    {
+      "auditedFields": [
+        "schemaVersion",
+        "project identity",
+        "component mappings",
+        "import snapshots"
+      ],
+      "caseId": "P02",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip sample half-adder --out cli-export.json",
+        "flip compose --project cli-export.json"
+      ],
+      "expected": {
+        "status": "COMPLETE"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "CLI-emitted execution request opens in the browser which validates via compose",
+      "schemaVersion": "1.0.0",
+      "setup": "Web openProject(f) calls api('compose', raw) before replacing workspace state (App.tsx:313).",
+      "title": "CLI export to web import"
+    },
+    {
+      "auditedFields": [
+        "component mappings",
+        "hashes needed to reproduce"
+      ],
+      "caseId": "P03",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip compose --project edited.json"
+      ],
+      "expected": {
+        "status": "COMPLETE",
+        "verdict": "BUILD_OK"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Modify an output map, then re-import and compose the edited request",
+      "schemaVersion": "1.0.0",
+      "setup": "Edit candidate.outputs; import via compose which revalidates references/pins.",
+      "title": "Project edits and re-import"
+    },
+    {
+      "auditedFields": [
+        "test vectors",
+        "declared expected behavior"
+      ],
+      "caseId": "P04",
+      "classification": "EXECUTED",
+      "commands": [
+        "inspect project.json keys",
+        "flip vectors --project vector-request.json"
+      ],
+      "expected": {
+        "externalVectorRequest": true,
+        "vectorsEmbeddedInProject": false
+      },
+      "limitation": "Named user test suites and expected-behavior declarations are not embedded in the portable project.",
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Check whether vectors are embedded in the project or external",
+      "schemaVersion": "1.0.0",
+      "setup": "Test vectors live in a separate VectorRequest (kind M3_VECTORS); project.json has no 'vectors' field.",
+      "title": "Embedded or referenced test vectors"
+    },
+    {
+      "auditedFields": [
+        "import snapshots",
+        "dependency closure",
+        "historical/current freshness"
+      ],
+      "caseId": "P05",
+      "classification": "PARTIAL_LOCAL_DOUBLE",
+      "commands": [
+        "flip revalidate --manifest changed.json",
+        "flip compose --project changed.json"
+      ],
+      "expected": {
+        "compositionBlocked": true,
+        "status": "STALE"
+      },
+      "limitation": "Executed against a local synthetic manifest; no live chain revalidation was performed.",
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Import with a changed beacon/factory code hash is stale and blocks composition",
+      "schemaVersion": "1.0.0",
+      "setup": "Change an import manifest's beaconImplementation codeHash; import/revalidate must mark STALE.",
+      "title": "Changed processor implementation"
+    },
+    {
+      "auditedFields": [
+        "import snapshots",
+        "dependency closure"
+      ],
+      "caseId": "P06",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip compose --project missing-dep.json"
+      ],
+      "expected": {
+        "status": "INVALID_INPUT/MISSING_REFERENCE"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Remove a REF dependency netlist from imports",
+      "schemaVersion": "1.0.0",
+      "setup": "Delete the second import from the request; resolver must reject before build.",
+      "title": "Missing dependency closure"
+    },
+    {
+      "auditedFields": [
+        "verification evidence",
+        "historical/current freshness"
+      ],
+      "caseId": "P07",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip verify-bundle --project project.json --bundle stale-evidence.json"
+      ],
+      "expected": {
+        "promotedToCurrent": false,
+        "recordedFreshness": "STALE"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Evidence bundle records a stale chain observation; replay must not promote freshness",
+      "schemaVersion": "1.0.0",
+      "setup": "Set evidence.chainObservation integrity freshness to STALE; verify-bundle preserves downgrade.",
+      "title": "Stale evidence"
+    },
+    {
+      "auditedFields": [
+        "schema version"
+      ],
+      "caseId": "P08",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip validate project invalid-version.json",
+        "flip compose --project invalid-version.json"
+      ],
+      "expected": {
+        "exit": 3,
+        "status": "INVALID_INPUT"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Project with an unsupported schemaVersion",
+      "schemaVersion": "1.0.0",
+      "setup": "Set schemaVersion='9.9.9'.",
+      "title": "Incorrect schema version"
+    },
+    {
+      "auditedFields": [
+        "project identity",
+        "verification evidence",
+        "hashes needed to reproduce"
+      ],
+      "caseId": "P09",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip verify-bundle --project other-project.json --bundle evidence.json"
+      ],
+      "expected": {
+        "accepted": false,
+        "status": "STALE/INVALID_INPUT"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Verify an evidence bundle against a different project",
+      "schemaVersion": "1.0.0",
+      "setup": "Use another projectId in the --project argument; verify-bundle must reject.",
+      "title": "Cross-project evidence substitution"
+    },
+    {
+      "auditedFields": [
+        "hashes needed to reproduce",
+        "verification evidence"
+      ],
+      "caseId": "P10",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip verify-bundle --project project.json --bundle corrupt-hash.json"
+      ],
+      "expected": {
+        "accepted": false,
+        "status": "INVALID_INPUT"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Change contentHash of an evidence bundle",
+      "schemaVersion": "1.0.0",
+      "setup": "Flip evidence.contentHash; verify-bundle recomputes and rejects.",
+      "title": "Corrupted hashes"
+    },
+    {
+      "auditedFields": [
+        "schema version",
+        "revision ancestry"
+      ],
+      "caseId": "P11",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip validate project bad-revision.json",
+        "flip compose --project bad-revision.json"
+      ],
+      "expected": {
+        "exit": 3,
+        "status": "INVALID_INPUT"
+      },
+      "limitation": "No explicit revision ancestry field exists in the current project format.",
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Project whose toolVersion/revision is not accepted",
+      "schemaVersion": "1.0.0",
+      "setup": "Set project.toolVersion='99.0.0'.",
+      "title": "Incompatible project revision"
+    },
+    {
+      "auditedFields": [
+        "schema version",
+        "project identity",
+        "processor/circuit identities",
+        "component mappings",
+        "import snapshots",
+        "dependency closure",
+        "comparison intent",
+        "verification evidence",
+        "hashes needed to reproduce",
+        "historical/current freshness"
+      ],
+      "caseId": "P12",
+      "classification": "EXECUTED",
+      "commands": [
+        "flip sample half-adder",
+        "flip compose",
+        "flip compare",
+        "flip export",
+        "flip verify-bundle"
+      ],
+      "expected": {
+        "freshness": "HISTORICAL",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "status": "COMPLETE"
+      },
+      "limitation": null,
+      "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+      "scenario": "Full pinned sample round-trip with no live RPC",
+      "schemaVersion": "1.0.0",
+      "setup": "Use the archived sample with HISTORICAL imports; reproduce byte-identical composition and evidence replay.",
+      "title": "Complete historical offline reproduction"
+    }
+  ],
+  "provenance": "SYNTHETIC_DERIVED_FROM_HISTORICAL_REQUEST",
+  "schemaVersion": "1.0.0"
+}
