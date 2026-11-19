@@ -1,0 +1,87 @@
+{
+  "artifactType": "SHA256SUMS",
+  "files": [
+    {
+      "bytes": 13143,
+      "path": "docs/evidence/m45-library-independent-review/M45_LIBRARY_INDEPENDENT_REVIEW.md",
+      "sha256": "efcef450adb7c79a4e68fd92f8276e4820b7907a237c23424da611d999c2f4e4"
+    },
+    {
+      "bytes": 2420,
+      "path": "docs/evidence/m45-library-independent-review/results/browser-observations.json",
+      "sha256": "46bda33fc3342af5a5aed115241073d8b8fca0915a4017e987696eae29ddce00"
+    },
+    {
+      "bytes": 4504,
+      "path": "docs/evidence/m45-library-independent-review/results/browser-playwright-after-build.log",
+      "sha256": "4abd51dc67e02f2f93a52103c047fac7ab4c82a279fbe8b1c7a7639f95d0e600"
+    },
+    {
+      "bytes": 43174,
+      "path": "docs/evidence/m45-library-independent-review/results/browser-playwright.log",
+      "sha256": "ad73b366e08f4ee581fcae8fac9b5d8f6097a40fca9185ae5ecb2b2b0f32ffcf"
+    },
+    {
+      "bytes": 5616,
+      "path": "docs/evidence/m45-library-independent-review/results/cli-work/catalog.json",
+      "sha256": "64bb8e62e8c89b614020923d0b57d6af40cd1c7be2b0716156db03eb41aacdf9"
+    },
+    {
+      "bytes": 10072,
+      "path": "docs/evidence/m45-library-independent-review/results/cli-work/cli.result.json",
+      "sha256": "193a388ebdf939cc4d04a9e89ef97b24d07e6d1a07234a77b4f2f6daa480ef8f"
+    },
+    {
+      "bytes": 102,
+      "path": "docs/evidence/m45-library-independent-review/results/cli-work/discover.request.json",
+      "sha256": "dfff00558b40a6680777bcf346d97f66bf3011ce4af05019dd460c212d230982"
+    },
+    {
+      "bytes": 1213,
+      "path": "docs/evidence/m45-library-independent-review/results/independent-cli-api-checks.json",
+      "sha256": "a1a0b6881ec5247843b767282991726eca2c1553054e6293f5c0f05dbc2fa0bc"
+    },
+    {
+      "bytes": 27332,
+      "path": "docs/evidence/m45-library-independent-review/results/independent-core-checks.json",
+      "sha256": "2397afdea4db7ef148d822523ae5364eeef5353217aa2acaf04e24c8316bac4f"
+    },
+    {
+      "bytes": 60256,
+      "path": "docs/evidence/m45-library-independent-review/results/library-desktop-observed.png",
+      "sha256": "4ca71452840735d77a898847ddcba680f29ede132789d5855b709d75bbfa8e42"
+    },
+    {
+      "bytes": 42163,
+      "path": "docs/evidence/m45-library-independent-review/results/library-mobile-observed.png",
+      "sha256": "2248df60294641d77390fef8a945a8319a8942b65508161f96354cf0b3ff12c9"
+    },
+    {
+      "bytes": 34480,
+      "path": "fixtures/m45-library-independent-review/harness/__pycache__/independent_core_checks.cpython-314.pyc",
+      "sha256": "ec6e500eb053b09e378e78b3a23793776642c83668e9b94d8aab1fdcf0817fe9"
+    },
+    {
+      "bytes": 6812,
+      "path": "fixtures/m45-library-independent-review/harness/browser_observations.mjs",
+      "sha256": "3846729fff2ad9570ff6ec6ec91f473ea4468882c1f3a19cd4197cacb16311f0"
+    },
+    {
+      "bytes": 5446,
+      "path": "fixtures/m45-library-independent-review/harness/independent_cli_api_checks.py",
+      "sha256": "1324f7d7e02d35ffeb6e9378cf0e924af145b23d29426c26ac070027433a1cca"
+    },
+    {
+      "bytes": 24758,
+      "path": "fixtures/m45-library-independent-review/harness/independent_core_checks.py",
+      "sha256": "cac44eae0b01a1b7f09233a6d16cf03939df2f0830dd281f82f895737f285823"
+    },
+    {
+      "bytes": 1414,
+      "path": "fixtures/m45-library-independent-review/README.md",
+      "sha256": "5c8f1069361af96ec2e174967eb3f1c907bd743f385d00e3aa22945f2bc744e8"
+    }
+  ],
+  "note": "Hash register for independent review harness, evidence and findings.",
+  "testedSha": "dec9420bb76e9245c6740bf3d92031d175e408ec"
+}
