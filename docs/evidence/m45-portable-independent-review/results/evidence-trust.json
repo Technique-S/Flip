@@ -1,0 +1,76 @@
+{
+  "artifactType": "PORTABLE_EVIDENCE_TRUST",
+  "rows": [
+    {
+      "error": null,
+      "id": "E01",
+      "name": "false CURRENT provenance rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "ok": false,
+        "statuses": null
+      }
+    },
+    {
+      "error": null,
+      "id": "E02",
+      "name": "substituted evidence digest rejected",
+      "observed": {
+        "code": null,
+        "ok": true,
+        "statuses": []
+      }
+    },
+    {
+      "error": null,
+      "id": "E03",
+      "name": "foreign execution evidence rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "ok": false,
+        "statuses": null
+      }
+    },
+    {
+      "error": null,
+      "id": "E04",
+      "name": "changed engine identity rejected",
+      "observed": {
+        "code": null,
+        "ok": true,
+        "statuses": []
+      }
+    },
+    {
+      "error": null,
+      "id": "E05",
+      "name": "changed reproduction context rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "ok": false,
+        "statuses": null
+      }
+    },
+    {
+      "error": null,
+      "id": "E06",
+      "name": "fabricated EQUIVALENT artifact rejected on replay",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "ok": false,
+        "statuses": null
+      }
+    },
+    {
+      "error": null,
+      "id": "E07",
+      "name": "substituted digest rejected on replay",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "ok": false,
+        "statuses": null
+      }
+    }
+  ],
+  "testedSha": "136b1115ee0f5ffe0a5583d68c474641fdce1ca1"
+}

@@ -1,0 +1,310 @@
+{
+  "artifactType": "PORTABLE_INDEPENDENT_ACCEPTANCE",
+  "corpusSha": "2f3d6263edf4e62ad4e94718c99f6c1a79e350a1",
+  "rows": [
+    {
+      "error": null,
+      "id": "A01",
+      "name": "legacy project files accepted by compose",
+      "observed": {
+        "exit": 0,
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+      }
+    },
+    {
+      "error": null,
+      "id": "A02",
+      "name": "81-byte half-adder byte-identical",
+      "observed": {
+        "exit": 0,
+        "matchesArchived": true,
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+      }
+    },
+    {
+      "error": null,
+      "id": "A04",
+      "name": "legacy wrapped in Portable 1.1",
+      "observed": {
+        "execHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+        "kind": "PORTABLE_PROJECT",
+        "ok": true
+      }
+    },
+    {
+      "error": null,
+      "id": "A05",
+      "name": "Portable yields exact legacy request",
+      "observed": {
+        "exact": true,
+        "ok": true
+      }
+    },
+    {
+      "error": null,
+      "id": "A06",
+      "name": "unsupported version fails safely",
+      "observed": {
+        "code": "UNSUPPORTED_SCHEMA_VERSION",
+        "message": "Unsupported portable package version."
+      }
+    },
+    {
+      "error": null,
+      "id": "A07",
+      "name": "downgrade without acknowledgement rejected",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "A08",
+      "name": "lossy downgrade reports discarded fields",
+      "observed": {
+        "discarded": [
+          "tests",
+          "noDeclaredTests",
+          "evidenceRefs",
+          "revision",
+          "ancestors",
+          "provenance",
+          "agentTaskRef"
+        ],
+        "ok": true,
+        "warning": "LOSSY_DOWNGRADE: portable metadata and history discarded."
+      }
+    },
+    {
+      "error": null,
+      "id": "B01",
+      "name": "named vector round trip + VECTORS_MATCH",
+      "observed": {
+        "coverage": [
+          "PARTIAL_DECLARED_DOMAIN"
+        ],
+        "ok": true,
+        "verdicts": [
+          "VECTORS_MATCH"
+        ]
+      }
+    },
+    {
+      "error": null,
+      "id": "B02",
+      "name": "duplicate test names rejected",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "B03",
+      "name": "empty tests require noDeclaredTests",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "B04",
+      "name": "malformed bitstring rejected",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "B05",
+      "name": "incompatible source width rejected",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "C01",
+      "name": "evidence attack: digest",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "C02",
+      "name": "evidence attack: current",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "C03",
+      "name": "evidence attack: cross_chain",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "C04",
+      "name": "evidence attack: missing",
+      "observed": {
+        "ok": true,
+        "result": {
+          "freshness": "HISTORICAL",
+          "results": [
+            {
+              "digest": "0x4b140634490dceacc11a0f55c75a20b9ceed1e5ce3da10fcf9c52add929c5b18",
+              "status": "MISSING_EVIDENCE"
+            }
+          ],
+          "trust": "TRUSTED_ENGINE_REPLAY_ONLY"
+        }
+      }
+    },
+    {
+      "error": null,
+      "id": "C05",
+      "name": "evidence attack: fabricated",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Evidence digest, reproduction or engine mismatch.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D01",
+      "name": "revision attack: missing_parent",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D02",
+      "name": "revision attack: forged_genesis",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D03",
+      "name": "revision attack: reordered",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D04",
+      "name": "revision attack: dup_id",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D05",
+      "name": "revision attack: broken_link",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D06",
+      "name": "revision attack: truncated",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D07",
+      "name": "revision attack: future",
+      "observed": {
+        "code": "UNSUPPORTED_SCHEMA_VERSION",
+        "message": "Unsupported portable package version.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D08",
+      "name": "revision attack: changed_after",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D09",
+      "name": "revision attack: cross_project",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "D10",
+      "name": "revision attack: rollback",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "F01",
+      "name": "oversized request rejected",
+      "observed": {
+        "code": "RESOURCE_LIMIT"
+      }
+    },
+    {
+      "error": null,
+      "id": "F02",
+      "name": "no authority field accepted",
+      "observed": {
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "G01",
+      "name": "CLI portable validate",
+      "observed": {
+        "execHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+        "exit": 0,
+        "kind": "PORTABLE_PROJECT"
+      }
+    }
+  ],
+  "testedSha": "136b1115ee0f5ffe0a5583d68c474641fdce1ca1"
+}

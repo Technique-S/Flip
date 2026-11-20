@@ -1,0 +1,62 @@
+{
+  "artifactType": "SHA256SUMS",
+  "files": [
+    {
+      "bytes": 7265,
+      "path": "docs/evidence/m45-portable-independent-review/M45_PORTABLE_INDEPENDENT_REVIEW.md",
+      "sha256": "a1bb1b7e77d3e0a2416bc9e9a3512aa43d6f2e4b7ceaa506c92d28b8a4e536e7"
+    },
+    {
+      "bytes": 1600,
+      "path": "docs/evidence/m45-portable-independent-review/results/evidence-trust.json",
+      "sha256": "8e7c5f0a3475dfdc1d2fcefc790736574b49279b2a53a15297753e3cb384b826"
+    },
+    {
+      "bytes": 7370,
+      "path": "docs/evidence/m45-portable-independent-review/results/portable-acceptance.json",
+      "sha256": "9d6a2f02f65b1968ec85113016b7f2cdc5f6672ff5554288af361713a9c4c11c"
+    },
+    {
+      "bytes": 245,
+      "path": "docs/evidence/m45-portable-independent-review/results/portable-api.json",
+      "sha256": "f70940e93a4c7fbf35b035744cc3c7cd78cab895722a9528179eec5be6989248"
+    },
+    {
+      "bytes": 7288,
+      "path": "docs/evidence/m45-portable-independent-review/results/run/api.request.json",
+      "sha256": "6aa323b5574e66886b63d72d09484505bba3928edf3bd0de6c4a86a92d5bc4b5"
+    },
+    {
+      "bytes": 6728,
+      "path": "docs/evidence/m45-portable-independent-review/results/run/legacy.request.json",
+      "sha256": "0694da6ae96caa38367c10e0f301a74f52611c54b807eddbff4b834da6921305"
+    },
+    {
+      "bytes": 7740,
+      "path": "docs/evidence/m45-portable-independent-review/results/run/portable.request.json",
+      "sha256": "626861182796c0f4c34585d2e97fa3266093ca38e7bf4a4d6bc64c5f8736bd2c"
+    },
+    {
+      "bytes": 6486,
+      "path": "fixtures/m45-portable-independent-review/harness/evidence_trust.py",
+      "sha256": "478ab075aa1f8f79be698fdd705376123a2e46116628eb28170f2e9de560c8bc"
+    },
+    {
+      "bytes": 11487,
+      "path": "fixtures/m45-portable-independent-review/harness/portable_acceptance.py",
+      "sha256": "0246262949ab2233e1fabe4702b9a3f15b60c2e9525c13db2d51c917dd4e89a5"
+    },
+    {
+      "bytes": 2659,
+      "path": "fixtures/m45-portable-independent-review/harness/portable_api.py",
+      "sha256": "6423a0b05f5b9855f98ae1cf3e2c90a975ec339b4c962703e3a6eeb563392383"
+    },
+    {
+      "bytes": 652,
+      "path": "fixtures/m45-portable-independent-review/README.md",
+      "sha256": "3ed728404f407900ca71ed50785409103ee68e3b787d7283271e233ade9a5068"
+    }
+  ],
+  "note": "Hash register for independent portable review evidence (generated logs excluded).",
+  "testedSha": "136b1115ee0f5ffe0a5583d68c474641fdce1ca1"
+}
