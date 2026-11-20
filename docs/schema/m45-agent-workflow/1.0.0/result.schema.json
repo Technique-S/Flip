@@ -1,0 +1,1284 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "NAND": "#/$defs/NandComponent",
+                "REF": "#/$defs/RefComponent"
+              },
+              "propertyName": "kind"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/RefComponent"
+              },
+              {
+                "$ref": "#/$defs/NandComponent"
+              }
+            ]
+          },
+          "maxItems": 5000,
+          "title": "Components",
+          "type": "array"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "nIn",
+        "components",
+        "outputs"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "CircuitBytes": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "netlist": {
+          "maxLength": 2000002,
+          "pattern": "^0x(?:[0-9a-f]{2})*$",
+          "title": "Netlist",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlist"
+      ],
+      "title": "CircuitBytes",
+      "type": "object"
+    },
+    "CircuitIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Circuitid",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "processor",
+        "circuitId"
+      ],
+      "title": "CircuitIdentity",
+      "type": "object"
+    },
+    "CodeIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Address",
+          "type": "string"
+        },
+        "codeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Codehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "codeHash"
+      ],
+      "title": "CodeIdentity",
+      "type": "object"
+    },
+    "ComparisonPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "inputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "title": "Inputmap",
+          "type": "array"
+        },
+        "intent": {
+          "enum": [
+            "TRUSTED_REFERENCE",
+            "UNDECLARED"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "outputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputmap",
+          "type": "array"
+        },
+        "referenceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Referencealias",
+          "type": "string"
+        },
+        "trustAssertion": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trustassertion"
+        }
+      },
+      "required": [
+        "kind",
+        "referenceAlias",
+        "intent",
+        "trustAssertion",
+        "inputMap",
+        "outputMap"
+      ],
+      "title": "ComparisonPlan",
+      "type": "object"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "parent": {
+          "$ref": "#/$defs/CircuitIdentity"
+        }
+      },
+      "required": [
+        "parent",
+        "child"
+      ],
+      "title": "Dependency",
+      "type": "object"
+    },
+    "Environment": {
+      "additionalProperties": false,
+      "properties": {
+        "beacon": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "beaconImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factory": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementationSlot": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Factoryimplementationslot",
+          "type": "string"
+        },
+        "factorySealed": {
+          "title": "Factorysealed",
+          "type": "boolean"
+        },
+        "processorCodeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Processorcodehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory",
+        "factoryImplementationSlot",
+        "factoryImplementation",
+        "factorySealed",
+        "beacon",
+        "beaconImplementation",
+        "processorCodeHash"
+      ],
+      "title": "Environment",
+      "type": "object"
+    },
+    "ImportResult": {
+      "additionalProperties": false,
+      "properties": {
+        "circuits": {
+          "items": {
+            "$ref": "#/$defs/CircuitBytes"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Circuits",
+          "type": "array"
+        },
+        "integrity": {
+          "$ref": "#/$defs/Integrity"
+        },
+        "kind": {
+          "const": "CIRCUIT_IMPORT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "manifest": {
+          "$ref": "#/$defs/Manifest"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        },
+        "pinning": {
+          "const": "NUMBER_WITH_HEADER_RECHECK",
+          "title": "Pinning",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "trust": {
+          "const": "SINGLE_RPC_OBSERVATION",
+          "title": "Trust",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "manifest",
+        "manifestHash",
+        "circuits",
+        "integrity",
+        "pinning",
+        "trust"
+      ],
+      "title": "ImportResult",
+      "type": "object"
+    },
+    "Integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedBlock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL",
+            "STALE",
+            "UNVERIFIED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freshness",
+        "checkedBlock"
+      ],
+      "title": "Integrity",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "gateCap": {
+          "default": 2500,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Gatecap",
+          "type": "integer"
+        },
+        "refDepthCap": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Refdepthcap",
+          "type": "integer"
+        },
+        "solverMemoryMiB": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Solvermemorymib",
+          "type": "integer"
+        },
+        "solverTimeoutMs": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Solvertimeoutms",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "LocalComparisonPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "inputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "title": "Inputmap",
+          "type": "array"
+        },
+        "intent": {
+          "enum": [
+            "TRUSTED_REFERENCE",
+            "UNDECLARED"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "outputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputmap",
+          "type": "array"
+        },
+        "referenceAlias": {
+          "default": null,
+          "title": "Referencealias",
+          "type": "null"
+        },
+        "trustAssertion": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trustassertion"
+        }
+      },
+      "required": [
+        "kind",
+        "intent",
+        "trustAssertion",
+        "inputMap",
+        "outputMap"
+      ],
+      "title": "LocalComparisonPlan",
+      "type": "object"
+    },
+    "LocalProject": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "comparison": {
+          "$ref": "#/$defs/LocalComparisonPlan"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "projectId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Projectid",
+          "type": "string"
+        },
+        "referenceCandidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "schemaVersion": {
+          "const": "m3-1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "chainId",
+        "toolVersion",
+        "sources",
+        "candidate",
+        "referenceCandidate",
+        "comparison",
+        "limits"
+      ],
+      "title": "LocalProject",
+      "type": "object"
+    },
+    "Manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "dependencies": {
+          "items": {
+            "$ref": "#/$defs/Snapshot"
+          },
+          "maxItems": 1250,
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/Dependency"
+          },
+          "maxItems": 5000,
+          "title": "Edges",
+          "type": "array"
+        },
+        "observation": {
+          "enum": [
+            "SINGLE_RPC",
+            "OFFLINE_SNAPSHOT"
+          ],
+          "title": "Observation",
+          "type": "string"
+        },
+        "root": {
+          "$ref": "#/$defs/Snapshot"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "semantics": {
+          "$ref": "#/$defs/Semantics"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "block",
+        "root",
+        "dependencies",
+        "edges",
+        "semantics",
+        "toolVersion",
+        "observation"
+      ],
+      "title": "Manifest",
+      "type": "object"
+    },
+    "NandComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "NAND",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "inputs"
+      ],
+      "title": "NandComponent",
+      "type": "object"
+    },
+    "OperationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "budgetRemaining": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Budgetremaining",
+          "type": "object"
+        },
+        "entryHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Entryhash",
+          "type": "string"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/WorkflowError"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "executionHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Executionhash"
+        },
+        "inputHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Inputhash",
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "sample",
+            "discover",
+            "import",
+            "build",
+            "test",
+            "compare",
+            "inspect",
+            "propose_correction",
+            "verify",
+            "apply",
+            "export",
+            "verify_bundle",
+            "revalidate",
+            "stop_authorization"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "output": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output"
+        },
+        "outputHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Outputhash",
+          "type": "string"
+        },
+        "previousHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Previoushash",
+          "type": "string"
+        },
+        "projectHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Projecthash"
+        },
+        "status": {
+          "enum": [
+            "PREPARED",
+            "RUNNING",
+            "COMPLETE",
+            "DIFFERENT",
+            "UNKNOWN",
+            "STALE",
+            "BUDGET_EXHAUSTED",
+            "STOP_AUTHORIZATION",
+            "CANCELLED",
+            "INVALID_INPUT"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "step": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Step",
+          "type": "string"
+        },
+        "usage": {
+          "$ref": "#/$defs/Usage"
+        }
+      },
+      "required": [
+        "step",
+        "op",
+        "attempt",
+        "status",
+        "inputHash",
+        "outputHash",
+        "projectHash",
+        "executionHash",
+        "usage",
+        "budgetRemaining",
+        "previousHash",
+        "entryHash"
+      ],
+      "title": "OperationResult",
+      "type": "object"
+    },
+    "PinSource": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Component"
+        },
+        "pin": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Pin",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "component",
+        "pin"
+      ],
+      "title": "PinSource",
+      "type": "object"
+    },
+    "Project": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "comparison": {
+          "$ref": "#/$defs/ComparisonPlan"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "projectId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Projectid",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "chainId",
+        "toolVersion",
+        "sources",
+        "candidate",
+        "comparison",
+        "limits"
+      ],
+      "title": "Project",
+      "type": "object"
+    },
+    "RefComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 255,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "REF",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sourceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Sourcealias",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "sourceAlias",
+        "inputs"
+      ],
+      "title": "RefComponent",
+      "type": "object"
+    },
+    "Semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "referenceHash": {
+          "const": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+          "title": "Referencehash",
+          "type": "string"
+        },
+        "specificationHash": {
+          "const": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+          "title": "Specificationhash",
+          "type": "string"
+        },
+        "tap02Version": {
+          "const": "draft-2026-10-04",
+          "title": "Tap02Version",
+          "type": "string"
+        },
+        "testSuiteHash": {
+          "const": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+          "title": "Testsuitehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tap02Version",
+        "encoding",
+        "specificationHash",
+        "referenceHash",
+        "testSuiteHash"
+      ],
+      "title": "Semantics",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "expandedGates": {
+          "maximum": 5000,
+          "minimum": 0,
+          "title": "Expandedgates",
+          "type": "integer"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        },
+        "netlistHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Netlisthash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlistHash",
+        "nIn",
+        "nOut",
+        "nState",
+        "expandedGates",
+        "environment"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "alias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Alias",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alias",
+        "identity",
+        "manifestHash",
+        "nIn",
+        "nOut",
+        "nState"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "iterations": {
+          "default": 0,
+          "title": "Iterations",
+          "type": "integer"
+        },
+        "rpcAccounting": {
+          "default": "EXACT",
+          "enum": [
+            "EXACT",
+            "RESERVED_ON_INTERRUPTION"
+          ],
+          "title": "Rpcaccounting",
+          "type": "string"
+        },
+        "rpcRequests": {
+          "default": 0,
+          "title": "Rpcrequests",
+          "type": "integer"
+        },
+        "toolRequests": {
+          "default": 0,
+          "title": "Toolrequests",
+          "type": "integer"
+        }
+      },
+      "title": "Usage",
+      "type": "object"
+    },
+    "VerificationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "imports": {
+          "items": {
+            "$ref": "#/$defs/ImportResult"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Imports",
+          "type": "array"
+        },
+        "kind": {
+          "const": "M3_EXECUTION",
+          "title": "Kind",
+          "type": "string"
+        },
+        "project": {
+          "discriminator": {
+            "mapping": {
+              "1.0.0": "#/$defs/Project",
+              "m3-1.0.0": "#/$defs/LocalProject"
+            },
+            "propertyName": "schemaVersion"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Project"
+            },
+            {
+              "$ref": "#/$defs/LocalProject"
+            }
+          ],
+          "title": "Project"
+        },
+        "relation": {
+          "enum": [
+            "REFERENCE",
+            "PREVIOUS_VERSION",
+            "BEHAVIORAL"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "m3-1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "project",
+        "imports",
+        "relation"
+      ],
+      "title": "VerificationRequest",
+      "type": "object"
+    },
+    "WorkflowError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "recovery": {
+          "default": "NEW_REQUEST",
+          "enum": [
+            "NEW_REQUEST",
+            "REIMPORT",
+            "EXPLICIT_REVISION",
+            "NONE"
+          ],
+          "title": "Recovery",
+          "type": "string"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "WorkflowError",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "engineHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Enginehash",
+      "type": "string"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/WorkflowError"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "executionRequest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VerificationRequest"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "finalExecutionHash": {
+      "anyOf": [
+        {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Finalexecutionhash"
+    },
+    "kind": {
+      "const": "AGENT_WORKFLOW_RESULT",
+      "default": "AGENT_WORKFLOW_RESULT",
+      "title": "Kind",
+      "type": "string"
+    },
+    "logs": {
+      "items": {
+        "$ref": "#/$defs/OperationResult"
+      },
+      "maxItems": 64,
+      "title": "Logs",
+      "type": "array"
+    },
+    "originalExecutionHash": {
+      "anyOf": [
+        {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Originalexecutionhash"
+    },
+    "originalExecutionRequest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VerificationRequest"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receiptHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Receipthash",
+      "type": "string"
+    },
+    "reproductionHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Reproductionhash",
+      "type": "string"
+    },
+    "requestHash": {
+      "pattern": "^0x[0-9a-f]{64}$",
+      "title": "Requesthash",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "m45-agent-workflow-1.0.0",
+      "default": "m45-agent-workflow-1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "scope": {
+      "const": "LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE",
+      "default": "LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE",
+      "title": "Scope",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PREPARED",
+        "RUNNING",
+        "COMPLETE",
+        "DIFFERENT",
+        "UNKNOWN",
+        "STALE",
+        "BUDGET_EXHAUSTED",
+        "STOP_AUTHORIZATION",
+        "CANCELLED",
+        "INVALID_INPUT"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "usage": {
+      "$ref": "#/$defs/Usage"
+    }
+  },
+  "required": [
+    "status",
+    "requestHash",
+    "engineHash",
+    "originalExecutionHash",
+    "originalExecutionRequest",
+    "finalExecutionHash",
+    "executionRequest",
+    "usage",
+    "receiptHash",
+    "reproductionHash"
+  ],
+  "title": "WorkflowResult",
+  "type": "object"
+}

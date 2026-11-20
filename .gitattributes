@@ -27,3 +27,9 @@
 /docs/evidence/m45-debugging/** -text
 /docs/evidence/m45-debugging-independent-review/** -text
 /fixtures/m45-debugging-independent-review/** -text
+/docs/evidence/m45-agent-workflow/** -text
+/fixtures/m45-agent-workflow/** -text
+
+# Preserve the independently accepted agent workflow review, including UTF-16 logs.
+/docs/evidence/m45-agent-workflow-independent-review/** -text
+/fixtures/m45-agent-workflow-independent-review/** -text

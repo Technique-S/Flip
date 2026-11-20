@@ -212,6 +212,128 @@ def debugging_review_evidence() -> dict:
     return {"revision": revision, "target": target, "files": 67, "manifestEntries": 66}
 
 
+def agent_workflow_evidence() -> dict:
+    revision = "996a300324877d0017cbe0cdb23d8da76692862c"
+    scopes = ("fixtures/m45-agent-workflow/", "docs/evidence/m45-agent-workflow/")
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "workflow corpus history missing",
+    )
+    paths = git("diff", "--name-only", revision + "^", revision).decode().splitlines()
+    require(
+        len(paths) == 31 and all(p.startswith(scopes) for p in paths),
+        "workflow corpus inventory/ownership changed",
+    )
+    require(
+        set(git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines())
+        == set(paths),
+        "workflow archive inventory changed",
+    )
+    queries = [(ref, path) for path in paths for ref in (revision, "HEAD")]
+    raw = subprocess.check_output(
+        ["git", "cat-file", "--batch"],
+        cwd=ROOT,
+        input="".join(f"{ref}:{path}\n" for ref, path in queries).encode(),
+    )
+    cursor, blobs = 0, {}
+    for ref, path in queries:
+        end = raw.index(b"\n", cursor)
+        header = raw[cursor:end].split()
+        require(len(header) == 3 and header[1] == b"blob", "workflow blob missing")
+        size, cursor = int(header[2]), end + 1
+        blobs[ref, path] = raw[cursor : cursor + size]
+        require(
+            len(blobs[ref, path]) == size and raw[cursor + size : cursor + size + 1] == b"\n",
+            "invalid workflow blob frame",
+        )
+        cursor += size + 1
+    require(cursor == len(raw), "unexpected workflow blob output")
+    for path in paths:
+        original = blobs[revision, path]
+        require(
+            blobs["HEAD", path] == original and (ROOT / path).read_bytes() == original,
+            f"workflow evidence changed: {path}",
+        )
+    manifest = json.loads(blobs[revision, scopes[1] + "MANIFEST.json"])
+    require(len(manifest["files"]) == 30, "workflow manifest count changed")
+    require(
+        {e["path"] for e in manifest["files"]} == set(paths) - {scopes[1] + "MANIFEST.json"},
+        "workflow manifest coverage changed",
+    )
+    for entry in manifest["files"]:
+        data = blobs[revision, entry["path"]]
+        require(
+            len(data) == entry["bytes"] and hashlib.sha256(data).hexdigest() == entry["sha256"],
+            f"workflow manifest mismatch: {entry['path']}",
+        )
+    return dict(revision=revision, files=31, manifestEntries=30)
+
+
+def agent_workflow_review_evidence():
+    """Pin every independent review byte, including logs omitted by its manifest."""
+    revision = "7b4b1f711ddc9676141becfae2fc77a3d5941374"
+    target = "d2638d057b6236286480891d6fdd7dfb0402bc5a"
+    scopes = (
+        "docs/evidence/m45-agent-workflow-independent-review/",
+        "fixtures/m45-agent-workflow-independent-review/",
+    )
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "independent agent review history missing",
+    )
+    paths = git("diff", "--name-only", target, revision).decode().splitlines()
+    require(
+        len(paths) == 14 and all(p.startswith(scopes) for p in paths), "agent review scope changed"
+    )
+    require(
+        set(git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines())
+        == set(paths),
+        "agent review archive inventory changed",
+    )
+    queries = [(ref, path) for path in paths for ref in (revision, "HEAD")]
+    raw = subprocess.check_output(
+        ["git", "cat-file", "--batch"],
+        cwd=ROOT,
+        input="".join(f"{ref}:{path}\n" for ref, path in queries).encode(),
+    )
+    cursor, blobs = 0, {}
+    for ref, path in queries:
+        end = raw.index(b"\n", cursor)
+        header = raw[cursor:end].split()
+        require(len(header) == 3 and header[1] == b"blob", "missing agent review blob")
+        size, cursor = int(header[2]), end + 1
+        blobs[ref, path] = raw[cursor : cursor + size]
+        require(raw[cursor + size : cursor + size + 1] == b"\n", "invalid agent review blob frame")
+        cursor += size + 1
+    require(cursor == len(raw), "unexpected review blob output")
+    original = {}
+    for path in paths:
+        data = blobs[revision, path]
+        require(
+            blobs["HEAD", path] == data and (ROOT / path).read_bytes() == data,
+            f"independent agent review bytes changed: {path}",
+        )
+        original[path] = data
+    manifest = json.loads(original[scopes[0] + "MANIFEST.json"])
+    require(
+        manifest["testedSha"] == target and len(manifest["files"]) == 10,
+        "agent review manifest changed",
+    )
+    for entry in manifest["files"]:
+        data = original[entry["path"]]
+        require(
+            len(data) == entry["bytes"] and hashlib.sha256(data).hexdigest() == entry["sha256"],
+            f"agent review manifest mismatch: {entry['path']}",
+        )
+    return original, {"revision": revision, "target": target, "files": 14, "manifestEntries": 10}
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -404,6 +526,8 @@ def review() -> dict:
     captures.update(review_captures)
     debugging_fixtures = debugging_fixture_evidence()
     debugging_review = debugging_review_evidence()
+    workflow_fixtures = agent_workflow_evidence()
+    workflow_review_blobs, workflow_review = agent_workflow_review_evidence()
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -421,7 +545,10 @@ def review() -> dict:
             and hashlib.sha256(raw).hexdigest()
             == "795a3b2cccc429dbc9ee3efd1f4eeb5d019974eeb64b34249954135d8b4e76f8"
         )
-        require(len(raw) <= 200_000 or large_registered, f"unexpected large tracked file: {path}")
+        require(
+            len(raw) <= 200_000 or large_registered or path in workflow_review_blobs,
+            f"unexpected large tracked file: {path}",
+        )
         text = raw.decode("utf-16" if raw.startswith(b"\xff\xfe") else "utf-8")
         require("\0" not in text, f"unexpected binary: {path}")
         require(
@@ -442,6 +569,8 @@ def review() -> dict:
         "library_independent_reviews": library_reviews,
         "debugging_fixture_evidence": debugging_fixtures,
         "debugging_independent_review": debugging_review,
+        "agent_workflow_fixtures": workflow_fixtures,
+        "agent_workflow_independent_review": workflow_review,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }

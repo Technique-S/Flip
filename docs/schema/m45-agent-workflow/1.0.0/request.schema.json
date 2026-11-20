@@ -1,0 +1,1978 @@
+{
+  "$defs": {
+    "BitVector": {
+      "additionalProperties": false,
+      "description": "Text character i is vector bit i, packed into byte i//8 at bit i%8.",
+      "properties": {
+        "bits": {
+          "maxLength": 65536,
+          "pattern": "^[01]*$",
+          "title": "Bits",
+          "type": "string"
+        },
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "width": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "encoding",
+        "width",
+        "bits"
+      ],
+      "title": "BitVector",
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "hash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "number": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "hash"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "NAND": "#/$defs/NandComponent",
+                "REF": "#/$defs/RefComponent"
+              },
+              "propertyName": "kind"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/RefComponent"
+              },
+              {
+                "$ref": "#/$defs/NandComponent"
+              }
+            ]
+          },
+          "maxItems": 5000,
+          "title": "Components",
+          "type": "array"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "nIn",
+        "components",
+        "outputs"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "Catalog": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "LIBRARY_CATALOG",
+          "default": "LIBRARY_CATALOG",
+          "title": "Kind",
+          "type": "string"
+        },
+        "overlay": {
+          "$ref": "#/$defs/Overlay"
+        },
+        "records": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/LibraryRecord"
+          },
+          "maxItems": 1000,
+          "title": "Records",
+          "type": "array"
+        },
+        "schemaVersion": {
+          "const": "m45-library-1.1.0",
+          "default": "m45-library-1.1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "title": "Catalog",
+      "type": "object"
+    },
+    "CircuitBytes": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "netlist": {
+          "maxLength": 2000002,
+          "pattern": "^0x(?:[0-9a-f]{2})*$",
+          "title": "Netlist",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlist"
+      ],
+      "title": "CircuitBytes",
+      "type": "object"
+    },
+    "CircuitIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Circuitid",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "processor",
+        "circuitId"
+      ],
+      "title": "CircuitIdentity",
+      "type": "object"
+    },
+    "CodeIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Address",
+          "type": "string"
+        },
+        "codeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Codehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "codeHash"
+      ],
+      "title": "CodeIdentity",
+      "type": "object"
+    },
+    "ComparisonPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "inputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "title": "Inputmap",
+          "type": "array"
+        },
+        "intent": {
+          "enum": [
+            "TRUSTED_REFERENCE",
+            "UNDECLARED"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "outputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputmap",
+          "type": "array"
+        },
+        "referenceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Referencealias",
+          "type": "string"
+        },
+        "trustAssertion": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trustassertion"
+        }
+      },
+      "required": [
+        "kind",
+        "referenceAlias",
+        "intent",
+        "trustAssertion",
+        "inputMap",
+        "outputMap"
+      ],
+      "title": "ComparisonPlan",
+      "type": "object"
+    },
+    "Cursor": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "environmentDigest": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Environmentdigest",
+          "type": "string"
+        },
+        "offset": {
+          "maxLength": 78,
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "title": "Offset",
+          "type": "string"
+        },
+        "processor": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Processor"
+        }
+      },
+      "required": [
+        "offset",
+        "block",
+        "environmentDigest"
+      ],
+      "title": "Cursor",
+      "type": "object"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "parent": {
+          "$ref": "#/$defs/CircuitIdentity"
+        }
+      },
+      "required": [
+        "parent",
+        "child"
+      ],
+      "title": "Dependency",
+      "type": "object"
+    },
+    "Environment": {
+      "additionalProperties": false,
+      "properties": {
+        "beacon": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "beaconImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factory": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementation": {
+          "$ref": "#/$defs/CodeIdentity"
+        },
+        "factoryImplementationSlot": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Factoryimplementationslot",
+          "type": "string"
+        },
+        "factorySealed": {
+          "title": "Factorysealed",
+          "type": "boolean"
+        },
+        "processorCodeHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Processorcodehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory",
+        "factoryImplementationSlot",
+        "factoryImplementation",
+        "factorySealed",
+        "beacon",
+        "beaconImplementation",
+        "processorCodeHash"
+      ],
+      "title": "Environment",
+      "type": "object"
+    },
+    "ExpectedVector": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "$ref": "#/$defs/BitVector"
+        },
+        "outputs": {
+          "$ref": "#/$defs/BitVector"
+        }
+      },
+      "required": [
+        "inputs",
+        "outputs"
+      ],
+      "title": "ExpectedVector",
+      "type": "object"
+    },
+    "Favorite": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Description",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "label": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Label",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "maxLength": 256,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "title": "Favorite",
+      "type": "object"
+    },
+    "ImportBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "deadlineMs": {
+          "default": 60000,
+          "maximum": 120000,
+          "minimum": 1,
+          "title": "Deadlinems",
+          "type": "integer"
+        },
+        "maxCircuits": {
+          "default": 128,
+          "maximum": 1251,
+          "minimum": 1,
+          "title": "Maxcircuits",
+          "type": "integer"
+        },
+        "maxDepth": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Maxdepth",
+          "type": "integer"
+        },
+        "maxGates": {
+          "default": 2500,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Maxgates",
+          "type": "integer"
+        },
+        "maxNetlistBytes": {
+          "default": 250000,
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Maxnetlistbytes",
+          "type": "integer"
+        },
+        "maxRecords": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Maxrecords",
+          "type": "integer"
+        },
+        "maxRequests": {
+          "default": 256,
+          "maximum": 8192,
+          "minimum": 1,
+          "title": "Maxrequests",
+          "type": "integer"
+        },
+        "maxTotalBytes": {
+          "default": 1000000,
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Maxtotalbytes",
+          "type": "integer"
+        },
+        "maxTotalRecords": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Maxtotalrecords",
+          "type": "integer"
+        }
+      },
+      "title": "ImportBudget",
+      "type": "object"
+    },
+    "ImportResult": {
+      "additionalProperties": false,
+      "properties": {
+        "circuits": {
+          "items": {
+            "$ref": "#/$defs/CircuitBytes"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Circuits",
+          "type": "array"
+        },
+        "integrity": {
+          "$ref": "#/$defs/Integrity"
+        },
+        "kind": {
+          "const": "CIRCUIT_IMPORT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "manifest": {
+          "$ref": "#/$defs/Manifest"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        },
+        "pinning": {
+          "const": "NUMBER_WITH_HEADER_RECHECK",
+          "title": "Pinning",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "trust": {
+          "const": "SINGLE_RPC_OBSERVATION",
+          "title": "Trust",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "manifest",
+        "manifestHash",
+        "circuits",
+        "integrity",
+        "pinning",
+        "trust"
+      ],
+      "title": "ImportResult",
+      "type": "object"
+    },
+    "Integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "checkedBlock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL",
+            "STALE",
+            "UNVERIFIED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "freshness",
+        "checkedBlock"
+      ],
+      "title": "Integrity",
+      "type": "object"
+    },
+    "LibraryIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "const": 196,
+          "default": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "circuitId": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Circuitid"
+        },
+        "factory": {
+          "const": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "default": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "title": "Factory",
+          "type": "string"
+        },
+        "processor": {
+          "pattern": "^0x[0-9a-fA-F]{40}$",
+          "title": "Processor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "processor"
+      ],
+      "title": "LibraryIdentity",
+      "type": "object"
+    },
+    "LibraryRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Block"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "dependencyHashes": {
+          "default": [],
+          "items": {
+            "pattern": "^0x[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "maxItems": 1251,
+          "title": "Dependencyhashes",
+          "type": "array"
+        },
+        "environment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Environment"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "environmentDigest": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Environmentdigest"
+        },
+        "existence": {
+          "default": "SEED_HINT",
+          "enum": [
+            "OWNER_OF",
+            "SEED_HINT",
+            "IMPORTED",
+            "USER_POINTER",
+            "REGISTERED_PROCESSOR"
+          ],
+          "title": "Existence",
+          "type": "string"
+        },
+        "freshness": {
+          "default": "UNKNOWN",
+          "enum": [
+            "HISTORICAL",
+            "STALE",
+            "UNKNOWN",
+            "REORGED",
+            "VERIFICATION_FAILED"
+          ],
+          "title": "Freshness",
+          "type": "string"
+        },
+        "gateCount": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gatecount"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "manifestHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manifesthash"
+        },
+        "metadataTrust": {
+          "default": "ONCHAIN_DISPLAY_ONLY",
+          "enum": [
+            "ONCHAIN_DISPLAY_ONLY",
+            "USER_SUPPLIED"
+          ],
+          "title": "Metadatatrust",
+          "type": "string"
+        },
+        "nIn": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nin"
+        },
+        "nOut": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nout"
+        },
+        "nState": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nstate"
+        },
+        "netlistHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Netlisthash"
+        },
+        "nextId": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nextid"
+        },
+        "onchainName": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Onchainname",
+          "type": "string"
+        },
+        "onchainSymbol": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Onchainsymbol",
+          "type": "string"
+        },
+        "processorNumber": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Processornumber"
+        },
+        "sources": {
+          "items": {
+            "enum": [
+              "FACTORY_ENUMERATION",
+              "KNOWN_SEED",
+              "USER_IMPORT",
+              "USER_FAVORITE_ONLY"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "identity",
+        "sources"
+      ],
+      "title": "LibraryRecord",
+      "type": "object"
+    },
+    "LibraryRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "$ref": "#/$defs/Catalog"
+        },
+        "cursor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Cursor"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LibraryIdentity"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "kind": {
+          "const": "LIBRARY_REQUEST",
+          "default": "LIBRARY_REQUEST",
+          "title": "Kind",
+          "type": "string"
+        },
+        "limit": {
+          "default": 12,
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "metadata": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Favorite"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "operation": {
+          "enum": [
+            "discover",
+            "circuits",
+            "search",
+            "favorite",
+            "unfavorite",
+            "alias",
+            "import",
+            "revalidate"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "query": {
+          "default": "",
+          "maxLength": 256,
+          "title": "Query",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "m45-library-1.1.0",
+          "default": "m45-library-1.1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation"
+      ],
+      "title": "LibraryRequest",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "gateCap": {
+          "default": 2500,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Gatecap",
+          "type": "integer"
+        },
+        "refDepthCap": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Refdepthcap",
+          "type": "integer"
+        },
+        "solverMemoryMiB": {
+          "default": 64,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Solvermemorymib",
+          "type": "integer"
+        },
+        "solverTimeoutMs": {
+          "default": 5000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Solvertimeoutms",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "LocalComparisonPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "inputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "title": "Inputmap",
+          "type": "array"
+        },
+        "intent": {
+          "enum": [
+            "TRUSTED_REFERENCE",
+            "UNDECLARED"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PAIRWISE_EQUIVALENCE",
+          "title": "Kind",
+          "type": "string"
+        },
+        "outputMap": {
+          "items": {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 65536,
+          "minItems": 1,
+          "title": "Outputmap",
+          "type": "array"
+        },
+        "referenceAlias": {
+          "default": null,
+          "title": "Referencealias",
+          "type": "null"
+        },
+        "trustAssertion": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Trustassertion"
+        }
+      },
+      "required": [
+        "kind",
+        "intent",
+        "trustAssertion",
+        "inputMap",
+        "outputMap"
+      ],
+      "title": "LocalComparisonPlan",
+      "type": "object"
+    },
+    "LocalProject": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "comparison": {
+          "$ref": "#/$defs/LocalComparisonPlan"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "projectId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Projectid",
+          "type": "string"
+        },
+        "referenceCandidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "schemaVersion": {
+          "const": "m3-1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "chainId",
+        "toolVersion",
+        "sources",
+        "candidate",
+        "referenceCandidate",
+        "comparison",
+        "limits"
+      ],
+      "title": "LocalProject",
+      "type": "object"
+    },
+    "Manifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "dependencies": {
+          "items": {
+            "$ref": "#/$defs/Snapshot"
+          },
+          "maxItems": 1250,
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/Dependency"
+          },
+          "maxItems": 5000,
+          "title": "Edges",
+          "type": "array"
+        },
+        "observation": {
+          "enum": [
+            "SINGLE_RPC",
+            "OFFLINE_SNAPSHOT"
+          ],
+          "title": "Observation",
+          "type": "string"
+        },
+        "root": {
+          "$ref": "#/$defs/Snapshot"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "semantics": {
+          "$ref": "#/$defs/Semantics"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "chainId",
+        "block",
+        "root",
+        "dependencies",
+        "edges",
+        "semantics",
+        "toolVersion",
+        "observation"
+      ],
+      "title": "Manifest",
+      "type": "object"
+    },
+    "NandComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "NAND",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "inputs"
+      ],
+      "title": "NandComponent",
+      "type": "object"
+    },
+    "OperationBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "deadlineMs": {
+          "default": 15000,
+          "maximum": 30000,
+          "minimum": 1,
+          "title": "Deadlinems",
+          "type": "integer"
+        },
+        "imports": {
+          "$ref": "#/$defs/ImportBudget"
+        },
+        "maxOutputBytes": {
+          "default": 1048576,
+          "maximum": 4194304,
+          "minimum": 1024,
+          "title": "Maxoutputbytes",
+          "type": "integer"
+        },
+        "trace": {
+          "$ref": "#/$defs/TraceBudget"
+        }
+      },
+      "title": "OperationBudget",
+      "type": "object"
+    },
+    "Overlay": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Favorite"
+          },
+          "maxItems": 256,
+          "title": "Aliases",
+          "type": "array"
+        },
+        "favorites": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Favorite"
+          },
+          "maxItems": 256,
+          "title": "Favorites",
+          "type": "array"
+        },
+        "recents": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Recent"
+          },
+          "maxItems": 30,
+          "title": "Recents",
+          "type": "array"
+        }
+      },
+      "title": "Overlay",
+      "type": "object"
+    },
+    "PinSource": {
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Component"
+        },
+        "pin": {
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Pin",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "component",
+        "pin"
+      ],
+      "title": "PinSource",
+      "type": "object"
+    },
+    "Project": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "chainId": {
+          "const": 196,
+          "title": "Chainid",
+          "type": "integer"
+        },
+        "comparison": {
+          "$ref": "#/$defs/ComparisonPlan"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "projectId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Projectid",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "toolVersion": {
+          "const": "0.1.0",
+          "title": "Toolversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "projectId",
+        "chainId",
+        "toolVersion",
+        "sources",
+        "candidate",
+        "comparison",
+        "limits"
+      ],
+      "title": "Project",
+      "type": "object"
+    },
+    "Recent": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/Block"
+        },
+        "identity": {
+          "$ref": "#/$defs/LibraryIdentity"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "manifestHash",
+        "block"
+      ],
+      "title": "Recent",
+      "type": "object"
+    },
+    "RefComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/PinSource"
+          },
+          "maxItems": 255,
+          "title": "Inputs",
+          "type": "array"
+        },
+        "instanceId": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Instanceid",
+          "type": "string"
+        },
+        "kind": {
+          "const": "REF",
+          "title": "Kind",
+          "type": "string"
+        },
+        "sourceAlias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Sourcealias",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "sourceAlias",
+        "inputs"
+      ],
+      "title": "RefComponent",
+      "type": "object"
+    },
+    "RetryPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "maxRetries": {
+          "default": 0,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Maxretries",
+          "type": "integer"
+        },
+        "on": {
+          "items": {
+            "enum": [
+              "RPC_UNAVAILABLE",
+              "SOLVER_TIMEOUT",
+              "WORKER_FAILURE"
+            ],
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "On",
+          "type": "array"
+        }
+      },
+      "title": "RetryPolicy",
+      "type": "object"
+    },
+    "Semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "const": "tap02-lsb0-v1",
+          "title": "Encoding",
+          "type": "string"
+        },
+        "referenceHash": {
+          "const": "0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9",
+          "title": "Referencehash",
+          "type": "string"
+        },
+        "specificationHash": {
+          "const": "0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f",
+          "title": "Specificationhash",
+          "type": "string"
+        },
+        "tap02Version": {
+          "const": "draft-2026-10-04",
+          "title": "Tap02Version",
+          "type": "string"
+        },
+        "testSuiteHash": {
+          "const": "0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b",
+          "title": "Testsuitehash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tap02Version",
+        "encoding",
+        "specificationHash",
+        "referenceHash",
+        "testSuiteHash"
+      ],
+      "title": "Semantics",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "expandedGates": {
+          "maximum": 5000,
+          "minimum": 0,
+          "title": "Expandedgates",
+          "type": "integer"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        },
+        "netlistHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Netlisthash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "netlistHash",
+        "nIn",
+        "nOut",
+        "nState",
+        "expandedGates",
+        "environment"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "alias": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Alias",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/CircuitIdentity"
+        },
+        "manifestHash": {
+          "pattern": "^0x[0-9a-f]{64}$",
+          "title": "Manifesthash",
+          "type": "string"
+        },
+        "nIn": {
+          "maximum": 65536,
+          "minimum": 0,
+          "title": "Nin",
+          "type": "integer"
+        },
+        "nOut": {
+          "maximum": 65536,
+          "minimum": 1,
+          "title": "Nout",
+          "type": "integer"
+        },
+        "nState": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Nstate",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alias",
+        "identity",
+        "manifestHash",
+        "nIn",
+        "nOut",
+        "nState"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "TraceBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "deadlineMs": {
+          "default": 1000,
+          "maximum": 5000,
+          "minimum": 1,
+          "title": "Deadlinems",
+          "type": "integer"
+        },
+        "maxCircuitBytes": {
+          "default": 250000,
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Maxcircuitbytes",
+          "type": "integer"
+        },
+        "maxCircuits": {
+          "default": 128,
+          "maximum": 256,
+          "minimum": 1,
+          "title": "Maxcircuits",
+          "type": "integer"
+        },
+        "maxConnections": {
+          "default": 4096,
+          "maximum": 8192,
+          "minimum": 1,
+          "title": "Maxconnections",
+          "type": "integer"
+        },
+        "maxDepth": {
+          "default": 32,
+          "maximum": 64,
+          "minimum": 0,
+          "title": "Maxdepth",
+          "type": "integer"
+        },
+        "maxExpandedGates": {
+          "default": 5000,
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Maxexpandedgates",
+          "type": "integer"
+        },
+        "maxIndexedSignals": {
+          "default": 20000,
+          "maximum": 100000,
+          "minimum": 1,
+          "title": "Maxindexedsignals",
+          "type": "integer"
+        },
+        "maxNodes": {
+          "default": 4096,
+          "maximum": 8192,
+          "minimum": 1,
+          "title": "Maxnodes",
+          "type": "integer"
+        },
+        "operationDeadlineMs": {
+          "default": 15000,
+          "maximum": 30000,
+          "minimum": 1,
+          "title": "Operationdeadlinems",
+          "type": "integer"
+        }
+      },
+      "title": "TraceBudget",
+      "type": "object"
+    },
+    "VerificationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "imports": {
+          "items": {
+            "$ref": "#/$defs/ImportResult"
+          },
+          "maxItems": 1251,
+          "minItems": 1,
+          "title": "Imports",
+          "type": "array"
+        },
+        "kind": {
+          "const": "M3_EXECUTION",
+          "title": "Kind",
+          "type": "string"
+        },
+        "project": {
+          "discriminator": {
+            "mapping": {
+              "1.0.0": "#/$defs/Project",
+              "m3-1.0.0": "#/$defs/LocalProject"
+            },
+            "propertyName": "schemaVersion"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Project"
+            },
+            {
+              "$ref": "#/$defs/LocalProject"
+            }
+          ],
+          "title": "Project"
+        },
+        "relation": {
+          "enum": [
+            "REFERENCE",
+            "PREVIOUS_VERSION",
+            "BEHAVIORAL"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "m3-1.0.0",
+          "title": "Schemaversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "project",
+        "imports",
+        "relation"
+      ],
+      "title": "VerificationRequest",
+      "type": "object"
+    },
+    "WorkflowBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "deadlineMs": {
+          "default": 300000,
+          "maximum": 300000,
+          "minimum": 1,
+          "title": "Deadlinems",
+          "type": "integer"
+        },
+        "maxIterations": {
+          "default": 24,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Maxiterations",
+          "type": "integer"
+        },
+        "maxReceiptBytes": {
+          "default": 8388608,
+          "maximum": 16777216,
+          "minimum": 4096,
+          "title": "Maxreceiptbytes",
+          "type": "integer"
+        },
+        "maxRequests": {
+          "default": 32,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Maxrequests",
+          "type": "integer"
+        },
+        "maxRpcRequests": {
+          "default": 256,
+          "maximum": 8192,
+          "minimum": 0,
+          "title": "Maxrpcrequests",
+          "type": "integer"
+        }
+      },
+      "title": "WorkflowBudget",
+      "type": "object"
+    },
+    "WorkflowStep": {
+      "additionalProperties": false,
+      "properties": {
+        "actionId": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actionid"
+        },
+        "blockNumber": {
+          "anyOf": [
+            {
+              "maxLength": 78,
+              "pattern": "^(0|[1-9][0-9]*)$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Blocknumber"
+        },
+        "budget": {
+          "$ref": "#/$defs/OperationBudget"
+        },
+        "bundle": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bundle"
+        },
+        "candidate": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Candidate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "continueOn": {
+          "items": {
+            "enum": [
+              "DIFFERENT",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "maxItems": 2,
+          "title": "Continueon",
+          "type": "array"
+        },
+        "expectedExecutionHash": {
+          "anyOf": [
+            {
+              "pattern": "^0x[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expectedexecutionhash"
+        },
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CircuitIdentity"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "libraryRequest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LibraryRequest"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "op": {
+          "enum": [
+            "sample",
+            "discover",
+            "import",
+            "build",
+            "test",
+            "compare",
+            "inspect",
+            "propose_correction",
+            "verify",
+            "apply",
+            "export",
+            "verify_bundle",
+            "revalidate",
+            "stop_authorization"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "retry": {
+          "$ref": "#/$defs/RetryPolicy"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "enum": [
+                "half-adder",
+                "swapped"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "vectors": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ExpectedVector"
+              },
+              "maxItems": 4096,
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vectors"
+        }
+      },
+      "required": [
+        "id",
+        "op"
+      ],
+      "title": "WorkflowStep",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "budget": {
+      "$ref": "#/$defs/WorkflowBudget"
+    },
+    "executionRequest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VerificationRequest"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "kind": {
+      "const": "AGENT_WORKFLOW_REQUEST",
+      "default": "AGENT_WORKFLOW_REQUEST",
+      "title": "Kind",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "m45-agent-workflow-1.0.0",
+      "default": "m45-agent-workflow-1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/WorkflowStep"
+      },
+      "maxItems": 64,
+      "minItems": 1,
+      "title": "Steps",
+      "type": "array"
+    },
+    "stopOn": {
+      "items": {
+        "enum": [
+          "EQUIVALENT",
+          "EXPORTED"
+        ],
+        "type": "string"
+      },
+      "maxItems": 2,
+      "title": "Stopon",
+      "type": "array"
+    }
+  },
+  "required": [
+    "steps"
+  ],
+  "title": "WorkflowRequest",
+  "type": "object"
+}

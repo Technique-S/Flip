@@ -1,0 +1,86 @@
+{
+  "artifactId": "agent-workflow-protocol",
+  "authorityBoundary": [
+    "Agent prompts, project metadata, labels and diagnostics are never transaction permissions.",
+    "The agent must not authorize its own onchain publication; stop and request human approval.",
+    "Only the M2 importer produces executable circuit input."
+  ],
+  "goal": "Bounded structured agent loop over existing Flip operations; no autonomous write path.",
+  "iterationContract": {
+    "cancellation": "cooperative on every step boundary",
+    "deadlineMs": 300000,
+    "failure": "UNKNOWN/BUDGET_EXHAUSTED/STALE reported truthfully; no publication",
+    "logs": "append-only JSONL with step, op, inputHash, outputHash, status, budgetRemaining",
+    "maxRequests": 256,
+    "maxSteps": 12,
+    "reproducibleOutputs": "request hash, tool hashes, resource metrics and verdict recorded",
+    "success": "verified EQUIVALENT or completed evidence export with no CURRENT claim"
+  },
+  "operations": [
+    {
+      "input": "project request + pinned imports",
+      "op": "build",
+      "output": "composition bytes/hash + manifest",
+      "productionMapping": "flip compose"
+    },
+    {
+      "input": "vector request",
+      "op": "test",
+      "output": "VECTORS_MATCH/MISMATCH",
+      "productionMapping": "flip vectors"
+    },
+    {
+      "input": "execution request",
+      "op": "compare",
+      "output": "EQUIVALENT/DIFFERENT/UNKNOWN",
+      "productionMapping": "flip compare"
+    },
+    {
+      "input": "DIFFERENT report + identity map",
+      "op": "inspect",
+      "output": "relevant cone / no fault claim",
+      "productionMapping": "NOT_IMPLEMENTED"
+    },
+    {
+      "input": "diagnostic + declared prior mapping",
+      "op": "propose_correction",
+      "output": "candidate patch, advisory only",
+      "productionMapping": "NOT_IMPLEMENTED"
+    },
+    {
+      "input": "edited project",
+      "op": "verify",
+      "output": "fresh full comparison",
+      "productionMapping": "flip compare / flip consume"
+    },
+    {
+      "input": "execution request",
+      "op": "export",
+      "output": "canonical evidence bundle",
+      "productionMapping": "flip export"
+    },
+    {
+      "input": "publication request",
+      "op": "stop_authorization",
+      "output": "STOP + human approval request",
+      "productionMapping": "NOT_IMPLEMENTED"
+    }
+  ],
+  "retryRules": [
+    "Only UNKNOWN may be retried; DIFFERENT and STALE require a declared change.",
+    "At most maxRetries attempts; each attempt gets a fresh deadline and freshness check.",
+    "Never retry a validation failure by weakening limits or accepting self-declared flags."
+  ],
+  "schemaVersion": "1.0.0",
+  "status": "SPEC_ONLY_NOT_PRODUCTION",
+  "statusClasses": [
+    "PREPARED",
+    "RUNNING",
+    "COMPLETE",
+    "DIFFERENT",
+    "UNKNOWN",
+    "STALE",
+    "BUDGET_EXHAUSTED",
+    "STOPPED_FOR_AUTHORIZATION"
+  ]
+}

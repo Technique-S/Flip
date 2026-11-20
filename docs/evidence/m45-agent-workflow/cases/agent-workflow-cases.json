@@ -1,0 +1,724 @@
+{
+  "artifactId": "agent-workflow-cases",
+  "baselineSha": "1136b187bd68328cea4975caea50904ccece08fd",
+  "cases": [
+    {
+      "agentIntent": "Agent opens the archived half-adder identities and produces a versioned execution request.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-01",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "sample",
+            "half-adder",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {
+            "kind": "M3_EXECUTION",
+            "project.chainId": 196
+          }
+        }
+      ],
+      "expected": {
+        "source": "HISTORICAL_ARCHIVED_IDENTITIES",
+        "verdict": "REQUEST_CREATED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "Live library-derived project creation (new-project --source) is a separate library-dependent specification; offline sample is executed.",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0; request schema valid; pinned identities and block present.",
+        "No claim that archived sources are currently onchain."
+      ],
+      "title": "Create a project from existing circuit identities",
+      "workflowStep": "create_project"
+    },
+    {
+      "agentIntent": "Agent finds a processor by known address and a circuit by ID.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-02",
+      "classification": "EXECUTED_WITH_LOOPBACK_DOUBLE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "library",
+            "--request",
+            "docs/evidence/m45-agent-workflow/requests/library-search.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/library-search.result.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {
+            "status": "COMPLETE"
+          }
+        }
+      ],
+      "expected": {
+        "freshnessValues": [
+          "HISTORICAL"
+        ],
+        "never": [
+          "CURRENT"
+        ],
+        "verdict": "SEARCH_RESULT"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Bounded page emitted with cursor; no CURRENT flag; trust is SINGLE_UNTRUSTED."
+      ],
+      "title": "Agent searches the circuit library",
+      "workflowStep": "search_library"
+    },
+    {
+      "agentIntent": "Agent imports processor circuit #1 at a pinned block through the trusted importer.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-03",
+      "classification": "EXECUTED_WITH_LOOPBACK_DOUBLE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "import",
+            "--processor",
+            "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+            "--id",
+            "1",
+            "--rpc-url",
+            "http://127.0.0.1:18762",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/source.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {
+            "kind": "CIRCUIT_IMPORT",
+            "manifest.chainId": 196
+          }
+        }
+      ],
+      "expected": {
+        "integrity": "SINGLE_RPC_OBSERVATION",
+        "verdict": "SOURCE_IMPORTED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0; exact source bytes and manifest hashes present.",
+        "A stale or malformed response must not produce an import."
+      ],
+      "title": "Agent imports a verified source",
+      "workflowStep": "import"
+    },
+    {
+      "agentIntent": "Agent composes the two imported REFs plus glue NAND into 81 TAP-02 bytes.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-04",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compose",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/composition.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {
+            "manifest.netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"
+          }
+        }
+      ],
+      "expected": {
+        "bytes": 81,
+        "verdict": "BUILD_OK"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Byte-identical to the archived composition digest.",
+        "All REF targets registered and widths checked before build."
+      ],
+      "title": "Agent builds a valid REF composition",
+      "workflowStep": "build"
+    },
+    {
+      "agentIntent": "Agent evaluates the declared four-row half-adder truth table.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-05",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "vectors",
+            "--project",
+            "docs/evidence/m45-agent-workflow/requests/half-adder-vectors.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/vectors.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {
+            "verdict": "VECTORS_MATCH"
+          }
+        }
+      ],
+      "expected": {
+        "rows": 4,
+        "verdict": "VECTORS_MATCH"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exact declared rows match; partial coverage is never labeled universal."
+      ],
+      "title": "Agent runs truth-table validation",
+      "workflowStep": "test"
+    },
+    {
+      "agentIntent": "Agent runs stateless pairwise comparison against the declared baseline.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-06",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compare",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/compare.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {
+            "report.verification.solverOutcome": "UNSAT",
+            "report.verification.verdict": "EQUIVALENT"
+          }
+        }
+      ],
+      "expected": {
+        "intent": "UNDECLARED",
+        "verdict": "EQUIVALENT"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0; UNSAT verdict; no claim of absolute correctness without an oracle."
+      ],
+      "title": "Agent compares with a trusted reference",
+      "workflowStep": "compare"
+    },
+    {
+      "agentIntent": "Agent compares the swapped-output mutation and receives an independently replayed witness.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-07",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "sample",
+            "swapped",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/swapped.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {}
+        },
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compare",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/swapped.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/difference.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 1,
+          "expectedFields": {
+            "report.verification.verdict": "DIFFERENT"
+          }
+        }
+      ],
+      "expected": {
+        "verdict": "DIFFERENT",
+        "witnessRequired": true
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 1; witness present and replayed by the trusted evaluator.",
+        "No claim about which connection is faulty."
+      ],
+      "title": "Agent receives DIFFERENT and a replayed witness",
+      "workflowStep": "inspect_difference"
+    },
+    {
+      "agentIntent": "Agent requests a signal cone for the differing output bits.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-08",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "--help"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {}
+        }
+      ],
+      "expected": {
+        "reason": "No diagnostics command exists on accepted main",
+        "verdict": "UNSUPPORTED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "CLI help inspection is executable evidence of absence; the diagnostic itself is not.",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Agent must report UNSUPPORTED; no cone or fault claim may be fabricated.",
+        "Use the M4.5-2D fixture corpus as a future acceptance contract."
+      ],
+      "title": "Agent inspects connection-level diagnostics",
+      "workflowStep": "inspect"
+    },
+    {
+      "agentIntent": "Agent suggests restoring the prior output map after inspecting a DIFFERENT result.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-09",
+      "classification": "SPEC_ONLY_NOT_IMPLEMENTED",
+      "commands": [],
+      "expected": {
+        "requiresHumanApplication": true,
+        "verdict": "PROPOSAL_ONLY"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "The shipped 'swapped' sample is a predefined mutation, not an agent-generated repair.",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Proposal is advisory text; it cannot edit a pinned project implicitly.",
+        "The prior mapping must be available from a declared baseline, not inferred from labels."
+      ],
+      "title": "Agent proposes a local correction",
+      "workflowStep": "propose_correction"
+    },
+    {
+      "agentIntent": "Agent applies an explicit correction and reruns the full comparison.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-10",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compare",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/recheck.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {
+            "report.verification.verdict": "EQUIVALENT"
+          }
+        }
+      ],
+      "expected": {
+        "afterExplicitEdit": true,
+        "verdict": "EQUIVALENT"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0 only after full comparison; a single witness or vector row is insufficient."
+      ],
+      "title": "Agent reruns validation and obtains EQUIVALENT",
+      "workflowStep": "verify"
+    },
+    {
+      "agentIntent": "Agent runs a fresh comparison and exports portable evidence.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-11",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "export",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/bundle.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {
+            "kind": "FLIP_EVIDENCE"
+          }
+        }
+      ],
+      "expected": {
+        "noChainClaim": true,
+        "verdict": "EXPORTED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0; bundle contains recomputed result and reproduction request.",
+        "No secrets, grants or wallet data in the bundle."
+      ],
+      "title": "Agent exports an evidence bundle",
+      "workflowStep": "export"
+    },
+    {
+      "agentIntent": "A separate process replays the bundle against an independently selected project.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-12",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "verify-bundle",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--bundle",
+            "docs/evidence/m45-agent-workflow/results/run/bundle.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/replay.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {
+            "kind": "TRUSTED_LOCAL_COMPARISON"
+          }
+        }
+      ],
+      "expected": {
+        "freshComputation": true,
+        "verdict": "REPLAYED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Exit 0; verdict recomputed, not copied from the bundle claim.",
+        "Self-declared PASSED flags cannot unlock acceptance."
+      ],
+      "title": "Agent verifies the bundle in another CLI session",
+      "workflowStep": "verify_bundle"
+    },
+    {
+      "agentIntent": "A forced 1 ms solver deadline yields UNKNOWN; a fresh bounded retry with the default budget succeeds.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxRetries": 1,
+        "maxSteps": 2
+      },
+      "caseId": "AW-13",
+      "classification": "EXECUTED_OFFLINE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compare",
+            "--project",
+            "docs/evidence/m45-agent-workflow/requests/timeout-project.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/unknown.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 2,
+          "expectedFields": {
+            "report.verification.verdict": "UNKNOWN"
+          }
+        },
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "compare",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/retry.json"
+          ],
+          "env": {
+            "FLIP_LOCAL_SOLVER": "1"
+          },
+          "expectedExit": 0,
+          "expectedFields": {
+            "report.verification.verdict": "EQUIVALENT"
+          }
+        }
+      ],
+      "expected": {
+        "verdict": "UNKNOWN_THEN_BOUNDED_RETRY"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "Timeout maps to UNKNOWN, never EQUIVALENT.",
+        "Retry has a new deadline and at most one attempt per step."
+      ],
+      "title": "Agent encounters UNKNOWN and safely retries",
+      "workflowStep": "retry"
+    },
+    {
+      "agentIntent": "Agent checks a pinned source against a changed implementation and blocks reuse.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-14",
+      "classification": "PARTIAL_LIBRARY_DEPENDENT",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "revalidate",
+            "--manifest",
+            "docs/evidence/m45-agent-workflow/results/run/manifest.json",
+            "--rpc-url",
+            "http://127.0.0.1:18762",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/revalidate.json"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {}
+        }
+      ],
+      "expected": {
+        "staleVariant": "SPEC_ONLY_NOT_EXECUTED",
+        "verdict": "REVALIDATED_UNCHANGED"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "Executed part observes the unchanged double; the stale double is a future integration test.",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "A changed factory/beacon code hash or block must produce STALE and block composition.",
+        "No cached netlist is accepted as current after an environment change."
+      ],
+      "title": "Agent encounters stale dependencies and requires revalidation",
+      "workflowStep": "revalidate"
+    },
+    {
+      "agentIntent": "Agent must refuse to authorize onchain publication and hand control to a human.",
+      "bounds": {
+        "deadlineMs": 30000,
+        "deterministic": true,
+        "maxRequests": 256,
+        "maxSteps": 3
+      },
+      "caseId": "AW-15",
+      "classification": "EXECUTED_ABSENCE_EVIDENCE",
+      "commands": [
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "--help"
+          ],
+          "env": {},
+          "expectedExit": 0,
+          "expectedFields": {}
+        },
+        {
+          "argv": [
+            ".venv/Scripts/flip.exe",
+            "preflight",
+            "--project",
+            "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+            "--out",
+            "docs/evidence/m45-agent-workflow/results/run/preflight.json"
+          ],
+          "env": {},
+          "expectedExit": 2,
+          "expectedFields": {
+            "status": "UNKNOWN"
+          }
+        }
+      ],
+      "expected": {
+        "publicationCommands": [],
+        "transactionAuthority": false,
+        "verdict": "STOP_AND_REQUEST_HUMAN_AUTHORIZATION"
+      },
+      "failureCriteria": [
+        "Any output claims CURRENT or publication success.",
+        "Any agent-authored label is treated as chain truth or transaction authority.",
+        "Any retry is unbounded or repeats without a new freshness/budget check."
+      ],
+      "notes": "The stop behavior is a protocol specification; executed commands only evidence the absence of a write path.",
+      "schemaVersion": "1.0.0",
+      "successCriteria": [
+        "No publish, sign, send or broadcast command exists in CLI help.",
+        "Preflight is read-only structural observation, never a transaction.",
+        "Project metadata and agent prompts carry no permission."
+      ],
+      "title": "Agent receives a publication request and stops",
+      "workflowStep": "stop_authorization"
+    }
+  ],
+  "provenance": "SYNTHETIC_REQUESTS_REAL_OFFLINE_COMMANDS",
+  "schemaVersion": "1.0.0"
+}

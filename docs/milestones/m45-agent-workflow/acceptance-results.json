@@ -1,0 +1,374 @@
+{
+  "archivalDiagnostic": {
+    "exit": 0,
+    "scope": "SCRATCH_DIAGNOSTIC_NOT_A_DEADLINE_CHANGE",
+    "seconds": 218.8435102000367,
+    "stages": [
+      {
+        "returncode": 0,
+        "seconds": 217.8343558999477,
+        "stage": "generator_subprocess",
+        "stageOutput": "{\"stage\": \"build_task_a\", \"event\": \"start\"}\n{\"stage\": \"build_task_a\", \"elapsedSeconds\": 0.035}\n{\"stage\": \"build_task_b\", \"event\": \"start\"}\n{\"stage\": \"build_task_b\", \"elapsedSeconds\": 0.016}\n{\"stage\": \"build_task_c\", \"event\": \"start\"}\n{\"stage\": \"build_task_c\", \"elapsedSeconds\": 0.008}\n{\"stage\": \"build_task_d\", \"event\": \"start\"}\n{\"stage\": \"build_task_d\", \"elapsedSeconds\": 0.001}\n{\"stage\": \"build_task_e\", \"event\": \"start\"}\n{\"stage\": \"build_task_e\", \"elapsedSeconds\": 216.707}\n"
+      }
+    ],
+    "transcript": {
+      "checks": {
+        "benchmark_cnf_counts": {
+          "all_match": true,
+          "details": [
+            {
+              "clauses_ok": true,
+              "id": "E-00050",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-00100",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-00250",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-00500",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-01000",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-02500",
+              "vars_ok": true
+            },
+            {
+              "clauses_ok": true,
+              "id": "E-05000",
+              "vars_ok": true
+            }
+          ]
+        },
+        "deterministic_regeneration": {
+          "authored_files_compared": 6,
+          "differing_files": [],
+          "exact": true,
+          "returncode": 0,
+          "stderr_tail": "{\"stage\": \"build_task_a\", \"event\": \"start\"}\n{\"stage\": \"build_task_a\", \"elapsedSeconds\": 0.035}\n{\"stage\": \"build_task_b\", \"event\": \"start\"}\n{\"stage\": \"build_task_b\", \"elapsedSeconds\": 0.016}\n{\"stage\": \"build_task_c\", \"event\": \"start\"}\n{\"stage\": \"build_task_c\", \"elapsedSeconds\": 0.008}\n{\"stage\": \"build_task_d\", \"event\": \"start\"}\n{\"stage\": \"build_task_d\", \"elapsedSeconds\": 0.001}\n{\"stage\": \"build_task_e\", \"event\": \"start\"}\n{\"stage\": \"build_task_e\", \"elapsedSeconds\": 216.707}\n"
+        },
+        "hash_register": {
+          "all_match": true,
+          "failures": [],
+          "files_checked": 10
+        },
+        "negative_rejections": {
+          "all_rejected": true,
+          "details": {
+            "A07_forward_ref": {
+              "reason": "Malformed: signal 4 referenced by element at 4 is not available",
+              "rejected": true
+            },
+            "A08_cycle": {
+              "reason": "Malformed: REF cycle at ('1111111111111111111111111111111111111111', 2)",
+              "rejected": true
+            },
+            "A09_arity": {
+              "reason": "Malformed: REF arity does not match the target circuit",
+              "rejected": true
+            }
+          }
+        },
+        "onchain_vector_crosscheck": {
+          "all_match": true,
+          "details": [
+            {
+              "circuit_id": 1,
+              "match": true
+            },
+            {
+              "circuit_id": 2,
+              "match": true
+            }
+          ]
+        },
+        "sat_verdicts": {
+          "cases_with_executed_verdict": 17,
+          "expected_matches": 17,
+          "mismatches": []
+        },
+        "witnesses": {
+          "all_verified": true,
+          "count": 8
+        }
+      },
+      "core_sha256": "84895734a14862178989b659e2bd0e05c9c6c8b8ad498e6ad162831066c0ad85",
+      "core_version": "m3-core-1.0.0",
+      "generator_sha256": "89dc4cac79bf298540c4acaa24ac4e59d5e4507071e128f4ba65f2d323d06c73",
+      "schema": "flip-m3-verification-transcript/1",
+      "wall_seconds": 218.836
+    }
+  },
+  "baseline": "bba6f3d301b08c0dcbbfd0b363b99a15179414db",
+  "ci": {
+    "linux": {
+      "authorizationPassed": 10,
+      "chromiumPassed": 23,
+      "conclusion": "success",
+      "independentPassed": 27,
+      "pythonPassed": 648,
+      "pythonSeconds": 93.75
+    },
+    "windows": {
+      "authorizationPassed": 10,
+      "chromiumPassed": 23,
+      "conclusion": "success",
+      "independentPassed": 27,
+      "pythonPassed": 648,
+      "pythonSeconds": 197.83
+    }
+  },
+  "ciRuns": [
+    44712700362,
+    44712923122
+  ],
+  "excluded": [
+    "flip-portable-project-1.1.0",
+    "M4.5-0 proposed authorization architecture"
+  ],
+  "independentReview": "7b4b1f711ddc9676141becfae2fc77a3d5941374",
+  "integrationTested": "ffaf426d7ff162e44678ddec75e3466af96b564a",
+  "localBoundedParity": {
+    "apiStatus": "BUDGET_EXHAUSTED",
+    "coreStatus": "BUDGET_EXHAUSTED",
+    "semanticHashesEqual": true
+  },
+  "localC26SavedClaim": {
+    "consumerRejectedMismatch": true,
+    "reasonCode": "SOLVER_TIMEOUT",
+    "solverOutcome": "INTERRUPTED",
+    "verdict": "UNKNOWN"
+  },
+  "localChromiumPassed": 23,
+  "localCustody": {
+    "agent_workflow_fixtures": {
+      "files": 31,
+      "manifestEntries": 30,
+      "revision": "996a300324877d0017cbe0cdb23d8da76692862c"
+    },
+    "agent_workflow_independent_review": {
+      "files": 14,
+      "manifestEntries": 10,
+      "revision": "7b4b1f711ddc9676141becfae2fc77a3d5941374",
+      "target": "d2638d057b6236286480891d6fdd7dfb0402bc5a"
+    },
+    "core": "6dc21e0b97ffe03273a62ea1e9499e6346244d32",
+    "credential_pattern_findings": 0,
+    "debugging_fixture_evidence": {
+      "files": 15,
+      "manifestEntries": 9,
+      "revision": "8fc4efb71cb750cced98b4e88540796d665b616a"
+    },
+    "debugging_independent_review": {
+      "files": 67,
+      "manifestEntries": 66,
+      "revision": "fe807d3eb2bf7752973468c8ec9441c1691b1209",
+      "target": "130dd341b622cc0ad68bffe7f6f37bb847de45c8"
+    },
+    "fixtures": "e4de86ef8870fb9b85adf94ace400791a479f985",
+    "library_independent_reviews": [
+      {
+        "files": 16,
+        "revision": "9741e66ae385979dc0d18c89aec4ec6ed93ff285",
+        "target": "dec9420bb76e9245c6740bf3d92031d175e408ec"
+      },
+      {
+        "files": 16,
+        "revision": "96187da8718bcf7d14a452685f7de84231895920",
+        "target": "786cbca056c6cd61ca0e7a5b61ddbc772a55a800"
+      }
+    ],
+    "provenance_limit": "Audited originals unavailable; imported observations are historical.",
+    "raw_files": 12,
+    "registered_blob_checks": [
+      {
+        "bytes": 18711,
+        "path": "docs/evidence/raw/M0/xlayer_circuits.json",
+        "sha256": "a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30"
+      },
+      {
+        "bytes": 22185,
+        "path": "docs/evidence/raw/M0/vectors.json",
+        "sha256": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+      },
+      {
+        "bytes": 3415,
+        "path": "docs/evidence/raw/M0/composition_poc.json",
+        "sha256": "8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0"
+      },
+      {
+        "bytes": 7224,
+        "path": "docs/evidence/raw/M0/wiring_canary.json",
+        "sha256": "7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc"
+      },
+      {
+        "bytes": 6836,
+        "path": "docs/evidence/raw/M05/gate_a_compose_rerun.json",
+        "sha256": "9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1"
+      },
+      {
+        "bytes": 3188,
+        "path": "docs/evidence/raw/M05/gate_a_probe.json",
+        "sha256": "53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2"
+      },
+      {
+        "bytes": 1325,
+        "path": "docs/evidence/raw/M05/gate_a_probe2.json",
+        "sha256": "ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1"
+      },
+      {
+        "bytes": 4895,
+        "path": "docs/evidence/raw/M05/gate_b_manifest.json",
+        "sha256": "1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e"
+      },
+      {
+        "bytes": 2932,
+        "path": "docs/evidence/raw/M05/gate_b_negative.json",
+        "sha256": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+      },
+      {
+        "bytes": 36860,
+        "path": "docs/evidence/raw/M05/gate_c_scale.json",
+        "sha256": "3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d"
+      },
+      {
+        "bytes": 32210,
+        "path": "docs/evidence/raw/M05/gate_c_scale_partial.json",
+        "sha256": "51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a"
+      },
+      {
+        "bytes": 3137,
+        "path": "docs/evidence/raw/M05/gate_c_stateful.json",
+        "sha256": "57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264"
+      },
+      {
+        "bytes": 5249,
+        "path": "docs/evidence/derived/recompute_checks.py",
+        "sha256": "a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a"
+      },
+      {
+        "bytes": 2754,
+        "path": "docs/evidence/derived/recomputed_checks.json",
+        "sha256": "6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499"
+      }
+    ],
+    "registered_browser_captures": [
+      "docs/evidence/m45-library-final-review/results/library-desktop-observed.png",
+      "docs/evidence/m45-library-final-review/results/library-mobile-observed.png",
+      "docs/evidence/m45-library-independent-review/results/library-desktop-observed.png",
+      "docs/evidence/m45-library-independent-review/results/library-mobile-observed.png",
+      "docs/milestones/m45-library-browser/desktop.png",
+      "docs/milestones/m45-library-browser/mobile.png"
+    ],
+    "result": "PASS",
+    "scope": "M1 offline repository consistency; not chain verification or solver replay",
+    "seed": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+    "tracked_files_scanned": 770
+  },
+  "localEarlyHarness": {
+    "acceptance": {
+      "cliExample": "BUDGET_EXHAUSTED",
+      "exactMatches": 26,
+      "harnessExceptions": 0
+    },
+    "authorization": {
+      "apiParity": false,
+      "exactMatches": 9,
+      "harnessExceptions": 0
+    },
+    "conditions": "concurrent local regression and archival diagnostic runs; not counted as acceptance passes"
+  },
+  "localFull": {
+    "acceptance": "NOT_CREDITED_AS_PASS",
+    "conditions": "concurrent local diagnostics produced failures; no test/production deadline changes",
+    "errors": 0,
+    "failed": 8,
+    "failures": [
+      {
+        "class": "packages.flip-core.tests.test_m3_acceptance",
+        "failure": "subprocess.TimeoutExpired: Command '['C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\.venv\\\\Scripts\\\\python.exe', 'C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\packages\\\\flip-core\\\\.test-tmp\\\\test_custody_and_scratch_regen0\\\\fixtures\\\\m3-verification\\\\generators\\\\verify_corpus.py']' timed out after 120 seconds",
+        "name": "test_custody_and_scratch_regeneration"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m3_benchmarks",
+        "failure": "AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}\nassert 'UNKNOWN' == 'EQUIVALENT'\n  \n  - EQUIVALENT\n  + UNKNOWN",
+        "name": "test_bounded_benchmark[self-EQUIVALENT-5000]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m3_benchmarks",
+        "failure": "AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}\nassert 'UNKNOWN' == 'EQUIVALENT'\n  \n  - EQUIVALENT\n  + UNKNOWN",
+        "name": "test_bounded_benchmark[equivalent-EQUIVALENT-5000]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: WorkflowError(code='OPERATION_DEADLINE', message='Operation stopped; no revision accepted.', retryable=False, recovery='NEW_REQUEST')\nassert 'BUDGET_EXHAUSTED' == 'COMPLETE'\n  \n  - COMPLETE\n  + BUDGET_EXHAUSTED",
+        "name": "test_complete_discovery_import_build_test_compare_export_and_meter"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert ('BUDGET_EXHAUSTED' in ('STALE', 'INVALID_INPUT'))\n +  where 'BUDGET_EXHAUSTED' = WorkflowResult(schemaVersion='m45-agent-workflow-1.0.0', kind='AGENT_WORKFLOW_RESULT', status='BUDGET_EXHAUSTED', requ...c9de1c14412fa7a3b7acb7d7e4b55b49ddd422b7ceb004f99832f1231a8188a1', scope='LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE').status",
+        "name": "test_correction_substitution_or_unverified_apply_fails[project]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert 'BUDGET_EXHAUSTED' == 'STALE'\n  \n  - STALE\n  + BUDGET_EXHAUSTED",
+        "name": "test_correction_substitution_or_unverified_apply_fails[oracle]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert ('BUDGET_EXHAUSTED' in ('STALE', 'INVALID_INPUT'))\n +  where 'BUDGET_EXHAUSTED' = WorkflowResult(schemaVersion='m45-agent-workflow-1.0.0', kind='AGENT_WORKFLOW_RESULT', status='BUDGET_EXHAUSTED', requ...cc82599b3588bd7e8eda259335c5227e4b5bbf8c1c21d5ca85127a24ea2577de', scope='LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE').status",
+        "name": "test_correction_substitution_or_unverified_apply_fails[unverified]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m4_acceptance",
+        "failure": "AssertionError: assert <ExitCode.INVALID_INPUT: 3> == 1\n +  where <ExitCode.INVALID_INPUT: 3> = cli(['consume', '--project', 'C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\packages\\\\flip-core\\\\.test-tmp\\\\test_independent_cli_C26_0\\\\adapted.json'])",
+        "name": "test_independent_cli[C26]"
+      }
+    ],
+    "immutableAcceptance": false,
+    "junit": ".test-tmp/agent-python.xml",
+    "passed": 640,
+    "productionSourcesUnchanged": true,
+    "seconds": 1612.46,
+    "tests": 648
+  },
+  "localSerialCli": {
+    "logs": 6,
+    "status": "COMPLETE"
+  },
+  "localSerialRetry": {
+    "budgetsChanged": false,
+    "failed": 0,
+    "junit": ".test-tmp/agent-serial-retry.xml",
+    "passed": 7,
+    "seconds": 77.59
+  },
+  "measuredCiRun": 44712700362,
+  "nodeCanonicalVectors": 6,
+  "productionDelta": [],
+  "productionReviewed": "d2638d057b6236286480891d6fdd7dfb0402bc5a",
+  "productionTrees": {
+    "apps/web/src": "097a8944e72dc8e923841785b5d3f68b090fdf4b",
+    "packages/flip-api/src": "a58c8cf78b363e3e83377deeff3b0a466ecec7db",
+    "packages/flip-cli/src": "81e881fedb2bd8d51b637567391d69933a15109d",
+    "packages/flip-core/src": "4c6219c68be2a01951029bef2337fb051719cb23"
+  },
+  "reviewMerge": "583b5176a452cf06a419c7cc60e5148bb880fbbd",
+  "schemaProfiles": 7,
+  "schemaVersion": "flip-agent-workflow-acceptance-record-1",
+  "timeoutPolicy": "inherited 120-second test and all assertions unchanged; no production budget increase",
+  "verdict": "PASS_FOR_REVIEWED_IMPLEMENTATION_WITH_DOCUMENTED_HOST_RUNTIME_LIMITATIONS"
+}

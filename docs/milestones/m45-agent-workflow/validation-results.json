@@ -1,0 +1,561 @@
+{
+  "schemaVersion": "m45-agent-handoff-1",
+  "recordedAtUtc": "2026-11-19T23:35:10.163967+00:00",
+  "verdict": "PASS_FOR_BOUNDED_IMPLEMENTATION_HANDOFF_NOT_MERGE_APPROVAL",
+  "acceptedMain": "bba6f3d301b08c0dcbbfd0b363b99a15179414db",
+  "productionCommit": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+  "initialImplementation": "5fb91579cbe6f79fefef2ff7059ff80f1af27d0f",
+  "independentCorpus": "996a300324877d0017cbe0cdb23d8da76692862c",
+  "corpusIntegration": "1baea9518f2b08508258e11b9c6f5160ba3d99cd",
+  "productionIndependentReview": "PENDING",
+  "branch": "codex/flip-m45-agent-workflow",
+  "ci": {
+    "run": 44637097034,
+    "url": "https://github.com/Technique-S/Flip/actions/runs/44637097034",
+    "conclusion": "success",
+    "platforms": [
+      {
+        "platform": "ubuntu-latest",
+        "testedCommit": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+        "python": {
+          "name": "pytest",
+          "errors": "0",
+          "failures": "0",
+          "skipped": "0",
+          "tests": "648",
+          "time": "89.409",
+          "timestamp": "2026-11-19T23:23:42.095676+00:00",
+          "hostname": "runnervmccnms"
+        },
+        "chromium": {
+          "total": 23,
+          "passed": 23
+        },
+        "artifacts": {
+          "m3-acceptance.json": {
+            "bytes": 52239,
+            "sha256": "572a4fa36752936ab29f51e0510995678c2eed9b8ce4fd10b34a3fd4e5da0f21"
+          },
+          "m3-benchmark.json": {
+            "bytes": 26249,
+            "sha256": "b596017eadd27ac30a8e7a071b782b9cb31cba85f4a7d5fa2ac64036eb6fb147"
+          },
+          "m3-tests.xml": {
+            "bytes": 206308,
+            "sha256": "72f2fb82d3e90f8e45d4e84420232f865001a8e6413583eb0f8d537ab99875da"
+          },
+          "m4-acceptance.json": {
+            "bytes": 50160,
+            "sha256": "c9afaeb268c94ecc2510dfcc2d1c2ccd5e36389e5c53ed76047a264ab2e1b6b8"
+          }
+        }
+      },
+      {
+        "platform": "windows-latest",
+        "testedCommit": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+        "python": {
+          "name": "pytest",
+          "errors": "0",
+          "failures": "0",
+          "skipped": "0",
+          "tests": "648",
+          "time": "199.134",
+          "timestamp": "2026-11-19T23:28:35.840787+00:00",
+          "hostname": "runnervmm7ud1"
+        },
+        "chromium": {
+          "total": 23,
+          "passed": 23
+        },
+        "artifacts": {
+          "m3-acceptance.json": {
+            "bytes": 52137,
+            "sha256": "6aae5f924d356099c5d0a525ed5e70a0de087373187331b773a8c1c2fe0296a9"
+          },
+          "m3-benchmark.json": {
+            "bytes": 26859,
+            "sha256": "d09e5b234b21f79b9601172f2694fd10b1086dcc5a984b19b735ab4dcf453a63"
+          },
+          "m3-tests.xml": {
+            "bytes": 206219,
+            "sha256": "d4ac8dc07fd42b0044ef18897ee462e0910e8b7cbc60a0b111ff13f59e3be49e"
+          },
+          "m4-acceptance.json": {
+            "bytes": 51512,
+            "sha256": "1ef3c77298ff4f8adef5c3bc4ed7de4cae49a70de47017a22798659be6856afc"
+          }
+        }
+      }
+    ]
+  },
+  "localFinalFocused": {
+    "testedCommit": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+    "junit": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "47",
+      "time": "145.760",
+      "timestamp": "2026-11-20T00:28:35.529890+01:00",
+      "hostname": "DESKTOP-S5Q92A9"
+    },
+    "artifact": {
+      "bytes": 7035,
+      "sha256": "7258a469810228cec0f412f9f9379c94f09fdb5ec2f0a8630190adb3c932577c"
+    }
+  },
+  "localChromium": {
+    "testedCommit": "5fb91579cbe6f79fefef2ff7059ff80f1af27d0f",
+    "total": 23,
+    "passed": 23,
+    "frontendChangedSince": false
+  },
+  "localChecks": {
+    "commit": "5fb91579cbe6f79fefef2ff7059ff80f1af27d0f",
+    "checks": [
+      {
+        "name": "m1-schema",
+        "exitCode": 0,
+        "elapsedMs": 1354,
+        "command": [
+          "-m",
+          "flip_core.schema_export",
+          "--out",
+          "docs/schema/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "m2-schema",
+        "exitCode": 0,
+        "elapsedMs": 1385,
+        "command": [
+          "-m",
+          "flip_core.import_schema_export",
+          "--out",
+          "docs/schema/m2/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "m3-schema",
+        "exitCode": 0,
+        "elapsedMs": 2608,
+        "command": [
+          "-m",
+          "flip_core.verification_schema_export",
+          "--out",
+          "docs/schema/m3/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "library-v1-schema",
+        "exitCode": 0,
+        "elapsedMs": 1556,
+        "command": [
+          "-m",
+          "flip_core.library_schema_export",
+          "--out",
+          "docs/schema/m45-library/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "library-v11-schema",
+        "exitCode": 0,
+        "elapsedMs": 1295,
+        "command": [
+          "-m",
+          "flip_core.library_schema_export",
+          "--version",
+          "1.1.0",
+          "--out",
+          "docs/schema/m45-library/1.1.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "debug-schema",
+        "exitCode": 0,
+        "elapsedMs": 2029,
+        "command": [
+          "-m",
+          "flip_core.debugging_schema_export",
+          "--out",
+          "docs/schema/m45-debugging/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "agent-schema",
+        "exitCode": 0,
+        "elapsedMs": 2367,
+        "command": [
+          "-m",
+          "flip_core.agent_schema_export",
+          "--out",
+          "docs/schema/m45-agent-workflow/1.0.0",
+          "--check"
+        ],
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "name": "canonical",
+        "exitCode": 0,
+        "elapsedMs": 208,
+        "command": [
+          "docs/schema/check-canonical.mjs"
+        ],
+        "stdoutSha256": "7b502ce1ee462ce1e181f7b3cdd202345c9ecc87a0c70f2ebd041da359df14b9",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "6 canonical vectors passed in Node v24.18.0\n",
+        "stderr": ""
+      },
+      {
+        "name": "workflow-fixtures",
+        "exitCode": 0,
+        "elapsedMs": 351,
+        "command": [
+          "fixtures/m45-agent-workflow/generators/verify_corpus.py"
+        ],
+        "stdoutSha256": "284714a9e22148c3f505659af6111b0b78acb11a64913ecd3e84bd0ff9628081",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "{\r\n  \"checks\": [\r\n    {\r\n      \"files\": 30,\r\n      \"name\": \"manifest\"\r\n    },\r\n    {\r\n      \"count\": 15,\r\n      \"name\": \"cases\"\r\n    },\r\n    {\r\n      \"count\": 5,\r\n      \"name\": \"negative_cases\"\r\n    },\r\n    {\r\n      \"name\": \"protocol\",\r\n      \"operations\": 8\r\n    },\r\n    {\r\n      \"count\": 18,\r\n      \"name\": \"executed_cli\"\r\n    },\r\n    {\r\n      \"count\": 0,\r\n      \"name\": \"fixtures_json_free\"\r\n    }\r\n  ],\r\n  \"errors\": [],\r\n  \"result\": \"PASS\"\r\n}\r\n",
+        "stderr": ""
+      },
+      {
+        "name": "library-fixtures",
+        "exitCode": 0,
+        "elapsedMs": 374,
+        "command": [
+          "fixtures/m45-library-discovery/generators/verify_fixtures.py"
+        ],
+        "stdoutSha256": "82aa8c1b9fdd9618fd4d22c99648edd717ed2a612ed327cfb0094226391d6967",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "{\r\n  \"caseFiles\": 12,\r\n  \"caseIds\": [\r\n    \"M45-2L-C01\",\r\n    \"M45-2L-C02\",\r\n    \"M45-2L-C03\",\r\n    \"M45-2L-C04\",\r\n    \"M45-2L-C05\",\r\n    \"M45-2L-C06\",\r\n    \"M45-2L-C07\",\r\n    \"M45-2L-C08\",\r\n    \"M45-2L-C09\",\r\n    \"M45-2L-C10\",\r\n    \"M45-2L-C11\",\r\n    \"M45-2L-C12\"\r\n  ],\r\n  \"errors\": [],\r\n  \"manifestFiles\": 19,\r\n  \"observationFiles\": 1,\r\n  \"result\": \"PASS\",\r\n  \"seedFiles\": 1\r\n}\r\n",
+        "stderr": ""
+      },
+      {
+        "name": "m1-smoke",
+        "exitCode": 0,
+        "elapsedMs": 4927,
+        "command": [
+          "scripts/smoke_m1.py"
+        ],
+        "stdoutSha256": "6c4d5e14ac31b76171761cce5f8e8841b1833c66aaab348219bd7ec3ddd24f06",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "PASS: CLI/API canonical bytes, CLI exit 6, real ASGI liveness and HTTP 501; no RPC.\r\n",
+        "stderr": ""
+      },
+      {
+        "name": "m3-smoke",
+        "exitCode": 0,
+        "elapsedMs": 10865,
+        "command": [
+          "scripts/smoke_m3.py"
+        ],
+        "stdoutSha256": "f747f383b7f70ac48d21cd7f4218d7f66135ad0cb29e5745719164b005624158",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "{\"result\": \"PASS\", \"scope\": \"External CLI / real loopback ASGI, no RPC\", \"cases\": [{\"operation\": \"compose\", \"verdict\": null, \"semanticHash\": \"0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f\"}, {\"operation\": \"compare\", \"verdict\": \"EQUIVALENT\", \"semanticHash\": \"0xe2a5e26bfe3743c4dad8a6a80b652fa9f268f00dbf5e95b5bcafe1e0965ec96e\"}, {\"operation\": \"compare\", \"verdict\": \"DIFFERENT\", \"semanticHash\": \"0x4e3f6558d780d2da89252330729459007bae79bad01b9cb51b24fc663b589ea6\"}]}\r\n",
+        "stderr": ""
+      },
+      {
+        "name": "correction-workflow-cli",
+        "exitCode": 0,
+        "elapsedMs": 19270,
+        "command": [
+          "-m",
+          "flip_cli",
+          "workflow",
+          "--request",
+          "docs/schema/m45-agent-workflow/examples/correction.json",
+          "--out",
+          ".test-tmp/m45-agent-demo-receipt.json"
+        ],
+        "stdoutSha256": "b6b01717eb32adb256a80a60f430d6ecc85c6b9113833150e63d288f64231758",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "standaloneCustody": {
+    "testedCommit": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+    "result": "PASS",
+    "trackedFiles": 751,
+    "credentialFindings": 0,
+    "workflowEvidence": {
+      "revision": "996a300324877d0017cbe0cdb23d8da76692862c",
+      "files": 31,
+      "manifestEntries": 30
+    },
+    "artifact": {
+      "bytes": 4400,
+      "sha256": "6710f70d5356dad840a3395a69101aea2cd1caadaf3d78445b413d0322b13cce"
+    }
+  },
+  "skillValidation": {
+    "result": "PASS",
+    "tool": "bundled skill-creator quick_validate.py",
+    "dependency": "PyYAML==6.0.3 in ignored .test-tmp/skill-validation only; no application dependency change"
+  },
+  "preservation": {
+    "frozenPathsUnchanged": [
+      "AGENTS.md",
+      "docs/audits",
+      "docs/product",
+      "docs/architecture",
+      "docs/schema/1.0.0",
+      "docs/schema/m2",
+      "docs/schema/m3",
+      "docs/schema/m45-library",
+      "docs/schema/m45-debugging",
+      "uv.lock",
+      "apps/web/package-lock.json",
+      "packages/flip-core/src/flip_core/import_models.py"
+    ],
+    "all601InheritedTestsUnchanged": true,
+    "originalFileCount": 31,
+    "originalManifestEntries": 30,
+    "originalFiles": [
+      {
+        "path": "docs/evidence/m45-agent-workflow/ACCEPTANCE_MATRIX.md",
+        "bytes": 5008,
+        "sha256": "62898ef1dfc7c6ee70f2243162cac5a6d75f1f69d52c8575e339888da87f6604"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/HANDOFF.md",
+        "bytes": 4978,
+        "sha256": "ff56ebe6195df2169905356a3494c65e74f0a68687c375028e115b3ade4896ff"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/MANIFEST.json",
+        "bytes": 5936,
+        "sha256": "a0fa679c875a5e19d84fda9271fbd171795e3b0dc8ac5b16b202fadcc94e758f"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/cases/agent-workflow-cases.json",
+        "bytes": 24058,
+        "sha256": "d3f9e766437e2e2caf9490830123ccfafa2bad072f580a91dbf87394316d86b3"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/cases/negative-cases.json",
+        "bytes": 2436,
+        "sha256": "8fc3031e537d47d4e040aa65932bdfc51963f95674d167fea040bbdfabaa0dd9"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/protocol/agent-workflow-protocol.json",
+        "bytes": 2881,
+        "sha256": "4b44f5b557a1af2e616bb79bc1d7f67daf697e9cfe3107c96193c2a615ab1ba6"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/requests/half-adder-vectors.json",
+        "bytes": 6831,
+        "sha256": "6a527df567772b51f7028908ada8688809a52b4aa4d02d035c48c736be608885"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/requests/invalid-schema.json",
+        "bytes": 57,
+        "sha256": "f029c6a40c8da014a4d727ec3e8d7ee48b333ac6e44624cd5530040331780c2b"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/requests/library-search.json",
+        "bytes": 113,
+        "sha256": "4534ef4f8c61179067a563b64ed5f8e9a290842a81ccf7f34512df338fb38c07"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/requests/timeout-project.json",
+        "bytes": 9996,
+        "sha256": "1d4b07a4177b8ec9f37f24169c702e1047186d8bf950c506bd2b262a0357f296"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/executed-commands.json",
+        "bytes": 19917,
+        "sha256": "ea02335fe264dfc3a77216295f01344995cdb6112679abb51ca8b16e1ceb399c"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/bundle.json",
+        "bytes": 16331,
+        "sha256": "93d8cf08af5379bcf9e7c772cb0fbac53a11ed206bc7ea626ca33fb915155e1f"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/compare.json",
+        "bytes": 15950,
+        "sha256": "14ce58f591127fb6296acbe535c33110663dc601c2ff7fb73e925a99522d797c"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/composition.json",
+        "bytes": 3585,
+        "sha256": "66e90b38cb4c89bfee138fc9a8d21d486db686697e54ce1530f0c0f6d27e7f96"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/difference.json",
+        "bytes": 16203,
+        "sha256": "43dd6216976f23edb7f6c0a8c3e54069026c3dfeeec2e0913083f75f26b9b7d6"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/half-adder.json",
+        "bytes": 6327,
+        "sha256": "04f95a33102af727348b8f9aaa4a8f5e48778edaf8fe392c6877c947a764ee11"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/library-search.result.json",
+        "bytes": 6240,
+        "sha256": "467a924220364fcfdfde14166bc9dda60fa89eda2491901f5013584191660406"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/manifest.json",
+        "bytes": 1989,
+        "sha256": "9c59c56a66379c719652c4920cc2f20bd250f7babd75bbaaaf457c5db16edd59"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/preflight.json",
+        "bytes": 374,
+        "sha256": "77a3f33b501f06738cd03befb81354de5285b40c59dd7d96518d64d0ec4a5ec3"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/recheck.json",
+        "bytes": 15950,
+        "sha256": "cd4c17ba8cd293a8e55058fa39a806bb552ab0bc3e0bd3c0bbd1f9d6dbeb2419"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/replay.json",
+        "bytes": 15950,
+        "sha256": "325a492fe44cda814e9811603efd4ce85cc20ad064fb0811cc9bd0ed158ee6c6"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/retry.json",
+        "bytes": 15950,
+        "sha256": "5a0e9c9f7b33cf00cc574a79f9ad2dc59201813cace579f4471140c01263ec6e"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/revalidate.json",
+        "bytes": 2541,
+        "sha256": "353135f231c185dfc8b8f0a4fc0226ab9782703f52fbc797d7b9b694237c77d4"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/source.json",
+        "bytes": 2224,
+        "sha256": "bf9f69d2678be0f3d55441c05ad56a65b311776f87ae7c5565cb63955dcee19e"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/swapped.json",
+        "bytes": 6327,
+        "sha256": "fdba939a6d708b03e3dced6aebc72171d69d2774742f4b316d27fdf4b1f7b1f1"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/unknown.json",
+        "bytes": 15886,
+        "sha256": "4333a559923b126642b288179f6bc5e0c17b5c1981cafa6d6540d2c8977628af"
+      },
+      {
+        "path": "docs/evidence/m45-agent-workflow/results/run/vectors.json",
+        "bytes": 12291,
+        "sha256": "8a01a0a971e2303ff00216b0e0fc6beaa3d01f747373d3b447d199cf579c1a65"
+      },
+      {
+        "path": "fixtures/m45-agent-workflow/README.md",
+        "bytes": 1271,
+        "sha256": "dac8ad3bc5cd21b9f3148faab151ac149db7a1268baa02b2ddfd9cd8aa5324f8"
+      },
+      {
+        "path": "fixtures/m45-agent-workflow/generators/build_corpus.py",
+        "bytes": 20130,
+        "sha256": "423b7e25a2cf21854c52d00fce48ceb6b633e52fab0938f72c7fcf5f5d99fa10"
+      },
+      {
+        "path": "fixtures/m45-agent-workflow/generators/run_cli_cases.py",
+        "bytes": 6251,
+        "sha256": "3328773a1c9becf1dc0474b2c3ee8372de9f4f36d1fabb2d4630429f6d76e111"
+      },
+      {
+        "path": "fixtures/m45-agent-workflow/generators/verify_corpus.py",
+        "bytes": 3811,
+        "sha256": "edc3e33bec205ce306674eb5d8e76a8ef054895d6626ceb4609ff223de513fc8"
+      }
+    ]
+  },
+  "developmentFailures": [
+    {
+      "ciRun": 44636475565,
+      "commit": "5fb91579cbe6f79fefef2ff7059ff80f1af27d0f",
+      "linuxPassed": 645,
+      "linuxFailed": 1,
+      "windows": "cancelled by matrix fail-fast",
+      "finding": "New cancellation double counted processing after artificial delay, not request arrival. Corrected wire-arrival instrumentation keeps no-new-requests assertion."
+    },
+    {
+      "localFullRun": {
+        "tests": 646,
+        "passed": 645,
+        "failures": 1,
+        "seconds": "605.65",
+        "startedAtCommit": "5fb91579cbe6f79fefef2ff7059ff80f1af27d0f",
+        "completionHEAD": "0ba49cdb2aa804f8ecd9aca066b5433a747e169a",
+        "mixedRevisionDevelopmentRun": true
+      },
+      "failure": "Inherited F03-PERF-001: exact scratch verifier exceeded unchanged 120s timeout. No test/timeout relaxation. Not final immutable-checkout acceptance evidence.",
+      "custodyTestSeconds": "130.377"
+    },
+    {
+      "localFocusedDevelopmentRuns": [
+        {
+          "passed": 20,
+          "failed": 20
+        },
+        {
+          "passed": 34,
+          "failed": 6
+        },
+        {
+          "passed": 40,
+          "failed": 0
+        },
+        {
+          "passed": 45,
+          "failed": 0
+        }
+      ],
+      "disposition": "Windows launcher/process limits, duplicate proposal argument, malformed outputs and stateful double corrected without changing archived evidence or inherited tests."
+    }
+  ],
+  "remainingLimits": [
+    "Historical selected-reference-relative stateless NAND/REF proofs; no current-chain or malicious-RPC assurance.",
+    "No natural-language synthesis, persistent server jobs/undo or browser workflow panel.",
+    "No human usability/accessibility sessions or independent review of production workflow delta.",
+    "F03-PERF-001 and D-RUNNER-001 remain open; original checks/limits preserved.",
+    "Already delivered read-only RPC requests may finish server-side after cancellation; late responses cannot select a revision.",
+    "No public solver hosting, authorization grants, signing, publication, broadcasting or spending."
+  ],
+  "deliveryDocumentationOnly": [
+    "docs/milestones/M45_AGENT_WORKFLOW_HANDOFF.md",
+    "docs/milestones/m45-agent-workflow/validation-results.json"
+  ]
+}

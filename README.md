@@ -25,6 +25,20 @@ The same catalog operations are available through `flip library --request reques
 
 ## M3 baseline
 
+### External agent workflows
+
+Run a finite declarative workflow over the existing Python services with
+`flip workflow --request workflow.json --out receipt.json`, or POST the same request
+to the loopback-only `/api/agent/v1/execute` endpoint with local solver opt-in.
+The controller supports bounded discovery/import, build, vectors, comparison,
+diagnostics, explicit verified local corrections and evidence replay/export.
+Publication requests terminate at `STOP_AUTHORIZATION`; no signing capability exists.
+See the [agent integration guide](docs/agents/WORKFLOW_INTEGRATION.md),
+[versioned protocol](docs/schema/m45-agent-workflow/README.md) and
+[reusable agent skill](.agents/skills/flip-agent-workflow/SKILL.md).
+The [final acceptance record](docs/milestones/M45_AGENT_WORKFLOW_ACCEPTANCE.md) preserves
+the independent review, platform gates and documented local runtime limits.
+
 ### Connection debugger
 
 After comparing, select **Inspect connection paths** to trace a replayed mismatch
