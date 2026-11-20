@@ -1,0 +1,214 @@
+{
+  "artifactType": "EXECUTED_PORTABILITY_CASES",
+  "baselineSha": "bba6f3d301b08c0dcbbfd0b363b99a15179414db",
+  "passed": 12,
+  "productionEntrypoint": "flip CLI (real subprocess)",
+  "rows": [
+    {
+      "caseId": "P01",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 0,
+          "freshness": null,
+          "kind": "COMPOSITION_RESULT",
+          "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+          "status": null,
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P02",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 0,
+          "freshness": null,
+          "kind": "COMPOSITION_RESULT",
+          "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+          "status": null,
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P03",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 0,
+          "freshness": null,
+          "kind": "COMPOSITION_RESULT",
+          "netlistHash": "0xaaf6601619763e4850e364ea2b88b229398583c3c5c1a407bff43e1b90801729",
+          "status": null,
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P04",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 0,
+          "freshness": null,
+          "kind": "USER_VECTOR_RESULT",
+          "netlistHash": null,
+          "status": null,
+          "stderrTail": ""
+        }
+      ],
+      "vectorsEmbeddedInProject": false
+    },
+    {
+      "caseId": "P05",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 7,
+          "freshness": null,
+          "kind": "MANIFEST_REVALIDATION",
+          "netlistHash": null,
+          "status": null,
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P06",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 3,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "MISSING_REFERENCE",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P07",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 7,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "IMPLEMENTATION_CHANGED",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P09",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 3,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "INVALID_INPUT",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P10",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 3,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "INVALID_INPUT",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P08",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 3,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "INVALID_INPUT",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P11",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 3,
+          "freshness": null,
+          "kind": null,
+          "netlistHash": null,
+          "status": "INVALID_INPUT",
+          "stderrTail": ""
+        }
+      ]
+    },
+    {
+      "caseId": "P12",
+      "passed": true,
+      "steps": [
+        {
+          "classification": null,
+          "contentHash": null,
+          "differingBits": null,
+          "exit": 0,
+          "freshness": null,
+          "kind": "TRUSTED_LOCAL_COMPARISON",
+          "netlistHash": null,
+          "status": null,
+          "stderrTail": ""
+        }
+      ]
+    }
+  ],
+  "total": 12
+}

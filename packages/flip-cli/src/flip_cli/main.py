@@ -116,6 +116,11 @@ def main(argv: list[str] | None = None) -> int:
     workflow.add_argument("--request", type=Path, required=True)
     workflow.add_argument("--out", type=Path)
     workflow.add_argument("--cancel-file", type=Path, help="Stop if this local file exists")
+    portable = commands.add_parser(
+        "portable", help="Versioned project conversion, tests and evidence replay"
+    )
+    portable.add_argument("--request", type=Path, required=True)
+    portable.add_argument("--out", type=Path)
     debugging = commands.add_parser(
         "debug", help="Trace a replayed mismatch; test an explicit candidate revision"
     )
@@ -218,6 +223,43 @@ def main(argv: list[str] | None = None) -> int:
                 "STALE": ExitCode.STALE,
                 "STOP_AUTHORIZATION": 9,
             }.get(result.status, ExitCode.UNKNOWN)
+        if args.command == "portable":
+            from flip_core.canonical import load_json
+            from flip_core.portable import bounded_operation
+
+            try:
+                with args.request.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                if len(raw) > 1_048_576:
+                    raise ContractError("RESOURCE_LIMIT", "Portable input exceeds 1 MiB.")
+                body = load_json(raw)
+                result = bounded_operation(body)
+                if args.out:
+                    # A portable revision is immutable on disk. Save to a new filename.
+                    if args.out.exists():
+                        raise ContractError(
+                            "INVALID_INPUT",
+                            "Portable output exists; choose a new revision filename.",
+                        )
+                    with args.out.open("xb") as handle:
+                        handle.write(canonical_bytes(result) + b"\n")
+            except (OSError, ValueError, TypeError, RecursionError) as exc:
+                raise ContractError(
+                    "INVALID_INPUT", "Cannot read or create portable file."
+                ) from exc
+            emit(result)
+            verdicts = {
+                r.get("result", {}).get("verdict")
+                or r.get("result", {}).get("report", {}).get("verification", {}).get("verdict")
+                for r in result.get("results", [])
+            }
+            if verdicts & {"DIFFERENT", "VECTORS_MISMATCH"}:
+                return ExitCode.DIFFERENT
+            if "UNKNOWN" in verdicts or any(
+                r.get("status") == "MISSING_EVIDENCE" for r in result.get("results", [])
+            ):
+                return ExitCode.UNKNOWN
+            return ExitCode.OK
         if args.command == "debug":
             from flip_core.debugging import execute as debug_execute
 
@@ -292,6 +334,7 @@ def main(argv: list[str] | None = None) -> int:
             or (args.command in ("export", "verify-bundle", "preflight") and args.project)
         ):
             from flip_core.canonical import load_json
+            from flip_core.portable import executable
             from flip_core.workflow import VERSION, inspect_evidence, product, sample
 
             def read_file(path):
@@ -323,7 +366,7 @@ def main(argv: list[str] | None = None) -> int:
                     body = dict(
                         schemaVersion=VERSION,
                         kind="PRODUCT_REQUEST",
-                        executionRequest=read_file(args.project),
+                        executionRequest=executable(read_file(args.project)),
                     )
                     if args.command == "verify-bundle":
                         body["bundle"] = read_file(args.bundle)
@@ -358,7 +401,11 @@ def main(argv: list[str] | None = None) -> int:
                     raw = handle.read(4_194_305)
                 if len(raw) > 4_194_304:
                     raise ContractError("RESOURCE_LIMIT", "M3 request file exceeds 4 MiB.")
-                result = execute(args.command, raw)
+                from flip_core.portable import executable
+
+                result = execute(
+                    args.command, executable(raw) if args.command in ("compose", "compare") else raw
+                )
                 if args.out:
                     write_result(args.out, result)
             except OSError as exc:
