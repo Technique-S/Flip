@@ -436,6 +436,31 @@ def portable_research_evidence():
     return dict(revision=revision, files=len(paths), additionalPinnedHarness=extra)
 
 
+def agent_portable_final_review_evidence():
+    revision = "4ad32846a995255105aa027e9809599e2cb9562f"
+    scopes = (
+        "docs/evidence/m45-agent-portable-final-review",
+        "fixtures/m45-agent-portable-final-review",
+    )
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "final adapter review history missing",
+    )
+    paths = git("ls-tree", "-r", "--name-only", revision, "--", *scopes).decode().splitlines()
+    current = git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines()
+    require(len(paths) == 3 and paths == current, "final adapter review inventory changed")
+    for path in paths:
+        data = blob(revision, path)
+        require(
+            blob("HEAD", path) == data and (ROOT / path).read_bytes() == data,
+            f"final adapter review bytes changed: {path}",
+        )
+    return dict(revision=revision, target="9c0c23698dfd1c7045de348da851c28d68f5e22b", files=3)
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -632,6 +657,7 @@ def review() -> dict:
     workflow_review_blobs, workflow_review = agent_workflow_review_evidence()
     portable_review_blobs, portable_review = portable_review_evidence()
     portable_research = portable_research_evidence()
+    final_adapter_review = agent_portable_final_review_evidence()
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -680,6 +706,7 @@ def review() -> dict:
         "agent_workflow_independent_review": workflow_review,
         "portable_independent_review": portable_review,
         "portable_research": portable_research,
+        "agent_portable_final_review": final_adapter_review,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }
