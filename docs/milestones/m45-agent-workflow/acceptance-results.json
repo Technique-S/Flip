@@ -146,6 +146,12 @@
     "coreStatus": "BUDGET_EXHAUSTED",
     "semanticHashesEqual": true
   },
+  "localC26SavedClaim": {
+    "consumerRejectedMismatch": true,
+    "reasonCode": "SOLVER_TIMEOUT",
+    "solverOutcome": "INTERRUPTED",
+    "verdict": "UNKNOWN"
+  },
   "localChromiumPassed": 23,
   "localCustody": {
     "agent_workflow_fixtures": {
@@ -288,11 +294,67 @@
   "localFull": {
     "acceptance": "NOT_CREDITED_AS_PASS",
     "conditions": "concurrent local diagnostics produced failures; no test/production deadline changes",
-    "junit": ".test-tmp/agent-python.xml"
+    "errors": 0,
+    "failed": 8,
+    "failures": [
+      {
+        "class": "packages.flip-core.tests.test_m3_acceptance",
+        "failure": "subprocess.TimeoutExpired: Command '['C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\.venv\\\\Scripts\\\\python.exe', 'C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\packages\\\\flip-core\\\\.test-tmp\\\\test_custody_and_scratch_regen0\\\\fixtures\\\\m3-verification\\\\generators\\\\verify_corpus.py']' timed out after 120 seconds",
+        "name": "test_custody_and_scratch_regeneration"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m3_benchmarks",
+        "failure": "AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}\nassert 'UNKNOWN' == 'EQUIVALENT'\n  \n  - EQUIVALENT\n  + UNKNOWN",
+        "name": "test_bounded_benchmark[self-EQUIVALENT-5000]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m3_benchmarks",
+        "failure": "AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}\nassert 'UNKNOWN' == 'EQUIVALENT'\n  \n  - EQUIVALENT\n  + UNKNOWN",
+        "name": "test_bounded_benchmark[equivalent-EQUIVALENT-5000]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: WorkflowError(code='OPERATION_DEADLINE', message='Operation stopped; no revision accepted.', retryable=False, recovery='NEW_REQUEST')\nassert 'BUDGET_EXHAUSTED' == 'COMPLETE'\n  \n  - COMPLETE\n  + BUDGET_EXHAUSTED",
+        "name": "test_complete_discovery_import_build_test_compare_export_and_meter"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert ('BUDGET_EXHAUSTED' in ('STALE', 'INVALID_INPUT'))\n +  where 'BUDGET_EXHAUSTED' = WorkflowResult(schemaVersion='m45-agent-workflow-1.0.0', kind='AGENT_WORKFLOW_RESULT', status='BUDGET_EXHAUSTED', requ...c9de1c14412fa7a3b7acb7d7e4b55b49ddd422b7ceb004f99832f1231a8188a1', scope='LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE').status",
+        "name": "test_correction_substitution_or_unverified_apply_fails[project]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert 'BUDGET_EXHAUSTED' == 'STALE'\n  \n  - STALE\n  + BUDGET_EXHAUSTED",
+        "name": "test_correction_substitution_or_unverified_apply_fails[oracle]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m45_agent_workflow",
+        "failure": "AssertionError: assert ('BUDGET_EXHAUSTED' in ('STALE', 'INVALID_INPUT'))\n +  where 'BUDGET_EXHAUSTED' = WorkflowResult(schemaVersion='m45-agent-workflow-1.0.0', kind='AGENT_WORKFLOW_RESULT', status='BUDGET_EXHAUSTED', requ...cc82599b3588bd7e8eda259335c5227e4b5bbf8c1c21d5ca85127a24ea2577de', scope='LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE').status",
+        "name": "test_correction_substitution_or_unverified_apply_fails[unverified]"
+      },
+      {
+        "class": "packages.flip-core.tests.test_m4_acceptance",
+        "failure": "AssertionError: assert <ExitCode.INVALID_INPUT: 3> == 1\n +  where <ExitCode.INVALID_INPUT: 3> = cli(['consume', '--project', 'C:\\\\Users\\\\Kazi\\\\Documents\\\\Flip\\\\flip-m45-agent-workflow-acceptance\\\\packages\\\\flip-core\\\\.test-tmp\\\\test_independent_cli_C26_0\\\\adapted.json'])",
+        "name": "test_independent_cli[C26]"
+      }
+    ],
+    "immutableAcceptance": false,
+    "junit": ".test-tmp/agent-python.xml",
+    "passed": 640,
+    "productionSourcesUnchanged": true,
+    "seconds": 1612.46,
+    "tests": 648
   },
   "localSerialCli": {
     "logs": 6,
     "status": "COMPLETE"
+  },
+  "localSerialRetry": {
+    "budgetsChanged": false,
+    "failed": 0,
+    "junit": ".test-tmp/agent-serial-retry.xml",
+    "passed": 7,
+    "seconds": 77.59
   },
   "measuredCiRun": 44712700362,
   "nodeCanonicalVectors": 6,

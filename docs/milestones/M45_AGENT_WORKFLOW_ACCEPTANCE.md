@@ -78,10 +78,19 @@ A separate authorization run matched 9/10, with API/core parity differing under 
 limits. Neither run is credited as a passing acceptance gate. The unchanged six-step CLI
 example subsequently completed serially. A diagnostic API/core pair both stopped at
 BUDGET_EXHAUSTED/OPERATION_DEADLINE with identical semantic reproduction hashes, confirming
-that bounded failures are not successful proof runs. The additional local full-suite invocation also produced failures during concurrent
-diagnostics and is not credited as a green run on this host. Its raw JUnit is retained
-in `.test-tmp/agent-python.xml`; final counts and dispositions are reported in the
-integration completion response. The full isolated CI results remain the acceptance gate.
+that bounded failures are not successful proof runs. The additional local full run completed with **640 passed / 8 failed** in 1612.46
+seconds during concurrent diagnostics. Its failures were the inherited 120-second archive
+timeout, two 5,000-gate interrupted comparisons returning UNKNOWN, four workflow operation
+deadlines returning BUDGET_EXHAUSTED, and C26 proof consumption rejecting a timed-out
+UNKNOWN claim when fresh replay differed. The saved C26 claim explicitly recorded
+SOLVER_TIMEOUT / INTERRUPTED, not DIFFERENT; the consumer rejected the mismatch rather
+than trusting it. All **seven non-archival failures passed a serial retry at the original
+budgets** (77.59 seconds). The raw JUnit files are `.test-tmp/agent-python.xml` and
+`.test-tmp/agent-serial-retry.xml`.
+
+The local run spanned acceptance tooling/documentation commits while production sources
+remained byte-identical to d2638d0; it is diagnostic evidence, not an immutable green
+acceptance run. The full isolated CI results remain the merge gate.
 The accepted platform results above use isolated immutable CI checkouts; no local failure
 was hidden by skipping tests, raising deadlines or changing production code.
 
