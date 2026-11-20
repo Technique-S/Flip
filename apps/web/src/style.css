@@ -698,3 +698,7 @@ pre {
 		flex-wrap: wrap;
 	}
 }
+
+.portable code {
+	overflow-wrap: anywhere;
+}

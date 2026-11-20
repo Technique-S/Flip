@@ -1,0 +1,47 @@
+{
+  "testedSha": "bba6f3d301b08c0dcbbfd0b363b99a15179414db",
+  "steps": [
+    {
+      "name": "loadedSampleVerdict",
+      "value": "EQUIVALENT"
+    },
+    {
+      "name": "projectTitle",
+      "value": "Wiring Canary"
+    },
+    {
+      "name": "savedKeys",
+      "value": [
+        "imports",
+        "kind",
+        "project",
+        "relation",
+        "schemaVersion"
+      ]
+    },
+    {
+      "name": "savedSchemaVersion",
+      "value": "m3-1.0.0"
+    },
+    {
+      "name": "savedKind",
+      "value": "M3_EXECUTION"
+    },
+    {
+      "name": "savedHasVectors",
+      "value": false
+    },
+    {
+      "name": "savedNetlistBytes",
+      "value": 51
+    },
+    {
+      "name": "reimportedVerdict",
+      "value": "EQUIVALENT"
+    },
+    {
+      "name": "noCurrentClaim",
+      "value": true
+    }
+  ]
+}

@@ -23,6 +23,16 @@ The same catalog operations are available through `flip library --request reques
 [versioned library contract and examples](docs/schema/m45-library/README.md) and
 [M4.5 library handoff](docs/milestones/M45_LIBRARY_HANDOFF.md).
 
+## Portable project packages
+
+Save complete portable projects from Evidence to carry named test sets, revision history,
+provenance and content-addressed evidence references. Existing legacy project files still
+open unchanged; conversion back to legacy requires an explicit loss acknowledgement.
+The same operations use `flip portable --request operation.json --out new-revision.json`
+and `POST /api/v1/portable`. Evidence is verified separately with the existing trusted
+engine. See the [portable 1.1 contract](docs/schema/m45-portable-project/README.md) and
+[M4.5 portable handoff](docs/milestones/M45_PORTABLE_PROJECT_HANDOFF.md).
+
 ## M3 baseline
 
 ### Connection debugger
