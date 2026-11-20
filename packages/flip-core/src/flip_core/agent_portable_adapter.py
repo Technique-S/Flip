@@ -99,8 +99,10 @@ class AgentPortableResult(Contract):
 def parse_adapter(raw):
     try:
         data = load_json(raw) if isinstance(raw, (str, bytes)) else raw
-        if len(canonical_bytes(data)) > 1048576:
+        encoded = canonical_bytes(data)
+        if len(encoded) > 1048576:
             raise ContractError("RESOURCE_LIMIT", "Portable workflow exceeds 1 MiB.")
+        data = load_json(encoded)  # isolate caller-owned mutable objects before pin validation
         if isinstance(data, dict):
             if data.get("schemaVersion", VERSION) != VERSION:
                 raise ContractError("UNSUPPORTED_SCHEMA_VERSION", "Unsupported adapter version.")
@@ -450,8 +452,10 @@ def prepare_adapter(raw):
     """Hash/plan preparation only; no verification or authority is created here."""
     try:
         value = load_json(raw) if isinstance(raw, (str, bytes)) else raw
-        if len(canonical_bytes(value)) > 1048576:
+        encoded = canonical_bytes(value)
+        if len(encoded) > 1048576:
             raise ContractError("RESOURCE_LIMIT", "Preparation exceeds 1 MiB.")
+        value = load_json(encoded)
         model = PreparationRequest.model_validate(value)
         package = parse_package(model.package)
         request = parse_request(package.executionRequest)
