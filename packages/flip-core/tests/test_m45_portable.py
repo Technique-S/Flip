@@ -351,3 +351,25 @@ def test_independent_portability_evidence_custody():
         raw = (evidence / entry["path"]).read_bytes().replace(b"\r\n", b"\n")
         assert len(raw) == entry["bytes"]
         assert hashlib.sha256(raw).hexdigest() == entry["sha256"]
+
+
+def test_cli_referenced_difference_retains_verdict_exit(tmp_path, capsysbinary):
+    raw = sample("swapped")
+    bundle = product(
+        "export", dict(schemaVersion="m4-1.0.0", kind="PRODUCT_REQUEST", executionRequest=raw)
+    )
+    ref = dict(
+        kind="FLIP_EVIDENCE",
+        digest=bundle["contentHash"],
+        executionRequestHash=content_hash(raw),
+        reproduce=REPRODUCE,
+        engineHash=bundle["comparison"]["engineHash"],
+    )
+    p = create_package(raw, evidence_refs=[ref])
+    path = tmp_path / "replay.json"
+    path.write_bytes(
+        canonical_bytes(operation("replay-evidence", package=p, artifacts={ref["digest"]: bundle}))
+    )
+    assert main(["portable", "--request", str(path)]) == 1
+    result = json.loads(capsysbinary.readouterr().out)
+    assert result["results"][0]["result"]["report"]["verification"]["verdict"] == "DIFFERENT"

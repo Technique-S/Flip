@@ -205,6 +205,10 @@ export function PortablePanel({
 					</details>
 					<details>
 						<summary>Evidence references</summary>
+						<p>
+							Replays check saved revision {value.revision.sequence}. Save
+							current edits before checking evidence for the current draft.
+						</p>
 						{value.evidenceRefs.length ? (
 							<pre>{JSON.stringify(value.evidenceRefs, null, 2)}</pre>
 						) : (

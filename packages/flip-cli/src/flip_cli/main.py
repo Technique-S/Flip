@@ -214,12 +214,16 @@ def main(argv: list[str] | None = None) -> int:
                     "INVALID_INPUT", "Cannot read or create portable file."
                 ) from exc
             emit(result)
-            if any(
-                r.get("result", {}).get("verdict") == "VECTORS_MISMATCH"
+            verdicts = {
+                r.get("result", {}).get("verdict")
+                or r.get("result", {}).get("report", {}).get("verification", {}).get("verdict")
                 for r in result.get("results", [])
-            ):
+            }
+            if verdicts & {"DIFFERENT", "VECTORS_MISMATCH"}:
                 return ExitCode.DIFFERENT
-            if any(r.get("status") == "MISSING_EVIDENCE" for r in result.get("results", [])):
+            if "UNKNOWN" in verdicts or any(
+                r.get("status") == "MISSING_EVIDENCE" for r in result.get("results", [])
+            ):
                 return ExitCode.UNKNOWN
             return ExitCode.OK
         if args.command == "debug":
