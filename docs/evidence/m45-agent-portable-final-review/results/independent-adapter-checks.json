@@ -1,0 +1,412 @@
+{
+  "artifactType": "M45_AGENT_PORTABLE_FINAL_REVIEW_INDEPENDENT_CHECKS",
+  "rows": [
+    {
+      "error": null,
+      "id": "B01",
+      "name": "portable package identity binding (independent hash + pins)",
+      "observed": {
+        "execHashIndependent": "0x651541f590da9987b51ac82e43e2fdc2f1c62de74d417285538e37ea00ffce52",
+        "execHashMatchesPin": true,
+        "packageHashIndependent": "0x9e72363444bb9a2e636cdfd2926ead33a53dc0c808666a85b3e9426bb99c319c",
+        "packageHashMatchesPin": true,
+        "pass": true,
+        "revisionHashMatchesPin": true,
+        "ttamper": [
+          {
+            "code": "INVALID_INPUT",
+            "field": "expectedPackageHash",
+            "rejected": true
+          },
+          {
+            "code": "INVALID_INPUT",
+            "field": "expectedRevisionHash",
+            "rejected": true
+          },
+          {
+            "code": "INVALID_INPUT",
+            "field": "expectedExecutionRequestHash",
+            "rejected": true
+          }
+        ]
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B02",
+      "name": "named test-vector execution (match and mismatch stop)",
+      "observed": {
+        "beforeSteps": 1,
+        "coverage": [
+          "EXHAUSTIVE_DECLARED_DOMAIN"
+        ],
+        "pass": true,
+        "rowCounts": [
+          4
+        ],
+        "status": "COMPLETE",
+        "verdicts": [
+          "VECTORS_MATCH"
+        ],
+        "wrongVectorNoRevision": true,
+        "wrongVectorStatus": "DIFFERENT"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B03",
+      "name": "DIFFERENT witness replay and debugging",
+      "observed": {
+        "pass": true,
+        "replayStatus": [],
+        "status": "COMPLETE",
+        "uniqueFaultClaim": false,
+        "verdict": "DIFFERENT",
+        "witness": "REF_BEAT_REPRODUCED"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B04-06",
+      "name": "candidate verification, explicit apply, new revision parent",
+      "observed": {
+        "actionIdIndependent": "0xa27b18f341c00abe959f7a13d15355fc0d93b6b0d66d786b500da0ecfb174509",
+        "actionIdObserved": "0xa27b18f341c00abe959f7a13d15355fc0d93b6b0d66d786b500da0ecfb174509",
+        "ancestorsTailMatches": true,
+        "applyClassification": "VERIFIED_CORRECTION",
+        "candidateEqualsReference": true,
+        "originalUnchanged": true,
+        "parentMatches": true,
+        "parentSeq": 0,
+        "pass": true,
+        "sequence": 1,
+        "status": "COMPLETE",
+        "verifyClassification": "VERIFIED_CORRECTION"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B07",
+      "name": "original package preservation",
+      "observed": {
+        "bodyUnchanged": true,
+        "hasRevision": true,
+        "packageUnchanged": true,
+        "pass": true,
+        "returnedOriginalEqualsInput": true,
+        "status": "COMPLETE"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B08",
+      "name": "evidence export and trusted replay",
+      "observed": {
+        "exportKind": "FLIP_EVIDENCE",
+        "freshRefsBoundToRevised": true,
+        "inputEvidenceStatus": "REPLAYED",
+        "oldRefInOriginal": true,
+        "oldRefNotInRevised": true,
+        "pass": true,
+        "replayStep": "DIFFERENT",
+        "status": "COMPLETE",
+        "trustedReplayFreshness": [
+          "HISTORICAL"
+        ],
+        "trustedReplayStatuses": [
+          "REPLAYED"
+        ],
+        "trustedReplayVerdicts": [
+          "EQUIVALENT"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B09",
+      "name": "cross-project evidence rejection",
+      "observed": {
+        "inputEvidenceStatus": "NOT_REPLAYED",
+        "noAuthority": true,
+        "pass": true,
+        "status": "INVALID_INPUT"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B10",
+      "name": "changed dependency/engine handling (STALE)",
+      "observed": {
+        "logs": 1,
+        "noAuthority": true,
+        "pass": true,
+        "status": "STALE"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B11",
+      "name": "cancellation during revision creation",
+      "observed": {
+        "immediateOriginalPreserved": true,
+        "immediateReceiptNone": true,
+        "immediateStatus": "CANCELLED",
+        "pass": true,
+        "raceNoRevision": true,
+        "raceOriginalPreserved": true,
+        "raceStatus": "CANCELLED"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B12",
+      "name": "deadline and budget exhaustion",
+      "observed": {
+        "deadlineNoRevision": true,
+        "deadlineOriginalPreserved": true,
+        "deadlineStatus": "BUDGET_EXHAUSTED",
+        "iterationCount": 1,
+        "iterationStatus": "BUDGET_EXHAUSTED",
+        "pass": true,
+        "receiptBudgetRejected": true
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B13",
+      "name": "repeated/concurrent requests",
+      "observed": {
+        "bodyUnchanged": true,
+        "correctionBodyUnchanged": true,
+        "pass": true,
+        "readonlyDeterministic": true,
+        "readonlyNoRevision": true,
+        "sameParent": true,
+        "siblingParents": [
+          "0x51a79b99b51db0b5f4ee4a3816e85768cebad797e3134f4d9e083de5c5833f7f",
+          "0x51a79b99b51db0b5f4ee4a3816e85768cebad797e3134f4d9e083de5c5833f7f"
+        ],
+        "siblingStatuses": [
+          "COMPLETE",
+          "COMPLETE"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B14",
+      "name": "legacy route preservation",
+      "observed": {
+        "cliComposeExit": 0,
+        "pass": true,
+        "portableRoute": 200,
+        "workflowRoute": 200
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B15a",
+      "name": "STOP_AUTHORIZATION (PUBLISH)",
+      "observed": {
+        "logs": 1,
+        "noRevision": true,
+        "originalPreserved": true,
+        "purpose": "PUBLISH",
+        "retryable": false,
+        "signingCapability": false,
+        "status": "STOP_AUTHORIZATION"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B15b",
+      "name": "STOP_AUTHORIZATION (DEPLOY)",
+      "observed": {
+        "logs": 1,
+        "noRevision": true,
+        "originalPreserved": true,
+        "purpose": "DEPLOY",
+        "retryable": false,
+        "signingCapability": false,
+        "status": "STOP_AUTHORIZATION"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "B15",
+      "name": "STOP_AUTHORIZATION",
+      "observed": {
+        "note": "see B15a/B15b rows",
+        "pass": true
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C01",
+      "name": "forged VERIFIED_CORRECTION",
+      "observed": {
+        "noRevision": true,
+        "originalPreserved": true,
+        "pass": true,
+        "status": "STALE"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C02",
+      "name": "altered original package hash",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "noExecution": true,
+        "pass": true,
+        "rejectedDirectly": true
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C03",
+      "name": "forged parent revision",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "pass": true,
+        "rejected": true
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C04",
+      "name": "project mutation during active request",
+      "observed": {
+        "pass": true,
+        "pinStillValid": true,
+        "snapshotPackageUnchanged": true,
+        "snapshotStepsKept": true
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C05",
+      "name": "reused correction ID",
+      "observed": {
+        "noRevision": true,
+        "originalPreserved": true,
+        "pass": true,
+        "status": "UNKNOWN"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C06",
+      "name": "foreign evidence reference / forged engine",
+      "observed": {
+        "pass": true,
+        "wrongEngineInputEvidence": "NOT_REPLAYED",
+        "wrongEngineNoRevision": true,
+        "wrongEngineOriginalPreserved": true,
+        "wrongEngineStatus": "INVALID_INPUT"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C07",
+      "name": "metadata containing transaction authority",
+      "observed": {
+        "approveAndPublish": {
+          "code": "INVALID_INPUT",
+          "rejected": true
+        },
+        "pass": true,
+        "permissions": {
+          "code": "INVALID_INPUT",
+          "rejected": true
+        },
+        "signer": {
+          "code": "INVALID_INPUT",
+          "rejected": true
+        },
+        "stepAuthority": {
+          "code": "INVALID_INPUT",
+          "rejected": true
+        },
+        "transactionAuthority": {
+          "code": "INVALID_INPUT",
+          "rejected": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C08",
+      "name": "cancellation racing revision creation",
+      "observed": {
+        "noRevision": true,
+        "originalPreserved": true,
+        "pass": true,
+        "status": "CANCELLED"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C09",
+      "name": "budget reset between adapter/controller",
+      "observed": {
+        "iterations": 1,
+        "noRevision": true,
+        "originalPreserved": true,
+        "pass": true,
+        "status": "BUDGET_EXHAUSTED"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "C10",
+      "name": "forged CURRENT freshness",
+      "observed": {
+        "exportFreshnessHistorical": true,
+        "noRevision": true,
+        "originalPreserved": true,
+        "pass": true,
+        "status": "BUDGET_EXHAUSTED"
+      },
+      "pass": true
+    },
+    {
+      "error": null,
+      "id": "P01",
+      "name": "core/CLI/API parity + independent resultHash",
+      "observed": {
+        "apiStatus": 200,
+        "cliExit": 0,
+        "pass": true,
+        "reproductionParity": true,
+        "resultHashIndependently": true
+      },
+      "pass": true
+    }
+  ],
+  "testedSha": "9c0c23698dfd1c7045de348da851c28d68f5e22b"
+}
