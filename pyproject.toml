@@ -29,6 +29,9 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    # Pinned independent agent review; exact raw blobs are checked by custody.
+    "fixtures/m45-agent-workflow-independent-review/harness/authorization_checks.py",
+    "fixtures/m45-agent-workflow-independent-review/harness/independent_acceptance.py",
     # Immutable independent workflow corpus; checked by exact blobs and manifest.
     "fixtures/m45-agent-workflow/generators/build_corpus.py",
     "fixtures/m45-agent-workflow/generators/run_cli_cases.py",
