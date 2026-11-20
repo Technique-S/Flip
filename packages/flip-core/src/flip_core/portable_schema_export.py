@@ -45,19 +45,37 @@ def artifacts():
     edited = sample("swapped")
     revision = create_package(edited, previous=package, description="Swap outputs")
     # Deliberately synthetic reference pins exercise metadata hashing, not proof.
-    rich = create_package(sample("half-adder"), tests=[{
-        "name": "selectedInputs", "declaredIntent": "Carry / sum — explicit user vectors",
-        "expectedCoverage": "SELECTED_INPUTS", "vectors": [{
-            "inputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
-            "outputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
-        }],
-    }], evidence_refs=[{
-        "kind": "FLIP_EVIDENCE", "digest": content_hash({"fixture": "NOT_A_PROOF"}),
-        "executionRequestHash": package["executionRequestHash"], "reproduce": REPRODUCE,
-        "engineHash": content_hash({"fixture": "UNVERIFIED_ENGINE_PIN"}),
-    }], provenance={"sourceFreshness": "HISTORICAL", "observationBlock": "1",
-                   "syntheticFlags": ["SYNTHETIC_CANONICAL_VECTOR_NOT_PROOF"]},
-       agent_task_ref=content_hash({"fixture": "NON_AUTHORITATIVE_AGENT_TASK"}))
+    rich = create_package(
+        sample("half-adder"),
+        tests=[
+            {
+                "name": "selectedInputs",
+                "declaredIntent": "Carry / sum \u2014 explicit user vectors",
+                "expectedCoverage": "SELECTED_INPUTS",
+                "vectors": [
+                    {
+                        "inputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
+                        "outputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
+                    }
+                ],
+            }
+        ],
+        evidence_refs=[
+            {
+                "kind": "FLIP_EVIDENCE",
+                "digest": content_hash({"fixture": "NOT_A_PROOF"}),
+                "executionRequestHash": package["executionRequestHash"],
+                "reproduce": REPRODUCE,
+                "engineHash": content_hash({"fixture": "UNVERIFIED_ENGINE_PIN"}),
+            }
+        ],
+        provenance={
+            "sourceFreshness": "HISTORICAL",
+            "observationBlock": "1",
+            "syntheticFlags": ["SYNTHETIC_CANONICAL_VECTOR_NOT_PROOF"],
+        },
+        agent_task_ref=content_hash({"fixture": "NON_AUTHORITATIVE_AGENT_TASK"}),
+    )
     packages = [package, revision, rich]
     return {
         "package.schema.json": contract_schema(PortableProject),
