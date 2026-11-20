@@ -88,9 +88,24 @@ test("acceptance: repeated correction checks are fresh and refresh restores data
 		await expect(
 			debug.getByText(/VERIFIED_CORRECTION · EXACT_STATELESS/),
 		).toHaveCount(0);
+		// Wait for the bounded verification operation, then measure UI rendering.
+		// The 5s locator expectation must not double as a solver deadline.
+		const verifiedResponse = page.waitForResponse(
+			(response) =>
+				response.url().endsWith("/api/v1/debug") &&
+				response.request().method() === "POST" &&
+				response.request().postDataJSON().operation === "verify-correction",
+		);
 		await debug
 			.getByRole("button", { name: "Verify proposed revision" })
 			.click();
+		const verified = await verifiedResponse;
+		expect(verified.ok()).toBeTruthy();
+		const verifiedBody = await verified.json();
+		expect(verifiedBody.correction.classification).toBe("VERIFIED_CORRECTION");
+		expect(verifiedBody.correction.comparison.report.verification.verdict).toBe(
+			"EQUIVALENT",
+		);
 		await expect(
 			debug.getByText(/VERIFIED_CORRECTION · EXACT_STATELESS/),
 		).toBeVisible();

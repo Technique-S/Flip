@@ -1,0 +1,10 @@
+{
+  "apiStatus": 200,
+  "artifactType": "PORTABLE_API_CHECK",
+  "cliApiParity": true,
+  "cliExit": 0,
+  "coreApiParity": true,
+  "replayAllowedStatus": 200,
+  "replayGatedStatus": 501,
+  "testedSha": "136b1115ee0f5ffe0a5583d68c474641fdce1ca1"
+}

@@ -168,6 +168,15 @@ async def m3_request(request: Request, operation: str) -> Response:
         raw.extend(chunk)
     try:
         value = load_json(bytes(raw))
+        if (
+            operation in ("compose", "compare")
+            and isinstance(value, dict)
+            and value.get("kind") == "PORTABLE_PROJECT"
+        ):
+            from flip_core.portable import executable
+
+            value = executable(value)
+            raw = canonical_bytes(value)
         # Frozen report shapes, fabricated claims and legacy placeholders never
         # opt into execution. New execution requires an explicit additive version.
         product_op = operation in ("export", "verify-bundle", "preflight", "new-project")
@@ -421,3 +430,127 @@ async def agent_workflow(request: Request) -> Response:
     finally:
         if acquired:
             _slots.release()
+
+
+@app.post("/api/v1/portable")
+async def portable_project(request: Request) -> Response:
+    from flip_core.portable import bounded_operation
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        raw.extend(chunk)
+        if len(raw) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Request exceeds 1 MiB.").envelope(), 413
+            )
+    try:
+        body = load_json(bytes(raw))
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown portable query parameter.")
+        if (
+            isinstance(body, dict)
+            and body.get("operation") == "replay-evidence"
+            and (
+                os.getenv("FLIP_LOCAL_SOLVER") != "1"
+                or request.client is None
+                or request.client.host not in ("127.0.0.1", "::1")
+            )
+        ):
+            return json_response(not_implemented(), 501)
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Local execution concurrency exceeded.")
+        try:
+            result = await run_in_threadpool(bounded_operation, body)
+        finally:
+            _slots.release()
+        return json_response(result)
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    except (ValueError, TypeError, RecursionError):
+        return json_response(
+            ContractError("INVALID_INPUT", "Invalid portable request.").envelope(), 422
+        )
+
+
+@app.post("/api/v1/agent-portable")
+@app.post("/api/agent/v1/portable")
+async def agent_portable_workflow(request: Request) -> Response:
+    """Stateless loopback-only workflows. Disconnect cancels and reaps active work."""
+    from threading import Event
+
+    import anyio
+    from flip_core.agent_portable_adapter import execute, parse_adapter
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Workflow exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    acquired = False
+    try:
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown workflow query parameter.")
+        if (
+            os.getenv("FLIP_LOCAL_SOLVER") != "1"
+            or request.client is None
+            or request.client.host not in ("127.0.0.1", "::1")
+        ):
+            return json_response(not_implemented(), 501)
+        model = parse_adapter(bytes(raw))
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Workflow concurrency exceeded.")
+        acquired = True
+        stopped = Event()
+
+        async def watch_disconnect():
+            while True:
+                if await request.is_disconnected():
+                    stopped.set()
+                    return
+                await anyio.sleep(0.05)
+
+        def run():
+            try:
+                return execute(model.model_dump(mode="json"), cancelled=stopped.is_set)
+            except ContractError as exc:
+                return exc
+
+        async with anyio.create_task_group() as group:
+            group.start_soon(watch_disconnect)
+            result = await run_in_threadpool(run)
+            group.cancel_scope.cancel()
+        if isinstance(result, ContractError):
+            raise result
+        return json_response(result)
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)
+    finally:
+        if acquired:
+            _slots.release()
+
+
+@app.post("/api/v1/agent-portable/prepare")
+@app.post("/api/agent/v1/portable/prepare")
+async def prepare_agent_portable(request: Request) -> Response:
+    from flip_core.agent_portable_adapter import prepare_adapter
+
+    raw = bytearray()
+    async for chunk in request.stream():
+        if len(raw) + len(chunk) > MAX_BODY_BYTES:
+            return json_response(
+                ContractError("RESOURCE_LIMIT", "Preparation exceeds 1 MiB.").envelope(), 413
+            )
+        raw.extend(chunk)
+    try:
+        if request.query_params:
+            raise ContractError("INVALID_INPUT", "Unknown preparation query parameter.")
+        if not _slots.acquire(blocking=False):
+            raise ContractError("RESOURCE_LIMIT", "Preparation concurrency exceeded.")
+        try:
+            return json_response(await run_in_threadpool(prepare_adapter, bytes(raw)))
+        finally:
+            _slots.release()
+    except ContractError as exc:
+        return json_response(exc.envelope(), 429 if exc.code == "RESOURCE_LIMIT" else 422)

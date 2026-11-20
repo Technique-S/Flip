@@ -3,6 +3,7 @@ import { Comparison, Verdict } from "./Comparison";
 import { Composer } from "./Composer";
 import type { DebugEdit } from "./Debugger";
 import { Library } from "./Library";
+import { PortablePanel, portableBody, type Portable } from "./Portable";
 import {
 	api,
 	type Built,
@@ -109,6 +110,19 @@ function SourceCard({ item, alias }: { item: Imported; alias: string }) {
 	);
 }
 export default function App() {
+	const cancelPortableFocus = useRef(false);
+
+	const [portable, setPortableState] = useState<Portable | null>(null);
+	function setPortable(value: Portable | null) {
+		setPortableState(value);
+		if (!value) {
+			try {
+				sessionStorage.removeItem("flip-portable");
+			} catch {
+				/* Existing storage notice covers unavailable storage. */
+			}
+		}
+	}
 	const [debugEdit, setDebugEdit] = useState<DebugEdit | null>(null);
 	const [page, go] = useState(0),
 		[req, setReq] = useState<Execution | null>(null),
@@ -119,6 +133,12 @@ export default function App() {
 		lock = useRef(false),
 		[error, setError] = useState(""),
 		[note, setNote] = useState("");
+	useEffect(() => {
+		if (!busy && cancelPortableFocus.current) {
+			document.getElementById("portable-agent-heading")?.focus();
+			cancelPortableFocus.current = false;
+		}
+	}, [busy]);
 	const [proc, setProc] = useState(""),
 		[cid, setCid] = useState("1"),
 		[addMode, setAddMode] = useState(false);
@@ -147,7 +167,20 @@ export default function App() {
 		if (saved)
 			void work("Restoring project", async () => {
 				await api("compose", saved);
-				replace(JSON.parse(saved));
+				const restored = JSON.parse(saved) as Execution;
+				const savedPackage = sessionStorage.getItem("flip-portable");
+				replace(restored);
+				if (savedPackage) {
+					const checked = await api<Portable>(
+						"portable",
+						portableBody("validate", { package: JSON.parse(savedPackage) }),
+					);
+					if (
+						checked.executionRequest.project.projectId ===
+						restored.project.projectId
+					)
+						setPortable(checked);
+				}
 				setOrigin("Restored snapshot");
 				setStorageMessage("Project restored from this browser session.");
 			});
@@ -166,6 +199,16 @@ export default function App() {
 			}
 		}
 	}, [req]);
+	useEffect(() => {
+		try {
+			if (portable)
+				sessionStorage.setItem("flip-portable", JSON.stringify(portable));
+		} catch {
+			setStorageMessage(
+				"Portable history could not be saved in this browser. Download the complete project before refreshing.",
+			);
+		}
+	}, [portable]);
 	const sampleRows = [
 		["00", "00"],
 		["01", "01"],
@@ -231,6 +274,7 @@ export default function App() {
 			);
 		setTable(null);
 		setReq(r);
+		if (req && r.project.projectId !== req.project.projectId) setPortable(null);
 		setBuilt(null);
 		setProof(null);
 		setObs(null);
@@ -258,6 +302,7 @@ export default function App() {
 		void work("Opening historical sample", async () => {
 			const historical = await api<Execution>("sample/half-adder");
 			original.current = structuredClone(historical.project.candidate);
+			setPortable(null);
 			replace(historical);
 			setOrigin("Historical sample");
 			setInspected(null);
@@ -313,8 +358,19 @@ export default function App() {
 	async function openProject(f: File) {
 		await work("Validating project", async () => {
 			const raw = await readFile(f);
-			await api("compose", raw);
-			replace(JSON.parse(raw) as Execution);
+			const parsed = JSON.parse(raw);
+			if (parsed.kind === "PORTABLE_PROJECT") {
+				const opened = await api<{
+					executionRequest: Execution;
+					package: Portable;
+				}>("portable", portableBody("open", { package: parsed }));
+				replace(opened.executionRequest);
+				setPortable(opened.package);
+			} else {
+				await api("compose", raw);
+				replace(parsed as Execution);
+				setPortable(null);
+			}
 			setInspected(null);
 			setOrigin("Local project snapshot");
 			go(1);
@@ -419,6 +475,7 @@ export default function App() {
 												sessionStorage.removeItem("flip-project");
 											} catch {}
 											setReq(null);
+											setPortable(null);
 											setDebugEdit(null);
 											setProof(null);
 											setBuilt(null);
@@ -665,6 +722,16 @@ export default function App() {
 						)}
 						{page === 3 && req && (
 							<>
+								<PortablePanel
+									request={req}
+									value={portable}
+									update={setPortable}
+									openRevision={(p) => {
+										replace(p.executionRequest);
+										setPortable(p);
+									}}
+									work={work}
+								/>
 								<section>
 									<h2>Verification evidence</h2>
 									<p>
@@ -778,6 +845,17 @@ export default function App() {
 							</>
 						)}
 					</fieldset>
+					{busy === "Running bounded portable workflow" && (
+						<button
+							type="button"
+							onClick={() => {
+								cancelPortableFocus.current = true;
+								window.dispatchEvent(new Event("flip-cancel-portable"));
+							}}
+						>
+							Cancel portable workflow
+						</button>
+					)}
 					<div role="status" aria-live="polite">
 						{busy ||
 							note ||

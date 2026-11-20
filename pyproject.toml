@@ -29,6 +29,13 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    # Exact original independent portability research/review; checked by custody.
+    "fixtures/m45-portable-project/generators/build_portability_fixtures.py",
+    "fixtures/m45-portable-project/generators/run_portability_cases.py",
+    "fixtures/m45-portable-project/generators/verify_portability.py",
+    "fixtures/m45-portable-independent-review/harness/portable_acceptance.py",
+    "fixtures/m45-portable-independent-review/harness/evidence_trust.py",
+    "fixtures/m45-portable-independent-review/harness/portable_api.py",
     # Pinned independent agent review; exact raw blobs are checked by custody.
     "fixtures/m45-agent-workflow-independent-review/harness/authorization_checks.py",
     "fixtures/m45-agent-workflow-independent-review/harness/independent_acceptance.py",

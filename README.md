@@ -23,6 +23,16 @@ The same catalog operations are available through `flip library --request reques
 [versioned library contract and examples](docs/schema/m45-library/README.md) and
 [M4.5 library handoff](docs/milestones/M45_LIBRARY_HANDOFF.md).
 
+## Portable project packages
+
+Save complete portable projects from Evidence to carry named test sets, revision history,
+provenance and content-addressed evidence references. Existing legacy project files still
+open unchanged; conversion back to legacy requires an explicit loss acknowledgement.
+The same operations use `flip portable --request operation.json --out new-revision.json`
+and `POST /api/v1/portable`. Evidence is verified separately with the existing trusted
+engine. See the [portable 1.1 contract](docs/schema/m45-portable-project/README.md) and
+[M4.5 portable handoff](docs/milestones/M45_PORTABLE_PROJECT_HANDOFF.md).
+
 ## M3 baseline
 
 ### External agent workflows
@@ -38,6 +48,16 @@ See the [agent integration guide](docs/agents/WORKFLOW_INTEGRATION.md),
 [reusable agent skill](.agents/skills/flip-agent-workflow/SKILL.md).
 The [final acceptance record](docs/milestones/M45_AGENT_WORKFLOW_ACCEPTANCE.md) preserves
 the independent review, platform gates and documented local runtime limits.
+
+### Portable agent integration
+
+Evidence now supports a bounded workflow over a saved Portable 1.1 revision: inspect,
+propose/verify a correction or verify the current explicit candidate edit, then download
+and explicitly open a separate verified revision. Receipts and content-addressed evidence
+remain separate artifacts. The same core is exposed as `flip agent-portable --request`
+and `POST /api/agent/v1/portable`; see the [adapter contract](docs/schema/m45-agent-portable/README.md)
+and [integration handoff](docs/milestones/M45_AGENT_PORTABLE_INTEGRATION_HANDOFF.md).
+The adapter is pending independent delta review; publication remains a terminal handoff.
 
 ### Connection debugger
 

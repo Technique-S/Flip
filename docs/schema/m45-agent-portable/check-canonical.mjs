@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+const canonical=v=>Array.isArray(v)?`[${v.map(canonical).join(',')}]`:v&&typeof v==='object'?`{${Object.keys(v).sort().map(k=>`${JSON.stringify(k)}:${canonical(v[k])}`).join(',')}}`:JSON.stringify(v);
+const hash=v=>`0x${createHash('sha256').update(canonical(v)).digest('hex')}`;
+const golden=JSON.parse(readFileSync(new URL('./1.0.0/golden.json',import.meta.url)));
+assert.equal(canonical(golden.request),golden.canonical);
+assert.equal(hash(golden.request),golden.hash);
+assert.equal(hash(golden.request.package),golden.request.expectedPackageHash);
+assert.equal(hash(golden.request.package.executionRequest),golden.request.expectedExecutionRequestHash);
+assert.equal(golden.request.package.revision.revisionHash,golden.request.expectedRevisionHash);
+console.log('Adapter Python/Node canonical plan and package pins PASS');

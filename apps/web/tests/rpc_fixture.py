@@ -1,6 +1,7 @@
 """Loopback synthetic RPC for browser acceptance only. Never imported by the product."""
 
 import json
+import os
 import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -32,4 +33,6 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    HTTPServer(("127.0.0.1", 18762), Handler).serve_forever()
+    HTTPServer(
+        ("127.0.0.1", int(os.environ.get("FLIP_TEST_RPC_PORT", "18762"))), Handler
+    ).serve_forever()

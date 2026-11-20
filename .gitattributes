@@ -33,3 +33,9 @@
 # Preserve the independently accepted agent workflow review, including UTF-16 logs.
 /docs/evidence/m45-agent-workflow-independent-review/** -text
 /fixtures/m45-agent-workflow-independent-review/** -text
+# Preserve portable audit and pinned harness source as original Git bytes.
+/docs/evidence/m45-portable-project/** -text
+
+/fixtures/m45-portable-project/** -text
+/docs/evidence/m45-portable-independent-review/** -text
+/fixtures/m45-portable-independent-review/** -text
