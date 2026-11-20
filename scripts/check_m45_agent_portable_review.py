@@ -29,7 +29,10 @@ def main():
         ).read_bytes()
     )
     assert [r["id"] for r in observed["rows"]] == [r["id"] for r in original["rows"]]
-    assert len(observed["rows"]) == 26 and all(r["pass"] for r in observed["rows"])
+    failures = [r for r in observed["rows"] if not r["pass"]]
+    if failures:
+        print(json.dumps({"failedChecks": failures}, indent=2))
+    assert len(observed["rows"]) == 26 and not failures
     assert code == 0
     print("Final adapter review: 26/26 PASS, including 10 fail-closed attacks; archive unchanged")
 
