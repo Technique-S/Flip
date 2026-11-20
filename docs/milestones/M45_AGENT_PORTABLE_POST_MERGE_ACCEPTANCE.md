@@ -103,8 +103,10 @@ Evidence is historical/reference-relative; old engine-bound bundles may fail com
 honestly. Missing evidence stays missing. Concurrent workflows can create sibling revisions;
 there is no global author/linear revision registry. The independent C10 freshness attack
 failed closed by operation deadline rather than a dedicated freshness diagnostic; no
-CURRENT claim or revision was accepted. No live RPC revalidation, human screen-reader
-session, local Linux process-tree containment or public exposure was exercised here.
+CURRENT claim or revision was accepted. Live-provider outcomes are not acceptance evidence; initial inherited C10 runs could use
+the public RPC default, which is now replaced by the deterministic loopback fixture in CI.
+No human screen-reader session, local Linux process-tree containment or public exposure
+was exercised here.
 
 During adoption of the additional cross-platform independent replay gate, initial Linux
 run [44766702007](https://github.com/Technique-S/Flip/actions/runs/44766702007) failed without
