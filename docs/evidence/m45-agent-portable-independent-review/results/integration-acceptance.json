@@ -1,0 +1,198 @@
+{
+  "artifactType": "AGENT_PORTABLE_INTEGRATION_ACCEPTANCE",
+  "rows": [
+    {
+      "error": null,
+      "id": "I01",
+      "name": "portable package -> agent execution identity",
+      "observed": {
+        "openedMatches": true,
+        "portableHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+        "verdict": "EQUIVALENT",
+        "workflowStatus": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "I02",
+      "name": "raw portable package rejected by workflow",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid versioned workflow or step arguments.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "I03",
+      "name": "named vectors bind identically across features",
+      "observed": {
+        "agentVerdict": "VECTORS_MATCH",
+        "portableCoverage": "PARTIAL_DECLARED_DOMAIN",
+        "portableVerdict": "VECTORS_MATCH"
+      }
+    },
+    {
+      "error": null,
+      "id": "I04",
+      "name": "duplicate vector inputs rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "I05",
+      "name": "agent correction -> new revision chain",
+      "observed": {
+        "applyClassification": "VERIFIED_CORRECTION",
+        "originalPreserved": true,
+        "parentHash": "0x198a884bddb1e8fb927017993c8889e342a1ddc7f868134ea1152a9431cb9fc3",
+        "parentMatches": true,
+        "revisionSequence": 1,
+        "workflowStatus": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "I06",
+      "name": "cancelled execution preserves original package",
+      "observed": {
+        "logs": 0,
+        "originalHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+        "packageUnchanged": true,
+        "status": "CANCELLED"
+      }
+    },
+    {
+      "error": null,
+      "id": "I07",
+      "name": "generated evidence -> portable ref -> replay",
+      "observed": {
+        "exportKind": "FLIP_EVIDENCE",
+        "refDigest": "0x0af3483bb34532de9a2e36764e497a3a44289f121c3ed950356cf6587cc71317",
+        "replayStatus": "REPLAYED",
+        "trust": "TRUSTED_ENGINE_REPLAY_ONLY"
+      }
+    },
+    {
+      "error": null,
+      "id": "I08",
+      "name": "foreign evidence project substitution rejected on replay",
+      "observed": {
+        "replayCode": "INVALID_INPUT",
+        "replayRejected": true,
+        "replayStatuses": null,
+        "wrapAccepted": true
+      }
+    },
+    {
+      "error": null,
+      "id": "I09",
+      "name": "revision-chain tampering rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "message": "Invalid portable package or operation.",
+        "ok": false
+      }
+    },
+    {
+      "error": null,
+      "id": "I10",
+      "name": "STALE provenance blocks open, not validate",
+      "observed": {
+        "openCode": "IMPLEMENTATION_CHANGED",
+        "openRejected": true,
+        "validateOk": true
+      }
+    },
+    {
+      "error": null,
+      "id": "I11",
+      "name": "UNKNOWN retry and deadline exhaustion",
+      "observed": {
+        "budgetStatus": "BUDGET_EXHAUSTED",
+        "finalUnchanged": true,
+        "reasons": [
+          "SOLVER_TIMEOUT",
+          "SOLVER_TIMEOUT"
+        ],
+        "status": "UNKNOWN"
+      }
+    },
+    {
+      "error": null,
+      "id": "I12",
+      "name": "STOP_AUTHORIZATION terminal",
+      "observed": {
+        "logs": 1,
+        "retryable": false,
+        "signingCapability": false,
+        "status": "STOP_AUTHORIZATION"
+      }
+    },
+    {
+      "error": null,
+      "id": "I13",
+      "name": "CLI/API/core semantic parity",
+      "observed": {
+        "portableParity": true,
+        "workflowParity": true
+      }
+    },
+    {
+      "error": null,
+      "id": "I14",
+      "name": "legacy compatibility after integration",
+      "observed": {
+        "composeExit": 0,
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "roundtripExact": true
+      }
+    },
+    {
+      "error": null,
+      "id": "X01",
+      "name": "forge successful correction rejected",
+      "observed": {
+        "classification": null,
+        "finalUnchanged": true,
+        "logs": 2,
+        "status": "STALE"
+      }
+    },
+    {
+      "error": null,
+      "id": "X02",
+      "name": "authority-field injection rejected",
+      "observed": {
+        "portableCode": "INVALID_INPUT",
+        "portableRejected": true,
+        "workflowCode": "INVALID_INPUT",
+        "workflowRejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "X03",
+      "name": "old correction reused on other package rejected",
+      "observed": {
+        "finalUnchanged": true,
+        "status": "UNKNOWN"
+      }
+    },
+    {
+      "error": null,
+      "id": "X04",
+      "name": "cancellation race preserves package",
+      "observed": {
+        "logs": 0,
+        "packageUnchanged": true,
+        "status": "CANCELLED"
+      }
+    }
+  ],
+  "testedSha": "cef5f4d0649eebb89bc237290eb949d9ecd823fb"
+}

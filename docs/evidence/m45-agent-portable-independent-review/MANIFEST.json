@@ -1,0 +1,27 @@
+{
+  "artifactType": "SHA256SUMS",
+  "files": [
+    {
+      "bytes": 8188,
+      "path": "docs/evidence/m45-agent-portable-independent-review/M45_AGENT_PORTABLE_INDEPENDENT_REVIEW.md",
+      "sha256": "6c75e979d324004b486c4faaca599a0cd59015b650be72e4df2ec64f84d292ee"
+    },
+    {
+      "bytes": 5137,
+      "path": "docs/evidence/m45-agent-portable-independent-review/results/integration-acceptance.json",
+      "sha256": "455a7c505be2c69219ad0cf7d096c7c19ad73f1da0906fab6532cf0f04a06097"
+    },
+    {
+      "bytes": 6728,
+      "path": "docs/evidence/m45-agent-portable-independent-review/results/run/legacy.request.json",
+      "sha256": "0694da6ae96caa38367c10e0f301a74f52611c54b807eddbff4b834da6921305"
+    },
+    {
+      "bytes": 16932,
+      "path": "fixtures/m45-agent-portable-independent-review/harness/integration_acceptance.py",
+      "sha256": "a05feaaee8fc05ee1c0e751e1432e829bdbb292e2261025f60cfcd69adff66f8"
+    }
+  ],
+  "note": "Hash register for integration review evidence (generated logs excluded).",
+  "testedSha": "cef5f4d0649eebb89bc237290eb949d9ecd823fb"
+}
