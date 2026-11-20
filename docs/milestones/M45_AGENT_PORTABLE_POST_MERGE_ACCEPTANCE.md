@@ -105,7 +105,18 @@ failed closed by operation deadline rather than a dedicated freshness diagnostic
 CURRENT claim or revision was accepted. No live RPC revalidation, human screen-reader
 session, local Linux process-tree containment or public exposure was exercised here.
 
-No known blocker remains for the accepted read-only integration once the evidence PR's
+During adoption of the additional cross-platform independent replay gate, initial Linux
+run [44766702007](https://github.com/Technique-S/Flip/actions/runs/44766702007) at evidence
+head `600e3d4e1fde8a9229e66f8e355a4b576c1c4044` failed the aggregate all-cases assertion.
+That first wrapper redirected details to scratch without retaining them on failure, so the
+case identity and cause are unresolved. The unchanged harness subsequently passed all 26
+checks in diagnostic run [44767920468](https://github.com/Technique-S/Flip/actions/runs/44767920468)
+on Linux and Windows. Production code, original assertions and deadlines were unchanged;
+only failure reporting and always-on diagnostic artifact retention were added. This initial
+failure remains a replay-reliability limitation, not a demonstrated production fix. Any
+recurrence must retain the failing observations and block the evidence merge until assessed.
+
+No known production blocker remains for the accepted read-only integration once the evidence PR's
 required CI succeeds. Broader release, wallet/transaction authorization, deployment and
 public hosting remain separate work requiring their own requirements, review and authority.
 No authorized tape-out implementation was started. Stop after this integration.
