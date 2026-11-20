@@ -2,6 +2,7 @@
 
 import json
 import sys
+from contextlib import redirect_stdout
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,8 @@ def main():
     namespace["FLIP"] = str(
         ROOT / (".venv/Scripts/flip.exe" if sys.platform == "win32" else ".venv/bin/flip")
     )
-    code = namespace["main"]()
+    with (scratch / "execution.log").open("w", encoding="utf-8") as log, redirect_stdout(log):
+        code = namespace["main"]()
     observed = json.loads(namespace["OUT"].read_bytes())
     original = json.loads(
         (
