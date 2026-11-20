@@ -417,7 +417,8 @@ def portable_research_evidence():
     current = git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines()
     require(set(current) == set(paths) | {extra}, "portable research inventory changed")
     require(not git("diff", revision, "HEAD", "--", *paths), "portable research Git blobs changed")
-    archive = git("archive", revision, "--", *scopes)
+    # Historical trees predate -text attributes; compare original blobs on Windows too.
+    archive = git("-c", "core.autocrlf=false", "archive", revision, "--", *scopes)
     with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as bundle:
         for member in bundle.getmembers():
             if member.isdir():
