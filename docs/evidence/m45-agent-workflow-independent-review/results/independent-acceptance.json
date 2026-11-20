@@ -1,0 +1,289 @@
+{
+  "artifactType": "INDEPENDENT_AGENT_ACCEPTANCE",
+  "entrypoints": [
+    "flip_core.agent_workflow.execute (core)",
+    "flip workflow (CLI subprocess)",
+    "POST /api/agent/v1/execute (API)"
+  ],
+  "results": [
+    {
+      "error": null,
+      "id": "A01",
+      "name": "create project from identities",
+      "observed": {
+        "chainId": 196,
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "A02",
+      "name": "bounded library discovery",
+      "observed": {
+        "readMethodsOnly": true,
+        "rpcRequests": 21,
+        "status": "COMPLETE",
+        "trust": "SINGLE_UNTRUSTED"
+      }
+    },
+    {
+      "error": null,
+      "id": "A03",
+      "name": "import verified source",
+      "observed": {
+        "freshness": "CURRENT",
+        "rpcRequests": 19,
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "A04",
+      "name": "deterministic composition",
+      "observed": {
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "A05",
+      "name": "vector evaluation",
+      "observed": {
+        "rows": 4,
+        "status": "COMPLETE",
+        "verdict": "VECTORS_MATCH"
+      }
+    },
+    {
+      "error": null,
+      "id": "A06",
+      "name": "EQUIVALENT comparison",
+      "observed": {
+        "status": "COMPLETE",
+        "verdict": "EQUIVALENT"
+      }
+    },
+    {
+      "error": null,
+      "id": "A07",
+      "name": "DIFFERENT + replayed witness",
+      "observed": {
+        "replay": "REF_BEAT_REPRODUCED",
+        "status": "DIFFERENT",
+        "toolRequests": 1
+      }
+    },
+    {
+      "error": null,
+      "id": "A08",
+      "name": "connection-level debugging",
+      "observed": {
+        "connections": 56,
+        "status": "DIFFERENT",
+        "uniqueFaultClaim": false
+      }
+    },
+    {
+      "error": null,
+      "id": "A09",
+      "name": "candidate correction proposal",
+      "observed": {
+        "classification": "CANDIDATE_ACTION",
+        "finalUnchanged": true,
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "A10",
+      "name": "fresh correction verification + apply",
+      "observed": {
+        "apply": "VERIFIED_CORRECTION",
+        "finalVerdict": "EQUIVALENT",
+        "originalPreserved": true,
+        "status": "COMPLETE",
+        "statuses": [
+          "DIFFERENT",
+          "DIFFERENT",
+          "COMPLETE",
+          "COMPLETE",
+          "COMPLETE",
+          "COMPLETE"
+        ],
+        "verify": "VERIFIED_CORRECTION"
+      }
+    },
+    {
+      "error": null,
+      "id": "A11",
+      "name": "export + cross-session replay",
+      "observed": {
+        "exportKind": "FLIP_EVIDENCE",
+        "replayVerdict": "EQUIVALENT",
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "A13",
+      "name": "bounded UNKNOWN retry",
+      "observed": {
+        "finalUnchanged": true,
+        "iterations": 2,
+        "reasons": [
+          "SOLVER_TIMEOUT",
+          "SOLVER_TIMEOUT"
+        ],
+        "status": "UNKNOWN"
+      }
+    },
+    {
+      "error": null,
+      "id": "A14",
+      "name": "stale dependency termination",
+      "observed": {
+        "finalUnchanged": true,
+        "logs": 1,
+        "status": "STALE"
+      }
+    },
+    {
+      "error": null,
+      "id": "B01",
+      "name": "prompt cannot grant permission",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "B02",
+      "name": "STOP_AUTHORIZATION terminal",
+      "observed": {
+        "logs": 1,
+        "proposedAction": "ONCHAIN_PUBLICATION",
+        "retryable": false,
+        "signingCapability": false,
+        "status": "STOP_AUTHORIZATION"
+      }
+    },
+    {
+      "error": null,
+      "id": "B03",
+      "name": "no retry past authorization stop",
+      "observed": {
+        "logs": 1,
+        "status": "STOP_AUTHORIZATION"
+      }
+    },
+    {
+      "error": null,
+      "id": "B04",
+      "name": "fabricated EQUIVALENT report rejected",
+      "observed": {
+        "accepted": false,
+        "status": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "B05",
+      "name": "false correction action rejected",
+      "observed": {
+        "finalUnchanged": true,
+        "status": "STALE"
+      }
+    },
+    {
+      "error": null,
+      "id": "B06",
+      "name": "apply to different project rejected",
+      "observed": {
+        "finalUnchanged": true,
+        "status": "STALE"
+      }
+    },
+    {
+      "error": null,
+      "id": "C01",
+      "name": "cancel before execution",
+      "observed": {
+        "logs": 0,
+        "status": "CANCELLED",
+        "toolRequests": 0
+      }
+    },
+    {
+      "error": null,
+      "id": "C02",
+      "name": "cancel during execution + late results",
+      "observed": {
+        "logs": 1,
+        "noLateRequests": true,
+        "rpcAccounting": "RESERVED_ON_INTERRUPTION",
+        "status": "CANCELLED"
+      }
+    },
+    {
+      "error": null,
+      "id": "C03",
+      "name": "iteration budget",
+      "observed": {
+        "iterations": 1,
+        "logs": 1,
+        "status": "BUDGET_EXHAUSTED"
+      }
+    },
+    {
+      "error": null,
+      "id": "C04",
+      "name": "tool request budget",
+      "observed": {
+        "logs": 1,
+        "status": "BUDGET_EXHAUSTED"
+      }
+    },
+    {
+      "error": null,
+      "id": "C05",
+      "name": "overall deadline",
+      "observed": {
+        "anyComplete": false,
+        "status": "BUDGET_EXHAUSTED"
+      }
+    },
+    {
+      "error": null,
+      "id": "D01",
+      "name": "deterministic replay + receipt checksum",
+      "observed": {
+        "entryHashesMatch": true,
+        "receiptChecksumOnly": true,
+        "reproductionHashMatch": true,
+        "statusesMatch": true
+      }
+    },
+    {
+      "error": null,
+      "id": "D02",
+      "name": "engine identity stable",
+      "observed": {
+        "engineHash": "0xd1407866ddd7bb3ce1a55b7d8166b69c82e2cd8825a262d9afb804b7a7237d06",
+        "scope": "LOCAL_BOUNDED_HISTORICAL_REFERENCE_RELATIVE"
+      }
+    },
+    {
+      "error": null,
+      "id": "D03",
+      "name": "CLI workflow execution",
+      "observed": {
+        "exit": 0,
+        "logs": 6,
+        "status": "COMPLETE"
+      }
+    }
+  ],
+  "testedSha": "d2638d057b6236286480891d6fdd7dfb0402bc5a"
+}

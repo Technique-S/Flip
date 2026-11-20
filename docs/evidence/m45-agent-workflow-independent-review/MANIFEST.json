@@ -1,0 +1,57 @@
+{
+  "artifactType": "SHA256SUMS",
+  "files": [
+    {
+      "bytes": 1928,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/HANDOFF.md",
+      "sha256": "1a0411f6c13e6a46f508e4980f19abc0c21c5de4d37efb4ca3160f13c8ac061e"
+    },
+    {
+      "bytes": 8404,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/M45_AGENT_WORKFLOW_INDEPENDENT_REVIEW.md",
+      "sha256": "4f917a7e4e8849388866ab5a2b6580611a153e6f4259ea347e045cffbf9dffde"
+    },
+    {
+      "bytes": 2344,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/results/authorization-checks.json",
+      "sha256": "bc49637a99e86368636373ff4926a2adf3d5d1bf12cb42892a920d3648e81bcc"
+    },
+    {
+      "bytes": 228,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/results/focused-tests.log",
+      "sha256": "c1344af31fe157f8ac67c064507d71eb97b5360c4857478acdc537eddcd67f65"
+    },
+    {
+      "bytes": 6455,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/results/independent-acceptance.json",
+      "sha256": "988e07497340f67955e670523322fae1f7187fd6621bce41ff94b9dfa085c198"
+    },
+    {
+      "bytes": 164137,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/results/run/correction.receipt.json",
+      "sha256": "08adcf198713f209fddc1782e0560e18055b1721b1af318c25c3a4ae19780dec"
+    },
+    {
+      "bytes": 328278,
+      "path": "docs/evidence/m45-agent-workflow-independent-review/results/run/correction.stdout.json",
+      "sha256": "8cf5a70c0c98102a5d3eab3c0c7059ec02a0a65bb727af6067ad2c0b2e200bd5"
+    },
+    {
+      "bytes": 6235,
+      "path": "fixtures/m45-agent-workflow-independent-review/harness/authorization_checks.py",
+      "sha256": "47f2e92c6401d85ff55053f8c54b13980210ae3225c3e97ed38a94e5b24dd659"
+    },
+    {
+      "bytes": 15971,
+      "path": "fixtures/m45-agent-workflow-independent-review/harness/independent_acceptance.py",
+      "sha256": "70a99afd42795ad746cecb91f1157103794ee2d583a523312ac1bb2bd8366367"
+    },
+    {
+      "bytes": 1068,
+      "path": "fixtures/m45-agent-workflow-independent-review/README.md",
+      "sha256": "6039484d779061cf1b117cdc5d36dab6d0b388caf2f559ef52f9eb84ed9025c2"
+    }
+  ],
+  "note": "Hash register for independent agent workflow review evidence (generated logs excluded).",
+  "testedSha": "d2638d057b6236286480891d6fdd7dfb0402bc5a"
+}

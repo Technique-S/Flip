@@ -1,0 +1,105 @@
+{
+  "artifactType": "AGENT_AUTHORIZATION_CHECKS",
+  "rows": [
+    {
+      "error": null,
+      "id": "E01",
+      "name": "HISTORICAL never promoted to CURRENT",
+      "observed": {
+        "compareFreshness": "HISTORICAL",
+        "exportFreshness": "HISTORICAL",
+        "promoted": false,
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "error": null,
+      "id": "E02",
+      "name": "top-level permissions rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "field": "permissions",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E03",
+      "name": "top-level approvalToken rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "field": "approvalToken",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E04",
+      "name": "top-level transactionAuthority rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "field": "transactionAuthority",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E05",
+      "name": "top-level signer rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "field": "signer",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E06",
+      "name": "step-level authority field rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E07",
+      "name": "unsupported network write op rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "rejected": true
+      }
+    },
+    {
+      "error": null,
+      "id": "E08",
+      "name": "fabricated stop artifact not promotable",
+      "observed": {
+        "accepted": false,
+        "code": "INVALID_INPUT",
+        "status": "INVALID_INPUT"
+      }
+    },
+    {
+      "error": null,
+      "id": "E09",
+      "name": "API parity and loopback gate",
+      "observed": {
+        "apiStatus": 200,
+        "parity": true,
+        "solverDisabledStatus": 501
+      }
+    },
+    {
+      "error": null,
+      "id": "E10",
+      "name": "changed reference between steps rejected",
+      "observed": {
+        "code": "INVALID_INPUT",
+        "logs": 0,
+        "status": "INVALID_INPUT"
+      }
+    }
+  ],
+  "testedSha": "d2638d057b6236286480891d6fdd7dfb0402bc5a"
+}
