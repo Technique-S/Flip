@@ -36,6 +36,8 @@ Publication requests terminate at `STOP_AUTHORIZATION`; no signing capability ex
 See the [agent integration guide](docs/agents/WORKFLOW_INTEGRATION.md),
 [versioned protocol](docs/schema/m45-agent-workflow/README.md) and
 [reusable agent skill](.agents/skills/flip-agent-workflow/SKILL.md).
+The [final acceptance record](docs/milestones/M45_AGENT_WORKFLOW_ACCEPTANCE.md) preserves
+the independent review, platform gates and documented local runtime limits.
 
 ### Connection debugger
 

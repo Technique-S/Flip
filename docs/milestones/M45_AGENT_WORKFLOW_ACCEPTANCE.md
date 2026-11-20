@@ -11,6 +11,7 @@ Date: 2026-11-20 (Africa/Lagos). Integration branch:
 | Delivered and independently reviewed agent implementation | `d2638d057b6236286480891d6fdd7dfb0402bc5a` |
 | Independent review, PASS | `7b4b1f711ddc9676141becfae2fc77a3d5941374` |
 | History-preserving review integration | `583b5176a452cf06a419c7cc60e5148bb880fbbd` |
+| Tested acceptance/custody/CI integration | `ffaf426d7ff162e44678ddec75e3466af96b564a` |
 
 Remote implementation/review heads matched the supplied commits after fetch. Main was
 still the accepted debugger baseline and an ancestor of the delivery; the delivery was
@@ -43,12 +44,46 @@ VERIFIED_CORRECTION, prompts, receipts and metadata do not substitute for truste
 
 ## Acceptance validation
 
-Validation is in progress on the history-preserving acceptance branch. The final table
-will record exact CI revisions and executed outcomes before merge. Current requirements:
-full inherited/new Python suite, 23 Chromium journeys, all 15 original workflow scenarios
-and five negatives, the independent 27 + 10 checks, cancellation/resource limits, CLI/API
-semantic parity, seven versioned schema profiles, canonical Python/Node parity, locked
-installation, lint/build and credential/evidence custody on Windows and Linux.
+The tested integration passed both platform jobs in
+[push CI 44712700362](https://github.com/Technique-S/Flip/actions/runs/44712700362) and
+[PR CI 44712923122](https://github.com/Technique-S/Flip/actions/runs/44712923122), all bound
+to `ffaf426d7ff162e44678ddec75e3466af96b564a`. The acceptance-record follow-up changes
+only documentation; its exact head and checks are retained in
+[PR #8](https://github.com/Technique-S/Flip/pull/8). Final head CI must be green before merge.
+
+| Required gate | Windows CI | Linux CI |
+|---|---|---|
+| Full Python suite, no failures/errors/skips | 648 passed | 648 passed |
+| Chromium journeys, keyboard/mobile/axe and web/CLI parity | 23 passed | 23 passed |
+| Independent acceptance observations | 27/27 exact semantic matches | 27/27 exact semantic matches |
+| Authorization/freshness/API observations | 10/10 exact semantic matches | 10/10 exact semantic matches |
+| Original workflow corpus and negatives | 15 scenarios + 5 negatives, in the 47 workflow tests | same |
+| Cancellation, late revisions, resource ceilings, trusted corrections | passed | passed |
+| Seven versioned schema profiles | passed | passed |
+| Python/Node canonical parity | six vectors passed | six vectors passed |
+| Locked installation, Ruff, frontend lint/build | passed | passed |
+| Full custody/credential scan | passed; zero credential findings | passed; zero credential findings |
+| External CLI/ASGI smokes and production benchmarks | passed | passed |
+
+The push-run Python timings were 197.83 seconds (Windows) and 93.75 seconds (Linux).
+Downloaded Linux JUnit confirms all 648 test nodes and zero failures/errors/skips; both
+platform logs confirm counts and the 27 + 10 gate. Structured evidence and original tree
+identities are in [acceptance-results.json](m45-agent-workflow/acceptance-results.json).
+
+Local observations are kept separate: 23 Chromium tests passed, all seven schemas and
+six canonical vectors passed, and the custody guard passed across 770 tracked files
+with zero credential findings. A concurrent independent run matched 26/27 acceptance
+observations; its CLI example hit OPERATION_DEADLINE and was rejected by the gate.
+A separate authorization run matched 9/10, with API/core parity differing under runtime
+limits. Neither run is credited as a passing acceptance gate. The unchanged six-step CLI
+example subsequently completed serially. A diagnostic API/core pair both stopped at
+BUDGET_EXHAUSTED/OPERATION_DEADLINE with identical semantic reproduction hashes, confirming
+that bounded failures are not successful proof runs. The additional local full-suite invocation also produced failures during concurrent
+diagnostics and is not credited as a green run on this host. Its raw JUnit is retained
+in `.test-tmp/agent-python.xml`; final counts and dispositions are reported in the
+integration completion response. The full isolated CI results remain the acceptance gate.
+The accepted platform results above use isolated immutable CI checkouts; no local failure
+was hidden by skipping tests, raising deadlines or changing production code.
 
 Fresh independent harness runs use `scripts/check_m45_agent_acceptance.py`. Their original
 source bytes remain unchanged; only CLI executable path and scratch output paths differ
@@ -69,8 +104,22 @@ The inherited M3 test retains its 120-second deadline and every hash, size and r
 assertion. `scripts/diagnose_m3_archival_runtime.py` runs the original verifier in disposable
 scratch without changing that test deadline. In-memory wrappers time the original
 builder's task functions; source bytes and deterministic authored outputs remain intact.
-Timing observations and the decision will be recorded after the diagnostic completes.
-No archival result, assertion or production solver budget has been changed.
+The diagnostic completed with exit 0 in 218.844 seconds. The generator subprocess took
+217.834 seconds, of which task E (benchmark generation) took 216.707 seconds; tasks A-D
+combined took approximately 0.060 seconds. Every registered hash/size matched, authored
+fixtures regenerated byte-identically, onchain-vector crosschecks and negative rejections
+passed, all witnesses replayed, 17 recorded SAT expectations matched, and benchmark CNF
+counts matched. This identifies the local bottleneck as the archival benchmark generator,
+which performs sampled/exhaustive evaluation and capped stdlib DPLL measurements, rather
+than an agent controller or production Minisat verification step. It does not establish
+an unloaded-host timing or attribute all time to one inner benchmark algorithm.
+
+Decision: retain the inherited 120-second test deadline and track this host-specific
+runtime margin (F03-PERF-001 / D-RUNNER-001). The unchanged test passes on both hosted
+platforms. Extending production deadlines or weakening historical validation is not
+justified by a slow archival benchmarking pass on this host. The diagnostic is an
+explicit scratch investigation, not a replacement or passing substitute for the timed
+test. No archival result, assertion or production solver budget has been changed.
 
 ## Integration dependencies and exclusions
 
@@ -83,8 +132,12 @@ no live RPC or human usability study is claimed by deterministic acceptance.
 
 ## Verdict and merge gate
 
-Independent verdict: PASS for the delivered implementation. Integration verdict: PENDING
-final platform checks and archival diagnostic. Merge is allowed only after those checks
-are recorded and green, with production byte identity reconfirmed against the reviewed
-SHA and main ancestry rechecked. The repository's established history-preserving PR merge
-strategy will retain both implementation and independent-review history.
+Independent verdict: **PASS** for the delivered implementation. Final integration
+acceptance: **PASS** for that unchanged reviewed implementation and the tested integration
+above, with the documented local runtime limitations. There are no unresolved severity
+findings and no unreviewed production delta. The final record-only head must pass both
+platform checks before PR #8 is merged, with origin/main ancestry and exact production
+byte identity rechecked immediately before merge. Use the repository's established PR
+merge-commit strategy to retain implementation, original corpus and independent review
+ancestry. The resulting main SHA is recorded by PR #8's mergeCommit and the integration
+completion response; it cannot be embedded self-referentially in its own merge tree.
