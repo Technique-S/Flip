@@ -39,3 +39,7 @@
 /fixtures/m45-portable-project/** -text
 /docs/evidence/m45-portable-independent-review/** -text
 /fixtures/m45-portable-independent-review/** -text
+
+# Final independent adapter review: preserve original Git bytes.
+/docs/evidence/m45-agent-portable-final-review/** -text
+/fixtures/m45-agent-portable-final-review/** -text

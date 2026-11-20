@@ -44,6 +44,7 @@ jobs:
       - run: uv run --frozen python scripts/report_m3_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --out "${{ runner.temp }}/m3-acceptance.json"
       - run: uv run --frozen python scripts/report_m4_acceptance.py --junit "${{ runner.temp }}/m3-tests.xml" --browser .test-tmp/m4-browser.json --out "${{ runner.temp }}/m4-acceptance.json"
       - run: uv run --frozen python scripts/check_m45_agent_acceptance.py
+      - run: uv run --frozen python scripts/check_m45_agent_portable_review.py
       - run: uv run --frozen python -m flip_core.portable_schema_export --out docs/schema/m45-portable-project/1.1.0 --check
       - run: uv run --frozen python scripts/check_m45_portability.py
       - run: node docs/schema/m45-portable-project/check-canonical.mjs
@@ -55,6 +56,7 @@ jobs:
       - run: uv run --frozen python scripts/smoke_m3.py
       - run: uv run --frozen python scripts/benchmark_m3.py --out "${{ runner.temp }}/m3-benchmark.json"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
         with:
           name: m3-benchmark-${{ matrix.os }}
           path: |
@@ -63,3 +65,5 @@ jobs:
             ${{ runner.temp }}/m3-tests.xml
             ${{ runner.temp }}/m4-acceptance.json
             .test-tmp/agent-independent/**/*.json
+            .test-tmp/final-adapter-review/*.json
+            .test-tmp/final-adapter-review/execution.log

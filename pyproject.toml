@@ -29,6 +29,8 @@ target-version = "py314"
 line-length = 100
 # Immutable M1-B archival tool: exercise in scratch space without reformatting evidence.
 extend-exclude = [
+    # Exact final independent adapter harness; pinned by custody.
+    "fixtures/m45-agent-portable-final-review/harness/independent_adapter_checks.py",
     # Exact original independent portability research/review; checked by custody.
     "fixtures/m45-portable-project/generators/build_portability_fixtures.py",
     "fixtures/m45-portable-project/generators/run_portability_cases.py",
