@@ -47,6 +47,8 @@ jobs:
       - run: uv run --frozen python -m flip_core.portable_schema_export --out docs/schema/m45-portable-project/1.1.0 --check
       - run: uv run --frozen python scripts/check_m45_portability.py
       - run: node docs/schema/m45-portable-project/check-canonical.mjs
+      - run: uv run --frozen python -m flip_core.agent_portable_schema_export --out docs/schema/m45-agent-portable/1.0.0 --check
+      - run: node docs/schema/m45-agent-portable/check-canonical.mjs
       - run: node docs/schema/check-canonical.mjs
       - run: uv run --frozen python scripts/check_m1_repository.py --require-clean
       - run: uv run --frozen python scripts/smoke_m1.py

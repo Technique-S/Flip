@@ -682,6 +682,14 @@ pre {
 .debugger button {
 	margin: 4px 8px 4px 0;
 }
+.agent-workflow-table {
+	table-layout: fixed;
+}
+.agent-workflow-table th,
+.agent-workflow-table td {
+	overflow-wrap: anywhere;
+}
+
 .debug-witness .different td {
 	text-decoration: underline double;
 	text-underline-offset: 4px;

@@ -112,6 +112,17 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--version", action="version", version=f"Flip {__version__}")
     commands = parser.add_subparsers(dest="command", required=True)
+    integrated = commands.add_parser(
+        "agent-portable", help="Bound a portable revision to a trusted workflow"
+    )
+    integrated.add_argument("--request", type=Path, required=True)
+    integrated.add_argument("--out", type=Path)
+    integrated.add_argument(
+        "--prepare",
+        action="store_true",
+        help="Prepare identities/steps without running verification",
+    )
+    integrated.add_argument("--cancel-file", type=Path)
     workflow = commands.add_parser("workflow", help="Execute a bounded declarative agent workflow")
     workflow.add_argument("--request", type=Path, required=True)
     workflow.add_argument("--out", type=Path)
@@ -193,6 +204,47 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--max-depth", type=int, default=64)
     try:
         args = parser.parse_args(argv)
+        if args.command == "agent-portable":
+            import signal
+            from threading import Event
+
+            from flip_core.agent_portable_adapter import execute as execute_adapter
+            from flip_core.agent_portable_adapter import prepare_adapter
+
+            stopped = Event()
+            previous = signal.signal(signal.SIGINT, lambda *_: stopped.set())
+            try:
+                with args.request.open("rb") as handle:
+                    raw = handle.read(1_048_577)
+                result = (
+                    prepare_adapter(raw)
+                    if args.prepare
+                    else execute_adapter(
+                        raw,
+                        cancelled=lambda: stopped.is_set()
+                        or (args.cancel_file is not None and args.cancel_file.exists()),
+                    )
+                )
+                if args.out:
+                    if args.out.exists():
+                        raise ContractError(
+                            "INVALID_INPUT",
+                            "Adapter output exists; choose a new artifact filename.",
+                        )
+                    with args.out.open("xb") as handle:
+                        handle.write(canonical_bytes(result) + b"\n")
+            except OSError as exc:
+                raise ContractError("INVALID_INPUT", "Cannot read or create adapter file.") from exc
+            finally:
+                signal.signal(signal.SIGINT, previous)
+            emit(result)
+            return {
+                "COMPLETE": ExitCode.OK,
+                "DIFFERENT": ExitCode.DIFFERENT,
+                "STALE": ExitCode.STALE,
+                "INVALID_INPUT": ExitCode.INVALID_INPUT,
+                "STOP_AUTHORIZATION": 9,
+            }.get(result.get("status", "COMPLETE"), ExitCode.UNKNOWN)
         if args.command == "workflow":
             import signal
             from threading import Event

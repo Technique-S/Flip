@@ -334,6 +334,107 @@ def agent_workflow_review_evidence():
     return original, {"revision": revision, "target": target, "files": 14, "manifestEntries": 10}
 
 
+def portable_review_evidence():
+    """Pin every independent review byte, including logs omitted by its manifest."""
+    revision = "8daacf7af2a1cfc17d83a33f7841d1088807ec82"
+    target = "136b1115ee0f5ffe0a5583d68c474641fdce1ca1"
+    scopes = (
+        "docs/evidence/m45-portable-independent-review/",
+        "fixtures/m45-portable-independent-review/",
+    )
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "independent portable review history missing",
+    )
+    paths = git("diff", "--name-only", target, revision).decode().splitlines()
+    require(
+        len(paths) == 18 and all(p.startswith(scopes) for p in paths),
+        "portable review scope changed",
+    )
+    require(
+        set(git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines())
+        == set(paths),
+        "portable review archive inventory changed",
+    )
+    queries = [(ref, path) for path in paths for ref in (revision, "HEAD")]
+    raw = subprocess.check_output(
+        ["git", "cat-file", "--batch"],
+        cwd=ROOT,
+        input="".join(f"{ref}:{path}\n" for ref, path in queries).encode(),
+    )
+    cursor, blobs = 0, {}
+    for ref, path in queries:
+        end = raw.index(b"\n", cursor)
+        header = raw[cursor:end].split()
+        require(len(header) == 3 and header[1] == b"blob", "missing portable review blob")
+        size, cursor = int(header[2]), end + 1
+        blobs[ref, path] = raw[cursor : cursor + size]
+        require(
+            raw[cursor + size : cursor + size + 1] == b"\n", "invalid portable review blob frame"
+        )
+        cursor += size + 1
+    require(cursor == len(raw), "unexpected review blob output")
+    original = {}
+    for path in paths:
+        data = blobs[revision, path]
+        require(
+            blobs["HEAD", path] == data and (ROOT / path).read_bytes() == data,
+            f"independent portable review bytes changed: {path}",
+        )
+        original[path] = data
+    manifest = json.loads(original[scopes[0] + "MANIFEST.json"])
+    require(
+        manifest["testedSha"] == target and len(manifest["files"]) == 11,
+        "portable review manifest changed",
+    )
+    for entry in manifest["files"]:
+        data = original[entry["path"]]
+        require(
+            len(data) == entry["bytes"] and hashlib.sha256(data).hexdigest() == entry["sha256"],
+            f"portable review manifest mismatch: {entry['path']}",
+        )
+    return original, {"revision": revision, "target": target, "files": 18, "manifestEntries": 11}
+
+
+def portable_research_evidence():
+    import io
+    import tarfile
+
+    revision = "2f3d6263edf4e62ad4e94718c99f6c1a79e350a1"
+    scopes = ("docs/evidence/m45-portable-project", "fixtures/m45-portable-project")
+    require(
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", revision, "HEAD"], cwd=ROOT
+        ).returncode
+        == 0,
+        "portable research history missing",
+    )
+    paths = git("ls-tree", "-r", "--name-only", revision, "--", *scopes).decode().splitlines()
+    extra = "docs/evidence/m45-portable-project/harness/run_portability_cases.py.txt"
+    current = git("ls-tree", "-r", "--name-only", "HEAD", "--", *scopes).decode().splitlines()
+    require(set(current) == set(paths) | {extra}, "portable research inventory changed")
+    require(not git("diff", revision, "HEAD", "--", *paths), "portable research Git blobs changed")
+    archive = git("archive", revision, "--", *scopes)
+    with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as bundle:
+        for member in bundle.getmembers():
+            if member.isdir():
+                continue
+            require(member.isfile() and member.name in paths, "unexpected research archive member")
+            require(
+                (ROOT / member.name).read_bytes() == bundle.extractfile(member).read(),
+                f"portable research checkout changed: {member.name}",
+            )
+    require(
+        (ROOT / extra).read_bytes()
+        == blob(revision, "fixtures/m45-portable-project/generators/run_portability_cases.py"),
+        "portable research harness snapshot changed",
+    )
+    return dict(revision=revision, files=len(paths), additionalPinnedHarness=extra)
+
+
 def review() -> dict:
     # CI must fetch full history, since M1-B need not exist as a remote branch.
     for commit in (CORE, FIXTURES):
@@ -528,6 +629,8 @@ def review() -> dict:
     debugging_review = debugging_review_evidence()
     workflow_fixtures = agent_workflow_evidence()
     workflow_review_blobs, workflow_review = agent_workflow_review_evidence()
+    portable_review_blobs, portable_review = portable_review_evidence()
+    portable_research = portable_research_evidence()
     for path in tracked:
         raw = (ROOT / path).read_bytes()
         if path in captures:
@@ -546,7 +649,10 @@ def review() -> dict:
             == "795a3b2cccc429dbc9ee3efd1f4eeb5d019974eeb64b34249954135d8b4e76f8"
         )
         require(
-            len(raw) <= 200_000 or large_registered or path in workflow_review_blobs,
+            len(raw) <= 200_000
+            or large_registered
+            or path in workflow_review_blobs
+            or path in portable_review_blobs,
             f"unexpected large tracked file: {path}",
         )
         text = raw.decode("utf-16" if raw.startswith(b"\xff\xfe") else "utf-8")
@@ -571,6 +677,8 @@ def review() -> dict:
         "debugging_independent_review": debugging_review,
         "agent_workflow_fixtures": workflow_fixtures,
         "agent_workflow_independent_review": workflow_review,
+        "portable_independent_review": portable_review,
+        "portable_research": portable_research,
         "provenance_limit": "Audited originals unavailable; imported observations are historical.",
         "result": "PASS",
     }

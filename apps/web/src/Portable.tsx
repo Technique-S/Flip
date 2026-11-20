@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AgentPortable } from "./AgentPortable";
 import { api, download, type Execution, readFile } from "./model";
 
 export type Portable = {
@@ -48,10 +49,12 @@ export function PortablePanel({
 	value,
 	update,
 	work,
+	openRevision,
 }: {
 	request: Execution;
 	value: Portable | null;
 	update: (value: Portable) => void;
+	openRevision: (value: Portable) => void;
 	work: (label: string, fn: () => Promise<void>) => Promise<void>;
 }) {
 	const [result, setResult] = useState<unknown>(null);
@@ -135,6 +138,14 @@ export function PortablePanel({
 					/>
 				</label>
 			</div>
+			{value && (
+				<AgentPortable
+					request={request}
+					value={value}
+					openRevision={openRevision}
+					work={work}
+				/>
+			)}
 			{value && (
 				<>
 					<p>

@@ -49,6 +49,16 @@ See the [agent integration guide](docs/agents/WORKFLOW_INTEGRATION.md),
 The [final acceptance record](docs/milestones/M45_AGENT_WORKFLOW_ACCEPTANCE.md) preserves
 the independent review, platform gates and documented local runtime limits.
 
+### Portable agent integration
+
+Evidence now supports a bounded workflow over a saved Portable 1.1 revision: inspect,
+propose/verify a correction or verify the current explicit candidate edit, then download
+and explicitly open a separate verified revision. Receipts and content-addressed evidence
+remain separate artifacts. The same core is exposed as `flip agent-portable --request`
+and `POST /api/agent/v1/portable`; see the [adapter contract](docs/schema/m45-agent-portable/README.md)
+and [integration handoff](docs/milestones/M45_AGENT_PORTABLE_INTEGRATION_HANDOFF.md).
+The adapter is pending independent delta review; publication remains a terminal handoff.
+
 ### Connection debugger
 
 After comparing, select **Inspect connection paths** to trace a replayed mismatch

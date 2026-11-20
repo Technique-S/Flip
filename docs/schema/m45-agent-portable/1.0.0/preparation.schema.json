@@ -1,0 +1,54 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "inspect",
+        "correct",
+        "verify-edit",
+        "publish"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "continueOnTestMismatch": {
+      "default": false,
+      "title": "Continueontestmismatch",
+      "type": "boolean"
+    },
+    "draftExecutionRequest": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Draftexecutionrequest"
+    },
+    "kind": {
+      "const": "AGENT_PORTABLE_PREPARATION",
+      "default": "AGENT_PORTABLE_PREPARATION",
+      "title": "Kind",
+      "type": "string"
+    },
+    "package": {
+      "$ref": "../../m45-portable-project/1.1.0/package.schema.json"
+    },
+    "schemaVersion": {
+      "const": "m45-agent-portable-1.0.0",
+      "default": "m45-agent-portable-1.0.0",
+      "title": "Schemaversion",
+      "type": "string"
+    }
+  },
+  "required": [
+    "package",
+    "action"
+  ],
+  "title": "PreparationRequest",
+  "type": "object"
+}

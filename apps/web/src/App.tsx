@@ -110,6 +110,8 @@ function SourceCard({ item, alias }: { item: Imported; alias: string }) {
 	);
 }
 export default function App() {
+	const cancelPortableFocus = useRef(false);
+
 	const [portable, setPortableState] = useState<Portable | null>(null);
 	function setPortable(value: Portable | null) {
 		setPortableState(value);
@@ -131,6 +133,12 @@ export default function App() {
 		lock = useRef(false),
 		[error, setError] = useState(""),
 		[note, setNote] = useState("");
+	useEffect(() => {
+		if (!busy && cancelPortableFocus.current) {
+			document.getElementById("portable-agent-heading")?.focus();
+			cancelPortableFocus.current = false;
+		}
+	}, [busy]);
 	const [proc, setProc] = useState(""),
 		[cid, setCid] = useState("1"),
 		[addMode, setAddMode] = useState(false);
@@ -718,6 +726,10 @@ export default function App() {
 									request={req}
 									value={portable}
 									update={setPortable}
+									openRevision={(p) => {
+										replace(p.executionRequest);
+										setPortable(p);
+									}}
 									work={work}
 								/>
 								<section>
@@ -833,6 +845,17 @@ export default function App() {
 							</>
 						)}
 					</fieldset>
+					{busy === "Running bounded portable workflow" && (
+						<button
+							type="button"
+							onClick={() => {
+								cancelPortableFocus.current = true;
+								window.dispatchEvent(new Event("flip-cancel-portable"));
+							}}
+						>
+							Cancel portable workflow
+						</button>
+					)}
 					<div role="status" aria-live="polite">
 						{busy ||
 							note ||
