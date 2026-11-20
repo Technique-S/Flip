@@ -156,6 +156,8 @@ def prepare(model, package, boundary):
         if len(workflow["steps"]) > 64:
             raise ContractError("RESOURCE_LIMIT", "Publication handoff exceeds 64 steps.")
         return workflow, []
+    if model.createRevision and len(package.ancestors) >= 1023:
+        raise ContractError("RESOURCE_LIMIT", "Portable revision ancestry budget exhausted.")
     cost = execution_cost(compile_project(request.project, request.imports).candidate)
     costs = [cost]
     if model.createRevision and package.tests:

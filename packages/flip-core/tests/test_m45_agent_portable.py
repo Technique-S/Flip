@@ -460,3 +460,34 @@ def test_rehashed_fake_engine_cannot_turn_integrity_into_proof():
     result = adapter.execute(body)
     assert result["status"] == "STALE" and result["revisedPackage"] is None
     assert result["inputEvidence"][0]["status"] == "NOT_REPLAYED"
+
+
+def test_caller_mutation_after_admission_cannot_change_the_selected_snapshot():
+    body = prepared()
+    original = copy.deepcopy(body)
+    model = adapter.parse_adapter(body)
+    body["package"]["executionRequest"]["project"]["projectId"] = "foreign"
+    body["workflow"]["steps"].clear()
+    assert model.package == original["package"]
+    assert model.workflow.steps
+    assert content_hash(model.package) == model.expectedPackageHash
+
+
+def test_full_history_refuses_another_revision_before_any_work():
+    from flip_core.portable import record_hash
+
+    p = create_package(sample("half-adder"))
+    records = []
+    for i in range(1024):
+        record = copy.deepcopy(p["revision"])
+        record["sequence"] = i
+        record["parentHash"] = records[-1]["revisionHash"] if records else None
+        record["editLog"][0]["beforeHash"] = p["executionRequestHash"] if records else None
+        record["revisionHash"] = record_hash(record)
+        records.append(record)
+    p["ancestors"], p["revision"] = records[:-1], records[-1]
+    body = prepared(p, action="inspect")
+    body["createRevision"] = True
+    result = adapter.execute(body)
+    assert result["status"] == "BUDGET_EXHAUSTED" and result["receipt"] is None
+    assert result["revisedPackage"] is None and result["originalPackage"] == p
