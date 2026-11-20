@@ -7,7 +7,7 @@ from pathlib import Path
 from flip_core.canonical import canonical_bytes, content_hash
 from flip_core.portable import PortableProject, PortableRequest, create_package
 from flip_core.verification import VerificationRequest
-from flip_core.workflow import sample
+from flip_core.workflow import REPRODUCE, sample
 
 
 def contract_schema(model):
@@ -44,14 +44,29 @@ def artifacts():
     package = create_package(sample("half-adder"))
     edited = sample("swapped")
     revision = create_package(edited, previous=package, description="Swap outputs")
+    # Deliberately synthetic reference pins exercise metadata hashing, not proof.
+    rich = create_package(sample("half-adder"), tests=[{
+        "name": "selectedInputs", "declaredIntent": "Carry / sum — explicit user vectors",
+        "expectedCoverage": "SELECTED_INPUTS", "vectors": [{
+            "inputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
+            "outputs": {"encoding": "tap02-lsb0-v1", "width": 2, "bits": "00"},
+        }],
+    }], evidence_refs=[{
+        "kind": "FLIP_EVIDENCE", "digest": content_hash({"fixture": "NOT_A_PROOF"}),
+        "executionRequestHash": package["executionRequestHash"], "reproduce": REPRODUCE,
+        "engineHash": content_hash({"fixture": "UNVERIFIED_ENGINE_PIN"}),
+    }], provenance={"sourceFreshness": "HISTORICAL", "observationBlock": "1",
+                   "syntheticFlags": ["SYNTHETIC_CANONICAL_VECTOR_NOT_PROOF"]},
+       agent_task_ref=content_hash({"fixture": "NON_AUTHORITATIVE_AGENT_TASK"}))
+    packages = [package, revision, rich]
     return {
         "package.schema.json": contract_schema(PortableProject),
         "request.schema.json": contract_schema(PortableRequest),
         "golden.json": {
             "profile": "flip-json-v1",
-            "packages": [package, revision],
-            "hashes": [content_hash(p) for p in [package, revision]],
-            "canonical": [canonical_bytes(p).decode() for p in [package, revision]],
+            "packages": packages,
+            "hashes": [content_hash(p) for p in packages],
+            "canonical": [canonical_bytes(p).decode() for p in packages],
         },
     }
 

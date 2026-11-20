@@ -153,7 +153,7 @@ node docs/schema/m45-portable-project/check-canonical.mjs
 python scripts/check_m45_portability.py
 ```
 
-Python/Node goldens bind complete genesis and edited packages, original requests,
+Python/Node goldens bind complete genesis, edited and synthetic metadata-rich packages, original requests,
 metadata digests, ordered ancestry and full package canonical bytes. The independent
 12-case harness is preserved byte-for-byte as `harness/run_portability_cases.py.txt`
 inside the evidence directory. The production runner checks its SHA-256 and redirects
