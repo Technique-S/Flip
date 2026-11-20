@@ -49,7 +49,8 @@ repository custody gate. `-text` attributes preserve original checkout bytes. On
 immutable harness is excluded from formatting. Credential scanning still covers all files;
 no broad binary/large-file exception was added. A CI wrapper executes the original harness
 with its output redirected to `.test-tmp/final-adapter-review`, selects the native CLI path
-per OS, verifies all 26 case IDs and passing results, and leaves original results untouched.
+per OS, pins default RPC to a deterministic loopback changed-dependency fixture, verifies
+all 26 case IDs and passing results, and leaves original results untouched.
 The wrapper log and new observations are scratch outputs, not replacements for review evidence.
 
 ## Post-merge production smoke results
@@ -106,15 +107,25 @@ CURRENT claim or revision was accepted. No live RPC revalidation, human screen-r
 session, local Linux process-tree containment or public exposure was exercised here.
 
 During adoption of the additional cross-platform independent replay gate, initial Linux
-run [44766702007](https://github.com/Technique-S/Flip/actions/runs/44766702007) at evidence
-head `600e3d4e1fde8a9229e66f8e355a4b576c1c4044` failed the aggregate all-cases assertion.
-That first wrapper redirected details to scratch without retaining them on failure, so the
-case identity and cause are unresolved. The unchanged harness subsequently passed all 26
-checks in diagnostic run [44767920468](https://github.com/Technique-S/Flip/actions/runs/44767920468)
-on Linux and Windows. Production code, original assertions and deadlines were unchanged;
-only failure reporting and always-on diagnostic artifact retention were added. This initial
-failure remains a replay-reliability limitation, not a demonstrated production fix. Any
-recurrence must retain the failing observations and block the evidence merge until assessed.
+run [44766702007](https://github.com/Technique-S/Flip/actions/runs/44766702007) failed without
+retained case details. Diagnostic run [44767905737](https://github.com/Technique-S/Flip/actions/runs/44767905737)
+identified C10: `status=COMPLETE`, `originalPreserved=true`, and
+`exportFreshnessHistorical=true`. Its `noRevision` field calls the harness helper
+`no_authority`, which returns false for *any* COMPLETE status, even a readonly operation.
+C10 requests `createRevision=false` and only revalidation; source review confirms this
+cannot create a revision/export or grant authority. Revalidation performs a fresh RPC
+import, so successful trusted rereading can legitimately COMPLETE. The inherited default
+public RPC makes the negative expectation provider/network dependent. The archived
+Windows observation (deadline exhaustion) remains unchanged.
+
+The CI wrapper now pins its default RPC configuration to the existing loopback
+`LibraryChain` fixture with a changed beacon implementation. Explicit per-case settings
+(such as B10) remain intact. C10 therefore checks its intended negative condition against
+an actually changed dependency, through real native RPC/revalidation. The wrapper requires
+observed RPC traffic and records environment provenance in scratch. All original assertions,
+harness bytes, deadlines and results remain unchanged. Failure rows and diagnostic artifacts
+are retained even on CI failure. This is a test-environment correction, not a production fix
+or a rewritten independent conclusion; no timeout was increased and no assertion relaxed.
 
 No known production blocker remains for the accepted read-only integration once the evidence PR's
 required CI succeeds. Broader release, wallet/transaction authorization, deployment and
