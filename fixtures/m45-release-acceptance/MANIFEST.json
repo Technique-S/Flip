@@ -1,0 +1,12 @@
+{
+  "artifactId": "m45-release-acceptance-manifest",
+  "schemaVersion": "1.0.0",
+  "note": "Checksums only; not proof or authority evidence.",
+  "files": [
+    {
+      "path": "claim-negative-cases.json",
+      "sha256": "c50aa3012f228ecbfc09c56f2415f38cb3adaa5b739adc3f4b799f21bbce988f",
+      "bytes": 4325
+    }
+  ]
+}
