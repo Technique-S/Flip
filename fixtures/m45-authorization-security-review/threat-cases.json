@@ -1,0 +1,156 @@
+{
+  "artifactId": "m45-authorization-threat-cases",
+  "baseline": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b",
+  "caseCount": 16,
+  "note": "Specification index only. No case has been executed against an implemented transaction system. All required controls are proposals, not implemented capabilities.",
+  "proposedRevision": "8ea1b26c2667b2db86c34087e25c976f121c147e",
+  "reviewDoc": "docs/evidence/m45-authorization-security-review/SECURITY_REVIEW.md",
+  "schemaVersion": "1.0.0",
+  "status": "SPECIFICATION_ONLY",
+  "cases": [
+    {
+      "id": "T-01",
+      "category": "Agent impersonating human approval",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A01", "M01", "M05"],
+      "requiredControl": "Separate human identity/device, authenticated challenge bound to intentHash, no approve verb on agent API, OS-level denial test",
+      "reviewFinding": "A-03,A-04,A-11",
+      "liveGate": "G3"
+    },
+    {
+      "id": "T-02",
+      "category": "Malicious project metadata",
+      "severity": "HIGH",
+      "proposalCoverage": ["A03", "A33"],
+      "requiredControl": "Strict typed input, inert labels, validated artifact digests, no authority from imports or portable references",
+      "reviewFinding": "A-02",
+      "liveGate": "G1"
+    },
+    {
+      "id": "T-03",
+      "category": "Changed calldata after approval",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A04"],
+      "requiredControl": "Recompute calldata from netlist and reviewed ABI; exact byte and hash equality before signing",
+      "reviewFinding": "A-01",
+      "liveGate": "G2"
+    },
+    {
+      "id": "T-04",
+      "category": "Signer or network substitution",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A05", "A24"],
+      "requiredControl": "Enrolled key, chain and account; independent raw parse and sender recovery; reject unsupported variants and chain/account changes",
+      "reviewFinding": "A-08",
+      "liveGate": "G3"
+    },
+    {
+      "id": "T-05",
+      "category": "Malicious or compromised RPC",
+      "severity": "HIGH",
+      "proposalCoverage": ["A14", "A18", "A23"],
+      "requiredControl": "Hash and nonce tracking, canonical block/finality verification, fail-closed provider disagreement",
+      "reviewFinding": "A-07",
+      "liveGate": "G4"
+    },
+    {
+      "id": "T-06",
+      "category": "Changed factory, beacon or processor implementation",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A15", "A16"],
+      "requiredControl": "Effective immutability of full execution context or reviewed atomic guard at inclusion",
+      "reviewFinding": "A-05",
+      "liveGate": "G4"
+    },
+    {
+      "id": "T-07",
+      "category": "Gas or fee underestimation",
+      "severity": "HIGH",
+      "proposalCoverage": ["A23"],
+      "requiredControl": "Bounded full fee model covering L2 execution gas and L1 data fee with worst-case serialized size and L1 gas price",
+      "reviewFinding": "A-06,A-12",
+      "liveGate": "G4"
+    },
+    {
+      "id": "T-08",
+      "category": "Pending nonce replacement",
+      "severity": "HIGH",
+      "proposalCoverage": ["A07", "A09", "A20"],
+      "requiredControl": "One active nonce family per sender, database uniqueness, fencing tokens, new intent and grant for any changed payload",
+      "reviewFinding": "OK",
+      "liveGate": "G2"
+    },
+    {
+      "id": "T-09",
+      "category": "Duplicate submission after ambiguous RPC response",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A08", "A21"],
+      "requiredControl": "Dispatch event persisted before send, precomputed hash, identical-byte retry only after reconciliation",
+      "reviewFinding": "A-09",
+      "liveGate": "G2"
+    },
+    {
+      "id": "T-10",
+      "category": "Expired but already signed transaction",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A06", "A28"],
+      "requiredControl": "Treat signed bytes as live capability; hold reservation until nonce family cannot execute; no revocation promise after signing",
+      "reviewFinding": "A-09",
+      "liveGate": "G2"
+    },
+    {
+      "id": "T-11",
+      "category": "Broker key theft",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A25"],
+      "requiredControl": "Protected custody, key enrollment/revocation, anti-rollback checkpoint, explicit theft drill and independent reviewer",
+      "reviewFinding": "A-14,A-12",
+      "liveGate": "G3"
+    },
+    {
+      "id": "T-12",
+      "category": "Broker rollback or lost journal",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A22"],
+      "requiredControl": "Human-controlled recovery epoch/checkpoint, freeze writes, reconcile every enrolled account before re-enabling",
+      "reviewFinding": "A-10",
+      "liveGate": "G3"
+    },
+    {
+      "id": "T-13",
+      "category": "Reorg after apparent confirmation",
+      "severity": "HIGH",
+      "proposalCoverage": ["A17", "A18"],
+      "requiredControl": "REORGED state, receipt invalidation, restored worst-case exposure, approved finality policy",
+      "reviewFinding": "A-07",
+      "liveGate": "G4"
+    },
+    {
+      "id": "T-14",
+      "category": "Concurrent spending against rolling ceilings",
+      "severity": "HIGH",
+      "proposalCoverage": ["A11", "A12"],
+      "requiredControl": "Serializable reservation, family maximum exposure, nonnegative available budget property test",
+      "reviewFinding": "OK",
+      "liveGate": "G2"
+    },
+    {
+      "id": "T-15",
+      "category": "Wallet behavior differs from raw-signature assumptions",
+      "severity": "HIGH",
+      "proposalCoverage": ["A24", "M04"],
+      "requiredControl": "Certified raw-sign adapter; reject combined sign-and-send, field edits and unsupported fee variants",
+      "reviewFinding": "A-08",
+      "liveGate": "G3"
+    },
+    {
+      "id": "T-16",
+      "category": "Execution-time contract change between verification and inclusion",
+      "severity": "CRITICAL",
+      "proposalCoverage": ["A16"],
+      "requiredControl": "Atomic onchain guard or demonstrated effective immutability at inclusion; no retrospective safety claim",
+      "reviewFinding": "A-05",
+      "liveGate": "G5"
+    }
+  ]
+}

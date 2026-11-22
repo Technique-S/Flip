@@ -1,0 +1,189 @@
+{
+  "artifactId": "m45-authorization-rpc-observations",
+  "caveats": [
+    "Single untrusted public RPC endpoint; responses are not consensus-verified.",
+    "No second operator agreed with these observations; xlayerrpc.okx.com did not respond in this session.",
+    "Read-only methods only: eth_chainId, eth_blockNumber, eth_getBlockByNumber, eth_getCode, eth_getStorageAt, eth_call, eth_getTransactionByHash, eth_getTransactionReceipt, eth_estimateGas.",
+    "A successful eth_call or estimate does not prove a paid transaction will succeed."
+  ],
+  "endpoint": "https://rpc.xlayer.tech",
+  "observedDate": "2026-11-22",
+  "providerTrustAssumption": "LIVE_RPC_SINGLE_UNTRUSTED_PROVIDER",
+  "schemaVersion": "1.0.0",
+  "selectorProvenance": "fixtures/m45-library-discovery/generators/keccak_selectors.py (dependency-free Keccak-256, self-checked)",
+  "signingOrBroadcast": false,
+  "observations": [
+    {
+      "id": "R-01",
+      "method": "eth_chainId",
+      "result": "0xc4",
+      "decimal": 196
+    },
+    {
+      "id": "R-02",
+      "method": "eth_blockNumber",
+      "result": "0x4906229",
+      "decimal": 76571177
+    },
+    {
+      "id": "R-03",
+      "method": "eth_getBlockByNumber",
+      "tag": "latest",
+      "number": "0x490624a",
+      "numberDecimal": 76571210,
+      "hash": "0xb26418efb0392c94c20c140431e3cca1f606d73ff8573d0c18553268fbfb625d",
+      "baseFeePerGas": "0x1312d00",
+      "gasLimit": "0xc845880",
+      "blobGasUsed": "0x136410"
+    },
+    {
+      "id": "R-04",
+      "method": "eth_getBlockByNumber",
+      "tag": "safe",
+      "number": "0x49061dd",
+      "numberDecimal": 76571101,
+      "hash": "0x1bfc502a7010d613e1728c07340f20d589eae57c5e5846fa1c350bc437615637"
+    },
+    {
+      "id": "R-05",
+      "method": "eth_getBlockByNumber",
+      "tag": "finalized",
+      "number": "0x4905cb7",
+      "numberDecimal": 76569783,
+      "hash": "0x6991d408c302e3f1f40c3b8a448ca71fbef9c9cdcca0f418fbee7f867ea887b4"
+    },
+    {
+      "id": "R-06",
+      "method": "eth_getBlockByNumber",
+      "tag": "pending",
+      "result": "same number and hash as latest in this session"
+    },
+    {
+      "id": "R-07",
+      "method": "eth_getBlockByNumber",
+      "tag": "latest",
+      "fullTransactions": true,
+      "transactionCount": 14,
+      "typeCounts": {
+        "0x0": 1,
+        "0x2": 12,
+        "0x7e": 1
+      },
+      "note": "0x7e is an OP Stack deposit transaction type and is outside the proposed transaction union."
+    },
+    {
+      "id": "R-08",
+      "method": "eth_getStorageAt",
+      "contract": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+      "result": "0x000000000000000000000000336e9f0f4c3fee7c8c803377e4dea00293f4ae2a"
+    },
+    {
+      "id": "R-09",
+      "method": "eth_call",
+      "contract": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "signature": "isSealed()",
+      "selector": "0x631f9852",
+      "result": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "decimal": 0
+    },
+    {
+      "id": "R-10",
+      "method": "eth_call",
+      "contract": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "signature": "owner()",
+      "selector": "0x8da5cb5b",
+      "result": "0x000000000000000000000000b3d85b42a045c1a88d800cad0f55d2566a4d3138"
+    },
+    {
+      "id": "R-11",
+      "method": "eth_call",
+      "contract": "0x1f09daefa827f02cbb40967cc91b259763760761",
+      "signature": "cpuCount()",
+      "selector": "0xa94da8a7",
+      "result": "0x1b9",
+      "decimal": 441,
+      "acceptedFixtureValue": 430
+    },
+    {
+      "id": "R-12",
+      "method": "eth_call",
+      "contract": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "signature": "nextId()",
+      "selector": "0x61b8ce8c",
+      "result": "0x69",
+      "decimal": 105,
+      "acceptedFixtureValue": 104
+    },
+    {
+      "id": "R-13",
+      "method": "eth_call",
+      "contract": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "signature": "TAPEOUT_FEE()",
+      "selector": "0xadfb2b69",
+      "result": "0x49e57d6354000",
+      "decimalWei": 1300000000000000
+    },
+    {
+      "id": "R-14",
+      "method": "eth_call",
+      "contract": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "signature": "implementation()",
+      "selector": "0x5c60da1b",
+      "result": "0x000000000000000000000000977f217887e085d298cb3819cdad5a0ee35f29b2"
+    },
+    {
+      "id": "R-15",
+      "method": "eth_call",
+      "contract": "0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c",
+      "signature": "owner()",
+      "selector": "0x8da5cb5b",
+      "result": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "decimal": 0
+    },
+    {
+      "id": "R-16",
+      "method": "eth_call",
+      "contract": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+      "signature": "nextId()",
+      "thirdParameter": "{} empty state override object",
+      "result": "0x69",
+      "note": "Override capability probe only; not a tape-out simulation and not proof of paid-transaction success."
+    },
+    {
+      "id": "R-17",
+      "method": "eth_estimateGas",
+      "parameters": "zero-value transfer from zero address to zero address",
+      "result": "0x5208",
+      "decimalGas": 21000
+    },
+    {
+      "id": "R-18",
+      "method": "eth_call",
+      "contract": "0x420000000000000000000000000000000000000F",
+      "signature": "getL1Fee(bytes)",
+      "selector": "0x49948e0e",
+      "parameters": "synthetic 4-byte blob 0xdeadbeef",
+      "result": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "note": "Capability probe with a meaningless blob; not a transaction fee estimate."
+    },
+    {
+      "id": "R-19",
+      "method": "eth_getTransactionByHash",
+      "hash": "0x7db1728b0825fe747a0fbea9e5c5a07fec01e77c8684a6e2df912db408189dc7",
+      "type": "0x0",
+      "blockHash": "0x6af529ac10583632da1ad9a74ed5f303c52c7ed98b3d35590c8be9f3d1ace7f9"
+    },
+    {
+      "id": "R-20",
+      "method": "eth_getTransactionReceipt",
+      "hash": "0x7db1728b0825fe747a0fbea9e5c5a07fec01e77c8684a6e2df912db408189dc7",
+      "status": "0x1",
+      "blockNumber": "0x1db1b71",
+      "type": "0x0",
+      "gasUsed": "0x43ce1",
+      "l1FeeFieldsObserved": false,
+      "note": "No l1Fee-family fields were present in the sampled response; not evidence about other receipts."
+    }
+  ]
+}

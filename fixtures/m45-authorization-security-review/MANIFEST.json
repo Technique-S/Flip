@@ -1,0 +1,17 @@
+{
+  "artifactId": "m45-authorization-security-review-manifest",
+  "schemaVersion": "1.0.0",
+  "note": "Checksums only; not authority or proof evidence.",
+  "files": [
+    {
+      "path": "rpc-observations.json",
+      "sha256": "ad03d7a9e0bcad19bec26a4ae8b7f6559857dccbf6ef9a48f3a54961961bfd05",
+      "bytes": 6387
+    },
+    {
+      "path": "threat-cases.json",
+      "sha256": "afdd4c2f06b4773b7466b0c7521ef2595bdc54ec934e89a3879f0eb160233ad7",
+      "bytes": 6163
+    }
+  ]
+}
