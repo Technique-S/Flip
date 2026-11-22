@@ -1,0 +1,57 @@
+{
+  "format": "flip-static-recording-1.0.0",
+  "acceptedRuntimeSha": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b",
+  "r2AuditSha": "39df7af4c2784502d243e6cc00be43fa84b5799b",
+  "source": "R2 passing agent-portable.spec.ts combined named-tests/correction/revision/replay journey; original files retained unchanged",
+  "sourceReceiptSha256": "b651a99486cbb6c7b053087b94ac9072f7dd9b0d4aae307b03e700441455c730",
+  "sourceReplayRequestSha256": "2b77b5c59b07c2e135a55b805112c364ce87bde7bf64370b728c881b423ea46c",
+  "recordedDifferenceAt": "2026-11-22T09:33:20.694541+00:00",
+  "recordedEquivalentAt": "2026-11-22T09:33:29.641011+00:00",
+  "curatedAtUTC": "2026-11-22T22:56:48.477957+00:00",
+  "trust": "RECORDED_HISTORICAL_REFERENCE_RELATIVE",
+  "curationVerification": {
+    "nativeEnginePlatform": "Windows x64; current locked engine compatible with recorded bytes",
+    "difference": "DIFFERENT / REF_BEAT_REPRODUCED",
+    "correctedEvidence": "EQUIVALENT / HISTORICAL",
+    "correction": "VERIFIED_CORRECTION",
+    "method": "Existing trusted consume and product verify-bundle; compilation from the exact recorded candidate/corrected execution requests. No live RPC. Static builder does not run these operations."
+  },
+  "storyNote": "Curated snapshots, not a continuous screen recording. Baseline composition is the declared/corrected half-adder reference (8 expanded gates). The recorded candidate has different wiring and 12 expanded gates; it is not represented as only an output swap.",
+  "files": [
+    {
+      "name": "receipt.json",
+      "bytes": 189550,
+      "sha256": "b651a99486cbb6c7b053087b94ac9072f7dd9b0d4aae307b03e700441455c730"
+    },
+    {
+      "name": "project.json",
+      "bytes": 8944,
+      "sha256": "112b7f261b3603dc18d95413fe206a492ec04828266fda4545bce83fdc9fd048"
+    },
+    {
+      "name": "replay.request.json",
+      "bytes": 25600,
+      "sha256": "2b77b5c59b07c2e135a55b805112c364ce87bde7bf64370b728c881b423ea46c"
+    },
+    {
+      "name": "evidence.json",
+      "bytes": 16459,
+      "sha256": "18d142b688859be1be3ac7a778c147ebf24f0dceb420eee3b3aa1ea564cb72fc"
+    },
+    {
+      "name": "candidate.execution.json",
+      "bytes": 6382,
+      "sha256": "c5db425bc0b8a30bde650c3924106e56886b27cb649ecc861545d102571db848"
+    },
+    {
+      "name": "corrected.execution.json",
+      "bytes": 6382,
+      "sha256": "ac07efa4f83d26045409e43fd26a15fb85c266aa45dbf5f1022d79f7a4735090"
+    },
+    {
+      "name": "composition.json",
+      "bytes": 7253,
+      "sha256": "a9e0f199df3eaffb0f7a920cadec70866aff2f4e47648c879e4682783a13990f"
+    }
+  ]
+}

@@ -1,193 +1,178 @@
-# Flip · Local circuit workbench
+# Flip
 
-Import X Layer circuits, compose TAP-02 netlists, compare a wiring change and export reproducible evidence from the web or CLI. The historical half-adder works offline.
+Flip is a local-first, read-only circuit workbench for TapeOut on X Layer. Humans and
+coding agents can compose explicit TAP-02 wiring, reproduce behavioral differences,
+inspect relevant connections, verify corrections and exchange Portable Project 1.1
+revisions with content-addressed evidence. **Flip does not publish circuits.**
+
+The accepted runtime is `b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b`.
+This release branch adds documentation and a separate recorded static showcase;
+production runtime, schemas and dependency locks retain that accepted revision.
+
+## What works
+
+- Browse processor/circuit metadata through bounded read-only X Layer RPC, or start
+  offline with the archived half-adder and its pinned dependencies.
+- Compose REF circuits, evaluate vectors and compare a stateless candidate with its
+  declared reference using a bounded native SAT worker and trusted evaluator replay.
+- Wiring Canary returns DIFFERENT witnesses, relevant connection paths and explicit
+  correction proposals. Verification precedes applying a new local revision.
+- Export/replay evidence and Portable Project 1.1 packages with named tests, parent-linked
+  revisions and evidence references. Keep original packages and receipts separately.
+- Run bounded declarative agent workflows through the CLI/API or browser adapter.
+  Publication intent ends at STOP_AUTHORIZATION; metadata never grants spending rights.
+
+These are reference-relative checks, not arbitrary HDL synthesis, formal verification of
+smart contracts, a circuit marketplace or an onchain publication service.
+
+## Install the local workbench
+
+Supported source-checkout targets: Windows x64 (PowerShell) and Linux with compatible
+native wheels. You need Git, Python **3.14.6**, uv **0.9.11**, Node **24.18.0** and npm
+(11.16.0 used in acceptance). Installation needs network access. No installer, bundled
+native binary, macOS support or wheel-only application distribution is promised.
+
+Provision uv 0.9.11 using your approved Python environment, for example
+`python -m pip install uv==0.9.11` (Linux may require a virtual environment).
+Then, from a fresh terminal:
 
 ```sh
+git clone https://github.com/Technique-S/Flip.git
+cd Flip
+git checkout b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b
+uv python install 3.14.6
 uv sync --locked
 npm ci --prefix apps/web
 npm run build --prefix apps/web
+```
+
+That pin installs the accepted native product. To include this branch's showcase and
+release guides, check out the exact R3 delivery SHA given in its handoff instead; never
+substitute a moving branch for an integrity pin. Run commands from the repository root.
+The launcher resolves its frontend and sample files relative to this checkout.
+
+Native HTTP computation is an explicit local opt-in. Set it **before** starting:
+
+```powershell
+# Windows PowerShell
+$env:FLIP_LOCAL_SOLVER = '1'
 uv run --frozen python -m flip_api.local
 ```
 
-Open http://127.0.0.1:8000. To run the native solver, set `FLIP_LOCAL_SOLVER=1` in the launcher's environment. Start with **Open sample**. See the [M4-A local setup, CLI walkthrough, evidence format and hosting limits](docs/milestones/M4_A_HANDOFF.md).
-
-## Circuit Library
-
-Open **Circuit Library** in the workbench to discover X Layer processors, browse
-bounded circuit pages, search saved metadata, manage favorites/recents and import a
-freshly inspected circuit into composition. Saved catalog observations are historical;
-import always rereads the complete circuit and its dependencies. No wallet is required.
-
-The same catalog operations are available through `flip library --request request.json
---catalog catalog.json` and `POST /api/library/v1/execute`. See the
-[versioned library contract and examples](docs/schema/m45-library/README.md) and
-[M4.5 library handoff](docs/milestones/M45_LIBRARY_HANDOFF.md).
-
-## Portable project packages
-
-Save complete portable projects from Evidence to carry named test sets, revision history,
-provenance and content-addressed evidence references. Existing legacy project files still
-open unchanged; conversion back to legacy requires an explicit loss acknowledgement.
-The same operations use `flip portable --request operation.json --out new-revision.json`
-and `POST /api/v1/portable`. Evidence is verified separately with the existing trusted
-engine. See the [portable 1.1 contract](docs/schema/m45-portable-project/README.md) and
-[M4.5 portable handoff](docs/milestones/M45_PORTABLE_PROJECT_HANDOFF.md).
-
-## M3 baseline
-
-### External agent workflows
-
-Run a finite declarative workflow over the existing Python services with
-`flip workflow --request workflow.json --out receipt.json`, or POST the same request
-to the loopback-only `/api/agent/v1/execute` endpoint with local solver opt-in.
-The controller supports bounded discovery/import, build, vectors, comparison,
-diagnostics, explicit verified local corrections and evidence replay/export.
-Publication requests terminate at `STOP_AUTHORIZATION`; no signing capability exists.
-See the [agent integration guide](docs/agents/WORKFLOW_INTEGRATION.md),
-[versioned protocol](docs/schema/m45-agent-workflow/README.md) and
-[reusable agent skill](.agents/skills/flip-agent-workflow/SKILL.md).
-The [final acceptance record](docs/milestones/M45_AGENT_WORKFLOW_ACCEPTANCE.md) preserves
-the independent review, platform gates and documented local runtime limits.
-
-### Portable agent integration
-
-Evidence now supports a bounded workflow over a saved Portable 1.1 revision: inspect,
-propose/verify a correction or verify the current explicit candidate edit, then download
-and explicitly open a separate verified revision. Receipts and content-addressed evidence
-remain separate artifacts. The same core is exposed as `flip agent-portable --request`
-and `POST /api/agent/v1/portable`; see the [adapter contract](docs/schema/m45-agent-portable/README.md)
-and [integration handoff](docs/milestones/M45_AGENT_PORTABLE_INTEGRATION_HANDOFF.md).
-The adapter is pending independent delta review; publication remains a terminal handoff.
-
-### Connection debugger
-
-After comparing, select **Inspect connection paths** to trace a replayed mismatch
-through numeric NAND/REF pins. Relevant paths do not identify a uniquely defective
-wire. A declared local reference can produce a separate candidate revision to test,
-apply locally and revert. The same operation is available as `flip debug --request
-request.json` and `POST /api/v1/debug`; see the [diagnostics contract and example](docs/schema/m45-debugging/README.md).
-
-Flip now evaluates TAP-02 snapshots locally, compiles explicit REF recipes and
-checks stateless pairwise equivalence with isolated Minisat22 workers. Every
-DIFFERENT witness is replayed by the independent local evaluator. These are
-historical, reference-relative results; they do not establish current chain state
-or intended correctness.
-
-```powershell
-uv sync --locked
-uv run --frozen flip compose --project docs/schema/m3/examples/half-adder.request.json
-uv run --frozen flip compare --project docs/schema/m3/examples/half-adder.request.json
+```sh
+# Linux
+FLIP_LOCAL_SOLVER=1 uv run --frozen python -m flip_api.local
 ```
 
-See [M3 interfaces and trust boundaries](docs/schema/m3/README.md),
-[solver containment/licensing](docs/milestones/M3_A_SOLVER.md), and
-[M3-A handoff](docs/milestones/M3_A_HANDOFF.md). Native solver HTTP operations are
-disabled by default; local-only opt-in is documented. Publication, wallets,
-preflight and web UI remain outside M3-A.
+Open `http://127.0.0.1:8000`. The supported launcher binds loopback, checks host/origin
+and serves frontend/API together. Stop with Ctrl+C. Do not tunnel or expose this native
+worker. The opt-in is not wallet authorization. CLI verification also runs native local
+code; use only the bounded, trusted supported operations.
 
-## M2 importer
+## First half-adder walkthrough
 
-M2 adds bounded X Layer imports, strict TAP-02 structural decoding, REF dependency
-inspection and canonical environment manifests. Proof, composition and preflight
-execution remain unimplemented. See [M2 interfaces](docs/schema/m2/README.md) and
-[M2-A handoff](docs/milestones/M2_A_HANDOFF.md) for limits and reproduction.
+1. Select **Open sample**, then **Build netlist**. The archived reference expands to
+   8 gates / 81 TAP-02 bytes. Evaluate the four inputs; numeric pin 0 is carry and pin 1
+   is sum. Bit strings list pin 0 first.
+2. Use **Swap outputs**, open Wiring Canary and run comparison. Inspect the DIFFERENT
+   witness and reproduced reference/candidate outputs. DIFFERENT is a completed result;
+   UNKNOWN means the comparison was inconclusive.
+3. For a correction with a declared prior, open
+   `docs/schema/m45-debugging/examples/swapped-prior.execution.json`. Inspect the relevant
+   connection paths, select **Test the declared reference mappings**, verify, apply the
+   verified correction locally and compare again. Relevant paths can be ambiguous;
+   they do not establish a unique root cause.
+4. In Evidence, **Save complete portable project**. Save evidence separately. Reopen the
+   Portable 1.1 JSON and inspect tests, provenance and revision. Use a new filename for
+   a new revision; preserve the original. A hash proves byte integrity, not authority.
 
-```powershell
-.\.venv\Scripts\flip.exe inspect --processor 0x839bdd6fa7a66416a609a735e11de5411b98574e --id 1
-.\.venv\Scripts\python.exe -m flip_core.import_schema_export --out docs/schema/m2/1.0.0 --check
+No RPC is needed for the archived sample. Live library browsing needs a reachable
+read-only provider and is distinct from historical sample evidence.
+
+## CLI and agent integration
+
+From the checkout, use new output filenames:
+
+```sh
+uv run --frozen flip sample half-adder --out sample.json
+uv run --frozen flip compose --project sample.json --out composition.json
+uv run --frozen flip compare --project sample.json --out comparison.json
+uv run --frozen flip export --project sample.json --out evidence.json
+uv run --frozen flip verify-bundle --project sample.json --bundle evidence.json
 ```
 
-Live smoke is opt-in: `python scripts/smoke_m2_live.py --out capture.json`.
-Mandatory CI uses offline transport fixtures and never contacts an RPC endpoint.
+On the R3 checkout, the bounded offline agent example is:
 
-## M1-A foundation notes
-
-**M1-A status (historical): contracts only.** Three Python packages provide versioned models,
-JSON Schemas, deterministic JSON/SHA-256, CLI and API scaffolds. No RPC, evaluator,
-composer or solver is implemented. Product operations return `NOT_IMPLEMENTED`.
-
-Tested locally: Windows x64, CPython **3.14.6**, uv **0.9.11**, Node **24.18.0**.
-The lockfile pins Python distributions and hashes. From the Codex worktree:
-
-```powershell
-python -m venv .bootstrap
-.\.bootstrap\Scripts\python.exe -m pip install uv==0.9.11
-.\.bootstrap\Scripts\uv.exe sync --locked
-.\.bootstrap\Scripts\uv.exe run --frozen pytest -q
-.\.bootstrap\Scripts\uv.exe run --frozen ruff check .
-.\.bootstrap\Scripts\uv.exe run --frozen ruff format --check .
-.\.bootstrap\Scripts\uv.exe run --frozen flip-schemas --out docs/schema/1.0.0 --check
-node docs/schema/check-canonical.mjs
+```sh
+uv run --frozen flip workflow --request docs/release/examples/m45-local-agent.request.json --out receipt.json
 ```
 
-On Linux use `.bootstrap/bin/python` and `.bootstrap/bin/uv`. With uv installed,
-use `uv` directly; `uv python install 3.14.6` can provision the exact runtime.
-CI targets Linux and Windows; local tests do not establish remote CI success.
-`--locked` checks config/lock consistency; `--frozen` consumes the existing lock.
-Pytest clears `packages/flip-core/.test-tmp` as disposable in-worktree scratch space.
+Inspect typed results, not just process success. Exit 1 is DIFFERENT, 2 UNKNOWN,
+3 invalid input, 7 stale bindings and 9 STOP_AUTHORIZATION. A publication stop is final;
+it does not resume. No agent-supplied assertions grant signing/spending permission.
+The [schema contracts](docs/schema/m45-agent-workflow/1.0.0/request.schema.json)
+and [integration acceptance](docs/milestones/M45_AGENT_PORTABLE_POST_MERGE_ACCEPTANCE.md)
+describe the existing interfaces. Portable adapter plans must be reviewed before
+execution; the CLI executes the inner `request` returned by `--prepare`.
 
-Second empty-environment installation on PowerShell:
+## Portable 1.1 round-trip
 
-```powershell
-$env:UV_PROJECT_ENVIRONMENT = '.venv-clean'
-.\.bootstrap\Scripts\uv.exe sync --locked --no-cache --no-editable
-.\.venv-clean\Scripts\python.exe -m pytest -q
-Remove-Item Env:UV_PROJECT_ENVIRONMENT
+On R3, after creating `sample.json`, Node's standard library can create the declarative
+wrap request (it does not evaluate project content):
+
+```sh
+node -e "const f=require('node:fs');f.writeFileSync('wrap.request.json',JSON.stringify({schemaVersion:'flip-portable-project-1.1.0',kind:'PORTABLE_REQUEST',operation:'wrap',executionRequest:JSON.parse(f.readFileSync('sample.json','utf8'))}))"
+uv run --frozen flip portable --request wrap.request.json --out portable.json
+node -e "const f=require('node:fs');const p=JSON.parse(f.readFileSync('portable.json','utf8'));for(const op of ['validate','open','downgrade'])f.writeFileSync(op+'.request.json',JSON.stringify({schemaVersion:'flip-portable-project-1.1.0',kind:'PORTABLE_REQUEST',operation:op,package:p,...(op==='downgrade'?{allowLossy:true}:{})}))"
+uv run --frozen flip portable --request validate.request.json --out validated.json
+uv run --frozen flip portable --request open.request.json --out opened.json
+uv run --frozen flip portable --request downgrade.request.json --out downgraded.json
 ```
 
-Implemented usage:
+The minimal wrapper declares no tests and no evidence; it makes no new proof claim.
+Open `portable.json` in the browser, save a separate revision and compare its parent
+and execution hashes. Every downgrade requires explicit lossy consent, including this minimal wrapper;
+never discard tests/history silently. A compatible engine can independently replay a
+separately saved evidence bundle with `verify-bundle`.
 
-```powershell
-.\.venv\Scripts\flip.exe validate project docs/schema/examples/project.json
-.\.venv\Scripts\flip.exe canonical circuit-identity docs/schema/examples/circuit-identity.json
-.\.venv\Scripts\flip.exe hash manifest docs/schema/examples/manifest.json
-.\.venv\Scripts\uvicorn.exe flip_api.app:app --host 127.0.0.1 --port 8000
+## Recorded static showcase
+
+On the R3 checkout, Node alone builds the inert presentation:
+
+```sh
+node apps/showcase/build.mjs
+node apps/showcase/build.mjs --check
+node scripts/check_m45_release_package.mjs
 ```
 
-`validate`/`canonical` emit a normalized contract; success means schema consistency
-only. Examples are synthetic. API validation is
-`POST /api/v1/contracts/{kind}/validate`; `/healthz` reports only liveness and `/docs`
-exposes scaffold OpenAPI. Reserved product routes return HTTP 501 / CLI exit 6.
+Open `apps/showcase/dist/index.html` directly, offline. Seven linked pages show curated
+sample → composition → DIFFERENT → connections → verified correction → revision →
+evidence snapshots. Every page is marked **RECORDED · HISTORICAL**. The curated candidate
+has 12 gates, not merely swapped outputs. This showcase has no JavaScript, backend,
+native solver, uploads, RPC or wallet. See its [guide](apps/showcase/README.md).
 
-See [frozen contracts](docs/schema/README.md), [CLI exits](docs/schema/CLI_EXIT_CODES.md),
-[licenses](docs/schema/DEPENDENCIES.md), and [handoff](docs/schema/M1_A_HANDOFF.md).
-Codex and OpenCode worktrees share seed commit `37c39b3`. Implementation remains
-on `codex/flip-m1-core`, separate from OpenCode-owned fixtures and from `main`.
+## Evidence and operational limits
 
----
+Historical evidence binds a recorded environment, dependency snapshots, reference and
+native engine. It is not a current-chain proof, authorship certificate, security audit or
+permission to act. Different platform binaries may correctly reject historical engine
+pins; retain the old evidence and generate fresh evidence locally. Do not override checks.
+Portable provenance claims cannot promote historical evidence to CURRENT.
 
-## Historical starter instructions (retained for provenance)
+The browser keeps project/session state in sessionStorage and library/recovery state in
+localStorage. Export files before clearing browser data; do not store secrets in projects,
+RPC URLs or screenshots. There is no account vault or credential-management promise.
 
-**Product:** Flip (formerly CircuitForge). **Status:** Planning approved, implementation not yet started.
+Supported: local source checkout, bounded read-only discovery/import, local verification,
+agent workflows and file export/replay. Prepared separately: inert static presentation.
+Unsupported: public native solver/API hosting, tunnels, deployment, wallet connection,
+signing, transaction construction, spending, broadcasting and circuit publication.
+No deployment or hackathon submission has been performed. A repository/static URL has
+not been confirmed to satisfy the organizer's application-access requirement.
 
-This folder is a documentation-first seed for a *new Git repository*. It contains **no production implementation**. Codex is the lead engineer; OpenCode (HY4 Flash) supports independent tasks.
-
-## Begin on your Windows PC
-
-1. Extract this ZIP to a new folder, for example `C:\dev\flip`. Avoid placing the project inside `C:\research\circuitforge-feasibility`.
-2. Copy the **raw** M0 and M0.5 experiment folders from your local audit to `docs/evidence/raw/M0/` and `docs/evidence/raw/M05/`, respectively, **only if they exist and contain no secrets**. Prefer leaving full experiments in their audited original location and copying selected fixtures with hashes; do not invent absent files. Check sizes before committing large files. Do not commit credentials or private data.
-3. Ensure Git is installed. Open a terminal here and run `git init -b main`, `git add .`, `git commit -m "docs: seed Flip engineering workspace"`. Record the resulting commit SHA.
-4. Create two separate Git worktrees and branches from the same `main` commit (commands in `agent-tasks/WORKTREE_SETUP.md`).
-5. Launch Codex with `agent-tasks/CODEX_M1_A.md` in its worktree; launch OpenCode with `agent-tasks/OPENCODE_M1_B.md` in its own worktree. Start both only after worktrees exist.
-6. Bring OpenCode's completed fixture branch to Codex for provenance review; merge only after the M1 gates pass.
-
-## Source-of-truth order
-
-- Current official external rules (must be verified before submission).
-- `docs/audits/M05/MVP_CONSTRAINTS.md` for verified hard technical limits.
-- `docs/product/CircuitForge_PRD_v1.md` for product requirements (historical title, product now **Flip**).
-- `docs/architecture/FLIP_TECHNICAL_DESIGN.md` and related files for proposed implementation architecture.
-- `docs/audits/` for cited research and test findings.
-
-Rename historical PRD content in a **versioned revision**, not silently; preserve original M0/M0.5 research terminology and provenance.
-
-## What is missing
-
-The **raw** experiment code, recorded JSON RPC results, and fixture bytes are **not included** in these uploaded markdown reports. The reports may reference paths such as `C:\research\circuitforge-feasibility\experiments`. These should be copied/pulled from the original Windows machine after integrity and secret review. Report-only claims must not become executable golden fixtures.
-
-## Important guardrails
-
-- No wallet signing, token spending, transaction broadcast or onchain deployment without separate explicit authorization.
-- X Layer mainnet `chainId=196` only for MVP; no generic NAND canvas.
-- Solver resource ceilings and result semantics are governed by `MVP_CONSTRAINTS.md`.
-- Neither agent writes directly to `main`; Codex reviews and integrates.
+Own-source licensing remains an owner decision. Third-party notices are inventoried,
+not a grant to redistribute every bundled solver. No native binary or installer is supplied.
+See [packaging and troubleshooting](docs/release/M45_R3_PACKAGING.md),
+[asset checklist](docs/release/M45_R3_DEMO_AND_CHECKLIST.md),
+[R3 handoff](docs/release/M45_R3_HANDOFF.md) and
+[the preserved R2 audit](docs/release/M45_R2_READINESS_AUDIT.md).
