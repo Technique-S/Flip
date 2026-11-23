@@ -7,6 +7,7 @@ import {
 	indices,
 	type Pin,
 } from "./model";
+import { VisualComposer } from "./visual/VisualComposer";
 
 type Props = {
 	request: Execution;
@@ -17,6 +18,7 @@ type Props = {
 };
 const pinName = (p: Pin) => `${p.component ?? "external"} [${p.pin}]`;
 export function Composer({ request, change, build, built, next }: Props) {
+	const [visual, setVisual] = useState(false);
 	const [selected, select] = useState("");
 	const [kind, setKind] = useState("NAND");
 	const { candidate: d, sources } = request.project;
@@ -88,181 +90,203 @@ export function Composer({ request, change, build, built, next }: Props) {
 	}
 	return (
 		<>
-			<div className="bar">
-				<h2>Candidate wiring</h2>
-				<button type="button" onClick={build}>
-					Build netlist
-				</button>
-			</div>
-			<p>
-				Each input connects to an external pin or an earlier component output.
-			</p>
-			<label>
-				External inputs
-				<input
-					type="number"
-					min="0"
-					max="255"
-					value={d.nIn}
-					onChange={(e) => {
-						const n = Number(e.target.value);
-						if (Number.isInteger(n) && n >= 0 && n <= 255)
-							change((r) => {
-								r.project.candidate.nIn = n;
-								r.project.comparison.inputMap = indices(n);
-							});
-					}}
-				/>
-			</label>
-			<div className="parts">
-				{d.components.map((c, i) => (
-					<section className="part" key={c.instanceId}>
-						<header>
-							<h3>{c.instanceId}</h3>
-							<code>
-								{c.kind}
-								{c.sourceAlias ? ` / ${c.sourceAlias}` : ""}
-							</code>
-						</header>
-						<table>
-							<caption className="sr">Connections for {c.instanceId}</caption>
-							<thead>
-								<tr>
-									<th>Destination</th>
-									<th>Source output</th>
-								</tr>
-							</thead>
-							<tbody>
-								{c.inputs.map((p, j) =>
-									row(`${c.instanceId} [${j}]`, p, choices(i), (r, p) => {
-										r.project.candidate.components[i].inputs[j] = p;
-									}),
-								)}
-							</tbody>
-						</table>
-					</section>
-				))}
-			</div>
-			<div className="actions">
-				<label>
-					Component
-					<select value={kind} onChange={(e) => setKind(e.target.value)}>
-						<option value="NAND">NAND glue</option>
-						{sources
-							.filter((s) => !s.nState && s.nIn <= 255 && s.nOut <= 255)
-							.map((s) => (
-								<option key={s.alias} value={s.alias}>
-									{s.alias} · REF
-								</option>
-							))}
-					</select>
-				</label>
+			<fieldset className="visual-mode">
+				<legend className="sr">Composition view</legend>
 				<button
 					type="button"
-					disabled={
-						!choices(d.components.length).length &&
-						(sources.find((s) => s.alias === kind)?.nIn ?? 2) > 0
-					}
-					onClick={add}
+					aria-pressed={visual}
+					onClick={() => setVisual(true)}
 				>
-					Add component
+					Visual
 				</button>
-				{d.components.length > 0 && (
-					<button
-						type="button"
-						onClick={() =>
-							change((r) => {
-								r.project.candidate.components.pop();
-							})
-						}
-					>
-						Remove last component
+				<button
+					type="button"
+					aria-pressed={!visual}
+					onClick={() => setVisual(false)}
+				>
+					Advanced
+				</button>
+			</fieldset>
+			{visual && <VisualComposer request={request} />}
+			<div hidden={visual}>
+				<div className="bar">
+					<h2>Candidate wiring</h2>
+					<button type="button" onClick={build}>
+						Build netlist
 					</button>
-				)}
-			</div>
-			<h2>Final outputs</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Destination</th>
-						<th>Source output</th>
-					</tr>
-				</thead>
-				<tbody>
-					{d.outputs.map((p, j) =>
-						row(`output [${j}]`, p, choices(d.components.length), (r, p) => {
-							r.project.candidate.outputs[j] = p;
-						}),
-					)}
-				</tbody>
-			</table>
-			<div className="actions">
-				<button
-					type="button"
-					disabled={!choices(d.components.length).length}
-					onClick={() =>
-						change((r) => {
-							r.project.candidate.outputs.push(choices(d.components.length)[0]);
-							r.project.comparison.outputMap = indices(
-								r.project.candidate.outputs.length,
-							);
-						})
-					}
-				>
-					Add output
-				</button>
-				<button
-					type="button"
-					disabled={d.outputs.length <= 1}
-					onClick={() =>
-						change((r) => {
-							r.project.candidate.outputs.pop();
-							r.project.comparison.outputMap = indices(
-								r.project.candidate.outputs.length,
-							);
-						})
-					}
-				>
-					Remove last output
-				</button>
-			</div>
-			{request.project.referenceCandidate && (
-				<details>
-					<summary>Local reference design</summary>
-					<pre>
-						{JSON.stringify(request.project.referenceCandidate, null, 2)}
-					</pre>
+				</div>
+				<p>
+					Each input connects to an external pin or an earlier component output.
+				</p>
+				<label>
+					External inputs
+					<input
+						type="number"
+						min="0"
+						max="255"
+						value={d.nIn}
+						onChange={(e) => {
+							const n = Number(e.target.value);
+							if (Number.isInteger(n) && n >= 0 && n <= 255)
+								change((r) => {
+									r.project.candidate.nIn = n;
+									r.project.comparison.inputMap = indices(n);
+								});
+						}}
+					/>
+				</label>
+				<div className="parts">
+					{d.components.map((c, i) => (
+						<section className="part" key={c.instanceId}>
+							<header>
+								<h3>{c.instanceId}</h3>
+								<code>
+									{c.kind}
+									{c.sourceAlias ? ` / ${c.sourceAlias}` : ""}
+								</code>
+							</header>
+							<table>
+								<caption className="sr">Connections for {c.instanceId}</caption>
+								<thead>
+									<tr>
+										<th>Destination</th>
+										<th>Source output</th>
+									</tr>
+								</thead>
+								<tbody>
+									{c.inputs.map((p, j) =>
+										row(`${c.instanceId} [${j}]`, p, choices(i), (r, p) => {
+											r.project.candidate.components[i].inputs[j] = p;
+										}),
+									)}
+								</tbody>
+							</table>
+						</section>
+					))}
+				</div>
+				<div className="actions">
+					<label>
+						Component
+						<select value={kind} onChange={(e) => setKind(e.target.value)}>
+							<option value="NAND">NAND glue</option>
+							{sources
+								.filter((s) => !s.nState && s.nIn <= 255 && s.nOut <= 255)
+								.map((s) => (
+									<option key={s.alias} value={s.alias}>
+										{s.alias} · REF
+									</option>
+								))}
+						</select>
+					</label>
 					<button
 						type="button"
+						disabled={
+							!choices(d.components.length).length &&
+							(sources.find((s) => s.alias === kind)?.nIn ?? 2) > 0
+						}
+						onClick={add}
+					>
+						Add component
+					</button>
+					{d.components.length > 0 && (
+						<button
+							type="button"
+							onClick={() =>
+								change((r) => {
+									r.project.candidate.components.pop();
+								})
+							}
+						>
+							Remove last component
+						</button>
+					)}
+				</div>
+				<h2>Final outputs</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Destination</th>
+							<th>Source output</th>
+						</tr>
+					</thead>
+					<tbody>
+						{d.outputs.map((p, j) =>
+							row(`output [${j}]`, p, choices(d.components.length), (r, p) => {
+								r.project.candidate.outputs[j] = p;
+							}),
+						)}
+					</tbody>
+				</table>
+				<div className="actions">
+					<button
+						type="button"
+						disabled={!choices(d.components.length).length}
 						onClick={() =>
 							change((r) => {
-								r.project.referenceCandidate = structuredClone(
-									r.project.candidate,
+								r.project.candidate.outputs.push(
+									choices(d.components.length)[0],
+								);
+								r.project.comparison.outputMap = indices(
+									r.project.candidate.outputs.length,
 								);
 							})
 						}
 					>
-						Use current wiring as reference
+						Add output
 					</button>
-				</details>
-			)}
-			{built && (
-				<div className="result">
-					<h3>Netlist built</h3>
-					<p>
-						{(built.netlist.length - 2) / 2} bytes ·{" "}
-						{built.manifest.expandedGates} expanded gates ·{" "}
-						{built.manifest.dependencies.length} dependencies
-					</p>
-					<details>
-						<summary>TAP-02 bytes and manifest</summary>
-						<pre>{JSON.stringify(built, null, 2)}</pre>
-					</details>
-					<button type="button" className="primary" onClick={next}>
-						Compare circuits →
+					<button
+						type="button"
+						disabled={d.outputs.length <= 1}
+						onClick={() =>
+							change((r) => {
+								r.project.candidate.outputs.pop();
+								r.project.comparison.outputMap = indices(
+									r.project.candidate.outputs.length,
+								);
+							})
+						}
+					>
+						Remove last output
 					</button>
 				</div>
-			)}
+				{request.project.referenceCandidate && (
+					<details>
+						<summary>Local reference design</summary>
+						<pre>
+							{JSON.stringify(request.project.referenceCandidate, null, 2)}
+						</pre>
+						<button
+							type="button"
+							onClick={() =>
+								change((r) => {
+									r.project.referenceCandidate = structuredClone(
+										r.project.candidate,
+									);
+								})
+							}
+						>
+							Use current wiring as reference
+						</button>
+					</details>
+				)}
+				{built && (
+					<div className="result">
+						<h3>Netlist built</h3>
+						<p>
+							{(built.netlist.length - 2) / 2} bytes ·{" "}
+							{built.manifest.expandedGates} expanded gates ·{" "}
+							{built.manifest.dependencies.length} dependencies
+						</p>
+						<details>
+							<summary>TAP-02 bytes and manifest</summary>
+							<pre>{JSON.stringify(built, null, 2)}</pre>
+						</details>
+						<button type="button" className="primary" onClick={next}>
+							Compare circuits →
+						</button>
+					</div>
+				)}
+			</div>
 		</>
 	);
 }
