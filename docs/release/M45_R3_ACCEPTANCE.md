@@ -1,5 +1,9 @@
 # M4.5-R3 — Acceptance preparation record
 
+Later integration: see the [R3-E documentation resolution and integration record](M45_R3_MERGE.md)
+for the independent conditional acceptance, F-01/F-02 fixes and preserved F-03 limitation.
+The preparation snapshot below is retained with its original execution history.
+
 Prepared 2026-11-23. **Independent acceptance: PENDING. Stop before merge or release.**
 The seven-page showcase is a curated recorded presentation, not an interactive proof
 engine or a continuous video. Opening pages displays saved results; it computes no proof.

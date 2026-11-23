@@ -1,0 +1,104 @@
+{
+  "format": "flip-r3-review-custody-1.0.0",
+  "note": "Exact original Git bytes; archival checksums are not approval, proof or authority. Source harnesses carry .txt suffixes to remain inert.",
+  "files": [
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "docs/evidence/m45-release-final-review/M45_R3_INDEPENDENT_REVIEW.md",
+      "archivePath": "docs/evidence/m45-release-final-review/M45_R3_INDEPENDENT_REVIEW.md",
+      "bytes": 22778,
+      "sha256": "9c187ebe048c035c6f2534fca6cec1d6030b8ecef71b01cf6d5feffb6db4c07b"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/browser-observations.json",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/browser-observations.json",
+      "bytes": 3233,
+      "sha256": "5f234f6a1a87db7fc5dbf1d3de1c7313f0d26a73f332509841674776d1d15101"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/claim-case-results.json",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/claim-case-results.json",
+      "bytes": 5543,
+      "sha256": "a8987e280bd6e34ac5eeaddb005edf92c7f6c489ddc8027c09bc596f2f288791"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/harness/claim_integrity_check.py",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/harness/claim_integrity_check.py.txt",
+      "bytes": 9238,
+      "sha256": "06d56fcf8f4e15c5396a6d1ba9e7237038c398a4513d5a5cd4bcadd79d0a49e6"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/harness/escaping_check.mjs",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/harness/escaping_check.mjs.txt",
+      "bytes": 460,
+      "sha256": "465b02cc926d527c940ddd51db8309de33f05bb9e555cc08d9c8bce252b46be0"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/harness/independent_hash_check.py",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/harness/independent_hash_check.py.txt",
+      "bytes": 3430,
+      "sha256": "bb073c79aea0096dd1b2c6264d6311be038679b3149814461597e3517d30d1cb"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/harness/native_ref_scan.py",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/harness/native_ref_scan.py.txt",
+      "bytes": 510,
+      "sha256": "60a62dba3174620a9cf775c0834af1f3baaee93923fcaf9db73749b75fbb2d2e"
+    },
+    {
+      "revision": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+      "sourcePath": "fixtures/m45-release-final-review/harness/static_security_scan.py",
+      "archivePath": "docs/evidence/m45-release-final-review/original-fixtures/harness/static_security_scan.py.txt",
+      "bytes": 3415,
+      "sha256": "9aaca5a5ed8b981aec0d9ead4df75002e25becb1c49f63330a69262db46111d6"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "docs/evidence/m45-release-delta-review/M45_R3_FINAL_DELTA_REVIEW.md",
+      "archivePath": "docs/evidence/m45-release-delta-review/M45_R3_FINAL_DELTA_REVIEW.md",
+      "bytes": 12074,
+      "sha256": "cdc974d246f76b1d0d1bc25c4c138df523ac9eef6c9d8e38be6647135aa995ae"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "fixtures/m45-release-delta-review/delta-results.json",
+      "archivePath": "docs/evidence/m45-release-delta-review/original-fixtures/delta-results.json",
+      "bytes": 3705,
+      "sha256": "f367ad7ec287674e7626fa48fbf77ea3b11c065ec7899843fe3219b6ecf53a85"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "fixtures/m45-release-delta-review/harness/DeltaTamperHarness.py",
+      "archivePath": "docs/evidence/m45-release-delta-review/original-fixtures/harness/DeltaTamperHarness.py.txt",
+      "bytes": 2934,
+      "sha256": "2fb36504dce7c63ceadcdf1b84867bedca741da551f128387e2bcc978e2e179e"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "fixtures/m45-release-delta-review/harness/delta_custody_check.py",
+      "archivePath": "docs/evidence/m45-release-delta-review/original-fixtures/harness/delta_custody_check.py.txt",
+      "bytes": 1765,
+      "sha256": "d4aef6fde1c51c85d1f17ee758ca7ec0f895b4463a3a7081eb66435aa39ec487"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "fixtures/m45-release-delta-review/harness/delta_hash_compare.py",
+      "archivePath": "docs/evidence/m45-release-delta-review/original-fixtures/harness/delta_hash_compare.py.txt",
+      "bytes": 1481,
+      "sha256": "1f1198482f1b38857ea54facb8c887b2584777faaaab1e90477058825467e33f"
+    },
+    {
+      "revision": "2b403ea86b8b2941aaa9adfd0d25a97c78d36ec6",
+      "sourcePath": "fixtures/m45-release-delta-review/harness/f03_rescan.py",
+      "archivePath": "docs/evidence/m45-release-delta-review/original-fixtures/harness/f03_rescan.py.txt",
+      "bytes": 975,
+      "sha256": "ad7a97c390353ab2c864ec58402e5a1b0ab55ef1f4d170e7cef5b61e67ceb6fd"
+    }
+  ]
+}

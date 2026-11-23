@@ -25,7 +25,7 @@ Do not show credentials, home-directory details, browser accounts or secret RPC 
 
 ## Asset checklist
 
-- [x] Corrected current README and source-pinned Windows/Linux instructions.
+- [ ] Independent first-time validation of the source-pinned Windows/Linux setup. README now distinguishes the runtime baseline, original showcase delivery and reviewed package checkout; a clean novice install on both platforms remains unverified.
 - [x] Inert seven-page showcase, exact historical artifacts, checksums and capability checks.
 - [x] Local automated screenshots at 1280px/390px; narrow/keyboard/reduced-motion checks.
 - [x] Recording provenance and version/notice inventory; original reports retained.

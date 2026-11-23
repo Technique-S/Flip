@@ -5,9 +5,19 @@ coding agents can compose explicit TAP-02 wiring, reproduce behavioral differenc
 inspect relevant connections, verify corrections and exchange Portable Project 1.1
 revisions with content-addressed evidence. **Flip does not publish circuits.**
 
-The accepted runtime is `b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b`.
-This release branch adds documentation and a separate recorded static showcase;
-production runtime, schemas and dependency locks retain that accepted revision.
+Repository: [Technique-S/Flip](https://github.com/Technique-S/Flip).
+
+| Revision | Exact source and purpose |
+|---|---|
+| Accepted runtime baseline | `b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b`: local workbench only; **does not contain `apps/showcase`** |
+| Original R3 showcase delivery | `1783b61fefc41007b745753b09c4e0e70a8af7f7`: first recorded showcase and release guides |
+| Reviewed release-package snapshot | `22e781d454336cb2067aca1ce7f8cf66809f0f4d`: showcase, installation guide and acceptance record; reproducible checkout used below |
+| Release-package integration | [PR #11](https://github.com/Technique-S/Flip/pull/11): includes subsequent documentation fixes and preserved independent reviews; its merge commit identifies the final package on main |
+
+Production runtime, schemas and dependency locks retain the accepted baseline.
+Use the reviewed release-package pin below when you need the showcase; the runtime-only
+baseline is not a showcase checkout. See the [R3 acceptance record](docs/release/M45_R3_ACCEPTANCE.md)
+and [showcase installation and test instructions](apps/showcase/README.md).
 
 ## What works
 
@@ -39,16 +49,16 @@ Then, from a fresh terminal:
 ```sh
 git clone https://github.com/Technique-S/Flip.git
 cd Flip
-git checkout b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b
+git checkout 22e781d454336cb2067aca1ce7f8cf66809f0f4d
 uv python install 3.14.6
 uv sync --locked
 npm ci --prefix apps/web
 npm run build --prefix apps/web
 ```
 
-That pin installs the accepted native product. To include this branch's showcase and
-release guides, check out the exact R3 delivery SHA given in its handoff instead; never
-substitute a moving branch for an integrity pin. Run commands from the repository root.
+That pin contains both the unchanged accepted native product and `apps/showcase`.
+It is the reviewed package snapshot; PR #11 adds later documentation and review evidence.
+Use an exact commit rather than a moving branch for reproduction. Run commands from the repository root.
 The launcher resolves its frontend and sample files relative to this checkout.
 
 Native HTTP computation is an explicit local opt-in. Set it **before** starting:
@@ -137,19 +147,33 @@ separately saved evidence bundle with `verify-bundle`.
 
 ## Recorded static showcase
 
-On the R3 checkout, Node alone builds the inert presentation:
+For a fresh showcase-only checkout, install Git and Node 24.18.0, then run:
 
 ```sh
+git clone https://github.com/Technique-S/Flip.git Flip-showcase
+cd Flip-showcase
+git checkout 22e781d454336cb2067aca1ce7f8cf66809f0f4d
+git rev-parse HEAD
 node apps/showcase/build.mjs
 node apps/showcase/build.mjs --check
 node scripts/check_m45_release_package.mjs
 ```
 
+The printed HEAD must match the exact checkout pin. `apps/showcase` is present at this
+revision. If already in that checkout, run only the three Node commands. Node alone
+builds the showcase; Python, npm packages and a backend are unnecessary for viewing.
+
 Open `apps/showcase/dist/index.html` directly, offline. Seven linked pages show curated
 sample → composition → DIFFERENT → connections → verified correction → revision →
 evidence snapshots. Every page is marked **RECORDED · HISTORICAL**. The curated candidate
 has 12 gates, not merely swapped outputs. This showcase has no JavaScript, backend,
-native solver, uploads, RPC or wallet. See its [guide](apps/showcase/README.md).
+native solver, uploads, RPC or wallet. See its [installation guide](apps/showcase/README.md)
+and [acceptance record](docs/release/M45_R3_ACCEPTANCE.md).
+
+Provenance limitation (F-03): independent reviews could not locate the original R2
+receipt, replay request or project files outside the curated recordings. Their pinned
+bytes and manifest are preserved; an independent original-versus-copy comparison remains
+unavailable. These recorded artifacts do not establish current-chain state or authorship.
 
 ## Evidence and operational limits
 
