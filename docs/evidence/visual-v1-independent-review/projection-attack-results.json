@@ -1,0 +1,441 @@
+{
+  "generatedAt": "2026-11-23T14:01:31.947Z",
+  "prHead": "006050d7b8349dca3c263da2e3f1112617706541",
+  "adapterVersion": "flip-visual-adapter-1.0.0",
+  "total": 54,
+  "failures": 0,
+  "results": [
+    {
+      "id": "baseline-real-sample",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "empty-components-no-outputs",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "empty-components-with-external-output",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "2 nodes / 1 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "zero-inputs",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "3 nodes / 1 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "duplicate-component-id",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "instance-id-with-slash",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "instance-id-65-chars",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "instance-id-leading-digit",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "nand-one-input",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "nand-three-inputs",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-out-of-range",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-negative",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-fractional",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-string-zero",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-nan",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-infinity",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "missing-input-pin",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "forward-reference",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "self-reference",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "unknown-component-reference",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "unsupported-kind-LATCH",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unsupported component kind (LATCH authoring is unavailable). Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "unsupported-kind-lowercase",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unsupported component kind (LATCH authoring is unavailable). Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "nIn-above-512",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "nIn-negative",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "nIn-fractional",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "components-over-500",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "stateful-source-nState-1",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "stateful-manifest-root",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: REF source and manifest interface differ. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "wrong-chain",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unsupported execution format or chain. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "source-chain-mismatch",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "source-schema-mismatch",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "processor-uppercase-valid",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "processor-malformed",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "circuit-id-leading-zero",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "circuit-id-hex",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "circuit-id-2^64",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "circuit-id-2^64-minus-1",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "circuit-id-21-digits",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid REF identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "uint53-plus-one-preserved",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "manifest-root-mismatch",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: REF source and manifest interface differ. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "manifest-nIn-mismatch",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: REF source and manifest interface differ. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "duplicate-source-alias",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: duplicate source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "missing-source-alias",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "empty-source-alias-malformed",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "numeric-source-alias",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "imports-not-array",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: malformed recipe or missing source metadata. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "sources-not-array",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: recipe exceeds the bounded visual profile. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "null-top-level",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: malformed recipe or missing source metadata. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "html-instance-id-rejected",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "unicode-instance-id-rejected",
+      "expectation": "REJECT",
+      "outcome": "REJECT",
+      "detail": "Visual view unavailable: invalid or duplicate component identity. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "xss-alias-displayed-as-text",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "source-and-identity-are-detached-copies",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "derived-locators-resolve-existing-fields",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pin-mappings-are-copies",
+      "expectation": "ACCEPT",
+      "outcome": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    }
+  ]
+}
