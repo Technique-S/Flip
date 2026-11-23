@@ -1,0 +1,38 @@
+{
+  "artifact": "m45-release-delta-review-results",
+  "tested_sha": "22e781d454336cb2067aca1ce7f8cf66809f0f4d",
+  "pr": "https://github.com/Technique-S/Flip/pull/11",
+  "pr_state": {"state": "OPEN", "isDraft": true, "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN", "baseRefOid": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b"},
+  "reviewed_delivery_sha": "1783b61fefc41007b745753b09c4e0e70a8af7f7",
+  "previous_review_commit": "10fb6ca5798142d7d6a372e491aebd47d3bfb79f",
+  "research_sha": "82e25deef9ae3498f837e188a7faed0ed61cd7ff",
+  "ancestry": "1783b61 is an ancestor of 22e781d; exactly 3 commits in delta",
+  "delta": {
+    "files": 12,
+    "insertions": 1031,
+    "modified": [".gitattributes (additive: -text rule for archived research)"],
+    "added": ["apps/showcase/tests/acceptance.spec.mjs", "docs/release/M45_R3_ACCEPTANCE.md", "6 archived OpenCode research docs", "3 original fixture copies under docs/evidence/m45-release-acceptance/original-fixtures/"],
+    "renamed_100_percent": ["fixtures/m45-release-acceptance/* -> docs/evidence/m45-release-acceptance/original-fixtures/*"],
+    "runtime_fixture_namespace_net_diff": "",
+    "showcase_generator_pins_recordings_schemas_packages_locks_ci": "UNCHANGED",
+    "static_output_vs_reviewed_delivery": "19/19 files byte-identical, CHECKSUMS and BUILD.json identical"
+  },
+  "finding_dispositions": {
+    "F-01": {"severity": "MEDIUM", "disposition": "STILL OPEN", "evidence": "M45_R3_ACCEPTANCE.md:12 now lists 1783b61..., but README.md:42 still pins b537eb6 and README.md:50 still says the R3 SHA is 'given in its handoff'; M45_R3_HANDOFF.md still omits it. README does not reference the new acceptance record. A first-time reader cannot obtain the showcase-bearing pin from the install path."},
+    "F-02": {"severity": "LOW", "disposition": "STILL OPEN / INFO", "evidence": "docs/release/M45_R3_DEMO_AND_CHECKLIST.md:28 still marks '[x] Corrected current README and source-pinned Windows/Linux instructions.' unchanged."},
+    "F-03": {"severity": "INFO", "disposition": "LIMITATION PRESERVED", "evidence": "Full PR-head tree scan (1044 files) found no independent copy of the R2 source receipt/replay/project originals outside recordings/. Manifest pins still match curated bytes; acceptance record restates SHAs but supplies no originals."}
+  },
+  "tests": {
+    "build": "PASS exit 0 (19 deterministic files)",
+    "build_check": "PASS exit 0",
+    "integrity_checker": "PASS exit 0 (19 files, 122 local links)",
+    "showcase_suite_local": "19 passed, 0 skipped/unexpected/flaky, 0 retries (40.2s)",
+    "showcase_suite_ci_artifact": "19 expected, 0 skipped/unexpected/flaky at exact head",
+    "independent_tamper_harness": "PASS: pristine builder ok; mutated receipt rejected (Wrong byte length); repinned manifest rejected (Recording manifest differs from the reviewed build input); no forged dist/index.html; all 7 pages framed and free of the 12 synthetic claims",
+    "research_custody": "PASS: all 9 research Git blobs byte-identical; fixture SHA-256 c50aa3012f228ecbfc09c56f2415f38cb3adaa5b739adc3f4b799f21bbce988f; 12 cases",
+    "custody_credential_scan": "PASS exit 0; 894 tracked files, 0 credential findings",
+    "ci_exact_head": "PASS: runs 45130355038 and 45130326912, both ubuntu/windows jobs and every step success",
+    "initial_ci_failure_verified": "8bcb1f2 run 45127865959 FAILED exactly test_report_only_gaps_are_not_executable_golden_fixtures (research JSON under fixtures/); corrected at a5c9a73 by R100 relocation, no gate or allowlist weakened"
+  },
+  "recommendation": "CONDITIONAL PASS — safe to merge as a development/release-package change; not ready for public deployment or hackathon submission"
+}
