@@ -1,0 +1,59 @@
+{
+  "artifact": "m45-release-final-review-browser-observations",
+  "review_sha": "1783b61fefc41007b745753b09c4e0e70a8af7f7",
+  "browser": "browser-use local Chromium (isolated temp profile); CDP Network/Runtime/Log domains enabled",
+  "target": "file:///C:/Users/Kazi/Documents/Flip/flip-m45-release-final-review/apps/showcase/dist/",
+  "javascript_enabled": {
+    "pages_visited_via_Next_links": ["index.html", "composition.html", "difference.html", "connections.html", "correction.html", "revision.html", "evidence.html"],
+    "script_elements": 0,
+    "active_elements_form_input_iframe_object_media_svg": 0,
+    "injected_api_probe_calls": {"fetch": 0, "XHR": 0, "WebSocket": 0, "EventSource": 0, "sendBeacon": 0, "wallet_ethereum": 0, "wallet_solana": 0},
+    "console_or_runtime_errors": 0,
+    "meta_csp_script_and_connect_none_on_all_pages": true,
+    "bad_hrefs": [],
+    "table_scope_attributes_by_page": {"index": 5, "composition": 12, "difference": 6, "connections": 12, "correction": 11, "revision": 9, "evidence": 0},
+    "network_requests": {
+      "total": 12,
+      "all_local_file_urls_within_dist": true,
+      "external_http_or_https": 0,
+      "api_or_loopback_or_ws": 0
+    }
+  },
+  "javascript_disabled": {
+    "method": "CDP Emulation.setScriptExecutionDisabled=true, then Page.reload",
+    "tab_1_focus": "A.skip 'Skip to the recorded step', outline solid 2.4px rgb(0,85,204)",
+    "after_enter_focus": "main#main, outline solid 2.4px",
+    "native_details_opens_with_Enter": true,
+    "all_seven_pages_navigable_by_focus_plus_Enter": true,
+    "network_requests_total": 12,
+    "all_local_file_urls_within_dist": true
+  },
+  "responsive_and_motion": {
+    "emulated_offline": true,
+    "prefers_reduced_motion": "reduce; computed animationName=none on all 7 pages at both widths",
+    "width_320": {"scrollWidth": 305, "innerWidth": 320, "overflow": false, "all_seven_pages": true},
+    "width_390": {"scrollWidth": 375, "innerWidth": 390, "overflow": false, "all_seven_pages": true},
+    "refresh": "Page.reload on evidence.html returned same URL/title and RECORDED text"
+  },
+  "axe_core": {
+    "version": "4.14.1",
+    "tags": ["wcag2a", "wcag2aa", "wcag21aa"],
+    "widths": [1036, 390],
+    "pages": 7,
+    "violations_per_page": 0,
+    "incomplete_per_page": 0,
+    "passes_per_page_range": [18, 20]
+  },
+  "downloads_and_storage": {
+    "revision_project_link_href": "artifacts/project.json",
+    "project_json_opened_offline_exact_match": true,
+    "project_json_chars_browser": 8944,
+    "project_json_chars_disk": 8944,
+    "evidence_download_links": ["artifacts/evidence.json", "artifacts/receipt.json", "artifacts/project.json", "artifacts/replay.request.json", "artifacts/corrected.execution.json", "artifacts/candidate.execution.json", "artifacts/composition.json", "artifacts/manifest.json"],
+    "all_eight_links_open_offline": true,
+    "localStorage_length_before_after": [0, 0],
+    "sessionStorage_length_before_after": [0, 0],
+    "note": "Links render JSON in-browser (file URL); no forced-download behavior claimed."
+  },
+  "limitation": "Automated browser and axe checks cannot replace a human screen-reader session, novice usability study, or physical assistive-device testing."
+}

@@ -43,3 +43,11 @@
 # Final independent adapter review: preserve original Git bytes.
 /docs/evidence/m45-agent-portable-final-review/** -text
 /fixtures/m45-agent-portable-final-review/** -text
+
+# Static showcase sources are portable; curated recording bytes are immutable inputs.
+/apps/showcase/** text eol=lf
+/apps/showcase/recordings/** -text
+# Preserve OpenCode's original acceptance specifications as exact Git bytes.
+/docs/evidence/m45-release-acceptance/** -text
+/docs/evidence/m45-release-final-review/** -text
+/docs/evidence/m45-release-delta-review/** -text

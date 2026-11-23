@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "m45-agent-workflow-1.0.0",
+  "kind": "AGENT_WORKFLOW_REQUEST",
+  "budget": {"maxIterations": 8, "maxRequests": 8, "maxRpcRequests": 0, "deadlineMs": 60000, "maxReceiptBytes": 1048576},
+  "steps": [
+    {"id": "sample0", "op": "sample", "variant": "half-adder"},
+    {"id": "build0", "op": "build"},
+    {"id": "compare0", "op": "compare"},
+    {"id": "export0", "op": "export"}
+  ]
+}

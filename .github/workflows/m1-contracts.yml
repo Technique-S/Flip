@@ -30,6 +30,10 @@ jobs:
         working-directory: apps/web
       - run: npm test
         working-directory: apps/web
+      - run: node apps/showcase/build.mjs
+      - run: node apps/showcase/build.mjs --check
+      - run: node scripts/check_m45_release_package.mjs
+      - run: node apps/showcase/test.mjs
       - run: uv run --frozen ruff check .
       - run: uv run --frozen ruff format --check .
       - run: uv run --frozen flip-schemas --out docs/schema/1.0.0 --check
@@ -67,3 +71,4 @@ jobs:
             .test-tmp/agent-independent/**/*.json
             .test-tmp/final-adapter-review/*.json
             .test-tmp/final-adapter-review/execution.log
+            .test-tmp/r3/showcase-results.json

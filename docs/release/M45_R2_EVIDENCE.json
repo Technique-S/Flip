@@ -1,0 +1,978 @@
+{
+  "milestone": "M4.5-R2",
+  "recordedUTC": "2026-11-22T10:04:42.755010+00:00",
+  "acceptedMain": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b",
+  "testedProductionRevision": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b",
+  "branch": "codex/flip-m45-release-readiness",
+  "changes": "New release documents/evidence only; original evidence, production, schemas, checks and locks unchanged",
+  "manualEvidence": {
+    "personalBrowser": "NOT VERIFIED; prior URL-confidence protection respected, no resumed Computer Use actions",
+    "auditoryScreenReader": "NOT TESTED",
+    "independentNoviceStudy": "NOT TESTED",
+    "applicationAccessCompliance": "NOT VERIFIED"
+  },
+  "local": {
+    "platform": "Windows 11 x64 build 26200",
+    "python": "3.14.6",
+    "uv": "0.9.11",
+    "node": "24.18.0",
+    "npm": "11.16.0",
+    "uvOnPath": false,
+    "usedExistingBootstrapExecutable": true,
+    "pythonSuite": {
+      "tests": 702,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pythonSeconds": 763.42,
+    "browser": {
+      "startTime": "2026-11-22T09:32:24.094Z",
+      "duration": 156906.82400000002,
+      "expected": 27,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "ruff": {
+      "lint": "PASS",
+      "format": "PASS",
+      "files": 88
+    },
+    "schemaParity": [
+      {
+        "command": [
+          "flip-schemas",
+          "--out",
+          "docs/schema/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.import_schema_export",
+          "--out",
+          "docs/schema/m2/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.verification_schema_export",
+          "--out",
+          "docs/schema/m3/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.library_schema_export",
+          "--out",
+          "docs/schema/m45-library/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.library_schema_export",
+          "--version",
+          "1.1.0",
+          "--out",
+          "docs/schema/m45-library/1.1.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.debugging_schema_export",
+          "--out",
+          "docs/schema/m45-debugging/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.agent_schema_export",
+          "--out",
+          "docs/schema/m45-agent-workflow/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.portable_schema_export",
+          "--out",
+          "docs/schema/m45-portable-project/1.1.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "flip_core.agent_portable_schema_export",
+          "--out",
+          "docs/schema/m45-agent-portable/1.0.0",
+          "--check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/schema/check-canonical.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "6 canonical vectors passed in Node v24.18.0"
+      },
+      {
+        "command": [
+          "node",
+          "docs/schema/m45-portable-project/check-canonical.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "Portable Python/Node canonical parity: 3 packages PASS"
+      },
+      {
+        "command": [
+          "node",
+          "docs/schema/m45-agent-portable/check-canonical.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "Adapter Python/Node canonical plan and package pins PASS"
+      }
+    ],
+    "agentAcceptance": 27,
+    "authorizationAttacks": 10,
+    "portabilityCases": 12,
+    "finalAdapterReviewCases": 26,
+    "build": {
+      "sameHostArtifactHashesMatch": true,
+      "artifactHashes": {
+        "flip.css": "54c62eb0646739f1e66e17ef821e02b0144177669e619bf78babd6b756b7e20c",
+        "flip.js": "b43918eabd7614d21a9ca7f26f73de83d9311aeebafa570f1fccb0247c547a85",
+        "index.html": "8e9528f5add6e2161c664b2d19cbfe91065c2055c266175b1760500bac92a0ba"
+      },
+      "artifactSizes": {
+        "flip.css": 8889,
+        "flip.js": 278735,
+        "index.html": 345
+      }
+    },
+    "installCommands": [
+      {
+        "command": [
+          "uv",
+          "sync",
+          "--locked"
+        ],
+        "exitCode": 0,
+        "seconds": 1.826
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "ci",
+          "--prefix",
+          "apps/web"
+        ],
+        "exitCode": 0,
+        "seconds": 16.924
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "run",
+          "lint",
+          "--prefix",
+          "apps/web"
+        ],
+        "exitCode": 0,
+        "seconds": 10.829
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "run",
+          "build",
+          "--prefix",
+          "apps/web"
+        ],
+        "exitCode": 0,
+        "seconds": 10.506
+      }
+    ]
+  },
+  "liveReadOnly": {
+    "endpoint": "https://rpc.xlayer.tech",
+    "singleProviderTrustOnly": true,
+    "smallBudgetProbes": [
+      {
+        "operation": "discover",
+        "atUTC": "2026-11-22T09:35:46.817114+00:00",
+        "wallSeconds": 10.727,
+        "status": "UNKNOWN",
+        "errorCode": "RESOURCE_LIMIT",
+        "rpcCallsUsed": 24,
+        "block": {
+          "number": "76571113",
+          "hash": "0x20e598da3943cf15af3ef1280657804a47721e30b8c4f025577ac5b74e2a1948"
+        },
+        "results": 2
+      },
+      {
+        "operation": "circuits",
+        "atUTC": "2026-11-22T09:35:57.544251+00:00",
+        "wallSeconds": 10.121,
+        "status": "PARTIAL_BOUNDED",
+        "errorCode": null,
+        "rpcCallsUsed": 21,
+        "block": {
+          "number": "76571124",
+          "hash": "0x5bc2a4dfb43a4ed75e7f322d2a7d8e37fb307df6f292819053f07cea7f519450"
+        },
+        "results": 2
+      }
+    ],
+    "standardCliDiscovery": {
+      "command": [
+        ".venv/Scripts/flip.exe",
+        "library",
+        "--request",
+        ".test-tmp\\r2\\live-cli-discover.request.json"
+      ],
+      "atUTC": "2026-11-22T09:37:54.434387+00:00",
+      "exitCode": 0,
+      "wallSeconds": 14.781,
+      "status": "PARTIAL_BOUNDED",
+      "errorCode": null,
+      "rpcCallsUsed": 29,
+      "block": {
+        "hash": "0xd371e4e731916d7fd9d7db94f8d4c800e1772ea0463aba069bd9183e4f33e2c2",
+        "number": "76571242"
+      },
+      "results": [
+        {
+          "identity": {
+            "chainId": 196,
+            "circuitId": null,
+            "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+            "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e"
+          },
+          "freshness": "HISTORICAL",
+          "existence": "REGISTERED_PROCESSOR"
+        },
+        {
+          "identity": {
+            "chainId": 196,
+            "circuitId": null,
+            "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+            "processor": "0x0565ea48ca41ae559d8d491dbb0a9ec945db551b"
+          },
+          "freshness": "HISTORICAL",
+          "existence": "REGISTERED_PROCESSOR"
+        }
+      ]
+    },
+    "circuitMetadata": [
+      {
+        "identity": {
+          "chainId": 196,
+          "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "circuitId": "1"
+        },
+        "freshness": "HISTORICAL",
+        "nIn": 2,
+        "nOut": 1,
+        "nState": 0,
+        "netlistHash": null
+      },
+      {
+        "identity": {
+          "chainId": 196,
+          "factory": "0x1f09daefa827f02cbb40967cc91b259763760761",
+          "processor": "0x839bdd6fa7a66416a609a735e11de5411b98574e",
+          "circuitId": "2"
+        },
+        "freshness": "HISTORICAL",
+        "nIn": 2,
+        "nOut": 1,
+        "nState": 0,
+        "netlistHash": null
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://web3.okx.com/xlayer/build-x-series",
+      "status": "TEXT_RETRIEVED",
+      "retrievalMethod": "Authorized web retrieval tool; cached/crawled text, no origin status fabricated",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://pypi.org/project/python-sat/1.9.dev23/",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/pysathq/pysat/master/LICENSE.txt",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/niklasso/minisat/master/LICENSE",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://web3.okx.com/onchainos/dev-docs/xlayer/developer/build-on-xlayer/network-information",
+      "status": "TEXT_RETRIEVED",
+      "retrievalStartUTC": "2026-11-22T09:51:58Z",
+      "retrievalEndUTC": "2026-11-22T09:52:01Z"
+    },
+    {
+      "url": "https://forms.gle/EoDNbxQ65dev1wFd9",
+      "redirectURL": "https://docs.google.com/forms/d/e/1FAIpQLScyVnDmyzxRyBxszLUWbwV5kVbpmZJ3JS6oyOxqjALRvhR1kg/viewform",
+      "status": "NOT_VERIFIED",
+      "checkedDateUTC": "2026-11-22",
+      "timePrecision": "date only; exact request second not retained",
+      "limitation": "Retrieval tool could not access redirected form. No protected browser or further route attempted; fields and access compliance not verified."
+    }
+  ],
+  "directEventRequestFailure": {
+    "url": "https://web3.okx.com/xlayer/build-x-series",
+    "retrievedUTC": "2026-11-22T09:33:01.269889+00:00",
+    "method": "urllib HTTPS GET; no browser",
+    "error": "URLError: <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+  },
+  "githubObservedUTC": "2026-11-22T10:04:40.254243+00:00",
+  "repository": {
+    "default_branch": "main",
+    "license": null,
+    "visibility": "public"
+  },
+  "acceptedMainCI": {
+    "conclusion": "success",
+    "head_sha": "b537eb6ca9de63f24a69fd5d837ccbc8e02f3a3b",
+    "html_url": "https://github.com/Technique-S/Flip/actions/runs/44773778968",
+    "updated_at": "2026-11-20T16:40:04Z"
+  },
+  "dependencyMetadata": {
+    "python": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.6",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "annotated_doc-0.0.6.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "noticeFiles": [
+          "annotated_types-0.8.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "anyio",
+        "version": "4.11.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "anyio-4.11.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "attrs-26.1.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23",
+        "declaredLicense": "MPL-2.0",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+        ],
+        "noticeFiles": [
+          "certifi-2026.10.23.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "click",
+        "version": "8.5.1",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "click-8.5.1.dist-info/licenses/LICENSE.txt"
+        ]
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "declaredLicense": null,
+        "licenseClassifiers": [
+          "License :: OSI Approved :: BSD License"
+        ],
+        "noticeFiles": [
+          "colorama-0.4.6.dist-info/licenses/LICENSE.txt"
+        ]
+      },
+      {
+        "name": "fastapi",
+        "version": "0.121.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "fastapi-0.121.1.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "flip-api",
+        "version": "0.1.0",
+        "declaredLicense": null,
+        "licenseClassifiers": [],
+        "noticeFiles": []
+      },
+      {
+        "name": "flip-cli",
+        "version": "0.1.0",
+        "declaredLicense": null,
+        "licenseClassifiers": [],
+        "noticeFiles": []
+      },
+      {
+        "name": "flip-core",
+        "version": "0.1.0",
+        "declaredLicense": null,
+        "licenseClassifiers": [],
+        "noticeFiles": []
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "noticeFiles": [
+          "h11-0.16.0.dist-info/licenses/LICENSE.txt"
+        ]
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: BSD License"
+        ],
+        "noticeFiles": [
+          "httpcore-1.0.9.dist-info/licenses/LICENSE.md"
+        ]
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: BSD License"
+        ],
+        "noticeFiles": [
+          "httpx-0.28.1.dist-info/licenses/LICENSE.md"
+        ]
+      },
+      {
+        "name": "idna",
+        "version": "3.20",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "idna-3.20.dist-info/licenses/LICENSE.md"
+        ]
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "iniconfig-2.3.1.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.25.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "jsonschema-4.25.1.dist-info/licenses/COPYING"
+        ]
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING"
+        ]
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "declaredLicense": "Apache-2.0 OR BSD-2-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "packaging-26.3.dist-info/licenses/LICENSE",
+          "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "packaging/licenses/__init__.py",
+          "packaging/licenses/_spdx.py"
+        ]
+      },
+      {
+        "name": "pluggy",
+        "version": "1.7.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "noticeFiles": [
+          "pluggy-1.7.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "pydantic",
+        "version": "2.12.4",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "pydantic-2.12.4.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.41.5",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "pydantic_core-2.41.5.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0",
+        "declaredLicense": "BSD-2-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "pygments-2.21.0.dist-info/licenses/AUTHORS",
+          "pygments-2.21.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "pytest",
+        "version": "9.0.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "pytest-9.0.1.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "python-sat",
+        "version": "1.9.dev23",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "python_sat-1.9.dev23.dist-info/licenses/LICENSE.txt"
+        ]
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "referencing-0.37.0.dist-info/licenses/COPYING"
+        ]
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "rpds_py-2026.9.1.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "ruff",
+        "version": "0.14.5",
+        "declaredLicense": null,
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "noticeFiles": [
+          "ruff-0.14.5.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "setuptools",
+        "version": "80.9.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "setuptools-80.9.0.dist-info/licenses/LICENSE",
+          "setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "setuptools/_vendor/importlib_metadata-8.0.0.dist-info/LICENSE",
+          "setuptools/_vendor/inflect-7.3.1.dist-info/LICENSE",
+          "setuptools/_vendor/jaraco.collections-5.1.0.dist-info/LICENSE",
+          "setuptools/_vendor/jaraco.context-5.3.0.dist-info/LICENSE",
+          "setuptools/_vendor/jaraco.functools-4.0.1.dist-info/LICENSE",
+          "setuptools/_vendor/jaraco.text-3.12.1.dist-info/LICENSE",
+          "setuptools/_vendor/more_itertools-10.3.0.dist-info/LICENSE",
+          "setuptools/_vendor/packaging-24.2.dist-info/LICENSE",
+          "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.APACHE",
+          "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.BSD",
+          "setuptools/_vendor/packaging/licenses/__init__.py",
+          "setuptools/_vendor/packaging/licenses/_spdx.py",
+          "setuptools/_vendor/platformdirs-4.2.2.dist-info/licenses/LICENSE",
+          "setuptools/_vendor/tomli-2.0.1.dist-info/LICENSE",
+          "setuptools/_vendor/typeguard-4.3.0.dist-info/LICENSE",
+          "setuptools/_vendor/typing_extensions-4.12.2.dist-info/LICENSE",
+          "setuptools/_vendor/wheel-0.45.1.dist-info/LICENSE.txt",
+          "setuptools/_vendor/wheel/vendored/packaging/LICENSE",
+          "setuptools/_vendor/wheel/vendored/packaging/LICENSE.APACHE",
+          "setuptools/_vendor/wheel/vendored/packaging/LICENSE.BSD",
+          "setuptools/_vendor/zipp-3.19.2.dist-info/LICENSE",
+          "setuptools/config/NOTICE",
+          "setuptools/config/_validate_pyproject/NOTICE"
+        ]
+      },
+      {
+        "name": "six",
+        "version": "1.17.0",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License"
+        ],
+        "noticeFiles": [
+          "six-1.17.0.dist-info/LICENSE"
+        ]
+      },
+      {
+        "name": "sniffio",
+        "version": "1.3.1",
+        "declaredLicense": "MIT OR Apache-2.0",
+        "licenseClassifiers": [
+          "License :: OSI Approved :: MIT License",
+          "License :: OSI Approved :: Apache Software License"
+        ],
+        "noticeFiles": [
+          "sniffio-1.3.1.dist-info/LICENSE",
+          "sniffio-1.3.1.dist-info/LICENSE.APACHE2",
+          "sniffio-1.3.1.dist-info/LICENSE.MIT"
+        ]
+      },
+      {
+        "name": "starlette",
+        "version": "0.49.3",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "starlette-0.49.3.dist-info/licenses/LICENSE.md"
+        ]
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.5",
+        "declaredLicense": "MIT",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "typing_inspection-0.4.5.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "declaredLicense": "PSF-2.0",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+        ]
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.38.0",
+        "declaredLicense": "BSD-3-Clause",
+        "licenseClassifiers": [],
+        "noticeFiles": [
+          "uvicorn-0.38.0.dist-info/licenses/LICENSE.md"
+        ]
+      }
+    ],
+    "node": [
+      {
+        "name": "axe-core",
+        "version": "4.14.1",
+        "license": "MPL-2.0"
+      },
+      {
+        "name": "csstype",
+        "version": "3.2.4",
+        "license": "MIT"
+      },
+      {
+        "name": "esbuild",
+        "version": "0.28.2",
+        "license": "MIT"
+      },
+      {
+        "name": "playwright",
+        "version": "1.65.1",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "playwright-core",
+        "version": "1.65.1",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "react",
+        "version": "19.3.1",
+        "license": "MIT"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.3.1",
+        "license": "MIT"
+      },
+      {
+        "name": "scheduler",
+        "version": "0.28.0",
+        "license": "MIT"
+      },
+      {
+        "name": "typescript",
+        "version": "7.0.2",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "@axe-core/playwright",
+        "version": "4.14.0",
+        "license": "MPL-2.0"
+      },
+      {
+        "name": "@biomejs/biome",
+        "version": "2.6.8",
+        "license": "MIT OR Apache-2.0"
+      },
+      {
+        "name": "@biomejs/cli-win32-x64",
+        "version": "2.6.8",
+        "license": "MIT OR Apache-2.0"
+      },
+      {
+        "name": "@esbuild/win32-x64",
+        "version": "0.28.2",
+        "license": "MIT"
+      },
+      {
+        "name": "@playwright/test",
+        "version": "1.65.1",
+        "license": "Apache-2.0"
+      },
+      {
+        "name": "@types/react",
+        "version": "19.3.0",
+        "license": "MIT"
+      },
+      {
+        "name": "@types/react-dom",
+        "version": "19.3.0",
+        "license": "MIT"
+      },
+      {
+        "name": "@typescript/typescript-win32-x64",
+        "version": "7.0.2",
+        "license": "Apache-2.0"
+      }
+    ],
+    "limitation": "Metadata inventory is not full native-component rights clearance or a distributable installer SBOM."
+  },
+  "localArtifacts": [
+    {
+      "path": ".test-tmp/browser/acceptance-B03-accessible--120b5-nd-B05-responsive-axe-audit/evidence.png",
+      "bytes": 89312,
+      "sha256": "79e2c8b6a876960a65462155da44868050e28ba84bfb73e72146bc666f245f05",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/agent-portable-combined-na-ae30b-play-and-authorization-stop/integration-desktop.png",
+      "bytes": 166219,
+      "sha256": "1a2faddf8de4e0206ff7b849b7f076636622e6b3ab9eaf9f423d64cfbef5d4ef",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/agent-portable-combined-na-ae30b-play-and-authorization-stop/integration-mobile.png",
+      "bytes": 145768,
+      "sha256": "869076e7fcec3ffb57d1e9798bd7c4b87b4e9c4f4added5f4c3f7fbb6cacf2da",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/debugging-debugger-narrow--48764-production-resource-UNKNOWN/debugger-mobile.png",
+      "bytes": 90487,
+      "sha256": "644837418fb2661887fb8fe92fc3089d04dbb3e2dbd39545fc340aa5e8c9c163",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/debugging-debugger-replays-d1c8c-and-reverts-with-CLI-parity/debugger-desktop.png",
+      "bytes": 115148,
+      "sha256": "d1279d2844c9d41f179dc013e0f049eaf7d0a771423e69f564eb2ef3a6f3b403",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/portable-portable-CLI-comp-f00ae-resh-and-explicit-downgrade/portable-desktop.png",
+      "bytes": 173105,
+      "sha256": "b8bf4123ad3c9e403b0ba9908c5c2ed20852de22b55c4b844dfd6f29297ead09",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/portable-portable-CLI-comp-f00ae-resh-and-explicit-downgrade/portable-mobile.png",
+      "bytes": 151937,
+      "sha256": "cd989e70e29347404045d1315814cf2faf18c9f75a5914ac408bec6739fe96d8",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/browser/workflow-historical-sample-e5148--parity-and-evidence-replay/sources.png",
+      "bytes": 53724,
+      "sha256": "3359c020a4a9e5d551b5ebefed47f91ae4ced4e67ce9376155f83b8082fe8209",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/library-desktop.png",
+      "bytes": 108812,
+      "sha256": "db85adc0156f1231431be394fffe94f1cbdb29c12fca6ff517a7d3037f3eb378",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/library-mobile.png",
+      "bytes": 81116,
+      "sha256": "c54caea49a48fc2d901f8116341083fb265790ac7b5649aeb522df7b33b7dfd7",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/agent-corpus.log",
+      "bytes": 194,
+      "sha256": "dfeb5839c775a8d2e3eba3d51fdb4fd8ba18de3758b81c4b1e5b064d150b386f",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/browser.log",
+      "bytes": 3820,
+      "sha256": "e3968d8125a974864680099221fab99fb3bf904b882d4451573353fcfd5cb643",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/final-review.log",
+      "bytes": 87,
+      "sha256": "60cbf86503eaace764faf3e68ad73cc17107b2f1e36b2e3498fd6447d604ee85",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/portable-corpus.log",
+      "bytes": 57,
+      "sha256": "133f9816a4b5d7da83321ab373c2f2ae11a17b3932b20ba313a868fdd1687571",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/python.log",
+      "bytes": 843,
+      "sha256": "5572ddf7731e2af9843efbe99b8ad2ee444f223a12f059fd3f6bbdbd2a256081",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/python.xml",
+      "bytes": 217819,
+      "sha256": "8ba2bc94a047289dfe40358e91784a6a549e522374ac72c96c800911f8b014ad",
+      "committed": false
+    },
+    {
+      "path": ".test-tmp/r2/schemas-parity.json",
+      "bytes": 2392,
+      "sha256": "e54cd8050720b863ab0b32d5e646332113f56941fc8a7bd33905633f0cf245c8",
+      "committed": false
+    }
+  ],
+  "newDocumentLinks": {
+    "result": "PASS",
+    "markdownFiles": 6,
+    "localLinks": 23,
+    "externalReferences": 12,
+    "method": "Standard-library Markdown link/path resolution outside fenced code; balanced fences/headings; external source retrieval is assessed separately."
+  },
+  "custodyAndCredentials": {
+    "result": "PASS",
+    "scanMode": "Staged new documents plus existing Git/checkout provenance guard",
+    "trackedFilesScanned": 862,
+    "credentialPatternFindings": 0,
+    "originalIndependentReportsAndFixtures": "Exact original Git/checkout bytes preserved"
+  },
+  "releaseGates": {
+    "technicalLocalDemo": "PASS",
+    "judgeAccess": "BLOCKED",
+    "submission": "PARTIAL",
+    "publicInteractiveDeployment": "BLOCKED",
+    "writeEnabledPublication": "BLOCKED"
+  }
+}
