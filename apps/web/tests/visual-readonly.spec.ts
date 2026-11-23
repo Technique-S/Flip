@@ -41,6 +41,14 @@ test("projection preserves exact recipe, every scalar mapping, order and stable 
 		expect(n.outputs.map((p) => p.id)).toEqual(
 			n.outputs.map((_, i) => `out:${i}`),
 		);
+		for (const p of [...n.inputs, ...n.outputs]) {
+			const path = p.locator.split("#")[0];
+			const parts = path.replace(/\[(\d+)\]/g, ".$1").split(".");
+			let value: unknown = r;
+			for (const part of parts)
+				value = (value as Record<string, unknown>)[part];
+			expect(value, p.locator).not.toBeUndefined();
+		}
 	}
 	const expected = [
 		...r.project.candidate.components.map((c, i) => ({

@@ -85,11 +85,14 @@ function project(r: Execution): Projection {
 		prefix: string,
 		locator: string,
 		mappings?: Pin[],
+		derived = false,
 	): Port[] =>
 		Array.from({ length: n }, (_, index) => ({
 			id: `${prefix}:${index}`,
 			index,
-			locator: `${locator}[${index}]`,
+			locator: derived
+				? `${locator}#${prefix}:${index}`
+				: `${locator}[${index}]`,
 			...(mappings ? { mapping: { ...mappings[index] } } : {}),
 		}));
 	function addNode(n: Omit<VisualNode, "position">, level: number) {
@@ -107,7 +110,7 @@ function project(r: Execution): Projection {
 			kind: "INPUTS",
 			locator: "project.candidate.nIn",
 			inputs: [],
-			outputs: ports(d.nIn, "out", "project.candidate.external"),
+			outputs: ports(d.nIn, "out", "project.candidate.nIn", undefined, true),
 		},
 		0,
 	);
@@ -196,7 +199,15 @@ function project(r: Execution): Projection {
 				kind: c.kind,
 				locator,
 				inputs: ports(c.inputs.length, "in", `${locator}.inputs`, c.inputs),
-				outputs: ports(width, "out", `${locator}.outputs`),
+				outputs: ports(
+					width,
+					"out",
+					source
+						? `project.sources[${sources.indexOf(source)}].nOut`
+						: `${locator}.kind`,
+					undefined,
+					true,
+				),
 				...(source
 					? { source: { ...source, identity: { ...source.identity } } }
 					: {}),
