@@ -1,0 +1,95 @@
+{
+  "artifactId": "m45-release-claim-negative-cases",
+  "caseCount": 12,
+  "note": "Synthetic claim strings for future negative tests. Not observed in R2 and not from the submitted draft. No case has been executed against an implemented viewer.",
+  "provenance": "INVENTED_TEST_INPUT",
+  "reviewDoc": "docs/evidence/m45-release-acceptance/STATIC_SHOWCASE_SECURITY.md",
+  "schemaVersion": "1.0.0",
+  "status": "SPECIFICATION_ONLY",
+  "cases": [
+    {
+      "id": "N-01",
+      "category": "Misleading CURRENT",
+      "syntheticClaim": "Archived half-adder is CURRENT onchain now",
+      "expectedClassification": "REJECT_OR_RELABEL_HISTORICAL",
+      "requiredAssertion": "Archived evidence must display HISTORICAL/RECORDED; metadata or checksum alone cannot produce CURRENT"
+    },
+    {
+      "id": "N-02",
+      "category": "Equivalent from vectors",
+      "syntheticClaim": "EQUIVALENT: all declared test vectors passed",
+      "expectedClassification": "REJECT_OR_RELABEL_VECTORS_MATCH",
+      "requiredAssertion": "Vector success is VECTORS_MATCH with declared coverage, not universal stateless equivalence"
+    },
+    {
+      "id": "N-03",
+      "category": "Equivalent from checksum",
+      "syntheticClaim": "Bundle checksum validated, therefore circuit is EQUIVALENT",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Integrity checksum grants no proof; trusted replay must recompute comparison"
+    },
+    {
+      "id": "N-04",
+      "category": "Deployment claim",
+      "syntheticClaim": "STOP_AUTHORIZATION means deployment succeeded",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Stop is terminal with signingCapability=false; no publication, wallet or transaction occurred"
+    },
+    {
+      "id": "N-05",
+      "category": "Verified correction from preparation",
+      "syntheticClaim": "Preparation created a verified correction",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Preparation is UNVERIFIED_PLAN_AND_IDENTITIES_ONLY; verify and explicit apply are separate"
+    },
+    {
+      "id": "N-06",
+      "category": "Stale evidence as current",
+      "syntheticClaim": "STALE report is still current verified",
+      "expectedClassification": "REJECT_OR_RELABEL_STALE",
+      "requiredAssertion": "Changed implementation/dependency must keep historical evidence but block CURRENT badge"
+    },
+    {
+      "id": "N-07",
+      "category": "UNKNOWN relabeled",
+      "syntheticClaim": "Solver timeout returned EQUIVALENT",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Timeout/resource limit is UNKNOWN; a proof verdict must never be fabricated"
+    },
+    {
+      "id": "N-08",
+      "category": "Unique fault attribution",
+      "syntheticClaim": "The highlighted connection is the single defective wire",
+      "expectedClassification": "REJECT_OR_RELABEL_AMBIGUOUS",
+      "requiredAssertion": "Relevant paths do not uniquely identify a defective wire; retain ambiguous-cause wording"
+    },
+    {
+      "id": "N-09",
+      "category": "Engine identity ignored",
+      "syntheticClaim": "Old native-engine evidence proves this platform's result",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Engine identity is binding; a changed native binary requires fresh local evidence"
+    },
+    {
+      "id": "N-10",
+      "category": "Partial catalog as complete",
+      "syntheticClaim": "Two discovered processors are the complete registry",
+      "expectedClassification": "REJECT_OR_RELABEL_PARTIAL_BOUNDED",
+      "requiredAssertion": "Bounded pages are PARTIAL_BOUNDED/UNKNOWN; no whole-chain completeness claim"
+    },
+    {
+      "id": "N-11",
+      "category": "Wallet or publication success",
+      "syntheticClaim": "Wallet connected and circuit published onchain",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Static/showcase and accepted app have no wallet, signer, broadcast or publication capability"
+    },
+    {
+      "id": "N-12",
+      "category": "Descriptive metadata as authority",
+      "syntheticClaim": "Project alias and receipt checksum grant permission to publish",
+      "expectedClassification": "REJECT",
+      "requiredAssertion": "Metadata, hashes and trust declarations grant no authority; render hostile labels inert"
+    }
+  ]
+}
