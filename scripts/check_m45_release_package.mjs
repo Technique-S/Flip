@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve, relative, dirname, join, extname } from "node:path";
 import { loadRecording, sha } from "../apps/showcase/lib.mjs";
+import { execFileSync } from "node:child_process";
 const root = resolve("apps/showcase/dist");
 async function walk(dir) {
 	const names = [];
@@ -91,13 +92,27 @@ assert.equal(
 	sha(await readFile(join(root, "CHECKSUMS.json"))),
 	inventory.staticChecksumManifest.sha256,
 );
+// R3 is a historical static release. These three files also serve the evolving
+// workbench/checker, so their R3 provenance is checked at the immutable R3 merge.
+// All other release sources and the actual generated output remain current checks.
+const releaseSourceRef = "7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f";
+const historicalSourcePaths = new Set([
+	"apps/web/package.json",
+	"apps/web/package-lock.json",
+	"scripts/check_m45_release_package.mjs",
+]);
+execFileSync("git", ["merge-base", "--is-ancestor", releaseSourceRef, "HEAD"]);
+const historicalFile = (name) => execFileSync("git", ["show", `${releaseSourceRef}:${name}`], { encoding: "utf8" });
+const originalInventory = JSON.parse(historicalFile("docs/release/M45_R3_ASSET_INVENTORY.json"));
+assert.deepEqual(inventory.sourceHashes, originalInventory.sourceHashes, "Historical R3 source inventory changed");
 for (const [name, record] of Object.entries(inventory.sourceHashes)) {
 	const bytes = Buffer.from(
-		(await readFile(name, "utf8")).replaceAll("\r\n", "\n"),
+		(historicalSourcePaths.has(name) ? historicalFile(name) : await readFile(name, "utf8")).replaceAll("\r\n", "\n"),
 	);
 	assert.equal(sha(bytes), record.sha256, `Release source drift: ${name}`);
 	assert.equal(bytes.length, record.bytes);
 }
+console.log(`R3 historical source provenance at ${releaseSourceRef}: ${[...historicalSourcePaths].join(", ")}. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies.`);
 console.log(
 	`PASS: ${files.length} checksummed inert files, ${links} local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.`,
 );
