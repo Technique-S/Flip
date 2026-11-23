@@ -9,7 +9,8 @@ import { execFileSync, spawnSync } from "node:child_process";
 import { sha } from "../lib.mjs";
 
 const researchSha = "82e25deef9ae3498f837e188a7faed0ed61cd7ff";
-const fixturePath = "fixtures/m45-release-acceptance/claim-negative-cases.json";
+const fixturePath =
+	"docs/evidence/m45-release-acceptance/original-fixtures/claim-negative-cases.json";
 const fixtureBytes = await readFile(fixturePath);
 expect(sha(fixtureBytes)).toBe(
 	"c50aa3012f228ecbfc09c56f2415f38cb3adaa5b739adc3f4b799f21bbce988f",
@@ -34,7 +35,11 @@ test("OpenCode research retains every original Git blob and conclusion", async (
 		.split("\n");
 	expect(files).toHaveLength(9);
 	for (const name of files) {
-		expect(await readFile(name)).toEqual(
+		const archivedPath = name.replace(
+			/^fixtures\/m45-release-acceptance\//,
+			"docs/evidence/m45-release-acceptance/original-fixtures/",
+		);
+		expect(await readFile(archivedPath)).toEqual(
 			execFileSync("git", ["show", `${researchSha}:${name}`]),
 		);
 	}

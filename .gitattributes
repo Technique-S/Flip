@@ -49,4 +49,3 @@
 /apps/showcase/recordings/** -text
 # Preserve OpenCode's original acceptance specifications as exact Git bytes.
 /docs/evidence/m45-release-acceptance/** -text
-/fixtures/m45-release-acceptance/** -text
