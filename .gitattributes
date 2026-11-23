@@ -49,3 +49,5 @@
 /apps/showcase/recordings/** -text
 # Preserve OpenCode's original acceptance specifications as exact Git bytes.
 /docs/evidence/m45-release-acceptance/** -text
+/docs/evidence/m45-release-final-review/** -text
+/docs/evidence/m45-release-delta-review/** -text

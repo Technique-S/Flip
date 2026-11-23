@@ -1,0 +1,35 @@
+{
+  "artifact": "m45-release-final-review-claim-cases",
+  "review_sha": "1783b61fefc41007b745753b09c4e0e70a8af7f7",
+  "fixture_source": "flip-m45-release-acceptance@82e25deef9ae3498f837e188a7faed0ed61cd7ff:fixtures/m45-release-acceptance/claim-negative-cases.json",
+  "fixture_status": "SPECIFICATION_ONLY / INVENTED_TEST_INPUT (12 synthetic claim strings)",
+  "method": "Full textContent of all seven generated HTML pages searched for forbidden claim fragments and required safe assertions; underlying facts cross-checked against the accepted artifact JSONs in apps/showcase/dist/artifacts. Collapsed <details> content included via textContent (innerText omits it).",
+  "case_count": 12,
+  "results": [
+    {"id": "N-01", "category": "Misleading CURRENT", "verdict": "PASS", "observation": "No affirmative CURRENT claim. The only 'current' occurrences are negations: 'No current-chain or authorship claim' (all pages) and 'not authorship, current chain state or signing permission' (revision.html). Every page carries 'RECORDED · HISTORICAL'; evidence.json comparison integrity freshness = HISTORICAL."},
+    {"id": "N-02", "category": "Equivalent from vectors", "verdict": "PASS", "observation": "composition.html: 'Four declared vectors illustrate the interface; they are not a universal equivalence proof.' No 'all declared test vectors passed' or vector-derived EQUIVALENT claim."},
+    {"id": "N-03", "category": "Equivalent from checksum", "verdict": "PASS", "observation": "evidence.html: 'File checksums detect byte changes relative to this bundle, not authorship or truth.' and 'Integrity is not proof authority ... The static build verifies only pinned input integrity.'"},
+    {"id": "N-04", "category": "Deployment claim", "verdict": "PASS", "observation": "evidence.html: 'Publication is outside this showcase ... no wallet, signer, RPC client, transaction path or permission grant.' No 'deployment succeeded'/'published onchain' text. Receipt has no signingCapability=true field."},
+    {"id": "N-05", "category": "Verified correction from preparation", "verdict": "PASS", "observation": "correction.html distinguishes propose/verify/apply; 'verified it against the declared local reference, then applied it locally' and 'separate verify and apply operations'. Displayed classification VERIFIED_CORRECTION / EQUIVALENT / UNSAT matches verify.log."},
+    {"id": "N-06", "category": "Stale evidence as current", "verdict": "PASS", "observation": "evidence.html: 'A different native engine can reject old evidence; preserve it and create new local evidence instead of overriding identity checks.' Evidence freshness HISTORICAL; no CURRENT badge."},
+    {"id": "N-07", "category": "UNKNOWN relabeled", "verdict": "PASS", "observation": "difference.html: 'A live timeout would be UNKNOWN. No such computation occurs in this showcase.' DIFFERENT is shown as a completed recorded result, not a fabricated proof."},
+    {"id": "N-08", "category": "Unique fault attribution", "verdict": "PASS", "observation": "connections.html: 'Relevance explains influence; it does not prove which wire is uniquely defective.' plus 'Unique fault claim: false' and diagnostic attribution AMBIGUOUS_MULTIPLE_CAUSES (matches inspect.log)."},
+    {"id": "N-09", "category": "Engine identity ignored", "verdict": "PASS", "observation": "Native runtime SHA displayed; evidence.html: 'A different native engine can reject old evidence; preserve it and create new local evidence instead of overriding identity checks.'"},
+    {"id": "N-10", "category": "Partial catalog as complete", "verdict": "PASS", "observation": "No registry/catalog completeness claim anywhere in the static package. Scope text remains bounded and historical."},
+    {"id": "N-11", "category": "Wallet or publication success", "verdict": "PASS", "observation": "All pages: 'No backend, native solver, wallet or RPC connection.' evidence.html: 'There is no publication control here ... This package contains no wallet, signer, RPC client, transaction path or permission grant.' Browser probes recorded zero wallet calls."},
+    {"id": "N-12", "category": "Descriptive metadata as authority", "verdict": "PASS", "observation": "revision.html: 'Revision hashes establish local integrity, not authorship, current chain state or signing permission. This viewer does not select or modify a project.' evidence.html: checksums are 'not authorship or truth'."}
+  ],
+  "value_comparison": {
+    "result": "ALL_MATCH",
+    "checked_fields": [
+      "witness.replay=REF_BEAT_REPRODUCED", "witness.inputs.bits=01", "witness.referenceOutputs.bits=01", "witness.candidateOutputs.bits=10",
+      "compare.coverage=EXACT_STATELESS_PAIRWISE", "compare.engineHash", "compare.requestHash", "solverBackend=Minisat22", "solverOutcome=SAT",
+      "inspect.attribution=AMBIGUOUS_MULTIPLE_CAUSES", "uniqueFaultClaim=false", "verify.classification=VERIFIED_CORRECTION",
+      "verify.comparison.verdict=EQUIVALENT", "verify.comparison.solverOutcome=UNSAT",
+      "project.schemaVersion=flip-portable-project-1.1.0", "project.revision.sequence=1", "project.revision.parentHash", "project.revision.revisionHash",
+      "evidence.comparison.verdict=EQUIVALENT", "evidence.comparison.coverage", "evidence.comparison.verifiedAt", "evidence.contentHash",
+      "manifest.acceptedRuntimeSha", "manifest.r2AuditSha", "manifest.recordedDifferenceAt", "manifest.recordedEquivalentAt"
+    ],
+    "note": "All 25 displayed values checked character-for-character against the accepted artifact JSONs; zero mismatches."
+  }
+}
