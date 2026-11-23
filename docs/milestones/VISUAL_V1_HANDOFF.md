@@ -7,8 +7,11 @@
 - Accepted main: `7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f`.
 - Approved architecture / branch parent: `39322e49f9fb1aa83a726fe3bbe81921c7e0f21e`; compatible ancestor of implementation; its protected runtime paths equal accepted main.
 - Initial implementation: `2d497c93c6365eda5bcdad99f5c439db237139e4`.
-- Final production/test implementation: **`5cd90f99c359ed9a28066295a8e848b79f16744f`**.
+- Final visual production/test implementation: **`5cd90f99c359ed9a28066295a8e848b79f16744f`**.
+- Authorized narrow release-guard integration: `8fa211118689690df81964fb8c3c6e7389e14a0a`.
 - This handoff/results follow as documentation only. Exact final PR head and final-head CI disposition are recorded on the open V1 PR. Do not substitute an earlier successful run for final-head CI.
+
+The owner subsequently authorized the narrow historical release-guard fix described below.
 
 The branch retains the approved architecture and prior audit as ancestors; those documentation commits are not yet on main. Their original files remain unchanged. Against architecture, production delta is only the paths listed below. Against main, inherited planning docs also appear; no inherited report is rewritten.
 
@@ -45,7 +48,7 @@ Actual local observations retained under [results](../ux/visual-v1/results/). Fu
 | No invented verifier success / no new network | Rendering creates no EQUIVALENT heading and makes zero additional requests during mode/selection cycles; compiler calls are explicit test setup/parity operations. |
 | Malformed/unsupported input | Ten adapter negative cases plus actual UI route-injected unsupported-kind failure with preserved Advanced access. No production fixture rewrite. |
 
-Additional local PASS: frontend lint/build; four Python sample/determinism/stateful rejection/portable roundtrip/mapped diagnosis regressions; all nine frozen schema exporters `--check`; three Node canonical parity checks; Ruff lint/format (88 files). Protected-path Git equality against accepted main passed for core/API/CLI, fixtures, schemas, CI, scripts and Python locks. Final committed-tree custody/credentials and Windows/Ubuntu CI outcomes are recorded on the PR after execution.
+Additional local PASS: frontend lint/build; four Python sample/determinism/stateful rejection/portable roundtrip/mapped diagnosis regressions; all nine frozen schema exporters `--check`; three Node canonical parity checks; Ruff lint/format (88 files). Protected-path Git equality against accepted main passed for core/API/CLI, fixtures, schemas, CI and Python locks. The only shared-script exception is the separately authorized R3 checker below. Final committed-tree custody/credentials and Windows/Ubuntu CI outcomes are recorded on the PR after execution.
 
 Earlier development failures are retained as history: initial exact sample-button selector omitted the existing arrow; a script encoding mistake corrupted one test regex; pin click propagation cleared selected pin; axe identified heading-order and label-content mismatch; added read-only ARIA description made a broad summary selector ambiguous. Those were corrected with the same substantive assertions and no timeout/skip/retry changes. Final self-review corrected derived output locators to real canonical fields and added locator resolution assertions. These were implementation/test defects, not accepted-core failures.
 
@@ -55,7 +58,7 @@ Desktop and 390/320px screenshots were captured by actual Chromium against the p
 
 ## Files and reproduction
 
-Production/tests changed relative to architecture: `apps/web/package.json`, `package-lock.json`, `src/Composer.tsx`; new `src/visual/projection.ts`, `VisualComposer.tsx`, `visual.css`, `notices.ts`; new `tests/visual-readonly.spec.ts`. Documentation: this handoff and `docs/ux/visual-v1/results/**`. No App/main/config/CI/backend/schema/accepted-evidence change.
+Production/tests changed relative to architecture: `apps/web/package.json`, `package-lock.json`, `src/Composer.tsx`; new `src/visual/projection.ts`, `VisualComposer.tsx`, `visual.css`, `notices.ts`; new `tests/visual-readonly.spec.ts`. Documentation: this handoff and `docs/ux/visual-v1/results/**`. The authorized scope extension additionally changes `scripts/check_m45_release_package.mjs` and adds `apps/showcase/tests/release-guard.spec.mjs`. No App/main/config/CI/backend/schema/accepted-evidence change.
 
 ```powershell
 uv sync --locked
@@ -69,6 +72,14 @@ uv run --frozen python scripts/check_m1_repository.py --require-clean
 ```
 
 Existing CI runs production browser plus showcase tests, full Python, all schema/canonical/custody/independent acceptance/smoke/benchmark gates on Windows and Ubuntu. It is unchanged. On Windows this task used an isolated `.bootstrap` uv 0.9.11 and new locked `.venv`; not a first-time human install trial.
+
+## Authorized historical release-guard fix
+
+Initial exact-head push/PR CI runs **45181066145 / 45181184502** failed on Ubuntu with `Release source drift: apps/web/package.json`; Windows was cancelled by matrix fail-fast. The required React Flow dependency conflicted with R3's historical source pins. The original failure is retained in results/initial-ci-failure.txt and those runs, not relabeled as success. The owner explicitly authorized the narrow guard/test scope extension after reviewing the proposal on PR #12.
+
+The R3 inventory remains byte-identical. Only its frontend package/package-lock and checker-source provenance is read at immutable accepted R3 commit `7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f`. The checker requires that commit in ancestry, pins the entire sourceHashes map to the original Git inventory, validates every original SHA/byte count, and logs the three historical paths explicitly. All other source paths and actual generated static files continue to use current-checkout checks. No configurable bypass or generic fallback; historical dependency metadata is not validation of current V1 dependencies.
+
+Seven new black-box cases exercise the actual checker in isolated temporary copies: valid V1 dependency change, tampered current source, changed static output, altered inventory, injected fallback path, missing history and wrong history. The entire showcase suite passed **26/26** (19 inherited + seven new), zero skips/retries, 35.8 s. The first scratch harness omitted linked documentation targets and failed its positive/asserted-phase cases; it was corrected to copy the exact existing link targets, retaining the original checker assertions. Missing/wrong-history cases explicitly assert Git failure rather than crediting an unrelated failure. No historical fixture/corpus/inventory or existing test was edited. Existing CI discovers the new showcase test automatically; CI configuration is unchanged. Final-head full platform runs remain the review gate and their results are recorded on the PR.
 
 ## Independent review and V2 boundary
 

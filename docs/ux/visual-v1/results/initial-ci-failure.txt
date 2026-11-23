@@ -1,0 +1,32 @@
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	﻿2026-11-23T13:11:29.7453105Z ##[group]Run node scripts/check_m45_release_package.mjs
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7453447Z ^[[36;1mnode scripts/check_m45_release_package.mjs^[[0m
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7484719Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7484938Z env:
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7485166Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7485695Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7486033Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7486338Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7486630Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7486933Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.7487199Z ##[endgroup]
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8106760Z node:internal/modules/run_main:107
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8107271Z     triggerUncaughtException(
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8107543Z     ^
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8107636Z 
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8108026Z AssertionError [ERR_ASSERTION]: Release source drift: apps/web/package.json
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8108390Z + actual - expected
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8108522Z 
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8108747Z + 'd081d5d62f0b244709a554453d1996b378fca06d18b70478e6cfd352d62da976'
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8109182Z - 'ecc6652c94c67a9442df151ae6eef91f0262bc5e5ddf68098a0839584cc45a56'
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8109436Z 
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8109664Z     at file:///home/runner/work/Flip/Flip/scripts/check_m45_release_package.mjs:98:9 {
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8110017Z   generatedMessage: false,
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8110231Z   code: 'ERR_ASSERTION',
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8110551Z   actual: 'd081d5d62f0b244709a554453d1996b378fca06d18b70478e6cfd352d62da976',
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111028Z   expected: 'ecc6652c94c67a9442df151ae6eef91f0262bc5e5ddf68098a0839584cc45a56',
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111348Z   operator: 'strictEqual',
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111537Z   diff: 'simple'
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111708Z }
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111801Z 
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8111880Z Node.js v24.18.0
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-23T13:11:29.8152957Z ##[error]Process completed with exit code 1.
