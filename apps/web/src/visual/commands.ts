@@ -10,7 +10,7 @@ export const requestKey = (r: Execution) => JSON.stringify(r); // Exact UI snaps
 const size = (s: string) => new TextEncoder().encode(s).length;
 
 /** Conservative UI table cost, not native gate/solver cost. Lookup/fallback is unchanged. */
-export function interactiveCapacity(r: Execution) {
+function pinTableCapacity(r: Execution) {
 	const d = r.project.candidate;
 	const destinationPins = d.components.reduce(
 		(n, c) => n + c.inputs.length,
@@ -27,11 +27,13 @@ export function interactiveCapacity(r: Execution) {
 		score: destinationPins * sourcePins,
 		externalInputs: d.nIn,
 		outputs: d.outputs.length,
-		requestBytes: size(requestKey(r)),
 	};
 }
+export function interactiveCapacity(r: Execution) {
+	return { ...pinTableCapacity(r), requestBytes: size(requestKey(r)) };
+}
 export function checkInteractiveBudget(r: Execution) {
-	const c = interactiveCapacity(r);
+	const c = pinTableCapacity(r);
 	const n = (v: number) => v.toLocaleString("en-US");
 	const preserved =
 		" Your accepted wiring is unchanged. UI limits are independent of native compiler and solver limits.";
@@ -47,9 +49,10 @@ export function checkInteractiveBudget(r: Execution) {
 		throw Error(
 			`Edit not applied. Output count ${n(c.outputs)} exceeds the interactive limit of 255.${preserved}`,
 		);
-	if (c.requestBytes > 1048576)
+	const requestBytes = size(requestKey(r));
+	if (requestBytes > 1048576)
 		throw Error(
-			`Edit not applied. Full Execution UTF-8 size ${n(c.requestBytes)} bytes exceeds the 1 MiB interactive request limit (1,048,576 bytes).${preserved}`,
+			`Edit not applied. Full Execution UTF-8 size ${n(requestBytes)} bytes exceeds the 1 MiB interactive request limit (1,048,576 bytes).${preserved}`,
 		);
 }
 

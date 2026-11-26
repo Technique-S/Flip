@@ -92,6 +92,18 @@ test("B0 F1 exact score and interface boundaries have cause-specific measured di
 	expect(() => checkInteractiveBudget(boundary)).toThrow(
 		/External input count 256.*255/,
 	);
+	const oversized = structuredClone(boundary);
+	let serialized = 0;
+	Object.defineProperty(oversized, "toJSON", {
+		value() {
+			serialized++;
+			throw Error("Serialization must follow the table guards");
+		},
+	});
+	expect(() => checkInteractiveBudget(oversized)).toThrow(
+		/External input count 256.*255/,
+	);
+	expect(serialized).toBe(0);
 	boundary.project.candidate.nIn = 1;
 	boundary.project.candidate.outputs = Array.from({ length: 255 }, () =>
 		pin(null),
