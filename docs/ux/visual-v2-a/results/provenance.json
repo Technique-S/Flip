@@ -1,0 +1,86 @@
+{
+  "base": "fc9c0c1bcb2557169dd89af0c3b2c5a7628c9adf",
+  "implementationCommit": "2826e4a5778f32d6a6fc1a3ca965eb924b46f29e",
+  "capturedAt": "2026-11-26T06:16:02.103467+00:00",
+  "protectedPaths": [
+    "packages",
+    "scripts",
+    "fixtures",
+    "docs/schema",
+    "docs/release",
+    ".github",
+    ".gitattributes",
+    "apps/showcase",
+    "apps/web/package.json",
+    "apps/web/package-lock.json"
+  ],
+  "protectedPathsDiff": "",
+  "existingTestDiff": "",
+  "canonicalCaptureSha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+  "canonicalCaptureByteIdenticalToAccepted": true,
+  "browserStats": {
+    "startTime": "2026-11-26T06:11:27.492Z",
+    "duration": 177039.176,
+    "expected": 70,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "implementationFiles": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "gitBlob": "e6c3c6a10347d74ec54d1aa075fb763eb879ac68",
+      "sha256": "14e0c414d16f92e1483d25c6a6f08715f629e30173271189cbb5e7dacfc8f0f9"
+    },
+    {
+      "path": "apps/web/src/Comparison.tsx",
+      "gitBlob": "90393830b64eaec42ee6af56894286fbfc56a95c",
+      "sha256": "ecb2d9b7b21e7d3246af768f9fb0feaf4240882abc3ea13346ecafadf8f0cd74"
+    },
+    {
+      "path": "apps/web/src/Composer.tsx",
+      "gitBlob": "0080e92ef981b77b680ac31dbc1f4b3ffa661fed",
+      "sha256": "6a574d218e0c01556fe59ead6aba2c070e0bd7b53acc368456254873fe284d0c"
+    },
+    {
+      "path": "apps/web/src/Portable.tsx",
+      "gitBlob": "91773a83c5fce0a20d84bc359561a37fd5fda9d2",
+      "sha256": "306453b05906de276e64112854263a11b64057b6744678a69f7eb5b33caf2264"
+    },
+    {
+      "path": "apps/web/src/model.ts",
+      "gitBlob": "fa54d470edb7af4c755e45bdf30e62711f69e04c",
+      "sha256": "ca747133d452172c095beacdbff8502973b0333c782d88cb0e7d19061ac411f9"
+    },
+    {
+      "path": "apps/web/src/visual/NandControls.tsx",
+      "gitBlob": "13fce4a297873a5fdd6a88c16e0c394d10293fdd",
+      "sha256": "f2ba1be61907fab35b6de5111006ab7b5b7a4c61a8be1ba8dfe112b6e874b129"
+    },
+    {
+      "path": "apps/web/src/visual/VisualComposer.tsx",
+      "gitBlob": "f9a6d47c01f8185c45aa928c0fa9c327ddeb3a7f",
+      "sha256": "3f7184cfb619c3ec1de7fccac4aa56d2785e16e919a19bf09ec452a93c0799dc"
+    },
+    {
+      "path": "apps/web/src/visual/commands.ts",
+      "gitBlob": "96419b2cf028c8e0ba55f3dc5c508061854cf00c",
+      "sha256": "70d5fc9a634b414862478c631e490c823a9c39bd4c4470c55f435cab45c7d065"
+    },
+    {
+      "path": "apps/web/src/visual/useCandidateEditor.ts",
+      "gitBlob": "38852c2b3499481f306a3ce7fcdd94ca2f5904b5",
+      "sha256": "e65a378663e29283333769506fa8fb6f3cb890aa316c5304d5d233d97e257d70"
+    },
+    {
+      "path": "apps/web/src/visual/visual.css",
+      "gitBlob": "728721a68b21af8587c80d3bfaab527836388375",
+      "sha256": "1919b281ba4cc6de5354a4d25b36fc7e6ee1c9032ea40efeb45a7c2c3e852ff3"
+    },
+    {
+      "path": "apps/web/tests/visual-edit.spec.ts",
+      "gitBlob": "edf4376a51b888be32fafa6f11904d8dc3d55eda",
+      "sha256": "b13e4e59d3f3904178d4e31256c63d9a70eba7fe6d053488e1c7f1acc74d0e6c"
+    }
+  ]
+}

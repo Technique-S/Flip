@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "73d70b971b64de899acd9f6d2f49301eda8d6217",
+  "suite": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "702",
+    "time": "721.681",
+    "timestamp": "2026-11-26T06:13:49.327011+01:00",
+    "hostname": "DESKTOP-S5Q92A9"
+  },
+  "rawXmlLocalPath": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-a/.test-tmp/v2a-validation/m3-tests.xml",
+  "rawXmlSha256": "8448af6d25c4f881680eb3c144b4d4ba96941c27f895c3c6368ff92af88d4c4c",
+  "scope": "Pre-implementation local full suite; not relabeled as final-head execution."
+}

@@ -1,0 +1,17 @@
+
+> flip-workbench@0.1.0 test
+> playwright test --grep V2-A keyboard-only|V2-A cancellation
+
+[WebServer] INFO:     Started server process [33124]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+
+Running 2 tests using 1 worker
+
+(node:2280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\visual-edit.spec.ts:342:1 › V2-A cancellation ignores a late real compiler response and rapid repeated submit is one transaction (3.7s)
+  ok 2 tests\visual-edit.spec.ts:478:1 › V2-A keyboard-only add, selection and confirmed remove keep focus usable (2.2s)
+
+  2 passed (17.9s)

@@ -1,0 +1,141 @@
+{
+  "scope": "M1 offline repository consistency; not chain verification or solver replay",
+  "seed": "37c39b3cf06edad908a6c579b7b0a78f1b42c202",
+  "core": "6dc21e0b97ffe03273a62ea1e9499e6346244d32",
+  "fixtures": "e4de86ef8870fb9b85adf94ace400791a479f985",
+  "raw_files": 12,
+  "registered_blob_checks": [
+    {
+      "path": "docs/evidence/raw/M0/xlayer_circuits.json",
+      "bytes": 18711,
+      "sha256": "a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30"
+    },
+    {
+      "path": "docs/evidence/raw/M0/vectors.json",
+      "bytes": 22185,
+      "sha256": "1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"
+    },
+    {
+      "path": "docs/evidence/raw/M0/composition_poc.json",
+      "bytes": 3415,
+      "sha256": "8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0"
+    },
+    {
+      "path": "docs/evidence/raw/M0/wiring_canary.json",
+      "bytes": 7224,
+      "sha256": "7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_a_compose_rerun.json",
+      "bytes": 6836,
+      "sha256": "9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_a_probe.json",
+      "bytes": 3188,
+      "sha256": "53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_a_probe2.json",
+      "bytes": 1325,
+      "sha256": "ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_b_manifest.json",
+      "bytes": 4895,
+      "sha256": "1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_b_negative.json",
+      "bytes": 2932,
+      "sha256": "592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_c_scale.json",
+      "bytes": 36860,
+      "sha256": "3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_c_scale_partial.json",
+      "bytes": 32210,
+      "sha256": "51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a"
+    },
+    {
+      "path": "docs/evidence/raw/M05/gate_c_stateful.json",
+      "bytes": 3137,
+      "sha256": "57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264"
+    },
+    {
+      "path": "docs/evidence/derived/recompute_checks.py",
+      "bytes": 5249,
+      "sha256": "a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a"
+    },
+    {
+      "path": "docs/evidence/derived/recomputed_checks.json",
+      "bytes": 2754,
+      "sha256": "6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499"
+    }
+  ],
+  "tracked_files_scanned": 982,
+  "credential_pattern_findings": 0,
+  "registered_browser_captures": [
+    "docs/evidence/m45-library-final-review/results/library-desktop-observed.png",
+    "docs/evidence/m45-library-final-review/results/library-mobile-observed.png",
+    "docs/evidence/m45-library-independent-review/results/library-desktop-observed.png",
+    "docs/evidence/m45-library-independent-review/results/library-mobile-observed.png",
+    "docs/milestones/m45-library-browser/desktop.png",
+    "docs/milestones/m45-library-browser/mobile.png"
+  ],
+  "library_independent_reviews": [
+    {
+      "revision": "9741e66ae385979dc0d18c89aec4ec6ed93ff285",
+      "target": "dec9420bb76e9245c6740bf3d92031d175e408ec",
+      "files": 16
+    },
+    {
+      "revision": "96187da8718bcf7d14a452685f7de84231895920",
+      "target": "786cbca056c6cd61ca0e7a5b61ddbc772a55a800",
+      "files": 16
+    }
+  ],
+  "debugging_fixture_evidence": {
+    "revision": "8fc4efb71cb750cced98b4e88540796d665b616a",
+    "files": 15,
+    "manifestEntries": 9
+  },
+  "debugging_independent_review": {
+    "revision": "fe807d3eb2bf7752973468c8ec9441c1691b1209",
+    "target": "130dd341b622cc0ad68bffe7f6f37bb847de45c8",
+    "files": 67,
+    "manifestEntries": 66
+  },
+  "agent_workflow_fixtures": {
+    "revision": "996a300324877d0017cbe0cdb23d8da76692862c",
+    "files": 31,
+    "manifestEntries": 30
+  },
+  "agent_workflow_independent_review": {
+    "revision": "7b4b1f711ddc9676141becfae2fc77a3d5941374",
+    "target": "d2638d057b6236286480891d6fdd7dfb0402bc5a",
+    "files": 14,
+    "manifestEntries": 10
+  },
+  "portable_independent_review": {
+    "revision": "8daacf7af2a1cfc17d83a33f7841d1088807ec82",
+    "target": "136b1115ee0f5ffe0a5583d68c474641fdce1ca1",
+    "files": 18,
+    "manifestEntries": 11
+  },
+  "portable_research": {
+    "revision": "2f3d6263edf4e62ad4e94718c99f6c1a79e350a1",
+    "files": 36,
+    "additionalPinnedHarness": "docs/evidence/m45-portable-project/harness/run_portability_cases.py.txt"
+  },
+  "agent_portable_final_review": {
+    "revision": "4ad32846a995255105aa027e9809599e2cb9562f",
+    "target": "9c0c23698dfd1c7045de348da851c28d68f5e22b",
+    "files": 3
+  },
+  "provenance_limit": "Audited originals unavailable; imported observations are historical.",
+  "result": "PASS"
+}
