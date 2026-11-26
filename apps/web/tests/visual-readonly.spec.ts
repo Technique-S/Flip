@@ -335,3 +335,43 @@ test("unsupported visual recipe fails visibly while Advanced remains available",
 		page.getByRole("button", { name: "Build netlist", exact: true }),
 	).toBeVisible();
 });
+
+test("Visual explains and returns to existing Advanced execution actions", async ({
+	page,
+}) => {
+	await page.goto("/");
+	await page.getByRole("button", { name: /^Open sample/ }).click();
+	await page.getByRole("button", { name: "Visual", exact: true }).click();
+	await expect(
+		page.getByText("Build and comparison actions remain in Advanced.", {
+			exact: false,
+		}),
+	).toBeVisible();
+	await expect(
+		page.getByRole("button", { name: "Build netlist", exact: true }),
+	).toBeHidden();
+	await page
+		.getByRole("button", { name: "Return to Advanced actions", exact: true })
+		.click();
+	await expect(
+		page.getByRole("button", { name: "Build netlist", exact: true }),
+	).toBeVisible();
+});
+
+test("projection rejects noncanonical aliases and enforces allocation budgets early", async () => {
+	const r = await sample();
+	r.project.sources[0].alias = "";
+	expect(() => projectExecution(r)).toThrow(/invalid source alias/);
+	const large = await sample();
+	large.project.candidate.components = Array.from({ length: 500 }, (_, i) => ({
+		kind: "NAND" as const,
+		instanceId: `part${i}`,
+		inputs: [
+			{ component: null, pin: 0 },
+			{ component: null, pin: 1 },
+		],
+	}));
+	expect(() => projectExecution(large)).toThrow(
+		/connection budget exceeded before allocation/,
+	);
+});

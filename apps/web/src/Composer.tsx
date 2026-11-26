@@ -107,7 +107,18 @@ export function Composer({ request, change, build, built, next }: Props) {
 					Advanced
 				</button>
 			</fieldset>
-			{visual && <VisualComposer request={request} />}
+			{visual && (
+				<>
+					<p>
+						Build and comparison actions remain in Advanced. Viewing this recipe
+						runs no execution.
+					</p>
+					<button type="button" onClick={() => setVisual(false)}>
+						Return to Advanced actions
+					</button>
+					<VisualComposer request={request} />
+				</>
+			)}
 			<div hidden={visual}>
 				<div className="bar">
 					<h2>Candidate wiring</h2>

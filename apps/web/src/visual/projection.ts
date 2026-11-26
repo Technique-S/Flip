@@ -73,6 +73,8 @@ function project(r: Execution): Projection {
 		!Array.isArray(sources)
 	)
 		fail("recipe exceeds the bounded visual profile");
+	if (sources.some((source) => !name(source.alias)))
+		fail("invalid source alias");
 	const aliases = new Map(sources.map((s) => [s.alias, s]));
 	if (aliases.size !== sources.length) fail("duplicate source alias");
 	const nodes: VisualNode[] = [];
@@ -80,14 +82,18 @@ function project(r: Execution): Projection {
 	const widths = new Map<string, number>();
 	const levels = new Map<string, number>();
 	const rows = new Map<number, number>();
+	let allocatedPorts = 0;
 	const ports = (
 		n: number,
 		prefix: string,
 		locator: string,
 		mappings?: Pin[],
 		derived = false,
-	): Port[] =>
-		Array.from({ length: n }, (_, index) => ({
+	): Port[] => {
+		if (allocatedPorts + n > 4096)
+			fail("visible pin budget exceeded before allocation");
+		allocatedPorts += n;
+		return Array.from({ length: n }, (_, index) => ({
 			id: `${prefix}:${index}`,
 			index,
 			locator: derived
@@ -95,6 +101,7 @@ function project(r: Execution): Projection {
 				: `${locator}[${index}]`,
 			...(mappings ? { mapping: { ...mappings[index] } } : {}),
 		}));
+	};
 	function addNode(n: Omit<VisualNode, "position">, level: number) {
 		const y = rows.get(level) ?? 0;
 		nodes.push({ ...n, position: { x: level * 330, y } });
@@ -125,6 +132,8 @@ function project(r: Execution): Projection {
 		};
 	}
 	function connections(target: string, mappings: Pin[], locator: string) {
+		if (edges.length + mappings.length > 1000)
+			fail("connection budget exceeded before allocation");
 		mappings.forEach((p, i) => {
 			const from = pin(p);
 			edges.push({
@@ -151,6 +160,7 @@ function project(r: Execution): Projection {
 		if (c.kind === "NAND") {
 			if (c.inputs.length !== 2) fail("NAND requires two scalar inputs");
 		} else if (c.kind === "REF") {
+			if (!name(c.sourceAlias ?? "")) fail("invalid REF source alias");
 			source = aliases.get(c.sourceAlias ?? "");
 			if (
 				source?.nState !== 0 ||

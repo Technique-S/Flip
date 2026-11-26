@@ -76,3 +76,28 @@ for (const attack of ["none", "current-source", "static-output", "inventory", "u
 		});
 	});
 }
+test("independent original attacks reject at the intended integrity boundaries", async () => {
+ const result = spawnSync(process.execPath, [resolve("docs/ux/visual-v1/results/run-attack-harness.mjs")], {cwd:repository, encoding:"utf8"});
+ expect(result.status,result.stderr).toBe(0);
+ const report=JSON.parse(await readFile(".test-tmp/rg-replay/results.json","utf8"));
+ expect(report.results).toHaveLength(6);
+ for(const row of report.results) {
+  expect(row.status,row.id).toBe("OK"); expect(row.observed,row.id).toBe("REJECT");
+  expect(row.diagnostic,row.id).toMatch(row.id.startsWith("coordinated") ? /Historical static integrity mismatch/ : row.id.startsWith("single") ? /Historical R3 source inventory changed/ : /Current checker (scope changed|integrity mismatch)/);
+ }
+});
+
+test("coordinated checker and metadata tamper is rejected by the actual CI trust anchor", async () => {
+ await isolated(async root=>{
+  const path=join(root,"scripts/check_m45_release_package.mjs");
+  await writeFile(path,(await readFile(path,"utf8"))+"\n// changed\n");
+  const {createHash}=await import("node:crypto");
+  const tp=join(root,"docs/release/V1_RELEASE_TRUST.json"); const trust=JSON.parse(await readFile(tp,"utf8"));
+  trust.currentSourceHashes["scripts/check_m45_release_package.mjs"]=createHash("sha256").update((await readFile(path,"utf8")).replaceAll("\r\n","\n")).digest("hex");
+  await writeFile(tp,JSON.stringify(trust));
+  const workflow=await readFile(".github/workflows/m1-contracts.yml","utf8");
+  const code=workflow.match(/node --input-type=module <<'JS'\n([\s\S]*?)\n          JS/)[1].replace(/^          /gm,"");
+  const run=spawnSync(process.execPath,["--input-type=module","-e",code],{cwd:root,encoding:"utf8"});
+  expect(run.status).not.toBe(0); expect(run.stderr).toContain("CI release trust metadata mismatch");
+ });
+});

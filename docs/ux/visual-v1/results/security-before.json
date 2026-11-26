@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-11-26T01:55:57.514Z",
+  "results": [
+    {
+      "id": "coordinated-static-artifact-and-inventory-tamper",
+      "expected": "REJECT",
+      "observed": "PASS",
+      "status": "FAIL",
+      "detail": "R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json, scripts/check_m45_release_package.mjs. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies. | PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.",
+      "assertion": ""
+    },
+    {
+      "id": "single-original-source-hash-tamper",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "detail": "}\r | \r | Node.js v24.18.0\r",
+      "assertion": ""
+    },
+    {
+      "id": "pinned-commit-identifier-retarget",
+      "expected": "REJECT",
+      "observed": "PASS",
+      "status": "FAIL",
+      "detail": "R3 historical source provenance at 39322e49f9fb1aa83a726fe3bbe81921c7e0f21e: apps/web/package.json, apps/web/package-lock.json, scripts/check_m45_release_package.mjs. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies. | PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.",
+      "assertion": ""
+    },
+    {
+      "id": "checker-allowlist-expansion-self-tamper",
+      "expected": "REJECT",
+      "observed": "PASS",
+      "status": "FAIL",
+      "detail": "R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json, scripts/check_m45_release_package.mjs, apps/showcase/style.css. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies. | PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.",
+      "assertion": ""
+    },
+    {
+      "id": "checker-bypass-of-current-static-check",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "detail": "}\r | \r | Node.js v24.18.0\r",
+      "assertion": ""
+    },
+    {
+      "id": "checker-allowlist-expansion-plus-current-source-tamper",
+      "expected": "REJECT",
+      "observed": "PASS",
+      "status": "FAIL",
+      "detail": "R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json, scripts/check_m45_release_package.mjs, apps/showcase/style.css. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies. | PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.",
+      "assertion": ""
+    }
+  ]
+}
