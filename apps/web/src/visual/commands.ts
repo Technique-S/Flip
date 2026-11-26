@@ -4,27 +4,135 @@ import { projectExecution } from "./projection";
 export type NandCommand =
 	| { type: "AddNand"; instanceId: string; inputs: [Pin, Pin] }
 	| { type: "RemoveNand"; instanceId: string };
-const name = (v: unknown): v is string =>
+export const isComponentName = (v: unknown): v is string =>
 	typeof v === "string" && /^[A-Za-z][A-Za-z0-9_-]{0,63}$/.test(v);
 export const requestKey = (r: Execution) => JSON.stringify(r); // Exact UI snapshot, NOT a canonical hash.
 const size = (s: string) => new TextEncoder().encode(s).length;
-export function checkInteractiveBudget(r: Execution) {
+
+/** Conservative UI table cost, not native gate/solver cost. Lookup/fallback is unchanged. */
+export function interactiveCapacity(r: Execution) {
 	const d = r.project.candidate;
-	const pins = d.components.reduce(
+	const destinationPins = d.components.reduce(
 		(n, c) => n + c.inputs.length,
 		d.outputs.length,
 	);
-	const width = d.components.reduce(
+	const sourcePins = d.components.reduce(
 		(n, c) =>
 			n + (r.project.sources.find((s) => s.alias === c.sourceAlias)?.nOut ?? 1),
 		d.nIn,
 	);
-	if (pins * width > 65000 || d.nIn > 255 || d.outputs.length > 255)
+	return {
+		destinationPins,
+		sourcePins,
+		score: destinationPins * sourcePins,
+		externalInputs: d.nIn,
+		outputs: d.outputs.length,
+		requestBytes: size(requestKey(r)),
+	};
+}
+export function checkInteractiveBudget(r: Execution) {
+	const c = interactiveCapacity(r);
+	const n = (v: number) => v.toLocaleString("en-US");
+	const preserved =
+		" Your accepted wiring is unchanged. UI limits are independent of native compiler and solver limits.";
+	if (c.score > 65000)
 		throw Error(
-			"This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+			`Edit not applied. Interactive capacity score ${n(c.score)} exceeds the limit of 65,000 (${n(c.destinationPins)} destination pins × ${n(c.sourcePins)} source pins; interactive pin table budget).${preserved}`,
 		);
-	if (size(requestKey(r)) > 1048576)
-		throw Error("Project exceeds the 1 MiB interactive request limit.");
+	if (c.externalInputs > 255)
+		throw Error(
+			`Edit not applied. External input count ${n(c.externalInputs)} exceeds the interactive limit of 255.${preserved}`,
+		);
+	if (c.outputs > 255)
+		throw Error(
+			`Edit not applied. Output count ${n(c.outputs)} exceeds the interactive limit of 255.${preserved}`,
+		);
+	if (c.requestBytes > 1048576)
+		throw Error(
+			`Edit not applied. Full Execution UTF-8 size ${n(c.requestBytes)} bytes exceeds the 1 MiB interactive request limit (1,048,576 bytes).${preserved}`,
+		);
+}
+
+function dataFields(
+	value: unknown,
+	expected: readonly string[],
+	array = false,
+): Record<string, unknown> {
+	try {
+		if (!value || typeof value !== "object" || Array.isArray(value) !== array)
+			throw Error();
+		const keys = Reflect.ownKeys(value);
+		if (
+			keys.length !== expected.length ||
+			keys.some((k) => typeof k !== "string" || !expected.includes(k))
+		)
+			throw Error();
+		const result = Object.create(null) as Record<string, unknown>;
+		for (const key of expected) {
+			const d = Object.getOwnPropertyDescriptor(value, key);
+			if (
+				!d ||
+				!Object.hasOwn(d, "value") ||
+				d.enumerable !== !(array && key === "length")
+			)
+				throw Error();
+			result[key] = d.value;
+		}
+		return result;
+	} catch {
+		// Reflection may invoke proxy traps; do not invoke accessors or expose trap errors.
+		throw Error(
+			"Invalid command record: exact enumerable own data fields are required.",
+		);
+	}
+}
+export const ownFields = (value: unknown, expected: readonly string[]) =>
+	dataFields(value, expected);
+export function ownDiscriminant(value: unknown, key: string): unknown {
+	try {
+		if (!value || typeof value !== "object" || Array.isArray(value))
+			throw Error();
+		const d = Object.getOwnPropertyDescriptor(value, key);
+		if (!d || !Object.hasOwn(d, "value") || !d.enumerable) throw Error();
+		return d.value;
+	} catch {
+		throw Error("Invalid edit command type: an own data field is required.");
+	}
+}
+export function normalizeName(value: unknown): string {
+	if (!isComponentName(value))
+		throw Error(
+			"Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens.",
+		);
+	return value;
+}
+export function normalizePin(value: unknown): Pin {
+	const p = ownFields(value, ["component", "pin"]);
+	if (p.component !== null) normalizeName(p.component);
+	if (typeof p.pin !== "number" || !Number.isSafeInteger(p.pin) || p.pin < 0)
+		throw Error("Pin index must be an explicit safe nonnegative integer.");
+	return { component: p.component as string | null, pin: p.pin };
+}
+function normalizeNand(value: unknown): NandCommand {
+	const type = ownDiscriminant(value, "type");
+	if (type !== "AddNand" && type !== "RemoveNand")
+		throw Error("Unsupported edit command.");
+	const c = ownFields(
+		value,
+		type === "AddNand"
+			? ["type", "instanceId", "inputs"]
+			: ["type", "instanceId"],
+	);
+	const instanceId = normalizeName(c.instanceId);
+	if (type === "RemoveNand") return { type, instanceId };
+	const inputs = dataFields(c.inputs, ["0", "1", "length"], true);
+	if (inputs.length !== 2)
+		throw Error("Choose exactly two explicit NAND input sources.");
+	return {
+		type,
+		instanceId,
+		inputs: [normalizePin(inputs["0"]), normalizePin(inputs["1"])],
+	};
 }
 export function availablePins(r: Execution): Pin[] {
 	const d = r.project.candidate;
@@ -61,24 +169,7 @@ export function removalProblem(r: Execution, id: string): string | null {
 		: null;
 }
 export function proposeNand(r: Execution, value: unknown): Execution {
-	if (!value || typeof value !== "object" || Array.isArray(value))
-		throw Error("Invalid edit command.");
-	const c = value as Record<string, unknown>;
-	if (!name(c.instanceId))
-		throw Error(
-			"Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens.",
-		);
-	if (c.type !== "AddNand" && c.type !== "RemoveNand")
-		throw Error("Unsupported edit command.");
-	const keys =
-		c.type === "AddNand"
-			? ["type", "instanceId", "inputs"]
-			: ["type", "instanceId"];
-	if (
-		Object.keys(c).length !== keys.length ||
-		Object.keys(c).some((k) => !keys.includes(k))
-	)
-		throw Error("Unexpected edit command fields.");
+	const c = normalizeNand(value);
 	const next = structuredClone(r);
 	if (c.type === "AddNand") {
 		if (
@@ -87,31 +178,22 @@ export function proposeNand(r: Execution, value: unknown): Execution {
 			)
 		)
 			throw Error("Component ID already exists.");
-		if (!Array.isArray(c.inputs) || c.inputs.length !== 2)
-			throw Error("Choose exactly two explicit NAND input sources.");
 		const available = availablePins(r);
-		const inputs = c.inputs.map((p: unknown) => {
-			if (!p || typeof p !== "object" || Array.isArray(p))
-				throw Error("Invalid input binding.");
-			const v = p as Record<string, unknown>;
-			if (
-				Object.keys(v).length !== 2 ||
-				!("component" in v) ||
-				!("pin" in v) ||
-				(v.component !== null && !name(v.component)) ||
-				typeof v.pin !== "number" ||
-				!Number.isInteger(v.pin) ||
-				!available.some((a) => a.component === v.component && a.pin === v.pin)
+		if (
+			c.inputs.some(
+				(p) =>
+					!available.some(
+						(a) => a.component === p.component && a.pin === p.pin,
+					),
 			)
-				throw Error(
-					"Input must identify an existing external or preceding output pin.",
-				);
-			return { component: v.component as string | null, pin: v.pin };
-		});
+		)
+			throw Error(
+				"Input must identify an existing external or preceding output pin.",
+			);
 		next.project.candidate.components.push({
 			kind: "NAND",
 			instanceId: c.instanceId,
-			inputs,
+			inputs: c.inputs,
 		});
 	} else {
 		const issue = removalProblem(r, c.instanceId);
@@ -122,7 +204,7 @@ export function proposeNand(r: Execution, value: unknown): Execution {
 			);
 	}
 	checkInteractiveBudget(next);
-	projectExecution(next); // Reuse bounded display checks; Python compose still decides acceptance.
+	projectExecution(next); // Display checks only; Python compose still decides acceptance.
 	return next;
 }
 export type History = {
