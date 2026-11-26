@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "path": "accepted-main-ci-excerpts.txt",
+      "bytes": 1725,
+      "sha256": "e3daef5fd06c8094ff5508fb4d10a24a4c74c412d0b71258fbaf0c513064d2c2"
+    },
+    {
+      "path": "accepted-main-ci.json",
+      "bytes": 19558,
+      "sha256": "921837e76cbb80fd9f055da73d29479d780a0f1129654fc73055f9a452a04525"
+    },
+    {
+      "path": "authorization.txt",
+      "bytes": 5746,
+      "sha256": "b49156d6a33d85f2e7c4e39b3058e36d918d2f7acbf299eeea14eafbe33fb7a0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2244,
+      "sha256": "3b459e9ea3e86e6d39646a2401c3d74de1eeabc599e3aae44170530679c11d1e"
+    },
+    {
+      "path": "semantic-probes.json",
+      "bytes": 27348,
+      "sha256": "fd7f34b935ce6fbb3b7a1c2387b08fa7b5b3e5b14bccf0363a468e419c911874"
+    },
+    {
+      "path": "semantic-probes.py.txt",
+      "bytes": 6666,
+      "sha256": "bb3430e5c82fed5537b48dc1a2364913dbb29c9b8bf980a223f59bfe3ba9bd57"
+    },
+    {
+      "path": "source-provenance.json",
+      "bytes": 2691,
+      "sha256": "f193ad0a12b179e100115ec55192718122b6823d133d33d9ad6a523d2febab43"
+    }
+  ]
+}

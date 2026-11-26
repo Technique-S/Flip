@@ -1,0 +1,179 @@
+# FLIP — P7-V2-A: CONTROLLED VISUAL COMPONENT EDITING
+
+## Role
+Lead implementation engineer and circuit-semantics integrator.
+
+Repository: https://github.com/Technique-S/Flip
+
+Accepted main:
+fc9c0c1bcb2557169dd89af0c3b2c5a7628c9adf
+
+V1 acceptance:
+docs/milestones/P7_V1_POST_MERGE_ACCEPTANCE.md
+
+Architecture:
+docs/planning/visual-architecture/
+
+## Authorization
+
+Implement V2-A only: safe NAND component creation, removal, selection and reversible edit history.
+
+Do not implement interactive pin-to-pin wiring, REF authoring, visual Wiring Canary or new canonical schemas.
+
+All changes must originate from the accepted main branch.
+
+## Phase 1 — Establish semantic constraints
+
+Inspect existing candidate recipe semantics, compiler behavior and validation rules.
+
+Determine precisely:
+
+1. Whether a NAND component may exist temporarily without connected inputs.
+2. Whether adding or deleting a component requires index renumbering.
+3. How references to preceding components are represented.
+4. How REF dependencies and output mappings are affected.
+5. Whether current serialization preserves stable component IDs.
+6. How the existing Advanced editor handles invalid intermediate configurations.
+
+Do not assume disconnected or partially authored gates are valid canonical circuits.
+
+Produce an explicit design for staging edits versus committing valid canonical recipes.
+
+If atomic component creation cannot be supported safely under the existing model without adding wires or changing semantics, stop at a design checkpoint. Do not invent placeholder wires, inputs or outputs.
+
+## Phase 2 — Canonical editing commands
+
+Introduce a small, pure, deterministic edit-command layer reusing the existing authoritative validation.
+
+Suggested commands:
+
+- AddNand
+- RemoveNand
+- Undo
+- Redo
+
+Use real schema-compatible parameters rather than inventing a new public API.
+
+Every edit must produce either:
+
+- A valid, committed canonical candidate; or
+- A clearly identified local draft that cannot be submitted as verified evidence.
+
+Edits that would break existing references must be rejected or handled through an explicitly validated atomic operation.
+
+No silent remapping of inputs, outputs or REF bindings.
+
+No mutation of the last accepted candidate until validation succeeds.
+
+Retain consistent behavior across the Visual and Advanced modes.
+
+## Phase 3 — UI implementation
+
+Extend the existing React Flow editor.
+
+Implement:
+
+- A clearly discoverable Add NAND action.
+- NAND selection and inspector interaction.
+- A safe removal action.
+- Confirmation or explanatory blocking for destructive operations affecting dependencies.
+- Undo/redo with clear enabled/disabled states.
+- Unsaved-change indication.
+- Clear invalid-edit feedback.
+- Keyboard alternatives to mouse interactions.
+- Stable focus and accessible status announcements.
+
+Keep the current Flip design language.
+
+Do not add connection handles that falsely imply wiring is available.
+
+Do not let React Flow local node state become the authoritative project.
+
+## Phase 4 — Undo/redo invariants
+
+Undo/redo must restore all relevant semantic state atomically.
+
+Verify:
+
+- Candidate recipe.
+- Component order.
+- Source and target references.
+- External input and output mappings.
+- REF identities and dependencies.
+- Prior verification state and its revision association.
+- Dirty/saved state.
+
+Undo must not restore old evidence as if it were newly verified.
+
+Redo history must invalidate appropriately after divergent edits.
+
+Handle rapid repeated commands and interrupted operations safely.
+
+## Phase 5 — Verification and evidence
+
+Whenever the candidate changes:
+
+- Invalidate or visibly mark prior verification results as stale.
+- Preserve historical evidence without treating it as current proof.
+- Keep revision association deterministic.
+- Never turn an invalid intermediate draft into an executable circuit.
+- Never fabricate canonical output or verification success.
+
+No new backend or network authorization.
+
+## Phase 6 — Tests
+
+Required acceptance cases:
+
+1. Add a NAND through the supported canonical workflow.
+2. Remove an unreferenced NAND.
+3. Reject unsafe removal of a referenced NAND.
+4. Verify component ordering and reference stability.
+5. Undo and redo multiple edits.
+6. Test divergent edit after undo.
+7. Test rapid edit sequences.
+8. Verify Visual/Advanced semantic parity.
+9. Test malformed command parameters.
+10. Test boundary graph sizes.
+11. Verify stale evidence handling.
+12. Verify unchanged REF dependencies.
+13. Verify keyboard-only actions.
+14. Verify saved/dirty and invalid-draft state.
+15. Verify no unapproved network or transaction operations.
+
+Test the existing canonical compiler rather than relying solely on React component tests.
+
+Run all existing Python, browser, showcase, schema, release-integrity and custody checks.
+
+Confirm Windows and Ubuntu CI.
+
+## Delivery requirements
+
+Create a dedicated V2-A branch and a draft PR.
+
+Document:
+
+- Exact base and implementation SHAs.
+- Editing-command contract.
+- Staging versus committed state.
+- Atomicity and reference constraints.
+- Any unsupported authoring operation.
+- Undo/redo invariants.
+- Screenshots and keyboard behavior.
+- Test evidence and CI links.
+- Unchanged canonical/evidence provenance.
+- Remaining V2-B dependencies.
+
+Stop with the PR unmerged for independent review.
+
+## Security constraints
+
+SEC-01 remains OPEN/HIGH under the approved solo-maintainer development policy.
+
+No transaction or signing implementation.
+No public solver hosting.
+No canonical schema changes without separate authorization.
+No rewrite of historical evidence.
+No production deployment.
+No weakening GitHub Actions or release trust checks.
+No V2-B or V2-C implementation in this assignment.

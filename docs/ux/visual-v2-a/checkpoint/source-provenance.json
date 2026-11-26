@@ -1,0 +1,66 @@
+{
+  "base": "fc9c0c1bcb2557169dd89af0c3b2c5a7628c9adf",
+  "sourceTree": "e3fdfb1cffd8853b323acfdd8e552d88ce99977f",
+  "files": [
+    {
+      "path": "packages/flip-core/src/flip_core/models.py",
+      "gitBlob": "ba7bf67a54eabed3b01ef7b378f47259f5e49726",
+      "sha256": "5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/composition_models.py",
+      "gitBlob": "b39bb21eef6a5beff6c63d194ad3badabde4553a",
+      "sha256": "6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/composition.py",
+      "gitBlob": "e5147d468f78d70e6efa71ce49f8cf1a9a9dc39c",
+      "sha256": "d42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/canonical.py",
+      "gitBlob": "86e9520ab05a55c29cc5abe32f07cbb67a4d06a6",
+      "sha256": "8cb414632e63098312844fa2010698e470329f3795b7a64d33ec66331973ec8c"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/verification.py",
+      "gitBlob": "f876f0d654aab5a7d803460b16f1cce5ddfa8458",
+      "sha256": "cb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b"
+    },
+    {
+      "path": "apps/web/src/Composer.tsx",
+      "gitBlob": "0e75dcc170655a1990acc4716941fa4c5db0a810",
+      "sha256": "98a1ce47455889249ad36c570e0842d7680b44c407d06409d803af5e726b63f6"
+    },
+    {
+      "path": "apps/web/src/App.tsx",
+      "gitBlob": "2c4beb108aabd3d6fd4d5c21d12ac4e6c61d4ad2",
+      "sha256": "684a86870caea3a804c011b35739be198c43ac3f4580e6c24be733689ae80271"
+    },
+    {
+      "path": "apps/web/src/visual/VisualComposer.tsx",
+      "gitBlob": "067d7c75c1ed3c7a9c185d653ba8876a41795c63",
+      "sha256": "d4e386a468090ddb81079817880add494a8a9ab019b9f7a3942546b2d9f61ab4"
+    },
+    {
+      "path": "apps/web/src/visual/projection.ts",
+      "gitBlob": "e66d5bbc92a6ca989f795fad5fe5a6b06bf8d1f9",
+      "sha256": "a9e3826c86c68bfb0bee20e824f0523b228394a529c0e399591794099084896c"
+    },
+    {
+      "path": ".github/workflows/m1-contracts.yml",
+      "gitBlob": "58b2c0fe15ddabc15ceb5d402c3d94e98457ec7e",
+      "sha256": "49fa280c8ea2df0ebea27bc6bdfa5faca38ba53afe57b1a726a7f8e091f26f0a"
+    },
+    {
+      "path": "scripts/check_m45_release_package.mjs",
+      "gitBlob": "ac1ef48f8a2c6f6bd13697276dbabb7c74b68de1",
+      "sha256": "75ca91168241181626ab443f6a638681e7067d3b6ae8694e10eaad12cea7dfb1"
+    },
+    {
+      "path": "docs/release/V1_RELEASE_TRUST.json",
+      "gitBlob": "05e5403d1e1c3e847b978920d485ebc241de44e3",
+      "sha256": "c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0"
+    }
+  ]
+}

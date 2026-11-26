@@ -1,0 +1,11 @@
+# V2-A semantic design checkpoint evidence
+
+This is a Phase 1 checkpoint, not V2-A implementation or UI acceptance. [Decision and proposed contract](../../../milestones/P7_V2_A_DESIGN_CHECKPOINT.md).
+
+`authorization.txt` preserves the exact owner request. `semantic-probes.py.txt` is an archived read-only research harness; copy it into ignored scratch to run with the accepted environment. It exercises copied requests through existing `parse_request` and `compile_project`, never patches an engine or accepted fixture, and never provides user-facing defaults. `semantic-probes.json` records all 24 observations. Large synthetic arrays are deliberately summarized with count/order digest, not presented as full raw fixture captures. Each construction remains reproducible from the archived harness. No claim that this harness tests a V2 command/UI.
+
+The initial probe harness needed two corrections before the retained successful run: serialize model lists before calling the existing canonical hasher, and construct an actually referenced synthetic NAND rather than assume `nand0` is NAND (it is REF). A preliminary 5000-component compile expectation also proved wrong because the existing aggregate import-closure record budget applies; the retained case records the measured RESOURCE_LIMIT rejection. These were scratch harness development errors, not modifications to production tests or accepted evidence.
+
+Accepted-main run 45757589943 is recorded as original API JSON plus selected original log lines; its exact head is the source baseline. Final checkpoint-branch CI links and local validation results are recorded on the draft PR after execution, never inferred from a pending job. `source-provenance.json` binds inspected source and trust controls to accepted Git blobs. `MANIFEST.json` binds this evidence directory except itself. All digests cover original Git blob bytes; use `git show`, `git archive`, or a `core.autocrlf=false` checkout when validating byte identity on Windows. No attributes or security controls were changed.
+
+No new screenshots exist: no V2 interface was implemented. Existing V1 keyboard/screenshot reports remain historical and unmodified. This checkpoint does not turn V1 interactions into V2 acceptance.

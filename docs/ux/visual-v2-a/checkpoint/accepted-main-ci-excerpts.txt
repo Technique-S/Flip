@@ -1,0 +1,12 @@
+contracts (ubuntu-latest)	Run npm test	2026-11-26T04:50:17.8366608Z   44 passed (37.4s)
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T04:50:18.3715799Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T04:50:29.8862955Z   28 passed (11.1s)
+contracts (ubuntu-latest)	Run uv run --frozen ruff check .	2026-11-26T04:50:29.9799131Z All checks passed!
+contracts (ubuntu-latest)	Run uv run --frozen pytest -q --junitxml="/home/runner/work/_temp/m3-tests.xml" -o junit_family=legacy	2026-11-26T04:52:05.3358667Z 702 passed in 93.56s (0:01:33)
+contracts (ubuntu-latest)	Run node docs/schema/check-canonical.mjs	2026-11-26T04:52:58.2289974Z 6 canonical vectors passed in Node v24.18.0
+contracts (windows-latest)	Run npm test	2026-11-26T04:55:07.1154505Z   44 passed (1.1m)
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T04:55:09.2100664Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T04:55:32.4843245Z   28 passed (22.2s)
+contracts (windows-latest)	Run uv run --frozen ruff check .	2026-11-26T04:55:33.1356397Z All checks passed!
+contracts (windows-latest)	Run uv run --frozen pytest -q --junitxml="D:\a\_temp/m3-tests.xml" -o junit_family=legacy	2026-11-26T04:59:40.5723202Z 702 passed in 240.15s (0:04:00)
+contracts (windows-latest)	Run node docs/schema/check-canonical.mjs	2026-11-26T05:01:30.5558674Z 6 canonical vectors passed in Node v24.18.0

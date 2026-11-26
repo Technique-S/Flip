@@ -1,0 +1,55 @@
+import copy,json,hashlib,subprocess,datetime
+from pathlib import Path
+from flip_core.workflow import sample
+from flip_core.verification import parse_request
+from flip_core.composition import compile_project
+from flip_core.canonical import content_hash
+from flip_core.contracts import ContractError
+raw=sample('half-adder'); original=copy.deepcopy(raw)
+req=parse_request(raw); baseline=compile_project(req.project,req.imports)
+rows=[]
+def compile_raw(value):
+ r=parse_request(value);c=compile_project(r.project,r.imports)
+ return {'projectHash':c.manifest['projectHash'],'netlistHash':c.manifest['netlistHash'],'manifestHash':content_hash(c.manifest),'expandedGates':c.manifest['expandedGates'],'componentOrder':([x.instanceId for x in r.project.candidate.components] if len(r.project.candidate.components)<20 else {'count':len(r.project.candidate.components),'orderHash':content_hash([x.instanceId for x in r.project.candidate.components])}),'candidate':(r.project.candidate.model_dump(mode='json') if len(r.project.candidate.components)<20 else {'nIn':r.project.candidate.nIn,'componentCount':len(r.project.candidate.components),'outputs':[p.model_dump(mode='json') for p in r.project.candidate.outputs],'largeSyntheticArrayOmitted':True}),'dependencyHash':content_hash(c.manifest['dependencies']),'sourcesHash':content_hash([s.model_dump(mode='json') for s in r.project.sources]),'importsHash':content_hash([s.model_dump(mode='json') for s in r.imports]),'comparisonHash':content_hash(r.project.comparison)}
+def check(name,value,expected):
+ try:
+  result=compile_raw(value);status='ACCEPTED'
+ except ContractError as e:
+  status='REJECTED';result={'code':e.code,'message':str(e),'detail':str(e.__cause__) if e.__cause__ else None}
+ rows.append({'case':name,'expected':expected,'observed':status,'pass':status==expected,'result':result})
+ return result
+baseline_result=check('baseline_real_historical_half_adder',raw,'ACCEPTED')
+for label,inputs in [('missing_inputs','MISSING'),('zero_inputs',[]),('one_input',[{'component':None,'pin':0}]),('null_input',[None,{'component':None,'pin':0}]),('three_inputs',[{'component':None,'pin':0}]*3),('undefined_component',[{'component':'absent','pin':0}]*2),('self_reference',[{'component':'probeNand','pin':0}]*2),('external_out_of_range',[{'component':None,'pin':2}]*2),('negative_pin',[{'component':None,'pin':-1}]*2)]:
+ v=copy.deepcopy(raw);new={'kind':'NAND','instanceId':'probeNand'}
+ if inputs!='MISSING':new['inputs']=inputs
+ v['project']['candidate']['components'].append(new);check(label,v,'REJECTED')
+# These are explicitly synthetic compiler probes, never UI defaults or accepted project edits.
+added=copy.deepcopy(raw);added['project']['candidate']['components'].append({'kind':'NAND','instanceId':'probeNand','inputs':[{'component':None,'pin':0},{'component':None,'pin':1}]})
+a=check('explicit_two_input_bindings_required_for_valid_add',added,'ACCEPTED')
+assert a['sourcesHash']==baseline_result['sourcesHash'] and a['importsHash']==baseline_result['importsHash'] and a['dependencyHash']==baseline_result['dependencyHash'] and a['comparisonHash']==baseline_result['comparisonHash']
+assert a['candidate']['outputs']==baseline_result['candidate']['outputs']
+deleted=copy.deepcopy(added);deleted['project']['candidate']['components'].pop();d=check('remove_unreferenced_nand_restores_exact_request',deleted,'ACCEPTED');assert deleted==raw and d==baseline_result
+for kind in ['component_input','final_output']:
+ v=copy.deepcopy(raw)
+ if kind=='component_input':
+  v=copy.deepcopy(added);v['project']['candidate']['components'].append({'kind':'NAND','instanceId':'consumer','inputs':[{'component':'probeNand','pin':0},{'component':None,'pin':0}]});target='probeNand'
+ else:
+  target=next(c['instanceId'] for c in v['project']['candidate']['components'] if c['kind']=='NAND' and any(p['component']==c['instanceId'] for p in v['project']['candidate']['outputs']))
+ v['project']['candidate']['components']=[c for c in v['project']['candidate']['components'] if c['instanceId']!=target];check('removal_strands_'+kind,v,'REJECTED')
+v=copy.deepcopy(added);v['project']['candidate']['components'][-1]['inputs']=[{'component':'sum','pin':0},{'component':'sum','pin':0}];check('explicit_preceding_id_reference',v,'ACCEPTED')
+v=copy.deepcopy(added);v['project']['candidate']['components'][-1]['instanceId']=v['project']['candidate']['components'][0]['instanceId'];check('duplicate_id',v,'REJECTED')
+v=copy.deepcopy(added);v['project']['candidate']['components'][-1]['instanceId']='bad/name';check('malformed_id',v,'REJECTED')
+v=copy.deepcopy(added);v['project']['candidate']['components'][-1]['inputs'][0]['pin']=True;check('boolean_pin_is_not_integer',v,'REJECTED')
+v=copy.deepcopy(added);v['project']['candidate']['components'].insert(0,v['project']['candidate']['components'].pop());v['project']['candidate']['components'][0]['inputs']=[{'component':'sum','pin':0}]*2;check('moving_preceding_reference_before_source',v,'REJECTED')
+v=copy.deepcopy(raw);v['project']['candidate']['components'].insert(1,copy.deepcopy(added['project']['candidate']['components'][-1]));middle=check('insert_with_explicit_bindings_preserves_existing_instance_id_references',v,'ACCEPTED');assert [c for c in middle['candidate']['components'] if c['instanceId']!='probeNand']==baseline_result['candidate']['components']
+v['project']['candidate']['components'].pop(1);restored=check('remove_unreferenced_middle_no_recipe_renumbering',v,'ACCEPTED');assert restored==baseline_result
+for count,expected in [(4990,'ACCEPTED'),(5000,'REJECTED'),(5001,'REJECTED')]:
+ v=copy.deepcopy(raw);v['project']['limits']['gateCap']=5000
+ v['project']['candidate']['components']=[{'kind':'NAND','instanceId':f'probe{i}','inputs':[{'component':None,'pin':0},{'component':None,'pin':1}]} for i in range(count)]
+ v['project']['candidate']['outputs']=[{'component':f'probe{count-2}','pin':0},{'component':f'probe{count-1}','pin':0}]
+ check(f'compiler_component_count_with_existing_import_closure_{count}',v,expected)
+assert raw==original
+assert all(r['pass'] for r in rows),[(r['case'],r['observed']) for r in rows if not r['pass']]
+result={'scope':'READ_ONLY_SEMANTIC_FEASIBILITY; synthetic copied requests only, not V2 UI or edit commands','base':subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(),'capturedAt':datetime.datetime.now(datetime.UTC).isoformat(),'requestUnchanged':raw==original,'cases':rows,'passed':len(rows),'failed':0}
+Path('.test-tmp/v2a-semantic-probes.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
+print(json.dumps({'passed':len(rows),'failed':0,'baseline':baseline_result,'added':a},indent=2))
