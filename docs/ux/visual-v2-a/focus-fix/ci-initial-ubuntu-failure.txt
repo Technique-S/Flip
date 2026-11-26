@@ -1,0 +1,773 @@
+﻿2026-11-26T21:12:24.6400207Z Current runner version: '2.338.2'
+2026-11-26T21:12:24.6421506Z ##[group]Runner Image Provisioner
+2026-11-26T21:12:24.6422196Z Hosted Compute Agent
+2026-11-26T21:12:24.6422731Z Version: 20261111.635
+2026-11-26T21:12:24.6423299Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T21:12:24.6423914Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T21:12:24.6424529Z Worker ID: {4677aefc-263b-4634-9201-398a02ee30da}
+2026-11-26T21:12:24.6425101Z Region: eastus2
+2026-11-26T21:12:24.6425575Z Cloud: Azure
+2026-11-26T21:12:24.6426064Z ##[endgroup]
+2026-11-26T21:12:24.6427184Z ##[group]Operating System
+2026-11-26T21:12:24.6427739Z Ubuntu
+2026-11-26T21:12:24.6428171Z 26.04.1
+2026-11-26T21:12:24.6428578Z LTS
+2026-11-26T21:12:24.6429092Z ##[endgroup]
+2026-11-26T21:12:24.6429551Z ##[group]Runner Image
+2026-11-26T21:12:24.6430099Z Image: ubuntu-26.04
+2026-11-26T21:12:24.6430566Z Version: 20261116.202.1
+2026-11-26T21:12:24.6431804Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T21:12:24.6433036Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-26T21:12:24.6433853Z ##[endgroup]
+2026-11-26T21:12:24.6434745Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T21:12:24.6436639Z Contents: read
+2026-11-26T21:12:24.6437197Z Metadata: read
+2026-11-26T21:12:24.6437824Z ##[endgroup]
+2026-11-26T21:12:24.6440086Z Secret source: Actions
+2026-11-26T21:12:24.6441333Z Cache mode: write
+2026-11-26T21:12:24.6442205Z Prepare workflow directory
+2026-11-26T21:12:24.6805653Z Prepare all required actions
+2026-11-26T21:12:24.6861292Z Getting action download info
+2026-11-26T21:12:24.8835314Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-26T21:12:24.9663986Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-26T21:12:25.0453361Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-26T21:12:25.1453578Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-26T21:12:25.3747930Z Complete job name: contracts (ubuntu-latest)
+2026-11-26T21:12:25.4681450Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-26T21:12:25.4682361Z with:
+2026-11-26T21:12:25.4682731Z   fetch-depth: 0
+2026-11-26T21:12:25.4683127Z   repository: Technique-S/Flip
+2026-11-26T21:12:25.4686602Z   token: ***
+2026-11-26T21:12:25.4686986Z   ssh-strict: true
+2026-11-26T21:12:25.4687366Z   ssh-user: git
+2026-11-26T21:12:25.4687751Z   persist-credentials: true
+2026-11-26T21:12:25.4688173Z   clean: true
+2026-11-26T21:12:25.4688554Z   sparse-checkout-cone-mode: true
+2026-11-26T21:12:25.4688993Z   fetch-tags: false
+2026-11-26T21:12:25.4689380Z   show-progress: true
+2026-11-26T21:12:25.4689798Z   lfs: false
+2026-11-26T21:12:25.4690159Z   submodules: false
+2026-11-26T21:12:25.4690550Z   set-safe-directory: true
+2026-11-26T21:12:25.4691258Z ##[endgroup]
+2026-11-26T21:12:25.7830603Z Syncing repository: Technique-S/Flip
+2026-11-26T21:12:25.7832897Z ##[group]Getting Git version info
+2026-11-26T21:12:25.7833828Z Working directory is '/home/runner/work/Flip/Flip'
+2026-11-26T21:12:25.7834995Z [command]/usr/bin/git version
+2026-11-26T21:12:25.7844964Z git version 2.56.1
+2026-11-26T21:12:25.7861599Z ##[endgroup]
+2026-11-26T21:12:25.7874727Z Temporarily overriding HOME='/home/runner/work/_temp/2561093e-6524-4317-9fb5-e9b27d666b48' before making global git config changes
+2026-11-26T21:12:25.7876534Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T21:12:25.7879081Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Flip/Flip
+2026-11-26T21:12:25.7941860Z Deleting the contents of '/home/runner/work/Flip/Flip'
+2026-11-26T21:12:25.7945898Z ##[group]Initializing the repository
+2026-11-26T21:12:25.7949680Z [command]/usr/bin/git init /home/runner/work/Flip/Flip
+2026-11-26T21:12:25.8060074Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T21:12:25.8061429Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T21:12:25.8062634Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T21:12:25.8063545Z hint: call:
+2026-11-26T21:12:25.8064055Z hint:
+2026-11-26T21:12:25.8064682Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T21:12:25.8065438Z hint:
+2026-11-26T21:12:25.8066140Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T21:12:25.8067287Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T21:12:25.8068197Z hint:
+2026-11-26T21:12:25.8068684Z hint: 	git branch -m <name>
+2026-11-26T21:12:25.8069267Z hint:
+2026-11-26T21:12:25.8070023Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T21:12:25.8071370Z Initialized empty Git repository in /home/runner/work/Flip/Flip/.git/
+2026-11-26T21:12:25.8080060Z [command]/usr/bin/git remote add origin https://github.com/Technique-S/Flip
+2026-11-26T21:12:25.8133366Z ##[endgroup]
+2026-11-26T21:12:25.8134460Z ##[group]Disabling automatic garbage collection
+2026-11-26T21:12:25.8136957Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T21:12:25.8167067Z ##[endgroup]
+2026-11-26T21:12:25.8167974Z ##[group]Setting up auth
+2026-11-26T21:12:25.8172650Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T21:12:25.8208532Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T21:12:25.8694701Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T21:12:25.8723390Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T21:12:25.8961801Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T21:12:25.8989644Z ##[endgroup]
+2026-11-26T21:12:25.8990392Z ##[group]Fetching the repository
+2026-11-26T21:12:25.8997332Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-26T21:12:26.4005688Z From https://github.com/Technique-S/Flip
+2026-11-26T21:12:26.4007220Z  * [new branch]      codex/flip-m1-core     -> origin/codex/flip-m1-core
+2026-11-26T21:12:26.4008919Z  * [new branch]      codex/flip-m1-integration -> origin/codex/flip-m1-integration
+2026-11-26T21:12:26.4011063Z  * [new branch]      codex/flip-m2-import-integrity -> origin/codex/flip-m2-import-integrity
+2026-11-26T21:12:26.4013294Z  * [new branch]      codex/flip-m2-integration -> origin/codex/flip-m2-integration
+2026-11-26T21:12:26.4015389Z  * [new branch]      codex/flip-m3-composition-canary -> origin/codex/flip-m3-composition-canary
+2026-11-26T21:12:26.4017672Z  * [new branch]      codex/flip-m3-integration -> origin/codex/flip-m3-integration
+2026-11-26T21:12:26.4020216Z  * [new branch]      codex/flip-m4-integration -> origin/codex/flip-m4-integration
+2026-11-26T21:12:26.4022296Z  * [new branch]      codex/flip-m4-product-workflow -> origin/codex/flip-m4-product-workflow
+2026-11-26T21:12:26.4024751Z  * [new branch]      codex/flip-m45-agent-portable-integration -> origin/codex/flip-m45-agent-portable-integration
+2026-11-26T21:12:26.4027366Z  * [new branch]      codex/flip-m45-agent-portable-postmerge -> origin/codex/flip-m45-agent-portable-postmerge
+2026-11-26T21:12:26.4029800Z  * [new branch]      codex/flip-m45-agent-workflow -> origin/codex/flip-m45-agent-workflow
+2026-11-26T21:12:26.4032667Z  * [new branch]      codex/flip-m45-agent-workflow-acceptance -> origin/codex/flip-m45-agent-workflow-acceptance
+2026-11-26T21:12:26.4035158Z  * [new branch]      codex/flip-m45-authority-design -> origin/codex/flip-m45-authority-design
+2026-11-26T21:12:26.4037425Z  * [new branch]      codex/flip-m45-circuit-library -> origin/codex/flip-m45-circuit-library
+2026-11-26T21:12:26.4039469Z  * [new branch]      codex/flip-m45-debugging -> origin/codex/flip-m45-debugging
+2026-11-26T21:12:26.4041697Z  * [new branch]      codex/flip-m45-library-acceptance -> origin/codex/flip-m45-library-acceptance
+2026-11-26T21:12:26.4043977Z  * [new branch]      codex/flip-m45-portable-project -> origin/codex/flip-m45-portable-project
+2026-11-26T21:12:26.4046796Z  * [new branch]      codex/flip-m45-release-package -> origin/codex/flip-m45-release-package
+2026-11-26T21:12:26.4049736Z  * [new branch]      codex/flip-m45-release-readiness -> origin/codex/flip-m45-release-readiness
+2026-11-26T21:12:26.4052592Z  * [new branch]      codex/flip-pre-m5-capability-audit -> origin/codex/flip-pre-m5-capability-audit
+2026-11-26T21:12:26.4055304Z  * [new branch]      codex/flip-pre-m5-expansion-audit -> origin/codex/flip-pre-m5-expansion-audit
+2026-11-26T21:12:26.4057595Z  * [new branch]      codex/flip-visual-architecture -> origin/codex/flip-visual-architecture
+2026-11-26T21:12:26.4059794Z  * [new branch]      codex/flip-visual-v1   -> origin/codex/flip-visual-v1
+2026-11-26T21:12:26.4061915Z  * [new branch]      codex/flip-visual-v1-postmerge -> origin/codex/flip-visual-v1-postmerge
+2026-11-26T21:12:26.4063869Z  * [new branch]      codex/flip-visual-v2-a -> origin/codex/flip-visual-v2-a
+2026-11-26T21:12:26.4065460Z  * [new branch]      main                   -> origin/main
+2026-11-26T21:12:26.4067483Z  * [new branch]      opencode/flip-m2-adversarial-fixtures -> origin/opencode/flip-m2-adversarial-fixtures
+2026-11-26T21:12:26.4070019Z  * [new branch]      opencode/flip-m2-independent-review -> origin/opencode/flip-m2-independent-review
+2026-11-26T21:12:26.4072717Z  * [new branch]      opencode/flip-m3-independent-review -> origin/opencode/flip-m3-independent-review
+2026-11-26T21:12:26.4075749Z  * [new branch]      opencode/flip-m3-verification-corpus -> origin/opencode/flip-m3-verification-corpus
+2026-11-26T21:12:26.4078909Z  * [new branch]      opencode/flip-m4-independent-review -> origin/opencode/flip-m4-independent-review
+2026-11-26T21:12:26.4081638Z  * [new branch]      opencode/flip-m4-ux-acceptance -> origin/opencode/flip-m4-ux-acceptance
+2026-11-26T21:12:26.4084656Z  * [new branch]      opencode/flip-m45-agent-portable-final-review -> origin/opencode/flip-m45-agent-portable-final-review
+2026-11-26T21:12:26.4089558Z  * [new branch]      opencode/flip-m45-agent-portable-independent-review -> origin/opencode/flip-m45-agent-portable-independent-review
+2026-11-26T21:12:26.4093629Z  * [new branch]      opencode/flip-m45-agent-workflow-fixtures -> origin/opencode/flip-m45-agent-workflow-fixtures
+2026-11-26T21:12:26.4096794Z  * [new branch]      opencode/flip-m45-agent-workflow-independent-review -> origin/opencode/flip-m45-agent-workflow-independent-review
+2026-11-26T21:12:26.4100633Z  * [new branch]      opencode/flip-m45-authorization-security-review -> origin/opencode/flip-m45-authorization-security-review
+2026-11-26T21:12:26.4103603Z  * [new branch]      opencode/flip-m45-debugging-fixtures -> origin/opencode/flip-m45-debugging-fixtures
+2026-11-26T21:12:26.4106306Z  * [new branch]      opencode/flip-m45-debugging-independent-review -> origin/opencode/flip-m45-debugging-independent-review
+2026-11-26T21:12:26.4109214Z  * [new branch]      opencode/flip-m45-library-discovery-research -> origin/opencode/flip-m45-library-discovery-research
+2026-11-26T21:12:26.4112125Z  * [new branch]      opencode/flip-m45-library-final-review -> origin/opencode/flip-m45-library-final-review
+2026-11-26T21:12:26.4114860Z  * [new branch]      opencode/flip-m45-library-independent-review -> origin/opencode/flip-m45-library-independent-review
+2026-11-26T21:12:26.4117879Z  * [new branch]      opencode/flip-m45-portable-project-evidence -> origin/opencode/flip-m45-portable-project-evidence
+2026-11-26T21:12:26.4121300Z  * [new branch]      opencode/flip-m45-portable-project-independent-review -> origin/opencode/flip-m45-portable-project-independent-review
+2026-11-26T21:12:26.4124362Z  * [new branch]      opencode/flip-m45-release-acceptance -> origin/opencode/flip-m45-release-acceptance
+2026-11-26T21:12:26.4128275Z  * [new branch]      opencode/flip-m45-release-delta-review -> origin/opencode/flip-m45-release-delta-review
+2026-11-26T21:12:26.4132356Z  * [new branch]      opencode/flip-m45-release-evidence -> origin/opencode/flip-m45-release-evidence
+2026-11-26T21:12:26.4136182Z  * [new branch]      opencode/flip-m45-release-final-review -> origin/opencode/flip-m45-release-final-review
+2026-11-26T21:12:26.4140013Z  * [new branch]      opencode/flip-visual-v1-independent-review -> origin/opencode/flip-visual-v1-independent-review
+2026-11-26T21:12:26.4142987Z  * [new branch]      opencode/flip-visual-v1-security-rereview -> origin/opencode/flip-visual-v1-security-rereview
+2026-11-26T21:12:26.4146204Z  * [new branch]      opencode/flip-visual-v2a-test-design -> origin/opencode/flip-visual-v2a-test-design
+2026-11-26T21:12:26.4150597Z [command]/usr/bin/git branch --list --remote origin/codex/flip-visual-v2-a
+2026-11-26T21:12:26.4152888Z   origin/codex/flip-visual-v2-a
+2026-11-26T21:12:26.4156666Z [command]/usr/bin/git rev-parse refs/remotes/origin/codex/flip-visual-v2-a
+2026-11-26T21:12:26.4159788Z e92ae1e21c8c3ea0fd7e713c1a643ed642a906e7
+2026-11-26T21:12:26.4163879Z ##[endgroup]
+2026-11-26T21:12:26.4166035Z ##[group]Determining the checkout info
+2026-11-26T21:12:26.4168218Z ##[endgroup]
+2026-11-26T21:12:26.4169652Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T21:12:26.4173638Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T21:12:26.4177946Z ##[group]Checking out the ref
+2026-11-26T21:12:26.4181079Z [command]/usr/bin/git checkout --progress --force -B codex/flip-visual-v2-a refs/remotes/origin/codex/flip-visual-v2-a
+2026-11-26T21:12:26.4904413Z Switched to a new branch 'codex/flip-visual-v2-a'
+2026-11-26T21:12:26.4908124Z branch 'codex/flip-visual-v2-a' set up to track 'origin/codex/flip-visual-v2-a'.
+2026-11-26T21:12:26.4919504Z ##[endgroup]
+2026-11-26T21:12:26.4962256Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T21:12:26.4982907Z e92ae1e21c8c3ea0fd7e713c1a643ed642a906e7
+2026-11-26T21:12:26.5334991Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-11-26T21:12:26.5336260Z with:
+2026-11-26T21:12:26.5336967Z   python-version: 3.14.6
+2026-11-26T21:12:26.5337780Z   check-latest: false
+2026-11-26T21:12:26.5345638Z   token: ***
+2026-11-26T21:12:26.5346376Z   update-environment: true
+2026-11-26T21:12:26.5347218Z   allow-prereleases: false
+2026-11-26T21:12:26.5348028Z   freethreaded: false
+2026-11-26T21:12:26.5348781Z ##[endgroup]
+2026-11-26T21:12:26.6456238Z ##[group]Installed versions
+2026-11-26T21:12:26.6474710Z Version 3.14.6 was not found in the local cache
+2026-11-26T21:12:26.6622969Z (node:2166) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T21:12:26.6626074Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T21:12:27.0365775Z Version 3.14.6 is available for downloading
+2026-11-26T21:12:27.0368282Z Download from "https://github.com/actions/python-versions/releases/download/3.14.6-27283001424/python-3.14.6-linux-26.04-x64.tar.gz"
+2026-11-26T21:12:27.5730603Z Extract downloaded archive
+2026-11-26T21:12:27.5889772Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/79bbac35-49cc-422e-a99e-790b82dc9660 -f /home/runner/work/_temp/f906e671-0f7e-4804-8832-ef8fa2b1d864
+2026-11-26T21:12:28.7517029Z Execute installation script
+2026-11-26T21:12:28.7653439Z Check if Python hostedtoolcache folder exist...
+2026-11-26T21:12:28.7657648Z Create Python 3.14.6 folder
+2026-11-26T21:12:28.7676794Z Copy Python binaries to hostedtoolcache folder
+2026-11-26T21:12:29.1656268Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-11-26T21:12:29.1749225Z Upgrading pip...
+2026-11-26T21:12:31.0813582Z Collecting pip
+2026-11-26T21:12:31.1765892Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-26T21:12:31.3415672Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-26T21:12:31.4804896Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 23.4 MB/s  0:00:00
+2026-11-26T21:12:31.4805417Z 
+2026-11-26T21:12:31.5069316Z Installing collected packages: pip
+2026-11-26T21:12:31.5070113Z Attempting uninstall: pip
+2026-11-26T21:12:31.5089221Z Found existing installation: pip 26.1.2
+2026-11-26T21:12:31.5317753Z Uninstalling pip-26.1.2:
+2026-11-26T21:12:31.5359956Z Successfully uninstalled pip-26.1.2
+2026-11-26T21:12:32.5858691Z Successfully installed pip-26.3
+2026-11-26T21:12:32.6418519Z Create complete file
+2026-11-26T21:12:32.6467375Z Successfully set up CPython (3.14.6)
+2026-11-26T21:12:32.6468171Z ##[endgroup]
+2026-11-26T21:12:32.6713597Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-26T21:12:32.6713938Z with:
+2026-11-26T21:12:32.6714112Z   node-version: 24.18.0
+2026-11-26T21:12:32.6714302Z   always-auth: false
+2026-11-26T21:12:32.6714487Z   check-latest: false
+2026-11-26T21:12:32.6716620Z   token: ***
+2026-11-26T21:12:32.6716797Z env:
+2026-11-26T21:12:32.6717055Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:32.6717427Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:32.6717799Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:32.6718098Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:32.6718392Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:32.6718684Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:32.6718965Z ##[endgroup]
+2026-11-26T21:12:32.7815013Z Attempting to download 24.18.0...
+2026-11-26T21:12:32.7896683Z (node:2224) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T21:12:32.7897264Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T21:12:33.3275881Z Acquiring 24.18.0 - x64 from https://github.com/actions/node-versions/releases/download/24.18.0-28070977815/node-24.18.0-linux-x64.tar.gz
+2026-11-26T21:12:33.6907831Z Extracting ...
+2026-11-26T21:12:33.7004891Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/4396ffcf-7959-4617-8c14-c566ad9690fa -f /home/runner/work/_temp/d8feb3a8-9ea0-4115-81e2-22de8cac686a
+2026-11-26T21:12:34.3592168Z Adding to the cache ...
+2026-11-26T21:12:40.8559660Z ##[group]Environment details
+2026-11-26T21:12:41.0617672Z node: v24.18.0
+2026-11-26T21:12:41.0617957Z npm: 11.16.0
+2026-11-26T21:12:41.0618217Z yarn: 1.22.22
+2026-11-26T21:12:41.0618738Z ##[endgroup]
+2026-11-26T21:12:41.1867057Z ##[group]Run python -m pip install uv==0.9.11
+2026-11-26T21:12:41.1867413Z [36;1mpython -m pip install uv==0.9.11[0m
+2026-11-26T21:12:41.1901253Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:41.1901464Z env:
+2026-11-26T21:12:41.1901697Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:41.1902040Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:41.1902375Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:41.1902678Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:41.1902978Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:41.1903269Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:41.1903522Z ##[endgroup]
+2026-11-26T21:12:41.9386905Z Collecting uv==0.9.11
+2026-11-26T21:12:41.9989721Z   Downloading uv-0.9.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2026-11-26T21:12:42.0201869Z Downloading uv-0.9.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (21.7 MB)
+2026-11-26T21:12:42.2848727Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.7/21.7 MB 96.0 MB/s  0:00:00
+2026-11-26T21:12:42.3291051Z Installing collected packages: uv
+2026-11-26T21:12:42.5247157Z Successfully installed uv-0.9.11
+2026-11-26T21:12:42.5837784Z ##[group]Run uv sync --locked
+2026-11-26T21:12:42.5838072Z [36;1muv sync --locked[0m
+2026-11-26T21:12:42.5868823Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:42.5869032Z env:
+2026-11-26T21:12:42.5869256Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:42.5869588Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:42.5869923Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:42.5870222Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:42.5870516Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:42.5870829Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:42.5871255Z ##[endgroup]
+2026-11-26T21:12:42.6598541Z Using CPython 3.14.6 interpreter at: /opt/hostedtoolcache/Python/3.14.6/x64/bin/python3.14
+2026-11-26T21:12:42.6599120Z Creating virtual environment at: .venv
+2026-11-26T21:12:42.6626173Z Resolved 36 packages in 1ms
+2026-11-26T21:12:42.6678743Z    Building flip-core @ file:///home/runner/work/Flip/Flip/packages/flip-core
+2026-11-26T21:12:42.6679707Z    Building flip-cli @ file:///home/runner/work/Flip/Flip/packages/flip-cli
+2026-11-26T21:12:42.6680591Z    Building flip-api @ file:///home/runner/work/Flip/Flip/packages/flip-api
+2026-11-26T21:12:42.7110300Z Downloading setuptools (1.1MiB)
+2026-11-26T21:12:42.7112521Z Downloading pygments (1.2MiB)
+2026-11-26T21:12:42.7114274Z Downloading pydantic-core (2.0MiB)
+2026-11-26T21:12:42.7117344Z Downloading ruff (13.2MiB)
+2026-11-26T21:12:42.7951375Z  Downloaded pydantic-core
+2026-11-26T21:12:42.8772177Z  Downloaded ruff
+2026-11-26T21:12:42.8979396Z Downloading python-sat (4.0MiB)
+2026-11-26T21:12:42.9533766Z  Downloaded pygments
+2026-11-26T21:12:42.9560616Z  Downloaded python-sat
+2026-11-26T21:12:42.9661522Z  Downloaded setuptools
+2026-11-26T21:12:43.6505664Z       Built flip-core @ file:///home/runner/work/Flip/Flip/packages/flip-core
+2026-11-26T21:12:43.8209762Z       Built flip-cli @ file:///home/runner/work/Flip/Flip/packages/flip-cli
+2026-11-26T21:12:43.8316665Z       Built flip-api @ file:///home/runner/work/Flip/Flip/packages/flip-api
+2026-11-26T21:12:43.8322431Z Prepared 34 packages in 1.16s
+2026-11-26T21:12:43.8518747Z Installed 34 packages in 19ms
+2026-11-26T21:12:43.8519141Z  + annotated-doc==0.0.6
+2026-11-26T21:12:43.8519478Z  + annotated-types==0.8.0
+2026-11-26T21:12:43.8519791Z  + anyio==4.11.0
+2026-11-26T21:12:43.8520059Z  + attrs==26.1.0
+2026-11-26T21:12:43.8520332Z  + certifi==2026.10.23
+2026-11-26T21:12:43.8520729Z  + click==8.5.1
+2026-11-26T21:12:43.8521143Z  + fastapi==0.121.1
+2026-11-26T21:12:43.8525682Z  + flip-api==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-api)
+2026-11-26T21:12:43.8526385Z  + flip-cli==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-cli)
+2026-11-26T21:12:43.8527034Z  + flip-core==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-core)
+2026-11-26T21:12:43.8527526Z  + h11==0.16.0
+2026-11-26T21:12:43.8528018Z  + httpcore==1.0.9
+2026-11-26T21:12:43.8528385Z  + httpx==0.28.1
+2026-11-26T21:12:43.8528663Z  + idna==3.20
+2026-11-26T21:12:43.8528912Z  + iniconfig==2.3.1
+2026-11-26T21:12:43.8529182Z  + jsonschema==4.25.1
+2026-11-26T21:12:43.8529549Z  + jsonschema-specifications==2025.9.1
+2026-11-26T21:12:43.8529899Z  + packaging==26.3
+2026-11-26T21:12:43.8530159Z  + pluggy==1.7.0
+2026-11-26T21:12:43.8530422Z  + pydantic==2.12.4
+2026-11-26T21:12:43.8530693Z  + pydantic-core==2.41.5
+2026-11-26T21:12:43.8531291Z  + pygments==2.21.0
+2026-11-26T21:12:43.8531533Z  + pytest==9.0.1
+2026-11-26T21:12:43.8531716Z  + python-sat==1.9.dev23
+2026-11-26T21:12:43.8532150Z  + referencing==0.37.0
+2026-11-26T21:12:43.8532348Z  + rpds-py==2026.9.1
+2026-11-26T21:12:43.8532700Z  + ruff==0.14.5
+2026-11-26T21:12:43.8532959Z  + setuptools==80.9.0
+2026-11-26T21:12:43.8533227Z  + six==1.17.0
+2026-11-26T21:12:43.8533490Z  + sniffio==1.3.1
+2026-11-26T21:12:43.8533763Z  + starlette==0.49.3
+2026-11-26T21:12:43.8534327Z  + typing-extensions==4.16.0
+2026-11-26T21:12:43.8534674Z  + typing-inspection==0.4.5
+2026-11-26T21:12:43.8534984Z  + uvicorn==0.38.0
+2026-11-26T21:12:43.8815006Z ##[group]Run npm ci
+2026-11-26T21:12:43.8815258Z [36;1mnpm ci[0m
+2026-11-26T21:12:43.8845415Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:43.8845624Z env:
+2026-11-26T21:12:43.8845845Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:43.8846195Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:43.8846633Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:43.8846930Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:43.8847236Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:43.8847525Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:43.8847779Z ##[endgroup]
+2026-11-26T21:12:45.6340718Z 
+2026-11-26T21:12:45.6341655Z added 37 packages, and audited 38 packages in 2s
+2026-11-26T21:12:45.6342175Z 
+2026-11-26T21:12:45.6342386Z 1 package is looking for funding
+2026-11-26T21:12:45.6343106Z   run `npm fund` for details
+2026-11-26T21:12:45.6349929Z 
+2026-11-26T21:12:45.6350197Z found 0 vulnerabilities
+2026-11-26T21:12:45.6357236Z npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+2026-11-26T21:12:45.6358280Z npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+2026-11-26T21:12:45.6358879Z npm warn allow-scripts
+2026-11-26T21:12:45.6359783Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+2026-11-26T21:12:45.6780166Z ##[group]Run npm run lint
+2026-11-26T21:12:45.6780593Z [36;1mnpm run lint[0m
+2026-11-26T21:12:45.6819619Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:45.6819922Z env:
+2026-11-26T21:12:45.6820179Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.6820537Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:45.6821089Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.6821415Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.6821711Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.6822009Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:45.6822268Z ##[endgroup]
+2026-11-26T21:12:45.7648887Z 
+2026-11-26T21:12:45.7649361Z > flip-workbench@0.1.0 lint
+2026-11-26T21:12:45.7649679Z > biome lint src tests
+2026-11-26T21:12:45.7649806Z 
+2026-11-26T21:12:45.8380121Z Checked 29 files in 33ms. No fixes applied.
+2026-11-26T21:12:45.8507823Z ##[group]Run npm run build
+2026-11-26T21:12:45.8508071Z [36;1mnpm run build[0m
+2026-11-26T21:12:45.8538329Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:45.8538557Z env:
+2026-11-26T21:12:45.8538776Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.8539123Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:45.8539462Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.8539757Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.8540055Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:45.8540353Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:45.8540611Z ##[endgroup]
+2026-11-26T21:12:45.9350322Z 
+2026-11-26T21:12:45.9350747Z > flip-workbench@0.1.0 build
+2026-11-26T21:12:45.9351314Z > tsc --noEmit && node build.mjs
+2026-11-26T21:12:45.9351492Z 
+2026-11-26T21:12:46.2721436Z ##[group]Run npx playwright install --with-deps chromium
+2026-11-26T21:12:46.2721977Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-11-26T21:12:46.2751832Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:12:46.2752044Z env:
+2026-11-26T21:12:46.2752263Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:46.2752609Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:12:46.2752945Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:46.2753264Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:46.2753563Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:12:46.2753860Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:12:46.2754118Z ##[endgroup]
+2026-11-26T21:12:46.8402166Z Installing dependencies...
+2026-11-26T21:12:46.8517996Z Switching to root user to install dependencies...
+2026-11-26T21:12:46.9311698Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-26T21:12:46.9568552Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-26T21:12:46.9659650Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-26T21:12:46.9685779Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-26T21:12:46.9707363Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-26T21:12:46.9735477Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-26T21:12:46.9839114Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [178 kB]
+2026-11-26T21:12:47.0037945Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [192 kB]
+2026-11-26T21:12:47.0156104Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [918 kB]
+2026-11-26T21:12:47.0242807Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [202 kB]
+2026-11-26T21:12:47.0281983Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [398 kB]
+2026-11-26T21:12:47.0314505Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [126 kB]
+2026-11-26T21:12:47.0315577Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted amd64v3 Packages [640 kB]
+2026-11-26T21:12:47.0378902Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [132 kB]
+2026-11-26T21:12:47.0392548Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [765 kB]
+2026-11-26T21:12:47.0422146Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [165 kB]
+2026-11-26T21:12:47.0432245Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [229 kB]
+2026-11-26T21:12:47.0447517Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [74.4 kB]
+2026-11-26T21:12:47.0887639Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [618 kB]
+2026-11-26T21:12:47.0915175Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [128 kB]
+2026-11-26T21:12:50.0659165Z Fetched 5181 kB in 0s (14.7 MB/s)
+2026-11-26T21:12:50.6186125Z Reading package lists...
+2026-11-26T21:12:50.6417765Z Reading package lists...
+2026-11-26T21:12:50.7920622Z Building dependency tree...
+2026-11-26T21:12:50.7926880Z Reading state information...
+2026-11-26T21:12:50.8226997Z libatk-bridge2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-26T21:12:50.8227608Z libatk-bridge2.0-0t64 set to manually installed.
+2026-11-26T21:12:50.8228113Z libatk1.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-26T21:12:50.8228562Z libatk1.0-0t64 set to manually installed.
+2026-11-26T21:12:50.8229043Z libatspi2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-26T21:12:50.8230485Z libatspi2.0-0t64 set to manually installed.
+2026-11-26T21:12:50.8231272Z libcairo2 is already the newest version (1.18.4-3).
+2026-11-26T21:12:50.8231668Z libcairo2 set to manually installed.
+2026-11-26T21:12:50.8232115Z libcups2t64 is already the newest version (2.4.16-1ubuntu1.3).
+2026-11-26T21:12:50.8232556Z libcups2t64 set to manually installed.
+2026-11-26T21:12:50.8232995Z libdbus-1-3 is already the newest version (1.16.2-2ubuntu4).
+2026-11-26T21:12:50.8233425Z libdbus-1-3 set to manually installed.
+2026-11-26T21:12:50.8233810Z libdrm2 is already the newest version (2.4.131-1).
+2026-11-26T21:12:50.8234193Z libdrm2 set to manually installed.
+2026-11-26T21:12:50.8234631Z libgbm1 is already the newest version (26.0.8-1ubuntu0.3).
+2026-11-26T21:12:50.8235040Z libgbm1 set to manually installed.
+2026-11-26T21:12:50.8235490Z libglib2.0-0t64 is already the newest version (2.88.0-1ubuntu0.1).
+2026-11-26T21:12:50.8235952Z libglib2.0-0t64 set to manually installed.
+2026-11-26T21:12:50.8236425Z libnspr4 is already the newest version (2:4.38.2-1ubuntu1).
+2026-11-26T21:12:50.8236850Z libnspr4 set to manually installed.
+2026-11-26T21:12:50.8237295Z libnss3 is already the newest version (2:3.120-1ubuntu2.2).
+2026-11-26T21:12:50.8237691Z libnss3 set to manually installed.
+2026-11-26T21:12:50.8238128Z libpango-1.0-0 is already the newest version (1.57.0-1).
+2026-11-26T21:12:50.8238549Z libpango-1.0-0 set to manually installed.
+2026-11-26T21:12:50.8238995Z libx11-6 is already the newest version (2:1.8.13-1ubuntu0.1).
+2026-11-26T21:12:50.8239412Z libx11-6 set to manually installed.
+2026-11-26T21:12:50.8239814Z libxcb1 is already the newest version (1.17.0-2ubuntu1).
+2026-11-26T21:12:50.8240208Z libxcb1 set to manually installed.
+2026-11-26T21:12:50.8240682Z libxcomposite1 is already the newest version (1:0.4.6-1build1).
+2026-11-26T21:12:50.8241268Z libxcomposite1 set to manually installed.
+2026-11-26T21:12:50.8241684Z libxdamage1 is already the newest version (1:1.1.7-1).
+2026-11-26T21:12:50.8242088Z libxdamage1 set to manually installed.
+2026-11-26T21:12:50.8242512Z libxext6 is already the newest version (2:1.3.4-1build3).
+2026-11-26T21:12:50.8242919Z libxext6 set to manually installed.
+2026-11-26T21:12:50.8243337Z libxfixes3 is already the newest version (1:6.0.0-2build2).
+2026-11-26T21:12:50.8243749Z libxfixes3 set to manually installed.
+2026-11-26T21:12:50.8244171Z libxkbcommon0 is already the newest version (1.13.1-1).
+2026-11-26T21:12:50.8244585Z libxkbcommon0 set to manually installed.
+2026-11-26T21:12:50.8245026Z libxrandr2 is already the newest version (2:1.5.4-1build1).
+2026-11-26T21:12:50.8245436Z libxrandr2 set to manually installed.
+2026-11-26T21:12:50.8245855Z xvfb is already the newest version (2:21.1.22-1ubuntu1.3).
+2026-11-26T21:12:50.8246390Z fonts-noto-color-emoji is already the newest version (2.051-1build1).
+2026-11-26T21:12:50.8246950Z libfontconfig1 is already the newest version (2.17.1-3ubuntu1).
+2026-11-26T21:12:50.8247404Z libfontconfig1 set to manually installed.
+2026-11-26T21:12:50.8247907Z libfreetype6 is already the newest version (2.14.2+dfsg-1ubuntu0.2).
+2026-11-26T21:12:50.8248371Z libfreetype6 set to manually installed.
+2026-11-26T21:12:50.8248844Z fonts-liberation is already the newest version (1:2.1.5-3build1).
+2026-11-26T21:12:50.8249304Z fonts-liberation set to manually installed.
+2026-11-26T21:12:50.8711579Z Solving dependencies...
+2026-11-26T21:12:50.9515410Z The following additional packages will be installed:
+2026-11-26T21:12:50.9523050Z   libasound2-data xfonts-encodings xfonts-utils
+2026-11-26T21:12:50.9528919Z Recommended packages:
+2026-11-26T21:12:50.9529300Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-11-26T21:12:50.9751653Z The following NEW packages will be installed:
+2026-11-26T21:12:50.9752295Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-11-26T21:12:50.9760068Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-11-26T21:12:50.9760543Z   xfonts-utils
+2026-11-26T21:12:50.9765052Z The following packages will be upgraded:
+2026-11-26T21:12:50.9770200Z   libasound2-data libasound2t64
+2026-11-26T21:12:50.9966871Z 2 upgraded, 9 newly installed, 0 to remove and 83 not upgraded.
+2026-11-26T21:12:50.9967899Z Need to get 22.3 MB of archives.
+2026-11-26T21:12:50.9968547Z After this operation, 80.2 MB of additional disk space will be used.
+2026-11-26T21:12:50.9969247Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-26T21:12:51.1167606Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-ipafont-gothic all 00303-23ubuntu1 [3703 kB]
+2026-11-26T21:12:51.1820040Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 fonts-freefont-ttf all 20211204+svn4273-4build1 [5656 kB]
+2026-11-26T21:12:51.2930661Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-tlwg-loma-otf all 1:0.7.3-1build1 [106 kB]
+2026-11-26T21:12:51.2941817Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-unifont all 1:16.0.04-1build1 [3169 kB]
+2026-11-26T21:12:51.3458883Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-wqy-zenhei all 0.9.45-8build1 [7863 kB]
+2026-11-26T21:12:51.4809021Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libasound2t64 amd64 1.2.15.3-1ubuntu1.2 [418 kB]
+2026-11-26T21:12:51.4833146Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libasound2-data all 1.2.15.3-1ubuntu1.2 [19.7 kB]
+2026-11-26T21:12:51.4839920Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-encodings all 1:1.0.5-0ubuntu3 [576 kB]
+2026-11-26T21:12:51.4871359Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-utils amd64 1:7.7+7build1 [97.3 kB]
+2026-11-26T21:12:51.4882271Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-cyrillic all 1:1.0.5+nmu1build1 [384 kB]
+2026-11-26T21:12:51.4906100Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-scalable all 1:1.0.3-1.3build1 [304 kB]
+2026-11-26T21:12:51.7872477Z Fetched 22.3 MB in 1s (44.0 MB/s)
+2026-11-26T21:12:51.8096271Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-11-26T21:12:51.8369708Z (Reading database ... 
+2026-11-26T21:12:51.8369970Z (Reading database ... 5%
+2026-11-26T21:12:51.8370192Z (Reading database ... 10%
+2026-11-26T21:12:51.8370402Z (Reading database ... 15%
+2026-11-26T21:12:51.8370597Z (Reading database ... 20%
+2026-11-26T21:12:51.8370800Z (Reading database ... 25%
+2026-11-26T21:12:51.8371234Z (Reading database ... 30%
+2026-11-26T21:12:51.8371532Z (Reading database ... 35%
+2026-11-26T21:12:51.8371834Z (Reading database ... 40%
+2026-11-26T21:12:51.8372187Z (Reading database ... 45%
+2026-11-26T21:12:51.8372474Z (Reading database ... 50%
+2026-11-26T21:12:51.8629914Z (Reading database ... 55%
+2026-11-26T21:12:51.8974268Z (Reading database ... 60%
+2026-11-26T21:12:52.0482410Z (Reading database ... 65%
+2026-11-26T21:12:52.0866649Z (Reading database ... 70%
+2026-11-26T21:12:52.1304749Z (Reading database ... 75%
+2026-11-26T21:12:52.2836355Z (Reading database ... 80%
+2026-11-26T21:12:52.4716370Z (Reading database ... 85%
+2026-11-26T21:12:52.6765109Z (Reading database ... 90%
+2026-11-26T21:12:52.8298219Z (Reading database ... 95%
+2026-11-26T21:12:52.8298637Z (Reading database ... 100%
+2026-11-26T21:12:52.8299197Z (Reading database ... 214296 files and directories currently installed.)
+2026-11-26T21:12:52.8341567Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-23ubuntu1_all.deb ...
+2026-11-26T21:12:52.8424291Z Unpacking fonts-ipafont-gothic (00303-23ubuntu1) ...
+2026-11-26T21:12:52.9582384Z Selecting previously unselected package fonts-freefont-ttf.
+2026-11-26T21:12:52.9705367Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-4build1_all.deb ...
+2026-11-26T21:12:52.9712030Z Unpacking fonts-freefont-ttf (20211204+svn4273-4build1) ...
+2026-11-26T21:12:53.0575867Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-11-26T21:12:53.0698831Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1build1_all.deb ...
+2026-11-26T21:12:53.0706479Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+2026-11-26T21:12:53.1245899Z Selecting previously unselected package fonts-unifont.
+2026-11-26T21:12:53.1367483Z Preparing to unpack .../03-fonts-unifont_1%3a16.0.04-1build1_all.deb ...
+2026-11-26T21:12:53.1374687Z Unpacking fonts-unifont (1:16.0.04-1build1) ...
+2026-11-26T21:12:53.3492700Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-11-26T21:12:53.3616352Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8build1_all.deb ...
+2026-11-26T21:12:53.3743384Z Unpacking fonts-wqy-zenhei (0.9.45-8build1) ...
+2026-11-26T21:12:53.5698233Z Preparing to unpack .../05-libasound2t64_1.2.15.3-1ubuntu1.2_amd64v3.deb ...
+2026-11-26T21:12:53.5734773Z Unpacking libasound2t64:amd64 (1.2.15.3-1ubuntu1.2) over (1.2.15.3-1ubuntu1.1) ...
+2026-11-26T21:12:53.6133901Z Preparing to unpack .../06-libasound2-data_1.2.15.3-1ubuntu1.2_all.deb ...
+2026-11-26T21:12:53.6150568Z Unpacking libasound2-data (1.2.15.3-1ubuntu1.2) over (1.2.15.3-1ubuntu1.1) ...
+2026-11-26T21:12:53.6632085Z Selecting previously unselected package xfonts-encodings.
+2026-11-26T21:12:53.6756941Z Preparing to unpack .../07-xfonts-encodings_1%3a1.0.5-0ubuntu3_all.deb ...
+2026-11-26T21:12:53.6764489Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu3) ...
+2026-11-26T21:12:53.7169403Z Selecting previously unselected package xfonts-utils.
+2026-11-26T21:12:53.7292829Z Preparing to unpack .../08-xfonts-utils_1%3a7.7+7build1_amd64v3.deb ...
+2026-11-26T21:12:53.7299865Z Unpacking xfonts-utils (1:7.7+7build1) ...
+2026-11-26T21:12:53.7618753Z Selecting previously unselected package xfonts-cyrillic.
+2026-11-26T21:12:53.7743191Z Preparing to unpack .../09-xfonts-cyrillic_1%3a1.0.5+nmu1build1_all.deb ...
+2026-11-26T21:12:53.7750095Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+2026-11-26T21:12:53.8025572Z Selecting previously unselected package xfonts-scalable.
+2026-11-26T21:12:53.8146802Z Preparing to unpack .../10-xfonts-scalable_1%3a1.0.3-1.3build1_all.deb ...
+2026-11-26T21:12:53.8154706Z Unpacking xfonts-scalable (1:1.0.3-1.3build1) ...
+2026-11-26T21:12:53.8564617Z Setting up fonts-wqy-zenhei (0.9.45-8build1) ...
+2026-11-26T21:12:53.8727613Z Setting up fonts-freefont-ttf (20211204+svn4273-4build1) ...
+2026-11-26T21:12:53.8744024Z Setting up libasound2-data (1.2.15.3-1ubuntu1.2) ...
+2026-11-26T21:12:53.8760207Z Setting up libasound2t64:amd64 (1.2.15.3-1ubuntu1.2) ...
+2026-11-26T21:12:53.8776950Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+2026-11-26T21:12:53.8796595Z Setting up xfonts-encodings (1:1.0.5-0ubuntu3) ...
+2026-11-26T21:12:53.8813044Z Setting up fonts-ipafont-gothic (00303-23ubuntu1) ...
+2026-11-26T21:12:53.8867554Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-11-26T21:12:53.8882211Z Setting up fonts-unifont (1:16.0.04-1build1) ...
+2026-11-26T21:12:53.8898745Z Setting up xfonts-utils (1:7.7+7build1) ...
+2026-11-26T21:12:53.8947397Z Setting up xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+2026-11-26T21:12:53.9331652Z Setting up xfonts-scalable (1:1.0.3-1.3build1) ...
+2026-11-26T21:12:53.9702479Z Processing triggers for libc-bin (2.43-2ubuntu2.7) ...
+2026-11-26T21:12:54.1864408Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-26T21:12:54.1889099Z Not building database; man-db/auto-update is not 'true'.
+2026-11-26T21:12:54.1900358Z Processing triggers for fontconfig (2.17.1-3ubuntu1) ...
+2026-11-26T21:12:54.8209926Z 
+2026-11-26T21:12:54.8210522Z Running kernel seems to be up-to-date.
+2026-11-26T21:12:54.8210842Z 
+2026-11-26T21:12:54.8211164Z Restarting services...
+2026-11-26T21:12:54.8293335Z 
+2026-11-26T21:12:54.8293682Z Service restarts being deferred:
+2026-11-26T21:12:54.8297808Z  systemctl restart hosted-compute-agent.service
+2026-11-26T21:12:54.8298107Z 
+2026-11-26T21:12:54.8298681Z No containers need to be restarted.
+2026-11-26T21:12:54.8298906Z 
+2026-11-26T21:12:54.8299465Z No user sessions are running outdated binaries.
+2026-11-26T21:12:54.8299735Z 
+2026-11-26T21:12:54.8300250Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-26T21:12:55.6684188Z Downloading Chrome for Testing 159.0.8154.6 (playwright chromium v1255) from https://cdn.playwright.dev/builds/cft/159.0.8154.6/linux64/chrome-linux64.zip
+2026-11-26T21:12:55.9792619Z |                                                                                |   0% of 199.3 MiB
+2026-11-26T21:12:56.0982786Z |■■■■■■■■                                                                        |  10% of 199.3 MiB
+2026-11-26T21:12:56.1809795Z |■■■■■■■■■■■■■■■■                                                                |  20% of 199.3 MiB
+2026-11-26T21:12:56.2307612Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 199.3 MiB
+2026-11-26T21:12:56.2975638Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 199.3 MiB
+2026-11-26T21:12:56.3725557Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 199.3 MiB
+2026-11-26T21:12:56.4325287Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 199.3 MiB
+2026-11-26T21:12:56.5043906Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 199.3 MiB
+2026-11-26T21:12:56.5601835Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 199.3 MiB
+2026-11-26T21:12:56.6387148Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 199.3 MiB
+2026-11-26T21:12:56.6965387Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 199.3 MiB
+2026-11-26T21:12:59.0863157Z Chrome for Testing 159.0.8154.6 (playwright chromium v1255) downloaded to /home/runner/.cache/ms-playwright/chromium-1255
+2026-11-26T21:12:59.0868457Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+2026-11-26T21:12:59.3855012Z |                                                                                |   0% of 2.2 MiB
+2026-11-26T21:12:59.3972160Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+2026-11-26T21:12:59.4026037Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+2026-11-26T21:12:59.4068080Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+2026-11-26T21:12:59.4079553Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+2026-11-26T21:12:59.4103094Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+2026-11-26T21:12:59.4121127Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+2026-11-26T21:12:59.4132034Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+2026-11-26T21:12:59.4142194Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+2026-11-26T21:12:59.4151930Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+2026-11-26T21:12:59.4171778Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+2026-11-26T21:12:59.4619169Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+2026-11-26T21:12:59.4622074Z Downloading Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255) from https://cdn.playwright.dev/builds/cft/159.0.8154.6/linux64/chrome-headless-shell-linux64.zip
+2026-11-26T21:12:59.7666990Z |                                                                                |   0% of 125.7 MiB
+2026-11-26T21:12:59.8558214Z |■■■■■■■■                                                                        |  10% of 125.7 MiB
+2026-11-26T21:12:59.9151520Z |■■■■■■■■■■■■■■■■                                                                |  20% of 125.7 MiB
+2026-11-26T21:12:59.9736051Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 125.7 MiB
+2026-11-26T21:13:00.0056625Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 125.7 MiB
+2026-11-26T21:13:00.0350832Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 125.7 MiB
+2026-11-26T21:13:00.0756022Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 125.7 MiB
+2026-11-26T21:13:00.1041028Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 125.7 MiB
+2026-11-26T21:13:00.1442389Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 125.7 MiB
+2026-11-26T21:13:00.1725960Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 125.7 MiB
+2026-11-26T21:13:00.2009513Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 125.7 MiB
+2026-11-26T21:13:02.0510311Z Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1255
+2026-11-26T21:13:02.0843413Z ##[group]Run npm test
+2026-11-26T21:13:02.0843767Z [36;1mnpm test[0m
+2026-11-26T21:13:02.0885513Z shell: /usr/bin/bash -e {0}
+2026-11-26T21:13:02.0885831Z env:
+2026-11-26T21:13:02.0886167Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:13:02.0886733Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:13:02.0887300Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:13:02.0887795Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:13:02.0888279Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:13:02.0888785Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:13:02.0889599Z ##[endgroup]
+2026-11-26T21:13:02.1756415Z 
+2026-11-26T21:13:02.1756793Z > flip-workbench@0.1.0 test
+2026-11-26T21:13:02.1757194Z > playwright test
+2026-11-26T21:13:02.1757380Z 
+2026-11-26T21:13:05.0219616Z [WebServer] INFO:     Started server process [2942]
+2026-11-26T21:13:05.0220129Z [WebServer] INFO:     Waiting for application startup.
+2026-11-26T21:13:05.0220625Z [WebServer] INFO:     Application startup complete.
+2026-11-26T21:13:05.0221498Z [WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+2026-11-26T21:13:05.8046467Z 
+2026-11-26T21:13:05.8047080Z Running 70 tests using 1 worker
+2026-11-26T21:13:05.8047313Z 
+2026-11-26T21:13:07.6289999Z   ✓   1 tests/acceptance.spec.ts:19:1 › B01 keyboard-only complete export journey (1.2s)
+2026-11-26T21:13:08.2005038Z   ✓   2 tests/acceptance.spec.ts:34:1 › B02 focus recovery and B06 error state (559ms)
+2026-11-26T21:13:13.1838136Z   ✓   3 tests/acceptance.spec.ts:67:1 › B03 accessible labels and B05 responsive axe audit (5.0s)
+2026-11-26T21:13:13.8566594Z   ✓   4 tests/acceptance.spec.ts:102:1 › B04 result announcement, mappings, and semantic differences (665ms)
+2026-11-26T21:13:14.7813574Z   ✓   5 tests/acceptance.spec.ts:123:1 › B07 timeout recovery and B08 repeated runs (916ms)
+2026-11-26T21:13:15.5083309Z   ✓   6 tests/acceptance.spec.ts:147:1 › B09 refresh recovery, confirmed reset and storage failure (717ms)
+2026-11-26T21:13:15.7415347Z   ✓   7 tests/acceptance.spec.ts:174:1 › B10 download name and replay is covered by workflow suite (226ms)
+2026-11-26T21:13:16.2098321Z   ✓   8 tests/acceptance.spec.ts:184:1 › B11 preflight separates three structural outcomes (460ms)
+2026-11-26T21:13:22.2038744Z   ✓   9 tests/agent-portable.spec.ts:58:1 › combined named tests, correction, explicit new revision, CLI replay and authorization stop (6.0s)
+2026-11-26T21:13:25.6915968Z   ✓  10 tests/agent-portable.spec.ts:179:1 › cancel a late workflow response without selecting its revised package (3.5s)
+2026-11-26T21:13:26.6648530Z   ✓  11 tests/debugging-acceptance.spec.ts:32:1 › acceptance: changing the project invalidates an already selected proposal before apply (960ms)
+2026-11-26T21:13:28.6386639Z   ✓  12 tests/debugging-acceptance.spec.ts:71:1 › acceptance: repeated correction checks are fresh and refresh restores data without undo or proof authority (2.0s)
+2026-11-26T21:13:31.2571691Z   ✓  13 tests/debugging.spec.ts:19:1 › debugger replays paths, verifies a separate correction, applies and reverts with CLI parity (2.6s)
+2026-11-26T21:13:32.1009903Z   ✓  14 tests/debugging.spec.ts:104:1 › debugger narrow viewport, reduced motion and production resource UNKNOWN (836ms)
+2026-11-26T21:13:32.6876274Z   ✓  15 tests/debugging.spec.ts:146:1 › debugger discards an in-flight result when the project mapping changes (576ms)
+2026-11-26T21:13:33.0537465Z   ✓  16 tests/library-acceptance.spec.ts:5:1 › F-01 exact malformed-favorites restore retains bytes and recovers seeds (353ms)
+2026-11-26T21:13:33.3968908Z   ✓  17 tests/library-acceptance.spec.ts:34:1 › F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration (335ms)
+2026-11-26T21:13:33.7541351Z   ✓  18 tests/library-acceptance.spec.ts:87:1 › LC01 invalid saved catalog recovers known addresses without overwriting saved bytes (346ms)
+2026-11-26T21:13:34.0168176Z   ✓  19 tests/library-acceptance.spec.ts:119:1 › LC02 recent imports display most recent first after browser restore (253ms)
+2026-11-26T21:13:35.5924978Z   ✓  20 tests/library.spec.ts:17:1 › L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence (1.6s)
+2026-11-26T21:13:36.6230109Z   ✓  21 tests/library.spec.ts:94:1 › L02 known-address fallback, stale favorites, bounded pagination and mobile (1.0s)
+2026-11-26T21:13:37.1620076Z   ✓  22 tests/library.spec.ts:137:1 › L03 resumes a pinned circuit page and skips missing IDs (528ms)
+2026-11-26T21:13:38.7974108Z   ✓  23 tests/portable.spec.ts:17:1 › portable CLI-compatible package, tests, revision save, refresh and explicit downgrade (1.6s)
+2026-11-26T21:13:39.0921267Z   ✓  24 tests/portable.spec.ts:124:1 › portable import rejects tampering and preserves the open project (288ms)
+2026-11-26T21:13:39.6734812Z   ✓  25 tests/review.spec.ts:3:1 › F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry (570ms)
+2026-11-26T21:13:39.7259545Z   ✓  26 tests/visual-edit.spec.ts:63:1 › V2-A pure proposals compile with the real canonical engine and preserve REF/output bindings (36ms)
+2026-11-26T21:13:39.7352440Z   ✓  27 tests/visual-edit.spec.ts:113:1 › V2-A removal refuses both final-output and preceding-input references, including REF targets (3ms)
+2026-11-26T21:13:39.7418700Z   ✓  28 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: null (1ms)
+2026-11-26T21:13:39.7484382Z   ✓  29 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: kind (1ms)
+2026-11-26T21:13:39.7549463Z   ✓  30 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: duplicate (1ms)
+2026-11-26T21:13:39.7624157Z   ✓  31 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: badId (1ms)
+2026-11-26T21:13:39.7761367Z   ✓  32 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: missingInput (1ms)
+2026-11-26T21:13:39.7823403Z   ✓  33 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: nullInput (1ms)
+2026-11-26T21:13:39.7886187Z   ✓  34 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: boolPin (1ms)
+2026-11-26T21:13:39.7950352Z   ✓  35 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: negative (1ms)
+2026-11-26T21:13:39.8012779Z   ✓  36 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: forward (1ms)
+2026-11-26T21:13:39.8073028Z   ✓  37 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: extra (1ms)
+2026-11-26T21:13:39.8239033Z   ✓  38 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: pinExtra (1ms)
+2026-11-26T21:13:39.8484417Z   ✓  39 tests/visual-edit.spec.ts:155:1 › V2-A interactive boundary rejects the first over-budget edit while the native compiler accepts the baseline (18ms)
+2026-11-26T21:13:39.9982665Z   ✓  40 tests/visual-edit.spec.ts:174:1 › V2-A bounded history restores exact full requests, diverges safely, and never mutates previous history (145ms)
+2026-11-26T21:13:41.8206118Z   ✓  41 tests/visual-edit.spec.ts:215:1 › V2-A explicit creation, inspector, Advanced parity, and only existing compose network calls (1.8s)
+2026-11-26T21:13:43.2383895Z   ✓  42 tests/visual-edit.spec.ts:278:1 › V2-A multiple undo/redo and a divergent edit restore ordering and invalidate redo (1.4s)
+2026-11-26T21:13:44.1342952Z   ✓  43 tests/visual-edit.spec.ts:304:1 › V2-A safe removal confirms an unused NAND and blocks a referenced output (882ms)
+2026-11-26T21:13:44.8973293Z   ✓  44 tests/visual-edit.spec.ts:332:1 › V2-A invalid local drafts never change or submit the accepted candidate (754ms)
+2026-11-26T21:13:45.7233291Z   ✓  45 tests/visual-edit.spec.ts:362:1 › V2-A cancellation ignores a late real compiler response and rapid repeated submit is one transaction (815ms)
+2026-11-26T21:13:47.1588471Z   ✓  46 tests/visual-edit.spec.ts:424:1 › V2-A old proof stays historical after undo, while export checkpoints determine dirty state (1.4s)
+2026-11-26T21:13:47.7536415Z   ✓  47 tests/visual-edit.spec.ts:474:1 › V2-A invalid Advanced candidate remains a draft and both modes retain the accepted request (585ms)
+2026-11-26T21:13:48.4235498Z   ✓  48 tests/visual-edit.spec.ts:498:1 › V2-A keyboard-only add, selection and confirmed remove keep focus usable (661ms)
+2026-11-26T21:13:49.2485918Z   ✓  49 tests/visual-edit.spec.ts:546:1 › V2-A failed native validation preserves the accepted candidate and the complete draft (816ms)
+2026-11-26T21:13:50.0856160Z   ✓  50 tests/visual-edit.spec.ts:566:1 › V2-A interrupted complete edit is recovered only after real authoritative revalidation (826ms)
+2026-11-26T21:13:50.7841239Z   ✓  51 tests/visual-edit.spec.ts:641:1 › V2-A explicit workspace reset clears private edit recovery and export checkpoint data (685ms)
+2026-11-26T21:13:50.8044024Z   ✓  52 tests/visual-readonly.spec.ts:14:1 › projection preserves exact recipe, every scalar mapping, order and stable destination identity (8ms)
+2026-11-26T21:13:50.8103896Z   ✓  53 tests/visual-readonly.spec.ts:81:1 › projection handles zero-input multioutput REF and uint64 decimal IDs without precision loss (1ms)
+2026-11-26T21:13:50.8183221Z   ✓  54 tests/visual-readonly.spec.ts:128:2 › projection refuses null input without mutating it (2ms)
+2026-11-26T21:13:50.8240225Z   ✓  55 tests/visual-readonly.spec.ts:128:2 › projection refuses kind input without mutating it (1ms)
+2026-11-26T21:13:50.8298871Z   ✓  56 tests/visual-readonly.spec.ts:128:2 › projection refuses forward input without mutating it (1ms)
+2026-11-26T21:13:50.8354862Z   ✓  57 tests/visual-readonly.spec.ts:128:2 › projection refuses negative input without mutating it (1ms)
+2026-11-26T21:13:50.8411296Z   ✓  58 tests/visual-readonly.spec.ts:128:2 › projection refuses arity input without mutating it (1ms)
+2026-11-26T21:13:50.8476349Z   ✓  59 tests/visual-readonly.spec.ts:128:2 › projection refuses stateful input without mutating it (1ms)
+2026-11-26T21:13:50.8534998Z   ✓  60 tests/visual-readonly.spec.ts:128:2 › projection refuses binding input without mutating it (1ms)
+2026-11-26T21:13:50.8591929Z   ✓  61 tests/visual-readonly.spec.ts:128:2 › projection refuses duplicate input without mutating it (1ms)
+2026-11-26T21:13:50.8647219Z   ✓  62 tests/visual-readonly.spec.ts:128:2 › projection refuses huge input without mutating it (1ms)
+2026-11-26T21:13:50.8702126Z   ✓  63 tests/visual-readonly.spec.ts:128:2 › projection refuses missing input without mutating it (0ms)
+2026-11-26T21:13:51.7567362Z   ✓  64 tests/visual-readonly.spec.ts:156:1 › real sample visual/advanced parity, all rendered connections, disabled mutation and zero additional network (879ms)
+2026-11-26T21:13:53.3370717Z   ✓  65 tests/visual-readonly.spec.ts:259:1 › keyboard pin inspector, zoom/pan/fit, responsive axe and StrictMode renderer (1.6s)
+2026-11-26T21:13:53.6658570Z   ✓  66 tests/visual-readonly.spec.ts:317:1 › unsupported visual recipe fails visibly while Advanced remains available (321ms)
+2026-11-26T21:13:54.0357424Z   ✓  67 tests/visual-readonly.spec.ts:339:1 › Visual explains and returns to existing Advanced execution actions (361ms)
+2026-11-26T21:13:54.0444104Z   ✓  68 tests/visual-readonly.spec.ts:361:1 › projection rejects noncanonical aliases and enforces allocation budgets early (3ms)
+2026-11-26T21:13:56.9179431Z   ✓  69 tests/workflow.spec.ts:17:1 › historical sample, swapped outputs, repair, CLI parity and evidence replay (2.9s)
+2026-11-26T21:14:02.6883659Z   ✘  70 tests/workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate (5.7s)
+2026-11-26T21:14:02.8050414Z 
+2026-11-26T21:14:02.8054588Z 
+2026-11-26T21:14:02.8062443Z   1) tests/workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate 
+2026-11-26T21:14:02.8062818Z 
+2026-11-26T21:14:02.8062993Z     Error: expect(locator).toContainText(expected) failed
+2026-11-26T21:14:02.8063283Z 
+2026-11-26T21:14:02.8063444Z     Locator: locator('tr.selected')
+2026-11-26T21:14:02.8064047Z     Expected substring: "part2 [0]"
+2026-11-26T21:14:02.8064269Z     Timeout: 5000ms
+2026-11-26T21:14:02.8064488Z     Error: element(s) not found
+2026-11-26T21:14:02.8064623Z 
+2026-11-26T21:14:02.8064703Z     Call log:
+2026-11-26T21:14:02.8065120Z       - Expect "toContainText" locator('tr.selected') with timeout 5000ms
+2026-11-26T21:14:02.8065501Z       - waiting for locator('tr.selected')
+2026-11-26T21:14:02.8065663Z 
+2026-11-26T21:14:02.8065668Z 
+2026-11-26T21:14:02.8065874Z       123 | 	await page.getByRole("button", { name: "Add component" }).click();
+2026-11-26T21:14:02.8066307Z       124 | 	await page.getByLabel("Source for part2 [0]", { exact: true }).focus();
+2026-11-26T21:14:02.8066739Z     > 125 | 	await expect(page.locator("tr.selected")).toContainText("part2 [0]");
+2026-11-26T21:14:02.8067093Z           | 	                                          ^
+2026-11-26T21:14:02.8067430Z       126 | 	await page.getByRole("button", { name: "Build netlist" }).click();
+2026-11-26T21:14:02.8067739Z       127 | 	await expect(
+2026-11-26T21:14:02.8068008Z       128 | 		page.getByRole("heading", { name: "Netlist built" }),
+2026-11-26T21:14:02.8068391Z         at /home/runner/work/Flip/Flip/apps/web/tests/workflow.spec.ts:125:44
+2026-11-26T21:14:02.8068624Z 
+2026-11-26T21:14:02.8068983Z     Error Context: ../../.test-tmp/browser/workflow-keyboard-and-narr-79a5f-t-add-source-and-revalidate/error-context.md
+2026-11-26T21:14:02.8069363Z 
+2026-11-26T21:14:02.8069715Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-26T21:14:02.8070261Z     ../../.test-tmp/browser/workflow-keyboard-and-narr-79a5f-t-add-source-and-revalidate/trace.zip
+2026-11-26T21:14:02.8070769Z     Usage:
+2026-11-26T21:14:02.8071038Z 
+2026-11-26T21:14:02.8071585Z         npx playwright show-trace ../../.test-tmp/browser/workflow-keyboard-and-narr-79a5f-t-add-source-and-revalidate/trace.zip
+2026-11-26T21:14:02.8072202Z 
+2026-11-26T21:14:02.8072677Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-26T21:14:02.8073046Z 
+2026-11-26T21:14:02.8073157Z   1 failed
+2026-11-26T21:14:02.8073835Z     tests/workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate 
+2026-11-26T21:14:02.8074452Z   69 passed (1.0m)
+2026-11-26T21:14:02.8355269Z ##[error]Process completed with exit code 1.
+2026-11-26T21:14:02.8527782Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-26T21:14:02.8528112Z with:
+2026-11-26T21:14:02.8528306Z   name: m3-benchmark-ubuntu-latest
+2026-11-26T21:14:02.8529250Z   path: /home/runner/work/_temp/m3-benchmark.json
+/home/runner/work/_temp/m3-acceptance.json
+/home/runner/work/_temp/m3-tests.xml
+/home/runner/work/_temp/m4-acceptance.json
+.test-tmp/agent-independent/**/*.json
+.test-tmp/final-adapter-review/*.json
+.test-tmp/final-adapter-review/execution.log
+.test-tmp/r3/showcase-results.json
+
+2026-11-26T21:14:02.8530168Z   if-no-files-found: warn
+2026-11-26T21:14:02.8530378Z   compression-level: 6
+2026-11-26T21:14:02.8530555Z   overwrite: false
+2026-11-26T21:14:02.8530728Z   include-hidden-files: false
+2026-11-26T21:14:02.8531169Z env:
+2026-11-26T21:14:02.8531380Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:14:02.8531705Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-11-26T21:14:02.8532047Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:14:02.8532336Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:14:02.8532618Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-11-26T21:14:02.8532899Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-11-26T21:14:02.8533147Z ##[endgroup]
+2026-11-26T21:14:02.9909982Z (node:3831) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T21:14:02.9910685Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T21:14:02.9963563Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-26T21:14:02.9972760Z The least common ancestor is /home/runner/work. This will be the root directory of the artifact
+2026-11-26T21:14:02.9990597Z ##[warning]No files were found with the provided path: /home/runner/work/_temp/m3-benchmark.json
+/home/runner/work/_temp/m3-acceptance.json
+/home/runner/work/_temp/m3-tests.xml
+/home/runner/work/_temp/m4-acceptance.json
+.test-tmp/agent-independent/**/*.json
+.test-tmp/final-adapter-review/*.json
+.test-tmp/final-adapter-review/execution.log
+.test-tmp/r3/showcase-results.json. No artifacts will be uploaded.
+2026-11-26T21:14:03.0198800Z Post job cleanup.
+2026-11-26T21:14:03.0952958Z [command]/usr/bin/git version
+2026-11-26T21:14:03.0990645Z git version 2.56.1
+2026-11-26T21:14:03.1021280Z Temporarily overriding HOME='/home/runner/work/_temp/2c38b4d0-727e-4a0f-b405-f930af5331a0' before making global git config changes
+2026-11-26T21:14:03.1022483Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T21:14:03.1025802Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Flip/Flip
+2026-11-26T21:14:03.1060504Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T21:14:03.1100292Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T21:14:03.1378733Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T21:14:03.1403330Z http.https://github.com/.extraheader
+2026-11-26T21:14:03.1422428Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T21:14:03.1485219Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T21:14:03.1993135Z Cleaning up orphan processes
+2026-11-26T21:14:03.2308822Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

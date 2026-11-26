@@ -50,8 +50,10 @@ export function PortablePanel({
 	update,
 	work,
 	openRevision,
+	onExport,
 }: {
 	request: Execution;
+	onExport?: (r: Execution) => void;
 	value: Portable | null;
 	update: (value: Portable) => void;
 	openRevision: (value: Portable) => void;
@@ -96,6 +98,7 @@ export function PortablePanel({
 								`project-r${next.revision.sequence}-${next.revision.revisionHash.slice(2, 10)}.json`,
 								next,
 							);
+							onExport?.(request);
 						})
 					}
 				>

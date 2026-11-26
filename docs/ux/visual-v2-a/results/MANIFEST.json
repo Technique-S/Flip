@@ -1,0 +1,95 @@
+{
+  "implementationCommit": "2826e4a5778f32d6a6fc1a3ca965eb924b46f29e",
+  "files": [
+    {
+      "path": "browser-final-70.json",
+      "bytes": 110562,
+      "sha256": "2beb4ce7fc70e4cf57ca7ac5c5aabe66acb62464afe9f66f0f4248c00e151edc"
+    },
+    {
+      "path": "browser-final-70.txt",
+      "bytes": 8898,
+      "sha256": "a0f9c8b1cf2407d0fa2ab93de2627fbef747a861d47a69cd70d41f64f39e50f2"
+    },
+    {
+      "path": "browser-initial-failures.json",
+      "bytes": 115424,
+      "sha256": "e7eee72b8674d4045e1398aced82375b6924e1179d9299eb08d3cdb59a80a46f"
+    },
+    {
+      "path": "browser-initial-failures.txt",
+      "bytes": 12464,
+      "sha256": "d9ddff112774673fc621e0f48aee7c8611d5b454617a76bbf8acb18651ed4e4c"
+    },
+    {
+      "path": "canonical-parity.json",
+      "bytes": 24110,
+      "sha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933"
+    },
+    {
+      "path": "checkpoint-local-33-commands.json",
+      "bytes": 12710,
+      "sha256": "1d9444d33d1ef31638c6d61d6265e05a01e1629c4dceb3dc7ca1eef94eb4aa44"
+    },
+    {
+      "path": "checkpoint-python-summary.json",
+      "bytes": 579,
+      "sha256": "bd3b73fee849cef24e2ea8e0b05c6a4b5780087b40b97f24ee576429888a2f4e"
+    },
+    {
+      "path": "execution-bindings.json",
+      "bytes": 392,
+      "sha256": "777fe306c07834b4d0a93cbe1c22a32d685f0ead607dd46e1d850908f8a65fb9"
+    },
+    {
+      "path": "EXPLICIT_INPUT_AUTHORIZATION.md",
+      "bytes": 828,
+      "sha256": "daa7c9644103199ba1f5b90eb12fa973a3020af040076b4a9f9a2c5a60a0dbe2"
+    },
+    {
+      "path": "implementation-custody.txt",
+      "bytes": 5215,
+      "sha256": "3584da1b062bd7cedbbacebfc5c16e6f3720dd935e8fc3691f83dff736fea19c"
+    },
+    {
+      "path": "inherited-retry.txt",
+      "bytes": 847,
+      "sha256": "4da8551ede83d07d74f16c4108fa5d70bad409317cc4cb03c03a7275137f63f1"
+    },
+    {
+      "path": "keyboard-retry.txt",
+      "bytes": 846,
+      "sha256": "93fa33c7600ca4eab07b765920fb7dd190fb59cb08523cab52ec8fab29c7abe4"
+    },
+    {
+      "path": "post-implementation-checks.json",
+      "bytes": 16429,
+      "sha256": "9384740fc308612be0d15ec858a4ea959f2ed3bc5d73c8bb35056d3dbe12ecb4"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 3069,
+      "sha256": "63d6c02984217e23b92b494f21d89157931dc34bf80bbd172f6b81abfad6f175"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3261,
+      "sha256": "3f2d14c00872e044e1596475c9def4d6d795ac920422e570c6e7a43d2cf45953"
+    },
+    {
+      "path": "screenshots.json",
+      "bytes": 1717,
+      "sha256": "6a31c457c66f866c5a558633e7e6bbb38c08c84ce674142089afbed9dd795938"
+    },
+    {
+      "path": "showcase-final.json",
+      "bytes": 143896,
+      "sha256": "99ace5a6cc54cc4efb076862fc113fab967139126cbc1b78bcf9f1e1cf8f5e0b"
+    },
+    {
+      "path": "ui-detector.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ]
+}

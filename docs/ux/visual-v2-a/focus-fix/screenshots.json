@@ -1,0 +1,37 @@
+{
+  "implementationCommit": "b23d3dcf8f98e9b95cd0bc8ca8fbf612045e1daa",
+  "files": [
+    {
+      "file": "v2a-desktop.png",
+      "bytes": 132907,
+      "sha256": "f324badc6a05aac0d53e70223342e84108b3131120bbc4df3da0d9d7aa8d0658",
+      "width": 1280,
+      "height": 1831,
+      "retainedLocalPath": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-a/.test-tmp/v2a-focus-fix-screenshots/v2a-desktop.png"
+    },
+    {
+      "file": "v2a-explicit-input-form.png",
+      "bytes": 150051,
+      "sha256": "bc23abe7875e7c0a191da483a0f8034492b34c98ffdc0aa7a8a663c1bb6dd82b",
+      "width": 1280,
+      "height": 2046,
+      "retainedLocalPath": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-a/.test-tmp/v2a-focus-fix-screenshots/v2a-explicit-input-form.png"
+    },
+    {
+      "file": "v2a-narrow.png",
+      "bytes": 99508,
+      "sha256": "a60790d4fefb4748616ff65e69ef73c2841747136997b6a950163c60af8a6394",
+      "width": 390,
+      "height": 2412,
+      "retainedLocalPath": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-a/.test-tmp/v2a-focus-fix-screenshots/v2a-narrow.png"
+    },
+    {
+      "file": "v2a-blocked-removal.png",
+      "bytes": 147092,
+      "sha256": "373fd2f8e7c82e0e4e1b33d1c30786fcf435373e13a0c4d2af8c53eb68dea370",
+      "width": 1280,
+      "height": 2113,
+      "retainedLocalPath": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-a/.test-tmp/v2a-focus-fix-screenshots/v2a-blocked-removal.png"
+    }
+  ]
+}

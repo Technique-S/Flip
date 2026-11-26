@@ -3,6 +3,7 @@ import { type DebugEdit, Debugger } from "./Debugger";
 import { type Execution, indices, type Proof } from "./model";
 
 type Props = {
+	blocked?: boolean;
 	debugEdit: DebugEdit | null;
 	setDebugEdit: (value: DebugEdit | null) => void;
 	r: Execution;
@@ -90,6 +91,7 @@ export function Comparison({
 	next,
 	debugEdit,
 	setDebugEdit,
+	blocked,
 }: Props) {
 	const [maps, setMaps] = useState(false);
 	const p = r.project,
@@ -242,7 +244,12 @@ export function Comparison({
 				{p.limits.refDepthCap} REF levels · {p.limits.solverMemoryMiB} MiB
 				worker limit
 			</p>
-			<button type="button" className="primary" onClick={run}>
+			<button
+				type="button"
+				className="primary"
+				disabled={blocked}
+				onClick={run}
+			>
 				Run comparison →
 			</button>
 			{result && (
@@ -253,14 +260,17 @@ export function Comparison({
 					</button>
 				</>
 			)}
-			<Debugger
-				r={r}
-				available={result !== null}
-				change={change}
-				run={run}
-				undo={debugEdit}
-				setUndo={setDebugEdit}
-			/>
+			<fieldset className="execution-guard" disabled={blocked}>
+				<legend className="sr">Connection diagnosis actions</legend>
+				<Debugger
+					r={r}
+					available={result !== null}
+					change={change}
+					run={run}
+					undo={debugEdit}
+					setUndo={setDebugEdit}
+				/>
+			</fieldset>
 		</>
 	);
 }

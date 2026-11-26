@@ -9,7 +9,7 @@ import {
 	useReactFlow,
 	useViewport,
 } from "@xyflow/react";
-import { StrictMode, useMemo, useState } from "react";
+import { StrictMode, useEffect, useMemo, useState } from "react";
 import type { Execution } from "../model";
 import { rendererNotices } from "./notices";
 import { projectExecution, type VisualNode } from "./projection";
@@ -110,7 +110,13 @@ function ViewControls() {
 		</nav>
 	);
 }
-function Canvas({ request }: { request: Execution }) {
+type EditProps = {
+	request: Execution;
+	inspectId?: string;
+	onInspect?: (id: string) => void;
+	onRemove?: (id: string) => void;
+};
+function Canvas({ request, inspectId, onInspect, onRemove }: EditProps) {
 	const projection = useMemo(() => {
 		try {
 			return { graph: projectExecution(request) };
@@ -123,6 +129,10 @@ function Canvas({ request }: { request: Execution }) {
 		port?: string;
 	} | null>(null);
 	const graph = projection.graph;
+	useEffect(() => {
+		if (inspectId && graph?.nodes.some((n) => n.id === inspectId))
+			setSelection({ id: inspectId });
+	}, [inspectId, graph]);
 	const nodes = useMemo<CircuitNode[]>(
 		() =>
 			graph?.nodes.map((semantic) => ({
@@ -131,14 +141,17 @@ function Canvas({ request }: { request: Execution }) {
 				type: "circuit",
 				data: {
 					semantic,
-					inspect: (node, port) => setSelection({ id: node.id, port }),
+					inspect: (node, port) => {
+						setSelection({ id: node.id, port });
+						if (node.kind === "NAND") onInspect?.(node.title);
+					},
 				},
 				ariaLabel: `${semantic.title}, ${semantic.kind}, read-only`,
 				selected: selection?.id === semantic.id,
 				draggable: false,
 				connectable: false,
 			})) ?? [],
-		[graph, selection?.id],
+		[graph, selection?.id, onInspect],
 	);
 	const edges = useMemo(
 		() =>
@@ -165,10 +178,10 @@ function Canvas({ request }: { request: Execution }) {
 			(p) => p.id === selection?.port,
 		);
 	return (
-		<section className="visual-composer" aria-label="Read-only visual circuit">
+		<section className="visual-composer" aria-label="Visual circuit">
 			<h2>Candidate circuit</h2>
 			<p>
-				Read-only candidate recipe. Select a component or pin to inspect its
+				Connections are read-only. Select a component or pin to inspect its
 				exact mapping. Drag empty space to pan.
 			</p>
 			<ViewControls />
@@ -185,7 +198,11 @@ function Canvas({ request }: { request: Execution }) {
 						disableKeyboardA11y={true}
 						nodesFocusable={true}
 						edgesFocusable={true}
-						onNodeClick={(_, node) => setSelection({ id: node.id })}
+						onNodeClick={(_, node) => {
+							setSelection({ id: node.id });
+							if (node.data.semantic.kind === "NAND")
+								onInspect?.(node.data.semantic.title);
+						}}
 						onSelectionChange={({ nodes: picked }) => {
 							if (picked[0])
 								setSelection((previous) =>
@@ -200,9 +217,9 @@ function Canvas({ request }: { request: Execution }) {
 						preventScrolling={false}
 						ariaLabelConfig={{
 							"node.a11yDescription.default":
-								"Read-only component. Use pin buttons or the component list to inspect. No editing is available.",
+								"Connections are read-only. Use pin buttons or the component list to inspect, and NAND controls for explicit component commands.",
 							"node.a11yDescription.keyboardDisabled":
-								"Read-only component. Use pin buttons or the component list to inspect. No editing is available.",
+								"Connections are read-only. Use pin buttons or the component list to inspect, and NAND controls for explicit component commands.",
 							"edge.a11yDescription.default":
 								"Read-only connection. Its endpoints are listed in Exact connection mappings. No reconnect or deletion is available.",
 						}}
@@ -215,9 +232,14 @@ function Canvas({ request }: { request: Execution }) {
 					<label>
 						Component
 						<select
+							id="visual-inspect-component"
 							aria-label="Inspect component"
 							value={selected?.id ?? ""}
-							onChange={(e) => setSelection({ id: e.target.value })}
+							onChange={(e) => {
+								setSelection({ id: e.target.value });
+								const node = graph.nodes.find((n) => n.id === e.target.value);
+								if (node?.kind === "NAND") onInspect?.(node.title);
+							}}
 						>
 							<option value="">Choose a component</option>
 							{graph.nodes.map((n) => (
@@ -233,6 +255,11 @@ function Canvas({ request }: { request: Execution }) {
 								<strong>{selected.title}</strong> · {selected.kind}
 							</p>
 							<code>{selected.locator}</code>
+							{selected.kind === "NAND" && onRemove && (
+								<button type="button" onClick={() => onRemove(selected.title)}>
+									Remove this NAND
+								</button>
+							)}
 							<label>
 								Pin
 								<select
@@ -292,9 +319,9 @@ function Canvas({ request }: { request: Execution }) {
 						</>
 					)}
 					<p>
-						REF internals and decoded LATCH structures are unavailable in V1.
-						This view does not simulate or verify circuits. Use Advanced to edit
-						wiring.
+						REF internals and decoded LATCH structures are unavailable in this
+						view. This view does not simulate or verify circuits. Use Advanced
+						to edit wiring.
 					</p>
 				</aside>
 			</div>
@@ -329,12 +356,12 @@ function Canvas({ request }: { request: Execution }) {
 	);
 }
 
-export function VisualComposer({ request }: { request: Execution }) {
+export function VisualComposer(props: EditProps) {
 	// Exercise the renderer under StrictMode without changing the surrounding application.
 	return (
 		<StrictMode>
 			<ReactFlowProvider>
-				<Canvas request={request} />
+				<Canvas {...props} />
 			</ReactFlowProvider>
 			<details className="visual-notices">
 				<summary>Renderer and dependency licenses</summary>

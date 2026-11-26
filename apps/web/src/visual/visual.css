@@ -157,3 +157,60 @@
 	max-height: 240px;
 	overflow: auto;
 }
+
+.nand-editor {
+	border: 1px solid var(--line);
+	padding: 16px;
+	margin: 16px 0;
+}
+.nand-editor .actions {
+	align-items: end;
+}
+.nand-editor form,
+.nand-confirm {
+	margin-top: 20px;
+}
+.nand-editor .fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+.nand-editor label {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.nand-editor h3 {
+	margin-top: 0;
+}
+.nand-editor [role="alert"] {
+	color: #9b251c;
+	overflow-wrap: anywhere;
+}
+.edit-status {
+	border-bottom: 1px solid var(--line);
+	padding-bottom: 16px;
+	margin-bottom: 16px;
+}
+.edit-status small {
+	display: block;
+	margin-top: 8px;
+}
+
+.nand-editor label {
+	min-width: 0;
+	max-width: 100%;
+}
+.nand-editor input,
+.nand-editor select {
+	max-width: 100%;
+	min-height: 44px;
+}
+
+fieldset.execution-guard {
+	min-inline-size: 0;
+	max-width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}

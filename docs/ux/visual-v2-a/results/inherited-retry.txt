@@ -1,0 +1,17 @@
+
+> flip-workbench@0.1.0 test
+> playwright test --grep combined named tests|debugger narrow viewport
+
+[WebServer] INFO:     Started server process [21340]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+
+Running 2 tests using 1 worker
+
+(node:23232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\agent-portable.spec.ts:58:1 › combined named tests, correction, explicit new revision, CLI replay and authorization stop (27.8s)
+  ok 2 tests\debugging.spec.ts:104:1 › debugger narrow viewport, reduced motion and production resource UNKNOWN (3.3s)
+
+  2 passed (40.1s)

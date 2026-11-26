@@ -7,9 +7,12 @@ import {
 	indices,
 	type Pin,
 } from "./model";
+import { NandControls } from "./visual/NandControls";
+import type { CandidateEditor } from "./visual/useCandidateEditor";
 import { VisualComposer } from "./visual/VisualComposer";
 
 type Props = {
+	editor: CandidateEditor;
 	request: Execution;
 	change: (fn: (d: Execution) => void) => void;
 	build: () => void;
@@ -17,7 +20,14 @@ type Props = {
 	next: () => void;
 };
 const pinName = (p: Pin) => `${p.component ?? "external"} [${p.pin}]`;
-export function Composer({ request, change, build, built, next }: Props) {
+export function Composer({
+	request,
+	change,
+	build,
+	built,
+	next,
+	editor,
+}: Props) {
 	const [visual, setVisual] = useState(false);
 	const [selected, select] = useState("");
 	const [kind, setKind] = useState("NAND");
@@ -73,6 +83,10 @@ export function Composer({ request, change, build, built, next }: Props) {
 		);
 	}
 	function add() {
+		if (kind === "NAND") {
+			editor.startNand();
+			return;
+		}
 		change((r) => {
 			const design = r.project.candidate;
 			const src = sources.find((s) => s.alias === kind);
@@ -107,6 +121,7 @@ export function Composer({ request, change, build, built, next }: Props) {
 					Advanced
 				</button>
 			</fieldset>
+			<NandControls editor={editor} request={request} />
 			{visual && (
 				<>
 					<p>
@@ -116,7 +131,16 @@ export function Composer({ request, change, build, built, next }: Props) {
 					<button type="button" onClick={() => setVisual(false)}>
 						Return to Advanced actions
 					</button>
-					<VisualComposer request={request} />
+					<VisualComposer
+						request={request}
+						inspectId={
+							editor.selection
+								? `candidate/component/${editor.selection}`
+								: undefined
+						}
+						onInspect={(id) => editor.select(id)}
+						onRemove={editor.startRemove}
+					/>
 				</>
 			)}
 			<div hidden={visual}>
@@ -204,6 +228,11 @@ export function Composer({ request, change, build, built, next }: Props) {
 							type="button"
 							onClick={() =>
 								change((r) => {
+									const last = r.project.candidate.components.at(-1);
+									if (last?.kind === "NAND")
+										throw Error(
+											"Use Remove NAND to review references and confirm removal.",
+										);
 									r.project.candidate.components.pop();
 								})
 							}

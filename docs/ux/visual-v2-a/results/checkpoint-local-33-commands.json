@@ -1,0 +1,491 @@
+[
+  {
+    "index": 0,
+    "command": [
+      "npm.cmd",
+      "run",
+      "lint"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a\\apps\\web",
+    "exitCode": 0,
+    "seconds": 2.023,
+    "log": "command-00.txt"
+  },
+  {
+    "index": 1,
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a\\apps\\web",
+    "exitCode": 0,
+    "seconds": 3.208,
+    "log": "command-01.txt"
+  },
+  {
+    "index": 2,
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a\\apps\\web",
+    "exitCode": 0,
+    "seconds": 244.142,
+    "log": "command-02.txt"
+  },
+  {
+    "index": 3,
+    "command": [
+      "node",
+      "apps/showcase/build.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.26,
+    "log": "command-03.txt"
+  },
+  {
+    "index": 4,
+    "command": [
+      "node",
+      "apps/showcase/build.mjs",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.218,
+    "log": "command-04.txt"
+  },
+  {
+    "index": 5,
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "\nimport {readFileSync} from 'node:fs';\nimport {createHash} from 'node:crypto';\nimport assert from 'node:assert/strict';\nconst sha = b => createHash('sha256').update(b).digest('hex');\nconst raw = readFileSync('docs/release/V1_RELEASE_TRUST.json');\nassert.equal(sha(raw), 'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0', 'CI release trust metadata mismatch');\nconst trust = JSON.parse(raw);\nfor (const [p, expected] of Object.entries({...trust.currentSourceHashes,...trust.bootstrapSourceHashes})) assert.equal(sha(Buffer.from(readFileSync(p,'utf8').replaceAll('\\r\\n','\\n'))), expected, 'CI checker integrity mismatch');"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.131,
+    "log": "command-05.txt"
+  },
+  {
+    "index": 6,
+    "command": [
+      "node",
+      "scripts/check_m45_release_package.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.194,
+    "log": "command-06.txt"
+  },
+  {
+    "index": 7,
+    "command": [
+      "node",
+      "apps/showcase/test.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 56.757,
+    "log": "command-07.txt"
+  },
+  {
+    "index": 8,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "check",
+      "."
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.04,
+    "log": "command-08.txt"
+  },
+  {
+    "index": 9,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.361,
+    "log": "command-09.txt"
+  },
+  {
+    "index": 10,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "flip-schemas",
+      "--out",
+      "docs/schema/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.266,
+    "log": "command-10.txt"
+  },
+  {
+    "index": 11,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.import_schema_export",
+      "--out",
+      "docs/schema/m2/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.132,
+    "log": "command-11.txt"
+  },
+  {
+    "index": 12,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.verification_schema_export",
+      "--out",
+      "docs/schema/m3/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.704,
+    "log": "command-12.txt"
+  },
+  {
+    "index": 13,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.library_schema_export",
+      "--out",
+      "docs/schema/m45-library/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.24,
+    "log": "command-13.txt"
+  },
+  {
+    "index": 14,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.library_schema_export",
+      "--version",
+      "1.1.0",
+      "--out",
+      "docs/schema/m45-library/1.1.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.081,
+    "log": "command-14.txt"
+  },
+  {
+    "index": 15,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.debugging_schema_export",
+      "--out",
+      "docs/schema/m45-debugging/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.091,
+    "log": "command-15.txt"
+  },
+  {
+    "index": 16,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.agent_schema_export",
+      "--out",
+      "docs/schema/m45-agent-workflow/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.383,
+    "log": "command-16.txt"
+  },
+  {
+    "index": 17,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "fixtures/m45-library-discovery/generators/verify_fixtures.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.634,
+    "log": "command-17.txt"
+  },
+  {
+    "index": 18,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "pytest",
+      "-q",
+      "--junitxml=.test-tmp/v2a-validation/m3-tests.xml",
+      "-o",
+      "junit_family=legacy"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 724.515,
+    "log": "command-18.txt"
+  },
+  {
+    "index": 19,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/report_m3_acceptance.py",
+      "--junit",
+      ".test-tmp/v2a-validation/m3-tests.xml",
+      "--out",
+      ".test-tmp/v2a-validation/m3-acceptance.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.219,
+    "log": "command-19.txt"
+  },
+  {
+    "index": 20,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/report_m4_acceptance.py",
+      "--junit",
+      ".test-tmp/v2a-validation/m3-tests.xml",
+      "--browser",
+      ".test-tmp/m4-browser.json",
+      "--out",
+      ".test-tmp/v2a-validation/m4-acceptance.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.457,
+    "log": "command-20.txt"
+  },
+  {
+    "index": 21,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_agent_acceptance.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 90.558,
+    "log": "command-21.txt"
+  },
+  {
+    "index": 22,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_agent_portable_review.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 207.385,
+    "log": "command-22.txt"
+  },
+  {
+    "index": 23,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.portable_schema_export",
+      "--out",
+      "docs/schema/m45-portable-project/1.1.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.2,
+    "log": "command-23.txt"
+  },
+  {
+    "index": 24,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_portability.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 17.111,
+    "log": "command-24.txt"
+  },
+  {
+    "index": 25,
+    "command": [
+      "node",
+      "docs/schema/m45-portable-project/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.139,
+    "log": "command-25.txt"
+  },
+  {
+    "index": 26,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.agent_portable_schema_export",
+      "--out",
+      "docs/schema/m45-agent-portable/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 1.376,
+    "log": "command-26.txt"
+  },
+  {
+    "index": 27,
+    "command": [
+      "node",
+      "docs/schema/m45-agent-portable/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.125,
+    "log": "command-27.txt"
+  },
+  {
+    "index": 28,
+    "command": [
+      "node",
+      "docs/schema/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 0.153,
+    "log": "command-28.txt"
+  },
+  {
+    "index": 29,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m1_repository.py",
+      "--require-clean"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 97.594,
+    "log": "command-29.txt"
+  },
+  {
+    "index": 30,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/smoke_m1.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 3.39,
+    "log": "command-30.txt"
+  },
+  {
+    "index": 31,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/smoke_m3.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 6.766,
+    "log": "command-31.txt"
+  },
+  {
+    "index": 32,
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/benchmark_m3.py",
+      "--out",
+      ".test-tmp/v2a-validation/m3-benchmark.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-a",
+    "exitCode": 0,
+    "seconds": 16.475,
+    "log": "command-32.txt"
+  }
+]

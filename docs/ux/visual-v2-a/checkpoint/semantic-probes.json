@@ -1,0 +1,757 @@
+{
+  "scope": "READ_ONLY_SEMANTIC_FEASIBILITY; synthetic copied requests only, not V2 UI or edit commands",
+  "base": "fc9c0c1bcb2557169dd89af0c3b2c5a7628c9adf",
+  "capturedAt": "2026-11-26T05:03:20.791728+00:00",
+  "requestUnchanged": true,
+  "cases": [
+    {
+      "case": "baseline_real_historical_half_adder",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0xff70814e174ae2dc841eef4a9e6367bb5318bccd069307c3afdce1adaa329959",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "manifestHash": "0x10a2616767a30352158c32aae8cdb85b44cd7f5f04b168c462f41a8789b6f299",
+        "expandedGates": 8,
+        "componentOrder": [
+          "nand0",
+          "carry",
+          "sum"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "missing_inputs",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs\n  Field required [type=missing, input_value={'kind': 'NAND', 'instanceId': 'probeNand'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/missing"
+      }
+    },
+    {
+      "case": "zero_inputs",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs\n  List should have at least 2 items after validation, not 0 [type=too_short, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_short"
+      }
+    },
+    {
+      "case": "one_input",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs\n  List should have at least 2 items after validation, not 1 [type=too_short, input_value=[{'component': None, 'pin': 0}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_short"
+      }
+    },
+    {
+      "case": "null_input",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs.0\n  Input should be a valid dictionary or instance of PinSource [type=model_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.12/v/model_type"
+      }
+    },
+    {
+      "case": "three_inputs",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs\n  List should have at most 2 items after validation, not 3 [type=too_long, input_value=[{'component': None, 'pin...onent': None, 'pin': 0}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_long"
+      }
+    },
+    {
+      "case": "undefined_component",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "self_reference",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "external_out_of_range",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "negative_pin",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "2 validation errors for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs.0.pin\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.12/v/greater_than_equal\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs.1.pin\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.12/v/greater_than_equal"
+      }
+    },
+    {
+      "case": "explicit_two_input_bindings_required_for_valid_add",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0x1fd979c9f992f185d523a5a4537e4d35ee0fd5fed56ce085e89e2383aac3d980",
+        "netlistHash": "0x18b4aac108bf43615ab22dfa1dec8e7b80948dcbf297db78a964c213ca1905a4",
+        "manifestHash": "0x0d4e26a782308b541dc760447897b217d8ffa727544a43ddceeb25dc63daebb7",
+        "expandedGates": 13,
+        "componentOrder": [
+          "nand0",
+          "carry",
+          "sum",
+          "probeNand"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "probeNand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "remove_unreferenced_nand_restores_exact_request",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0xff70814e174ae2dc841eef4a9e6367bb5318bccd069307c3afdce1adaa329959",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "manifestHash": "0x10a2616767a30352158c32aae8cdb85b44cd7f5f04b168c462f41a8789b6f299",
+        "expandedGates": 8,
+        "componentOrder": [
+          "nand0",
+          "carry",
+          "sum"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "removal_strands_component_input",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "removal_strands_final_output",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "explicit_preceding_id_reference",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0x8f532d250d09edfaee3bb02d1e21e32676a0e04b503a1c942f56e3a4027cc91b",
+        "netlistHash": "0xf1f847d5d2d43a57221cca3d5e31bafa6a378c4cd4368ebb3c03590c59011ee0",
+        "manifestHash": "0x083939f1659539e7d227b7889c450c4645b7be55b1a8a82c2abee8f64657aae0",
+        "expandedGates": 13,
+        "componentOrder": [
+          "nand0",
+          "carry",
+          "sum",
+          "probeNand"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "probeNand",
+              "inputs": [
+                {
+                  "component": "sum",
+                  "pin": 0
+                },
+                {
+                  "component": "sum",
+                  "pin": 0
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "duplicate_id",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, duplicate component identity [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "malformed_id",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.instanceId\n  String should match pattern '^[A-Za-z][A-Za-z0-9_-]{0,63}$' [type=string_pattern_mismatch, input_value='bad/name', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/string_pattern_mismatch"
+      }
+    },
+    {
+      "case": "boolean_pin_is_not_integer",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components.3.NAND.inputs.0.pin\n  Input should be a valid integer [type=int_type, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_type"
+      }
+    },
+    {
+      "case": "moving_preceding_reference_before_source",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`\n  Value error, out-of-range or forward/cyclic pin mapping [type=value_error, input_value={'candidate': {'component... 'toolVersion': '0.1.0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+      }
+    },
+    {
+      "case": "insert_with_explicit_bindings_preserves_existing_instance_id_references",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0xa049ae3a5d590bd7ba389c50bc026daa5aa4ff8e298dfff44355bb27a10f9d9f",
+        "netlistHash": "0xc6b0dfdef56cd25237979fe97fb7e81985c37e997aa6dee890562672d6219fc1",
+        "manifestHash": "0x2d9f51b68825fa1d9df4f09cb55107a5292d5309ac67ef1bca939d5439aab7c6",
+        "expandedGates": 9,
+        "componentOrder": [
+          "nand0",
+          "probeNand",
+          "carry",
+          "sum"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "probeNand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "remove_unreferenced_middle_no_recipe_renumbering",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0xff70814e174ae2dc841eef4a9e6367bb5318bccd069307c3afdce1adaa329959",
+        "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+        "manifestHash": "0x10a2616767a30352158c32aae8cdb85b44cd7f5f04b168c462f41a8789b6f299",
+        "expandedGates": 8,
+        "componentOrder": [
+          "nand0",
+          "carry",
+          "sum"
+        ],
+        "candidate": {
+          "nIn": 2,
+          "components": [
+            {
+              "kind": "REF",
+              "instanceId": "nand0",
+              "sourceAlias": "nand",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            },
+            {
+              "kind": "NAND",
+              "instanceId": "carry",
+              "inputs": [
+                {
+                  "component": "nand0",
+                  "pin": 0
+                },
+                {
+                  "component": "nand0",
+                  "pin": 0
+                }
+              ]
+            },
+            {
+              "kind": "REF",
+              "instanceId": "sum",
+              "sourceAlias": "xor",
+              "inputs": [
+                {
+                  "component": null,
+                  "pin": 0
+                },
+                {
+                  "component": null,
+                  "pin": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "component": "carry",
+              "pin": 0
+            },
+            {
+              "component": "sum",
+              "pin": 0
+            }
+          ]
+        },
+        "dependencyHash": "0x044de5a2a581b53ece24a0848157dbace399551eee2fbb5f7a60818b1dd24bb4",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "compiler_component_count_with_existing_import_closure_4990",
+      "expected": "ACCEPTED",
+      "observed": "ACCEPTED",
+      "pass": true,
+      "result": {
+        "projectHash": "0xe35193179f0b41b7d0a0b1d15704ee952acb4bdb6d800824fcbf8f5d6d763f82",
+        "netlistHash": "0x5fefd26b406dabff83f1f3fd6934bf21852543857d1686b56f7c37b00809826e",
+        "manifestHash": "0x94781f389eb559eadc4769b071da5aad0e196a2bac62bd62894208e322b897c1",
+        "expandedGates": 4990,
+        "componentOrder": {
+          "count": 4990,
+          "orderHash": "0x87b5e76a501c361cbf772419f6d3258b41d3a1e1abc44ad7d56f0bab0a8f8888"
+        },
+        "candidate": {
+          "nIn": 2,
+          "componentCount": 4990,
+          "outputs": [
+            {
+              "component": "probe4988",
+              "pin": 0
+            },
+            {
+              "component": "probe4989",
+              "pin": 0
+            }
+          ],
+          "largeSyntheticArrayOmitted": true
+        },
+        "dependencyHash": "0x4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "sourcesHash": "0xa5e26365d149b5a0794fdc9ffa1ef7129baf032eee544d56ccc9338022ffc83d",
+        "importsHash": "0x739b5938394d139fc3698e22abfa12f3d83b7c932604fa08c13cc19bb2c7e6f2",
+        "comparisonHash": "0x812dd645687fd73985244744417c4b7961fc1e7e84970c1a976e1aa31d82b272"
+      }
+    },
+    {
+      "case": "compiler_component_count_with_existing_import_closure_5000",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "RESOURCE_LIMIT",
+        "message": "('RESOURCE_LIMIT', 'Composition plus closure budget exceeded.')",
+        "detail": null
+      }
+    },
+    {
+      "case": "compiler_component_count_with_existing_import_closure_5001",
+      "expected": "REJECTED",
+      "observed": "REJECTED",
+      "pass": true,
+      "result": {
+        "code": "INVALID_INPUT",
+        "message": "('INVALID_INPUT', 'Invalid M3 request; source widths/maps must be explicit.')",
+        "detail": "1 validation error for VerificationRequest\nproject.`m3-1.0.0`.candidate.components\n  List should have at most 5000 items after validation, not 5001 [type=too_long, input_value=[{'kind': 'NAND', 'instan...ent': None, 'pin': 1}]}], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.12/v/too_long"
+      }
+    }
+  ],
+  "passed": 24,
+  "failed": 0
+}

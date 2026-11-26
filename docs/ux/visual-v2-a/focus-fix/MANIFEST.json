@@ -1,0 +1,45 @@
+{
+  "implementationCommit": "b23d3dcf8f98e9b95cd0bc8ca8fbf612045e1daa",
+  "files": [
+    {
+      "path": "browser-final-72.json",
+      "bytes": 112750,
+      "sha256": "b49d770935902b2259b9b3a4053247cbcd11685deb0ec35c0e43cc1778617262"
+    },
+    {
+      "path": "browser-final-72.txt",
+      "bytes": 9198,
+      "sha256": "5307c034e0d41b7196f35c2431aad8d7c33b3311ddc27680f3f10111c2ff650f"
+    },
+    {
+      "path": "canonical-parity.json",
+      "bytes": 24110,
+      "sha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933"
+    },
+    {
+      "path": "ci-initial-ubuntu-failure.txt",
+      "bytes": 72684,
+      "sha256": "5a8795a921da72382a4f7dbe4f43c579f387b1e03933654ed6e59a402b943931"
+    },
+    {
+      "path": "focus-regression-targeted.txt",
+      "bytes": 1009,
+      "sha256": "b72d9ddabca8661df386acc2d6b6e319156f24782489654a2731b3b5589fa39b"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 1698,
+      "sha256": "c4b9cba0fc5a6c7767e935fb8e87588b21842c356438f2d9224f81add7fecb20"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2524,
+      "sha256": "e035be093d80dfb1afb02d55e425fcacbfaf62d1bf45036aae49ec638abc3a5b"
+    },
+    {
+      "path": "screenshots.json",
+      "bytes": 1418,
+      "sha256": "ccca9039215e8372c0a5a294cdf02f931a1e39c6233ac0b5b71a7ec7866515b9"
+    }
+  ]
+}
