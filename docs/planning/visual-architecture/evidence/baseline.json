@@ -1,0 +1,152 @@
+{
+  "observedAtUtc": "2026-11-23T12:37:53.129793+00:00",
+  "acceptedMain": "7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f",
+  "auditParent": "6427b1b291f67151cc62ba413dc607e40be2af72",
+  "mainTrees": {
+    "packages": "370b362cd4dfa1e81ba6e036d59236cb3fa2ece6",
+    "apps/web": "c3eac3bc1cb2e7d9d4cddbc0e208e8b169e054fd",
+    "docs/schema": "0812b72a3a103e12861f8be9ae7be3a56abd61c4",
+    "fixtures": "78129e65d4abe7ea79eb67fd841c4cea93c2b633"
+  },
+  "files": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "gitBlob": "2c4beb108aabd3d6fd4d5c21d12ac4e6c61d4ad2",
+      "sha256GitBytes": "684a86870caea3a804c011b35739be198c43ac3f4580e6c24be733689ae80271"
+    },
+    {
+      "path": "apps/web/src/Composer.tsx",
+      "gitBlob": "12f7343226f95fa98afa317598b06302e3719a4e",
+      "sha256GitBytes": "ee877de9cd04fb03e70b6b39238572a65e22392acf37b2f514cb0bd81003fe40"
+    },
+    {
+      "path": "apps/web/src/model.ts",
+      "gitBlob": "e5e4eab9ecb03bc8d7219b6abd3d998a7a5738b6",
+      "sha256GitBytes": "813c9baf7e18d86dafbe78fa3c4e4c104c294450b95dccb3d2f1743a23f45b93"
+    },
+    {
+      "path": "apps/web/src/Debugger.tsx",
+      "gitBlob": "0dafeca0538690b4217e994a50fbacff66aa60e2",
+      "sha256GitBytes": "0e995542a43b3705f075af8e3ae6675d4031ffd83e3efe730f460cd7a6bffdaa"
+    },
+    {
+      "path": "apps/web/src/Portable.tsx",
+      "gitBlob": "a7d1e1426edb58ea2c12e384676225ab24597291",
+      "sha256GitBytes": "e1063871e563a378f11d4a7d90c35690de5c563b29e2a1ecd2bef0e13d509794"
+    },
+    {
+      "path": "apps/web/src/Library.tsx",
+      "gitBlob": "02f39ac9605eb8398c433fd850553a9ed45727a3",
+      "sha256GitBytes": "931be3333fa2c78f1e653a8ddf1032f9bfc3bf255f2cfa4bebc91bd0fa303cae"
+    },
+    {
+      "path": "apps/web/src/style.css",
+      "gitBlob": "3d6be9cc2e51a29425501a152775a8881c2acd58",
+      "sha256GitBytes": "fc8a3add8fc6f4c3b68982309933b9556a8542d1a1db607bf5d174d29d43d5aa"
+    },
+    {
+      "path": "apps/web/package.json",
+      "gitBlob": "bda099080b6ca7d8ce70cb002c835ecd82c397f2",
+      "sha256GitBytes": "ecc6652c94c67a9442df151ae6eef91f0262bc5e5ddf68098a0839584cc45a56"
+    },
+    {
+      "path": "apps/web/package-lock.json",
+      "gitBlob": "8ac5579e7167c3369f288de29bfc6a27b90e2ef6",
+      "sha256GitBytes": "2107d27b4f848b071064e6ccd12089431ee3f2ba8ecdbf69f41eadf74fb578cd"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/models.py",
+      "gitBlob": "ba7bf67a54eabed3b01ef7b378f47259f5e49726",
+      "sha256GitBytes": "5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/composition_models.py",
+      "gitBlob": "b39bb21eef6a5beff6c63d194ad3badabde4553a",
+      "sha256GitBytes": "6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/composition.py",
+      "gitBlob": "e5147d468f78d70e6efa71ce49f8cf1a9a9dc39c",
+      "sha256GitBytes": "d42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/tap02.py",
+      "gitBlob": "eae601d0c4a35f48adecf44331f036deb55ffff3",
+      "sha256GitBytes": "9e81c4f6011ed081168cf6b81a3b78f77727ed2b11e7a66f577a9ed820c157ca"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/execution.py",
+      "gitBlob": "66168fdb6213f0acce4b924f3026110f335b3fc9",
+      "sha256GitBytes": "090e43a1b99d1ef5083b961869c1516fddd51c47f72b0ee837549f1c9768d9f2"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/verification.py",
+      "gitBlob": "f876f0d654aab5a7d803460b16f1cce5ddfa8458",
+      "sha256GitBytes": "cb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/debugging.py",
+      "gitBlob": "b87314ba80790ae1b1e55dc385c378e0cea3e8e5",
+      "sha256GitBytes": "5dbdfb2bde7eaf85d2132bac4e86f45bdfa4d528d83d30167a7337ecb335b547"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/debugging_models.py",
+      "gitBlob": "a0d823b05bf1add492c3606458ae39d09d15131b",
+      "sha256GitBytes": "6a32ceb984979adf33cd33e9b6fbfddd4ce41e56c2d4cbb90ab63254a4c3eea5"
+    },
+    {
+      "path": "packages/flip-core/src/flip_core/portable.py",
+      "gitBlob": "0e751318566849078238a2dcfe612d4ac542ee44",
+      "sha256GitBytes": "6e9c41294f2619f7380ec28fcfb2ef9011a3f0e3412ca488e772b352c1ebe9e8"
+    },
+    {
+      "path": "packages/flip-api/src/flip_api/app.py",
+      "gitBlob": "c12acfc6923adc9f60abc4195c5b59feda4bf3a5",
+      "sha256GitBytes": "4eb1f7ef9e37e85adbccc1413b61dbf108029d2109734dd690493ee2d8753d41"
+    },
+    {
+      "path": "packages/flip-cli/src/flip_cli/main.py",
+      "gitBlob": "4f6844d3713b8d8178fb81b3808c83db78bd9466",
+      "sha256GitBytes": "0c56510c357bb8d8cb2e762524d2baf1ccc54352710b501b3274ff898f66234b"
+    },
+    {
+      "path": "uv.lock",
+      "gitBlob": "66faf9f074f7267f6c4b1072a72bf16abe23a524",
+      "sha256GitBytes": "b18450761847b3618a67530daa3fc62d3fe649243b0e40c5eb742f39ffff6349"
+    }
+  ],
+  "registryMetadataOnly": {
+    "@xyflow/react": {
+      "version": "13.0.2",
+      "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18",
+        "@types/react": ">=18",
+        "@types/react-dom": ">=18"
+      },
+      "license": "MIT",
+      "engines": {
+        "node": ">=20"
+      }
+    },
+    "rete": {
+      "version": "2.0.6",
+      "license": "MIT"
+    },
+    "rete-react-plugin": {
+      "version": "2.1.2",
+      "peerDependencies": {
+        "react": "^16.8.6 || ^17 || ^18 || ^19 ",
+        "react-dom": "^16.8.6 || ^17 || ^18 || ^19",
+        "rete": "^2.0.1",
+        "rete-area-plugin": "^2.0.0",
+        "rete-render-utils": "^2.0.0",
+        "styled-components": "^5.3.6 || ^6"
+      },
+      "license": "MIT"
+    }
+  },
+  "directiveSha256": "d3b8d86853ca70363f6900125a2aa56e81b2b8ac973530be8165e83a267ab1cb",
+  "junitSha256": "ae77abc27b1cea91478ae74451eaca9da3767f6505ae6ffd98b6531b10c22064",
+  "requirementsMarkdownOnMain": false
+}

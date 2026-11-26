@@ -1,0 +1,17 @@
+{
+  "version": "visual-v1-release-trust-1",
+  "commit": "7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f",
+  "tree": "1acefac7b498167b970044f872e8a753ac6b6917",
+  "blobs": {
+    "docs/release/M45_R3_ASSET_INVENTORY.json": "65fda37f236db96a35e6abee210ab408ca6aa019",
+    "apps/web/package.json": "bda099080b6ca7d8ce70cb002c835ecd82c397f2",
+    "apps/web/package-lock.json": "8ac5579e7167c3369f288de29bfc6a27b90e2ef6",
+    "apps/showcase/recordings/manifest.json": "1cad0d727d0b22d34d2b236f28e9f6795cb23a65"
+  },
+  "currentSourceHashes": {
+    "scripts/check_m45_release_package.mjs": "75ca91168241181626ab443f6a638681e7067d3b6ae8694e10eaad12cea7dfb1"
+  },
+  "bootstrapSourceHashes": {
+    "apps/showcase/lib.mjs": "d123aa28ac8431bad73d02186e99e9d764477554cda1ae31c5ad712ab341c834"
+  }
+}

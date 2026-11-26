@@ -32,6 +32,20 @@ jobs:
         working-directory: apps/web
       - run: node apps/showcase/build.mjs
       - run: node apps/showcase/build.mjs --check
+      # Trust anchor for V1 guard; protect this workflow via owner review/required checks.
+      - name: Check release guard before execution
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
+          import assert from 'node:assert/strict';
+          const sha = b => createHash('sha256').update(b).digest('hex');
+          const raw = readFileSync('docs/release/V1_RELEASE_TRUST.json');
+          assert.equal(sha(raw), 'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0', 'CI release trust metadata mismatch');
+          const trust = JSON.parse(raw);
+          for (const [p, expected] of Object.entries({...trust.currentSourceHashes,...trust.bootstrapSourceHashes})) assert.equal(sha(Buffer.from(readFileSync(p,'utf8').replaceAll('\r\n','\n'))), expected, 'CI checker integrity mismatch');
+          JS
       - run: node scripts/check_m45_release_package.mjs
       - run: node apps/showcase/test.mjs
       - run: uv run --frozen ruff check .

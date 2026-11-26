@@ -1,0 +1,431 @@
+# FLIP — PRE-M5 MILESTONE UPDATE
+**Project:** Flip (formerly CircuitForge)  
+**Context:** X Layer Build X Series Hackathon  
+**Current checkpoint:** M4.5-R3, documentation findings F-01/F-02 and PR #11  
+**Priority:** Mandatory pre-M5 integration planning
+
+## 1. Purpose
+
+This document consolidates the requirements agreed upon in a separate Flip project conversation.
+
+After receiving Codex's latest M4.5-R3 completion report, reconcile the current repository against these requirements.
+
+Do not assume that a feature is missing merely because it appears in this plan. Several foundational capabilities have already been implemented.
+
+Audit first, identify remaining gaps, and implement only what is needed.
+
+**The six previously agreed pre-M5 capabilities remain mandatory. Two additional milestones and three UX requirements are introduced below.**
+
+---
+
+## 2. Existing mandatory pre-M5 capabilities
+
+### P1. Dual Human and AI Agent Workflows
+
+Support both:
+
+- A human-facing visual UI.
+- An agent-native CLI with structured JSON interfaces.
+- A shared canonical circuit engine and project schema.
+- Consistent composition, simulation, verification and evidence generation.
+- Agent-accessible documentation and skills.
+- Permission gates for sensitive operations.
+
+**Acceptance:** Equivalent projects produce equivalent circuit results and verification evidence through both interfaces.
+
+### P2. Circuit and Processor Address Library
+
+Provide:
+
+- A curated collection of verified X Layer processor and circuit addresses.
+- Live discovery through the TapeOut factory.
+- Search and filtering.
+- Processor/circuit metadata.
+- Favorites and recent imports.
+- Address validation and clear failure messages.
+- Safe caching and refresh of blockchain data.
+
+**Acceptance:** Users can discover and import a registered circuit without manually finding its contract address on an explorer.
+
+### P3. Complete Authorized Tape-Out Lifecycle
+
+Support:
+
+- Processor selection.
+- Transistor and fee estimation.
+- Transaction previews.
+- Explicit confirmation.
+- Authorized submission.
+- Transaction status.
+- On-chain receipts and circuit identifiers.
+- Safe failure recovery.
+
+**Acceptance:** Demonstrate a complete authorized lifecycle with reproducible on-chain evidence.
+
+Do not bypass security controls to satisfy this milestone.
+
+### P4. Safe Agent Execution
+
+Provide:
+
+- Permission and execution boundaries.
+- Explicit human approval for transactions.
+- Spending limits.
+- Network and chain verification.
+- Transaction payload inspection.
+- Credential safeguards.
+- Prevention of unauthorized or repeated transactions.
+
+**Acceptance:** Agents cannot authorize on-chain operations or spending through ambiguous instructions or approval bypasses.
+
+### P5. Portable Circuit Project Format
+
+Provide:
+
+- Versioned project schemas.
+- Canonical circuit representations.
+- Dependency manifests.
+- Processor/circuit identities.
+- Wiring configuration.
+- Simulation and verification settings.
+- Test cases and evidence references.
+- Deterministic replay and project interchange.
+
+**Acceptance:** Projects move between the web UI and CLI without semantic differences or lost information.
+
+### P6. Circuit Debugging and Diagnostics
+
+Provide:
+
+- Counterexamples.
+- Expected-versus-actual outputs.
+- Bit-level diagnostics.
+- Connection-level fault inspection.
+- Clear explanations of invalid wiring.
+- Correction suggestions where reliable.
+- Distinction between DIFFERENT, EQUIVALENT and UNKNOWN.
+
+**Acceptance:** Users can locate, understand and correct a deliberately introduced circuit defect.
+
+---
+
+# 3. NEW MILESTONE P7 — Visual Circuit Composer + Visual Wiring Canary
+
+**Priority: High**  
+**Status: Research and implementation required, subject to repository audit**
+
+## Objective
+
+Introduce a graphical circuit-building interface for developers who prefer visual composition over manual pin mapping or raw netlists.
+
+The interface must use Flip's existing canonical circuit engine.
+
+### Functional requirements
+
+1. A node-based circuit canvas.
+2. Drag-and-drop placement of supported logic components.
+3. Visual representation of NAND, LATCH and REF components.
+4. Input and output pins with clear labels.
+5. Connectable wiring between compatible pins.
+6. Visual signal-flow inspection.
+7. Component properties and configuration inspector.
+8. Zoom, pan and practical layout controls.
+9. Connection validation before compilation.
+10. Undo, redo and safe restoration of previous wiring.
+11. Real-time structural feedback where feasible.
+12. Simulation and verification integration.
+13. Export to the same canonical netlist as the existing advanced editor.
+14. Preservation of visual layout metadata in portable project files.
+
+### Visual Wiring Canary
+
+Extend Flip's existing wiring canary to support:
+
+- Deliberate, reversible wiring faults.
+- Visual highlighting of affected connections.
+- Expected-versus-actual signal comparison.
+- Counterexample inspection.
+- Identification of implicated pins and connections.
+- One-click restoration of original wiring.
+- Reverification after correction.
+
+### Implementation research
+
+Before implementation, investigate:
+
+- React Flow (`@xyflow/react`) or another appropriate node editor.
+- Current Flip frontend and circuit schema.
+- Required schema extensions.
+- Stateless and stateful component constraints.
+- Performance with large circuit graphs.
+- Accessibility and keyboard interactions.
+- Compatibility with the existing advanced composition editor.
+
+### Hard architectural constraint
+
+**Do not create a second independent circuit engine.**
+
+The visual editor, existing advanced editor and agent CLI must share the same underlying circuit representation, validation rules and verification backend.
+
+### Acceptance tests
+
+- Import a real circuit and visualize its supported structure.
+- Compose a valid circuit through drag-and-connect operations.
+- Export a canonical netlist matching the advanced editor.
+- Introduce a wiring error and receive visual diagnostics.
+- Restore the original wiring and verify equivalence.
+- Export and reopen the project without losing semantic or visual state.
+- Preserve existing automated tests and functionality.
+
+---
+
+# 4. NEW MILESTONE P8 — Comprehensive Interactive Visual User Guide
+
+**Priority: High**  
+**Status: Design, research and implementation required**
+
+## Objective
+
+Build a dedicated User Guide section inside Flip with two learning paths.
+
+The goal is to make Flip accessible to complete beginners without reducing efficiency for experienced developers.
+
+## Path A: Experienced Circuit/TapeOut Developers
+
+A concise guide focused on operating Flip.
+
+Cover:
+
+1. Application navigation.
+2. Starting or opening projects.
+3. Processor and circuit discovery.
+4. Circuit importing.
+5. Visual and advanced composition.
+6. Wiring and pin mapping.
+7. Simulation.
+8. Verification.
+9. Debugging.
+10. Evidence generation and export.
+11. Evidence replay.
+12. Optional authorized deployment, if implemented.
+
+Use brief instructions, annotated UI screenshots and direct navigation to relevant features.
+
+Avoid lengthy explanations of established electronics concepts.
+
+## Path B: Complete Beginners
+
+A progressive educational experience for users with no background in digital circuits, TapeOut or X Layer.
+
+### Module 1 — Understanding the ecosystem
+
+Explain:
+
+- What X Layer is.
+- What TapeOut does.
+- What a processor is.
+- What a circuit is.
+- What transistor tokens represent.
+- Why developers use circuits.
+- How Flip fits into this ecosystem.
+
+### Module 2 — Understanding components
+
+Explain with visual examples:
+
+- Binary logic.
+- NAND gates.
+- LATCH components.
+- REF components.
+- Circuit inputs and outputs.
+- Pins and connections.
+- Bit ordering and bit widths.
+- Logic gates.
+- Netlists.
+- Combinational versus stateful circuits.
+
+### Module 3 — Creating the first project
+
+Teach users to:
+
+- Open a sample.
+- Create a project.
+- Import an existing circuit.
+- Inspect its structure.
+- Understand its inputs and outputs.
+
+### Module 4 — Visual composition and wiring
+
+Teach users to:
+
+- Add circuit components.
+- Position components.
+- Connect pins.
+- Inspect signal flow.
+- Validate wiring.
+- Modify an existing circuit.
+- Save a reusable composition.
+
+### Module 5 — Simulation and debugging
+
+Teach users to:
+
+- Supply test inputs.
+- Interpret outputs.
+- Run simulation.
+- Identify incorrect wiring.
+- Read counterexamples.
+- Restore and correct circuits.
+
+### Module 6 — Verification and evidence
+
+Explain:
+
+- Simulation versus formal verification.
+- Equivalence checking.
+- Reference circuits.
+- EQUIVALENT, DIFFERENT and UNKNOWN.
+- Verification limits.
+- Evidence bundles.
+- Project identity and hashes.
+- Evidence export and replay.
+
+### Module 7 — Complete guided project
+
+Guide a beginner from an empty project or known sample through:
+
+**Create/import → Compose → Wire → Simulate → Debug → Verify → Export Evidence → Replay Evidence**
+
+The final result must be a real project with a reproducible evidence artifact.
+
+---
+
+# 5. THREE ADDITIONAL MANDATORY UX REQUIREMENTS
+
+These are part of milestone P8 and must not be omitted.
+
+## UX-01: Contextual Explanations
+
+Provide contextual help for technical concepts throughout the application.
+
+Examples:
+
+- Processor.
+- REF.
+- NAND.
+- LATCH.
+- SAT.
+- Netlist.
+- Pin.
+- Circuit dependency.
+- Counterexample.
+- Evidence bundle.
+
+Users should not have to leave their current workflow to understand a term.
+
+Implement accessible tooltips, inline help, glossary entries or expandable explanations where appropriate.
+
+## UX-02: Interactive Application Walkthroughs
+
+Provide step-by-step, interface-anchored tutorials.
+
+Requirements:
+
+- Highlight actual application controls.
+- Guide users through real actions.
+- Offer clear next, back and exit controls.
+- Preserve progress where appropriate.
+- Handle missing or changed UI elements safely.
+- Avoid claiming an action succeeded before the application confirms it.
+
+Walkthroughs must operate against the implemented interface, not an invented or simulated application.
+
+## UX-03: Error and Recovery Lessons
+
+Teach users how to recover from common failures.
+
+Include safe examples of:
+
+- Invalid processor addresses.
+- Nonexistent circuit IDs.
+- Incompatible pin connections.
+- Incorrect output mapping.
+- RPC connection failures.
+- Solver timeouts and UNKNOWN results.
+- Stale verification evidence.
+- Malformed project files.
+- Unsaved changes and project recovery.
+
+Use non-destructive exercises wherever possible.
+
+Each lesson should explain:
+
+1. What failed.
+2. Why it failed.
+3. What the application did to protect the user's work.
+4. How the user can recover.
+5. How to avoid repeating the error.
+
+---
+
+# 6. Cross-cutting engineering requirements
+
+All eight milestones must preserve:
+
+- Existing verified circuit behavior.
+- Shared canonical circuit semantics.
+- Deterministic verification.
+- Chain and processor identity checks.
+- Fail-closed transaction boundaries.
+- Project portability.
+- Evidence integrity.
+- Undo and recovery safeguards.
+- Accessibility.
+- Frontend responsiveness.
+- Regression-test coverage.
+
+Tutorials and screenshots must correspond to the real implementation.
+
+Do not present unsupported operations as available features.
+
+---
+
+# 7. Implementation sequence
+
+After Codex reports M4.5-R3 completion:
+
+1. Inspect the accepted commit and working tree.
+2. Audit P1–P6 to determine completed, partial and missing functionality.
+3. Research P7 and identify integration risks.
+4. Research P8 and map the actual UI workflows.
+5. Produce scoped implementation plans and acceptance tests.
+6. Implement outstanding core functionality before dependent documentation.
+7. Develop the visual composer using the shared engine.
+8. Implement the two-track guide against the actual interface.
+9. Add all three additional UX requirements.
+10. Run full integration, security, regression and accessibility testing.
+11. Report readiness for M5 and the hackathon release.
+
+Independent tasks may be delegated to OpenCode, while Codex remains responsible for overall architecture and final integration.
+
+Avoid unnecessary rewrites of already accepted functionality.
+
+---
+
+# 8. Required response when this handoff is received
+
+Do not immediately begin broad implementation.
+
+First:
+
+1. Acknowledge all eight milestone areas and the three UX requirements.
+2. Compare them against the latest accepted implementation.
+3. Identify completed, partial and missing capabilities.
+4. Identify technical dependencies and risks.
+5. Propose a practical, dependency-aware implementation plan.
+6. Separate hackathon-critical blockers from optional refinements.
+7. Define acceptance criteria for every outstanding task.
+
+**Final objective:** Flip should allow experienced developers to work efficiently while enabling complete beginners to learn, compose, wire, simulate, verify, debug and export circuit evidence through a reliable, visually understandable application.
+
+No milestone should be marked complete solely because its interface exists. Its underlying behavior must be validated.

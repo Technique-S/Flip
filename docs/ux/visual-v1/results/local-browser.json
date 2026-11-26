@@ -1,0 +1,1620 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v1\\apps\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v1\\apps\\web\\playwright.config.mjs",
+    "rootDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v1/apps/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.test-tmp/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v1/apps/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v1\\.test-tmp\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v1\\apps\\web\\tests",
+        "snapshotDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v1\\apps\\web\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:18761",
+          "viewport": {
+            "width": 1280,
+            "height": 860
+          },
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../.test-tmp/m4-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "acceptance.spec.ts",
+      "file": "acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "B01 keyboard-only complete export journey",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:24.647Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-a7b43b4e0fb42e4bb90f",
+          "file": "acceptance.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "B02 focus recovery and B06 error state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2470,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:29.415Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-7f8c6b009cf51c1d9fde",
+          "file": "acceptance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "B03 accessible labels and B05 responsive axe audit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13631,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:31.926Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-ed48cfccd3693b18245f",
+          "file": "acceptance.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "B04 result announcement, mappings, and semantic differences",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:45.591Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-6093a527f9ea25e37e69",
+          "file": "acceptance.spec.ts",
+          "line": 102,
+          "column": 1
+        },
+        {
+          "title": "B07 timeout recovery and B08 repeated runs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3091,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:48.082Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-20d32600ba5ce4911582",
+          "file": "acceptance.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "B09 refresh recovery, confirmed reset and storage failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:51.199Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-11d4f6b9661bddf60803",
+          "file": "acceptance.spec.ts",
+          "line": 147,
+          "column": 1
+        },
+        {
+          "title": "B10 download name and replay is covered by workflow suite",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:53.699Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-4fe9c2aca901dc384501",
+          "file": "acceptance.spec.ts",
+          "line": 174,
+          "column": 1
+        },
+        {
+          "title": "B11 preflight separates three structural outcomes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:54.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6bf654160f377cf56a60-0772a77a34e19f4dbb7f",
+          "file": "acceptance.spec.ts",
+          "line": 184,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "agent-portable.spec.ts",
+      "file": "agent-portable.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "combined named tests, correction, explicit new revision, CLI replay and authorization stop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:03:55.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc639e5e96071466907c-cf03c48b09e9d5c6221a",
+          "file": "agent-portable.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "cancel a late workflow response without selecting its revised package",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14531,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:04:20.197Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc639e5e96071466907c-19601603e29ba3824183",
+          "file": "agent-portable.spec.ts",
+          "line": 179,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "debugging-acceptance.spec.ts",
+      "file": "debugging-acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "acceptance: changing the project invalidates an already selected proposal before apply",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:04:34.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "44330d8f3a6dc4c39104-b07c03dd86ca0291ad00",
+          "file": "debugging-acceptance.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "acceptance: repeated correction checks are fresh and refresh restores data without undo or proof authority",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:04:40.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "44330d8f3a6dc4c39104-c081b4f38337e76a38d2",
+          "file": "debugging-acceptance.spec.ts",
+          "line": 71,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "debugging.spec.ts",
+      "file": "debugging.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "debugger replays paths, verifies a separate correction, applies and reverts with CLI parity",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11518,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:04:51.361Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "baabf00a89fa0ff8a8a7-70726b4c06c504719ad6",
+          "file": "debugging.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "debugger narrow viewport, reduced motion and production resource UNKNOWN",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2688,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:02.908Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "baabf00a89fa0ff8a8a7-3280ba79e8161d1a9526",
+          "file": "debugging.spec.ts",
+          "line": 104,
+          "column": 1
+        },
+        {
+          "title": "debugger discards an in-flight result when the project mapping changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:05.624Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "baabf00a89fa0ff8a8a7-36a5f1459ac8818901b2",
+          "file": "debugging.spec.ts",
+          "line": 146,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "library-acceptance.spec.ts",
+      "file": "library-acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F-01 exact malformed-favorites restore retains bytes and recovers seeds",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:07.812Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "645d67f2eee39cbd702c-4d0f7750895becb1feb5",
+          "file": "library-acceptance.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:08.764Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "645d67f2eee39cbd702c-7e63b3fbd226c61e1903",
+          "file": "library-acceptance.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "LC01 invalid saved catalog recovers known addresses without overwriting saved bytes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:09.761Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "645d67f2eee39cbd702c-1d449b08961a738362f3",
+          "file": "library-acceptance.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "LC02 recent imports display most recent first after browser restore",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 814,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:10.618Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "645d67f2eee39cbd702c-fc3aa1900ad2e807ce28",
+          "file": "library-acceptance.spec.ts",
+          "line": 119,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "library.spec.ts",
+      "file": "library.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3964,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:11.477Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ad0ae3d52ea8a2949ca9-988786989eead7851f6e",
+          "file": "library.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "L02 known-address fallback, stale favorites, bounded pagination and mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2332,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:15.462Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ad0ae3d52ea8a2949ca9-2557a5883e32d45a7006",
+          "file": "library.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "L03 resumes a pinned circuit page and skips missing IDs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1221,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:17.823Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ad0ae3d52ea8a2949ca9-471ed0b7898d16afc9b9",
+          "file": "library.spec.ts",
+          "line": 137,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "portable.spec.ts",
+      "file": "portable.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "portable CLI-compatible package, tests, revision save, refresh and explicit downgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:19.095Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c79a3b05e7f67b52c1b1-9e5377c6763975f74838",
+          "file": "portable.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "portable import rejects tampering and preserves the open project",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1088,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:23.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c79a3b05e7f67b52c1b1-fb9ad64e5341bf26b67d",
+          "file": "portable.spec.ts",
+          "line": 124,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "review.spec.ts",
+      "file": "review.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1922,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:24.812Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "12f883ce49bb8436c3d7-90d029af03f02b6f0b41",
+          "file": "review.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "visual-readonly.spec.ts",
+      "file": "visual-readonly.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "projection preserves exact recipe, every scalar mapping, order and stable destination identity",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.813Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-0dd082e6d06318a078e7",
+          "file": "visual-readonly.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "projection handles zero-input multioutput REF and uint64 decimal IDs without precision loss",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.869Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-97190b566a7b499b7ff2",
+          "file": "visual-readonly.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "projection refuses null input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.898Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-bcba31bc0282fc5ef773",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses kind input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.931Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-f23fd58d8fd62397a90a",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses forward input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.953Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-8868e4fe363ee991ff8f",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses negative input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:26.980Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-ff0d54505321d466ef3c",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses arity input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.013Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-30c21bd90d5fbb392e15",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses stateful input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.036Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-9dc00fdf7dbfb39bf0b3",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses binding input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-d7bf56c47b73ea2ddc2d",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses duplicate input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.079Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-0537f3997f7c7d251c1f",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses huge input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.104Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-edfd0e1fa6c2e4e0c052",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "projection refuses missing input without mutating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.131Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-49d84d14a0b9942d4915",
+          "file": "visual-readonly.spec.ts",
+          "line": 120,
+          "column": 2
+        },
+        {
+          "title": "real sample visual/advanced parity, all rendered connections, disabled mutation and zero additional network",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2540,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:27.152Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "canonical-before-after",
+                      "contentType": "application/json",
+                      "body": "eyJiZWZvcmUiOnsiaW1wb3J0cyI6W3siY2lyY3VpdHMiOlt7ImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMSIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJuZXRsaXN0IjoiMHgwMDAwMDAwMjAwMDAwMzAwMDAwMDAyMDAwMDA0MDAwMDAwMDMwMDAwMDQwMDAwMDAwNTAwMDAwNiJ9XSwiaW50ZWdyaXR5Ijp7ImNoZWNrZWRCbG9jayI6eyJoYXNoIjoiMHhjZTQzOTRjNTIzOGQzMzljY2Y5NmQ0NzZlNDJhNGY3YjUyZDZmYzI0Nzk2YTdmNmM3N2RkOTNjOTE0ZmZmOTQ4IiwibnVtYmVyIjoiNzYyMDY0ODIifSwiZnJlc2huZXNzIjoiSElTVE9SSUNBTCJ9LCJraW5kIjoiQ0lSQ1VJVF9JTVBPUlQiLCJtYW5pZmVzdCI6eyJibG9jayI6eyJoYXNoIjoiMHhjZTQzOTRjNTIzOGQzMzljY2Y5NmQ0NzZlNDJhNGY3YjUyZDZmYzI0Nzk2YTdmNmM3N2RkOTNjOTE0ZmZmOTQ4IiwibnVtYmVyIjoiNzYyMDY0ODIifSwiY2hhaW5JZCI6MTk2LCJkZXBlbmRlbmNpZXMiOltdLCJlZGdlcyI6W10sIm9ic2VydmF0aW9uIjoiU0lOR0xFX1JQQyIsInJvb3QiOnsiZW52aXJvbm1lbnQiOnsiYmVhY29uIjp7ImFkZHJlc3MiOiIweGY3MGQxZWQ0ZjYyY2YzNzgwMTU3YjBiNDIxYjdlMmY0NWJkMDk5MWMiLCJjb2RlSGFzaCI6IjB4ZWNmZWQ3YTc5ZGM0NjAyNGU3OGY3NmJlM2Y5OTVjOWZjZWNjMmQ4ZTczMDgyOWI3Y2YwM2FlZjQ3YmU5ZTFhMiJ9LCJiZWFjb25JbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHg5NzdmMjE3ODg3ZTA4NWQyOThjYjM4MTljZGFkNWEwZWUzNWYyOWIyIiwiY29kZUhhc2giOiIweDBhNTI1OWE4YjVhNjkxOTdjZGU2ZGNlNzBhNDQ0NmZlODA3YjYyMjI3N2JkYWU5ZTc5OTE5ZDVkOGU5ODI4YTUifSwiZmFjdG9yeSI6eyJhZGRyZXNzIjoiMHgxZjA5ZGFlZmE4MjdmMDJjYmI0MDk2N2NjOTFiMjU5NzYzNzYwNzYxIiwiY29kZUhhc2giOiIweGQ1ZTUzNDE2NGYyMzRiZWU5MGRhMjM2ZjVlNGZkMDlkNDMzM2RmYmVjZDA1OTFkNGY5M2FmMWVlMTcxM2RkMzEifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJjb2RlSGFzaCI6IjB4YTFhMDYxM2RhYzU4Y2NiMjQ0NTRlN2FiMjMyZDY2OGUyNDgzZDNkMGYwOTJmNDNhZmZhZThjOTQ4ODVhYWY1ZiJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb25TbG90IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiZmFjdG9yeVNlYWxlZCI6ZmFsc2UsInByb2Nlc3NvckNvZGVIYXNoIjoiMHgyZWE2ODNlMjc1Y2JlNmU1MTkyOGE5YmRlZmU4MGI2ZmY2YTZhNmU4NTM1NDM2YmJlN2VlYTAyZWUxODMwNmFlIn0sImV4cGFuZGVkR2F0ZXMiOjQsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMSIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MCwibmV0bGlzdEhhc2giOiIweGQzZjhmM2E4MzE2YTQ5MDIzYTgyNDM2ZTkyNjA3Zjc3YTUxZTdmMWI5NmI2MTRiM2Q3MTQxNzM3MmYzZjZhOWYifSwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIiwic2VtYW50aWNzIjp7ImVuY29kaW5nIjoidGFwMDItbHNiMC12MSIsInJlZmVyZW5jZUhhc2giOiIweDBlODUxNTk0ODk4MTM2MWM3ZGI1NzM3M2U4OTg2ZWFiNjMwNTZmMWNlMGZhZDVhM2VjMDcwYzE4ODc5MTlmYTkiLCJzcGVjaWZpY2F0aW9uSGFzaCI6IjB4OGRiMDNmNjI5OGM1OGFhZTVhOWFkZWFhMzc3NGMzMGVjZGY5ZGIxZjI3NmMzZWZkMDA3OTY0ODQ0NGQ4ODUwZiIsInRhcDAyVmVyc2lvbiI6ImRyYWZ0LTIwMjYtMTAtMDQiLCJ0ZXN0U3VpdGVIYXNoIjoiMHgxYTAyZjVjZjk5MWMxMzBhMjJkYzZjYzZlZTkzZDBmOGZlMDcyMGFmZWQwODE2NjVmYThiODAxOGFlZmQyMDNiIn0sInRvb2xWZXJzaW9uIjoiMC4xLjAifSwibWFuaWZlc3RIYXNoIjoiMHg5Y2IwODg4MjJjYmNlZjU3OWRmMTA2MmMwM2Q0M2VlOWY4MWIxYzVlMzRhNDEwMTM0MWRkNTQ0MjMxODdhZDU3IiwicGlubmluZyI6Ik5VTUJFUl9XSVRIX0hFQURFUl9SRUNIRUNLIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIiwidHJ1c3QiOiJTSU5HTEVfUlBDX09CU0VSVkFUSU9OIn0seyJjaXJjdWl0cyI6W3siaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIyIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5ldGxpc3QiOiIweDAwMDAwMDAyMDAwMDAzMDAwMDAwMDQwMDAwMDQwMDAwMDAwNTAwMDAwNSJ9XSwiaW50ZWdyaXR5Ijp7ImNoZWNrZWRCbG9jayI6eyJoYXNoIjoiMHhjZTQzOTRjNTIzOGQzMzljY2Y5NmQ0NzZlNDJhNGY3YjUyZDZmYzI0Nzk2YTdmNmM3N2RkOTNjOTE0ZmZmOTQ4IiwibnVtYmVyIjoiNzYyMDY0ODIifSwiZnJlc2huZXNzIjoiSElTVE9SSUNBTCJ9LCJraW5kIjoiQ0lSQ1VJVF9JTVBPUlQiLCJtYW5pZmVzdCI6eyJibG9jayI6eyJoYXNoIjoiMHhjZTQzOTRjNTIzOGQzMzljY2Y5NmQ0NzZlNDJhNGY3YjUyZDZmYzI0Nzk2YTdmNmM3N2RkOTNjOTE0ZmZmOTQ4IiwibnVtYmVyIjoiNzYyMDY0ODIifSwiY2hhaW5JZCI6MTk2LCJkZXBlbmRlbmNpZXMiOltdLCJlZGdlcyI6W10sIm9ic2VydmF0aW9uIjoiU0lOR0xFX1JQQyIsInJvb3QiOnsiZW52aXJvbm1lbnQiOnsiYmVhY29uIjp7ImFkZHJlc3MiOiIweGY3MGQxZWQ0ZjYyY2YzNzgwMTU3YjBiNDIxYjdlMmY0NWJkMDk5MWMiLCJjb2RlSGFzaCI6IjB4ZWNmZWQ3YTc5ZGM0NjAyNGU3OGY3NmJlM2Y5OTVjOWZjZWNjMmQ4ZTczMDgyOWI3Y2YwM2FlZjQ3YmU5ZTFhMiJ9LCJiZWFjb25JbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHg5NzdmMjE3ODg3ZTA4NWQyOThjYjM4MTljZGFkNWEwZWUzNWYyOWIyIiwiY29kZUhhc2giOiIweDBhNTI1OWE4YjVhNjkxOTdjZGU2ZGNlNzBhNDQ0NmZlODA3YjYyMjI3N2JkYWU5ZTc5OTE5ZDVkOGU5ODI4YTUifSwiZmFjdG9yeSI6eyJhZGRyZXNzIjoiMHgxZjA5ZGFlZmE4MjdmMDJjYmI0MDk2N2NjOTFiMjU5NzYzNzYwNzYxIiwiY29kZUhhc2giOiIweGQ1ZTUzNDE2NGYyMzRiZWU5MGRhMjM2ZjVlNGZkMDlkNDMzM2RmYmVjZDA1OTFkNGY5M2FmMWVlMTcxM2RkMzEifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJjb2RlSGFzaCI6IjB4YTFhMDYxM2RhYzU4Y2NiMjQ0NTRlN2FiMjMyZDY2OGUyNDgzZDNkMGYwOTJmNDNhZmZhZThjOTQ4ODVhYWY1ZiJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb25TbG90IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiZmFjdG9yeVNlYWxlZCI6ZmFsc2UsInByb2Nlc3NvckNvZGVIYXNoIjoiMHgyZWE2ODNlMjc1Y2JlNmU1MTkyOGE5YmRlZmU4MGI2ZmY2YTZhNmU4NTM1NDM2YmJlN2VlYTAyZWUxODMwNmFlIn0sImV4cGFuZGVkR2F0ZXMiOjMsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMiIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MCwibmV0bGlzdEhhc2giOiIweDkxYzgxZWIwMTg5MTkxNjljOTdhOGI3ZTEwZjRhYjliYjI3OTI5NjBmNTNjMGY0ZGUzZTNkMjY4MTkzOWZkOGUifSwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIiwic2VtYW50aWNzIjp7ImVuY29kaW5nIjoidGFwMDItbHNiMC12MSIsInJlZmVyZW5jZUhhc2giOiIweDBlODUxNTk0ODk4MTM2MWM3ZGI1NzM3M2U4OTg2ZWFiNjMwNTZmMWNlMGZhZDVhM2VjMDcwYzE4ODc5MTlmYTkiLCJzcGVjaWZpY2F0aW9uSGFzaCI6IjB4OGRiMDNmNjI5OGM1OGFhZTVhOWFkZWFhMzc3NGMzMGVjZGY5ZGIxZjI3NmMzZWZkMDA3OTY0ODQ0NGQ4ODUwZiIsInRhcDAyVmVyc2lvbiI6ImRyYWZ0LTIwMjYtMTAtMDQiLCJ0ZXN0U3VpdGVIYXNoIjoiMHgxYTAyZjVjZjk5MWMxMzBhMjJkYzZjYzZlZTkzZDBmOGZlMDcyMGFmZWQwODE2NjVmYThiODAxOGFlZmQyMDNiIn0sInRvb2xWZXJzaW9uIjoiMC4xLjAifSwibWFuaWZlc3RIYXNoIjoiMHhlOWU0Njc0ZDU1ODJjNmM3YmUwZTBhY2M3ZDE2ODJiYjY5MjQ4ZGY3YjZjMzIzYWJiYWJmYmUzYzUyZTBiZGE3IiwicGlubmluZyI6Ik5VTUJFUl9XSVRIX0hFQURFUl9SRUNIRUNLIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIiwidHJ1c3QiOiJTSU5HTEVfUlBDX09CU0VSVkFUSU9OIn1dLCJraW5kIjoiTTNfRVhFQ1VUSU9OIiwicHJvamVjdCI6eyJjYW5kaWRhdGUiOnsiY29tcG9uZW50cyI6W3siaW5wdXRzIjpbeyJjb21wb25lbnQiOm51bGwsInBpbiI6MH0seyJjb21wb25lbnQiOm51bGwsInBpbiI6MX1dLCJpbnN0YW5jZUlkIjoibmFuZDAiLCJraW5kIjoiUkVGIiwic291cmNlQWxpYXMiOiJuYW5kIn0seyJpbnB1dHMiOlt7ImNvbXBvbmVudCI6Im5hbmQwIiwicGluIjowfSx7ImNvbXBvbmVudCI6Im5hbmQwIiwicGluIjowfV0sImluc3RhbmNlSWQiOiJjYXJyeSIsImtpbmQiOiJOQU5EIn0seyJpbnB1dHMiOlt7ImNvbXBvbmVudCI6bnVsbCwicGluIjowfSx7ImNvbXBvbmVudCI6bnVsbCwicGluIjoxfV0sImluc3RhbmNlSWQiOiJzdW0iLCJraW5kIjoiUkVGIiwic291cmNlQWxpYXMiOiJ4b3IifV0sIm5JbiI6Miwib3V0cHV0cyI6W3siY29tcG9uZW50IjoiY2FycnkiLCJwaW4iOjB9LHsiY29tcG9uZW50Ijoic3VtIiwicGluIjowfV19LCJjaGFpbklkIjoxOTYsImNvbXBhcmlzb24iOnsiaW5wdXRNYXAiOlswLDFdLCJpbnRlbnQiOiJVTkRFQ0xBUkVEIiwia2luZCI6IlBBSVJXSVNFX0VRVUlWQUxFTkNFIiwib3V0cHV0TWFwIjpbMCwxXSwicmVmZXJlbmNlQWxpYXMiOm51bGwsInRydXN0QXNzZXJ0aW9uIjpudWxsfSwibGltaXRzIjp7ImdhdGVDYXAiOjI1MDAsInJlZkRlcHRoQ2FwIjo2NCwic29sdmVyTWVtb3J5TWlCIjo2NCwic29sdmVyVGltZW91dE1zIjo1MDAwfSwicHJvamVjdElkIjoiaGlzdG9yaWNhbEhhbGZBZGRlciIsInJlZmVyZW5jZUNhbmRpZGF0ZSI6eyJjb21wb25lbnRzIjpbeyJpbnB1dHMiOlt7ImNvbXBvbmVudCI6bnVsbCwicGluIjowfSx7ImNvbXBvbmVudCI6bnVsbCwicGluIjoxfV0sImluc3RhbmNlSWQiOiJuYW5kMCIsImtpbmQiOiJSRUYiLCJzb3VyY2VBbGlhcyI6Im5hbmQifSx7ImlucHV0cyI6W3siY29tcG9uZW50IjoibmFuZDAiLCJwaW4iOjB9LHsiY29tcG9uZW50IjoibmFuZDAiLCJwaW4iOjB9XSwiaW5zdGFuY2VJZCI6ImNhcnJ5Iiwia2luZCI6Ik5BTkQifSx7ImlucHV0cyI6W3siY29tcG9uZW50IjpudWxsLCJwaW4iOjB9LHsiY29tcG9uZW50IjpudWxsLCJwaW4iOjF9XSwiaW5zdGFuY2VJZCI6InN1bSIsImtpbmQiOiJSRUYiLCJzb3VyY2VBbGlhcyI6InhvciJ9XSwibkluIjoyLCJvdXRwdXRzIjpbeyJjb21wb25lbnQiOiJjYXJyeSIsInBpbiI6MH0seyJjb21wb25lbnQiOiJzdW0iLCJwaW4iOjB9XX0sInNjaGVtYVZlcnNpb24iOiJtMy0xLjAuMCIsInNvdXJjZXMiOlt7ImFsaWFzIjoieG9yIiwiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIxIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm1hbmlmZXN0SGFzaCI6IjB4OWNiMDg4ODIyY2JjZWY1NzlkZjEwNjJjMDNkNDNlZTlmODFiMWM1ZTM0YTQxMDEzNDFkZDU0NDIzMTg3YWQ1NyIsIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowfSx7ImFsaWFzIjoibmFuZCIsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMiIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJtYW5pZmVzdEhhc2giOiIweGU5ZTQ2NzRkNTU4MmM2YzdiZTBlMGFjYzdkMTY4MmJiNjkyNDhkZjdiNmMzMjNhYmJhYmZiZTNjNTJlMGJkYTciLCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MH1dLCJ0b29sVmVyc2lvbiI6IjAuMS4wIn0sInJlbGF0aW9uIjoiQkVIQVZJT1JBTCIsInNjaGVtYVZlcnNpb24iOiJtMy0xLjAuMCJ9LCJhZnRlciI6eyJpbXBvcnRzIjpbeyJjaXJjdWl0cyI6W3siaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIxIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5ldGxpc3QiOiIweDAwMDAwMDAyMDAwMDAzMDAwMDAwMDIwMDAwMDQwMDAwMDAwMzAwMDAwNDAwMDAwMDA1MDAwMDA2In1dLCJpbnRlZ3JpdHkiOnsiY2hlY2tlZEJsb2NrIjp7Imhhc2giOiIweGNlNDM5NGM1MjM4ZDMzOWNjZjk2ZDQ3NmU0MmE0ZjdiNTJkNmZjMjQ3OTZhN2Y2Yzc3ZGQ5M2M5MTRmZmY5NDgiLCJudW1iZXIiOiI3NjIwNjQ4MiJ9LCJmcmVzaG5lc3MiOiJISVNUT1JJQ0FMIn0sImtpbmQiOiJDSVJDVUlUX0lNUE9SVCIsIm1hbmlmZXN0Ijp7ImJsb2NrIjp7Imhhc2giOiIweGNlNDM5NGM1MjM4ZDMzOWNjZjk2ZDQ3NmU0MmE0ZjdiNTJkNmZjMjQ3OTZhN2Y2Yzc3ZGQ5M2M5MTRmZmY5NDgiLCJudW1iZXIiOiI3NjIwNjQ4MiJ9LCJjaGFpbklkIjoxOTYsImRlcGVuZGVuY2llcyI6W10sImVkZ2VzIjpbXSwib2JzZXJ2YXRpb24iOiJTSU5HTEVfUlBDIiwicm9vdCI6eyJlbnZpcm9ubWVudCI6eyJiZWFjb24iOnsiYWRkcmVzcyI6IjB4ZjcwZDFlZDRmNjJjZjM3ODAxNTdiMGI0MjFiN2UyZjQ1YmQwOTkxYyIsImNvZGVIYXNoIjoiMHhlY2ZlZDdhNzlkYzQ2MDI0ZTc4Zjc2YmUzZjk5NWM5ZmNlY2MyZDhlNzMwODI5YjdjZjAzYWVmNDdiZTllMWEyIn0sImJlYWNvbkltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDk3N2YyMTc4ODdlMDg1ZDI5OGNiMzgxOWNkYWQ1YTBlZTM1ZjI5YjIiLCJjb2RlSGFzaCI6IjB4MGE1MjU5YThiNWE2OTE5N2NkZTZkY2U3MGE0NDQ2ZmU4MDdiNjIyMjc3YmRhZTllNzk5MTlkNWQ4ZTk4MjhhNSJ9LCJmYWN0b3J5Ijp7ImFkZHJlc3MiOiIweDFmMDlkYWVmYTgyN2YwMmNiYjQwOTY3Y2M5MWIyNTk3NjM3NjA3NjEiLCJjb2RlSGFzaCI6IjB4ZDVlNTM0MTY0ZjIzNGJlZTkwZGEyMzZmNWU0ZmQwOWQ0MzMzZGZiZWNkMDU5MWQ0ZjkzYWYxZWUxNzEzZGQzMSJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4MzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImNvZGVIYXNoIjoiMHhhMWEwNjEzZGFjNThjY2IyNDQ1NGU3YWIyMzJkNjY4ZTI0ODNkM2QwZjA5MmY0M2FmZmFlOGM5NDg4NWFhZjVmIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvblNsb3QiOiIweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJmYWN0b3J5U2VhbGVkIjpmYWxzZSwicHJvY2Vzc29yQ29kZUhhc2giOiIweDJlYTY4M2UyNzVjYmU2ZTUxOTI4YTliZGVmZTgwYjZmZjZhNmE2ZTg1MzU0MzZiYmU3ZWVhMDJlZTE4MzA2YWUifSwiZXhwYW5kZWRHYXRlcyI6NCwiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIxIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowLCJuZXRsaXN0SGFzaCI6IjB4ZDNmOGYzYTgzMTZhNDkwMjNhODI0MzZlOTI2MDdmNzdhNTFlN2YxYjk2YjYxNGIzZDcxNDE3MzcyZjNmNmE5ZiJ9LCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAiLCJzZW1hbnRpY3MiOnsiZW5jb2RpbmciOiJ0YXAwMi1sc2IwLXYxIiwicmVmZXJlbmNlSGFzaCI6IjB4MGU4NTE1OTQ4OTgxMzYxYzdkYjU3MzczZTg5ODZlYWI2MzA1NmYxY2UwZmFkNWEzZWMwNzBjMTg4NzkxOWZhOSIsInNwZWNpZmljYXRpb25IYXNoIjoiMHg4ZGIwM2Y2Mjk4YzU4YWFlNWE5YWRlYWEzNzc0YzMwZWNkZjlkYjFmMjc2YzNlZmQwMDc5NjQ4NDQ0ZDg4NTBmIiwidGFwMDJWZXJzaW9uIjoiZHJhZnQtMjAyNi0xMC0wNCIsInRlc3RTdWl0ZUhhc2giOiIweDFhMDJmNWNmOTkxYzEzMGEyMmRjNmNjNmVlOTNkMGY4ZmUwNzIwYWZlZDA4MTY2NWZhOGI4MDE4YWVmZDIwM2IifSwidG9vbFZlcnNpb24iOiIwLjEuMCJ9LCJtYW5pZmVzdEhhc2giOiIweDljYjA4ODgyMmNiY2VmNTc5ZGYxMDYyYzAzZDQzZWU5ZjgxYjFjNWUzNGE0MTAxMzQxZGQ1NDQyMzE4N2FkNTciLCJwaW5uaW5nIjoiTlVNQkVSX1dJVEhfSEVBREVSX1JFQ0hFQ0siLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAiLCJ0cnVzdCI6IlNJTkdMRV9SUENfT0JTRVJWQVRJT04ifSx7ImNpcmN1aXRzIjpbeyJpZGVudGl0eSI6eyJjaGFpbklkIjoxOTYsImNpcmN1aXRJZCI6IjIiLCJwcm9jZXNzb3IiOiIweDgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUiLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAifSwibmV0bGlzdCI6IjB4MDAwMDAwMDIwMDAwMDMwMDAwMDAwNDAwMDAwNDAwMDAwMDA1MDAwMDA1In1dLCJpbnRlZ3JpdHkiOnsiY2hlY2tlZEJsb2NrIjp7Imhhc2giOiIweGNlNDM5NGM1MjM4ZDMzOWNjZjk2ZDQ3NmU0MmE0ZjdiNTJkNmZjMjQ3OTZhN2Y2Yzc3ZGQ5M2M5MTRmZmY5NDgiLCJudW1iZXIiOiI3NjIwNjQ4MiJ9LCJmcmVzaG5lc3MiOiJISVNUT1JJQ0FMIn0sImtpbmQiOiJDSVJDVUlUX0lNUE9SVCIsIm1hbmlmZXN0Ijp7ImJsb2NrIjp7Imhhc2giOiIweGNlNDM5NGM1MjM4ZDMzOWNjZjk2ZDQ3NmU0MmE0ZjdiNTJkNmZjMjQ3OTZhN2Y2Yzc3ZGQ5M2M5MTRmZmY5NDgiLCJudW1iZXIiOiI3NjIwNjQ4MiJ9LCJjaGFpbklkIjoxOTYsImRlcGVuZGVuY2llcyI6W10sImVkZ2VzIjpbXSwib2JzZXJ2YXRpb24iOiJTSU5HTEVfUlBDIiwicm9vdCI6eyJlbnZpcm9ubWVudCI6eyJiZWFjb24iOnsiYWRkcmVzcyI6IjB4ZjcwZDFlZDRmNjJjZjM3ODAxNTdiMGI0MjFiN2UyZjQ1YmQwOTkxYyIsImNvZGVIYXNoIjoiMHhlY2ZlZDdhNzlkYzQ2MDI0ZTc4Zjc2YmUzZjk5NWM5ZmNlY2MyZDhlNzMwODI5YjdjZjAzYWVmNDdiZTllMWEyIn0sImJlYWNvbkltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDk3N2YyMTc4ODdlMDg1ZDI5OGNiMzgxOWNkYWQ1YTBlZTM1ZjI5YjIiLCJjb2RlSGFzaCI6IjB4MGE1MjU5YThiNWE2OTE5N2NkZTZkY2U3MGE0NDQ2ZmU4MDdiNjIyMjc3YmRhZTllNzk5MTlkNWQ4ZTk4MjhhNSJ9LCJmYWN0b3J5Ijp7ImFkZHJlc3MiOiIweDFmMDlkYWVmYTgyN2YwMmNiYjQwOTY3Y2M5MWIyNTk3NjM3NjA3NjEiLCJjb2RlSGFzaCI6IjB4ZDVlNTM0MTY0ZjIzNGJlZTkwZGEyMzZmNWU0ZmQwOWQ0MzMzZGZiZWNkMDU5MWQ0ZjkzYWYxZWUxNzEzZGQzMSJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4MzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImNvZGVIYXNoIjoiMHhhMWEwNjEzZGFjNThjY2IyNDQ1NGU3YWIyMzJkNjY4ZTI0ODNkM2QwZjA5MmY0M2FmZmFlOGM5NDg4NWFhZjVmIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvblNsb3QiOiIweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJmYWN0b3J5U2VhbGVkIjpmYWxzZSwicHJvY2Vzc29yQ29kZUhhc2giOiIweDJlYTY4M2UyNzVjYmU2ZTUxOTI4YTliZGVmZTgwYjZmZjZhNmE2ZTg1MzU0MzZiYmU3ZWVhMDJlZTE4MzA2YWUifSwiZXhwYW5kZWRHYXRlcyI6MywiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIyIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowLCJuZXRsaXN0SGFzaCI6IjB4OTFjODFlYjAxODkxOTE2OWM5N2E4YjdlMTBmNGFiOWJiMjc5Mjk2MGY1M2MwZjRkZTNlM2QyNjgxOTM5ZmQ4ZSJ9LCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAiLCJzZW1hbnRpY3MiOnsiZW5jb2RpbmciOiJ0YXAwMi1sc2IwLXYxIiwicmVmZXJlbmNlSGFzaCI6IjB4MGU4NTE1OTQ4OTgxMzYxYzdkYjU3MzczZTg5ODZlYWI2MzA1NmYxY2UwZmFkNWEzZWMwNzBjMTg4NzkxOWZhOSIsInNwZWNpZmljYXRpb25IYXNoIjoiMHg4ZGIwM2Y2Mjk4YzU4YWFlNWE5YWRlYWEzNzc0YzMwZWNkZjlkYjFmMjc2YzNlZmQwMDc5NjQ4NDQ0ZDg4NTBmIiwidGFwMDJWZXJzaW9uIjoiZHJhZnQtMjAyNi0xMC0wNCIsInRlc3RTdWl0ZUhhc2giOiIweDFhMDJmNWNmOTkxYzEzMGEyMmRjNmNjNmVlOTNkMGY4ZmUwNzIwYWZlZDA4MTY2NWZhOGI4MDE4YWVmZDIwM2IifSwidG9vbFZlcnNpb24iOiIwLjEuMCJ9LCJtYW5pZmVzdEhhc2giOiIweGU5ZTQ2NzRkNTU4MmM2YzdiZTBlMGFjYzdkMTY4MmJiNjkyNDhkZjdiNmMzMjNhYmJhYmZiZTNjNTJlMGJkYTciLCJwaW5uaW5nIjoiTlVNQkVSX1dJVEhfSEVBREVSX1JFQ0hFQ0siLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAiLCJ0cnVzdCI6IlNJTkdMRV9SUENfT0JTRVJWQVRJT04ifV0sImtpbmQiOiJNM19FWEVDVVRJT04iLCJwcm9qZWN0Ijp7ImNhbmRpZGF0ZSI6eyJjb21wb25lbnRzIjpbeyJpbnB1dHMiOlt7ImNvbXBvbmVudCI6bnVsbCwicGluIjowfSx7ImNvbXBvbmVudCI6bnVsbCwicGluIjoxfV0sImluc3RhbmNlSWQiOiJuYW5kMCIsImtpbmQiOiJSRUYiLCJzb3VyY2VBbGlhcyI6Im5hbmQifSx7ImlucHV0cyI6W3siY29tcG9uZW50IjoibmFuZDAiLCJwaW4iOjB9LHsiY29tcG9uZW50IjoibmFuZDAiLCJwaW4iOjB9XSwiaW5zdGFuY2VJZCI6ImNhcnJ5Iiwia2luZCI6Ik5BTkQifSx7ImlucHV0cyI6W3siY29tcG9uZW50IjpudWxsLCJwaW4iOjB9LHsiY29tcG9uZW50IjpudWxsLCJwaW4iOjF9XSwiaW5zdGFuY2VJZCI6InN1bSIsImtpbmQiOiJSRUYiLCJzb3VyY2VBbGlhcyI6InhvciJ9XSwibkluIjoyLCJvdXRwdXRzIjpbeyJjb21wb25lbnQiOiJjYXJyeSIsInBpbiI6MH0seyJjb21wb25lbnQiOiJzdW0iLCJwaW4iOjB9XX0sImNoYWluSWQiOjE5NiwiY29tcGFyaXNvbiI6eyJpbnB1dE1hcCI6WzAsMV0sImludGVudCI6IlVOREVDTEFSRUQiLCJraW5kIjoiUEFJUldJU0VfRVFVSVZBTEVOQ0UiLCJvdXRwdXRNYXAiOlswLDFdLCJyZWZlcmVuY2VBbGlhcyI6bnVsbCwidHJ1c3RBc3NlcnRpb24iOm51bGx9LCJsaW1pdHMiOnsiZ2F0ZUNhcCI6MjUwMCwicmVmRGVwdGhDYXAiOjY0LCJzb2x2ZXJNZW1vcnlNaUIiOjY0LCJzb2x2ZXJUaW1lb3V0TXMiOjUwMDB9LCJwcm9qZWN0SWQiOiJoaXN0b3JpY2FsSGFsZkFkZGVyIiwicmVmZXJlbmNlQ2FuZGlkYXRlIjp7ImNvbXBvbmVudHMiOlt7ImlucHV0cyI6W3siY29tcG9uZW50IjpudWxsLCJwaW4iOjB9LHsiY29tcG9uZW50IjpudWxsLCJwaW4iOjF9XSwiaW5zdGFuY2VJZCI6Im5hbmQwIiwia2luZCI6IlJFRiIsInNvdXJjZUFsaWFzIjoibmFuZCJ9LHsiaW5wdXRzIjpbeyJjb21wb25lbnQiOiJuYW5kMCIsInBpbiI6MH0seyJjb21wb25lbnQiOiJuYW5kMCIsInBpbiI6MH1dLCJpbnN0YW5jZUlkIjoiY2FycnkiLCJraW5kIjoiTkFORCJ9LHsiaW5wdXRzIjpbeyJjb21wb25lbnQiOm51bGwsInBpbiI6MH0seyJjb21wb25lbnQiOm51bGwsInBpbiI6MX1dLCJpbnN0YW5jZUlkIjoic3VtIiwia2luZCI6IlJFRiIsInNvdXJjZUFsaWFzIjoieG9yIn1dLCJuSW4iOjIsIm91dHB1dHMiOlt7ImNvbXBvbmVudCI6ImNhcnJ5IiwicGluIjowfSx7ImNvbXBvbmVudCI6InN1bSIsInBpbiI6MH1dfSwic2NoZW1hVmVyc2lvbiI6Im0zLTEuMC4wIiwic291cmNlcyI6W3siYWxpYXMiOiJ4b3IiLCJpZGVudGl0eSI6eyJjaGFpbklkIjoxOTYsImNpcmN1aXRJZCI6IjEiLCJwcm9jZXNzb3IiOiIweDgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUiLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAifSwibWFuaWZlc3RIYXNoIjoiMHg5Y2IwODg4MjJjYmNlZjU3OWRmMTA2MmMwM2Q0M2VlOWY4MWIxYzVlMzRhNDEwMTM0MWRkNTQ0MjMxODdhZDU3IiwibkluIjoyLCJuT3V0IjoxLCJuU3RhdGUiOjB9LHsiYWxpYXMiOiJuYW5kIiwiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIyIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm1hbmlmZXN0SGFzaCI6IjB4ZTllNDY3NGQ1NTgyYzZjN2JlMGUwYWNjN2QxNjgyYmI2OTI0OGRmN2I2YzMyM2FiYmFiZmJlM2M1MmUwYmRhNyIsIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowfV0sInRvb2xWZXJzaW9uIjoiMC4xLjAifSwicmVsYXRpb24iOiJCRUhBVklPUkFMIiwic2NoZW1hVmVyc2lvbiI6Im0zLTEuMC4wIn0sInByb2plY3Rpb24iOnsidmVyc2lvbiI6ImZsaXAtdmlzdWFsLWFkYXB0ZXItMS4wLjAiLCJub2RlcyI6W3siaWQiOiJjYW5kaWRhdGUvZXh0ZXJuYWwiLCJ0aXRsZSI6IkV4dGVybmFsIGlucHV0cyIsImtpbmQiOiJJTlBVVFMiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUubkluIiwiaW5wdXRzIjpbXSwib3V0cHV0cyI6W3siaWQiOiJvdXQ6MCIsImluZGV4IjowLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuZXh0ZXJuYWxbMF0ifSx7ImlkIjoib3V0OjEiLCJpbmRleCI6MSwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmV4dGVybmFsWzFdIn1dLCJwb3NpdGlvbiI6eyJ4IjowLCJ5IjowfX0seyJpZCI6ImNhbmRpZGF0ZS9jb21wb25lbnQvbmFuZDAiLCJ0aXRsZSI6Im5hbmQwIiwia2luZCI6IlJFRiIsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzBdIiwiaW5wdXRzIjpbeyJpZCI6ImluOjAiLCJpbmRleCI6MCwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmNvbXBvbmVudHNbMF0uaW5wdXRzWzBdIiwibWFwcGluZyI6eyJjb21wb25lbnQiOm51bGwsInBpbiI6MH19LHsiaWQiOiJpbjoxIiwiaW5kZXgiOjEsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzBdLmlucHV0c1sxXSIsIm1hcHBpbmciOnsiY29tcG9uZW50IjpudWxsLCJwaW4iOjF9fV0sIm91dHB1dHMiOlt7ImlkIjoib3V0OjAiLCJpbmRleCI6MCwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmNvbXBvbmVudHNbMF0ub3V0cHV0c1swXSJ9XSwic291cmNlIjp7ImFsaWFzIjoibmFuZCIsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMiIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJtYW5pZmVzdEhhc2giOiIweGU5ZTQ2NzRkNTU4MmM2YzdiZTBlMGFjYzdkMTY4MmJiNjkyNDhkZjdiNmMzMjNhYmJhYmZiZTNjNTJlMGJkYTciLCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MH0sInBvc2l0aW9uIjp7IngiOjMzMCwieSI6MH19LHsiaWQiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5IiwidGl0bGUiOiJjYXJyeSIsImtpbmQiOiJOQU5EIiwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmNvbXBvbmVudHNbMV0iLCJpbnB1dHMiOlt7ImlkIjoiaW46MCIsImluZGV4IjowLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1sxXS5pbnB1dHNbMF0iLCJtYXBwaW5nIjp7ImNvbXBvbmVudCI6Im5hbmQwIiwicGluIjowfX0seyJpZCI6ImluOjEiLCJpbmRleCI6MSwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmNvbXBvbmVudHNbMV0uaW5wdXRzWzFdIiwibWFwcGluZyI6eyJjb21wb25lbnQiOiJuYW5kMCIsInBpbiI6MH19XSwib3V0cHV0cyI6W3siaWQiOiJvdXQ6MCIsImluZGV4IjowLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1sxXS5vdXRwdXRzWzBdIn1dLCJwb3NpdGlvbiI6eyJ4Ijo2NjAsInkiOjB9fSx7ImlkIjoiY2FuZGlkYXRlL2NvbXBvbmVudC9zdW0iLCJ0aXRsZSI6InN1bSIsImtpbmQiOiJSRUYiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1syXSIsImlucHV0cyI6W3siaWQiOiJpbjowIiwiaW5kZXgiOjAsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzJdLmlucHV0c1swXSIsIm1hcHBpbmciOnsiY29tcG9uZW50IjpudWxsLCJwaW4iOjB9fSx7ImlkIjoiaW46MSIsImluZGV4IjoxLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1syXS5pbnB1dHNbMV0iLCJtYXBwaW5nIjp7ImNvbXBvbmVudCI6bnVsbCwicGluIjoxfX1dLCJvdXRwdXRzIjpbeyJpZCI6Im91dDowIiwiaW5kZXgiOjAsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzJdLm91dHB1dHNbMF0ifV0sInNvdXJjZSI6eyJhbGlhcyI6InhvciIsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMSIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJtYW5pZmVzdEhhc2giOiIweDljYjA4ODgyMmNiY2VmNTc5ZGYxMDYyYzAzZDQzZWU5ZjgxYjFjNWUzNGE0MTAxMzQxZGQ1NDQyMzE4N2FkNTciLCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MH0sInBvc2l0aW9uIjp7IngiOjMzMCwieSI6MTc4fX0seyJpZCI6ImNhbmRpZGF0ZS9vdXRwdXRzIiwidGl0bGUiOiJGaW5hbCBvdXRwdXRzIiwia2luZCI6Ik9VVFBVVFMiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUub3V0cHV0cyIsImlucHV0cyI6W3siaWQiOiJpbjowIiwiaW5kZXgiOjAsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5vdXRwdXRzWzBdIiwibWFwcGluZyI6eyJjb21wb25lbnQiOiJjYXJyeSIsInBpbiI6MH19LHsiaWQiOiJpbjoxIiwiaW5kZXgiOjEsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5vdXRwdXRzWzFdIiwibWFwcGluZyI6eyJjb21wb25lbnQiOiJzdW0iLCJwaW4iOjB9fV0sIm91dHB1dHMiOltdLCJwb3NpdGlvbiI6eyJ4Ijo5OTAsInkiOjB9fV0sImVkZ2VzIjpbeyJpZCI6ImNhbmRpZGF0ZS9jb21wb25lbnQvbmFuZDAvaW4vMCIsInNvdXJjZSI6ImNhbmRpZGF0ZS9leHRlcm5hbCIsInNvdXJjZUhhbmRsZSI6Im91dDowIiwidGFyZ2V0IjoiY2FuZGlkYXRlL2NvbXBvbmVudC9uYW5kMCIsInRhcmdldEhhbmRsZSI6ImluOjAiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1swXS5pbnB1dHNbMF0ifSx7ImlkIjoiY2FuZGlkYXRlL2NvbXBvbmVudC9uYW5kMC9pbi8xIiwic291cmNlIjoiY2FuZGlkYXRlL2V4dGVybmFsIiwic291cmNlSGFuZGxlIjoib3V0OjEiLCJ0YXJnZXQiOiJjYW5kaWRhdGUvY29tcG9uZW50L25hbmQwIiwidGFyZ2V0SGFuZGxlIjoiaW46MSIsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzBdLmlucHV0c1sxXSJ9LHsiaWQiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5L2luLzAiLCJzb3VyY2UiOiJjYW5kaWRhdGUvY29tcG9uZW50L25hbmQwIiwic291cmNlSGFuZGxlIjoib3V0OjAiLCJ0YXJnZXQiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5IiwidGFyZ2V0SGFuZGxlIjoiaW46MCIsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzFdLmlucHV0c1swXSJ9LHsiaWQiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5L2luLzEiLCJzb3VyY2UiOiJjYW5kaWRhdGUvY29tcG9uZW50L25hbmQwIiwic291cmNlSGFuZGxlIjoib3V0OjAiLCJ0YXJnZXQiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5IiwidGFyZ2V0SGFuZGxlIjoiaW46MSIsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5jb21wb25lbnRzWzFdLmlucHV0c1sxXSJ9LHsiaWQiOiJjYW5kaWRhdGUvY29tcG9uZW50L3N1bS9pbi8wIiwic291cmNlIjoiY2FuZGlkYXRlL2V4dGVybmFsIiwic291cmNlSGFuZGxlIjoib3V0OjAiLCJ0YXJnZXQiOiJjYW5kaWRhdGUvY29tcG9uZW50L3N1bSIsInRhcmdldEhhbmRsZSI6ImluOjAiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUuY29tcG9uZW50c1syXS5pbnB1dHNbMF0ifSx7ImlkIjoiY2FuZGlkYXRlL2NvbXBvbmVudC9zdW0vaW4vMSIsInNvdXJjZSI6ImNhbmRpZGF0ZS9leHRlcm5hbCIsInNvdXJjZUhhbmRsZSI6Im91dDoxIiwidGFyZ2V0IjoiY2FuZGlkYXRlL2NvbXBvbmVudC9zdW0iLCJ0YXJnZXRIYW5kbGUiOiJpbjoxIiwibG9jYXRvciI6InByb2plY3QuY2FuZGlkYXRlLmNvbXBvbmVudHNbMl0uaW5wdXRzWzFdIn0seyJpZCI6ImNhbmRpZGF0ZS9vdXRwdXRzL2luLzAiLCJzb3VyY2UiOiJjYW5kaWRhdGUvY29tcG9uZW50L2NhcnJ5Iiwic291cmNlSGFuZGxlIjoib3V0OjAiLCJ0YXJnZXQiOiJjYW5kaWRhdGUvb3V0cHV0cyIsInRhcmdldEhhbmRsZSI6ImluOjAiLCJsb2NhdG9yIjoicHJvamVjdC5jYW5kaWRhdGUub3V0cHV0c1swXSJ9LHsiaWQiOiJjYW5kaWRhdGUvb3V0cHV0cy9pbi8xIiwic291cmNlIjoiY2FuZGlkYXRlL2NvbXBvbmVudC9zdW0iLCJzb3VyY2VIYW5kbGUiOiJvdXQ6MCIsInRhcmdldCI6ImNhbmRpZGF0ZS9vdXRwdXRzIiwidGFyZ2V0SGFuZGxlIjoiaW46MSIsImxvY2F0b3IiOiJwcm9qZWN0LmNhbmRpZGF0ZS5vdXRwdXRzWzFdIn1dfSwiY29tcGlsZWRCZWZvcmUiOnsiY2FuZGlkYXRlSWRlbnRpdHkiOnsia2luZCI6IkxPQ0FMX0NPTVBPU0lUSU9OIiwibmV0bGlzdEhhc2giOiIweDNkYmI2NWE2MTVlMWYxMmJlMjMyNWJkY2FkMTJiNGE5NzBhN2VmNzIxMzExNDUyYjVlMDlhYzI1NWZmYzIzY2UifSwia2luZCI6IkNPTVBPU0lUSU9OX1JFU1VMVCIsIm1hbmlmZXN0Ijp7ImRlcGVuZGVuY2llcyI6W3siZW52aXJvbm1lbnQiOnsiYmVhY29uIjp7ImFkZHJlc3MiOiIweGY3MGQxZWQ0ZjYyY2YzNzgwMTU3YjBiNDIxYjdlMmY0NWJkMDk5MWMiLCJjb2RlSGFzaCI6IjB4ZWNmZWQ3YTc5ZGM0NjAyNGU3OGY3NmJlM2Y5OTVjOWZjZWNjMmQ4ZTczMDgyOWI3Y2YwM2FlZjQ3YmU5ZTFhMiJ9LCJiZWFjb25JbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHg5NzdmMjE3ODg3ZTA4NWQyOThjYjM4MTljZGFkNWEwZWUzNWYyOWIyIiwiY29kZUhhc2giOiIweDBhNTI1OWE4YjVhNjkxOTdjZGU2ZGNlNzBhNDQ0NmZlODA3YjYyMjI3N2JkYWU5ZTc5OTE5ZDVkOGU5ODI4YTUifSwiZmFjdG9yeSI6eyJhZGRyZXNzIjoiMHgxZjA5ZGFlZmE4MjdmMDJjYmI0MDk2N2NjOTFiMjU5NzYzNzYwNzYxIiwiY29kZUhhc2giOiIweGQ1ZTUzNDE2NGYyMzRiZWU5MGRhMjM2ZjVlNGZkMDlkNDMzM2RmYmVjZDA1OTFkNGY5M2FmMWVlMTcxM2RkMzEifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJjb2RlSGFzaCI6IjB4YTFhMDYxM2RhYzU4Y2NiMjQ0NTRlN2FiMjMyZDY2OGUyNDgzZDNkMGYwOTJmNDNhZmZhZThjOTQ4ODVhYWY1ZiJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb25TbG90IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiZmFjdG9yeVNlYWxlZCI6ZmFsc2UsInByb2Nlc3NvckNvZGVIYXNoIjoiMHgyZWE2ODNlMjc1Y2JlNmU1MTkyOGE5YmRlZmU4MGI2ZmY2YTZhNmU4NTM1NDM2YmJlN2VlYTAyZWUxODMwNmFlIn0sImV4cGFuZGVkR2F0ZXMiOjQsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMSIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MCwibmV0bGlzdEhhc2giOiIweGQzZjhmM2E4MzE2YTQ5MDIzYTgyNDM2ZTkyNjA3Zjc3YTUxZTdmMWI5NmI2MTRiM2Q3MTQxNzM3MmYzZjZhOWYifSx7ImVudmlyb25tZW50Ijp7ImJlYWNvbiI6eyJhZGRyZXNzIjoiMHhmNzBkMWVkNGY2MmNmMzc4MDE1N2IwYjQyMWI3ZTJmNDViZDA5OTFjIiwiY29kZUhhc2giOiIweGVjZmVkN2E3OWRjNDYwMjRlNzhmNzZiZTNmOTk1YzlmY2VjYzJkOGU3MzA4MjliN2NmMDNhZWY0N2JlOWUxYTIifSwiYmVhY29uSW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4OTc3ZjIxNzg4N2UwODVkMjk4Y2IzODE5Y2RhZDVhMGVlMzVmMjliMiIsImNvZGVIYXNoIjoiMHgwYTUyNTlhOGI1YTY5MTk3Y2RlNmRjZTcwYTQ0NDZmZTgwN2I2MjIyNzdiZGFlOWU3OTkxOWQ1ZDhlOTgyOGE1In0sImZhY3RvcnkiOnsiYWRkcmVzcyI6IjB4MWYwOWRhZWZhODI3ZjAyY2JiNDA5NjdjYzkxYjI1OTc2Mzc2MDc2MSIsImNvZGVIYXNoIjoiMHhkNWU1MzQxNjRmMjM0YmVlOTBkYTIzNmY1ZTRmZDA5ZDQzMzNkZmJlY2QwNTkxZDRmOTNhZjFlZTE3MTNkZDMxIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHgzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiY29kZUhhc2giOiIweGExYTA2MTNkYWM1OGNjYjI0NDU0ZTdhYjIzMmQ2NjhlMjQ4M2QzZDBmMDkyZjQzYWZmYWU4Yzk0ODg1YWFmNWYifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uU2xvdCI6IjB4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImZhY3RvcnlTZWFsZWQiOmZhbHNlLCJwcm9jZXNzb3JDb2RlSGFzaCI6IjB4MmVhNjgzZTI3NWNiZTZlNTE5MjhhOWJkZWZlODBiNmZmNmE2YTZlODUzNTQzNmJiZTdlZWEwMmVlMTgzMDZhZSJ9LCJleHBhbmRlZEdhdGVzIjozLCJpZGVudGl0eSI6eyJjaGFpbklkIjoxOTYsImNpcmN1aXRJZCI6IjIiLCJwcm9jZXNzb3IiOiIweDgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUiLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAifSwibkluIjoyLCJuT3V0IjoxLCJuU3RhdGUiOjAsIm5ldGxpc3RIYXNoIjoiMHg5MWM4MWViMDE4OTE5MTY5Yzk3YThiN2UxMGY0YWI5YmIyNzkyOTYwZjUzYzBmNGRlM2UzZDI2ODE5MzlmZDhlIn1dLCJleHBhbmRlZEdhdGVzIjo4LCJmcmVzaG5lc3MiOiJISVNUT1JJQ0FMIiwia2luZCI6IkxPQ0FMX0NPTVBPU0lUSU9OIiwibkluIjoyLCJuT3V0IjoyLCJuU3RhdGUiOjAsIm5ldGxpc3RIYXNoIjoiMHgzZGJiNjVhNjE1ZTFmMTJiZTIzMjViZGNhZDEyYjRhOTcwYTdlZjcyMTMxMTQ1MmI1ZTA5YWMyNTVmZmMyM2NlIiwicHJvamVjdEhhc2giOiIweGZmNzA4MTRlMTc0YWUyZGM4NDFlZWY0YTllNjM2N2JiNTMxOGJjY2QwNjkzMDdjM2FmZGNlMWFkYWEzMjk5NTkiLCJyZWdpc3RyYXRpb24iOiJISVNUT1JJQ0FMX0lNUE9SVEVEX0FTU0VSVElPTlMiLCJzY2hlbWFWZXJzaW9uIjoibTMtMS4wLjAiLCJzZW1hbnRpY3MiOnsiZW5jb2RpbmciOiJ0YXAwMi1sc2IwLXYxIiwicmVmZXJlbmNlSGFzaCI6IjB4MGU4NTE1OTQ4OTgxMzYxYzdkYjU3MzczZTg5ODZlYWI2MzA1NmYxY2UwZmFkNWEzZWMwNzBjMTg4NzkxOWZhOSIsInNwZWNpZmljYXRpb25IYXNoIjoiMHg4ZGIwM2Y2Mjk4YzU4YWFlNWE5YWRlYWEzNzc0YzMwZWNkZjlkYjFmMjc2YzNlZmQwMDc5NjQ4NDQ0ZDg4NTBmIiwidGFwMDJWZXJzaW9uIjoiZHJhZnQtMjAyNi0xMC0wNCIsInRlc3RTdWl0ZUhhc2giOiIweDFhMDJmNWNmOTkxYzEzMGEyMmRjNmNjNmVlOTNkMGY4ZmUwNzIwYWZlZDA4MTY2NWZhOGI4MDE4YWVmZDIwM2IifSwic291cmNlTWFuaWZlc3RIYXNoZXMiOlsiMHg5Y2IwODg4MjJjYmNlZjU3OWRmMTA2MmMwM2Q0M2VlOWY4MWIxYzVlMzRhNDEwMTM0MWRkNTQ0MjMxODdhZDU3IiwiMHhlOWU0Njc0ZDU1ODJjNmM3YmUwZTBhY2M3ZDE2ODJiYjY5MjQ4ZGY3YjZjMzIzYWJiYWJmYmUzYzUyZTBiZGE3Il19LCJtYW5pZmVzdEhhc2giOiIweDEwYTI2MTY3NjdhMzAzNTIxNThjMzJhYWU4Y2RiODViNDRjZDdmNWYwNGIxNjhjNDYyZjQxYTg3ODliNmYyOTkiLCJuZXRsaXN0IjoiMHgwMjgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUwMDAwMDAwMDAwMDAwMDAyMDIwMTAwMDAwMjAwMDAwMzAwMDAwMDA0MDAwMDAxMDI4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlMDAwMDAwMDAwMDAwMDAwMTAyMDEwMDAwMDIwMDAwMDMiLCJwcm9qZWN0SGFzaCI6IjB4ZmY3MDgxNGUxNzRhZTJkYzg0MWVlZjRhOWU2MzY3YmI1MzE4YmNjZDA2OTMwN2MzYWZkY2UxYWRhYTMyOTk1OSIsInNjaGVtYVZlcnNpb24iOiJtMy0xLjAuMCJ9LCJjb21waWxlZEFmdGVyIjp7ImNhbmRpZGF0ZUlkZW50aXR5Ijp7ImtpbmQiOiJMT0NBTF9DT01QT1NJVElPTiIsIm5ldGxpc3RIYXNoIjoiMHgzZGJiNjVhNjE1ZTFmMTJiZTIzMjViZGNhZDEyYjRhOTcwYTdlZjcyMTMxMTQ1MmI1ZTA5YWMyNTVmZmMyM2NlIn0sImtpbmQiOiJDT01QT1NJVElPTl9SRVNVTFQiLCJtYW5pZmVzdCI6eyJkZXBlbmRlbmNpZXMiOlt7ImVudmlyb25tZW50Ijp7ImJlYWNvbiI6eyJhZGRyZXNzIjoiMHhmNzBkMWVkNGY2MmNmMzc4MDE1N2IwYjQyMWI3ZTJmNDViZDA5OTFjIiwiY29kZUhhc2giOiIweGVjZmVkN2E3OWRjNDYwMjRlNzhmNzZiZTNmOTk1YzlmY2VjYzJkOGU3MzA4MjliN2NmMDNhZWY0N2JlOWUxYTIifSwiYmVhY29uSW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4OTc3ZjIxNzg4N2UwODVkMjk4Y2IzODE5Y2RhZDVhMGVlMzVmMjliMiIsImNvZGVIYXNoIjoiMHgwYTUyNTlhOGI1YTY5MTk3Y2RlNmRjZTcwYTQ0NDZmZTgwN2I2MjIyNzdiZGFlOWU3OTkxOWQ1ZDhlOTgyOGE1In0sImZhY3RvcnkiOnsiYWRkcmVzcyI6IjB4MWYwOWRhZWZhODI3ZjAyY2JiNDA5NjdjYzkxYjI1OTc2Mzc2MDc2MSIsImNvZGVIYXNoIjoiMHhkNWU1MzQxNjRmMjM0YmVlOTBkYTIzNmY1ZTRmZDA5ZDQzMzNkZmJlY2QwNTkxZDRmOTNhZjFlZTE3MTNkZDMxIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHgzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiY29kZUhhc2giOiIweGExYTA2MTNkYWM1OGNjYjI0NDU0ZTdhYjIzMmQ2NjhlMjQ4M2QzZDBmMDkyZjQzYWZmYWU4Yzk0ODg1YWFmNWYifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uU2xvdCI6IjB4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImZhY3RvcnlTZWFsZWQiOmZhbHNlLCJwcm9jZXNzb3JDb2RlSGFzaCI6IjB4MmVhNjgzZTI3NWNiZTZlNTE5MjhhOWJkZWZlODBiNmZmNmE2YTZlODUzNTQzNmJiZTdlZWEwMmVlMTgzMDZhZSJ9LCJleHBhbmRlZEdhdGVzIjo0LCJpZGVudGl0eSI6eyJjaGFpbklkIjoxOTYsImNpcmN1aXRJZCI6IjEiLCJwcm9jZXNzb3IiOiIweDgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUiLCJzY2hlbWFWZXJzaW9uIjoiMS4wLjAifSwibkluIjoyLCJuT3V0IjoxLCJuU3RhdGUiOjAsIm5ldGxpc3RIYXNoIjoiMHhkM2Y4ZjNhODMxNmE0OTAyM2E4MjQzNmU5MjYwN2Y3N2E1MWU3ZjFiOTZiNjE0YjNkNzE0MTczNzJmM2Y2YTlmIn0seyJlbnZpcm9ubWVudCI6eyJiZWFjb24iOnsiYWRkcmVzcyI6IjB4ZjcwZDFlZDRmNjJjZjM3ODAxNTdiMGI0MjFiN2UyZjQ1YmQwOTkxYyIsImNvZGVIYXNoIjoiMHhlY2ZlZDdhNzlkYzQ2MDI0ZTc4Zjc2YmUzZjk5NWM5ZmNlY2MyZDhlNzMwODI5YjdjZjAzYWVmNDdiZTllMWEyIn0sImJlYWNvbkltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDk3N2YyMTc4ODdlMDg1ZDI5OGNiMzgxOWNkYWQ1YTBlZTM1ZjI5YjIiLCJjb2RlSGFzaCI6IjB4MGE1MjU5YThiNWE2OTE5N2NkZTZkY2U3MGE0NDQ2ZmU4MDdiNjIyMjc3YmRhZTllNzk5MTlkNWQ4ZTk4MjhhNSJ9LCJmYWN0b3J5Ijp7ImFkZHJlc3MiOiIweDFmMDlkYWVmYTgyN2YwMmNiYjQwOTY3Y2M5MWIyNTk3NjM3NjA3NjEiLCJjb2RlSGFzaCI6IjB4ZDVlNTM0MTY0ZjIzNGJlZTkwZGEyMzZmNWU0ZmQwOWQ0MzMzZGZiZWNkMDU5MWQ0ZjkzYWYxZWUxNzEzZGQzMSJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4MzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImNvZGVIYXNoIjoiMHhhMWEwNjEzZGFjNThjY2IyNDQ1NGU3YWIyMzJkNjY4ZTI0ODNkM2QwZjA5MmY0M2FmZmFlOGM5NDg4NWFhZjVmIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvblNsb3QiOiIweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJmYWN0b3J5U2VhbGVkIjpmYWxzZSwicHJvY2Vzc29yQ29kZUhhc2giOiIweDJlYTY4M2UyNzVjYmU2ZTUxOTI4YTliZGVmZTgwYjZmZjZhNmE2ZTg1MzU0MzZiYmU3ZWVhMDJlZTE4MzA2YWUifSwiZXhwYW5kZWRHYXRlcyI6MywiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIyIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowLCJuZXRsaXN0SGFzaCI6IjB4OTFjODFlYjAxODkxOTE2OWM5N2E4YjdlMTBmNGFiOWJiMjc5Mjk2MGY1M2MwZjRkZTNlM2QyNjgxOTM5ZmQ4ZSJ9XSwiZXhwYW5kZWRHYXRlcyI6OCwiZnJlc2huZXNzIjoiSElTVE9SSUNBTCIsImtpbmQiOiJMT0NBTF9DT01QT1NJVElPTiIsIm5JbiI6Miwibk91dCI6MiwiblN0YXRlIjowLCJuZXRsaXN0SGFzaCI6IjB4M2RiYjY1YTYxNWUxZjEyYmUyMzI1YmRjYWQxMmI0YTk3MGE3ZWY3MjEzMTE0NTJiNWUwOWFjMjU1ZmZjMjNjZSIsInByb2plY3RIYXNoIjoiMHhmZjcwODE0ZTE3NGFlMmRjODQxZWVmNGE5ZTYzNjdiYjUzMThiY2NkMDY5MzA3YzNhZmRjZTFhZGFhMzI5OTU5IiwicmVnaXN0cmF0aW9uIjoiSElTVE9SSUNBTF9JTVBPUlRFRF9BU1NFUlRJT05TIiwic2NoZW1hVmVyc2lvbiI6Im0zLTEuMC4wIiwic2VtYW50aWNzIjp7ImVuY29kaW5nIjoidGFwMDItbHNiMC12MSIsInJlZmVyZW5jZUhhc2giOiIweDBlODUxNTk0ODk4MTM2MWM3ZGI1NzM3M2U4OTg2ZWFiNjMwNTZmMWNlMGZhZDVhM2VjMDcwYzE4ODc5MTlmYTkiLCJzcGVjaWZpY2F0aW9uSGFzaCI6IjB4OGRiMDNmNjI5OGM1OGFhZTVhOWFkZWFhMzc3NGMzMGVjZGY5ZGIxZjI3NmMzZWZkMDA3OTY0ODQ0NGQ4ODUwZiIsInRhcDAyVmVyc2lvbiI6ImRyYWZ0LTIwMjYtMTAtMDQiLCJ0ZXN0U3VpdGVIYXNoIjoiMHgxYTAyZjVjZjk5MWMxMzBhMjJkYzZjYzZlZTkzZDBmOGZlMDcyMGFmZWQwODE2NjVmYThiODAxOGFlZmQyMDNiIn0sInNvdXJjZU1hbmlmZXN0SGFzaGVzIjpbIjB4OWNiMDg4ODIyY2JjZWY1NzlkZjEwNjJjMDNkNDNlZTlmODFiMWM1ZTM0YTQxMDEzNDFkZDU0NDIzMTg3YWQ1NyIsIjB4ZTllNDY3NGQ1NTgyYzZjN2JlMGUwYWNjN2QxNjgyYmI2OTI0OGRmN2I2YzMyM2FiYmFiZmJlM2M1MmUwYmRhNyJdfSwibWFuaWZlc3RIYXNoIjoiMHgxMGEyNjE2NzY3YTMwMzUyMTU4YzMyYWFlOGNkYjg1YjQ0Y2Q3ZjVmMDRiMTY4YzQ2MmY0MWE4Nzg5YjZmMjk5IiwibmV0bGlzdCI6IjB4MDI4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlMDAwMDAwMDAwMDAwMDAwMjAyMDEwMDAwMDIwMDAwMDMwMDAwMDAwNDAwMDAwMTAyODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZTAwMDAwMDAwMDAwMDAwMDEwMjAxMDAwMDAyMDAwMDAzIiwicHJvamVjdEhhc2giOiIweGZmNzA4MTRlMTc0YWUyZGM4NDFlZWY0YTllNjM2N2JiNTMxOGJjY2QwNjkzMDdjM2FmZGNlMWFkYWEzMjk5NTkiLCJzY2hlbWFWZXJzaW9uIjoibTMtMS4wLjAifX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-b4f3a9ead1c7b99bebdd",
+          "file": "visual-readonly.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "keyboard pin inspector, zoom/pan/fit, responsive axe and StrictMode renderer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4546,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:29.720Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-e8a0e1f3af87426e084f",
+          "file": "visual-readonly.spec.ts",
+          "line": 251,
+          "column": 1
+        },
+        {
+          "title": "unsupported visual recipe fails visibly while Advanced remains available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 870,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:34.298Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47165de4a1ed3707a3b1-cbc6bfc67487268a0659",
+          "file": "visual-readonly.spec.ts",
+          "line": 309,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "workflow.spec.ts",
+      "file": "workflow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "historical sample, swapped outputs, repair, CLI parity and evidence replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11973,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:35.219Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c601ceb5ecfc8efa4a14-36708fb9cb99bb4d378e",
+          "file": "workflow.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "keyboard and narrow screen, import, inspect, add source and revalidate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2034,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T13:05:47.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c601ceb5ecfc8efa4a14-23b8a6b9440d1e962f75",
+          "file": "workflow.spec.ts",
+          "line": 92,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T13:03:19.540Z",
+    "duration": 151127.428,
+    "expected": 42,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

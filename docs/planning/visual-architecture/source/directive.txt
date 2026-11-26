@@ -1,0 +1,346 @@
+# FLIP — VISUAL CIRCUIT COMPOSER: RESEARCH-BACKED DESIGN AND ARCHITECTURE DIRECTIVE
+
+**Role:** Principal frontend architect, circuit-tool UX engineer and integration lead.
+
+**Repository:** https://github.com/Technique-S/Flip
+
+**Scope:** Pre-M5 milestones P7 and P8, including UX-01, UX-02 and UX-03.
+
+## Mission
+
+Design Flip's visual circuit composer to combine:
+
+1. The circuit-specific clarity of CircuitVerse and Logisim-evolution.
+2. The schematic validation practices of KiCad.
+3. The discoverability and canvas ergonomics of Figma/FigJam.
+4. The modern node-editor engineering capabilities of React Flow.
+5. Flip's unique verified Wiring Canary, diagnostics and portable evidence workflow.
+
+Our goal is not to clone a competitor. It is to create a polished, understandable circuit-development environment for both experienced TapeOut developers and complete beginners.
+
+## Phase 0 — Verify the baseline
+
+Before implementation:
+
+- Inspect current main, pending PRs and accepted releases.
+- Read `docs/milestones/FLIP_PRE_M5_MILESTONE_UPDATE.md`.
+- Confirm the exact requirements for P1–P8 and UX-01/02/03.
+- Inspect the current frontend, canonical circuit schemas, simulation and verifier APIs, debugging evidence and project portability implementation.
+- Identify already implemented capabilities.
+- Record baseline tests and checksums.
+- Identify license and dependency constraints.
+
+Do not infer architecture from earlier reports when code can be inspected.
+
+## Phase 1 — Independent design and technology research
+
+Study the following references and document their relevance.
+
+### CircuitVerse
+
+https://docs.circuitverse.org/chapter1/chapter1-keyfeatures/
+
+https://docs.circuitverse.org/chapter3/chapter3-canvas/
+
+Investigate component palettes, gate wiring, visual simulation, reusable subcircuits, complex layout navigation and discoverability.
+
+### Logisim-evolution
+
+https://mbaillif.github.io/Logisim-evolution-documentation/en/html/guide/gui/gui-toolsbar.html
+
+Investigate editing tools, live simulation, explicit tool modes, gate symbols, keyboard shortcuts and instructional workflows.
+
+### KiCad
+
+https://docs.kicad.org/master/en/eeschema/eeschema.html
+
+Investigate meaningful net highlighting, electrical rules checking, invalid connections, hierarchical components and distinguishable wiring states.
+
+### Figma / FigJam
+
+https://help.figma.com/hc/en-us/articles/1500004414542-Create-diagrams-and-flows-with-connectors-in-FigJam
+
+Investigate canvas discoverability, selection, manipulation, connector styles, keyboard shortcuts, focus management, contextual controls and navigation.
+
+### React Flow
+
+https://reactflow.dev/
+
+https://reactflow.dev/learn/advanced-use/accessibility
+
+https://reactflow.dev/examples/interaction/validation
+
+https://reactflow.dev/examples/layout/auto-layout
+
+https://reactflow.dev/learn/advanced-use/performance
+
+Investigate versions supported by the current React toolchain, custom handles, controlled state, connection validation, graph history, keyboard interactions, performance and layout.
+
+Compare React Flow against at least one credible alternative using explicit criteria.
+
+Review package licenses. React Flow's core is MIT-licensed, but some examples are Pro offerings. Do not copy subscription-only example code without appropriate permission.
+
+### Design research deliverable
+
+Produce a decision matrix considering:
+
+- Circuit-specific requirements.
+- Engineering integration complexity.
+- Ease of use for beginners.
+- Efficiency for advanced developers.
+- Accessibility.
+- Performance.
+- Maintenance and dependency risks.
+- Licensing.
+- Portability.
+- Visual aesthetics.
+
+Record final architectural decisions as ADRs.
+
+## Phase 2 — Proposed UX architecture
+
+Preferred layout, subject to feasibility validation:
+
+**Top navigation**
+- Project name and identity.
+- Saved/unsaved state.
+- Undo and redo.
+- Visual/Advanced editor toggle.
+- Simulation, verification and evidence actions.
+
+**Left rail**
+- Searchable component palette.
+- NAND, LATCH, REF, inputs and outputs.
+- Processor/circuit address library.
+- Favorites and recent imports.
+- Short explanations and component previews.
+
+**Central canvas**
+- Calm white or light-neutral grid.
+- Clear nodes and logic gate symbols.
+- Left-to-right default signal direction.
+- Visible and identifiable input/output pins.
+- Meaningful edge routing.
+- Snap-to-grid, pan, zoom, fit-to-view.
+- Optional auto-layout.
+- Selection, multiselection and contextual actions.
+- Clearly indicated connection validity.
+
+**Right inspector**
+- Selected component configuration.
+- Exact pin identifiers, direction and widths.
+- Circuit and processor provenance.
+- Dependency information.
+- Wire source/target details.
+- Contextual explanation of unfamiliar terms.
+
+**Bottom diagnostics dock**
+- Validation errors.
+- Simulation input/output.
+- Expected versus actual output.
+- EQUIVALENT / DIFFERENT / UNKNOWN status.
+- Replayed counterexamples.
+- Implicated wiring.
+- Evidence provenance and export.
+
+Preserve Flip's existing visual identity:
+- White #FFFFFF.
+- Near-black #17191D.
+- Cobalt #0055CC.
+
+Use consistent spacing, restrained borders, readable typography and subtle interaction feedback. Avoid excessive gradients, animations, visual noise and unnecessary panel chrome.
+
+Do not recreate the entire surrounding app shell unless the audit demonstrates a necessary integration change.
+
+## Phase 3 — Canonical architecture
+
+Nonnegotiable requirement:
+
+**The visual editor must not become a second circuit engine.**
+
+Provide a versioned, tested adapter between canonical Flip circuit/project data and renderable nodes/edges.
+
+Enforce:
+
+- Stable semantic component identities.
+- Stable unique pin identifiers.
+- Source/target direction checks.
+- Bit-width checks.
+- Legal fan-out and driver cardinality based on canonical semantics.
+- REF resolution and identity validation.
+- Dependency checks.
+- Unsupported topology detection.
+- Stateful-component restrictions.
+- Semantic versus layout metadata separation.
+
+A new visual connection is a proposed edit until validated.
+
+Visual layout changes must not alter canonical circuit hashes, proof meaning or replay results.
+
+Maintain a single authoritative validation pipeline for visual UI, advanced UI and CLI.
+
+Do not trust client-side React Flow validation as a security boundary.
+
+## Phase 4 — Visual composer implementation
+
+Implement progressively:
+
+1. Read-only visualization of a known valid circuit.
+2. Import and visualization of supported REF dependencies.
+3. Node creation and configuration.
+4. Pin-based connection creation.
+5. Canonical validation.
+6. Undo, redo and transactional restoration.
+7. Simulation integration.
+8. Verification integration.
+9. Canonical export and project round-trip.
+10. Optional automatic layout.
+11. Keyboard and assistive-technology support.
+
+Keep existing advanced-editor workflows operational throughout.
+
+For LATCH, distinguish visual representation and supported simulation from unsupported or unverified formal semantics.
+
+Implement safe representation of unresolved and unsupported components without silently dropping data.
+
+## Phase 5 — Visual Wiring Canary
+
+Use existing verification evidence and debugging structures.
+
+Provide:
+
+- Explicit selection of a baseline circuit.
+- Deliberate and reversible wiring mutation.
+- Visible before/after wiring difference.
+- Validation of the changed topology.
+- Verification against the declared reference.
+- Replayed counterexample display.
+- Expected versus actual bit-level output.
+- Highlighting of implicated pins, wires and components.
+- Explanation of diagnostic confidence and limitations.
+- One-action restoration of the original wiring.
+- Reverification after restoration.
+
+Never fabricate counterexamples.
+
+Never turn UNKNOWN into EQUIVALENT.
+
+Do not claim a uniquely proven root cause when diagnostics only identify candidate implicated connections.
+
+Prevent stale verifier responses from overwriting newer revisions.
+
+## Phase 6 — User Guide and learning integration
+
+Implement P8 against the actual editor.
+
+**Experienced path:** concise task-based operating instructions.
+
+**Beginner path:** all seven modules from the authoritative pre-M5 update:
+
+1. Understanding the ecosystem.
+2. Understanding components.
+3. Creating the first project.
+4. Visual composition and wiring.
+5. Simulation and debugging.
+6. Verification and evidence.
+7. Complete guided project.
+
+Implement all three UX requirements:
+
+**UX-01:** Accessible contextual explanations for terms including REF, NAND, LATCH, processor, SAT, netlist, pin, dependency, counterexample and evidence.
+
+**UX-02:** UI-anchored walkthroughs operating against real controls, with next/back/exit, actual action confirmation, resilient element targeting and safe progress persistence.
+
+**UX-03:** Non-destructive error and recovery lessons for invalid addresses, nonexistent circuit IDs, incompatible pins, incorrect mapping, RPC failure, UNKNOWN, stale evidence, malformed files and unsaved work.
+
+Tutorials must not imply transaction or verification capabilities that are not implemented.
+
+The beginner capstone must produce real replayable evidence.
+
+## Phase 7 — Quality, performance and accessibility
+
+Benchmark representative small and large supported circuits.
+
+Initial proposed targets to validate:
+- 100 nodes / 200 edges for normal interactive editing.
+- 500 nodes / 1,000 edges for stress and degraded-mode behavior.
+
+These are test targets, not preapproved production limits.
+
+Measure edit latency, pan/zoom smoothness, rendering costs, memory and verifier response handling.
+
+Test:
+- Mouse, keyboard and touch interaction.
+- Keyboard-only wiring.
+- Screen-reader announcements.
+- Focus management.
+- 320/390px and desktop layouts.
+- Reduced motion.
+- Zoom and text scaling.
+- High contrast.
+- Save/reload persistence.
+- Import/export symmetry.
+- Malformed inputs.
+- Undo/redo across destructive operations.
+- Wiring Canary fault injection and recovery.
+- Historical evidence trust boundaries.
+- Credential and network constraints.
+- Existing core and CLI regressions.
+
+Require human usability trials with at least one novice and one experienced circuit developer before claiming UX acceptance. Record tasks, confusion points, completion outcomes and improvements rather than asserting satisfaction without evidence.
+
+## Phase 8 — Milestone and implementation controls
+
+**Do not start a sweeping implementation immediately.**
+
+First produce:
+- Architectural research report.
+- Competitor interaction matrix.
+- Editor design specification.
+- Canonical adapter contract.
+- UI layout and interaction specification.
+- P7/P8 dependency graph.
+- Security and accessibility threat assessment.
+- Stage-by-stage acceptance tests.
+- Implementation task allocation between Codex and OpenCode.
+- Identified risks and unresolved decisions.
+
+Then implement through small independently testable PRs, beginning with read-only visualization.
+
+Do not merge an implementation stage unless:
+- Existing core functionality remains intact.
+- Its acceptance tests pass.
+- Windows/Linux CI is green.
+- Canonical graph and evidence invariants hold.
+- Independent review has no unresolved blocking findings.
+
+## Hard boundaries
+
+Do not implement or authorize live tape-out, wallet signing, broadcast, spending, deployment or public solver hosting.
+
+No hidden backend changes.
+
+No proof semantics changes without explicit review.
+
+No silent schema breaks.
+
+No deletion of existing advanced-editor functionality.
+
+No fabricated tutorial success states.
+
+No copied proprietary UI or unlicensed code.
+
+## Reporting requirements
+
+Return:
+1. Exact baseline SHA.
+2. Research findings with direct source links.
+3. Architecture recommendation with alternatives considered.
+4. Interface specification.
+5. Canonical data-flow design.
+6. P7/P8 risk and dependency matrix.
+7. Proposed implementation stages and acceptance tests.
+8. Exact file ownership for Codex/OpenCode.
+9. Commit SHA of the research and planning branch.
+
+Stop at the architecture checkpoint before broad implementation, then await explicit authorization for the first implementation stage.

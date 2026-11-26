@@ -3,6 +3,16 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve, relative, dirname, join, extname } from "node:path";
 import { loadRecording, sha } from "../apps/showcase/lib.mjs";
+import { execFileSync } from "node:child_process";
+const trust = JSON.parse(await readFile("docs/release/V1_RELEASE_TRUST.json", "utf8"));
+const currentCheckedPaths = [
+ "scripts/check_m45_release_package.mjs",
+];
+assert.deepEqual(currentCheckedPaths, Object.keys(trust.currentSourceHashes), "Current checker scope changed");
+for (const name of currentCheckedPaths) {
+ const bytes = Buffer.from((await readFile(name, "utf8")).replaceAll("\r\n", "\n"));
+ assert.equal(sha(bytes), trust.currentSourceHashes[name], "Current checker integrity mismatch");
+}
 const root = resolve("apps/showcase/dist");
 async function walk(dir) {
 	const names = [];
@@ -91,13 +101,32 @@ assert.equal(
 	sha(await readFile(join(root, "CHECKSUMS.json"))),
 	inventory.staticChecksumManifest.sha256,
 );
+// R3 is a historical static release. These two dependency files serve the evolving
+// workbench/checker, so their R3 provenance is checked at the immutable R3 merge.
+// All other release sources and the actual generated output remain current checks.
+const releaseSourceRef = "7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f";
+const historicalSourcePaths = new Set([
+	"apps/web/package.json",
+	"apps/web/package-lock.json",
+]);
+assert.equal(releaseSourceRef, trust.commit, "Authorized historical commit mismatch");
+execFileSync("git", ["merge-base", "--is-ancestor", releaseSourceRef, "HEAD"]);
+assert.equal(execFileSync("git", ["rev-parse", `${releaseSourceRef}^{tree}`], {encoding:"utf8"}).trim(), trust.tree, "Historical tree mismatch");
+for (const [name, blob] of Object.entries(trust.blobs)) assert.equal(execFileSync("git", ["rev-parse", `${releaseSourceRef}:${name}`], {encoding:"utf8"}).trim(), blob, "Historical blob mismatch");
+assert.deepEqual([...historicalSourcePaths], ["apps/web/package.json", "apps/web/package-lock.json"], "Historical exemption scope changed");
+const historicalFile = (name) => execFileSync("git", ["show", `${releaseSourceRef}:${name}`], { encoding: "utf8" });
+const originalInventory = JSON.parse(historicalFile("docs/release/M45_R3_ASSET_INVENTORY.json"));
+assert.deepEqual(inventory.sourceHashes, originalInventory.sourceHashes, "Historical R3 source inventory changed");
+for (const key of ["staticChecksums", "staticChecksumManifest", "recordingHashes", "acceptedRuntimeSha", "r2AuditSha"]) assert.deepEqual(inventory[key], originalInventory[key], `Historical static integrity mismatch: ${key}`);
 for (const [name, record] of Object.entries(inventory.sourceHashes)) {
+ if (Object.hasOwn(trust.currentSourceHashes, name)) continue; // Current checker bytes validated above; original historical hash map is still pinned.
 	const bytes = Buffer.from(
-		(await readFile(name, "utf8")).replaceAll("\r\n", "\n"),
+		(historicalSourcePaths.has(name) ? historicalFile(name) : await readFile(name, "utf8")).replaceAll("\r\n", "\n"),
 	);
 	assert.equal(sha(bytes), record.sha256, `Release source drift: ${name}`);
 	assert.equal(bytes.length, record.bytes);
 }
+console.log(`R3 historical source provenance at ${releaseSourceRef}: ${[...historicalSourcePaths].join(", ")}. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies.`);
 console.log(
 	`PASS: ${files.length} checksummed inert files, ${links} local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.`,
 );

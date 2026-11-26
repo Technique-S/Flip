@@ -51,3 +51,5 @@
 /docs/evidence/m45-release-acceptance/** -text
 /docs/evidence/m45-release-final-review/** -text
 /docs/evidence/m45-release-delta-review/** -text
+
+/docs/release/V1_RELEASE_TRUST.json text eol=lf

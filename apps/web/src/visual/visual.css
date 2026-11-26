@@ -1,0 +1,159 @@
+.visual-composer {
+	min-width: 0;
+}
+.visual-controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin: 16px 0;
+}
+.visual-controls output {
+	min-width: 4ch;
+	text-align: center;
+}
+.visual-workspace {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 260px;
+	border: 1px solid var(--line);
+}
+.visual-canvas {
+	height: 500px;
+	min-width: 0;
+	background: #fafbfc;
+}
+.visual-inspector {
+	border-left: 1px solid var(--line);
+	padding: 16px;
+	min-width: 0;
+	background: white;
+}
+.visual-inspector h3 {
+	margin-top: 0;
+}
+.visual-inspector code,
+.visual-inspector dd {
+	overflow-wrap: anywhere;
+	font-size: 13px;
+}
+.visual-inspector dd {
+	margin: 0 0 12px;
+}
+.visual-inspector select {
+	width: 100%;
+	min-height: 44px;
+}
+.visual-inspector label {
+	display: block;
+	margin: 16px 0;
+}
+.visual-node {
+	width: 220px;
+	border: 1px solid #93979d;
+	border-radius: 6px;
+	background: #fff;
+	color: #17191d;
+}
+.visual-node-heading {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px;
+	border-bottom: 1px solid #d6d8dc;
+}
+.visual-node-heading span {
+	color: #545962;
+	font-size: 12px;
+}
+.visual-nand {
+	border-radius: 6px 36px 36px 6px;
+}
+.visual-ports {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 0;
+}
+.visual-port {
+	position: relative;
+	height: 34px;
+}
+.visual-port button {
+	border: 0;
+	border-radius: 0;
+	padding: 4px 12px;
+	min-height: 32px;
+	font-weight: 400;
+	font-size: 13px;
+	background: transparent;
+}
+.visual-node .react-flow__handle {
+	background: #0055cc;
+	border: 1px solid white;
+	width: 8px;
+	height: 8px;
+	pointer-events: none;
+}
+.visual-composer .react-flow__edge-path {
+	stroke: #545962;
+	stroke-width: 1.5;
+}
+.visual-composer .react-flow__node.selected .visual-node {
+	border-color: #0055cc;
+	outline: 2px solid #0055cc;
+}
+.visual-composer .react-flow__edge.selected .react-flow__edge-path {
+	stroke: #0055cc;
+	stroke-width: 3;
+}
+.visual-composer .react-flow__node:focus-visible {
+	outline: 3px solid #0055cc;
+	outline-offset: 3px;
+}
+.visual-mapping-table {
+	overflow-x: auto;
+}
+.visual-error {
+	border: 1px solid #93979d;
+	padding: 16px;
+}
+.visual-mode {
+	display: flex;
+	gap: 8px;
+	margin: 16px 0;
+}
+.visual-mode button[aria-pressed="true"] {
+	background: #0055cc;
+	color: white;
+	border-color: #0055cc;
+}
+@media (max-width: 1000px) {
+	.visual-workspace {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.visual-inspector {
+		border-left: 0;
+		border-top: 1px solid var(--line);
+	}
+	.visual-canvas {
+		height: 390px;
+	}
+}
+@media (forced-colors: active) {
+	.visual-composer .react-flow__edge-path {
+		stroke: CanvasText;
+	}
+	.visual-node .react-flow__handle {
+		background: ButtonText;
+	}
+}
+
+.visual-mode {
+	border: 0;
+	padding: 0;
+	min-width: 0;
+}
+.visual-notices pre {
+	white-space: pre-wrap;
+	max-height: 240px;
+	overflow: auto;
+}
