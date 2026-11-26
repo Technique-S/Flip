@@ -1,0 +1,48 @@
+{
+  "base": "fc9c0c1bcb2557169dd89af0c3b2c5a7628c9adf",
+  "previousEvidenceHead": "e92ae1e21c8c3ea0fd7e713c1a643ed642a906e7",
+  "implementationCommit": "b23d3dcf8f98e9b95cd0bc8ca8fbf612045e1daa",
+  "initialFailedCiRun": 45896495418,
+  "initialFailedJob": 140171571968,
+  "failedCase": "workflow.spec.ts:92 keyboard and narrow screen, import, inspect, add source and revalidate",
+  "initialCiResult": "Ubuntu npm test: 69 passed / 1 failed; sibling Windows cancelled by existing fail-fast matrix.",
+  "canonicalCaptureByteIdentical": true,
+  "canonicalCaptureSha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+  "browserStats": {
+    "startTime": "2026-11-26T21:23:18.635Z",
+    "duration": 201036.03399999999,
+    "expected": 72,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "protectedPathsUnchanged": [
+    "packages",
+    "scripts",
+    "fixtures",
+    "docs/schema",
+    "docs/release",
+    ".github",
+    ".gitattributes",
+    "apps/showcase",
+    "apps/web/package.json",
+    "apps/web/package-lock.json"
+  ],
+  "fixFiles": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "gitBlob": "504c6f803f3086d40f7c79ba5982995a22baf5d5",
+      "sha256": "d03a86f3005a202e963c8b51d69319b8831d220c0bade076352e04fa1ca9a07f"
+    },
+    {
+      "path": "apps/web/src/visual/useCandidateEditor.ts",
+      "gitBlob": "58096050b38f7116956f83f7d44d4a1424d146f3",
+      "sha256": "36f45597348ace980a59257548f98faf6044307a2bf457b7f91e2a2ea4e33df7"
+    },
+    {
+      "path": "apps/web/tests/visual-edit.spec.ts",
+      "gitBlob": "3a298e9571b308677fd30771b6cfc22de9173264",
+      "sha256": "afe4e0855e47fb9c664be73a33cb151a1dcb50fc96baa93c6c49ddd0f388f247"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+
+> flip-workbench@0.1.0 test
+> playwright test --grep V2-A Advanced rows|keyboard and narrow screen|V2-A invalid Advanced
+
+[WebServer] INFO:     Started server process [21456]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+
+Running 3 tests using 1 worker
+
+(node:11604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\visual-edit.spec.ts:474:1 › V2-A invalid Advanced candidate remains a draft and both modes retain the accepted request (2.6s)
+  ok 2 tests\visual-edit.spec.ts:673:1 › V2-A Advanced rows become focusable only after validation and commit does not steal field focus (1.6s)
+  ok 3 tests\workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate (2.3s)
+
+  3 passed (17.6s)
