@@ -1,0 +1,34 @@
+contracts (windows-latest)	Run npm test	2026-11-26T03:57:20.8570609Z   44 passed (58.4s)
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T03:57:22.5380651Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T03:57:41.4396526Z   28 passed (18.0s)
+contracts (windows-latest)	Run uv run --frozen ruff check .	2026-11-26T03:57:41.9668344Z All checks passed!
+contracts (windows-latest)	Run uv run --frozen ruff format --check .	2026-11-26T03:57:42.3997772Z 88 files already formatted
+contracts (windows-latest)	Run uv run --frozen python fixtures/m45-library-discovery/generators/verify_fixtures.py	2026-11-26T03:57:47.0966457Z   "result": "PASS",
+contracts (windows-latest)	Run uv run --frozen pytest -q --junitxml="D:\a\_temp/m3-tests.xml" -o junit_family=legacy	2026-11-26T04:01:38.3816623Z 702 passed in 230.20s (0:03:50)
+contracts (windows-latest)	Run uv run --frozen python scripts/report_m3_acceptance.py --junit "D:\a\_temp/m3-tests.xml" --out "D:\a\_temp/m3-acceptance.json"	2026-11-26T04:01:39.3831968Z {"result": "PASS", "suite": {"passed": 702, "failed": 0, "errors": 0, "skipped": 0}, "productionCases": 75}
+contracts (windows-latest)	Run uv run --frozen python scripts/report_m4_acceptance.py --junit "D:\a\_temp/m3-tests.xml" --browser .test-tmp/m4-browser.json --out "D:\a\_temp/m4-acceptance.json"	2026-11-26T04:01:39.9747496Z {"result": "PASS", "tests": 702, "browser": 44, "cases": 97}
+contracts (windows-latest)	Run uv run --frozen python scripts/check_m45_agent_acceptance.py	2026-11-26T04:02:11.7466402Z independent_acceptance: 27/27 exact semantic checks PASS
+contracts (windows-latest)	Run uv run --frozen python scripts/check_m45_agent_acceptance.py	2026-11-26T04:02:11.7467700Z authorization_checks: 10/10 exact semantic checks PASS
+contracts (windows-latest)	Run uv run --frozen python scripts/check_m45_agent_portable_review.py	2026-11-26T04:03:14.4556060Z Final adapter review: 26/26 PASS, including 10 fail-closed attacks; archive unchanged
+contracts (windows-latest)	Run node docs/schema/m45-portable-project/check-canonical.mjs	2026-11-26T04:03:22.1427109Z Portable Python/Node canonical parity: 3 packages PASS
+contracts (windows-latest)	Run node docs/schema/m45-agent-portable/check-canonical.mjs	2026-11-26T04:03:23.4105087Z Adapter Python/Node canonical plan and package pins PASS
+contracts (windows-latest)	Run node docs/schema/check-canonical.mjs	2026-11-26T04:03:23.8273656Z 6 canonical vectors passed in Node v24.18.0
+contracts (windows-latest)	Run uv run --frozen python scripts/check_m1_repository.py --require-clean	2026-11-26T04:04:14.3797692Z   "result": "PASS"
+contracts (windows-latest)	Run uv run --frozen python scripts/smoke_m3.py	2026-11-26T04:04:18.8133173Z {"result": "PASS", "scope": "External CLI / real loopback ASGI, no RPC", "cases": [{"operation": "compose", "verdict": null, "semanticHash": "0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f"}, {"operation": "compare", "verdict": "EQUIVALENT", "semanticHash": "0xe2a5e26bfe3743c4dad8a6a80b652fa9f268f00dbf5e95b5bcafe1e0965ec96e"}, {"operation": "compare", "verdict": "DIFFERENT", "semanticHash": "0x4e3f6558d780d2da89252330729459007bae79bad01b9cb51b24fc663b589ea6"}]}
+contracts (ubuntu-latest)	Run npm test	2026-11-26T03:58:39.7505602Z   44 passed (44.6s)
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T03:58:40.0417644Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T03:58:53.5156027Z   28 passed (13.0s)
+contracts (ubuntu-latest)	Run uv run --frozen ruff check .	2026-11-26T03:58:53.6332653Z All checks passed!
+contracts (ubuntu-latest)	Run uv run --frozen ruff format --check .	2026-11-26T03:58:53.6818186Z 88 files already formatted
+contracts (ubuntu-latest)	Run uv run --frozen python fixtures/m45-library-discovery/generators/verify_fixtures.py	2026-11-26T03:58:55.4224211Z   "result": "PASS",
+contracts (ubuntu-latest)	Run uv run --frozen pytest -q --junitxml="/home/runner/work/_temp/m3-tests.xml" -o junit_family=legacy	2026-11-26T04:00:59.4611515Z 702 passed in 123.41s (0:02:03)
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/report_m3_acceptance.py --junit "/home/runner/work/_temp/m3-tests.xml" --out "/home/runner/work/_temp/m3-acceptance.json"	2026-11-26T04:00:59.9058436Z {"result": "PASS", "suite": {"passed": 702, "failed": 0, "errors": 0, "skipped": 0}, "productionCases": 75}
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/report_m4_acceptance.py --junit "/home/runner/work/_temp/m3-tests.xml" --browser .test-tmp/m4-browser.json --out "/home/runner/work/_temp/m4-acceptance.json"	2026-11-26T04:01:00.0372930Z {"result": "PASS", "tests": 702, "browser": 44, "cases": 97}
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/check_m45_agent_acceptance.py	2026-11-26T04:01:22.7336400Z independent_acceptance: 27/27 exact semantic checks PASS
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/check_m45_agent_acceptance.py	2026-11-26T04:01:22.7337815Z authorization_checks: 10/10 exact semantic checks PASS
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/check_m45_agent_portable_review.py	2026-11-26T04:02:06.3865108Z Final adapter review: 26/26 PASS, including 10 fail-closed attacks; archive unchanged
+contracts (ubuntu-latest)	Run node docs/schema/m45-portable-project/check-canonical.mjs	2026-11-26T04:02:10.9213440Z Portable Python/Node canonical parity: 3 packages PASS
+contracts (ubuntu-latest)	Run node docs/schema/m45-agent-portable/check-canonical.mjs	2026-11-26T04:02:11.3334432Z Adapter Python/Node canonical plan and package pins PASS
+contracts (ubuntu-latest)	Run node docs/schema/check-canonical.mjs	2026-11-26T04:02:11.3731831Z 6 canonical vectors passed in Node v24.18.0
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/check_m1_repository.py --require-clean	2026-11-26T04:02:14.4262959Z   "result": "PASS"
+contracts (ubuntu-latest)	Run uv run --frozen python scripts/smoke_m3.py	2026-11-26T04:02:17.1463567Z {"result": "PASS", "scope": "External CLI / real loopback ASGI, no RPC", "cases": [{"operation": "compose", "verdict": null, "semanticHash": "0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f"}, {"operation": "compare", "verdict": "EQUIVALENT", "semanticHash": "0x2f92441c717d32bb8ad6f2f766fd448c640087b530abb9d9f68fe02e12dbf537"}, {"operation": "compare", "verdict": "DIFFERENT", "semanticHash": "0x381d7d21c81b503bb20cd9baebe1966c80a35b0f6432d3030a564b66711e89df"}]}

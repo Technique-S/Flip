@@ -1,0 +1,17 @@
+# P7-V1 post-merge evidence
+
+Source baseline: `d96bdad6755d8a0c7434850ec6db227868abab65`. See [acceptance](../../milestones/P7_V1_POST_MERGE_ACCEPTANCE.md) for scope, failures, SEC-01 and limitations. These files are new execution evidence; previous acceptance and independent reviewer records are untouched.
+
+- `identity-and-custody.json`: full-tree correspondence, exact independent-review file hashes, and the 707 unchanged historical protected blobs with SHA-256 values. SHA-256 values describe Git blob bytes, avoiding checkout line-ending ambiguity.
+- `pr12.json`, `main-ci.json`, `main-ci-excerpts.txt`: fresh GitHub PR/run snapshots and selected original hosted log lines. Run 45751652532 is bound to accepted main, and both required OS jobs succeeded. Excerpts are a selection; the linked hosted run retains complete logs/artifacts.
+- `main-ruleset.json`, `effective-main-rules.json`: live GitHub protection snapshots. Policy observations are time-bound, not a promise that future settings cannot change.
+- `browser-results.json`, `showcase-results.json`: original local JSON reports. Their local screenshot/trace paths identify scratch artifacts, which are not copied into this text-only evidence bundle; no manual screen-reader/physical-device acceptance is inferred.
+- `canonical-parity.json`, `hash-invariants.json`: raw fresh browser attachment and hashes calculated with the existing Python canonical implementation. The fresh attachment is byte-identical to the accepted V1 capture.
+- `python-full-junit.part1.txt`, `python-full-junit.part2.txt`: **unchanged** complete initial JUnit bytes, split below the existing 200000-byte per-file custody limit. `python-full-junit-reassembly.json` specifies concatenation order, original size and SHA-256. Concatenate their binary bytes to recover the original XML. The initial 701-pass/1-timeout result is deliberately retained.
+- `python-summary.json`: parsed original failure/traceback and isolated retry metadata. `python-isolated-retry.xml` and `.txt` preserve the successful unchanged retry.
+- `supplemental-commands.json`: exact commands, actual exit codes/durations/output for the local bootstrap, Ruff, all schema/parity checks, fixture/agent/portability checks, smoke checks, aggregators and clean source-tree custody scan. Nonzero aggregate results from the initial JUnit remain visible.
+- `MANIFEST.json`: byte counts and SHA-256 for this bundle, excluding the manifest itself. This is an evidence index, not an independent security trust root. Hashes describe original Git blob bytes; on a checkout that translates LF/CRLF, read files through `git show`/`git archive` or use a fresh `core.autocrlf=false` checkout before validating/reassembling bytes. No repository attributes or checkout policy were changed.
+
+Toolchain and path provenance: fresh Windows worktree `C:/Users/Kazi/Documents/Flip/flip-visual-v1-postmerge`, branch `codex/flip-visual-v1-postmerge`; Python 3.14.6 / uv 0.9.11 / Node 24.18.0 / npm 11.16.0. Absolute command/report paths are original capture context. Reproduce in another checkout using the corresponding relative command arguments and pinned toolchain; do not execute archived reports as programs.
+
+The independent security re-review remains at `77520e4fa9915a7668677bf6b831b02a0d01fcee`; it is referenced by immutable Git identity rather than copied, edited or represented as part of the reviewed runtime tree. No source files, fixtures, existing reports, schema versions, security controls or release inventories were modified by this branch.

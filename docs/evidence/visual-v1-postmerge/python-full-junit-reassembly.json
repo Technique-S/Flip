@@ -1,0 +1,10 @@
+{
+  "originalFile": ".test-tmp/postmerge-python.xml",
+  "bytes": 222997,
+  "sha256": "d410b947cfee32b0186276971aaf440ca9706b6192b78d12ffa13fccbd1be23d",
+  "partsInOrder": [
+    "python-full-junit.part1.txt",
+    "python-full-junit.part2.txt"
+  ],
+  "instruction": "Concatenate the raw bytes in this order. Split only to retain the unchanged XML under the existing 200000-byte custody limit."
+}

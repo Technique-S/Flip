@@ -1,0 +1,96 @@
+{
+  "sourceMain": "d96bdad6755d8a0c7434850ec6db227868abab65",
+  "hashScope": "Original Git blob bytes; manifest excludes itself.",
+  "files": [
+    {
+      "path": "browser-results.json",
+      "bytes": 83146,
+      "sha256": "a6a26783ada50ff6dc29472235951aaee5c6c91838c04317af790eaa31f75b2f"
+    },
+    {
+      "path": "canonical-parity.json",
+      "bytes": 24110,
+      "sha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933"
+    },
+    {
+      "path": "effective-main-rules.json",
+      "bytes": 1411,
+      "sha256": "5f5c4f13f0fad9e10bc4e4d85ae6759ccc00c30a7a115f461307d43a77732998"
+    },
+    {
+      "path": "hash-invariants.json",
+      "bytes": 1147,
+      "sha256": "48e522d7f5bdfdd370e015516488fcfe84e341e7a03503706782ce8cfd9b2445"
+    },
+    {
+      "path": "identity-and-custody.json",
+      "bytes": 187572,
+      "sha256": "357de0f1ea07580aab57d45bbbbfaeadc00d280b2c77a74fe087b6079717dbc5"
+    },
+    {
+      "path": "main-ci-excerpts.txt",
+      "bytes": 6804,
+      "sha256": "96e5f98cde171b19ffd02a367516295de8c9988c36a3486fe5ce1808fa0bd320"
+    },
+    {
+      "path": "main-ci.json",
+      "bytes": 19573,
+      "sha256": "64d4a378b68d0a3f6a2088edc71a8fdd90a2257c387380d55a4a542e87605060"
+    },
+    {
+      "path": "main-ruleset.json",
+      "bytes": 1795,
+      "sha256": "7a1bc0da2d798e7555b185c433484c4b3a2b4d0dcf2ac79f971ab4cf1edd1e7e"
+    },
+    {
+      "path": "pr12.json",
+      "bytes": 256,
+      "sha256": "58156683f34c2c1af56682af77d8bab917502ebf6b6905a44f9a379a6460be68"
+    },
+    {
+      "path": "python-full-junit-reassembly.json",
+      "bytes": 394,
+      "sha256": "333475fb2c3ff6b3d373c5641c9593e8ab4347883ad628093786751a48da1488"
+    },
+    {
+      "path": "python-full-junit.part1.txt",
+      "bytes": 115248,
+      "sha256": "2ce6a32dec677436b85f689d6f213b8228303f88b6c1d910eba8d350715b6c3d"
+    },
+    {
+      "path": "python-full-junit.part2.txt",
+      "bytes": 107749,
+      "sha256": "0bdb1d46e1e548c85c59fb28bd7fe374e7711629f3eb3ead65b6813014fa2282"
+    },
+    {
+      "path": "python-isolated-retry.txt",
+      "bytes": 111,
+      "sha256": "f16d5b7a88afbf78ae5ac60f83ed4430806fdd4a2e52b65c418b3770045bc2a0"
+    },
+    {
+      "path": "python-isolated-retry.xml",
+      "bytes": 998,
+      "sha256": "97576681613392558e231b5a53dbe98855e9b26e40042ab6be614399c19bf154"
+    },
+    {
+      "path": "python-summary.json",
+      "bytes": 6112,
+      "sha256": "385a269175316180ebe96424d66d2e0050c71e625dd071b6d404fd1ff0241098"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3543,
+      "sha256": "c2059f4b5b405c756ab060d190049314f655e126d1786636a2e295fdbab3b8a6"
+    },
+    {
+      "path": "showcase-results.json",
+      "bytes": 144465,
+      "sha256": "24a3c0a17b6ba9f59ac95e9ad2ed718ef129dca3ee8cc5c25f5bdbc3fc8cffb0"
+    },
+    {
+      "path": "supplemental-commands.json",
+      "bytes": 15684,
+      "sha256": "9a100e8770c7101c1bf4dfa07011c60f0291b35fe4c93f992e18ef5e889ca9be"
+    }
+  ]
+}
