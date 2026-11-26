@@ -637,3 +637,35 @@ test("V2-A interrupted complete edit is recovered only after real authoritative 
 		page.getByRole("status", { name: "Editing status" }),
 	).toContainText("Unsaved changes");
 });
+
+test("V2-A explicit workspace reset clears private edit recovery and export checkpoint data", async ({
+	page,
+}) => {
+	await open(page);
+	await add(page, "resetGate");
+	expect(
+		await page.evaluate(() => sessionStorage.getItem("flip-edit-checkpoint")),
+	).not.toBeNull();
+	await page
+		.getByRole("button", { name: "Reset workspace", exact: true })
+		.click();
+	await page
+		.getByRole("button", { name: "Confirm reset", exact: true })
+		.click();
+	await expect(
+		page.getByRole("button", { name: /^Open sample/ }),
+	).toBeVisible();
+	expect(
+		await page.evaluate(() =>
+			[
+				"flip-project",
+				"flip-edit-draft",
+				"flip-edit-checkpoint",
+				"flip-portable",
+			].map((k) => sessionStorage.getItem(k)),
+		),
+	).toEqual([null, null, null, null]);
+	await page.getByRole("button", { name: /^Open sample/ }).click();
+	await page.getByRole("button", { name: "Evidence", exact: true }).click();
+	await expect(page.getByText(/Historical comparisons \(/)).toHaveCount(0);
+});

@@ -536,6 +536,7 @@ export default function App() {
 												sessionStorage.removeItem("flip-project");
 											} catch {}
 											editor.open(null);
+											setPastEvidence({ runs: [], evicted: false });
 											setReq(null);
 											setPortable(null);
 											setDebugEdit(null);

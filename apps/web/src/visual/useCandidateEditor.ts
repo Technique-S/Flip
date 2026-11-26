@@ -100,6 +100,13 @@ export function useCandidateEditor(callbacks: {
 	}
 	function open(r: Execution | null) {
 		clearRecovery();
+		if (!r) {
+			try {
+				sessionStorage.removeItem("flip-edit-checkpoint");
+			} catch {
+				/* Storage may be unavailable. */
+			}
+		}
 		generation.current++;
 		controller.current?.abort();
 		controller.current = null;
