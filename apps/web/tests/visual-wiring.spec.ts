@@ -670,6 +670,9 @@ test("B0 pure commands initiate no fetch, and the live canvas remains read-only"
 	expect(calls).toBe(0);
 	await page.goto("/");
 	await page.getByRole("button", { name: /^Open sample/ }).click();
+	await expect
+		.poll(() => page.evaluate(() => sessionStorage.getItem("flip-project")))
+		.not.toBeNull();
 	const before = await page.evaluate(() =>
 		sessionStorage.getItem("flip-project"),
 	);
