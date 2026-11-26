@@ -669,3 +669,54 @@ test("V2-A explicit workspace reset clears private edit recovery and export chec
 	await page.getByRole("button", { name: "Evidence", exact: true }).click();
 	await expect(page.getByText(/Historical comparisons \(/)).toHaveCount(0);
 });
+
+test("V2-A Advanced rows become focusable only after validation and commit does not steal field focus", async ({
+	page,
+}) => {
+	await open(page);
+	await page.getByRole("button", { name: "Advanced", exact: true }).click();
+	await page
+		.getByRole("combobox", { name: "Component", exact: true })
+		.selectOption("xor");
+	let release = () => {};
+	const barrier = new Promise<void>((r) => {
+		release = r;
+	});
+	let fetched = () => {};
+	const started = new Promise<void>((r) => {
+		fetched = r;
+	});
+	await page.route("**/api/v1/compose", async (route) => {
+		const response = await route.fetch();
+		fetched();
+		await barrier;
+		await route.fulfill({ response });
+	});
+	await page
+		.getByRole("button", { name: "Add component", exact: true })
+		.click();
+	await started;
+	const field = page.getByLabel("Source for part4 [0]", { exact: true });
+	await expect(field).toHaveCount(0);
+	const focusing = field.focus();
+	release();
+	await focusing;
+	await expect(page.locator("tr.selected")).toContainText("part4 [0]");
+	await expect(field).toBeFocused();
+});
+
+test("V2-A existing Advanced input focus survives authoritative validation without moving to NAND controls", async ({
+	page,
+}) => {
+	await open(page);
+	await page.getByRole("button", { name: "Advanced", exact: true }).click();
+	const field = page.getByLabel("Source for nand0 [0]", { exact: true });
+	await field.focus();
+	await field.selectOption(JSON.stringify([null, 1]));
+	await expect(
+		page.getByRole("status", { name: "Editing status" }),
+	).toContainText("Advanced edit committed");
+	await expect(field).toHaveValue("[null,1]");
+	await expect(field).toBeFocused();
+	await expect(page.locator("tr.selected")).toContainText("nand0 [0]");
+});

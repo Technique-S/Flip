@@ -791,7 +791,7 @@ export default function App() {
 								)}
 								<Composer
 									editor={editor}
-									request={editor.advanced ?? req}
+									request={editor.pending ? req : (editor.advanced ?? req)}
 									change={change}
 									build={compile}
 									built={built}

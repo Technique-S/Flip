@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api, type Execution } from "../model";
 import {
 	checkInteractiveBudget,
@@ -51,6 +51,19 @@ export function useCandidateEditor(callbacks: {
 		generation = useRef(0),
 		controller = useRef<AbortController | null>(null);
 	cb.current = callbacks;
+	const advancedFocus = useRef<HTMLElement | null>(null);
+	useEffect(() => {
+		if (state.pending || !advancedFocus.current) return;
+		const target = advancedFocus.current;
+		advancedFocus.current = null;
+		if (
+			document.activeElement === document.body &&
+			target.isConnected &&
+			!(target as HTMLInputElement).disabled
+		)
+			target.focus();
+	}, [state.pending]);
+
 	function publish(s: State) {
 		if (s.history && s.history !== current.current.history) {
 			try {
@@ -83,6 +96,7 @@ export function useCandidateEditor(callbacks: {
 		}
 	}
 	function cancel() {
+		advancedFocus.current = null;
 		clearRecovery();
 		generation.current++;
 		controller.current?.abort();
@@ -99,6 +113,7 @@ export function useCandidateEditor(callbacks: {
 		});
 	}
 	function open(r: Execution | null) {
+		advancedFocus.current = null;
 		clearRecovery();
 		if (!r) {
 			try {
@@ -137,6 +152,11 @@ export function useCandidateEditor(callbacks: {
 		)
 			return false;
 		const baseHistory = current.current.history;
+		if (
+			label === "Advanced edit" &&
+			document.activeElement instanceof HTMLElement
+		)
+			advancedFocus.current = document.activeElement;
 		const token = ++generation.current;
 		const abort = new AbortController();
 		controller.current = abort;
@@ -174,7 +194,7 @@ export function useCandidateEditor(callbacks: {
 				message: `${label} committed. Prior comparisons remain historical; compare again for this revision.`,
 				revision: current.current.revision + 1,
 				selection,
-				focus: current.current.focus + 1,
+				focus: current.current.focus + (label === "Advanced edit" ? 0 : 1),
 			});
 			return true;
 		} catch (e) {
