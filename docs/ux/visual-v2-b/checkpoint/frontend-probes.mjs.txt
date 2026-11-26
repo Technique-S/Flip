@@ -1,0 +1,11 @@
+import {build} from '../../apps/web/node_modules/esbuild/lib/main.js';
+import {readFileSync,writeFileSync} from 'node:fs';
+await build({entryPoints:['apps/web/src/visual/commands.ts'],bundle:true,platform:'node',format:'esm',outfile:'.test-tmp/v2b-checkpoint/commands.mjs'});
+const {proposeNand,checkInteractiveBudget}=await import('./commands.mjs');
+const r=JSON.parse(readFileSync('docs/schema/m3/examples/half-adder.request.json','utf8'));
+const good={component:null,pin:0};
+const cases=[['plain',good],['object literal proto extra',{component:null,pin:0,__proto__:{extra:'ignored'}}],['literal null prototype',{component:null,pin:0,__proto__:null}],['JSON own __proto__',JSON.parse('{"component":null,"pin":0,"__proto__":{"extra":true}}')],['inherited bindings plus unrelated own keys',Object.assign(Object.create({component:null,pin:0}),{a:1,b:2})]];
+const rows=cases.map(([label,v])=>{let accepted=true,error=null;try{proposeNand(r,{type:'AddNand',instanceId:'probe',inputs:[v,good]});}catch(e){accepted=false;error=e.message}return{label,ownKeys:Reflect.ownKeys(v),accepted,error};});
+const budgets=[178,179].map(n=>{const v=structuredClone(r);v.project.candidate.components=Array.from({length:n},(_,i)=>({kind:'NAND',instanceId:`part${i}`,inputs:[{component:null,pin:0},{component:null,pin:1}]}));v.project.candidate.outputs=[{component:`part${n-2}`,pin:0},{component:`part${n-1}`,pin:0}];let error=null;try{checkInteractiveBudget(v)}catch(e){error=e.message}return{components:n,P:2*n+2,W:n+2,product:(2*n+2)*(n+2),accepted:error===null,error};});
+const report={sourceSha:'2fa7281ba01557f484cef2878e484b6e16f3ffd2',note:'Existing V2-A functions only; findings reproduced, not remediated.',cases:rows,budgets};
+writeFileSync('.test-tmp/v2b-checkpoint/frontend-probes.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

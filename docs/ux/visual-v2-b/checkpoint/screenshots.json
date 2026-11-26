@@ -1,0 +1,122 @@
+[
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\acceptance-B03-accessible--120b5-nd-B05-responsive-axe-audit\\evidence.png",
+    "sha256": "f238cac8a536b1237da072a5e2748416c93e587e425a9018a17f894996532e22",
+    "width": 1280,
+    "height": 1312,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\agent-portable-combined-na-ae30b-play-and-authorization-stop\\integration-desktop.png",
+    "sha256": "6ff41eecbb6bb87db9ac784f56ed007e83e6c1b198c281083743cf4f4007f36a",
+    "width": 1280,
+    "height": 2461,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\agent-portable-combined-na-ae30b-play-and-authorization-stop\\integration-mobile.png",
+    "sha256": "36f94479cbc9dced8ad8a3b99839c9f334d49b3de1b8dce44ee9dc90c5596ecc",
+    "width": 390,
+    "height": 2996,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\debugging-debugger-narrow--48764-production-resource-UNKNOWN\\debugger-mobile.png",
+    "sha256": "75573eff1d34b05ec50f9ad7c3581bfab25f64314a45b76c453d09555e95861c",
+    "width": 362,
+    "height": 1897,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\debugging-debugger-replays-d1c8c-and-reverts-with-CLI-parity\\debugger-desktop.png",
+    "sha256": "cb782227d8e8f14d6060a50476f7a497874355831e2de6dc9b5f0345cfe796be",
+    "width": 927,
+    "height": 1615,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\portable-portable-CLI-comp-f00ae-resh-and-explicit-downgrade\\portable-desktop.png",
+    "sha256": "0ec274beecdf17071391e53a70f440fba23eff846b67012ec313ae80562e77ba",
+    "width": 1280,
+    "height": 2409,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\portable-portable-CLI-comp-f00ae-resh-and-explicit-downgrade\\portable-mobile.png",
+    "sha256": "bdc04fe722419d6add2829c30b98d5e8d173f4166ee8a68a220f6fb6c523ad6b",
+    "width": 390,
+    "height": 3003,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-edit-V2-A-explicit--de348-sting-compose-network-calls\\v2a-desktop.png",
+    "sha256": "e98271dede20358d54274acf6c17c2f0fad58891ee934c8dc3649a05aff88431",
+    "width": 1280,
+    "height": 1831,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-edit-V2-A-explicit--de348-sting-compose-network-calls\\v2a-explicit-input-form.png",
+    "sha256": "bc23abe7875e7c0a191da483a0f8034492b34c98ffdc0aa7a8a663c1bb6dd82b",
+    "width": 1280,
+    "height": 2046,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-edit-V2-A-explicit--de348-sting-compose-network-calls\\v2a-narrow.png",
+    "sha256": "a60790d4fefb4748616ff65e69ef73c2841747136997b6a950163c60af8a6394",
+    "width": 390,
+    "height": 2412,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-edit-V2-A-safe-remo-cdf57--blocks-a-referenced-output\\v2a-blocked-removal.png",
+    "sha256": "373fd2f8e7c82e0e4e1b33d1c30786fcf435373e13a0c4d2af8c53eb68dea370",
+    "width": 1280,
+    "height": 2113,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-readonly-keyboard-p-ddb91-axe-and-StrictMode-renderer\\visual-320.png",
+    "sha256": "922e7b22fc0d6141b5ca962e443fe2aeca0c02396cbb799a36245983b0d11ccc",
+    "width": 320,
+    "height": 2999,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-readonly-keyboard-p-ddb91-axe-and-StrictMode-renderer\\visual-390.png",
+    "sha256": "2848a6d11df10df9b5e2400e2006528f8de35103daab5918c70aaa93aa817f81",
+    "width": 390,
+    "height": 2742,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\visual-readonly-real-sampl-0741a-and-zero-additional-network\\visual-desktop.png",
+    "sha256": "aeebc09c67a71da6cac657b407da4e29ac8e864bedd94f2642eea81bee32216d",
+    "width": 1280,
+    "height": 1738,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  },
+  {
+    "localPath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b-architecture\\.test-tmp\\browser\\workflow-historical-sample-e5148--parity-and-evidence-replay\\sources.png",
+    "sha256": "3359c020a4a9e5d551b5ebefed47f91ae4ced4e67ce9376155f83b8082fe8209",
+    "width": 1280,
+    "height": 860,
+    "sourceSha": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+    "provenance": "Actual unchanged baseline browser-test render; raw PNG ignored, not committed."
+  }
+]

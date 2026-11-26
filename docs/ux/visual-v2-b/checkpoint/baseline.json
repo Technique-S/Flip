@@ -1,0 +1,25 @@
+{
+  "acceptedMain": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+  "reviewedV2A": "036c7a99f26d87dd4366762c8c3c059ac8e3d65d",
+  "baselineTree": "3a579710889e4b456bf0ac93b9642475ba73b749",
+  "reviewedTree": "3a579710889e4b456bf0ac93b9642475ba73b749",
+  "fullTreeDiff": "",
+  "files": {
+    "apps/web/src/visual/commands.ts": "70d5fc9a634b414862478c631e490c823a9c39bd4c4470c55f435cab45c7d065",
+    "apps/web/src/visual/projection.ts": "a9e3826c86c68bfb0bee20e824f0523b228394a529c0e399591794099084896c",
+    "apps/web/src/visual/useCandidateEditor.ts": "36f45597348ace980a59257548f98faf6044307a2bf457b7f91e2a2ea4e33df7",
+    "apps/web/src/visual/VisualComposer.tsx": "3f7184cfb619c3ec1de7fccac4aa56d2785e16e919a19bf09ec452a93c0799dc",
+    "apps/web/src/visual/visual.css": "1919b281ba4cc6de5354a4d25b36fc7e6ee1c9032ea40efeb45a7c2c3e852ff3",
+    "apps/web/src/Composer.tsx": "6a574d218e0c01556fe59ead6aba2c070e0bd7b53acc368456254873fe284d0c",
+    "apps/web/src/App.tsx": "d03a86f3005a202e963c8b51d69319b8831d220c0bade076352e04fa1ca9a07f",
+    "apps/web/src/model.ts": "ca747133d452172c095beacdbff8502973b0333c782d88cb0e7d19061ac411f9",
+    "packages/flip-core/src/flip_core/models.py": "5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72",
+    "packages/flip-core/src/flip_core/composition_models.py": "6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4",
+    "packages/flip-core/src/flip_core/composition.py": "d42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0",
+    "packages/flip-core/src/flip_core/verification.py": "cb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b",
+    "packages/flip-core/src/flip_core/tap02.py": "9e81c4f6011ed081168cf6b81a3b78f77727ed2b11e7a66f577a9ed820c157ca",
+    "apps/web/tests/visual-edit.spec.ts": "afe4e0855e47fb9c664be73a33cb151a1dcb50fc96baa93c6c49ddd0f388f247",
+    ".github/workflows/m1-contracts.yml": "49fa280c8ea2df0ebea27bc6bdfa5faca38ba53afe57b1a726a7f8e091f26f0a",
+    "docs/release/V1_RELEASE_TRUST.json": "c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0"
+  }
+}

@@ -1,0 +1,36 @@
+import copy,json,hashlib,subprocess
+from pathlib import Path
+from flip_core.verification import parse_request,compose
+root=Path.cwd(); out=root/'.test-tmp/v2b-checkpoint'; base=json.loads((root/'docs/schema/m3/examples/half-adder.request.json').read_text(encoding='utf-8-sig'))
+rows=[]
+def run(label,fn,valid):
+ r=copy.deepcopy(base); fn(r)
+ try:
+  v=compose(parse_request(r)); observed=True; detail={k:v[k] for k in ('projectHash','netlist','manifest')}
+ except Exception as e:observed=False;detail={'type':type(e).__name__,'code':getattr(e,'code',None),'message':str(e)}
+ rows.append({'case':label,'expectedAccepted':valid,'observedAccepted':observed,'matches':observed==valid,'result':detail})
+def bind(r,c,i,p):r['project']['candidate']['components'][c]['inputs'][i]=p
+p=lambda c,n=0:{'component':c,'pin':n}
+run('baseline',lambda r:None,True)
+run('replace NAND input with external bit',lambda r:bind(r,2,0,p(None,0)),True)
+run('fanout same external input across components',lambda r:bind(r,2,0,p(None,0)),True)
+run('repeated source on NAND both inputs',lambda r: (bind(r,2,0,p(None,0)),bind(r,2,1,p(None,0))),True)
+run('REF output source',lambda r:bind(r,2,0,p('xor0',0)),True)
+run('existing REF input destination',lambda r:bind(r,0,0,p(None,1)),True)
+run('direct external output bank binding',lambda r:r['project']['candidate']['outputs'].__setitem__(0,p(None,0)),True)
+run('duplicate output sources allowed',lambda r:r['project']['candidate']['outputs'].__setitem__(0,p('sum',0)),True)
+run('self reference',lambda r:bind(r,2,0,p('carry',0)),False)
+run('forward reference',lambda r:bind(r,0,0,p('carry',0)),False)
+run('missing source',lambda r:bind(r,2,0,p('missing',0)),False)
+run('external out of range',lambda r:bind(r,2,0,p(None,2)),False)
+run('REF output out of range',lambda r:bind(r,2,0,p('xor0',1)),False)
+run('negative pin',lambda r:bind(r,2,0,p(None,-1)),False)
+run('boolean pin',lambda r:bind(r,2,0,p(None,True)),False)
+run('missing pin key',lambda r:bind(r,2,0,{'component':None}),False)
+run('wrong REF source identity',lambda r:r['project']['sources'][0]['identity'].__setitem__('circuitId','999'),False)
+run('stateful metadata',lambda r:r['project']['sources'][0].__setitem__('nState',1),False)
+run('LATCH discriminant',lambda r:r['project']['candidate']['components'][2].__setitem__('kind','LATCH'),False)
+run('extra pin field',lambda r:bind(r,2,0,{'component':None,'pin':0,'direction':'output'}),False)
+report={'sourceSha':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'provenance':'Read-only direct native compiler probes on cloned archived sample. Synthetic mutations, no fixture rewrite; no future command implementation.','sampleSha256':hashlib.sha256((root/'docs/schema/m3/examples/half-adder.request.json').read_bytes()).hexdigest(),'cases':rows}
+(out/'canonical-probes.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+print([(r['case'],r['matches'],r['observedAccepted']) for r in rows]); assert all(r['matches'] for r in rows)
