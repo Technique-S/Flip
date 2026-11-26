@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-11-26T02:30:04.562Z",
+  "results": [
+    {
+      "id": "alias-1-char",
+      "expectation": "ACCEPT",
+      "observed": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-64-chars",
+      "expectation": "ACCEPT",
+      "observed": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-65-chars",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-hyphen-underscore-digits",
+      "expectation": "ACCEPT",
+      "observed": "ACCEPT",
+      "detail": "5 nodes / 8 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-leading-digit",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-dot",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-space",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-empty",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "alias-xss",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "ref-used-alias-malformed",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: invalid REF source alias. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "edges-exactly-1000",
+      "expectation": "ACCEPT",
+      "observed": "ACCEPT",
+      "detail": "501 nodes / 1000 edges",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "edges-1001-rejected-early",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: connection budget exceeded before allocation. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    },
+    {
+      "id": "pins-over-4096-rejected-early",
+      "expectation": "REJECT",
+      "observed": "REJECT",
+      "detail": "Visual view unavailable: visible pin budget exceeded before allocation. Use Advanced to inspect the original project.",
+      "inputUnchanged": true,
+      "status": "OK"
+    }
+  ]
+}

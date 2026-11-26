@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-11-26T02:28:50.238Z",
+  "prHead": "53a7f1cdd729188c7bfd593d37049836b6ed6a12",
+  "results": [
+    {
+      "id": "B0-pristine-checker",
+      "mode": "checker",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "OK",
+      "exitCode": 0,
+      "diagnosticMatched": true,
+      "diagnostic": "PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface."
+    },
+    {
+      "id": "B1-checker-self-tamper",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Current checker integrity mismatch"
+    },
+    {
+      "id": "B1b-checker-exemption-expansion",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Current checker scope changed"
+    },
+    {
+      "id": "B2-historical-commit-retarget-checker",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Current checker integrity mismatch"
+    },
+    {
+      "id": "B2b-historical-commit-retarget-metadata",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Authorized historical commit mismatch"
+    },
+    {
+      "id": "B3-exemption-expansion-plus-current-source-tamper",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Current checker scope changed"
+    },
+    {
+      "id": "B4-coordinated-artifact-and-inventory-tamper",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Historical static integrity mismatch: staticChecksums"
+    },
+    {
+      "id": "B5-source-hash-tamper",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Historical R3 source inventory changed"
+    },
+    {
+      "id": "D0-pristine-bootstrap",
+      "mode": "bootstrap",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "OK",
+      "exitCode": 0,
+      "diagnosticMatched": null,
+      "diagnostic": ""
+    },
+    {
+      "id": "D1-changed-checker-unchanged-metadata",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI checker integrity mismatch"
+    },
+    {
+      "id": "D2-changed-metadata-unchanged-workflow-digest",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI release trust metadata mismatch"
+    },
+    {
+      "id": "D3-changed-imported-showcase-library",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI checker integrity mismatch"
+    },
+    {
+      "id": "D4-missing-trust-metadata",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "Error: ENOENT: no such file or directory, open 'C:\\Users\\Kazi\\AppData\\Local\\Temp\\flip-v1-rereview-wvY6bW\\docs\\release\\V1_RELEASE_TRUST.json' | code: 'ENOENT',"
+    },
+    {
+      "id": "D5-invalid-checksum-formatting",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI release trust metadata mismatch"
+    },
+    {
+      "id": "D6-combined-checker-metadata-workflow-evasion",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI release trust metadata mismatch"
+    },
+    {
+      "id": "D7-unauthorized-historical-identity",
+      "mode": "checker",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: Historical tree mismatch"
+    },
+    {
+      "id": "D8-coordinated-checker-metadata-workflow",
+      "mode": "bootstrap",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "OK",
+      "exitCode": 0,
+      "diagnosticMatched": null,
+      "diagnostic": ""
+    },
+    {
+      "id": "D9-crlf-checker-normalized",
+      "mode": "checker",
+      "expected": "PASS",
+      "observed": "PASS",
+      "status": "OK",
+      "exitCode": 0,
+      "diagnosticMatched": true,
+      "diagnostic": "PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface."
+    },
+    {
+      "id": "D10-crlf-metadata-rejected",
+      "mode": "bootstrap",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "status": "OK",
+      "exitCode": 1,
+      "diagnosticMatched": true,
+      "diagnostic": "AssertionError [ERR_ASSERTION]: CI release trust metadata mismatch"
+    }
+  ]
+}
