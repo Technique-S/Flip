@@ -1,0 +1,110 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "REMOVE_COMPONENT",
+      "instanceId": "carry"
+    },
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "replacement",
+      "inputs": [
+        {
+          "component": "nand0",
+          "pin": 0
+        },
+        {
+          "component": "nand0",
+          "pin": 0
+        }
+      ]
+    },
+    {
+      "op": "SET_OUTPUT",
+      "index": 0,
+      "value": {
+        "component": "replacement",
+        "pin": 0
+      }
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "replacement",
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ]
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "replacement",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Expected exact candidate object. Hashes must be recomputed through trusted compose, never fabricated."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "New request hash; old proof must be labeled historical.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-03B",
+  "semanticBlockers": [
+    "SB-1",
+    "SB-4",
+    "SB-10"
+  ],
+  "id": "V2A-03B",
+  "focus": "index-shifts-and-reference-corruption"
+}

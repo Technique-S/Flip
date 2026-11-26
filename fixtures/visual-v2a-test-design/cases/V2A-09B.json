@@ -1,0 +1,115 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "g1",
+      "inputs": [
+        {
+          "component": null,
+          "pin": 0
+        },
+        {
+          "component": null,
+          "pin": 1
+        }
+      ]
+    },
+    {
+      "op": "INJECT_PROOF",
+      "projectHash": "0xff70814e174ae2dc841eef4a9e6367bb5318bccd069307c3afdce1adaa329959"
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "g1",
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ]
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Expected exact candidate object. Hashes must be recomputed through trusted compose, never fabricated."
+  },
+  "expectedOutcome": "REJECT",
+  "rejectionReason": "Injected proof bound to pre-edit project hash must not overlay current revision.",
+  "evidenceFreshness": "No result may be shown as current unless bound to the exact post-edit request hash.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-09B",
+  "semanticBlockers": [
+    "SB-5",
+    "SB-10"
+  ],
+  "id": "V2A-09B",
+  "focus": "stale-evidence-shown-as-current"
+}

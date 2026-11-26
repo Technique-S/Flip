@@ -1,0 +1,115 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": [
+      [
+        "project",
+        "candidate",
+        "outputs"
+      ],
+      [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        },
+        {
+          "component": "nand0",
+          "pin": 0
+        }
+      ],
+      [
+        "project",
+        "comparison",
+        "outputMap"
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ]
+  },
+  "editSequence": [],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        },
+        {
+          "component": "nand0",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "3 outputs within 512; the case input also updates comparison.outputMap to a complete bijection [0,1,2]; any smaller map must be rejected."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "No result may be shown as current unless bound to the exact post-edit request hash.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-11D",
+  "semanticBlockers": [
+    "SB-3",
+    "SB-4"
+  ],
+  "id": "V2A-11D",
+  "focus": "maximum-component-limits"
+}

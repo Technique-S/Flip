@@ -1,0 +1,139 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "net1",
+      "inputs": [
+        {
+          "component": null,
+          "pin": 0
+        },
+        {
+          "component": null,
+          "pin": 1
+        }
+      ]
+    },
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "net2",
+      "inputs": [
+        {
+          "component": "net1",
+          "pin": 0
+        },
+        {
+          "component": null,
+          "pin": 1
+        }
+      ]
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "net1",
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ]
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "net2",
+          "inputs": [
+            {
+              "component": "net1",
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ]
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Expected exact candidate object. Hashes must be recomputed through trusted compose, never fabricated."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "Zero POST/compile/verify requests during edits; client checks only.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-14A",
+  "semanticBlockers": [
+    "SB-8"
+  ],
+  "id": "V2A-14A",
+  "focus": "unexpected-network-requests"
+}

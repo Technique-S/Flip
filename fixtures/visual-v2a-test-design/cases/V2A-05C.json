@@ -1,0 +1,146 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "old",
+      "inputs": [
+        {
+          "component": null,
+          "pin": 0
+        },
+        {
+          "component": null,
+          "pin": 1
+        }
+      ],
+      "generation": 1
+    },
+    {
+      "op": "ADD_COMPONENT",
+      "kind": "NAND",
+      "instanceId": "new",
+      "inputs": [
+        {
+          "component": null,
+          "pin": 1
+        },
+        {
+          "component": null,
+          "pin": 0
+        }
+      ],
+      "generation": 2
+    },
+    {
+      "op": "APPLY_RESPONSE",
+      "generation": 1
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "old",
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ]
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "new",
+          "inputs": [
+            {
+              "component": null,
+              "pin": 1
+            },
+            {
+              "component": null,
+              "pin": 0
+            }
+          ]
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Expected exact candidate object. Hashes must be recomputed through trusted compose, never fabricated."
+  },
+  "expectedOutcome": "REJECT",
+  "rejectionReason": "Late response for generation 1 must not overwrite generation 2 state.",
+  "evidenceFreshness": "No result may be shown as current unless bound to the exact post-edit request hash.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-05C",
+  "semanticBlockers": [
+    "SB-1",
+    "SB-5"
+  ],
+  "id": "V2A-05C",
+  "focus": "rapid-and-repeated-edit-commands"
+}

@@ -1,0 +1,90 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "DRAG_NODE",
+      "id": "candidate/component/carry",
+      "to": {
+        "x": 900,
+        "y": 700
+      }
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "UNCHANGED",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Exact accepted-main request bytes; no component, source, import, map or hash change."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "Position is presentation-only; wiring and request bytes unchanged; no semantic hash change.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-15B",
+  "semanticBlockers": [
+    "SB-3",
+    "SB-6"
+  ],
+  "id": "V2A-15B",
+  "focus": "bypass-readonly-on-unsupported"
+}

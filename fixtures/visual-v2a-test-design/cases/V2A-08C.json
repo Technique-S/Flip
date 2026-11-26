@@ -1,0 +1,94 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "SELECT",
+      "id": "candidate/component/carry"
+    },
+    {
+      "op": "SWITCH_MODE",
+      "to": "Advanced"
+    },
+    {
+      "op": "SWITCH_MODE",
+      "to": "Visual"
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "UNCHANGED",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Exact accepted-main request bytes; no component, source, import, map or hash change."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "Selection restored by stable identity; no hidden compile or network request.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-08C",
+  "semanticBlockers": [
+    "SB-6",
+    "SB-8"
+  ],
+  "id": "V2A-08C",
+  "focus": "visual-advanced-state-differences"
+}

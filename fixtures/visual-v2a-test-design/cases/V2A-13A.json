@@ -1,0 +1,117 @@
+{
+  "status": "PROSPECTIVE_ACCEPTANCE",
+  "input": {
+    "base": "docs/schema/m3/examples/half-adder.request.json",
+    "patch": []
+  },
+  "editSequence": [
+    {
+      "op": "KEYBOARD_ADD_NAND",
+      "instanceId": "keyboard1"
+    },
+    {
+      "op": "KEYBOARD_CONNECT",
+      "target": "candidate/component/keyboard1",
+      "input": 0,
+      "source": {
+        "component": null,
+        "pin": 0
+      }
+    },
+    {
+      "op": "KEYBOARD_CONNECT",
+      "target": "candidate/component/keyboard1",
+      "input": 1,
+      "source": {
+        "component": null,
+        "pin": 1
+      }
+    }
+  ],
+  "expectedCanonicalState": {
+    "mode": "CANDIDATE",
+    "candidate": {
+      "components": [
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "nand0",
+          "kind": "REF",
+          "sourceAlias": "nand"
+        },
+        {
+          "inputs": [
+            {
+              "component": "nand0",
+              "pin": 0
+            },
+            {
+              "component": "nand0",
+              "pin": 0
+            }
+          ],
+          "instanceId": "carry",
+          "kind": "NAND"
+        },
+        {
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ],
+          "instanceId": "sum",
+          "kind": "REF",
+          "sourceAlias": "xor"
+        },
+        {
+          "kind": "NAND",
+          "instanceId": "keyboard1",
+          "inputs": [
+            {
+              "component": null,
+              "pin": 0
+            },
+            {
+              "component": null,
+              "pin": 1
+            }
+          ]
+        }
+      ],
+      "nIn": 2,
+      "outputs": [
+        {
+          "component": "carry",
+          "pin": 0
+        },
+        {
+          "component": "sum",
+          "pin": 0
+        }
+      ]
+    },
+    "note": "Expected exact candidate object. Hashes must be recomputed through trusted compose, never fabricated."
+  },
+  "expectedOutcome": "ACCEPT",
+  "rejectionReason": null,
+  "evidenceFreshness": "Same canonical bytes as equivalent mouse-driven sequence.",
+  "regressionTest": "tests/visual-edit.spec.ts::V2A-13A",
+  "semanticBlockers": [
+    "SB-7"
+  ],
+  "id": "V2A-13A",
+  "focus": "keyboard-only-interaction"
+}
