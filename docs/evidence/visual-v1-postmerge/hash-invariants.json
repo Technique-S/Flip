@@ -1,0 +1,13 @@
+{
+  "freshCaptureEqualsAcceptedCaptureEveryField": true,
+  "requestBeforeHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+  "requestAfterHash": "0x18f3b6ec5fa4922c100e30010de8f8a45bfaced042f945299125a90ca46e3961",
+  "compiledBeforeHash": "0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f",
+  "compiledAfterHash": "0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f",
+  "netlistHash": "0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce",
+  "manifestHash": "0x10a2616767a30352158c32aae8cdb85b44cd7f5f04b168c462f41a8789b6f299",
+  "projectHash": "0xff70814e174ae2dc841eef4a9e6367bb5318bccd069307c3afdce1adaa329959",
+  "acceptedCaptureBytesSha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+  "freshCaptureBytesSha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+  "retainedEvidence": "707 historical protected files are unchanged; exact blob IDs and SHA256 recorded in identity-and-custody.json. Runtime-generated evidence has timing/engine context and is not claimed byte-identical across arbitrary independent runs."
+}

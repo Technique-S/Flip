@@ -1,0 +1,330 @@
+[
+  {
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "\nimport {readFileSync} from 'node:fs';\nimport {createHash} from 'node:crypto';\nimport assert from 'node:assert/strict';\nconst sha = b => createHash('sha256').update(b).digest('hex');\nconst raw = readFileSync('docs/release/V1_RELEASE_TRUST.json');\nassert.equal(sha(raw), 'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0', 'CI release trust metadata mismatch');\nconst trust = JSON.parse(raw);\nfor (const [p, expected] of Object.entries({...trust.currentSourceHashes,...trust.bootstrapSourceHashes})) assert.equal(sha(Buffer.from(readFileSync(p,'utf8').replaceAll('\\r\\n','\\n'))), expected, 'CI checker integrity mismatch');"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.135,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "check",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.613,
+    "output": "All checks passed!\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.257,
+    "output": "88 files already formatted\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "flip-schemas",
+      "--out",
+      "docs/schema/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.903,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.import_schema_export",
+      "--out",
+      "docs/schema/m2/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.662,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.verification_schema_export",
+      "--out",
+      "docs/schema/m3/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.107,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.library_schema_export",
+      "--out",
+      "docs/schema/m45-library/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.714,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.library_schema_export",
+      "--version",
+      "1.1.0",
+      "--out",
+      "docs/schema/m45-library/1.1.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.689,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.debugging_schema_export",
+      "--out",
+      "docs/schema/m45-debugging/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.018,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.agent_schema_export",
+      "--out",
+      "docs/schema/m45-agent-workflow/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.071,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.portable_schema_export",
+      "--out",
+      "docs/schema/m45-portable-project/1.1.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.024,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "-m",
+      "flip_core.agent_portable_schema_export",
+      "--out",
+      "docs/schema/m45-agent-portable/1.0.0",
+      "--check"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.192,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      "docs/schema/check-canonical.mjs"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.128,
+    "output": "6 canonical vectors passed in Node v24.18.0\n"
+  },
+  {
+    "command": [
+      "node",
+      "docs/schema/m45-portable-project/check-canonical.mjs"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.119,
+    "output": "Portable Python/Node canonical parity: 3 packages PASS\n"
+  },
+  {
+    "command": [
+      "node",
+      "docs/schema/m45-agent-portable/check-canonical.mjs"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.122,
+    "output": "Adapter Python/Node canonical plan and package pins PASS\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "fixtures/m45-library-discovery/generators/verify_fixtures.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.245,
+    "output": "{\r\n  \"caseFiles\": 12,\r\n  \"caseIds\": [\r\n    \"M45-2L-C01\",\r\n    \"M45-2L-C02\",\r\n    \"M45-2L-C03\",\r\n    \"M45-2L-C04\",\r\n    \"M45-2L-C05\",\r\n    \"M45-2L-C06\",\r\n    \"M45-2L-C07\",\r\n    \"M45-2L-C08\",\r\n    \"M45-2L-C09\",\r\n    \"M45-2L-C10\",\r\n    \"M45-2L-C11\",\r\n    \"M45-2L-C12\"\r\n  ],\r\n  \"errors\": [],\r\n  \"manifestFiles\": 19,\r\n  \"observationFiles\": 1,\r\n  \"result\": \"PASS\",\r\n  \"seedFiles\": 1\r\n}\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_agent_acceptance.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 95.232,
+    "output": "{\r\n  \"total\": 27,\r\n  \"errors\": []\r\n}\r\nindependent_acceptance: 27/27 exact semantic checks PASS\r\n{\r\n  \"total\": 10,\r\n  \"exceptions\": []\r\n}\r\nauthorization_checks: 10/10 exact semantic checks PASS\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_agent_portable_review.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 186.518,
+    "output": "Final adapter review: 26/26 PASS, including 10 fail-closed attacks; archive unchanged\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m45_portability.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 17.092,
+    "output": "{\r\n  \"passed\": 12,\r\n  \"total\": 12,\r\n  \"failures\": []\r\n}\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/smoke_m1.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 3.256,
+    "output": "PASS: CLI/API canonical bytes, CLI exit 6, real ASGI liveness and HTTP 501; no RPC.\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/smoke_m3.py"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 10.337,
+    "output": "{\"result\": \"PASS\", \"scope\": \"External CLI / real loopback ASGI, no RPC\", \"cases\": [{\"operation\": \"compose\", \"verdict\": null, \"semanticHash\": \"0xa784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f\"}, {\"operation\": \"compare\", \"verdict\": \"EQUIVALENT\", \"semanticHash\": \"0xe2a5e26bfe3743c4dad8a6a80b652fa9f268f00dbf5e95b5bcafe1e0965ec96e\"}, {\"operation\": \"compare\", \"verdict\": \"DIFFERENT\", \"semanticHash\": \"0x4e3f6558d780d2da89252330729459007bae79bad01b9cb51b24fc663b589ea6\"}]}\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/report_m3_acceptance.py",
+      "--junit",
+      ".test-tmp/postmerge-python.xml",
+      "--out",
+      ".test-tmp/postmerge-m3-acceptance.json"
+    ],
+    "exitCode": 1,
+    "durationSeconds": 2.021,
+    "output": "{\"result\": \"FAIL\", \"suite\": {\"passed\": 701, \"failed\": 1, \"errors\": 0, \"skipped\": 0}, \"productionCases\": 74}\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/report_m4_acceptance.py",
+      "--junit",
+      ".test-tmp/postmerge-python.xml",
+      "--browser",
+      ".test-tmp/m4-browser.json",
+      "--out",
+      ".test-tmp/postmerge-m4-acceptance.json"
+    ],
+    "exitCode": 1,
+    "durationSeconds": 0.913,
+    "output": "{\"result\": \"FAIL\", \"tests\": 702, \"browser\": 44, \"cases\": 97}\r\n"
+  },
+  {
+    "command": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_m1_repository.py",
+      "--require-clean"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 156.358,
+    "output": "{\r\n  \"scope\": \"M1 offline repository consistency; not chain verification or solver replay\",\r\n  \"seed\": \"37c39b3cf06edad908a6c579b7b0a78f1b42c202\",\r\n  \"core\": \"6dc21e0b97ffe03273a62ea1e9499e6346244d32\",\r\n  \"fixtures\": \"e4de86ef8870fb9b85adf94ace400791a479f985\",\r\n  \"raw_files\": 12,\r\n  \"registered_blob_checks\": [\r\n    {\r\n      \"path\": \"docs/evidence/raw/M0/xlayer_circuits.json\",\r\n      \"bytes\": 18711,\r\n      \"sha256\": \"a2627c31529985f3f97c55865a7adcd97522524477d2101e7a3cf49f5188dc30\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M0/vectors.json\",\r\n      \"bytes\": 22185,\r\n      \"sha256\": \"1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M0/composition_poc.json\",\r\n      \"bytes\": 3415,\r\n      \"sha256\": \"8c4632c5857e92960e1d861e0ab842397c95eb0af4941659c690f92cccb079b0\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M0/wiring_canary.json\",\r\n      \"bytes\": 7224,\r\n      \"sha256\": \"7e2ae6a85e381a458b7103642e7848ccf61f4cf0f278ab1d7513b621dbddc5dc\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_a_compose_rerun.json\",\r\n      \"bytes\": 6836,\r\n      \"sha256\": \"9e9d4a996c8a98a63ea246cadc1a771222f67c8d455bda6772a63a9763fbe4c1\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_a_probe.json\",\r\n      \"bytes\": 3188,\r\n      \"sha256\": \"53ac183d1583f9824195c18f027f94945721b1c51ab4e2737b0859963164c9a2\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_a_probe2.json\",\r\n      \"bytes\": 1325,\r\n      \"sha256\": \"ba799a78a141e25dfb6ebb827fe7366004b56afe838bb8aba75f9a8083a4e9b1\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_b_manifest.json\",\r\n      \"bytes\": 4895,\r\n      \"sha256\": \"1e5a39c7226922c057a07f52fb32b64701f09b66b299aa1671ebbdcd5659a81e\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_b_negative.json\",\r\n      \"bytes\": 2932,\r\n      \"sha256\": \"592a72055c7b9a87097a97cee182b6747d76ba43da9813fecbd9e6147a4b1c31\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_c_scale.json\",\r\n      \"bytes\": 36860,\r\n      \"sha256\": \"3160ef631ee77a3b6d2e517151dc54f4d389490249ced259faa47d86def0850d\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_c_scale_partial.json\",\r\n      \"bytes\": 32210,\r\n      \"sha256\": \"51f27e63d694ab4267a8cffc92ee608249bc20a8522ba5db411d03a77101b15a\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/raw/M05/gate_c_stateful.json\",\r\n      \"bytes\": 3137,\r\n      \"sha256\": \"57a5aa126f74ffaa9858f5d39d7db97e6a6b80a25e90c846fd2417c89d546264\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/derived/recompute_checks.py\",\r\n      \"bytes\": 5249,\r\n      \"sha256\": \"a77a6745489db48e056c05d2bbf514a5c98efb00eab78d0398f70d83e4f5102a\"\r\n    },\r\n    {\r\n      \"path\": \"docs/evidence/derived/recomputed_checks.json\",\r\n      \"bytes\": 2754,\r\n      \"sha256\": \"6205df25c1e003d6acb3acb7d2356c453aea1e15b5c993c8584bb358b501c499\"\r\n    }\r\n  ],\r\n  \"tracked_files_scanned\": 949,\r\n  \"credential_pattern_findings\": 0,\r\n  \"registered_browser_captures\": [\r\n    \"docs/evidence/m45-library-final-review/results/library-desktop-observed.png\",\r\n    \"docs/evidence/m45-library-final-review/results/library-mobile-observed.png\",\r\n    \"docs/evidence/m45-library-independent-review/results/library-desktop-observed.png\",\r\n    \"docs/evidence/m45-library-independent-review/results/library-mobile-observed.png\",\r\n    \"docs/milestones/m45-library-browser/desktop.png\",\r\n    \"docs/milestones/m45-library-browser/mobile.png\"\r\n  ],\r\n  \"library_independent_reviews\": [\r\n    {\r\n      \"revision\": \"9741e66ae385979dc0d18c89aec4ec6ed93ff285\",\r\n      \"target\": \"dec9420bb76e9245c6740bf3d92031d175e408ec\",\r\n      \"files\": 16\r\n    },\r\n    {\r\n      \"revision\": \"96187da8718bcf7d14a452685f7de84231895920\",\r\n      \"target\": \"786cbca056c6cd61ca0e7a5b61ddbc772a55a800\",\r\n      \"files\": 16\r\n    }\r\n  ],\r\n  \"debugging_fixture_evidence\": {\r\n    \"revision\": \"8fc4efb71cb750cced98b4e88540796d665b616a\",\r\n    \"files\": 15,\r\n    \"manifestEntries\": 9\r\n  },\r\n  \"debugging_independent_review\": {\r\n    \"revision\": \"fe807d3eb2bf7752973468c8ec9441c1691b1209\",\r\n    \"target\": \"130dd341b622cc0ad68bffe7f6f37bb847de45c8\",\r\n    \"files\": 67,\r\n    \"manifestEntries\": 66\r\n  },\r\n  \"agent_workflow_fixtures\": {\r\n    \"revision\": \"996a300324877d0017cbe0cdb23d8da76692862c\",\r\n    \"files\": 31,\r\n    \"manifestEntries\": 30\r\n  },\r\n  \"agent_workflow_independent_review\": {\r\n    \"revision\": \"7b4b1f711ddc9676141becfae2fc77a3d5941374\",\r\n    \"target\": \"d2638d057b6236286480891d6fdd7dfb0402bc5a\",\r\n    \"files\": 14,\r\n    \"manifestEntries\": 10\r\n  },\r\n  \"portable_independent_review\": {\r\n    \"revision\": \"8daacf7af2a1cfc17d83a33f7841d1088807ec82\",\r\n    \"target\": \"136b1115ee0f5ffe0a5583d68c474641fdce1ca1\",\r\n    \"files\": 18,\r\n    \"manifestEntries\": 11\r\n  },\r\n  \"portable_research\": {\r\n    \"revision\": \"2f3d6263edf4e62ad4e94718c99f6c1a79e350a1\",\r\n    \"files\": 36,\r\n    \"additionalPinnedHarness\": \"docs/evidence/m45-portable-project/harness/run_portability_cases.py.txt\"\r\n  },\r\n  \"agent_portable_final_review\": {\r\n    \"revision\": \"4ad32846a995255105aa027e9809599e2cb9562f\",\r\n    \"target\": \"9c0c23698dfd1c7045de348da851c28d68f5e22b\",\r\n    \"files\": 3\r\n  },\r\n  \"provenance_limit\": \"Audited originals unavailable; imported observations are historical.\",\r\n  \"result\": \"PASS\"\r\n}\r\n"
+  }
+]
