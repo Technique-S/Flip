@@ -1,0 +1,1565 @@
+{
+  "generatedAt": "2026-11-26T21:58:42.037Z",
+  "prHead": "036c7a99f26d87dd4366762c8c3c059ac8e3d65d",
+  "implementationCommit": "b23d3dcf8f98e9b95cd0bc8ca8fbf612045e1daa",
+  "sourceDesignCommit": "b671893b58d11011bacefafddcd356fc1224dc56",
+  "total": 56,
+  "summary": {
+    "PASS": 30,
+    "CONTRACT_MISMATCH": 22,
+    "NOT_EXECUTED": 4
+  },
+  "records": [
+    {
+      "id": "V2A-01A",
+      "focus": "invalid-or-incomplete-nand-creation",
+      "originalOutcome": "REJECT",
+      "originalReason": "NAND requires exactly two scalar inputs (models.py NandComponent min_length=2).",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Choose exactly two explicit NAND input sources.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Choose exactly two explicit NAND input sources.",
+      "applied": [],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-01B",
+      "focus": "invalid-or-incomplete-nand-creation",
+      "originalOutcome": "REJECT",
+      "originalReason": "NAND max_length=2; third input invalid.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Choose exactly two explicit NAND input sources.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Choose exactly two explicit NAND input sources.",
+      "applied": [],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-01C",
+      "focus": "invalid-or-incomplete-nand-creation",
+      "originalOutcome": "REJECT",
+      "originalReason": "Name pattern ^[A-Za-z][A-Za-z0-9_-]{0,63}$ violated.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens.",
+      "applied": [],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-01D",
+      "focus": "invalid-or-incomplete-nand-creation",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "exact canonical state match",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-5"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-02A",
+      "focus": "removal-of-referenced-components",
+      "originalOutcome": "REJECT",
+      "originalReason": "carry.inputs still reference nand0; canonical check rejects undefined/forward pin.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Select an existing NAND component. REF removal is unavailable here.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Select an existing NAND component. REF removal is unavailable here.",
+      "applied": [],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-02B",
+      "focus": "removal-of-referenced-components",
+      "originalOutcome": "REJECT",
+      "originalReason": "candidate.outputs[0] references carry; one driver per output required.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Cannot remove carry: referenced by project.candidate.outputs[0]. Change those mappings explicitly in Advanced first.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Cannot remove carry: referenced by project.candidate.outputs[0]. Change those mappings explicitly in Advanced first.",
+      "applied": [],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-02C",
+      "focus": "removal-of-referenced-components",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "NOT_EXECUTED",
+      "reason": "op SET_OUTPUT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SET_OUTPUT"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-4"
+      ],
+      "governingSource": "HANDOFF:20; CHECKPOINT:26",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "SET_OUTPUT/output remap is explicitly out of V2-A scope; original ACCEPT premise invalid.",
+      "browserEvidence": "visual-edit.spec.ts:304,474"
+    },
+    {
+      "id": "V2A-03A",
+      "focus": "index-shifts-and-reference-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "Insertion before referenced components would corrupt ordinal identity; no silent index rewrite permitted.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op INSERT_COMPONENT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "INSERT_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-2"
+      ],
+      "governingSource": "HANDOFF:17-23",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "INSERT_COMPONENT command does not exist; rejection is by unsupported command, not index-shift policy.",
+      "browserEvidence": "visual-edit.spec.ts:174"
+    },
+    {
+      "id": "V2A-03B",
+      "focus": "index-shifts-and-reference-corruption",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "REJECT",
+      "actualRejection": "Cannot remove carry: referenced by project.candidate.outputs[0]. Change those mappings explicitly in Advanced first.",
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "Cannot remove carry: referenced by project.candidate.outputs[0]. Change those mappings explicitly in Advanced first.",
+      "applied": [],
+      "blockers": [
+        "SB-1",
+        "SB-4",
+        "SB-10"
+      ],
+      "governingSource": "HANDOFF:20; CHECKPOINT:26",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Removal plus output remap is out of scope; original ACCEPT premise invalid.",
+      "browserEvidence": "visual-edit.spec.ts:304"
+    },
+    {
+      "id": "V2A-03C",
+      "focus": "index-shifts-and-reference-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "Unknown component reference; canonical check rejects unbound component.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op SET_OUTPUT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SET_OUTPUT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:17-23",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "SET_OUTPUT command does not exist; unbound reference cannot be created via V2-A.",
+      "browserEvidence": "visual-edit.spec.ts:148,174"
+    },
+    {
+      "id": "V2A-04A",
+      "focus": "undo-redo-state-divergence",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "exact canonical state match",
+      "applied": [
+        "ADD_COMPONENT",
+        "UNDO",
+        "REDO"
+      ],
+      "blockers": [
+        "SB-2",
+        "SB-5"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-04B",
+      "focus": "undo-redo-state-divergence",
+      "originalOutcome": "REJECT",
+      "originalReason": "REDO after a new branch must not resurrect u1; stale redo entry rejected, u2 state retained.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Nothing to redo.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Nothing to redo.",
+      "applied": [
+        "ADD_COMPONENT",
+        "UNDO",
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-2"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-04C",
+      "focus": "undo-redo-state-divergence",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op BUILD is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "BUILD"
+      ],
+      "blockers": [
+        "SB-2",
+        "SB-5",
+        "SB-10"
+      ],
+      "governingSource": "HANDOFF:47",
+      "finalClassification": "NOT_EXECUTED",
+      "adjustmentReason": "BUILD is a browser action, not a pure command; harness cannot model it.",
+      "browserEvidence": "visual-edit.spec.ts:424"
+    },
+    {
+      "id": "V2A-04D",
+      "focus": "undo-redo-state-divergence",
+      "originalOutcome": "REJECT",
+      "originalReason": "V2-A scope is NAND editing only; REF creation and its history are unsupported.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "unsupported component kind REF",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "unsupported component kind REF",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-05A",
+      "focus": "rapid-and-repeated-edit-commands",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "exact canonical state match",
+      "applied": [
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-8"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-05B",
+      "focus": "rapid-and-repeated-edit-commands",
+      "originalOutcome": "REJECT",
+      "originalReason": "Second command rejected for duplicate instanceId; first command retained.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Component ID already exists.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Component ID already exists.",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-05C",
+      "focus": "rapid-and-repeated-edit-commands",
+      "originalOutcome": "REJECT",
+      "originalReason": "Late response for generation 1 must not overwrite generation 2 state.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op APPLY_RESPONSE is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "APPLY_RESPONSE"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-5"
+      ],
+      "governingSource": "HANDOFF:31",
+      "finalClassification": "NOT_EXECUTED",
+      "adjustmentReason": "Generation/stale-response binding lives in the React hook, not the pure layer.",
+      "browserEvidence": "visual-edit.spec.ts:362"
+    },
+    {
+      "id": "V2A-06A",
+      "focus": "canonical-data-mutation-and-hidden-aliasing",
+      "originalOutcome": "REJECT",
+      "originalReason": "Extra/unknown fields forbidden; request must remain byte-identical.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:23; commands.ts:73-81",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Object-literal __proto__ is not an own key; JSON-parsed extra fields are rejected by the real validator and no canonical mutation was observed.",
+      "browserEvidence": "visual-edit.spec.ts:148 (extra)"
+    },
+    {
+      "id": "V2A-06B",
+      "focus": "canonical-data-mutation-and-hidden-aliasing",
+      "originalOutcome": "REJECT",
+      "originalReason": "Displayed pin objects are detached copies; no visual interaction may write canonical data.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op MUTATE_PROJECTED_PIN is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "MUTATE_PROJECTED_PIN"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:13,23",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "No projected-pin mutation command exists; read-only by absence of any write path.",
+      "browserEvidence": "visual-readonly.spec.ts:156"
+    },
+    {
+      "id": "V2A-06C",
+      "focus": "canonical-data-mutation-and-hidden-aliasing",
+      "originalOutcome": "REJECT",
+      "originalReason": "Source aliases/identities and imports are not editable in V2-A; patch input itself is rejected as malformed before any command.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op SET_SOURCE_ALIAS is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SET_SOURCE_ALIAS"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:37",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Source aliases/imports are outside editing authority; patched malformed input is not a V2-A command premise.",
+      "browserEvidence": "visual-edit.spec.ts:63"
+    },
+    {
+      "id": "V2A-06D",
+      "focus": "canonical-data-mutation-and-hidden-aliasing",
+      "originalOutcome": "REJECT",
+      "originalReason": "referenceCandidate is not a NAND edit target; without an explicit separate command it must remain unchanged.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op SET_REFERENCE_CANDIDATE is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SET_REFERENCE_CANDIDATE"
+      ],
+      "blockers": [
+        "SB-4"
+      ],
+      "governingSource": "HANDOFF:37; CHECKPOINT:26",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "referenceCandidate is not a NAND edit target.",
+      "browserEvidence": "visual-edit.spec.ts:63"
+    },
+    {
+      "id": "V2A-07A",
+      "focus": "ref-identity-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "Unknown REF alias; outside NAND-only V2-A scope.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "unsupported component kind REF",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "unsupported component kind REF",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-07B",
+      "focus": "ref-identity-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "Stateful source in fixture must be rejected before editing; no partial graph.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Visual view unavailable: unresolved or stateful REF interface. Use Advanced to inspect the original project.",
+      "applied": [],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-07C",
+      "focus": "ref-identity-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "REF arity must equal source.nIn=2; also NAND-only scope.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "unsupported component kind REF",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "unsupported component kind REF",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-07D",
+      "focus": "ref-identity-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "REF circuitId \u2265 2^64 rejected by canonical and V1 display guards.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:23",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Malformed patched REF identity belongs to canonical input validation, not V2-A editing; editor starts from an accepted request.",
+      "browserEvidence": "visual-readonly.spec.ts:128"
+    },
+    {
+      "id": "V2A-07E",
+      "focus": "ref-identity-corruption",
+      "originalOutcome": "REJECT",
+      "originalReason": "REF rebinding is not a NAND edit; import/manifest hashes and identities unchanged.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op REBIND_REF is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "REBIND_REF"
+      ],
+      "blockers": [
+        "SB-4",
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:20; CHECKPOINT:26",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "REF rebinding is not an authorized V2-A command.",
+      "browserEvidence": "visual-edit.spec.ts:113"
+    },
+    {
+      "id": "V2A-08A",
+      "focus": "visual-advanced-state-differences",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op SWITCH_MODE is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADD_COMPONENT",
+        "SWITCH_MODE"
+      ],
+      "blockers": [
+        "SB-6"
+      ],
+      "governingSource": "HANDOFF:68",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Executed by real browser test: Visual edit then Advanced parity and storage equality.",
+      "browserEvidence": "visual-edit.spec.ts:215"
+    },
+    {
+      "id": "V2A-08B",
+      "focus": "visual-advanced-state-differences",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "NOT_EXECUTED",
+      "reason": "op ADVANCED_EDIT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADVANCED_EDIT"
+      ],
+      "blockers": [
+        "SB-6"
+      ],
+      "governingSource": "HANDOFF:29",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Executed by real browser test: Advanced draft/validation and Visual retained request.",
+      "browserEvidence": "visual-edit.spec.ts:474"
+    },
+    {
+      "id": "V2A-08C",
+      "focus": "visual-advanced-state-differences",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op SELECT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SELECT"
+      ],
+      "blockers": [
+        "SB-6",
+        "SB-8"
+      ],
+      "governingSource": "HANDOFF:51",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Mode transitions preserve selection/request with zero requests.",
+      "browserEvidence": "visual-edit.spec.ts:215; visual-readonly.spec.ts:156"
+    },
+    {
+      "id": "V2A-09A",
+      "focus": "stale-evidence-shown-as-current",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "NOT_EXECUTED",
+      "reason": "op BUILD is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "BUILD"
+      ],
+      "blockers": [
+        "SB-5",
+        "SB-10"
+      ],
+      "governingSource": "HANDOFF:47",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Real EQUIVALENT proof invalidated after edit; historical view shown; current export disabled.",
+      "browserEvidence": "visual-edit.spec.ts:424"
+    },
+    {
+      "id": "V2A-09B",
+      "focus": "stale-evidence-shown-as-current",
+      "originalOutcome": "REJECT",
+      "originalReason": "Injected proof bound to pre-edit project hash must not overlay current revision.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op INJECT_PROOF is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADD_COMPONENT",
+        "INJECT_PROOF"
+      ],
+      "blockers": [
+        "SB-5",
+        "SB-10"
+      ],
+      "governingSource": "HANDOFF:47",
+      "finalClassification": "NOT_EXECUTED",
+      "adjustmentReason": "Direct proof-object injection not exercised in browser; binding code inspected at App.tsx invalidate/replace.",
+      "browserEvidence": "visual-edit.spec.ts:424 (partial)"
+    },
+    {
+      "id": "V2A-09C",
+      "focus": "stale-evidence-shown-as-current",
+      "originalOutcome": "REJECT",
+      "originalReason": "With no edit performed, UNDO is a no-op; proof may be displayed as current only after fresh binding check, not from stored object alone.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Nothing to undo.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Nothing to undo.",
+      "applied": [],
+      "blockers": [
+        "SB-5",
+        "SB-10"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-10A",
+      "focus": "invalid-command-parameters",
+      "originalOutcome": "REJECT",
+      "originalReason": "Missing generation/requestHash binding must be rejected before any mutation.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:31",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Private command has no requestHash field; generation binding is hook-owned, not command-owned.",
+      "browserEvidence": "visual-edit.spec.ts:362"
+    },
+    {
+      "id": "V2A-10B",
+      "focus": "invalid-command-parameters",
+      "originalOutcome": "REJECT",
+      "originalReason": "Stale requestHash must be rejected.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-5"
+      ],
+      "governingSource": "HANDOFF:31",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Stale request binding is enforced by hook generation/project snapshot, not a command parameter.",
+      "browserEvidence": "visual-edit.spec.ts:362,566"
+    },
+    {
+      "id": "V2A-10C",
+      "focus": "invalid-command-parameters",
+      "originalOutcome": "REJECT",
+      "originalReason": "Fractional/string/negative pin indices are not integers in range.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op CONNECT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "CONNECT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:19",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "CONNECT command does not exist; equivalent malformed PinSource cases are executed in the suite.",
+      "browserEvidence": "visual-edit.spec.ts:148 (boolPin, negative, forward)"
+    },
+    {
+      "id": "V2A-10D",
+      "focus": "invalid-command-parameters",
+      "originalOutcome": "REJECT",
+      "originalReason": "Self-reference/forward reference creates cycle; canonical requires backward references.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op CONNECT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "CONNECT"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "HANDOFF:19",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "CONNECT command does not exist; forward references are rejected by availablePins.",
+      "browserEvidence": "visual-edit.spec.ts:148 (forward)"
+    },
+    {
+      "id": "V2A-10E",
+      "focus": "invalid-command-parameters",
+      "originalOutcome": "REJECT",
+      "originalReason": "Unknown command kind must fail closed without state change or network.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op UNKNOWN_COMMAND is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "UNKNOWN_COMMAND"
+      ],
+      "blockers": [
+        "SB-1"
+      ],
+      "governingSource": "commands.ts:71-72",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Unknown command is rejected by the validator rather than represented as a command op.",
+      "browserEvidence": "visual-edit.spec.ts:148"
+    },
+    {
+      "id": "V2A-11A",
+      "focus": "maximum-component-limits",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "REJECT",
+      "actualRejection": "This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+      "applied": [
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-3"
+      ],
+      "governingSource": "HANDOFF:70; App.tsx baseline pins*width>65000",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Authorized interactive table budget (unchanged from baseline App.tsx) caps edits at about 178 NANDs; original 499-accept premise is obsolete.",
+      "browserEvidence": "visual-edit.spec.ts:155"
+    },
+    {
+      "id": "V2A-11B",
+      "focus": "maximum-component-limits",
+      "originalOutcome": "REJECT",
+      "originalReason": "501st component exceeds display budget 500; fail before materializing a partial graph.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+      "stateMatch": false,
+      "classification": "PASS",
+      "reason": "This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+      "applied": [
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT",
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-3"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-11C",
+      "focus": "maximum-component-limits",
+      "originalOutcome": "REJECT",
+      "originalReason": "nIn=513 exceeds V1 display bound 512; canonical allows 65536 but display must not truncate.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [],
+      "blockers": [
+        "SB-3"
+      ],
+      "governingSource": "commands.ts:22",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Interactive nIn bound is 255, distinct from the V1 display bound 512; malformed input is outside edit authority.",
+      "browserEvidence": "visual-readonly.spec.ts:361"
+    },
+    {
+      "id": "V2A-11D",
+      "focus": "maximum-component-limits",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "exact canonical state match",
+      "applied": [],
+      "blockers": [
+        "SB-3",
+        "SB-4"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-12A",
+      "focus": "dirty-state-and-draft-commit-confusion",
+      "originalOutcome": "REJECT",
+      "originalReason": "Incomplete draft with null input is non-executable; build/verify/export disabled; last valid package retained.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Invalid input binding.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Invalid input binding.",
+      "applied": [],
+      "blockers": [
+        "SB-1",
+        "SB-5"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-12B",
+      "focus": "dirty-state-and-draft-commit-confusion",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "canonical state differs",
+      "applied": [
+        "ADD_COMPONENT",
+        "CANCEL_DRAFT"
+      ],
+      "blockers": [
+        "SB-5",
+        "SB-6"
+      ],
+      "governingSource": "HANDOFF:27",
+      "finalClassification": "NOT_EXECUTED",
+      "adjustmentReason": "Draft cancel is a hook/browser action; pure harness committed the add before cancel.",
+      "browserEvidence": "visual-edit.spec.ts:332"
+    },
+    {
+      "id": "V2A-12C",
+      "focus": "dirty-state-and-draft-commit-confusion",
+      "originalOutcome": "REJECT",
+      "originalReason": "Commit only on response matching latest request hash and generation.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op APPLY_COMPILE_RESPONSE is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADD_COMPONENT",
+        "APPLY_COMPILE_RESPONSE"
+      ],
+      "blockers": [
+        "SB-1",
+        "SB-5"
+      ],
+      "governingSource": "HANDOFF:31",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "Compile-response application is hook-owned; no such command in the private contract.",
+      "browserEvidence": "visual-edit.spec.ts:362"
+    },
+    {
+      "id": "V2A-12D",
+      "focus": "dirty-state-and-draft-commit-confusion",
+      "originalOutcome": "REJECT",
+      "originalReason": "Unsupported structure edit unavailable with explicit reason; original bytes unchanged.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op EDIT_REF_INTERNALS is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "EDIT_REF_INTERNALS"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:20,93",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "REF-internal edit is not a V2-A command; unsupported operations are unavailable.",
+      "browserEvidence": "visual-edit.spec.ts:113"
+    },
+    {
+      "id": "V2A-13A",
+      "focus": "keyboard-only-interaction",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "NOT_EXECUTED",
+      "reason": "op KEYBOARD_ADD_NAND is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "KEYBOARD_ADD_NAND"
+      ],
+      "blockers": [
+        "SB-7"
+      ],
+      "governingSource": "HANDOFF:73",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Keyboard-only add/select/remove executed in real browser.",
+      "browserEvidence": "visual-edit.spec.ts:498"
+    },
+    {
+      "id": "V2A-13B",
+      "focus": "keyboard-only-interaction",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op FOCUS is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "FOCUS"
+      ],
+      "blockers": [
+        "SB-7"
+      ],
+      "governingSource": "HANDOFF:49,85",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Delete-in-text and focus behavior executed; focus regressions added after initial CI failure.",
+      "browserEvidence": "visual-edit.spec.ts:498,673,708"
+    },
+    {
+      "id": "V2A-13C",
+      "focus": "keyboard-only-interaction",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "NOT_EXECUTED",
+      "reason": "op KEYBOARD_ADD_NAND is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "KEYBOARD_ADD_NAND"
+      ],
+      "blockers": [
+        "SB-7"
+      ],
+      "governingSource": "HANDOFF:51",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Status region and keyboard flow executed in browser.",
+      "browserEvidence": "visual-edit.spec.ts:215,498"
+    },
+    {
+      "id": "V2A-14A",
+      "focus": "unexpected-network-requests",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "exact canonical state match",
+      "applied": [
+        "ADD_COMPONENT",
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-8"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-14B",
+      "focus": "unexpected-network-requests",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op EXPLICIT_BUILD is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "ADD_COMPONENT",
+        "EXPLICIT_BUILD"
+      ],
+      "blockers": [
+        "SB-8"
+      ],
+      "governingSource": "HANDOFF:75",
+      "finalClassification": "PASS",
+      "adjustmentReason": "Explicit compose call executed; network recorder asserted only existing compose POSTs.",
+      "browserEvidence": "visual-edit.spec.ts:215"
+    },
+    {
+      "id": "V2A-14C",
+      "focus": "unexpected-network-requests",
+      "originalOutcome": "REJECT",
+      "originalReason": "Rejected command must produce zero network requests.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "Choose exactly two explicit NAND input sources.",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "Choose exactly two explicit NAND input sources.",
+      "applied": [],
+      "blockers": [
+        "SB-8"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-14D",
+      "focus": "unexpected-network-requests",
+      "originalOutcome": "REJECT",
+      "originalReason": "No arbitrary URL/network target in command; loopback-only existing API.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": false,
+      "classification": "FAIL",
+      "reason": "expected rejection but command was accepted",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-8"
+      ],
+      "governingSource": "commands.ts:73-81",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "No URL field in the command contract; direct validator probe rejects extra URL field, so security outcome holds.",
+      "browserEvidence": "canonical-attack-results.json:url-extra-field"
+    },
+    {
+      "id": "V2A-15A",
+      "focus": "bypass-readonly-on-unsupported",
+      "originalOutcome": "REJECT",
+      "originalReason": "LATCH authoring unsupported; no new recipe version or evaluator.",
+      "actualOutcome": "REJECT",
+      "actualRejection": "unsupported component kind LATCH",
+      "stateMatch": true,
+      "classification": "PASS",
+      "reason": "unsupported component kind LATCH",
+      "applied": [
+        "ADD_COMPONENT"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "P7_V2_A_HANDOFF.md:17-31 command contract; P7_V2_A_DESIGN_CHECKPOINT.md:40-51 proposed private layer; authorization explicit inputs",
+      "finalClassification": "PASS",
+      "adjustmentReason": "No reinterpretation required.",
+      "browserEvidence": ""
+    },
+    {
+      "id": "V2A-15B",
+      "focus": "bypass-readonly-on-unsupported",
+      "originalOutcome": "ACCEPT",
+      "originalReason": null,
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "NOT_EXECUTED",
+      "reason": "op DRAG_NODE is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "DRAG_NODE"
+      ],
+      "blockers": [
+        "SB-3",
+        "SB-6"
+      ],
+      "governingSource": "HANDOFF:13",
+      "finalClassification": "PASS",
+      "adjustmentReason": "React Flow remains non-draggable/non-connectable; node drag cannot change wiring (inherited read-only test).",
+      "browserEvidence": "visual-readonly.spec.ts:156"
+    },
+    {
+      "id": "V2A-15C",
+      "focus": "bypass-readonly-on-unsupported",
+      "originalOutcome": "REJECT",
+      "originalReason": "Unsupported REF component remains read-only; keyboard delete has no effect.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op SELECT is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "SELECT"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:20",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "SELECT/Delete are UI events, not commands; REF cannot be removed by RemoveNand.",
+      "browserEvidence": "visual-edit.spec.ts:113"
+    },
+    {
+      "id": "V2A-15D",
+      "focus": "bypass-readonly-on-unsupported",
+      "originalOutcome": "REJECT",
+      "originalReason": "Untrusted display strings are escaped plain text; no HTML/event execution and no network.",
+      "actualOutcome": "ACCEPT",
+      "actualRejection": null,
+      "stateMatch": true,
+      "classification": "CONTRACT_MISMATCH",
+      "reason": "op INJECT_HTML is not a V2-A command; governing source: handoff command table lines 17-23",
+      "applied": [
+        "INJECT_HTML"
+      ],
+      "blockers": [
+        "SB-9"
+      ],
+      "governingSource": "HANDOFF:93",
+      "finalClassification": "CONTRACT_MISMATCH",
+      "adjustmentReason": "INJECT_HTML is not a command; untrusted strings remain escaped React text in the showcase guard.",
+      "browserEvidence": "showcase.spec.ts:217"
+    }
+  ]
+}

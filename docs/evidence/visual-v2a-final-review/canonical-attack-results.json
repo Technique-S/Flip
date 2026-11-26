@@ -1,0 +1,136 @@
+{
+  "generatedAt": "2026-11-26T22:00:47.354Z",
+  "prHead": "036c7a99f26d87dd4366762c8c3c059ac8e3d65d",
+  "results": [
+    {
+      "id": "duplicate-instance-id",
+      "outcome": "REJECT",
+      "detail": "Component ID already exists."
+    },
+    {
+      "id": "unsupported-kind-LATCH",
+      "outcome": "REJECT",
+      "detail": "Unexpected edit command fields."
+    },
+    {
+      "id": "missing-second-input",
+      "outcome": "REJECT",
+      "detail": "Choose exactly two explicit NAND input sources."
+    },
+    {
+      "id": "boolean-pin",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "negative-pin",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "fractional-pin",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "out-of-range-pin-65536",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "true-forward-reference",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "invalid-source-component",
+      "outcome": "REJECT",
+      "detail": "Input must identify an existing external or preceding output pin."
+    },
+    {
+      "id": "json-proto-extra-field",
+      "outcome": "REJECT",
+      "detail": "Unexpected edit command fields."
+    },
+    {
+      "id": "url-extra-field",
+      "outcome": "REJECT",
+      "detail": "Unexpected edit command fields."
+    },
+    {
+      "id": "bad-name-leading-digit",
+      "outcome": "REJECT",
+      "detail": "Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens."
+    },
+    {
+      "id": "bad-name-65-chars",
+      "outcome": "REJECT",
+      "detail": "Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens."
+    },
+    {
+      "id": "issue-insert-order",
+      "outcome": "REJECT",
+      "detail": "Unsupported edit command."
+    },
+    {
+      "id": "issue-output-remap",
+      "outcome": "REJECT",
+      "detail": "Component ID must start with a letter and contain at most 64 letters, digits, underscores or hyphens."
+    },
+    {
+      "id": "issue-ref-add",
+      "outcome": "REJECT",
+      "detail": "Unsupported edit command."
+    },
+    {
+      "id": "remove-ref-component",
+      "outcome": "REJECT",
+      "detail": "Select an existing NAND component. REF removal is unavailable here."
+    },
+    {
+      "id": "remove-output-referenced-nand",
+      "outcome": "REJECT",
+      "detail": "Cannot remove carry: referenced by project.candidate.outputs[0]. Change those mappings explicitly in Advanced first."
+    },
+    {
+      "id": "remove-unreferenced-nand",
+      "outcome": "ACCEPT",
+      "detail": "exact original restored"
+    },
+    {
+      "id": "remove-downstream-referenced-nand",
+      "outcome": "REJECT",
+      "detail": "Cannot remove chain: referenced by project.candidate.components[4].inputs[0]. Change those mappings explicitly in Advanced first."
+    },
+    {
+      "id": "history-two-add-two-undo",
+      "outcome": "ACCEPT",
+      "detail": "exact snapshots restored"
+    },
+    {
+      "id": "history-divergent-redo-invalidated",
+      "outcome": "ACCEPT",
+      "detail": "redo rejected: Nothing to redo."
+    },
+    {
+      "id": "interactive-budget-178-nands",
+      "outcome": "ACCEPT",
+      "detail": "budget accepted at 178"
+    },
+    {
+      "id": "interactive-budget-179-nands",
+      "outcome": "REJECT",
+      "detail": "This project exceeds the interactive pin table budget. Use the CLI for larger designs."
+    },
+    {
+      "id": "interactive-budget-499-nands",
+      "outcome": "REJECT",
+      "detail": "This project exceeds the interactive pin table budget. Use the CLI for larger designs."
+    },
+    {
+      "id": "request-1MiB-limit",
+      "outcome": "REJECT",
+      "detail": "Project exceeds the 1 MiB interactive request limit."
+    }
+  ]
+}
