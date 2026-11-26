@@ -462,6 +462,30 @@ test("B0 native NAND, REF and output replacement changes exactly one slot", asyn
 		body: JSON.stringify(observations),
 		contentType: "application/json",
 	});
+	// Native JSON acceptance does not remove aliases from the caller's in-memory
+	// object. Both design sharing and input/output sharing must remain harmless.
+	const shared = await sample();
+	shared.project.candidate.outputs =
+		shared.project.candidate.components[0].inputs;
+	shared.project.referenceCandidate = shared.project.candidate;
+	await compile(request, shared);
+	const original = requestKey(shared);
+	for (const [target, source] of [
+		[input("nand0"), pin(null, 1)],
+		[output(), pin("carry")],
+	] as const) {
+		const expected: Execution = JSON.parse(original);
+		if (target.kind === "output")
+			expected.project.candidate.outputs[0] = source;
+		else expected.project.candidate.components[0].inputs[0] = source;
+		const next = proposeReplaceBinding(shared, replace(target, source));
+		expect(next).toEqual(expected);
+		expect(next.project.referenceCandidate).toEqual(
+			shared.project.referenceCandidate,
+		);
+		expect(requestKey(shared)).toBe(original);
+		await compile(request, next);
+	}
 });
 
 test("B0 real multi-output REF permits fan-out and rejects pin equal to width", async ({

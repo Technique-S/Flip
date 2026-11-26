@@ -95,6 +95,19 @@ export function proposeReplaceBinding(r: Execution, value: unknown): Execution {
 	)
 		return r;
 	const next = structuredClone(r);
+	// structuredClone preserves aliases. Detach the changed path so a shared
+	// referenceCandidate/design or input/output array keeps its original values.
+	const candidate = next.project.candidate;
+	next.project.candidate = { ...candidate };
+	if (target.kind === "output") {
+		next.project.candidate.outputs = [...candidate.outputs];
+	} else {
+		next.project.candidate.components = [...candidate.components];
+		next.project.candidate.components[index] = {
+			...candidate.components[index],
+			inputs: [...candidate.components[index].inputs],
+		};
+	}
 	const nextSlots =
 		c.target.kind === "output"
 			? next.project.candidate.outputs
