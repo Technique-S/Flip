@@ -18,6 +18,9 @@ import {
 	source,
 } from "./model";
 
+import { useCandidateEditor } from "./visual/useCandidateEditor";
+import { checkInteractiveBudget } from "./visual/commands";
+
 const pages = [
 	"Sources",
 	"Composition",
@@ -154,6 +157,47 @@ export default function App() {
 	} | null>(null);
 	const [storageMessage, setStorageMessage] = useState("");
 	const [resetting, setResetting] = useState(false);
+	const [pastEvidence, setPastEvidence] = useState<{
+		runs: { request: Execution; proof: Proof; revision: number }[];
+		evicted: boolean;
+	}>({ runs: [], evicted: false });
+	const historicalRuns = pastEvidence.runs,
+		evictedRuns = pastEvidence.evicted;
+	const editor = useCandidateEditor({
+		commit: (r) => replace(r, true),
+		invalidate,
+		busy: () => lock.current,
+	});
+	function invalidate() {
+		if (proof && req)
+			setPastEvidence((previousState) => {
+				const previous = previousState.runs;
+				const entry = {
+					request: structuredClone(req),
+					proof: structuredClone(proof),
+					revision: editor.revision,
+				};
+				if (previous.some((p) => JSON.stringify(p) === JSON.stringify(entry)))
+					return previousState;
+				const next = [...previous, entry];
+				let evicted = previousState.evicted;
+				while (
+					next.length > 10 ||
+					new TextEncoder().encode(JSON.stringify(next)).length > 4 * 1048576
+				) {
+					next.shift();
+					evicted = true;
+				}
+				return { runs: next, evicted };
+			});
+		setTable(null);
+		setBuilt(null);
+		setProof(null);
+		setObs(null);
+		setReplayed(false);
+		setChainNote("");
+	}
+
 	// biome-ignore lint/correctness/useExhaustiveDependencies: Restore once on mount.
 	useEffect(() => {
 		let saved: string | null = null;
@@ -168,8 +212,11 @@ export default function App() {
 			void work("Restoring project", async () => {
 				await api("compose", saved);
 				const restored = JSON.parse(saved) as Execution;
+				const editRecovery = sessionStorage.getItem("flip-edit-draft");
+				const exportCheckpoint = sessionStorage.getItem("flip-edit-checkpoint");
 				const savedPackage = sessionStorage.getItem("flip-portable");
 				replace(restored);
+				editor.restoreSaved(exportCheckpoint);
 				if (savedPackage) {
 					const checked = await api<Portable>(
 						"portable",
@@ -181,6 +228,7 @@ export default function App() {
 					)
 						setPortable(checked);
 				}
+				await editor.restore(editRecovery);
 				setOrigin("Restored snapshot");
 				setStorageMessage("Project restored from this browser session.");
 			});
@@ -243,6 +291,12 @@ export default function App() {
 	}
 	async function work(label: string, fn: () => Promise<void>) {
 		if (lock.current) return;
+		if (editor.blocked()) {
+			setError(
+				"Complete or discard the local edit draft before executing or exporting this project.",
+			);
+			return;
+		}
 		lock.current = true;
 		setBusy(label);
 		setError("");
@@ -256,43 +310,46 @@ export default function App() {
 			setBusy("");
 		}
 	}
-	function replace(r: Execution) {
-		const design = r.project.candidate;
-		const pins = design.components.reduce(
-			(n, c) => n + c.inputs.length,
-			design.outputs.length,
-		);
-		const width = design.components.reduce(
-			(n, c) =>
-				n +
-				(r.project.sources.find((s) => s.alias === c.sourceAlias)?.nOut ?? 1),
-			design.nIn,
-		);
-		if (pins * width > 65000 || design.nIn > 255 || design.outputs.length > 255)
-			throw Error(
-				"This project exceeds the interactive pin table budget. Use the CLI for larger designs.",
+	function replace(r: Execution, editing = false) {
+		checkInteractiveBudget(r);
+		invalidate();
+		if (!editing) editor.open(r);
+		try {
+			sessionStorage.setItem("flip-project", JSON.stringify(r));
+		} catch {
+			setStorageMessage(
+				"Browser storage is full or unavailable. Save the project file before refreshing.",
 			);
-		setTable(null);
+		}
 		setReq(r);
 		if (req && r.project.projectId !== req.project.projectId) setPortable(null);
-		setBuilt(null);
-		setProof(null);
-		setObs(null);
-		setReplayed(false);
 		setNote("");
 		setError("");
-		setChainNote("");
 	}
 	function change(fn: (r: Execution) => void) {
 		if (!req) return;
-		const r = structuredClone(req);
+		if (!editor.matches(req)) {
+			setError("Project changed. Repeat the edit on the current revision.");
+			return;
+		}
 		try {
-			fn(r);
-			replace(r);
+			const next = structuredClone(editor.advanced ?? req);
+			fn(next);
+			if (JSON.stringify(next) === JSON.stringify(req)) {
+				if (editor.advanced) editor.cancel();
+				return;
+			}
+			if (
+				JSON.stringify(next.project.candidate) ===
+				JSON.stringify(req.project.candidate)
+			)
+				editor.configure(next);
+			else editor.change(fn);
 		} catch (e) {
 			setError(String(e));
 		}
 	}
+
 	function navigate(n: number) {
 		go(n);
 		setError("");
@@ -442,7 +499,7 @@ export default function App() {
 							<button
 								type="button"
 								key={name}
-								disabled={!!busy || (!req && i > 0 && i < 4)}
+								disabled={!!busy || editor.pending || (!req && i > 0 && i < 4)}
 								onClick={() => navigate(i)}
 								aria-current={page === i ? "page" : undefined}
 							>
@@ -462,7 +519,11 @@ export default function App() {
 					{storageMessage && <p role="status">{storageMessage}</p>}
 					{req && (
 						<div className="actions">
-							<button type="button" onClick={() => setResetting(true)}>
+							<button
+								type="button"
+								disabled={!!busy}
+								onClick={() => setResetting(true)}
+							>
 								Reset workspace
 							</button>
 							{resetting && (
@@ -474,6 +535,7 @@ export default function App() {
 											try {
 												sessionStorage.removeItem("flip-project");
 											} catch {}
+											editor.open(null);
 											setReq(null);
 											setPortable(null);
 											setDebugEdit(null);
@@ -498,7 +560,33 @@ export default function App() {
 					<div className="trail">
 						Workbench <span>/</span> {pages[page]}
 					</div>
-					<fieldset disabled={!!busy} className="workspace">
+					{req && (
+						<div className="edit-status">
+							<p role="status" aria-label="Editing status">
+								Revision {editor.revision} ·{" "}
+								{editor.dirty
+									? "Unsaved changes"
+									: "No committed changes since opening or export request"}
+								{editor.blocked()
+									? " · Local draft — unsaved; execution and export blocked"
+									: ""}
+								. {editor.message} {editor.storageIssue}
+							</p>
+							{editor.blocked() && (
+								<button type="button" onClick={editor.cancel}>
+									{editor.pending ? "Cancel pending edit" : "Discard draft"}
+								</button>
+							)}
+							{editor.dirty && (
+								<small>
+									Export before opening another project; a new project clears
+									this edit history. Browser session storage is separate from
+									exported files.
+								</small>
+							)}
+						</div>
+					)}
+					<fieldset disabled={!!busy || editor.pending} className="workspace">
 						<legend className="sr">Circuit workflow</legend>
 						<div className="heading">
 							<h1>{pages[page]}</h1>
@@ -701,7 +789,8 @@ export default function App() {
 									</details>
 								)}
 								<Composer
-									request={req}
+									editor={editor}
+									request={editor.advanced ?? req}
 									change={change}
 									build={compile}
 									built={built}
@@ -711,9 +800,10 @@ export default function App() {
 						)}
 						{page === 2 && req && (
 							<Comparison
+								blocked={editor.blocked()}
 								debugEdit={debugEdit}
 								setDebugEdit={setDebugEdit}
-								r={req}
+								r={editor.advanced ?? req}
 								change={change}
 								run={compare}
 								result={proof}
@@ -722,18 +812,55 @@ export default function App() {
 						)}
 						{page === 3 && req && (
 							<>
-								<PortablePanel
-									request={req}
-									value={portable}
-									update={setPortable}
-									openRevision={(p) => {
-										replace(p.executionRequest);
-										setPortable(p);
-									}}
-									work={work}
-								/>
+								<fieldset
+									className="execution-guard"
+									disabled={editor.blocked()}
+								>
+									<legend className="sr">Portable project actions</legend>
+									<PortablePanel
+										onExport={editor.markExported}
+										request={req}
+										value={portable}
+										update={setPortable}
+										openRevision={(p) => {
+											replace(p.executionRequest);
+											setPortable(p);
+										}}
+										work={work}
+									/>
+								</fieldset>
 								<section>
 									<h2>Verification evidence</h2>
+									{historicalRuns.length > 0 && (
+										<details>
+											<summary>
+												Historical comparisons ({historicalRuns.length}) — not
+												current verification
+											</summary>
+											<p>
+												These are original comparison records bound to the
+												request and revision shown. Undo does not reverify them.
+												Keep exported evidence separately.
+											</p>
+											{historicalRuns.map((run) => (
+												<details key={JSON.stringify(run)}>
+													<summary>
+														{run.request.project.projectId} · revision{" "}
+														{run.revision} · historical{" "}
+														{run.proof.report.verification.verdict}
+													</summary>
+													<pre>{JSON.stringify(run, null, 2)}</pre>
+												</details>
+											))}
+										</details>
+									)}
+									{evictedRuns && (
+										<p>
+											Earlier local comparisons exceeded the in-memory history
+											limit. Retain exported evidence files.
+										</p>
+									)}
+
 									<p>
 										{proof
 											? `Latest run · ${proof.report.verification.verdict} · ${proof.report.integrity.freshness}`
@@ -751,7 +878,7 @@ export default function App() {
 										<button
 											type="button"
 											className="primary"
-											disabled={!proof}
+											disabled={!proof || editor.blocked()}
 											onClick={() =>
 												work("Re-running and exporting", async () => {
 													const b = await api<Bundle>("export", {
@@ -771,7 +898,13 @@ export default function App() {
 										</button>
 										<button
 											type="button"
-											onClick={() => download("project.json", req)}
+											disabled={editor.blocked()}
+											onClick={() => {
+												if (!editor.blocked()) {
+													download("project.json", req);
+													editor.markExported(req);
+												}
+											}}
 										>
 											Save project
 										</button>

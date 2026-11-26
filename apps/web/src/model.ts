@@ -129,12 +129,17 @@ export const productBody = (executionRequest: Execution) => ({
 	kind: "PRODUCT_REQUEST",
 	executionRequest,
 });
-export async function api<T>(path: string, body?: unknown): Promise<T> {
+export async function api<T>(
+	path: string,
+	body?: unknown,
+	signal?: AbortSignal,
+): Promise<T> {
 	const r = await fetch(
 		`/api/v1/${path}`,
 		body === undefined
-			? {}
+			? { signal }
 			: {
+					signal,
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: typeof body === "string" ? body : JSON.stringify(body),
