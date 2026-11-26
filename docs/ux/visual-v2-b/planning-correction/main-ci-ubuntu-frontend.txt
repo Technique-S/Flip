@@ -1,0 +1,792 @@
+contracts (ubuntu-latest)	Set up job	﻿2026-11-26T22:28:12.5129141Z Current runner version: '2.338.2'
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5145850Z ##[group]Runner Image Provisioner
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5146456Z Hosted Compute Agent
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5146838Z Version: 20261111.635
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5147277Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5147716Z Build Date: 2026-11-11T01:49:01Z
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5148200Z Worker ID: {2a419364-14a9-48ec-a184-4963fa7d92f9}
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5148631Z Region: centralus
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5149004Z Cloud: Azure
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5149367Z ##[endgroup]
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5150257Z ##[group]Operating System
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5150618Z Ubuntu
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5151017Z 26.04.1
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5151367Z LTS
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5151722Z ##[endgroup]
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5152062Z ##[group]Runner Image
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5152412Z Image: ubuntu-26.04
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5152803Z Version: 20261116.202.1
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5153472Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5154529Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5155090Z ##[endgroup]
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5156021Z ##[group]GITHUB_TOKEN Permissions
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5157434Z Contents: read
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5157856Z Metadata: read
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5158200Z ##[endgroup]
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5159628Z Secret source: Actions
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5160246Z Cache mode: write
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5160902Z Prepare workflow directory
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5367296Z Prepare all required actions
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.5400829Z Getting action download info
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.8090939Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.8987498Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:12.9743975Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:13.0555223Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+contracts (ubuntu-latest)	Set up job	2026-11-26T22:28:13.2411966Z Complete job name: contracts (ubuntu-latest)
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T22:28:13.3069968Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3070503Z with:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3070733Z   fetch-depth: 0
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3070987Z   repository: Technique-S/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3073112Z   token: ***
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3073344Z   ssh-strict: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3073580Z   ssh-user: git
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3073824Z   persist-credentials: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3074091Z   clean: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3074343Z   sparse-checkout-cone-mode: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3074626Z   fetch-tags: false
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3074871Z   show-progress: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3075129Z   lfs: false
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3075360Z   submodules: false
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3075605Z   set-safe-directory: true
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.3076150Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5252532Z Syncing repository: Technique-S/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5253632Z ##[group]Getting Git version info
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5253984Z Working directory is '/home/runner/work/Flip/Flip'
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5254835Z [command]/usr/bin/git version
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5255271Z git version 2.56.1
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5264266Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5268473Z Temporarily overriding HOME='/home/runner/work/_temp/66a4547c-0687-4255-84fb-6208cf5bc502' before making global git config changes
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5269306Z Adding repository directory to the temporary git global config as a safe directory
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5271665Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Flip/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5330542Z Deleting the contents of '/home/runner/work/Flip/Flip'
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5332770Z ##[group]Initializing the repository
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5335503Z [command]/usr/bin/git init /home/runner/work/Flip/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5421994Z hint: Using 'master' as the name for the initial branch. This default branch name
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5422998Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5423890Z hint: to use in all of your new repositories, which will suppress this warning,
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5424523Z hint: call:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5424922Z hint:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5425276Z hint: 	git config --global init.defaultBranch <name>
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5425868Z hint:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5426386Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5426965Z hint: 'development'. The just-created branch can be renamed via this command:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5427437Z hint:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5427733Z hint: 	git branch -m <name>
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5428070Z hint:
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5428489Z hint: Disable this message with "git config set advice.defaultBranchName false"
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5434331Z Initialized empty Git repository in /home/runner/work/Flip/Flip/.git/
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5447231Z [command]/usr/bin/git remote add origin https://github.com/Technique-S/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5491417Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5492371Z ##[group]Disabling automatic garbage collection
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5495319Z [command]/usr/bin/git config --local gc.auto 0
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5530130Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5530848Z ##[group]Setting up auth
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5531573Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5557310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5951742Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.5984869Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.6206252Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.6239643Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.6240225Z ##[group]Fetching the repository
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:13.6246216Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3558439Z From https://github.com/Technique-S/Flip
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3559734Z  * [new branch]      codex/flip-m1-core     -> origin/codex/flip-m1-core
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3560965Z  * [new branch]      codex/flip-m1-integration -> origin/codex/flip-m1-integration
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3562362Z  * [new branch]      codex/flip-m2-import-integrity -> origin/codex/flip-m2-import-integrity
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3563809Z  * [new branch]      codex/flip-m2-integration -> origin/codex/flip-m2-integration
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3565225Z  * [new branch]      codex/flip-m3-composition-canary -> origin/codex/flip-m3-composition-canary
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3567028Z  * [new branch]      codex/flip-m3-integration -> origin/codex/flip-m3-integration
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3568383Z  * [new branch]      codex/flip-m4-integration -> origin/codex/flip-m4-integration
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3569771Z  * [new branch]      codex/flip-m4-product-workflow -> origin/codex/flip-m4-product-workflow
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3571935Z  * [new branch]      codex/flip-m45-agent-portable-integration -> origin/codex/flip-m45-agent-portable-integration
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3573970Z  * [new branch]      codex/flip-m45-agent-portable-postmerge -> origin/codex/flip-m45-agent-portable-postmerge
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3575929Z  * [new branch]      codex/flip-m45-agent-workflow -> origin/codex/flip-m45-agent-workflow
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3578176Z  * [new branch]      codex/flip-m45-agent-workflow-acceptance -> origin/codex/flip-m45-agent-workflow-acceptance
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3580217Z  * [new branch]      codex/flip-m45-authority-design -> origin/codex/flip-m45-authority-design
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3581969Z  * [new branch]      codex/flip-m45-circuit-library -> origin/codex/flip-m45-circuit-library
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3583543Z  * [new branch]      codex/flip-m45-debugging -> origin/codex/flip-m45-debugging
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3585167Z  * [new branch]      codex/flip-m45-library-acceptance -> origin/codex/flip-m45-library-acceptance
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3587099Z  * [new branch]      codex/flip-m45-portable-project -> origin/codex/flip-m45-portable-project
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3588821Z  * [new branch]      codex/flip-m45-release-package -> origin/codex/flip-m45-release-package
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3590501Z  * [new branch]      codex/flip-m45-release-readiness -> origin/codex/flip-m45-release-readiness
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3592246Z  * [new branch]      codex/flip-pre-m5-capability-audit -> origin/codex/flip-pre-m5-capability-audit
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3594061Z  * [new branch]      codex/flip-pre-m5-expansion-audit -> origin/codex/flip-pre-m5-expansion-audit
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3596008Z  * [new branch]      codex/flip-visual-architecture -> origin/codex/flip-visual-architecture
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3597835Z  * [new branch]      codex/flip-visual-v1   -> origin/codex/flip-visual-v1
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3599461Z  * [new branch]      codex/flip-visual-v1-postmerge -> origin/codex/flip-visual-v1-postmerge
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3601042Z  * [new branch]      codex/flip-visual-v2-a -> origin/codex/flip-visual-v2-a
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3602378Z  * [new branch]      main                   -> origin/main
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3603934Z  * [new branch]      opencode/flip-m2-adversarial-fixtures -> origin/opencode/flip-m2-adversarial-fixtures
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3606473Z  * [new branch]      opencode/flip-m2-independent-review -> origin/opencode/flip-m2-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3608434Z  * [new branch]      opencode/flip-m3-independent-review -> origin/opencode/flip-m3-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3610344Z  * [new branch]      opencode/flip-m3-verification-corpus -> origin/opencode/flip-m3-verification-corpus
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3612361Z  * [new branch]      opencode/flip-m4-independent-review -> origin/opencode/flip-m4-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3614247Z  * [new branch]      opencode/flip-m4-ux-acceptance -> origin/opencode/flip-m4-ux-acceptance
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3616434Z  * [new branch]      opencode/flip-m45-agent-portable-final-review -> origin/opencode/flip-m45-agent-portable-final-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3618898Z  * [new branch]      opencode/flip-m45-agent-portable-independent-review -> origin/opencode/flip-m45-agent-portable-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3621256Z  * [new branch]      opencode/flip-m45-agent-workflow-fixtures -> origin/opencode/flip-m45-agent-workflow-fixtures
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3623595Z  * [new branch]      opencode/flip-m45-agent-workflow-independent-review -> origin/opencode/flip-m45-agent-workflow-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3626585Z  * [new branch]      opencode/flip-m45-authorization-security-review -> origin/opencode/flip-m45-authorization-security-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3628910Z  * [new branch]      opencode/flip-m45-debugging-fixtures -> origin/opencode/flip-m45-debugging-fixtures
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3631225Z  * [new branch]      opencode/flip-m45-debugging-independent-review -> origin/opencode/flip-m45-debugging-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3634122Z  * [new branch]      opencode/flip-m45-library-discovery-research -> origin/opencode/flip-m45-library-discovery-research
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3636431Z  * [new branch]      opencode/flip-m45-library-final-review -> origin/opencode/flip-m45-library-final-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3638709Z  * [new branch]      opencode/flip-m45-library-independent-review -> origin/opencode/flip-m45-library-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3641169Z  * [new branch]      opencode/flip-m45-portable-project-evidence -> origin/opencode/flip-m45-portable-project-evidence
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3643609Z  * [new branch]      opencode/flip-m45-portable-project-independent-review -> origin/opencode/flip-m45-portable-project-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3646049Z  * [new branch]      opencode/flip-m45-release-acceptance -> origin/opencode/flip-m45-release-acceptance
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3647978Z  * [new branch]      opencode/flip-m45-release-delta-review -> origin/opencode/flip-m45-release-delta-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3649849Z  * [new branch]      opencode/flip-m45-release-evidence -> origin/opencode/flip-m45-release-evidence
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3651729Z  * [new branch]      opencode/flip-m45-release-final-review -> origin/opencode/flip-m45-release-final-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3653741Z  * [new branch]      opencode/flip-visual-v1-independent-review -> origin/opencode/flip-visual-v1-independent-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3655961Z  * [new branch]      opencode/flip-visual-v1-security-rereview -> origin/opencode/flip-visual-v1-security-rereview
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3657917Z  * [new branch]      opencode/flip-visual-v2a-final-review -> origin/opencode/flip-visual-v2a-final-review
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3659777Z  * [new branch]      opencode/flip-visual-v2a-test-design -> origin/opencode/flip-visual-v2a-test-design
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3662209Z [command]/usr/bin/git branch --list --remote origin/main
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3663073Z   origin/main
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3664502Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3665433Z 2fa7281ba01557f484cef2878e484b6e16f3ffd2
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3667422Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3668369Z ##[group]Determining the checkout info
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3669463Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3670078Z [command]/usr/bin/git sparse-checkout disable
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3678180Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3703461Z ##[group]Checking out the ref
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.3705872Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4327941Z Switched to a new branch 'main'
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4336506Z branch 'main' set up to track 'origin/main'.
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4342436Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4383589Z [command]/usr/bin/git log -1 --format=%H
+contracts (ubuntu-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4405106Z 2fa7281ba01557f484cef2878e484b6e16f3ffd2
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-11-26T22:28:14.4610012Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4610388Z with:
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4610640Z   python-version: 3.14.6
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4610909Z   check-latest: false
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4612463Z   token: ***
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4612712Z   update-environment: true
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4612985Z   allow-prereleases: false
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4613251Z   freethreaded: false
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.4613501Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.5499516Z ##[group]Installed versions
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.5513232Z Version 3.14.6 was not found in the local cache
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.5634291Z (node:2179) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:14.5635144Z (Use `node --trace-deprecation ...` to show where the warning was created)
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:15.1232264Z Version 3.14.6 is available for downloading
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:15.1233216Z Download from "https://github.com/actions/python-versions/releases/download/3.14.6-27283001424/python-3.14.6-linux-26.04-x64.tar.gz"
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:15.8418796Z Extract downloaded archive
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:15.8526142Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a468bfc2-a417-4585-b982-68649b518ac0 -f /home/runner/work/_temp/a6e66feb-286a-4221-b86d-ab19430c3592
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:16.8826485Z Execute installation script
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:16.8948297Z Check if Python hostedtoolcache folder exist...
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:16.8952926Z Create Python 3.14.6 folder
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:16.8973851Z Copy Python binaries to hostedtoolcache folder
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:17.2740214Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:17.2835157Z Upgrading pip...
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.7088330Z Collecting pip
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.7635020Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.7826294Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.8815523Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 26.7 MB/s  0:00:00
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.8816118Z 
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.9028489Z Installing collected packages: pip
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.9036468Z Attempting uninstall: pip
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.9044078Z Found existing installation: pip 26.1.2
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.9235978Z Uninstalling pip-26.1.2:
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:18.9271400Z Successfully uninstalled pip-26.1.2
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.7523573Z Successfully installed pip-26.3
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.8018765Z Create complete file
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.8067310Z Successfully set up CPython (3.14.6)
+contracts (ubuntu-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.8067872Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-11-26T22:28:19.8257448Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8257679Z with:
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8257808Z   node-version: 24.18.0
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8257941Z   always-auth: false
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8258065Z   check-latest: false
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8279211Z   token: ***
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8279383Z env:
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8279578Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8279839Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8280085Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8280299Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8280509Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8280732Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.8280924Z ##[endgroup]
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.9193141Z Attempting to download 24.18.0...
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.9260717Z (node:2234) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:19.9261202Z (Use `node --trace-deprecation ...` to show where the warning was created)
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:20.6820375Z Acquiring 24.18.0 - x64 from https://github.com/actions/node-versions/releases/download/24.18.0-28070977815/node-24.18.0-linux-x64.tar.gz
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:21.1449000Z Extracting ...
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:21.1545374Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/7e292053-00e7-4bb8-a95f-d9fc7c0760ac -f /home/runner/work/_temp/7a31a306-7a8d-4cad-9787-c43feebaf18a
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:21.7493572Z Adding to the cache ...
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:23.4671470Z ##[group]Environment details
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:23.6301439Z node: v24.18.0
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:23.6301790Z npm: 11.16.0
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:23.6301959Z yarn: 1.22.22
+contracts (ubuntu-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:28:23.6302325Z ##[endgroup]
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	﻿2026-11-26T22:28:23.6472404Z ##[group]Run python -m pip install uv==0.9.11
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6472654Z ^[[36;1mpython -m pip install uv==0.9.11^[[0m
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6504755Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6504913Z env:
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6505071Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6505319Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6505561Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6505990Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6506200Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6506419Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:23.6506626Z ##[endgroup]
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.0922232Z Collecting uv==0.9.11
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.1454998Z   Downloading uv-0.9.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.1663876Z Downloading uv-0.9.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (21.7 MB)
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.4420119Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.7/21.7 MB 89.6 MB/s  0:00:00
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.4837193Z Installing collected packages: uv
+contracts (ubuntu-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:28:24.6745265Z Successfully installed uv-0.9.11
+contracts (ubuntu-latest)	Run uv sync --locked	﻿2026-11-26T22:28:24.7301039Z ##[group]Run uv sync --locked
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7301267Z ^[[36;1muv sync --locked^[[0m
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7331052Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7331196Z env:
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7331349Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7331597Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7331840Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7332060Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7332274Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7332512Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7332699Z ##[endgroup]
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7910181Z Using CPython 3.14.6 interpreter at: /opt/hostedtoolcache/Python/3.14.6/x64/bin/python3.14
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7910540Z Creating virtual environment at: .venv
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7934135Z Resolved 36 packages in 0.97ms
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7975145Z    Building flip-api @ file:///home/runner/work/Flip/Flip/packages/flip-api
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7975985Z    Building flip-core @ file:///home/runner/work/Flip/Flip/packages/flip-core
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.7976805Z    Building flip-cli @ file:///home/runner/work/Flip/Flip/packages/flip-cli
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.8504979Z Downloading ruff (13.2MiB)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.8507228Z Downloading setuptools (1.1MiB)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.8509837Z Downloading pydantic-core (2.0MiB)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.8511656Z Downloading pygments (1.2MiB)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.8521504Z Downloading python-sat (4.0MiB)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:24.9481664Z  Downloaded pydantic-core
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.0180752Z  Downloaded python-sat
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.0475487Z  Downloaded pygments
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.0575457Z  Downloaded setuptools
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.0887265Z  Downloaded ruff
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.6252231Z       Built flip-api @ file:///home/runner/work/Flip/Flip/packages/flip-api
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7696616Z       Built flip-cli @ file:///home/runner/work/Flip/Flip/packages/flip-cli
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7711969Z       Built flip-core @ file:///home/runner/work/Flip/Flip/packages/flip-core
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7716565Z Prepared 34 packages in 977ms
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7952097Z Installed 34 packages in 22ms
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7952604Z  + annotated-doc==0.0.6
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7953011Z  + annotated-types==0.8.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7953400Z  + anyio==4.11.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7953740Z  + attrs==26.1.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7954073Z  + certifi==2026.10.23
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7954487Z  + click==8.5.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7954817Z  + fastapi==0.121.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7955360Z  + flip-api==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-api)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7956116Z  + flip-cli==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-cli)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7956745Z  + flip-core==0.1.0 (from file:///home/runner/work/Flip/Flip/packages/flip-core)
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7957254Z  + h11==0.16.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7957557Z  + httpcore==1.0.9
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7957886Z  + httpx==0.28.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7958182Z  + idna==3.20
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7958468Z  + iniconfig==2.3.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7958853Z  + jsonschema==4.25.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7959211Z  + jsonschema-specifications==2025.9.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7959686Z  + packaging==26.3
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7960177Z  + pluggy==1.7.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7960521Z  + pydantic==2.12.4
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7960834Z  + pydantic-core==2.41.5
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7961160Z  + pygments==2.21.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7961471Z  + pytest==9.0.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7961785Z  + python-sat==1.9.dev23
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7962311Z  + referencing==0.37.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7962636Z  + rpds-py==2026.9.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7962966Z  + ruff==0.14.5
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7963283Z  + setuptools==80.9.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7963594Z  + six==1.17.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7963900Z  + sniffio==1.3.1
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7964207Z  + starlette==0.49.3
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7964533Z  + typing-extensions==4.16.0
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7965062Z  + typing-inspection==0.4.5
+contracts (ubuntu-latest)	Run uv sync --locked	2026-11-26T22:28:25.7965400Z  + uvicorn==0.38.0
+contracts (ubuntu-latest)	Run npm ci	﻿2026-11-26T22:28:25.8247811Z ##[group]Run npm ci
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8247979Z ^[[36;1mnpm ci^[[0m
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8277307Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8277450Z env:
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8277606Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8277851Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8278098Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8278316Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8278542Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8278763Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:25.8278954Z ##[endgroup]
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2445380Z 
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2446341Z added 37 packages, and audited 38 packages in 1s
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2446657Z 
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2446819Z 1 package is looking for funding
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2447101Z   run `npm fund` for details
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2452919Z 
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2453130Z found 0 vulnerabilities
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2459189Z npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2459710Z npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2459944Z npm warn allow-scripts
+contracts (ubuntu-latest)	Run npm ci	2026-11-26T22:28:27.2460323Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+contracts (ubuntu-latest)	Run npm run lint	﻿2026-11-26T22:28:27.2886079Z ##[group]Run npm run lint
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2886373Z ^[[36;1mnpm run lint^[[0m
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2926642Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2926881Z env:
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2927120Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2927500Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2927888Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2928523Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2928881Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2929235Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.2929522Z ##[endgroup]
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.3595450Z 
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.3596175Z > flip-workbench@0.1.0 lint
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.3596602Z > biome lint src tests
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.3596738Z 
+contracts (ubuntu-latest)	Run npm run lint	2026-11-26T22:28:27.4197409Z Checked 29 files in 26ms. No fixes applied.
+contracts (ubuntu-latest)	Run npm run build	﻿2026-11-26T22:28:27.4327123Z ##[group]Run npm run build
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4327448Z ^[[36;1mnpm run build^[[0m
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4366405Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4366643Z env:
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4366891Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4367278Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4367668Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4368026Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4368401Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4368768Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.4369069Z ##[endgroup]
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.5028387Z 
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.5028739Z > flip-workbench@0.1.0 build
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.5029110Z > tsc --noEmit && node build.mjs
+contracts (ubuntu-latest)	Run npm run build	2026-11-26T22:28:27.5029279Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	﻿2026-11-26T22:28:27.7956002Z ##[group]Run npx playwright install --with-deps chromium
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.7956486Z ^[[36;1mnpx playwright install --with-deps chromium^[[0m
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.7999943Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8000128Z env:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8000285Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8000560Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8000915Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8001273Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8001627Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8001958Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:27.8002262Z ##[endgroup]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.2408400Z Installing dependencies...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.2522911Z Switching to root user to install dependencies...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.3258934Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.3605482Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.3897368Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [192 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.4076105Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [178 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5237183Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5257796Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5279693Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5293813Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5412793Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [918 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5476355Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [203 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5477319Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [398 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5511536Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [126 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5512456Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted amd64v3 Packages [640 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5546308Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [132 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5618549Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [765 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5657390Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [165 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5679104Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [229 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.5693303Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [74.4 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.6127617Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [618 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:28.6163572Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [128 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:30.8793990Z Fetched 5182 kB in 0s (11.3 MB/s)
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.2972851Z Reading package lists...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.3198448Z Reading package lists...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4292981Z Building dependency tree...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4298635Z Reading state information...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4540720Z libatk-bridge2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4541262Z libatk-bridge2.0-0t64 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4541660Z libatk1.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4542023Z libatk1.0-0t64 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4542409Z libatspi2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4542779Z libatspi2.0-0t64 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4543915Z libcairo2 is already the newest version (1.18.4-3).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4544245Z libcairo2 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4544600Z libcups2t64 is already the newest version (2.4.16-1ubuntu1.3).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4544955Z libcups2t64 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4545304Z libdbus-1-3 is already the newest version (1.16.2-2ubuntu4).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4545831Z libdbus-1-3 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4546147Z libdrm2 is already the newest version (2.4.131-1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4546456Z libdrm2 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4546786Z libgbm1 is already the newest version (26.0.8-1ubuntu0.3).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4547118Z libgbm1 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4547469Z libglib2.0-0t64 is already the newest version (2.88.0-1ubuntu0.1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4547835Z libglib2.0-0t64 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4548209Z libnspr4 is already the newest version (2:4.38.2-1ubuntu1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4548548Z libnspr4 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4548889Z libnss3 is already the newest version (2:3.120-1ubuntu2.2).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4549212Z libnss3 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4549537Z libpango-1.0-0 is already the newest version (1.57.0-1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4549869Z libpango-1.0-0 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4550230Z libx11-6 is already the newest version (2:1.8.13-1ubuntu0.1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4550559Z libx11-6 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4550884Z libxcb1 is already the newest version (1.17.0-2ubuntu1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4551198Z libxcb1 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4551551Z libxcomposite1 is already the newest version (1:0.4.6-1build1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4551917Z libxcomposite1 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4552258Z libxdamage1 is already the newest version (1:1.1.7-1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4552583Z libxdamage1 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4552935Z libxext6 is already the newest version (2:1.3.4-1build3).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4553260Z libxext6 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4553594Z libxfixes3 is already the newest version (1:6.0.0-2build2).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4553934Z libxfixes3 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4554264Z libxkbcommon0 is already the newest version (1.13.1-1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4554594Z libxkbcommon0 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4554945Z libxrandr2 is already the newest version (2:1.5.4-1build1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4555273Z libxrandr2 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4555730Z xvfb is already the newest version (2:21.1.22-1ubuntu1.3).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4556167Z fonts-noto-color-emoji is already the newest version (2.051-1build1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4556640Z libfontconfig1 is already the newest version (2.17.1-3ubuntu1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4556997Z libfontconfig1 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4557378Z libfreetype6 is already the newest version (2.14.2+dfsg-1ubuntu0.2).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4557747Z libfreetype6 set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4558121Z fonts-liberation is already the newest version (1:2.1.5-3build1).
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4558490Z fonts-liberation set to manually installed.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.4922688Z Solving dependencies...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5584656Z The following additional packages will be installed:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5592495Z   libasound2-data xfonts-encodings xfonts-utils
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5599792Z Recommended packages:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5600164Z   fonts-ipafont-mincho fonts-tlwg-loma
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5774025Z The following NEW packages will be installed:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5774476Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5777081Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5777403Z   xfonts-utils
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5779196Z The following packages will be upgraded:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5781917Z   libasound2-data libasound2t64
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5945975Z 2 upgraded, 9 newly installed, 0 to remove and 83 not upgraded.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5946320Z Need to get 22.3 MB of archives.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5946571Z After this operation, 80.2 MB of additional disk space will be used.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.5946851Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.6150559Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-ipafont-gothic all 00303-23ubuntu1 [3703 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.7351666Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 fonts-freefont-ttf all 20211204+svn4273-4build1 [5656 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.8729304Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-tlwg-loma-otf all 1:0.7.3-1build1 [106 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.8751286Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-unifont all 1:16.0.04-1build1 [3169 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:31.9504405Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-wqy-zenhei all 0.9.45-8build1 [7863 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1418284Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libasound2t64 amd64 1.2.15.3-1ubuntu1.2 [418 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1446928Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libasound2-data all 1.2.15.3-1ubuntu1.2 [19.7 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1455357Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-encodings all 1:1.0.5-0ubuntu3 [576 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1491784Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-utils amd64 1:7.7+7build1 [97.3 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1505084Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-cyrillic all 1:1.0.5+nmu1build1 [384 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.1537627Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-scalable all 1:1.0.3-1.3build1 [304 kB]
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4018898Z Fetched 22.3 MB in 1s (39.0 MB/s)
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4205361Z Selecting previously unselected package fonts-ipafont-gothic.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4442919Z (Reading database ... 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4443172Z (Reading database ... 5%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4443401Z (Reading database ... 10%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4443564Z (Reading database ... 15%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4443713Z (Reading database ... 20%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4443858Z (Reading database ... 25%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4444006Z (Reading database ... 30%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4444152Z (Reading database ... 35%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4444300Z (Reading database ... 40%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4444443Z (Reading database ... 45%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4444586Z (Reading database ... 50%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4697947Z (Reading database ... 55%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.4998381Z (Reading database ... 60%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.5288534Z (Reading database ... 65%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.5581509Z (Reading database ... 70%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.5980332Z (Reading database ... 75%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.7104754Z (Reading database ... 80%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:32.9139774Z (Reading database ... 85%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.1184626Z (Reading database ... 90%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.2702975Z (Reading database ... 95%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.2703159Z (Reading database ... 100%
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.2703401Z (Reading database ... 214296 files and directories currently installed.)
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.2738736Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-23ubuntu1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.2859174Z Unpacking fonts-ipafont-gothic (00303-23ubuntu1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.3972306Z Selecting previously unselected package fonts-freefont-ttf.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.4085409Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-4build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.4092424Z Unpacking fonts-freefont-ttf (20211204+svn4273-4build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5220553Z Selecting previously unselected package fonts-tlwg-loma-otf.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5331795Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5338936Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5541484Z Selecting previously unselected package fonts-unifont.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5648414Z Preparing to unpack .../03-fonts-unifont_1%3a16.0.04-1build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.5655004Z Unpacking fonts-unifont (1:16.0.04-1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.7792948Z Selecting previously unselected package fonts-wqy-zenhei.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.7906172Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.8032804Z Unpacking fonts-wqy-zenhei (0.9.45-8build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.9538641Z Preparing to unpack .../05-libasound2t64_1.2.15.3-1ubuntu1.2_amd64v3.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:33.9573915Z Unpacking libasound2t64:amd64 (1.2.15.3-1ubuntu1.2) over (1.2.15.3-1ubuntu1.1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0015505Z Preparing to unpack .../06-libasound2-data_1.2.15.3-1ubuntu1.2_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0032812Z Unpacking libasound2-data (1.2.15.3-1ubuntu1.2) over (1.2.15.3-1ubuntu1.1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0394591Z Selecting previously unselected package xfonts-encodings.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0501526Z Preparing to unpack .../07-xfonts-encodings_1%3a1.0.5-0ubuntu3_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0507734Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu3) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0787082Z Selecting previously unselected package xfonts-utils.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0890135Z Preparing to unpack .../08-xfonts-utils_1%3a7.7+7build1_amd64v3.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.0895900Z Unpacking xfonts-utils (1:7.7+7build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1332721Z Selecting previously unselected package xfonts-cyrillic.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1436305Z Preparing to unpack .../09-xfonts-cyrillic_1%3a1.0.5+nmu1build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1442815Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1712266Z Selecting previously unselected package xfonts-scalable.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1816469Z Preparing to unpack .../10-xfonts-scalable_1%3a1.0.3-1.3build1_all.deb ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.1823222Z Unpacking xfonts-scalable (1:1.0.3-1.3build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2370461Z Setting up fonts-wqy-zenhei (0.9.45-8build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2494631Z Setting up fonts-freefont-ttf (20211204+svn4273-4build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2510264Z Setting up libasound2-data (1.2.15.3-1ubuntu1.2) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2527303Z Setting up libasound2t64:amd64 (1.2.15.3-1ubuntu1.2) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2542962Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2559456Z Setting up xfonts-encodings (1:1.0.5-0ubuntu3) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2575533Z Setting up fonts-ipafont-gothic (00303-23ubuntu1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2626553Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2639514Z Setting up fonts-unifont (1:16.0.04-1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2656001Z Setting up xfonts-utils (1:7.7+7build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.2704234Z Setting up xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.3078766Z Setting up xfonts-scalable (1:1.0.3-1.3build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.3417006Z Processing triggers for libc-bin (2.43-2ubuntu2.7) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.5229942Z Processing triggers for man-db (2.13.1-1build1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.5252735Z Not building database; man-db/auto-update is not 'true'.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:34.5262200Z Processing triggers for fontconfig (2.17.1-3ubuntu1) ...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0503609Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0504284Z Running kernel seems to be up-to-date.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0504546Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0504654Z Restarting services...
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0574784Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0575093Z Service restarts being deferred:
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0578420Z  systemctl restart hosted-compute-agent.service
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0578644Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0579386Z No containers need to be restarted.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0579572Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0579691Z No user sessions are running outdated binaries.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0580095Z 
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.0580391Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:35.6740881Z Downloading Chrome for Testing 159.0.8154.6 (playwright chromium v1255) from https://cdn.playwright.dev/builds/cft/159.0.8154.6/linux64/chrome-linux64.zip
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.0073898Z |                                                                                |   0% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.2516238Z |■■■■■■■■                                                                        |  10% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.3336634Z |■■■■■■■■■■■■■■■■                                                                |  20% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.3771331Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.4435177Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.5108575Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.5698630Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.6104341Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.6856926Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.7527742Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:36.8123102Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 199.3 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:38.9078236Z Chrome for Testing 159.0.8154.6 (playwright chromium v1255) downloaded to /home/runner/.cache/ms-playwright/chromium-1255
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:38.9080775Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.1723350Z |                                                                                |   0% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.1994952Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2090450Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2166180Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2202952Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2230062Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2278987Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2296552Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2315772Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2328944Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2339568Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2721043Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.2723542Z Downloading Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255) from https://cdn.playwright.dev/builds/cft/159.0.8154.6/linux64/chrome-headless-shell-linux64.zip
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.5731854Z |                                                                                |   0% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.7512330Z |■■■■■■■■                                                                        |  10% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.7886130Z |■■■■■■■■■■■■■■■■                                                                |  20% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.8338299Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.8572693Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.8808875Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.9154779Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.9428164Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:39.9808825Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:40.0007141Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:40.0324885Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 125.7 MiB
+contracts (ubuntu-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:28:41.4881700Z Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1255
+contracts (ubuntu-latest)	Run npm test	﻿2026-11-26T22:28:41.5657140Z ##[group]Run npm test
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5657407Z ^[[36;1mnpm test^[[0m
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5687069Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5687223Z env:
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5687388Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5687649Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5687896Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5688120Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5688338Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5688561Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.5688902Z ##[endgroup]
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.7500029Z 
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.7500441Z > flip-workbench@0.1.0 test
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.7500764Z > playwright test
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:41.7500903Z 
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:44.3490369Z [WebServer] INFO:     Started server process [2937]
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:44.3490972Z [WebServer] INFO:     Waiting for application startup.
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:44.3491530Z [WebServer] INFO:     Application startup complete.
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:44.3492027Z [WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:45.1530592Z 
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:45.1531344Z Running 72 tests using 1 worker
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:45.1531608Z 
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:46.7341015Z   ✓   1 tests/acceptance.spec.ts:19:1 › B01 keyboard-only complete export journey (1.1s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:47.1435148Z   ✓   2 tests/acceptance.spec.ts:34:1 › B02 focus recovery and B06 error state (395ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:51.4302935Z   ✓   3 tests/acceptance.spec.ts:67:1 › B03 accessible labels and B05 responsive axe audit (4.3s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:52.0426394Z   ✓   4 tests/acceptance.spec.ts:102:1 › B04 result announcement, mappings, and semantic differences (605ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:52.9502276Z   ✓   5 tests/acceptance.spec.ts:123:1 › B07 timeout recovery and B08 repeated runs (902ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:53.6293330Z   ✓   6 tests/acceptance.spec.ts:147:1 › B09 refresh recovery, confirmed reset and storage failure (673ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:53.8478112Z   ✓   7 tests/acceptance.spec.ts:174:1 › B10 download name and replay is covered by workflow suite (211ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:54.2825490Z   ✓   8 tests/acceptance.spec.ts:184:1 › B11 preflight separates three structural outcomes (429ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:28:59.1236652Z   ✓   9 tests/agent-portable.spec.ts:58:1 › combined named tests, correction, explicit new revision, CLI replay and authorization stop (4.8s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:01.9599076Z   ✓  10 tests/agent-portable.spec.ts:179:1 › cancel a late workflow response without selecting its revised package (2.8s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:02.8270849Z   ✓  11 tests/debugging-acceptance.spec.ts:32:1 › acceptance: changing the project invalidates an already selected proposal before apply (858ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:04.6240868Z   ✓  12 tests/debugging-acceptance.spec.ts:71:1 › acceptance: repeated correction checks are fresh and refresh restores data without undo or proof authority (1.8s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:06.8857519Z   ✓  13 tests/debugging.spec.ts:19:1 › debugger replays paths, verifies a separate correction, applies and reverts with CLI parity (2.2s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:07.5379496Z   ✓  14 tests/debugging.spec.ts:104:1 › debugger narrow viewport, reduced motion and production resource UNKNOWN (647ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:07.9964710Z   ✓  15 tests/debugging.spec.ts:146:1 › debugger discards an in-flight result when the project mapping changes (452ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:08.3257931Z   ✓  16 tests/library-acceptance.spec.ts:5:1 › F-01 exact malformed-favorites restore retains bytes and recovers seeds (319ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:08.6682260Z   ✓  17 tests/library-acceptance.spec.ts:34:1 › F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration (336ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:08.9952508Z   ✓  18 tests/library-acceptance.spec.ts:87:1 › LC01 invalid saved catalog recovers known addresses without overwriting saved bytes (317ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:09.2201167Z   ✓  19 tests/library-acceptance.spec.ts:119:1 › LC02 recent imports display most recent first after browser restore (217ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:10.5602327Z   ✓  20 tests/library.spec.ts:17:1 › L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence (1.3s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:11.7974572Z   ✓  21 tests/library.spec.ts:94:1 › L02 known-address fallback, stale favorites, bounded pagination and mobile (1.2s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:12.2335858Z   ✓  22 tests/library.spec.ts:137:1 › L03 resumes a pinned circuit page and skips missing IDs (428ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:13.8727594Z   ✓  23 tests/portable.spec.ts:17:1 › portable CLI-compatible package, tests, revision save, refresh and explicit downgrade (1.6s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.1508141Z   ✓  24 tests/portable.spec.ts:124:1 › portable import rejects tampering and preserves the open project (272ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7233444Z   ✓  25 tests/review.spec.ts:3:1 › F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry (563ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7659128Z   ✓  26 tests/visual-edit.spec.ts:63:1 › V2-A pure proposals compile with the real canonical engine and preserve REF/output bindings (29ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7746733Z   ✓  27 tests/visual-edit.spec.ts:113:1 › V2-A removal refuses both final-output and preceding-input references, including REF targets (3ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7815377Z   ✓  28 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: null (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7864843Z   ✓  29 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: kind (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.7914230Z   ✓  30 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: duplicate (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8024140Z   ✓  31 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: badId (6ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8071667Z   ✓  32 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: missingInput (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8119497Z   ✓  33 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: nullInput (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8181075Z   ✓  34 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: boolPin (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8229029Z   ✓  35 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: negative (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8277410Z   ✓  36 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: forward (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8427826Z   ✓  37 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: extra (11ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8476171Z   ✓  38 tests/visual-edit.spec.ts:148:2 › V2-A malformed command: pinExtra (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.8646552Z   ✓  39 tests/visual-edit.spec.ts:155:1 › V2-A interactive boundary rejects the first over-budget edit while the native compiler accepts the baseline (12ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:14.9807014Z   ✓  40 tests/visual-edit.spec.ts:174:1 › V2-A bounded history restores exact full requests, diverges safely, and never mutates previous history (112ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:16.6071016Z   ✓  41 tests/visual-edit.spec.ts:215:1 › V2-A explicit creation, inspector, Advanced parity, and only existing compose network calls (1.6s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:18.1342590Z   ✓  42 tests/visual-edit.spec.ts:278:1 › V2-A multiple undo/redo and a divergent edit restore ordering and invalidate redo (1.5s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:18.9828813Z   ✓  43 tests/visual-edit.spec.ts:304:1 › V2-A safe removal confirms an unused NAND and blocks a referenced output (843ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:19.5540184Z   ✓  44 tests/visual-edit.spec.ts:332:1 › V2-A invalid local drafts never change or submit the accepted candidate (565ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:20.1777967Z   ✓  45 tests/visual-edit.spec.ts:362:1 › V2-A cancellation ignores a late real compiler response and rapid repeated submit is one transaction (617ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:21.3944235Z   ✓  46 tests/visual-edit.spec.ts:424:1 › V2-A old proof stays historical after undo, while export checkpoints determine dirty state (1.2s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:21.8505484Z   ✓  47 tests/visual-edit.spec.ts:474:1 › V2-A invalid Advanced candidate remains a draft and both modes retain the accepted request (451ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:22.3091413Z   ✓  48 tests/visual-edit.spec.ts:498:1 › V2-A keyboard-only add, selection and confirmed remove keep focus usable (452ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:22.9734168Z   ✓  49 tests/visual-edit.spec.ts:546:1 › V2-A failed native validation preserves the accepted candidate and the complete draft (658ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:23.6377790Z   ✓  50 tests/visual-edit.spec.ts:566:1 › V2-A interrupted complete edit is recovered only after real authoritative revalidation (658ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:24.2911751Z   ✓  51 tests/visual-edit.spec.ts:641:1 › V2-A explicit workspace reset clears private edit recovery and export checkpoint data (646ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:24.7179203Z   ✓  52 tests/visual-edit.spec.ts:673:1 › V2-A Advanced rows become focusable only after validation and commit does not steal field focus (420ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.0909128Z   ✓  53 tests/visual-edit.spec.ts:708:1 › V2-A existing Advanced input focus survives authoritative validation without moving to NAND controls (367ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1056869Z   ✓  54 tests/visual-readonly.spec.ts:14:1 › projection preserves exact recipe, every scalar mapping, order and stable destination identity (5ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1101505Z   ✓  55 tests/visual-readonly.spec.ts:81:1 › projection handles zero-input multioutput REF and uint64 decimal IDs without precision loss (1ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1170415Z   ✓  56 tests/visual-readonly.spec.ts:128:2 › projection refuses null input without mutating it (3ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1214006Z   ✓  57 tests/visual-readonly.spec.ts:128:2 › projection refuses kind input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1256855Z   ✓  58 tests/visual-readonly.spec.ts:128:2 › projection refuses forward input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1299975Z   ✓  59 tests/visual-readonly.spec.ts:128:2 › projection refuses negative input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1343175Z   ✓  60 tests/visual-readonly.spec.ts:128:2 › projection refuses arity input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1390165Z   ✓  61 tests/visual-readonly.spec.ts:128:2 › projection refuses stateful input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1438854Z   ✓  62 tests/visual-readonly.spec.ts:128:2 › projection refuses binding input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1481828Z   ✓  63 tests/visual-readonly.spec.ts:128:2 › projection refuses duplicate input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1534128Z   ✓  64 tests/visual-readonly.spec.ts:128:2 › projection refuses huge input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.1579136Z   ✓  65 tests/visual-readonly.spec.ts:128:2 › projection refuses missing input without mutating it (0ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:25.9337885Z   ✓  66 tests/visual-readonly.spec.ts:156:1 › real sample visual/advanced parity, all rendered connections, disabled mutation and zero additional network (769ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:27.3038959Z   ✓  67 tests/visual-readonly.spec.ts:259:1 › keyboard pin inspector, zoom/pan/fit, responsive axe and StrictMode renderer (1.4s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:27.6051767Z   ✓  68 tests/visual-readonly.spec.ts:317:1 › unsupported visual recipe fails visibly while Advanced remains available (295ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:27.9236076Z   ✓  69 tests/visual-readonly.spec.ts:339:1 › Visual explains and returns to existing Advanced execution actions (313ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:27.9319378Z   ✓  70 tests/visual-readonly.spec.ts:361:1 › projection rejects noncanonical aliases and enforces allocation budgets early (3ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:30.3486058Z   ✓  71 tests/workflow.spec.ts:17:1 › historical sample, swapped outputs, repair, CLI parity and evidence replay (2.4s)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:31.0480260Z   ✓  72 tests/workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate (695ms)
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:31.1470002Z 
+contracts (ubuntu-latest)	Run npm test	2026-11-26T22:29:31.1473927Z   72 passed (49.1s)
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	﻿2026-11-26T22:29:31.1767855Z ##[group]Run node apps/showcase/build.mjs
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1768211Z ^[[36;1mnode apps/showcase/build.mjs^[[0m
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1805983Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1806216Z env:
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1806462Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1806840Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1807220Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1807609Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1807935Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1808188Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.1808375Z ##[endgroup]
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:29:31.2205927Z Built 19 deterministic static files; no client JavaScript, backend, native proof or network.
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	﻿2026-11-26T22:29:31.2270870Z ##[group]Run node apps/showcase/build.mjs --check
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2271258Z ^[[36;1mnode apps/showcase/build.mjs --check^[[0m
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2297854Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2298003Z env:
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2298157Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2298395Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2298629Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2298840Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2299049Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2299258Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2299442Z ##[endgroup]
+contracts (ubuntu-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:29:31.2674244Z Checked 19 deterministic static files; no client JavaScript, backend, native proof or network.
+contracts (ubuntu-latest)	Check release guard before execution	﻿2026-11-26T22:29:31.2726492Z ##[group]Run node --input-type=module <<'JS'
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2726733Z ^[[36;1mnode --input-type=module <<'JS'^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2726919Z ^[[36;1mimport {readFileSync} from 'node:fs';^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2727101Z ^[[36;1mimport {createHash} from 'node:crypto';^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2727291Z ^[[36;1mimport assert from 'node:assert/strict';^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2727511Z ^[[36;1mconst sha = b => createHash('sha256').update(b).digest('hex');^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2727766Z ^[[36;1mconst raw = readFileSync('docs/release/V1_RELEASE_TRUST.json');^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2728159Z ^[[36;1massert.equal(sha(raw), 'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0', 'CI release trust metadata mismatch');^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2728503Z ^[[36;1mconst trust = JSON.parse(raw);^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2729023Z ^[[36;1mfor (const [p, expected] of Object.entries({...trust.currentSourceHashes,...trust.bootstrapSourceHashes})) assert.equal(sha(Buffer.from(readFileSync(p,'utf8').replaceAll('\r\n','\n'))), expected, 'CI checker integrity mismatch');^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2729548Z ^[[36;1mJS^[[0m
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2757651Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2757846Z env:
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2757998Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2758238Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2758472Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2758690Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2758902Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2759118Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Check release guard before execution	2026-11-26T22:29:31.2759303Z ##[endgroup]
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	﻿2026-11-26T22:29:31.3061992Z ##[group]Run node scripts/check_m45_release_package.mjs
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3062225Z ^[[36;1mnode scripts/check_m45_release_package.mjs^[[0m
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3086169Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3086317Z env:
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3086473Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3086841Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3087081Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3087291Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3087499Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3087715Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3087898Z ##[endgroup]
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3807785Z R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies.
+contracts (ubuntu-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:29:31.3808800Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	﻿2026-11-26T22:29:31.3864412Z ##[group]Run node apps/showcase/test.mjs
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3864640Z ^[[36;1mnode apps/showcase/test.mjs^[[0m
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3891892Z shell: /usr/bin/bash -e {0}
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3892039Z env:
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3892194Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3892440Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3892681Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3892893Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3893107Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3893322Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.3893508Z ##[endgroup]
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.8826416Z 
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.8826793Z Running 28 tests using 1 worker
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:31.8827024Z 
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:32.2374316Z 
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:32.2375979Z   ✓   1 apps/showcase/tests/acceptance.spec.mjs:21:1 › OpenCode research retains every original Git blob and conclusion (77ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:32.6218624Z   ✓   2 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-01: rejects unapproved recording claim (Misleading CURRENT) (331ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:32.9333249Z   ✓   3 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-02: rejects unapproved recording claim (Equivalent from vectors) (305ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:33.2198334Z   ✓   4 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-03: rejects unapproved recording claim (Equivalent from checksum) (278ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:33.5143747Z   ✓   5 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-04: rejects unapproved recording claim (Deployment claim) (284ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:33.8111102Z   ✓   6 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-05: rejects unapproved recording claim (Verified correction from preparation) (288ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:34.1218911Z   ✓   7 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-06: rejects unapproved recording claim (Stale evidence as current) (305ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:34.3954675Z   ✓   8 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-07: rejects unapproved recording claim (UNKNOWN relabeled) (268ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:34.6794777Z   ✓   9 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-08: rejects unapproved recording claim (Unique fault attribution) (279ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:34.9553644Z   ✓  10 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-09: rejects unapproved recording claim (Engine identity ignored) (270ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:35.2383930Z   ✓  11 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-10: rejects unapproved recording claim (Partial catalog as complete) (276ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:35.5159595Z   ✓  12 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-11: rejects unapproved recording claim (Wallet or publication success) (273ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:35.7918617Z   ✓  13 apps/showcase/tests/acceptance.spec.mjs:51:2 › N-12: rejects unapproved recording claim (Descriptive metadata as authority) (270ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:35.9105835Z   ✓  14 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: none (103ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.0266491Z   ✓  15 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: current-source (108ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.1077124Z   ✓  16 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: static-output (77ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.2094273Z   ✓  17 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: inventory (97ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.3119104Z   ✓  18 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: unknown-path (98ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.4099457Z   ✓  19 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: missing-history (92ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.5042566Z 
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:36.5043971Z   ✓  20 apps/showcase/tests/release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: wrong-history (90ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:37.0011784Z   ✓  21 apps/showcase/tests/release-guard.spec.mjs:79:1 › independent original attacks reject at the intended integrity boundaries (493ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:37.0702230Z   ✓  22 apps/showcase/tests/release-guard.spec.mjs:90:1 › coordinated checker and metadata tamper is rejected by the actual CI trust anchor (65ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:37.5553693Z   ✓  23 apps/showcase/tests/showcase.spec.mjs:24:1 › offline file walkthrough has no backend, network or sensitive capability calls (440ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:37.7237133Z   ✓  24 apps/showcase/tests/showcase.spec.mjs:83:1 › recorded witness, non-unique paths, correction and revision match source artifacts (161ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.2767605Z   ✓  25 apps/showcase/tests/showcase.spec.mjs:126:1 › all seven file pages pass axe at desktop and 390px with reduced motion (4.5s)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.3834714Z   ✓  26 apps/showcase/tests/showcase.spec.mjs:174:1 › keyboard skip, step links and native disclosure work with JavaScript disabled (102ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.5139801Z   ✓  27 apps/showcase/tests/showcase.spec.mjs:199:1 › recorded project link opens the exact packaged JSON offline (124ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.5548810Z   ✓  28 apps/showcase/tests/showcase.spec.mjs:217:1 › build integrity rejects tampering and escaping treats artifact strings only as text (36ms)
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.5994626Z 
+contracts (ubuntu-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:29:42.5998072Z   28 passed (10.9s)

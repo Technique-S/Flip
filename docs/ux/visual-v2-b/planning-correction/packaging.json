@@ -1,0 +1,13 @@
+{
+  "initialPlanningSha": "b350a8575902d001844f381321d5758040163ff7",
+  "combinedLogGitSha256": "85c62c6f08b35f59d72945e0cd30edea4ebd7b288d269388f0e31af3750681e3",
+  "preservedAtGitPath": "b350a8575902d001844f381321d5758040163ff7:docs/ux/visual-v2-b/checkpoint/merged-main-ci.log.txt",
+  "splitLogFiles": {
+    "ubuntu-frontend": 128237,
+    "ubuntu-backend": 123675,
+    "windows-frontend": 119733,
+    "windows-backend": 124791
+  },
+  "reason": "Seed guard freezes docs/architecture; file guard caps ordinary tracked files at 200000 bytes. New specifications relocated to docs/ux; full new CI log split by OS/frontend/backend without content changes. Original combined log remains in Git history and ignored scratch; no historical accepted evidence or guard modified.",
+  "manifestMeaning": "checkpoint/MANIFEST.json hashes original host capture bytes before Git normalization. planning-git-manifest.json hashes exact initial committed blobs, including the original combined log. Neither original is rewritten."
+}

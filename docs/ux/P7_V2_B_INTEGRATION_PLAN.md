@@ -1,6 +1,6 @@
 # P7-V2-B integration, risks and inherited findings
 
-Architecture checkpoint only. Baseline `2fa7281ba01557f484cef2878e484b6e16f3ffd2`; [command contract](P7_V2_B_WIRING_CONTRACT.md), [interaction/accessibility spec](../ux/P7_V2_B_INTERACTION_SPEC.md), [acceptance matrix](../ux/P7_V2_B_ACCEPTANCE.md), [verification record](../milestones/P7_V2_B_ARCHITECTURE_CHECKPOINT.md). All stages below require a later implementation authorization. No assignment is dispatched by this plan.
+Architecture checkpoint only. Baseline `2fa7281ba01557f484cef2878e484b6e16f3ffd2`; [command contract](P7_V2_B_WIRING_CONTRACT.md), [interaction/accessibility spec](P7_V2_B_INTERACTION_SPEC.md), [acceptance matrix](P7_V2_B_ACCEPTANCE.md), [verification record](../milestones/P7_V2_B_ARCHITECTURE_CHECKPOINT.md). All stages below require a later implementation authorization. No assignment is dispatched by this plan.
 
 ## V2A-F1 — MEDIUM, OPEN
 
@@ -19,7 +19,7 @@ Separate display limits still apply through `projectExecution`: 500 components, 
 
 Proposed message for option-product failure (actual metrics interpolated):
 
-> Connection not applied. This project needs 65,160 pin-table options (360 destination pins × 181 source pins); the interactive limit is 65,000. Your accepted wiring is unchanged. Reduce the design or export it for CLI work; the CLI still enforces compiler and solver limits.
+> Connection not applied. This project has an interactive capacity score of 65,160 (360 destination pins × 181 source pins); the limit is 65,000. This conservative score bounds the pin-table choices. Your accepted wiring is unchanged. Reduce the design or export it for CLI work; the CLI still enforces compiler and solver limits.
 
 Separate messages for nIn/O exceeding 255, UTF-8 request bytes exceeding 1,048,576, and display caps must name the actual breached limit, measured value and preserved accepted state. Do not blame the option product when it passes. For native gate/depth/closure failures retain native code/detail and say validation could not accept the proposal; an unchanged option product can still incur output-copy gate overhead. A successful compose never promises a future comparison can finish.
 
@@ -57,7 +57,7 @@ Closure gate: implemented normalization and regression results independently rev
 | WB-05 / HIGH | Forged REF metadata/identity, closure or state accepted by previews. | Local eligibility only; existing native imports/environment validation remains authoritative. No network fetching from gestures. | Codex command / OpenCode corpus; gate. |
 | WB-06 / MEDIUM | Dense/zoomed pins are unusable with keyboard/touch; false hover validity. | Native inspector picker, reason text, fixed-size equivalent controls and physical-device/AT audit. | Codex UI / OpenCode QA; untested future feature. |
 | WB-07 / MEDIUM | Output replacement needs extra native copies or changes identities. | Native output-copy and limit probes; preserve maps/count/order; exact compare/export parity; no hash fabrication. | Codex; output-target stage gate. |
-| WB-08 / MEDIUM | V2-A focus/dirty/recovery behavior regresses in Advanced. | Retain unchanged 72 browser cases; shared accepted request and review outside graph subtree; focus tests and refresh/reset tests. | Codex; inherited-test gate. |
+| WB-08 / MEDIUM | V2-A focus/dirty/recovery behavior regresses in Advanced. | Default-off connection editing preserves inert handles/read-only labels required by V1; retain unchanged 72 browser cases and use new tests with explicit mode activation; shared accepted request and review outside graph subtree; focus tests and refresh/reset tests. | Codex; inherited-test gate. |
 | WB-09 / MEDIUM | Pointer-move work amplifies option-product/render cost. | Cached indexes, no network/full cloning per move, bounded profile, measure p95 before acceptance. | Codex / OpenCode measurements; targets unmeasured. |
 | WB-10 / MEDIUM | Local/hosted native timing varies; retry hides failure. | Preserve first logs/traces; record every retry separately, unchanged limits; UNKNOWN stays inconclusive. | Lead acceptance owner; known timing limitation. |
 | WB-11 / LOW | API documentation diverges from locked React Flow 13.0.2. | Verify installed source/types and integration events, especially cancel/click/drag; no dependency upgrade in scope. | Codex; pinned API gate. |
@@ -67,7 +67,7 @@ Closure gate: implemented normalization and regression results independently rev
 
 1. **V2-B0 — findings and command seam.** After implementation authorization, fix F1/F2 with regressions, introduce the pure ReplaceBinding proposal and captured-base transaction contract, no enabled canvas wiring. Validate NAND/REF/output targets directly against real compose. No accepted fixture changes. Independent review of the local command boundary is the first implementation milestone recommended by this checkpoint.
 2. **V2-B1 — native picker and NAND replacement.** Add source/destination Review and shared state in the existing editor, including proof invalidation, no-op, cancel/retry, recovery/history and Advanced parity. Establish keyboard-only and tap-only paths before drag. Real API acceptance and failure tests must pass.
-3. **V2-B2 — drag adapter.** Enable only source-to-target handles, ephemeral preview/reason feedback, token cleanup and occupied-target replacement-to-review. Keep delete/reconnect endpoints and node dragging disabled. Test wrong directions, empty drops, Escape, duplicate callbacks, pointer cancellation and narrow layouts.
+3. **V2-B2 — drag adapter.** Add the default-off Edit connections mode; enable only source-to-target handles inside it, with ephemeral preview/reason feedback, token cleanup and occupied-target replacement-to-review. Keep delete/reconnect endpoints and node dragging disabled. Test wrong directions, empty drops, Escape, duplicate callbacks, pointer cancellation and narrow layouts.
 4. **V2-B3 — existing REF inputs and output bank.** Enable the already-defined target types only after manifest-bound REF/ordering/native-copy-budget tests pass. No new REF, source, output or stateful authoring. Ensure target-specific explanations and compare maps remain exact. All target classes are part of proposed V2-B, not silently deferred to an implemented release.
 5. **V2-B4 — adversarial integration and independent acceptance.** Run the full inherited Python/browser/showcase/schema/release/custody pipeline and dual-OS CI on the combined immutable head; record accessibility/performance/touch evidence and honest limitations. Create a draft implementation PR, preserve original failures and stop unmerged for independent review. SEC-01 remains OPEN/HIGH.
 

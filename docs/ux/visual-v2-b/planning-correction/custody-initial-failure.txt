@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Kazi\Documents\Flip\flip-visual-v2-b-architecture\scripts\check_m1_repository.py", line 722, in <module>
+    print(json.dumps(review(), indent=2))
+                     ~~~~~~^^
+  File "C:\Users\Kazi\Documents\Flip\flip-visual-v2-b-architecture\scripts\check_m1_repository.py", line 491, in review
+    require(not git("diff", SEED, "HEAD", "--", *protected), "protected seed content changed")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kazi\Documents\Flip\flip-visual-v2-b-architecture\scripts\check_m1_repository.py", line 38, in require
+    raise ValueError(message)
+ValueError: protected seed content changed

@@ -1,0 +1,716 @@
+contracts (windows-latest)	Set up job	﻿2026-11-26T22:28:13.2434766Z Current runner version: '2.338.2'
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2479511Z ##[group]Runner Image Provisioner
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2480210Z Hosted Compute Agent
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2480692Z Version: 20261111.635
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2481176Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2481768Z Build Date: 2026-11-11T01:49:01Z
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2482291Z Worker ID: {653b592c-f0ff-4338-8563-d159aaa80d8b}
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2482833Z Region: westus2
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2483283Z Cloud: Azure
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2483677Z ##[endgroup]
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2484657Z ##[group]Operating System
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2485204Z Microsoft Windows Server 2025
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2485644Z 10.0.26100
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2486068Z Datacenter
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2486450Z ##[endgroup]
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2486899Z ##[group]Runner Image
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2487391Z Image: windows-2025-vs2026
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2487855Z Version: 20261116.315.1
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2488735Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2490347Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2491096Z ##[endgroup]
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2491935Z ##[group]GITHUB_TOKEN Permissions
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2493423Z Contents: read
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2493905Z Metadata: read
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2494330Z ##[endgroup]
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2495949Z Secret source: Actions
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2496664Z Cache mode: write
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2497233Z Prepare workflow directory
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2761503Z Prepare all required actions
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.2800775Z Getting action download info
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.6227312Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.7342694Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+contracts (windows-latest)	Set up job	2026-11-26T22:28:13.8566210Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+contracts (windows-latest)	Set up job	2026-11-26T22:28:14.0124179Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+contracts (windows-latest)	Set up job	2026-11-26T22:28:14.3176132Z Complete job name: contracts (windows-latest)
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T22:28:14.4966657Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4968220Z with:
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4968784Z   fetch-depth: 0
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4969416Z   repository: Technique-S/Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4975345Z   token: ***
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4975932Z   ssh-strict: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4976517Z   ssh-user: git
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4977108Z   persist-credentials: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4977743Z   clean: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4978339Z   sparse-checkout-cone-mode: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4979083Z   fetch-tags: false
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4979669Z   show-progress: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4980254Z   lfs: false
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4980797Z   submodules: false
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4981380Z   set-safe-directory: true
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.4982325Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.6203292Z Syncing repository: Technique-S/Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.6205247Z ##[group]Getting Git version info
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.6206035Z Working directory is 'D:\a\Flip\Flip'
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.6765221Z [command]"C:\Program Files\Git\bin\git.exe" version
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:14.9998304Z git version 2.56.1.windows.1
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0044028Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0061466Z Temporarily overriding HOME='D:\a\_temp\9280bfe7-e2f3-4b4d-b306-346a9b622881' before making global git config changes
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0064117Z Adding repository directory to the temporary git global config as a safe directory
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0070350Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Flip\Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0753722Z Deleting the contents of 'D:\a\Flip\Flip'
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0758746Z ##[group]Initializing the repository
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.0766309Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Flip\Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.1571172Z Initialized empty Git repository in D:/a/Flip/Flip/.git/
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.1611181Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Technique-S/Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2237560Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2239691Z ##[group]Disabling automatic garbage collection
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2241447Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2570889Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2571882Z ##[group]Setting up auth
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2581336Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:15.2899383Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:16.6909318Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:16.7212334Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:17.1906504Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:17.2238938Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:17.2239609Z ##[group]Fetching the repository
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:17.2250485Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7399766Z From https://github.com/Technique-S/Flip
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7400386Z  * [new branch]      codex/flip-m1-core     -> origin/codex/flip-m1-core
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7400938Z  * [new branch]      codex/flip-m1-integration -> origin/codex/flip-m1-integration
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7401517Z  * [new branch]      codex/flip-m2-import-integrity -> origin/codex/flip-m2-import-integrity
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7402120Z  * [new branch]      codex/flip-m2-integration -> origin/codex/flip-m2-integration
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7405479Z  * [new branch]      codex/flip-m3-composition-canary -> origin/codex/flip-m3-composition-canary
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7405947Z  * [new branch]      codex/flip-m3-integration -> origin/codex/flip-m3-integration
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7406333Z  * [new branch]      codex/flip-m4-integration -> origin/codex/flip-m4-integration
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7406866Z  * [new branch]      codex/flip-m4-product-workflow -> origin/codex/flip-m4-product-workflow
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7407458Z  * [new branch]      codex/flip-m45-agent-portable-integration -> origin/codex/flip-m45-agent-portable-integration
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7408018Z  * [new branch]      codex/flip-m45-agent-portable-postmerge -> origin/codex/flip-m45-agent-portable-postmerge
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7408515Z  * [new branch]      codex/flip-m45-agent-workflow -> origin/codex/flip-m45-agent-workflow
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7409041Z  * [new branch]      codex/flip-m45-agent-workflow-acceptance -> origin/codex/flip-m45-agent-workflow-acceptance
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7409663Z  * [new branch]      codex/flip-m45-authority-design -> origin/codex/flip-m45-authority-design
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7410322Z  * [new branch]      codex/flip-m45-circuit-library -> origin/codex/flip-m45-circuit-library
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7411184Z  * [new branch]      codex/flip-m45-debugging -> origin/codex/flip-m45-debugging
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7412351Z  * [new branch]      codex/flip-m45-library-acceptance -> origin/codex/flip-m45-library-acceptance
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7414145Z  * [new branch]      codex/flip-m45-portable-project -> origin/codex/flip-m45-portable-project
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7414865Z  * [new branch]      codex/flip-m45-release-package -> origin/codex/flip-m45-release-package
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7415595Z  * [new branch]      codex/flip-m45-release-readiness -> origin/codex/flip-m45-release-readiness
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7416388Z  * [new branch]      codex/flip-pre-m5-capability-audit -> origin/codex/flip-pre-m5-capability-audit
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7417153Z  * [new branch]      codex/flip-pre-m5-expansion-audit -> origin/codex/flip-pre-m5-expansion-audit
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7417881Z  * [new branch]      codex/flip-visual-architecture -> origin/codex/flip-visual-architecture
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7418557Z  * [new branch]      codex/flip-visual-v1   -> origin/codex/flip-visual-v1
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7419254Z  * [new branch]      codex/flip-visual-v1-postmerge -> origin/codex/flip-visual-v1-postmerge
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7419893Z  * [new branch]      codex/flip-visual-v2-a -> origin/codex/flip-visual-v2-a
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7420352Z  * [new branch]      main                   -> origin/main
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7420939Z  * [new branch]      opencode/flip-m2-adversarial-fixtures -> origin/opencode/flip-m2-adversarial-fixtures
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7421796Z  * [new branch]      opencode/flip-m2-independent-review -> origin/opencode/flip-m2-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7422578Z  * [new branch]      opencode/flip-m3-independent-review -> origin/opencode/flip-m3-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7423384Z  * [new branch]      opencode/flip-m3-verification-corpus -> origin/opencode/flip-m3-verification-corpus
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7424176Z  * [new branch]      opencode/flip-m4-independent-review -> origin/opencode/flip-m4-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7424933Z  * [new branch]      opencode/flip-m4-ux-acceptance -> origin/opencode/flip-m4-ux-acceptance
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7426547Z  * [new branch]      opencode/flip-m45-agent-portable-final-review -> origin/opencode/flip-m45-agent-portable-final-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7427377Z  * [new branch]      opencode/flip-m45-agent-portable-independent-review -> origin/opencode/flip-m45-agent-portable-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7428027Z  * [new branch]      opencode/flip-m45-agent-workflow-fixtures -> origin/opencode/flip-m45-agent-workflow-fixtures
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7428641Z  * [new branch]      opencode/flip-m45-agent-workflow-independent-review -> origin/opencode/flip-m45-agent-workflow-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7429835Z  * [new branch]      opencode/flip-m45-authorization-security-review -> origin/opencode/flip-m45-authorization-security-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7430407Z  * [new branch]      opencode/flip-m45-debugging-fixtures -> origin/opencode/flip-m45-debugging-fixtures
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7431980Z  * [new branch]      opencode/flip-m45-debugging-independent-review -> origin/opencode/flip-m45-debugging-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7432969Z  * [new branch]      opencode/flip-m45-library-discovery-research -> origin/opencode/flip-m45-library-discovery-research
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7433603Z  * [new branch]      opencode/flip-m45-library-final-review -> origin/opencode/flip-m45-library-final-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7434224Z  * [new branch]      opencode/flip-m45-library-independent-review -> origin/opencode/flip-m45-library-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7434825Z  * [new branch]      opencode/flip-m45-portable-project-evidence -> origin/opencode/flip-m45-portable-project-evidence
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7435585Z  * [new branch]      opencode/flip-m45-portable-project-independent-review -> origin/opencode/flip-m45-portable-project-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7436608Z  * [new branch]      opencode/flip-m45-release-acceptance -> origin/opencode/flip-m45-release-acceptance
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7437495Z  * [new branch]      opencode/flip-m45-release-delta-review -> origin/opencode/flip-m45-release-delta-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7438551Z  * [new branch]      opencode/flip-m45-release-evidence -> origin/opencode/flip-m45-release-evidence
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7439885Z  * [new branch]      opencode/flip-m45-release-final-review -> origin/opencode/flip-m45-release-final-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7440460Z  * [new branch]      opencode/flip-visual-v1-independent-review -> origin/opencode/flip-visual-v1-independent-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7441032Z  * [new branch]      opencode/flip-visual-v1-security-rereview -> origin/opencode/flip-visual-v1-security-rereview
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7441572Z  * [new branch]      opencode/flip-visual-v2a-final-review -> origin/opencode/flip-visual-v2a-final-review
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7442067Z  * [new branch]      opencode/flip-visual-v2a-test-design -> origin/opencode/flip-visual-v2a-test-design
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7463671Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7834192Z   origin/main
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.7872459Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8194939Z 2fa7281ba01557f484cef2878e484b6e16f3ffd2
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8229096Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8229445Z ##[group]Determining the checkout info
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8229764Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8236474Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.8667359Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.9026864Z ##[group]Checking out the ref
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:18.9033744Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:19.2282323Z Switched to a new branch 'main'
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:19.2299224Z branch 'main' set up to track 'origin/main'.
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:19.2339082Z ##[endgroup]
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:19.2705816Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+contracts (windows-latest)	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T22:28:19.2967768Z 2fa7281ba01557f484cef2878e484b6e16f3ffd2
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-11-26T22:28:19.3332411Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3333085Z with:
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3333254Z   python-version: 3.14.6
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3333466Z   check-latest: false
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3335410Z   token: ***
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3335577Z   update-environment: true
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3335769Z   allow-prereleases: false
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3335946Z   freethreaded: false
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.3336107Z ##[endgroup]
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.4581230Z ##[group]Installed versions
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.4596838Z Version 3.14.6 was not found in the local cache
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.4759375Z (node:840) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:19.4759934Z (Use `node --trace-deprecation ...` to show where the warning was created)
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:20.0257596Z Version 3.14.6 is available for downloading
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:20.0258651Z Download from "https://github.com/actions/python-versions/releases/download/3.14.6-27283001424/python-3.14.6-win32-x64.zip"
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:20.5895308Z Extract downloaded archive
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:20.6655246Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\python-3.14.6-win32-x64.zip', 'D:\a\_temp\a61016f2-8bd9-4b05-9234-d3eb955f8c06', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\python-3.14.6-win32-x64.zip' -DestinationPath 'D:\a\_temp\a61016f2-8bd9-4b05-9234-d3eb955f8c06' -Force } else { throw $_ } } ;"
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:21.0804834Z Execute installation script
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.4947098Z Check if Python hostedtoolcache folder exist...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.4948742Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5040916Z Check if current Python version is installed...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5041218Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5174846Z Python3.14 (x64) was found in C:\hostedtoolcache\windows\Python...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5175320Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5643124Z Deleting C:\hostedtoolcache\windows\Python\3.14.10\x64...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:24.5643537Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.3525270Z VERBOSE: Performing the operation "Remove File" on target "C:\hostedtoolcache\windows\Python\3.14.10\x64.complete".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.3526149Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.3533001Z Remove registry entries for Python 3.14(x64)...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.3534086Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6563684Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6564549Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\26347666EA4329C458B4E
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6565410Z A1F0CE7F351".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6565565Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6579888Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6580839Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\26D512C9856305D45B81B
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6581470Z 90F2C2B528B".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6581627Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6598100Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6598894Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\520DB0D0CEC7DE44CAF96
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6599525Z 08B5AF7C1AB".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6599650Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6617149Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6617939Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\6D8D9B9DC911B2947BECD
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6618605Z C8A615CBDDC".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6618758Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6629678Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6634022Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\7370BA40C46B5B84A8048
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6634731Z C193EF077CD".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6634887Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6647514Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6648293Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\9CF107D1A4199C847BE83
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6648721Z 78B39A991F4".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6648823Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6660431Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6661140Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A256BFB4015E10B47B4A5
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6661673Z B232E27F1EA".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6661774Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6680097Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6680907Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\EC1464E1ACD4D014BA323
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6681527Z 03927A74FA5".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6681620Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6893728Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6894350Z HKEY_CLASSES_ROOT\Installer\Products\26347666EA4329C458B4EA1F0CE7F351".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6894714Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6910384Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6910971Z HKEY_CLASSES_ROOT\Installer\Products\26D512C9856305D45B81B90F2C2B528B".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.6911337Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7104468Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7105067Z HKEY_CLASSES_ROOT\Installer\Products\520DB0D0CEC7DE44CAF9608B5AF7C1AB".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7105429Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7203058Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7204882Z HKEY_CLASSES_ROOT\Installer\Products\6D8D9B9DC911B2947BECDC8A615CBDDC".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7205260Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7242593Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7243018Z HKEY_CLASSES_ROOT\Installer\Products\7370BA40C46B5B84A8048C193EF077CD".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7243317Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7393801Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7394371Z HKEY_CLASSES_ROOT\Installer\Products\9CF107D1A4199C847BE8378B39A991F4".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7394703Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7433271Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7433861Z HKEY_CLASSES_ROOT\Installer\Products\A256BFB4015E10B47B4A5B232E27F1EA".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7434225Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7985925Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.7986562Z HKEY_CLASSES_ROOT\Installer\Products\EC1464E1ACD4D014BA32303927A74FA5".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8015113Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8105711Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8106523Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Miniconda3 py314_26.9.4-1 (Python 3.14.10 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8107113Z 64-bit)".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8107242Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8147699Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8148465Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{04AB0737-B64C-48B5-8A40-C891E30F77DC}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8148952Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8168860Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8169699Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{0D0BD025-7CEC-44ED-AC9F-06B8A57F1CBA}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8170080Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8202617Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8203408Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{1D701FC9-914A-48C9-B78E-73B8939A194F}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8205279Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8215381Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8216123Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{1E4641CE-4DCA-410D-AB23-0393727AF45A}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8216612Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8283770Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8284715Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{4BFB652A-E510-4B01-B7A4-B532E2721FAE}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8285240Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8326519Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8327118Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{66674362-34AE-4C92-854B-AEF1C07E3F15}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8327658Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8394526Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8395275Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{9C215D62-3658-4D50-B518-9BF0C2B225B8}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8395786Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8489674Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8490439Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{D9B9D8D6-119C-492B-B7CE-CDA816C5DBCD}".
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.8490830Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9319950Z Create Python 3.14.6 folder in C:\hostedtoolcache\windows\Python
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9320290Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9360907Z Copy Python binaries to C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9361321Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9587978Z Install Python 3.14.6 in C:\hostedtoolcache\windows\Python...
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:32.9588333Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9036698Z Create python3 symlink
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9037011Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9542464Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9543183Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9546287Z Directory: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9546934Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9546953Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9555100Z Mode                 LastWriteTime         Length Name
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9558598Z ----                 -------------         ------ ----
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9566691Z -a---l        11/26/2026  10:28 PM              0 python3.exe
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9573553Z Install and upgrade Pip
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:28:58.9574348Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.0692353Z Collecting pip
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.1134401Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.1424731Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.2912595Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.2913470Z ---------------------------------------- 2.0/2.0 MB 14.3 MB/s  0:00:00
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.2914809Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3248387Z Installing collected packages: pip
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3248792Z Attempting uninstall: pip
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3272468Z Found existing installation: pip 26.1.2
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3754747Z Uninstalling pip-26.1.2:
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3755067Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:00.3897294Z Successfully uninstalled pip-26.1.2
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.5541221Z Successfully installed pip-26.3
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6050268Z Create complete file
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6050476Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6061986Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6062302Z 
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6550544Z Successfully set up CPython (3.14.6)
+contracts (windows-latest)	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-11-26T22:29:02.6551488Z ##[endgroup]
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	﻿2026-11-26T22:29:02.6814488Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6814862Z with:
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6815023Z   node-version: 24.18.0
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6815196Z   always-auth: false
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6815356Z   check-latest: false
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6817272Z   token: ***
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6817429Z env:
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6817647Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6818011Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6818370Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6818675Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6818971Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.6819214Z ##[endgroup]
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.8119006Z Attempting to download 24.18.0...
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.8256182Z (node:5328) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:02.8257170Z (Use `node --trace-deprecation ...` to show where the warning was created)
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:03.3475743Z Acquiring 24.18.0 - x64 from https://github.com/actions/node-versions/releases/download/24.18.0-28070977815/node-24.18.0-win32-x64.7z
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:03.6828960Z Extracting ...
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:05.4329662Z Adding to the cache ...
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:08.6058836Z ##[group]Environment details
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:10.0612613Z node: v24.18.0
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:10.0612988Z npm: 11.16.0
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:10.0613258Z yarn: 1.22.22
+contracts (windows-latest)	Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020	2026-11-26T22:29:10.0613802Z ##[endgroup]
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	﻿2026-11-26T22:29:10.0905115Z ##[group]Run python -m pip install uv==0.9.11
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.0905514Z ^[[36;1mpython -m pip install uv==0.9.11^[[0m
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1024342Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1024633Z env:
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1024866Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1025228Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1025568Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1025889Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1026192Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:10.1026433Z ##[endgroup]
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:11.5861008Z Collecting uv==0.9.11
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:11.6412620Z   Downloading uv-0.9.11-py3-none-win_amd64.whl.metadata (12 kB)
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:11.7215177Z Downloading uv-0.9.11-py3-none-win_amd64.whl (21.6 MB)
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:12.4630981Z    ---------------------------------------- 21.6/21.6 MB 29.6 MB/s  0:00:00
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:12.5391412Z Installing collected packages: uv
+contracts (windows-latest)	Run python -m pip install uv==0.9.11	2026-11-26T22:29:12.8118028Z Successfully installed uv-0.9.11
+contracts (windows-latest)	Run uv sync --locked	﻿2026-11-26T22:29:12.9737707Z ##[group]Run uv sync --locked
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9738036Z ^[[36;1muv sync --locked^[[0m
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9794186Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9794479Z env:
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9794718Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9795056Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9795395Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9795944Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9796252Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:12.9796513Z ##[endgroup]
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:13.7451747Z Using CPython 3.14.6 interpreter at: C:\hostedtoolcache\windows\Python\3.14.6\x64\python3.exe
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:13.7453168Z Creating virtual environment at: .venv
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:13.7533504Z Resolved 36 packages in 2ms
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.7031636Z    Building flip-api @ file:///D:/a/Flip/Flip/packages/flip-api
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.7086781Z    Building flip-cli @ file:///D:/a/Flip/Flip/packages/flip-cli
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.7102925Z    Building flip-core @ file:///D:/a/Flip/Flip/packages/flip-core
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.8124769Z Downloading setuptools (1.1MiB)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.8345920Z Downloading pygments (1.2MiB)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.8381892Z Downloading python-sat (2.2MiB)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.8402914Z Downloading ruff (13.7MiB)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:14.8432384Z Downloading pydantic-core (1.9MiB)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:15.2046056Z  Downloaded pydantic-core
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:15.4407221Z  Downloaded ruff
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:15.4732669Z  Downloaded python-sat
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:15.7396868Z  Downloaded pygments
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:15.8731766Z  Downloaded setuptools
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.2806320Z       Built flip-core @ file:///D:/a/Flip/Flip/packages/flip-core
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3331196Z       Built flip-api @ file:///D:/a/Flip/Flip/packages/flip-api
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3478602Z       Built flip-cli @ file:///D:/a/Flip/Flip/packages/flip-cli
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3553060Z Prepared 35 packages in 4.60s
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3577606Z warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3578564Z          If the cache and target directories are on different filesystems, hardlinking may not be supported.
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.3580553Z          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6373347Z Installed 35 packages in 281ms
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6374154Z  + annotated-doc==0.0.6
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6375514Z  + annotated-types==0.8.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6377245Z  + anyio==4.11.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6377519Z  + attrs==26.1.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6378881Z  + certifi==2026.10.23
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6380073Z  + click==8.5.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6381369Z  + colorama==0.4.6
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6382357Z  + fastapi==0.121.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6384287Z  + flip-api==0.1.0 (from file:///D:/a/Flip/Flip/packages/flip-api)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6385733Z  + flip-cli==0.1.0 (from file:///D:/a/Flip/Flip/packages/flip-cli)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6387078Z  + flip-core==0.1.0 (from file:///D:/a/Flip/Flip/packages/flip-core)
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6388295Z  + h11==0.16.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6389483Z  + httpcore==1.0.9
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6390201Z  + httpx==0.28.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6391066Z  + idna==3.20
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6392063Z  + iniconfig==2.3.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6393112Z  + jsonschema==4.25.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6394196Z  + jsonschema-specifications==2025.9.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6395342Z  + packaging==26.3
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6396219Z  + pluggy==1.7.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6397245Z  + pydantic==2.12.4
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6398275Z  + pydantic-core==2.41.5
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6399308Z  + pygments==2.21.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6400551Z  + pytest==9.0.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6401411Z  + python-sat==1.9.dev23
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6403861Z  + referencing==0.37.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6404172Z  + rpds-py==2026.9.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6405290Z  + ruff==0.14.5
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6407080Z  + setuptools==80.9.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6408341Z  + six==1.17.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6409565Z  + sniffio==1.3.1
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6410688Z  + starlette==0.49.3
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6412006Z  + typing-extensions==4.16.0
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6413071Z  + typing-inspection==0.4.5
+contracts (windows-latest)	Run uv sync --locked	2026-11-26T22:29:18.6414150Z  + uvicorn==0.38.0
+contracts (windows-latest)	Run npm ci	﻿2026-11-26T22:29:19.0109314Z ##[group]Run npm ci
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0109640Z ^[[36;1mnpm ci^[[0m
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0168095Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0168500Z env:
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0168790Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0169203Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0169643Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0170061Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0170442Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:19.0170759Z ##[endgroup]
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1726611Z 
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1727230Z added 37 packages, and audited 38 packages in 3s
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1727454Z 
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1728323Z 1 package is looking for funding
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1729424Z   run `npm fund` for details
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1739770Z 
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1740041Z found 0 vulnerabilities
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1752150Z npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1752664Z npm warn allow-scripts   esbuild@0.28.2 (postinstall: node install.js)
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1753202Z npm warn allow-scripts
+contracts (windows-latest)	Run npm ci	2026-11-26T22:29:22.1753695Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+contracts (windows-latest)	Run npm run lint	﻿2026-11-26T22:29:24.0182489Z ##[group]Run npm run lint
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0182878Z ^[[36;1mnpm run lint^[[0m
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0253983Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0254263Z env:
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0254482Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0254828Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0255164Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0255478Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0255777Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.0256036Z ##[endgroup]
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.6247671Z 
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.6248468Z > flip-workbench@0.1.0 lint
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.6248902Z > biome lint src tests
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.6249099Z 
+contracts (windows-latest)	Run npm run lint	2026-11-26T22:29:24.7653851Z Checked 29 files in 45ms. No fixes applied.
+contracts (windows-latest)	Run npm run build	﻿2026-11-26T22:29:24.8577927Z ##[group]Run npm run build
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8578320Z ^[[36;1mnpm run build^[[0m
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8651276Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8652039Z env:
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8652386Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8652964Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8653546Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8654069Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8654587Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:24.8655798Z ##[endgroup]
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:25.4278173Z 
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:25.4278667Z > flip-workbench@0.1.0 build
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:25.4279000Z > tsc --noEmit && node build.mjs
+contracts (windows-latest)	Run npm run build	2026-11-26T22:29:25.4279141Z 
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	﻿2026-11-26T22:29:25.9159673Z ##[group]Run npx playwright install --with-deps chromium
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9160098Z ^[[36;1mnpx playwright install --with-deps chromium^[[0m
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9216476Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9216759Z env:
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9216979Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9217336Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9217683Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9218003Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9218308Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:29:25.9218568Z ##[endgroup]
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8484397Z 
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8493203Z Success Restart Needed Exit Code      Feature Result                               
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8494322Z ------- -------------- ---------      --------------                               
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8498521Z True    No             Success        {Media Foundation}                           
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8499287Z 
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.8499853Z 
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:54.9271074Z Downloading Chrome for Testing 159.0.8154.6 (playwright chromium v1255)^[[2m from https://cdn.playwright.dev/builds/cft/159.0.8154.6/win64/chrome-win64.zip^[[22m
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:55.2775345Z |                                                                                |   0% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:55.5035975Z |■■■■■■■■                                                                        |  10% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:55.6327035Z |■■■■■■■■■■■■■■■■                                                                |  20% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:55.7866726Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:55.9177132Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.0689699Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.1991638Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.3355088Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.4888465Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.6339066Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:31:56.7589664Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 207.3 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.0941296Z Chrome for Testing 159.0.8154.6 (playwright chromium v1255) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium-1255
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.0946985Z Downloading FFmpeg (playwright ffmpeg v1013)^[[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-win64.zip^[[22m
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4072900Z |                                                                                |   0% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4166917Z |■■■■■■■■                                                                        |  10% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4208153Z |■■■■■■■■■■■■■■■■                                                                |  20% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4244521Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4262612Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4276273Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4289920Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4309290Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4329109Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4342885Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4358957Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 1.6 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4937530Z FFmpeg (playwright ffmpeg v1013) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\ffmpeg-1013
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.4942989Z Downloading Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255)^[[2m from https://cdn.playwright.dev/builds/cft/159.0.8154.6/win64/chrome-headless-shell-win64.zip^[[22m
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.8336242Z |                                                                                |   0% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:01.9933473Z |■■■■■■■■                                                                        |  10% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.0854448Z |■■■■■■■■■■■■■■■■                                                                |  20% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.1525990Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.2195717Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.3003963Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.3677918Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.4520873Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.5185383Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.5870607Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:02.6662091Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 123.8 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.4165030Z Chrome Headless Shell 159.0.8154.6 (playwright chromium-headless-shell v1255) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium_headless_shell-1255
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.4170226Z Downloading Winldd (playwright winldd v1007)^[[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/winldd/1007/winldd-win64.zip^[[22m
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7199227Z |                                                                                |   1% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7206573Z |■■■■■■■■                                                                        |  10% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7221361Z |■■■■■■■■■■■■■■■■                                                                |  20% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7225662Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  31% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7237435Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7244444Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  62% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7253633Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  74% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7279992Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  87% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7283726Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0.1 MiB
+contracts (windows-latest)	Run npx playwright install --with-deps chromium	2026-11-26T22:32:05.7493932Z Winldd (playwright winldd v1007) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\winldd-1007
+contracts (windows-latest)	Run npm test	﻿2026-11-26T22:32:05.8468521Z ##[group]Run npm test
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8468856Z ^[[36;1mnpm test^[[0m
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8526757Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8527087Z env:
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8527361Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8527774Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8528191Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8528556Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8528942Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:05.8529240Z ##[endgroup]
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:06.3808174Z 
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:06.3809118Z > flip-workbench@0.1.0 test
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:06.3809627Z > playwright test
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:06.3809861Z 
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:10.6257827Z [WebServer] INFO:     Started server process [10032]
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:10.6259236Z [WebServer] INFO:     Waiting for application startup.
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:10.6259743Z [WebServer] INFO:     Application startup complete.
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:10.6260271Z [WebServer] INFO:     Uvicorn running on http://127.0.0.1:18761 (Press CTRL+C to quit)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:11.2518959Z 
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:11.2519811Z Running 72 tests using 1 worker
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:11.2520081Z 
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:16.2304023Z   ok  1 tests\acceptance.spec.ts:19:1 › B01 keyboard-only complete export journey (2.4s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:16.9332721Z   ok  2 tests\acceptance.spec.ts:34:1 › B02 focus recovery and B06 error state (692ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:22.0368064Z   ok  3 tests\acceptance.spec.ts:67:1 › B03 accessible labels and B05 responsive axe audit (5.1s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:22.9924450Z   ok  4 tests\acceptance.spec.ts:102:1 › B04 result announcement, mappings, and semantic differences (947ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:24.5315988Z   ok  5 tests\acceptance.spec.ts:123:1 › B07 timeout recovery and B08 repeated runs (1.5s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:25.3718180Z   ok  6 tests\acceptance.spec.ts:147:1 › B09 refresh recovery, confirmed reset and storage failure (830ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:25.7083169Z   ok  7 tests\acceptance.spec.ts:174:1 › B10 download name and replay is covered by workflow suite (326ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:26.2421517Z   ok  8 tests\acceptance.spec.ts:184:1 › B11 preflight separates three structural outcomes (524ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:33.8840617Z   ok  9 tests\agent-portable.spec.ts:58:1 › combined named tests, correction, explicit new revision, CLI replay and authorization stop (7.6s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:38.2716263Z   ok 10 tests\agent-portable.spec.ts:179:1 › cancel a late workflow response without selecting its revised package (4.4s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:39.6224963Z   ok 11 tests\debugging-acceptance.spec.ts:32:1 › acceptance: changing the project invalidates an already selected proposal before apply (1.3s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:42.3472570Z   ok 12 tests\debugging-acceptance.spec.ts:71:1 › acceptance: repeated correction checks are fresh and refresh restores data without undo or proof authority (2.7s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:45.5280801Z   ok 13 tests\debugging.spec.ts:19:1 › debugger replays paths, verifies a separate correction, applies and reverts with CLI parity (3.2s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:46.5084368Z   ok 14 tests\debugging.spec.ts:104:1 › debugger narrow viewport, reduced motion and production resource UNKNOWN (972ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:47.1063274Z   ok 15 tests\debugging.spec.ts:146:1 › debugger discards an in-flight result when the project mapping changes (589ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:47.5362043Z   ok 16 tests\library-acceptance.spec.ts:5:1 › F-01 exact malformed-favorites restore retains bytes and recovers seeds (417ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:47.9755616Z   ok 17 tests\library-acceptance.spec.ts:34:1 › F-02 favorite-only metadata is USER_SUPPLIED in UI and legacy storage migration (430ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:48.3990859Z   ok 18 tests\library-acceptance.spec.ts:87:1 › LC01 invalid saved catalog recovers known addresses without overwriting saved bytes (416ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:48.8591952Z   ok 19 tests\library-acceptance.spec.ts:119:1 › LC02 recent imports display most recent first after browser restore (452ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:50.7359249Z   ok 20 tests\library.spec.ts:17:1 › L01 discovery, sparse IDs, metadata, alias, favorite, import and recent persistence (1.9s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:51.9906929Z   ok 21 tests\library.spec.ts:94:1 › L02 known-address fallback, stale favorites, bounded pagination and mobile (1.2s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:52.7565915Z   ok 22 tests\library.spec.ts:137:1 › L03 resumes a pinned circuit page and skips missing IDs (756ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:54.5705808Z   ok 23 tests\portable.spec.ts:17:1 › portable CLI-compatible package, tests, revision save, refresh and explicit downgrade (1.8s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:54.9603329Z   ok 24 tests\portable.spec.ts:124:1 › portable import rejects tampering and preserves the open project (381ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.7672437Z   ok 25 tests\review.spec.ts:3:1 › F-02 computed mapping and disclosure markers; F-03 timeout and accessible retry (788ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8420365Z   ok 26 tests\visual-edit.spec.ts:63:1 › V2-A pure proposals compile with the real canonical engine and preserve REF/output bindings (41ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8522836Z   ok 27 tests\visual-edit.spec.ts:113:1 › V2-A removal refuses both final-output and preceding-input references, including REF targets (4ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8612994Z   ok 28 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: null (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8683125Z   ok 29 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: kind (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8755579Z   ok 30 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: duplicate (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8894250Z   ok 31 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: badId (7ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.8963029Z   ok 32 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: missingInput (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9042679Z   ok 33 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: nullInput (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9156551Z   ok 34 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: boolPin (2ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9246221Z   ok 35 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: negative (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9318299Z   ok 36 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: forward (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9495603Z   ok 37 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: extra (12ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9564170Z   ok 38 tests\visual-edit.spec.ts:148:2 › V2-A malformed command: pinExtra (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:55.9831785Z   ok 39 tests\visual-edit.spec.ts:155:1 › V2-A interactive boundary rejects the first over-budget edit while the native compiler accepts the baseline (20ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:56.1613687Z   ok 40 tests\visual-edit.spec.ts:174:1 › V2-A bounded history restores exact full requests, diverges safely, and never mutates previous history (172ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:58.0728942Z   ok 41 tests\visual-edit.spec.ts:215:1 › V2-A explicit creation, inspector, Advanced parity, and only existing compose network calls (1.9s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:32:59.3958000Z   ok 42 tests\visual-edit.spec.ts:278:1 › V2-A multiple undo/redo and a divergent edit restore ordering and invalidate redo (1.3s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:00.3176674Z   ok 43 tests\visual-edit.spec.ts:304:1 › V2-A safe removal confirms an unused NAND and blocks a referenced output (912ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:01.0337591Z   ok 44 tests\visual-edit.spec.ts:332:1 › V2-A invalid local drafts never change or submit the accepted candidate (706ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:01.8557706Z   ok 45 tests\visual-edit.spec.ts:362:1 › V2-A cancellation ignores a late real compiler response and rapid repeated submit is one transaction (813ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:03.2985490Z   ok 46 tests\visual-edit.spec.ts:424:1 › V2-A old proof stays historical after undo, while export checkpoints determine dirty state (1.4s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:03.8782759Z   ok 47 tests\visual-edit.spec.ts:474:1 › V2-A invalid Advanced candidate remains a draft and both modes retain the accepted request (571ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:04.4781402Z   ok 48 tests\visual-edit.spec.ts:498:1 › V2-A keyboard-only add, selection and confirmed remove keep focus usable (589ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:05.2800982Z   ok 49 tests\visual-edit.spec.ts:546:1 › V2-A failed native validation preserves the accepted candidate and the complete draft (794ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:06.0674714Z   ok 50 tests\visual-edit.spec.ts:566:1 › V2-A interrupted complete edit is recovered only after real authoritative revalidation (778ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:06.8261767Z   ok 51 tests\visual-edit.spec.ts:641:1 › V2-A explicit workspace reset clears private edit recovery and export checkpoint data (750ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.3635740Z   ok 52 tests\visual-edit.spec.ts:673:1 › V2-A Advanced rows become focusable only after validation and commit does not steal field focus (530ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8178508Z   ok 53 tests\visual-edit.spec.ts:708:1 › V2-A existing Advanced input focus survives authoritative validation without moving to NAND controls (444ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8418150Z   ok 54 tests\visual-readonly.spec.ts:14:1 › projection preserves exact recipe, every scalar mapping, order and stable destination identity (9ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8489481Z   ok 55 tests\visual-readonly.spec.ts:81:1 › projection handles zero-input multioutput REF and uint64 decimal IDs without precision loss (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8568451Z   ok 56 tests\visual-readonly.spec.ts:128:2 › projection refuses null input without mutating it (2ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8631184Z   ok 57 tests\visual-readonly.spec.ts:128:2 › projection refuses kind input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8693795Z   ok 58 tests\visual-readonly.spec.ts:128:2 › projection refuses forward input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8756598Z   ok 59 tests\visual-readonly.spec.ts:128:2 › projection refuses negative input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8830351Z   ok 60 tests\visual-readonly.spec.ts:128:2 › projection refuses arity input without mutating it (2ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8894373Z   ok 61 tests\visual-readonly.spec.ts:128:2 › projection refuses stateful input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.8957575Z   ok 62 tests\visual-readonly.spec.ts:128:2 › projection refuses binding input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.9024936Z   ok 63 tests\visual-readonly.spec.ts:128:2 › projection refuses duplicate input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.9088369Z   ok 64 tests\visual-readonly.spec.ts:128:2 › projection refuses huge input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:07.9150553Z   ok 65 tests\visual-readonly.spec.ts:128:2 › projection refuses missing input without mutating it (1ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:08.8639029Z   ok 66 tests\visual-readonly.spec.ts:156:1 › real sample visual/advanced parity, all rendered connections, disabled mutation and zero additional network (941ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:10.5125972Z   ok 67 tests\visual-readonly.spec.ts:259:1 › keyboard pin inspector, zoom/pan/fit, responsive axe and StrictMode renderer (1.6s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:10.8901746Z   ok 68 tests\visual-readonly.spec.ts:317:1 › unsupported visual recipe fails visibly while Advanced remains available (370ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:11.3168386Z   ok 69 tests\visual-readonly.spec.ts:339:1 › Visual explains and returns to existing Advanced execution actions (419ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:11.3264798Z   ok 70 tests\visual-readonly.spec.ts:361:1 › projection rejects noncanonical aliases and enforces allocation budgets early (4ms)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:15.0376908Z   ok 71 tests\workflow.spec.ts:17:1 › historical sample, swapped outputs, repair, CLI parity and evidence replay (3.7s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:16.1779084Z   ok 72 tests\workflow.spec.ts:92:1 › keyboard and narrow screen, import, inspect, add source and revalidate (1.1s)
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:16.5555989Z 
+contracts (windows-latest)	Run npm test	2026-11-26T22:33:16.5562376Z   72 passed (1.2m)
+contracts (windows-latest)	Run node apps/showcase/build.mjs	﻿2026-11-26T22:33:16.6216191Z ##[group]Run node apps/showcase/build.mjs
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6216839Z ^[[36;1mnode apps/showcase/build.mjs^[[0m
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6274843Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6275120Z env:
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6275335Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6275690Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6276027Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6276330Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6276633Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.6276894Z ##[endgroup]
+contracts (windows-latest)	Run node apps/showcase/build.mjs	2026-11-26T22:33:16.9213607Z Built 19 deterministic static files; no client JavaScript, backend, native proof or network.
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	﻿2026-11-26T22:33:17.0214304Z ##[group]Run node apps/showcase/build.mjs --check
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0214881Z ^[[36;1mnode apps/showcase/build.mjs --check^[[0m
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0272754Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0273036Z env:
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0273255Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0273607Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0273954Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0274262Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0274565Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.0274805Z ##[endgroup]
+contracts (windows-latest)	Run node apps/showcase/build.mjs --check	2026-11-26T22:33:17.3076682Z Checked 19 deterministic static files; no client JavaScript, backend, native proof or network.
+contracts (windows-latest)	Check release guard before execution	﻿2026-11-26T22:33:17.4044749Z ##[group]Run node --input-type=module <<'JS'
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4045114Z ^[[36;1mnode --input-type=module <<'JS'^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4045383Z ^[[36;1mimport {readFileSync} from 'node:fs';^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4045638Z ^[[36;1mimport {createHash} from 'node:crypto';^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4045894Z ^[[36;1mimport assert from 'node:assert/strict';^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4046183Z ^[[36;1mconst sha = b => createHash('sha256').update(b).digest('hex');^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4046528Z ^[[36;1mconst raw = readFileSync('docs/release/V1_RELEASE_TRUST.json');^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4047050Z ^[[36;1massert.equal(sha(raw), 'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0', 'CI release trust metadata mismatch');^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4047514Z ^[[36;1mconst trust = JSON.parse(raw);^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4048213Z ^[[36;1mfor (const [p, expected] of Object.entries({...trust.currentSourceHashes,...trust.bootstrapSourceHashes})) assert.equal(sha(Buffer.from(readFileSync(p,'utf8').replaceAll('\r\n','\n'))), expected, 'CI checker integrity mismatch');^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4048914Z ^[[36;1mJS^[[0m
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4063070Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4063378Z env:
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4063589Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4063937Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4064272Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4064577Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4064887Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Check release guard before execution	2026-11-26T22:33:17.4065129Z ##[endgroup]
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	﻿2026-11-26T22:33:17.6529323Z ##[group]Run node scripts/check_m45_release_package.mjs
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6529707Z ^[[36;1mnode scripts/check_m45_release_package.mjs^[[0m
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6588717Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6589003Z env:
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6589224Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6589596Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6589935Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6590247Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6590549Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:17.6590792Z ##[endgroup]
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:18.2249067Z R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies.
+contracts (windows-latest)	Run node scripts/check_m45_release_package.mjs	2026-11-26T22:33:18.2251265Z PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.
+contracts (windows-latest)	Run node apps/showcase/test.mjs	﻿2026-11-26T22:33:18.3257691Z ##[group]Run node apps/showcase/test.mjs
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3258382Z ^[[36;1mnode apps/showcase/test.mjs^[[0m
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3315015Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3315302Z env:
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3315525Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3315879Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.14.6\x64/lib/pkgconfig
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3316214Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3316516Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3316817Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.14.6\x64
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:18.3317057Z ##[endgroup]
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:19.3427750Z 
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:19.3428331Z Running 28 tests using 1 worker
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:19.3428654Z 
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:20.0770525Z 
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:20.0772234Z   ok  1 apps\showcase\tests\acceptance.spec.mjs:21:1 › OpenCode research retains every original Git blob and conclusion (351ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:20.6234355Z   ok  2 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-01: rejects unapproved recording claim (Misleading CURRENT) (483ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:21.0529392Z   ok  3 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-02: rejects unapproved recording claim (Equivalent from vectors) (419ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:21.4703898Z   ok  4 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-03: rejects unapproved recording claim (Equivalent from checksum) (407ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:21.8925469Z   ok  5 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-04: rejects unapproved recording claim (Deployment claim) (412ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:22.3311756Z   ok  6 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-05: rejects unapproved recording claim (Verified correction from preparation) (427ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:22.7674110Z   ok  7 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-06: rejects unapproved recording claim (Stale evidence as current) (428ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:23.1792591Z   ok  8 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-07: rejects unapproved recording claim (UNKNOWN relabeled) (402ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:23.5836950Z   ok  9 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-08: rejects unapproved recording claim (Unique fault attribution) (396ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:23.9875974Z   ok 10 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-09: rejects unapproved recording claim (Engine identity ignored) (395ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:24.3993191Z   ok 11 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-10: rejects unapproved recording claim (Partial catalog as complete) (401ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:24.8005874Z   ok 12 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-11: rejects unapproved recording claim (Wallet or publication success) (393ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:25.2084184Z   ok 13 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-12: rejects unapproved recording claim (Descriptive metadata as authority) (399ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:25.7533397Z   ok 14 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: none (496ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:26.2462311Z   ok 15 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: current-source (486ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:26.4753785Z   ok 16 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: static-output (223ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:26.9058552Z   ok 17 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: inventory (424ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:27.3997749Z   ok 18 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: unknown-path (487ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:27.6555346Z   ok 19 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: missing-history (249ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:27.9504162Z 
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:27.9505479Z   ok 20 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: wrong-history (289ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:29.7327687Z   ok 21 apps\showcase\tests\release-guard.spec.mjs:79:1 › independent original attacks reject at the intended integrity boundaries (1.8s)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:29.9393545Z   ok 22 apps\showcase\tests\release-guard.spec.mjs:90:1 › coordinated checker and metadata tamper is rejected by the actual CI trust anchor (201ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:30.5136255Z   ok 23 apps\showcase\tests\showcase.spec.mjs:24:1 › offline file walkthrough has no backend, network or sensitive capability calls (516ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:30.7406458Z   ok 24 apps\showcase\tests\showcase.spec.mjs:83:1 › recorded witness, non-unique paths, correction and revision match source artifacts (219ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.0221876Z   ok 25 apps\showcase\tests\showcase.spec.mjs:126:1 › all seven file pages pass axe at desktop and 390px with reduced motion (5.3s)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.1798368Z   ok 26 apps\showcase\tests\showcase.spec.mjs:174:1 › keyboard skip, step links and native disclosure work with JavaScript disabled (150ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.3580996Z   ok 27 apps\showcase\tests\showcase.spec.mjs:199:1 › recorded project link opens the exact packaged JSON offline (169ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.4279141Z   ok 28 apps\showcase\tests\showcase.spec.mjs:217:1 › build integrity rejects tampering and escaping treats artifact strings only as text (64ms)
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.4791884Z 
+contracts (windows-latest)	Run node apps/showcase/test.mjs	2026-11-26T22:33:36.4796146Z   28 passed (17.4s)

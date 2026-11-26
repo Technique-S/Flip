@@ -1,6 +1,6 @@
 # P7-V2-B interaction and accessibility specification
 
-Planning only, pinned to main `2fa7281ba01557f484cef2878e484b6e16f3ffd2`. No UI in this document is claimed implemented. See the [canonical command contract](../architecture/P7_V2_B_WIRING_CONTRACT.md), [stages/findings](../architecture/P7_V2_B_INTEGRATION_PLAN.md) and [acceptance matrix](P7_V2_B_ACCEPTANCE.md).
+Planning only, pinned to main `2fa7281ba01557f484cef2878e484b6e16f3ffd2`. No UI in this document is claimed implemented. See the [canonical command contract](P7_V2_B_WIRING_CONTRACT.md), [stages/findings](P7_V2_B_INTEGRATION_PLAN.md) and [acceptance matrix](P7_V2_B_ACCEPTANCE.md).
 
 ## Existing visual authority and controls
 
@@ -19,9 +19,15 @@ This is an Operate surface for developers changing explicit numeric connections 
 
 Actual source: [VisualComposer.tsx](https://github.com/Technique-S/Flip/blob/2fa7281ba01557f484cef2878e484b6e16f3ffd2/apps/web/src/visual/VisualComposer.tsx), [visual.css](https://github.com/Technique-S/Flip/blob/2fa7281ba01557f484cef2878e484b6e16f3ffd2/apps/web/src/visual/visual.css), [Composer.tsx](https://github.com/Technique-S/Flip/blob/2fa7281ba01557f484cef2878e484b6e16f3ffd2/apps/web/src/Composer.tsx). Baseline browser renders are re-created by unchanged tests; no future-interaction mock is counted as execution evidence.
 
+## Explicit editing mode preserves inspection
+
+Add a proposed **Edit connections** toggle, default **off**. Entering the mode alone changes no circuit, proof, history or dirty state. With it off, preserve current inert handles (`pointer-events:none`), read-only edge labels and all existing inspection behavior. The unchanged V1 assertions at `visual-readonly.spec.ts:197–211` remain valid; new wiring tests must explicitly enable editing. With it on, enable eligible source handle hit regions and describe editing accurately without promising deletion or verification. Pin buttons still inspect; Use as source or Change connection is an explicit editing action. A source-to-target drag is available only in this mode.
+
+The toggle cannot silently discard a Review or pending transaction: use the shared Cancel action first. Advanced view switches preserve the editor's shared proposal; newly mounted Visual defaults to inspection and cannot create new gestures until editing is explicitly enabled. A retained shared Review can still be completed or discarded from its native controls. Disable starting editing during native work or another draft. This is proposed behavior, not an existing baseline toggle.
+
 ## Pointer flow and feedback
 
-1. Inspect a source pin or begin dragging its output handle. Label source as “External input [0], width 1” or “nand0 output [0], width 1”; source aliases and processor/decimal circuit ID stay inspectable. Do not invent names such as carry/sum unless the actual component ID supplies them; user IDs do not establish semantic intent.
+1. Enable Edit connections, then inspect a source pin or begin dragging its output handle. Label source as “External input [0], width 1” or “nand0 output [0], width 1”; source aliases and processor/decimal circuit ID stay inspectable. Do not invent names such as carry/sum unless the actual component ID supplies them; user IDs do not establish semantic intent.
 2. Keep accepted wires solid. Draw a distinct dashed preview from the selected source to the pointer. A preview is labeled “Connection preview — not applied”; its existence is not structural acceptance. Hovering any destination runs synchronous local eligibility checks only.
 3. An eligible target receives outline + “Can propose replacement — validation required.” An invalid one receives a reason in text and `aria-describedby`, plus a distinct outline/icon. Do not reuse equivalence verdict colors or display a green success check. Hover and keyboard focus show the same reason. Avoid per-move live announcements.
 4. Drop on an eligible destination opens a nonmodal inspector Review with **destination, previous source → proposed source, zero-based pins, width 1, and canonical slot locator**. The old wire remains solid; proposed replacement is dashed. Do not dim the old line enough to make it unreadable. Show “Apply connection” and “Cancel”; focus Review heading then make Apply the next action. Target is locked for that review; picking another source explicitly replaces/discards the proposal.

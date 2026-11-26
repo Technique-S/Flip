@@ -1,0 +1,26 @@
+{
+  "commit": "b350a8575902d001844f381321d5758040163ff7",
+  "algorithm": "sha256",
+  "meaning": "Exact committed Git blobs. MANIFEST.json separately retains hashes of original local capture bytes before Git text normalization.",
+  "files": {
+    "docs/ux/visual-v2-b/checkpoint/MANIFEST.json": "e4898c787e4e262d76dd4d5be82c8e7bfe690eb25c6678b0ca805e6645f22903",
+    "docs/ux/visual-v2-b/checkpoint/baseline.json": "5a17bc08eeaf40ccebb19dcd38f23c6029d9477281ac345ae924fabac0ce77b0",
+    "docs/ux/visual-v2-b/checkpoint/baseline.py.txt": "11fc5410acb672fa4ee1dbe6740e34adec3a7c350ff8dd8ad7cba92d44d979a7",
+    "docs/ux/visual-v2-b/checkpoint/browser.json": "640df30b54d966a764342588c5406c2c5d530e74fc6abbf1e0c0f23dfa9ede70",
+    "docs/ux/visual-v2-b/checkpoint/browser.log.txt": "53ce02966dbc3d463cd12c5408c641d3578db825dc977e5125b8b2ffd89317bd",
+    "docs/ux/visual-v2-b/checkpoint/canonical-attachment.json": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+    "docs/ux/visual-v2-b/checkpoint/canonical-probes-initial.json": "8b32f23c890f7f66ae553e923309d6597adf2006118793df067505b9d3991d6c",
+    "docs/ux/visual-v2-b/checkpoint/canonical-probes-initial.py.txt": "9085d35b312132d4f7c0b95802ce49a24092bf7f047ebc9f40ff6a679a20ab49",
+    "docs/ux/visual-v2-b/checkpoint/canonical-probes.json": "fe4a3a1d8f7154ce4571f7be21f266cf3e2b290ee6b4fe08c3a260c5b6e6f565",
+    "docs/ux/visual-v2-b/checkpoint/canonical-probes.py.txt": "9133398ca33916c4e909aaba31f59051948f80d1a2bfabbf0a2e903723b59d34",
+    "docs/ux/visual-v2-b/checkpoint/frontend-probes.json": "00ec5c8cfc824b2fd5242d7b8fa2239feebea687ef953abd13e0feee577510d4",
+    "docs/ux/visual-v2-b/checkpoint/frontend-probes.mjs.txt": "41e84964277077fc395496766a6dc1fca48040cb384f7688fdf182d7ecdc9405",
+    "docs/ux/visual-v2-b/checkpoint/merged-main-ci.json": "cf29a3399bd5e07e923b352fe3a4f5ae8e63b940b12512f9c591c14ac0c43272",
+    "docs/ux/visual-v2-b/checkpoint/merged-main-ci.log.txt": "85c62c6f08b35f59d72945e0cd30edea4ebd7b288d269388f0e31af3750681e3",
+    "docs/ux/visual-v2-b/checkpoint/release-bootstrap.log.txt": "27591154b31db99a532eb688f0840238ef4d9074ea7b79a85be3316f7a5635c5",
+    "docs/ux/visual-v2-b/checkpoint/release.log.txt": "d4d643a67c00e398abdd671c2d22593f803f22aea6f7cd9cd4a9e4927dd216c9",
+    "docs/ux/visual-v2-b/checkpoint/run.py.txt": "680285840d64c8c869b42794a16aad51b19b789ad5c73336624a189c21b05356",
+    "docs/ux/visual-v2-b/checkpoint/screenshots.json": "193205867b95d5e6117379f4e4a44ed36c8b43cbc4e213f31809e36958dafaf5",
+    "docs/ux/visual-v2-b/checkpoint/showcase.log.txt": "6ec966147383bfd3f30b1813851eeb95a5ae005a1e2283063cef00187305423e"
+  }
+}
