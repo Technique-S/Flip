@@ -1,0 +1,705 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/visual-wiring.spec.ts"
+    ],
+    "configFile": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web\\playwright.config.mjs",
+    "rootDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/apps/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/.test-tmp/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/apps/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web\\tests",
+        "snapshotDir": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:18761",
+          "viewport": {
+            "width": 1280,
+            "height": 860
+          },
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../.test-tmp/m4-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "visual-wiring.spec.ts",
+      "file": "visual-wiring.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "B0 F1 preserves the exact source lookup, REF weighting and nullish fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 74,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:30.181Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-6ec504fd03023a1ca65c",
+          "file": "visual-wiring.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "B0 F1 exact score and interface boundaries have cause-specific measured diagnostics",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 138,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:30.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-38f20488a8f724b92d9d",
+          "file": "visual-wiring.spec.ts",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "B0 F1 measures full UTF-8 bytes at one MiB and one byte over",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 99,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:30.654Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-55f38ecda7efe5a0c0d7",
+          "file": "visual-wiring.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "B0 F1 display allocation and history budgets remain independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 141,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:30.812Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-b748a8e1814b4ff6bc0f",
+          "file": "visual-wiring.spec.ts",
+          "line": 136,
+          "column": 1
+        },
+        {
+          "title": "B0 F2 rejects hostile top-level records without invoking accessors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:31.020Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-8edf0838e6b3ebb6f04c",
+          "file": "visual-wiring.spec.ts",
+          "line": 187,
+          "column": 1
+        },
+        {
+          "title": "B0 F2 nested pins reject inherited decoys, own extras, symbols and unsafe scalars",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 516,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:31.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-6e02ca3d3e451acf699d",
+          "file": "visual-wiring.spec.ts",
+          "line": 248,
+          "column": 1
+        },
+        {
+          "title": "B0 F2 dense NAND tuples and replacement destinations require own data fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:32.029Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-85b6803c840efad216bc",
+          "file": "visual-wiring.spec.ts",
+          "line": 303,
+          "column": 1
+        },
+        {
+          "title": "B0 F2 valid own fields normalize prototypes and preserve canonical JavaScript-like names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 998,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:32.404Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-6a009f3373aac3803785",
+          "file": "visual-wiring.spec.ts",
+          "line": 349,
+          "column": 1
+        },
+        {
+          "title": "B0 native NAND, REF and output replacement changes exactly one slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:33.538Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "b0-native-one-slot",
+                      "contentType": "application/json",
+                      "body": "W3sidGFyZ2V0Ijp7ImtpbmQiOiJjb21wb25lbnQtaW5wdXQiLCJpbnN0YW5jZUlkIjoiY2FycnkiLCJwaW4iOjB9LCJzb3VyY2UiOnsiY29tcG9uZW50IjpudWxsLCJwaW4iOjB9LCJwcm9qZWN0SGFzaCI6IjB4ZTBmMmZjNDdkMDcwOWNjZGM0ZmM3ODg5Y2NlNGU2NzRiN2M0NmJlOWYwYmMzYjVlZjRhYWJkOWMyNmFiYTQ0YyIsIm5ldGxpc3RIYXNoIjoiMHg3ZTY4ZDYxNDgwYzkzZTQ1ZTdlMDJkNjI2Y2FmYjVlODMxYzVlYmI0NzdkZTk1ZTljN2NhNWYwNjFkOTQ3N2EzIiwiZXhwYW5kZWRHYXRlcyI6OH0seyJ0YXJnZXQiOnsia2luZCI6ImNvbXBvbmVudC1pbnB1dCIsImluc3RhbmNlSWQiOiJzdW0iLCJwaW4iOjF9LCJzb3VyY2UiOnsiY29tcG9uZW50IjoiY2FycnkiLCJwaW4iOjB9LCJwcm9qZWN0SGFzaCI6IjB4YWNhNjBhYjNkZWZkZmUwZjRlZGFiMDNiNWFjNGIwYjJkMmEyOWVmYjRiYWZlMzJkMWFkNjhjMTU1ODc5MTc3YSIsIm5ldGxpc3RIYXNoIjoiMHhhNTcxMmQzN2E1OWJkYWM1ZjY4YTZlNDAxYjg1ZWYwZmIyNzM2YWZkZWE4NmQ2MmRmYzAwNmM3MmQyNGMxMDE4IiwiZXhwYW5kZWRHYXRlcyI6OH0seyJ0YXJnZXQiOnsia2luZCI6Im91dHB1dCIsInBpbiI6MH0sInNvdXJjZSI6eyJjb21wb25lbnQiOm51bGwsInBpbiI6MH0sInByb2plY3RIYXNoIjoiMHgxNWExZTZlYmJkZTRiMzIxZWU3OTMyZmZmMDM3OTYzMWVhZTg2MmQ3NmVmNGQwMDlmMGRhMWYzMWQ0NmViNDgzIiwibmV0bGlzdEhhc2giOiIweDE1ZjQxZDQxYzhhYTg4OTVlN2UzOTdjY2ZkZDAxZDNmYzc4MzI3ODQ2YWZlNDQ4M2VkMDhmODFlOGNlNTc0NTYiLCJleHBhbmRlZEdhdGVzIjoxMn0seyJ0YXJnZXQiOnsia2luZCI6Im91dHB1dCIsInBpbiI6MH0sInNvdXJjZSI6eyJjb21wb25lbnQiOiJzdW0iLCJwaW4iOjB9LCJwcm9qZWN0SGFzaCI6IjB4ZGFiYmE3NzJiZTY2OWQ3MmYxZTM2NjQ2MmQ5NWYxNzQzOTlmNGZhNzVjZjJhZjJkYzhhMzQ4ZGFiYmE1YzI1ZCIsIm5ldGxpc3RIYXNoIjoiMHhjYTcwYTUxMTYzMzc0Njg4MTY4Mjc1NWJiNzZjMTBhZDFhNDY3MDA0NTRjMGQ2Yjc4OWMyNjA1MTU4MjhiN2ZiIiwiZXhwYW5kZWRHYXRlcyI6MTJ9XQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-42e08dce30fec0d700e8",
+          "file": "visual-wiring.spec.ts",
+          "line": 377,
+          "column": 1
+        },
+        {
+          "title": "B0 real multi-output REF permits fan-out and rejects pin equal to width",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4038,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:34.122Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-aeb534c01a79330cf782",
+          "file": "visual-wiring.spec.ts",
+          "line": 421,
+          "column": 1
+        },
+        {
+          "title": "B0 invalid source direction, self/forward order and range fail closed locally and natively",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 141,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:38.239Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-a03b03c1c3aa0eaeaebe",
+          "file": "visual-wiring.spec.ts",
+          "line": 470,
+          "column": 1
+        },
+        {
+          "title": "B0 invalid identities, unsupported state and corrupted dependencies cannot establish a native-accepted base",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 247,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:38.420Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-caad0c3d6dfec0099d85",
+          "file": "visual-wiring.spec.ts",
+          "line": 501,
+          "column": 1
+        },
+        {
+          "title": "B0 same binding is exact identity and leaves history, saved checkpoint and proof untouched",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2090,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:38.711Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-2338c140f8b5b890bf5a",
+          "file": "visual-wiring.spec.ts",
+          "line": 542,
+          "column": 1
+        },
+        {
+          "title": "B0 repeated proposals interoperate with native-validated complete-request history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 760,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:40.934Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-c8dd57656e3e15c47553",
+          "file": "visual-wiring.spec.ts",
+          "line": 565,
+          "column": 1
+        },
+        {
+          "title": "B0 UI capacity does not substitute for native output-copy gate limits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:41.800Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-c8e8e272cd7255200b73",
+          "file": "visual-wiring.spec.ts",
+          "line": 602,
+          "column": 1
+        },
+        {
+          "title": "B0 pure commands initiate no fetch, and the live canvas remains read-only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3730,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:42.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-2c6c7d325c37f048d50a",
+          "file": "visual-wiring.spec.ts",
+          "line": 619,
+          "column": 1
+        },
+        {
+          "title": "B0 unchanged accepted canonical project, netlist and manifest identities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 144,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T23:14:46.656Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "b0-canonical-identities",
+                      "contentType": "application/json",
+                      "body": "eyJjYW5kaWRhdGVJZGVudGl0eSI6eyJraW5kIjoiTE9DQUxfQ09NUE9TSVRJT04iLCJuZXRsaXN0SGFzaCI6IjB4M2RiYjY1YTYxNWUxZjEyYmUyMzI1YmRjYWQxMmI0YTk3MGE3ZWY3MjEzMTE0NTJiNWUwOWFjMjU1ZmZjMjNjZSJ9LCJraW5kIjoiQ09NUE9TSVRJT05fUkVTVUxUIiwibWFuaWZlc3QiOnsiZGVwZW5kZW5jaWVzIjpbeyJlbnZpcm9ubWVudCI6eyJiZWFjb24iOnsiYWRkcmVzcyI6IjB4ZjcwZDFlZDRmNjJjZjM3ODAxNTdiMGI0MjFiN2UyZjQ1YmQwOTkxYyIsImNvZGVIYXNoIjoiMHhlY2ZlZDdhNzlkYzQ2MDI0ZTc4Zjc2YmUzZjk5NWM5ZmNlY2MyZDhlNzMwODI5YjdjZjAzYWVmNDdiZTllMWEyIn0sImJlYWNvbkltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDk3N2YyMTc4ODdlMDg1ZDI5OGNiMzgxOWNkYWQ1YTBlZTM1ZjI5YjIiLCJjb2RlSGFzaCI6IjB4MGE1MjU5YThiNWE2OTE5N2NkZTZkY2U3MGE0NDQ2ZmU4MDdiNjIyMjc3YmRhZTllNzk5MTlkNWQ4ZTk4MjhhNSJ9LCJmYWN0b3J5Ijp7ImFkZHJlc3MiOiIweDFmMDlkYWVmYTgyN2YwMmNiYjQwOTY3Y2M5MWIyNTk3NjM3NjA3NjEiLCJjb2RlSGFzaCI6IjB4ZDVlNTM0MTY0ZjIzNGJlZTkwZGEyMzZmNWU0ZmQwOWQ0MzMzZGZiZWNkMDU5MWQ0ZjkzYWYxZWUxNzEzZGQzMSJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb24iOnsiYWRkcmVzcyI6IjB4MzM2ZTlmMGY0YzNmZWU3YzhjODAzMzc3ZTRkZWEwMDI5M2Y0YWUyYSIsImNvZGVIYXNoIjoiMHhhMWEwNjEzZGFjNThjY2IyNDQ1NGU3YWIyMzJkNjY4ZTI0ODNkM2QwZjA5MmY0M2FmZmFlOGM5NDg4NWFhZjVmIn0sImZhY3RvcnlJbXBsZW1lbnRhdGlvblNsb3QiOiIweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJmYWN0b3J5U2VhbGVkIjpmYWxzZSwicHJvY2Vzc29yQ29kZUhhc2giOiIweDJlYTY4M2UyNzVjYmU2ZTUxOTI4YTliZGVmZTgwYjZmZjZhNmE2ZTg1MzU0MzZiYmU3ZWVhMDJlZTE4MzA2YWUifSwiZXhwYW5kZWRHYXRlcyI6NCwiaWRlbnRpdHkiOnsiY2hhaW5JZCI6MTk2LCJjaXJjdWl0SWQiOiIxIiwicHJvY2Vzc29yIjoiMHg4MzliZGQ2ZmE3YTY2NDE2YTYwOWE3MzVlMTFkZTU0MTFiOTg1NzRlIiwic2NoZW1hVmVyc2lvbiI6IjEuMC4wIn0sIm5JbiI6Miwibk91dCI6MSwiblN0YXRlIjowLCJuZXRsaXN0SGFzaCI6IjB4ZDNmOGYzYTgzMTZhNDkwMjNhODI0MzZlOTI2MDdmNzdhNTFlN2YxYjk2YjYxNGIzZDcxNDE3MzcyZjNmNmE5ZiJ9LHsiZW52aXJvbm1lbnQiOnsiYmVhY29uIjp7ImFkZHJlc3MiOiIweGY3MGQxZWQ0ZjYyY2YzNzgwMTU3YjBiNDIxYjdlMmY0NWJkMDk5MWMiLCJjb2RlSGFzaCI6IjB4ZWNmZWQ3YTc5ZGM0NjAyNGU3OGY3NmJlM2Y5OTVjOWZjZWNjMmQ4ZTczMDgyOWI3Y2YwM2FlZjQ3YmU5ZTFhMiJ9LCJiZWFjb25JbXBsZW1lbnRhdGlvbiI6eyJhZGRyZXNzIjoiMHg5NzdmMjE3ODg3ZTA4NWQyOThjYjM4MTljZGFkNWEwZWUzNWYyOWIyIiwiY29kZUhhc2giOiIweDBhNTI1OWE4YjVhNjkxOTdjZGU2ZGNlNzBhNDQ0NmZlODA3YjYyMjI3N2JkYWU5ZTc5OTE5ZDVkOGU5ODI4YTUifSwiZmFjdG9yeSI6eyJhZGRyZXNzIjoiMHgxZjA5ZGFlZmE4MjdmMDJjYmI0MDk2N2NjOTFiMjU5NzYzNzYwNzYxIiwiY29kZUhhc2giOiIweGQ1ZTUzNDE2NGYyMzRiZWU5MGRhMjM2ZjVlNGZkMDlkNDMzM2RmYmVjZDA1OTFkNGY5M2FmMWVlMTcxM2RkMzEifSwiZmFjdG9yeUltcGxlbWVudGF0aW9uIjp7ImFkZHJlc3MiOiIweDMzNmU5ZjBmNGMzZmVlN2M4YzgwMzM3N2U0ZGVhMDAyOTNmNGFlMmEiLCJjb2RlSGFzaCI6IjB4YTFhMDYxM2RhYzU4Y2NiMjQ0NTRlN2FiMjMyZDY2OGUyNDgzZDNkMGYwOTJmNDNhZmZhZThjOTQ4ODVhYWY1ZiJ9LCJmYWN0b3J5SW1wbGVtZW50YXRpb25TbG90IjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAzMzZlOWYwZjRjM2ZlZTdjOGM4MDMzNzdlNGRlYTAwMjkzZjRhZTJhIiwiZmFjdG9yeVNlYWxlZCI6ZmFsc2UsInByb2Nlc3NvckNvZGVIYXNoIjoiMHgyZWE2ODNlMjc1Y2JlNmU1MTkyOGE5YmRlZmU4MGI2ZmY2YTZhNmU4NTM1NDM2YmJlN2VlYTAyZWUxODMwNmFlIn0sImV4cGFuZGVkR2F0ZXMiOjMsImlkZW50aXR5Ijp7ImNoYWluSWQiOjE5NiwiY2lyY3VpdElkIjoiMiIsInByb2Nlc3NvciI6IjB4ODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZSIsInNjaGVtYVZlcnNpb24iOiIxLjAuMCJ9LCJuSW4iOjIsIm5PdXQiOjEsIm5TdGF0ZSI6MCwibmV0bGlzdEhhc2giOiIweDkxYzgxZWIwMTg5MTkxNjljOTdhOGI3ZTEwZjRhYjliYjI3OTI5NjBmNTNjMGY0ZGUzZTNkMjY4MTkzOWZkOGUifV0sImV4cGFuZGVkR2F0ZXMiOjgsImZyZXNobmVzcyI6IkhJU1RPUklDQUwiLCJraW5kIjoiTE9DQUxfQ09NUE9TSVRJT04iLCJuSW4iOjIsIm5PdXQiOjIsIm5TdGF0ZSI6MCwibmV0bGlzdEhhc2giOiIweDNkYmI2NWE2MTVlMWYxMmJlMjMyNWJkY2FkMTJiNGE5NzBhN2VmNzIxMzExNDUyYjVlMDlhYzI1NWZmYzIzY2UiLCJwcm9qZWN0SGFzaCI6IjB4ZmY3MDgxNGUxNzRhZTJkYzg0MWVlZjRhOWU2MzY3YmI1MzE4YmNjZDA2OTMwN2MzYWZkY2UxYWRhYTMyOTk1OSIsInJlZ2lzdHJhdGlvbiI6IkhJU1RPUklDQUxfSU1QT1JURURfQVNTRVJUSU9OUyIsInNjaGVtYVZlcnNpb24iOiJtMy0xLjAuMCIsInNlbWFudGljcyI6eyJlbmNvZGluZyI6InRhcDAyLWxzYjAtdjEiLCJyZWZlcmVuY2VIYXNoIjoiMHgwZTg1MTU5NDg5ODEzNjFjN2RiNTczNzNlODk4NmVhYjYzMDU2ZjFjZTBmYWQ1YTNlYzA3MGMxODg3OTE5ZmE5Iiwic3BlY2lmaWNhdGlvbkhhc2giOiIweDhkYjAzZjYyOThjNThhYWU1YTlhZGVhYTM3NzRjMzBlY2RmOWRiMWYyNzZjM2VmZDAwNzk2NDg0NDRkODg1MGYiLCJ0YXAwMlZlcnNpb24iOiJkcmFmdC0yMDI2LTEwLTA0IiwidGVzdFN1aXRlSGFzaCI6IjB4MWEwMmY1Y2Y5OTFjMTMwYTIyZGM2Y2M2ZWU5M2QwZjhmZTA3MjBhZmVkMDgxNjY1ZmE4YjgwMThhZWZkMjAzYiJ9LCJzb3VyY2VNYW5pZmVzdEhhc2hlcyI6WyIweDljYjA4ODgyMmNiY2VmNTc5ZGYxMDYyYzAzZDQzZWU5ZjgxYjFjNWUzNGE0MTAxMzQxZGQ1NDQyMzE4N2FkNTciLCIweGU5ZTQ2NzRkNTU4MmM2YzdiZTBlMGFjYzdkMTY4MmJiNjkyNDhkZjdiNmMzMjNhYmJhYmZiZTNjNTJlMGJkYTciXX0sIm1hbmlmZXN0SGFzaCI6IjB4MTBhMjYxNjc2N2EzMDM1MjE1OGMzMmFhZThjZGI4NWI0NGNkN2Y1ZjA0YjE2OGM0NjJmNDFhODc4OWI2ZjI5OSIsIm5ldGxpc3QiOiIweDAyODM5YmRkNmZhN2E2NjQxNmE2MDlhNzM1ZTExZGU1NDExYjk4NTc0ZTAwMDAwMDAwMDAwMDAwMDIwMjAxMDAwMDAyMDAwMDAzMDAwMDAwMDQwMDAwMDEwMjgzOWJkZDZmYTdhNjY0MTZhNjA5YTczNWUxMWRlNTQxMWI5ODU3NGUwMDAwMDAwMDAwMDAwMDAxMDIwMTAwMDAwMjAwMDAwMyIsInByb2plY3RIYXNoIjoiMHhmZjcwODE0ZTE3NGFlMmRjODQxZWVmNGE5ZTYzNjdiYjUzMThiY2NkMDY5MzA3YzNhZmRjZTFhZGFhMzI5OTU5Iiwic2NoZW1hVmVyc2lvbiI6Im0zLTEuMC4wIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0857f5fd91365919e7d3-c26205831312c9de0433",
+          "file": "visual-wiring.spec.ts",
+          "line": 663,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-26T23:14:14.461Z",
+    "duration": 35322.914000000004,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

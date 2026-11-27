@@ -1,0 +1,17 @@
+import {build} from '../../apps/web/node_modules/esbuild/lib/main.js';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+const rows=[];
+for(const [i,sha] of ['b4ff854c1b4b5e2164f8dee1bebd5575cf98e227','35550556d29081a506ddff2e5d9899dd08e21889'].entries()){
+ const raw=execFileSync('git',['show',sha+':apps/web/src/visual/commands.ts']);
+ await build({stdin:{contents:raw.toString('utf8'),resolveDir:resolve('apps/web/src/visual'),loader:'ts'},bundle:true,platform:'node',format:'esm',outfile:`.test-tmp/v2b0/pinned-order-${i}.mjs`});
+ const {checkInteractiveBudget}=await import(`./pinned-order-${i}.mjs`);
+ const r=JSON.parse(readFileSync('docs/schema/m3/examples/half-adder.request.json','utf8'));r.project.candidate.nIn=256;let invoked=0;
+ Object.defineProperty(r,'toJSON',{value(){invoked++;throw Error('Serialization sentinel executed');}});
+ let message;try{checkInteractiveBudget(r)}catch(e){message=e.message}
+ rows.push({sourceSha:sha,sourceBlobSha256:createHash('sha256').update(raw).digest('hex'),observedSerializationCalls:invoked,message,guardBeforeSerialization:invoked===0&&message.includes('External input count 256')});
+}
+writeFileSync('.test-tmp/v2b0/capacity-order-pinned.json',JSON.stringify(rows,null,2));console.log(JSON.stringify(rows));
+if(rows[0].guardBeforeSerialization||!rows[1].guardBeforeSerialization)throw Error('Pinned order regression did not reproduce/fix');

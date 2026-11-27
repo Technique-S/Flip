@@ -1,0 +1,469 @@
+[
+  {
+    "name": "lint",
+    "args": [
+      "npm.cmd",
+      "run",
+      "lint"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:17:02.967543+00:00",
+    "seconds": 4.827,
+    "exitCode": 0
+  },
+  {
+    "name": "build",
+    "args": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:17:07.796534+00:00",
+    "seconds": 10.225,
+    "exitCode": 0
+  },
+  {
+    "name": "browser",
+    "args": [
+      "npm.cmd",
+      "test"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\apps\\web",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:17:18.023786+00:00",
+    "seconds": 401.347,
+    "exitCode": 1
+  },
+  {
+    "name": "showcase-build",
+    "args": [
+      "node",
+      "apps/showcase/build.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:23:59.395748+00:00",
+    "seconds": 0.494,
+    "exitCode": 0
+  },
+  {
+    "name": "showcase-check",
+    "args": [
+      "node",
+      "apps/showcase/build.mjs",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:23:59.891621+00:00",
+    "seconds": 0.517,
+    "exitCode": 0
+  },
+  {
+    "name": "release-bootstrap",
+    "args": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import {readFileSync as r} from 'node:fs';import{createHash}from'node:crypto';import assert from'node:assert/strict';const sha=b=>createHash('sha256').update(b).digest('hex');const raw=r('docs/release/V1_RELEASE_TRUST.json');assert.equal(sha(raw),'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0');const t=JSON.parse(raw);for(const[p,h]of Object.entries({...t.currentSourceHashes,...t.bootstrapSourceHashes}))assert.equal(sha(Buffer.from(r(p,'utf8').replaceAll('\\r\\n','\\n'))),h);console.log('PASS release trust and checker hashes');"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:24:00.409771+00:00",
+    "seconds": 0.273,
+    "exitCode": 0
+  },
+  {
+    "name": "release",
+    "args": [
+      "node",
+      "scripts/check_m45_release_package.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "7f67a53d1eca3f75be6d225d8570db7fafa14952",
+    "startUtc": "2026-11-26T23:24:00.683307+00:00",
+    "seconds": 1.659,
+    "exitCode": 0
+  },
+  {
+    "name": "showcase",
+    "args": [
+      "node",
+      "apps/showcase/test.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:24:02.343498+00:00",
+    "seconds": 195.094,
+    "exitCode": 1
+  },
+  {
+    "name": "ruff",
+    "args": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "check",
+      "."
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:17.438911+00:00",
+    "seconds": 4.677,
+    "exitCode": 0
+  },
+  {
+    "name": "ruff-format",
+    "args": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:22.116992+00:00",
+    "seconds": 1.75,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-core",
+    "args": [
+      "C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe",
+      "run",
+      "--frozen",
+      "flip-schemas",
+      "--out",
+      "docs/schema/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:23.868714+00:00",
+    "seconds": 5.525,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-import",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.import_schema_export",
+      "--out",
+      "docs/schema/m2/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:29.395721+00:00",
+    "seconds": 5.365,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-verification",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.verification_schema_export",
+      "--out",
+      "docs/schema/m3/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:34.761658+00:00",
+    "seconds": 4.244,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-library",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.library_schema_export",
+      "--out",
+      "docs/schema/m45-library/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:39.008373+00:00",
+    "seconds": 3.173,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-library11",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.library_schema_export",
+      "--version",
+      "1.1.0",
+      "--out",
+      "docs/schema/m45-library/1.1.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:42.182541+00:00",
+    "seconds": 2.411,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-debugging",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.debugging_schema_export",
+      "--out",
+      "docs/schema/m45-debugging/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:44.594680+00:00",
+    "seconds": 2.7,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-agent",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.agent_schema_export",
+      "--out",
+      "docs/schema/m45-agent-workflow/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:47.295847+00:00",
+    "seconds": 3.137,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-portable",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.portable_schema_export",
+      "--out",
+      "docs/schema/m45-portable-project/1.1.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:50.434048+00:00",
+    "seconds": 5.141,
+    "exitCode": 0
+  },
+  {
+    "name": "schema-agent-portable",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "flip_core.agent_portable_schema_export",
+      "--out",
+      "docs/schema/m45-agent-portable/1.0.0",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:27:55.576408+00:00",
+    "seconds": 8.384,
+    "exitCode": 0
+  },
+  {
+    "name": "library-fixtures",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "fixtures/m45-library-discovery/generators/verify_fixtures.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "startUtc": "2026-11-26T23:28:03.961802+00:00",
+    "seconds": 2.54,
+    "exitCode": 0
+  },
+  {
+    "name": "pytest",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "--junitxml=.test-tmp/v2b0/full/python.xml",
+      "-o",
+      "junit_family=legacy"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-26T23:28:06.502695+00:00",
+    "seconds": 2056.787,
+    "exitCode": 1
+  },
+  {
+    "name": "m3-acceptance",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/report_m3_acceptance.py",
+      "--junit",
+      ".test-tmp/v2b0/full/python.xml",
+      "--out",
+      ".test-tmp/v2b0/full/m3-acceptance.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:02:23.291027+00:00",
+    "seconds": 5.248,
+    "exitCode": 1
+  },
+  {
+    "name": "m4-acceptance",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/report_m4_acceptance.py",
+      "--junit",
+      ".test-tmp/v2b0/full/python.xml",
+      "--browser",
+      ".test-tmp/m4-browser.json",
+      "--out",
+      ".test-tmp/v2b0/full/m4-acceptance.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:02:28.539869+00:00",
+    "seconds": 1.779,
+    "exitCode": 1
+  },
+  {
+    "name": "agent-acceptance",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/check_m45_agent_acceptance.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:02:30.319744+00:00",
+    "seconds": 279.492,
+    "exitCode": 0
+  },
+  {
+    "name": "agent-portable",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/check_m45_agent_portable_review.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:07:09.813169+00:00",
+    "seconds": 412.01,
+    "exitCode": 0
+  },
+  {
+    "name": "portability",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/check_m45_portability.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:14:01.824762+00:00",
+    "seconds": 35.201,
+    "exitCode": 0
+  },
+  {
+    "name": "parity-portable",
+    "args": [
+      "node",
+      "docs/schema/m45-portable-project/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:14:37.026890+00:00",
+    "seconds": 0.295,
+    "exitCode": 0
+  },
+  {
+    "name": "parity-agent-portable",
+    "args": [
+      "node",
+      "docs/schema/m45-agent-portable/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:14:37.323517+00:00",
+    "seconds": 0.287,
+    "exitCode": 0
+  },
+  {
+    "name": "parity-core",
+    "args": [
+      "node",
+      "docs/schema/check-canonical.mjs"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:14:37.611992+00:00",
+    "seconds": 0.3,
+    "exitCode": 0
+  },
+  {
+    "name": "custody",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/check_m1_repository.py",
+      "--require-clean"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:14:37.913052+00:00",
+    "seconds": 170.898,
+    "exitCode": 0
+  },
+  {
+    "name": "smoke1",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/smoke_m1.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:17:28.812218+00:00",
+    "seconds": 5.625,
+    "exitCode": 0
+  },
+  {
+    "name": "smoke3",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/smoke_m3.py"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:17:34.439405+00:00",
+    "seconds": 12.239,
+    "exitCode": 0
+  },
+  {
+    "name": "benchmark",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "scripts/benchmark_m3.py",
+      "--out",
+      ".test-tmp/v2b0/full/benchmark.json"
+    ],
+    "cwd": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0",
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "startUtc": "2026-11-27T00:17:46.680006+00:00",
+    "seconds": 32.03,
+    "exitCode": 0
+  }
+]

@@ -1,0 +1,23 @@
+import subprocess,json,time,datetime,shutil
+from pathlib import Path
+root=Path.cwd(); out=root/'.test-tmp/v2b0/full'; uv='C:/Users/Kazi/Documents/Flip/flip-visual-v1/.bootstrap/Scripts/uv.exe'
+commands=[('lint',['npm.cmd','run','lint'],root/'apps/web'),('build',['npm.cmd','run','build'],root/'apps/web'),('browser',['npm.cmd','test'],root/'apps/web'),('showcase-build',['node','apps/showcase/build.mjs'],root),('showcase-check',['node','apps/showcase/build.mjs','--check'],root),('release-bootstrap',['node','--input-type=module','-e',"import {readFileSync as r} from 'node:fs';import{createHash}from'node:crypto';import assert from'node:assert/strict';const sha=b=>createHash('sha256').update(b).digest('hex');const raw=r('docs/release/V1_RELEASE_TRUST.json');assert.equal(sha(raw),'c7f129581342c63887ec0d90c5e62bf3daa17f79468d63cbc0ba4f387901c1f0');const t=JSON.parse(raw);for(const[p,h]of Object.entries({...t.currentSourceHashes,...t.bootstrapSourceHashes}))assert.equal(sha(Buffer.from(r(p,'utf8').replaceAll('\\r\\n','\\n'))),h);console.log('PASS release trust and checker hashes');"],root),('release',['node','scripts/check_m45_release_package.mjs'],root),('showcase',['node','apps/showcase/test.mjs'],root)]
+# Use Python direct environment entrypoints; frozen environment was installed from unchanged uv.lock.
+py=str(root/'.venv/Scripts/python.exe')
+commands += [('ruff',[uv,'run','--frozen','ruff','check','.'],root),('ruff-format',[uv,'run','--frozen','ruff','format','--check','.'],root),('schema-core',[uv,'run','--frozen','flip-schemas','--out','docs/schema/1.0.0','--check'],root)]
+for label,module,path,extra in [('import','import','m2',[]),('verification','verification','m3',[]),('library','library','m45-library',[]),('library11','library','m45-library',['--version','1.1.0']),('debugging','debugging','m45-debugging',[]),('agent','agent','m45-agent-workflow',[]),('portable','portable','m45-portable-project',[]),('agent-portable','agent_portable','m45-agent-portable',[])]:
+ ver='1.1.0' if label in ('library11','portable') else '1.0.0'
+ commands.append(('schema-'+label,[py,'-m','flip_core.'+module+'_schema_export',*extra,'--out',f'docs/schema/{path}/{ver}','--check'],root))
+commands += [('library-fixtures',[py,'fixtures/m45-library-discovery/generators/verify_fixtures.py'],root),('pytest',[py,'-m','pytest','-q','--junitxml=.test-tmp/v2b0/full/python.xml','-o','junit_family=legacy'],root),('m3-acceptance',[py,'scripts/report_m3_acceptance.py','--junit','.test-tmp/v2b0/full/python.xml','--out','.test-tmp/v2b0/full/m3-acceptance.json'],root),('m4-acceptance',[py,'scripts/report_m4_acceptance.py','--junit','.test-tmp/v2b0/full/python.xml','--browser','.test-tmp/m4-browser.json','--out','.test-tmp/v2b0/full/m4-acceptance.json'],root),('agent-acceptance',[py,'scripts/check_m45_agent_acceptance.py'],root),('agent-portable',[py,'scripts/check_m45_agent_portable_review.py'],root),('portability',[py,'scripts/check_m45_portability.py'],root)]
+for label,path in [('portable','docs/schema/m45-portable-project/check-canonical.mjs'),('agent-portable','docs/schema/m45-agent-portable/check-canonical.mjs'),('core','docs/schema/check-canonical.mjs')]:commands.append(('parity-'+label,['node',path],root))
+commands += [('custody',[py,'scripts/check_m1_repository.py','--require-clean'],root),('smoke1',[py,'scripts/smoke_m1.py'],root),('smoke3',[py,'scripts/smoke_m3.py'],root),('benchmark',[py,'scripts/benchmark_m3.py','--out','.test-tmp/v2b0/full/benchmark.json'],root)]
+results=[]
+for i,(name,args,cwd) in enumerate(commands):
+ start=datetime.datetime.now(datetime.timezone.utc).isoformat(); t=time.monotonic()
+ with (out/(name+'.log')).open('w',encoding='utf-8') as f:
+  p=subprocess.run(args,cwd=cwd,stdout=f,stderr=subprocess.STDOUT)
+ row=dict(name=name,args=args,cwd=str(cwd),headSha=subprocess.check_output(["git","rev-parse","HEAD"],cwd=root,text=True).strip(),startUtc=start,seconds=round(time.monotonic()-t,3),exitCode=p.returncode)
+ results.append(row); (out/'commands.json').write_text(json.dumps(results,indent=2),encoding='utf-8')
+ print(f'{i+1}/{len(commands)} {name}: {p.returncode}',flush=True)
+ if name=='browser' and (root/'.test-tmp/m4-browser.json').exists(): shutil.copyfile(root/'.test-tmp/m4-browser.json',out/'browser.json')
+print('COMPLETE',flush=True)

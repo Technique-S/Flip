@@ -1,0 +1,6 @@
+
+> flip-workbench@0.1.0 build
+> tsc --noEmit && node build.mjs
+
+src/visual/wiring.ts(60,68): error TS2339: Property 'instanceId' does not exist on type 'BindingTarget'.
+  Property 'instanceId' does not exist on type '{ kind: "output"; pin: number; }'.

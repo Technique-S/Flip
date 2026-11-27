@@ -1,0 +1,16 @@
+[
+  {
+    "sourceSha": "b4ff854c1b4b5e2164f8dee1bebd5575cf98e227",
+    "sourceBlobSha256": "3433b4ff478af3fa87c8f666f6ca0a7ec2206702cf5b2dcfd296c99e426f3ad6",
+    "observedSerializationCalls": 1,
+    "message": "Serialization sentinel executed",
+    "guardBeforeSerialization": false
+  },
+  {
+    "sourceSha": "35550556d29081a506ddff2e5d9899dd08e21889",
+    "sourceBlobSha256": "d54def115154515641c317ec068f9624700b52b6d7e64181d96dd8c7b21a0e9c",
+    "observedSerializationCalls": 0,
+    "message": "Edit not applied. External input count 256 exceeds the interactive limit of 255. Your accepted wiring is unchanged. UI limits are independent of native compiler and solver limits.",
+    "guardBeforeSerialization": true
+  }
+]

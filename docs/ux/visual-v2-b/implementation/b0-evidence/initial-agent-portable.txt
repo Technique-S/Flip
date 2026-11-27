@@ -1,0 +1,1 @@
+Final adapter review: 26/26 PASS, including 10 fail-closed attacks; archive unchanged

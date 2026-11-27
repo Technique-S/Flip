@@ -1,0 +1,16 @@
+[
+  {
+    "sourceSha": "35550556d29081a506ddff2e5d9899dd08e21889",
+    "wiringBlobSha256": "84f061026b8be2a1678184e963504c4018d374afc921c5e4a185186b11392994",
+    "originalUnchanged": true,
+    "referencePreserved": false,
+    "unrelatedOutputsPreserved": false
+  },
+  {
+    "sourceSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "wiringBlobSha256": "3781c384f1b67e5de15bb25695e8a69e932f91f0cf83ef885f51f14fc951c7a7",
+    "originalUnchanged": true,
+    "referencePreserved": true,
+    "unrelatedOutputsPreserved": true
+  }
+]

@@ -1,0 +1,26 @@
+
+> flip-workbench@0.1.0 test
+> playwright test tests/visual-wiring.spec.ts
+
+
+Running 17 tests using 1 worker
+
+  ok  1 tests\visual-wiring.spec.ts:48:1 › B0 F1 preserves the exact source lookup, REF weighting and nullish fallback (74ms)
+  ok  2 tests\visual-wiring.spec.ts:69:1 › B0 F1 exact score and interface boundaries have cause-specific measured diagnostics (138ms)
+  ok  3 tests\visual-wiring.spec.ts:118:1 › B0 F1 measures full UTF-8 bytes at one MiB and one byte over (99ms)
+  ok  4 tests\visual-wiring.spec.ts:136:1 › B0 F1 display allocation and history budgets remain independent (141ms)
+  ok  5 tests\visual-wiring.spec.ts:187:1 › B0 F2 rejects hostile top-level records without invoking accessors (222ms)
+  ok  6 tests\visual-wiring.spec.ts:248:1 › B0 F2 nested pins reject inherited decoys, own extras, symbols and unsafe scalars (516ms)
+  ok  7 tests\visual-wiring.spec.ts:303:1 › B0 F2 dense NAND tuples and replacement destinations require own data fields (140ms)
+  ok  8 tests\visual-wiring.spec.ts:349:1 › B0 F2 valid own fields normalize prototypes and preserve canonical JavaScript-like names (998ms)
+  ok  9 tests\visual-wiring.spec.ts:377:1 › B0 native NAND, REF and output replacement changes exactly one slot (480ms)
+  ok 10 tests\visual-wiring.spec.ts:421:1 › B0 real multi-output REF permits fan-out and rejects pin equal to width (4.0s)
+  ok 11 tests\visual-wiring.spec.ts:470:1 › B0 invalid source direction, self/forward order and range fail closed locally and natively (141ms)
+  ok 12 tests\visual-wiring.spec.ts:501:1 › B0 invalid identities, unsupported state and corrupted dependencies cannot establish a native-accepted base (247ms)
+  ok 13 tests\visual-wiring.spec.ts:542:1 › B0 same binding is exact identity and leaves history, saved checkpoint and proof untouched (2.1s)
+  ok 14 tests\visual-wiring.spec.ts:565:1 › B0 repeated proposals interoperate with native-validated complete-request history (760ms)
+  ok 15 tests\visual-wiring.spec.ts:602:1 › B0 UI capacity does not substitute for native output-copy gate limits (345ms)
+  ok 16 tests\visual-wiring.spec.ts:619:1 › B0 pure commands initiate no fetch, and the live canvas remains read-only (3.7s)
+  ok 17 tests\visual-wiring.spec.ts:663:1 › B0 unchanged accepted canonical project, netlist and manifest identities (144ms)
+
+  17 passed (35.3s)

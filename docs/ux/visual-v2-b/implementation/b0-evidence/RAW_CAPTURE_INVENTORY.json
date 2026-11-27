@@ -1,0 +1,527 @@
+[
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\baseline-browser.json",
+    "originalSha256": "79009b5af00860946109622633029899dd5c3bb854d1f4d5e72a67526c20ebfa",
+    "originalBytes": 112753,
+    "storedPath": "baseline-browser.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\baseline-browser.txt",
+    "originalSha256": "2c4d93146fc9ef8764f0e85b4dfa77c606269268858ce00a24c50a13ba5caffc",
+    "originalBytes": 8781,
+    "storedPath": "baseline-browser.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\first-build.txt",
+    "originalSha256": "28f3a0b9b38ffcf29280b5a3fd88b7fa9315be13897bfa01f5258757cb23193b",
+    "originalBytes": 258,
+    "storedPath": "first-build-failure.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\targeted-first.json",
+    "originalSha256": "4d541da4da85c28652a6958f60d5e827bd3cd7265692954c9837968ca751f683",
+    "originalBytes": 32404,
+    "storedPath": "targeted-first-failure.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\targeted-first.txt",
+    "originalSha256": "0e87aacc8cd01fe8071068fa392758b5583c69b00e7a0f8b78f5941fd8f2e8a8",
+    "originalBytes": 4691,
+    "storedPath": "targeted-first-failure.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\targeted-corrected.json",
+    "originalSha256": "661fea1443585067b657728aed7238fda837ab8e28ca5536992f13efcd28334d",
+    "originalBytes": 27745,
+    "storedPath": "targeted-corrected.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\targeted-corrected.txt",
+    "originalSha256": "6c78524fd1513e635935aa72d4890461e3ff09b6d4eaef0004e159e159e1ba85",
+    "originalBytes": 2397,
+    "storedPath": "targeted-corrected.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\startup-fix-three.json",
+    "originalSha256": "cf590963a5ef3f1abc3a3f146d9fb4a4e3a0f3fd57bbfff792eb24960a4159c0",
+    "originalBytes": 5513,
+    "storedPath": "startup-three.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\startup-fix-three.txt",
+    "originalSha256": "b796a8ccbdb1e27d56ec9cedf74080cd248d67c44ae90a95ed9bc0ef4732f6d3",
+    "originalBytes": 560,
+    "storedPath": "startup-three.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-source-first-failure.txt",
+    "originalSha256": "ba0aba7d914a1a9343b086c3a60d9d17c95685ce62b2b44ac8090e8d73f02f80",
+    "originalBytes": 30122,
+    "storedPath": "ci-initial-failure.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-source-first-pr.json",
+    "originalSha256": "c073729ecbade18de3d91293ebcfa7d5a2f6d858ee8cd25381cf7270db0ec82d",
+    "originalBytes": 19467,
+    "storedPath": "ci-initial-pr.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-source-first-push.json",
+    "originalSha256": "83cd7ec7c0fd90a6b9454c1d983648e4280da1757d0d326786d69713918e194c",
+    "originalBytes": 19467,
+    "storedPath": "ci-initial-push.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-implementation-pr.json",
+    "originalSha256": "b03ca9cb4d96cbc337c0dc7aa24a69e1d4d1b265617d94513256c877825666d0",
+    "originalBytes": 19463,
+    "storedPath": "ci-implementation-pr.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-implementation-push.json",
+    "originalSha256": "fa3bbda9e6bce126e3c4d1738cfb7e761157788a2fe865016080861a16e5aa1b",
+    "originalBytes": 19463,
+    "storedPath": "ci-implementation-push.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\python-first-failures.json",
+    "originalSha256": "3371fb27d5c9c681ca59eb7a699b959e2226e33841ec79914af9b45075365d09",
+    "originalBytes": 19153,
+    "storedPath": "python-first-failures.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\capacity-order-pinned.json",
+    "originalSha256": "4f5e2a8755ba99970374a31108d850d12911323062d6e5518d089db707774a6d",
+    "originalBytes": 723,
+    "storedPath": "capacity-order-pinned.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\capacity-order-pinned.mjs",
+    "originalSha256": "21975629611309c12ab94f11a4359a188793b85c0653b4b8832f051593587d18",
+    "originalBytes": 1521,
+    "storedPath": "capacity-order-probe.mjs.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\alias-pinned.json",
+    "originalSha256": "7509ce1a3cf72b2cee8992c64fed1339b0b8d13b82e5aaf23d53343bc404d349",
+    "originalBytes": 530,
+    "storedPath": "alias-pinned.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\alias-pinned.mjs",
+    "originalSha256": "04cb19079f800620f4f63715756ebd8459a8aad5c1f072ebf516620b9513c7b4",
+    "originalBytes": 1810,
+    "storedPath": "alias-probe.mjs.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\run.py",
+    "originalSha256": "1142cff380dd629c56638562bc1c23ee21cf89f32e9be213744be0b453d183ff",
+    "originalBytes": 4304,
+    "storedPath": "full-run.py.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retry.py",
+    "originalSha256": "8ac4d6d527f15d46b99713aabb51036e10bfed4ed79a6d7245a5718120654405",
+    "originalBytes": 1586,
+    "storedPath": "retry-run.py.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\agent-acceptance.log",
+    "originalSha256": "dfeb5839c775a8d2e3eba3d51fdb4fd8ba18de3758b81c4b1e5b064d150b386f",
+    "originalBytes": 194,
+    "storedPath": "initial-agent-acceptance.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\agent-portable.log",
+    "originalSha256": "60cbf86503eaace764faf3e68ad73cc17107b2f1e36b2e3498fd6447d604ee85",
+    "originalBytes": 87,
+    "storedPath": "initial-agent-portable.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\benchmark.json",
+    "originalSha256": "b57a50e1d4d53ea93ba4dc3a0c9683cb7d2267ef10141ca5558bf379feb17802",
+    "originalBytes": 26873,
+    "storedPath": "initial-benchmark.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\benchmark.log",
+    "originalSha256": "bddb2b756b538c838180bc7f0eb420e816a468a2d379b3ff321e0a6413c0485c",
+    "originalBytes": 19798,
+    "storedPath": "initial-benchmark.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\browser.json",
+    "originalSha256": "6a8b7c1e3fb46b67f5908dc7b03e1531976a14cf5fbc0fd50f8052eba25caa8e",
+    "originalBytes": 141861,
+    "storedPath": "initial-browser.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\browser.log",
+    "originalSha256": "a0669a8c3b93d94440aefc620d0ad5d44c91e74e82a7b1d8f158067124817894",
+    "originalBytes": 13227,
+    "storedPath": "initial-browser.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\build.log",
+    "originalSha256": "018d8e38557d4cdfa6ad39f1becb4ad3352da0d59bd707a4adb756179ae2b81e",
+    "originalBytes": 64,
+    "storedPath": "initial-build.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\commands.json",
+    "originalSha256": "c160697315680e22b991efacf48084490bbec7e8e539b3bbe154270070501d14",
+    "originalBytes": 14889,
+    "storedPath": "initial-commands.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\custody.log",
+    "originalSha256": "a7d2df938281802130d09afc8cc07ca0edee2fb3c76b054a584106b95c37d724",
+    "originalBytes": 5216,
+    "storedPath": "initial-custody.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\library-fixtures.log",
+    "originalSha256": "82aa8c1b9fdd9618fd4d22c99648edd717ed2a612ed327cfb0094226391d6967",
+    "originalBytes": 381,
+    "storedPath": "initial-library-fixtures.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\lint.log",
+    "originalSha256": "b5a1391f70ad93834af43895059523e16502f3d669c6a1af725f838aef9c55f6",
+    "originalBytes": 98,
+    "storedPath": "initial-lint.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\m3-acceptance.json",
+    "originalSha256": "47edc0bbc4e6b87601ab756307b07cb49ee0d9f400d9ef4af7cada8259afaa98",
+    "originalBytes": 46287,
+    "storedPath": "initial-m3-acceptance.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\m3-acceptance.log",
+    "originalSha256": "9f94da99aced33325250aa0fe5321af73e095d8debe7ec695f5857bf2b5eea11",
+    "originalBytes": 110,
+    "storedPath": "initial-m3-acceptance.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\m4-acceptance.json",
+    "originalSha256": "b59c164a53f133595d993a0bbd0b5988e999029524d6a8c5082ea345eaf7fe99",
+    "originalBytes": 57071,
+    "storedPath": "initial-m4-acceptance.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\m4-acceptance.log",
+    "originalSha256": "b3e6728f203561c5083da71aec51dcfce1eccd15567f40a7c04aec1855bad4f4",
+    "originalBytes": 62,
+    "storedPath": "initial-m4-acceptance.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\parity-agent-portable.log",
+    "originalSha256": "6bb4f234c2f60933e7743ffeabf2d2154acc5026e93a9f263d266cebb6f1b0ee",
+    "originalBytes": 57,
+    "storedPath": "initial-parity-agent-portable.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\parity-core.log",
+    "originalSha256": "7b502ce1ee462ce1e181f7b3cdd202345c9ecc87a0c70f2ebd041da359df14b9",
+    "originalBytes": 44,
+    "storedPath": "initial-parity-core.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\parity-portable.log",
+    "originalSha256": "bd7f458c18fcf8a235054a4b0d3cdc594290ba6ad9b19d6388ff0de72b373cf7",
+    "originalBytes": 55,
+    "storedPath": "initial-parity-portable.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\portability.log",
+    "originalSha256": "133f9816a4b5d7da83321ab373c2f2ae11a17b3932b20ba313a868fdd1687571",
+    "originalBytes": 57,
+    "storedPath": "initial-portability.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\pytest.log",
+    "originalSha256": "f2dfc9209d0cae2e48985d31fc00303a26af887d025cdb9c6b6c356e0d90aba7",
+    "originalBytes": 54183,
+    "storedPath": "initial-pytest.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\release-bootstrap.log",
+    "originalSha256": "27591154b31db99a532eb688f0840238ef4d9074ea7b79a85be3316f7a5635c5",
+    "originalBytes": 38,
+    "storedPath": "initial-release-bootstrap.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\release.log",
+    "originalSha256": "d4d643a67c00e398abdd671c2d22593f803f22aea6f7cd9cd4a9e4927dd216c9",
+    "originalBytes": 388,
+    "storedPath": "initial-release.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\ruff-format.log",
+    "originalSha256": "0e8875b6c474ca3639d7a7112ea95c546141b46dca674c9c33d3e55821b32afe",
+    "originalBytes": 27,
+    "storedPath": "initial-ruff-format.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\ruff.log",
+    "originalSha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "originalBytes": 19,
+    "storedPath": "initial-ruff.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-agent-portable.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-agent-portable.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-agent.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-agent.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-core.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-core.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-debugging.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-debugging.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-import.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-import.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-library.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-library.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-library11.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-library11.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-portable.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-portable.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\schema-verification.log",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0,
+    "storedPath": "initial-schema-verification.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\showcase-build.log",
+    "originalSha256": "7e42346e2303e3f3cd46b9cf1bb3b002e43a127f750d28d1415be2680ffb5537",
+    "originalBytes": 93,
+    "storedPath": "initial-showcase-build.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\showcase-check.log",
+    "originalSha256": "9a11586e087a2634cf3e4b594682d597e61578c23a1bd05a81017970ae28dcec",
+    "originalBytes": 95,
+    "storedPath": "initial-showcase-check.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\showcase-results-first.json",
+    "originalSha256": "2117c59ac09a5ae3f4aed8a36d54369366ad77154854317d45f39db0450f7e09",
+    "originalBytes": 144727,
+    "storedPath": "initial-showcase-results-first.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\showcase.log",
+    "originalSha256": "e3bc4a44ff5c43a24058e0757cad57580a0fdd0f5001c9309ff4c978b1824fb6",
+    "originalBytes": 4533,
+    "storedPath": "initial-showcase.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\smoke1.log",
+    "originalSha256": "6c4d5e14ac31b76171761cce5f8e8841b1833c66aaab348219bd7ec3ddd24f06",
+    "originalBytes": 85,
+    "storedPath": "initial-smoke1.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\smoke3.log",
+    "originalSha256": "f747f383b7f70ac48d21cd7f4218d7f66135ad0cb29e5745719164b005624158",
+    "originalBytes": 487,
+    "storedPath": "initial-smoke3.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\browser.json",
+    "originalSha256": "d5389bff0d55933fbff96ee02bf1475b318c12f543fd30f7783db0a61eee31ad",
+    "originalBytes": 137686,
+    "storedPath": "retry-browser.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\browser.txt",
+    "originalSha256": "965504d80c40238f9e616771e745275b697ae65ab2bb94b0f995c6e6b0731531",
+    "originalBytes": 11351,
+    "storedPath": "retry-browser.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\commands.json",
+    "originalSha256": "589a062f228c65e5c1ab7b75d1ab7c32eb2dbcc95ea303c5db8113c3c0e3e246",
+    "originalBytes": 1959,
+    "storedPath": "retry-commands.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\m4-acceptance.json",
+    "originalSha256": "17c43e0c1f7d0757250ef67766fa67833cf6ddaf4963ccea2f2b9893dc1668f4",
+    "originalBytes": 57070,
+    "storedPath": "retry-m4-acceptance.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\m4-acceptance.txt",
+    "originalSha256": "b3e6728f203561c5083da71aec51dcfce1eccd15567f40a7c04aec1855bad4f4",
+    "originalBytes": 62,
+    "storedPath": "retry-m4-acceptance.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\python-failed.txt",
+    "originalSha256": "31e969eb60e95b235a17bab8434a0e9bc0fdee89ef4bb795bf1ad853cd6ea312",
+    "originalBytes": 113,
+    "storedPath": "retry-python-failed.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\showcase-results.json",
+    "originalSha256": "75e43e4fc56de820359250497bbed1c39d072d114102980b64e7e479ff5c5cc3",
+    "originalBytes": 143978,
+    "storedPath": "retry-showcase-results.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\showcase.txt",
+    "originalSha256": "d69324d0aefd053c831672780000b9852615c9108645334c282ec720ed09b33c",
+    "originalBytes": 3943,
+    "storedPath": "retry-showcase.txt",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\final-native\\b0-canonical-identities.json",
+    "originalSha256": "a784de2684e5397c2d4076e1ddfe8d8500a1c2df64b01cd9498f0a1b16bf471f",
+    "originalBytes": 3584,
+    "storedPath": "native-b0-canonical-identities.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\final-native\\b0-native-one-slot.json",
+    "originalSha256": "efc84d6245af144303f1ca4c9789697d147d22149630d2cb50c4b6496b666f46",
+    "originalBytes": 1093,
+    "storedPath": "native-b0-native-one-slot.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\final-native\\canonical-before-after.json",
+    "originalSha256": "b4c5aa157ef966f7022c880bb637c7ea0d121c4710f5610c2614c0759158b933",
+    "originalBytes": 24110,
+    "storedPath": "native-canonical-before-after.json",
+    "normalization": "CRLF to LF only"
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full\\python.xml",
+    "originalSha256": "f530c352cf107a2eb6c39acb8c7bef95f05997d968a1d27618715008f6be6645",
+    "originalBytes": 231169,
+    "storedPath": null,
+    "normalization": "Raw original retained in ignored scratch; XML summarized, CI counts extracted, binary trace not admitted to tracked files."
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\retries\\python.xml",
+    "originalSha256": "45e6af1e43c85b9d90d92003d4112328617f460eef81b1ebbe8c2de13dadb8c9",
+    "originalBytes": 11169,
+    "storedPath": null,
+    "normalization": "Raw original retained in ignored scratch; XML summarized, CI counts extracted, binary trace not admitted to tracked files."
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\ci-implementation-push.log",
+    "originalSha256": "9ccbc0551ef061f6356519250aba7815116f27674a195cb05cf62df8ef4a7d7a",
+    "originalBytes": 387006,
+    "storedPath": null,
+    "normalization": "Raw original retained in ignored scratch; XML summarized, CI counts extracted, binary trace not admitted to tracked files."
+  },
+  {
+    "sourcePath": "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.test-tmp\\v2b0\\full-first-traces\\agent-portable-combined-na-ae30b-play-and-authorization-stop\\trace.zip",
+    "originalSha256": "38da25282e27775c4f3171028b29997d039eb2ee9940e0d0ce33743413bf603f",
+    "originalBytes": 1496223,
+    "storedPath": null,
+    "normalization": "Raw original retained in ignored scratch; XML summarized, CI counts extracted, binary trace not admitted to tracked files."
+  }
+]

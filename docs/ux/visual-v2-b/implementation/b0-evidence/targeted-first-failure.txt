@@ -1,0 +1,60 @@
+
+> flip-workbench@0.1.0 test
+> playwright test tests/visual-wiring.spec.ts
+
+
+Running 17 tests using 1 worker
+
+  ok  1 tests\visual-wiring.spec.ts:48:1 › B0 F1 preserves the exact source lookup, REF weighting and nullish fallback (42ms)
+  ok  2 tests\visual-wiring.spec.ts:69:1 › B0 F1 exact score and interface boundaries have cause-specific measured diagnostics (90ms)
+  ok  3 tests\visual-wiring.spec.ts:118:1 › B0 F1 measures full UTF-8 bytes at one MiB and one byte over (40ms)
+  x   4 tests\visual-wiring.spec.ts:136:1 › B0 F1 display allocation and history budgets remain independent (59ms)
+  ok  5 tests\visual-wiring.spec.ts:186:1 › B0 F2 rejects hostile top-level records without invoking accessors (202ms)
+  ok  6 tests\visual-wiring.spec.ts:247:1 › B0 F2 nested pins reject inherited decoys, own extras, symbols and unsafe scalars (185ms)
+  ok  7 tests\visual-wiring.spec.ts:302:1 › B0 F2 dense NAND tuples and replacement destinations require own data fields (60ms)
+  ok  8 tests\visual-wiring.spec.ts:348:1 › B0 F2 valid own fields normalize prototypes and preserve canonical JavaScript-like names (358ms)
+  ok  9 tests\visual-wiring.spec.ts:376:1 › B0 native NAND, REF and output replacement changes exactly one slot (292ms)
+  ok 10 tests\visual-wiring.spec.ts:417:1 › B0 real multi-output REF permits fan-out and rejects pin equal to width (4.8s)
+  ok 11 tests\visual-wiring.spec.ts:460:1 › B0 invalid source direction, self/forward order and range fail closed locally and natively (190ms)
+  ok 12 tests\visual-wiring.spec.ts:491:1 › B0 invalid identities, unsupported state and corrupted dependencies cannot establish a native-accepted base (519ms)
+  ok 13 tests\visual-wiring.spec.ts:532:1 › B0 same binding is exact identity and leaves history, saved checkpoint and proof untouched (1.4s)
+  ok 14 tests\visual-wiring.spec.ts:555:1 › B0 repeated proposals interoperate with native-validated complete-request history (514ms)
+  ok 15 tests\visual-wiring.spec.ts:592:1 › B0 UI capacity does not substitute for native output-copy gate limits (122ms)
+  ok 16 tests\visual-wiring.spec.ts:609:1 › B0 pure commands initiate no fetch, and the live canvas remains read-only (3.2s)
+  ok 17 tests\visual-wiring.spec.ts:653:1 › B0 unchanged accepted canonical project, netlist and manifest identities (137ms)
+
+
+  1) tests\visual-wiring.spec.ts:136:1 › B0 F1 display allocation and history budgets remain independent 
+
+    Error: Visual view unavailable: unbound, forward or out-of-range pin. Use Advanced to inspect the original project.
+
+       at ..\src\visual\projection.ts:34
+
+      32 | };
+      33 | const fail = (reason: string): never => {
+    > 34 | 	throw new Error(
+         | 	      ^
+      35 | 		`Visual view unavailable: ${reason}. Use Advanced to inspect the original project.`,
+      36 | 	);
+      37 | };
+        at fail (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:34:8)
+        at pin (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:127:4)
+        at forEach (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:138:17)
+        at connections (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:137:12)
+        at project (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:228:2)
+        at projectExecution (C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\src\visual\projection.ts:47:10)
+        at C:\Users\Kazi\Documents\Flip\flip-visual-v2-b0\apps\web\tests\visual-wiring.spec.ts:177:9
+
+    Error Context: ..\..\.test-tmp\browser\visual-wiring-B0-F1-displa-65551--budgets-remain-independent\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\.test-tmp\browser\visual-wiring-B0-F1-displa-65551--budgets-remain-independent\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\.test-tmp\browser\visual-wiring-B0-F1-displa-65551--budgets-remain-independent\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\visual-wiring.spec.ts:136:1 › B0 F1 display allocation and history budgets remain independent 
+  16 passed (42.6s)

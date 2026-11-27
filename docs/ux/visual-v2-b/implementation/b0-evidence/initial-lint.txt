@@ -1,0 +1,5 @@
+
+> flip-workbench@0.1.0 lint
+> biome lint src tests
+
+Checked 31 files in 304ms. No fixes applied.

@@ -1,0 +1,6 @@
+contracts (windows-latest)	UNKNOWN STEP	2026-11-26T23:54:55.2094864Z   89 passed (1.4m)
+contracts (windows-latest)	UNKNOWN STEP	2026-11-26T23:55:29.0488095Z   28 passed (29.7s)
+contracts (windows-latest)	UNKNOWN STEP	2026-11-26T23:59:40.7635075Z 702 passed in 243.43s (0:04:03)
+contracts (ubuntu-latest)	UNKNOWN STEP	2026-11-26T23:49:58.6976438Z   89 passed (48.2s)
+contracts (ubuntu-latest)	UNKNOWN STEP	2026-11-26T23:50:09.5959008Z   28 passed (10.3s)
+contracts (ubuntu-latest)	UNKNOWN STEP	2026-11-26T23:51:41.2997104Z 702 passed in 89.95s (0:01:29)

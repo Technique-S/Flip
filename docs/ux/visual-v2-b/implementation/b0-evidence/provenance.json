@@ -1,0 +1,78 @@
+{
+  "base": "2fa7281ba01557f484cef2878e484b6e16f3ffd2",
+  "architecturePlanning": "3ab3d4fdbf8748fbc88c2a0d091022b195a76ab6",
+  "architectureEvidence": "b65140670f1207501d1db165c8bce353bdbbeb36",
+  "implementation": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+  "files": {
+    "apps/web/src/visual/commands.ts": "d54def115154515641c317ec068f9624700b52b6d7e64181d96dd8c7b21a0e9c",
+    "apps/web/src/visual/wiring.ts": "3781c384f1b67e5de15bb25695e8a69e932f91f0cf83ef885f51f14fc951c7a7",
+    "apps/web/tests/visual-wiring.spec.ts": "821cb1090bdd0dcadfd6ef06bc1d9c4f1276933088e262ae17bf32f68b7743ec"
+  },
+  "protectedDiff": "EMPTY",
+  "localInitialCommandResults": {
+    "passed": 28,
+    "failed": [
+      "browser",
+      "showcase",
+      "pytest",
+      "m3-acceptance",
+      "m4-acceptance"
+    ]
+  },
+  "retrySummary": [
+    {
+      "name": "browser",
+      "args": [
+        "npm.cmd",
+        "test"
+      ],
+      "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+      "seconds": 225.772,
+      "exitCode": 0
+    },
+    {
+      "name": "showcase",
+      "args": [
+        "node",
+        "apps/showcase/test.mjs"
+      ],
+      "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+      "seconds": 69.611,
+      "exitCode": 0
+    },
+    {
+      "name": "python-failed",
+      "args": [
+        "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-self]",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-equivalent]",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-different]",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_custody_and_scratch_regeneration",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_platform_fail_closed_and_repeated_cleanup",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[compare]",
+        "packages/flip-core/tests/test_m3_acceptance.py::test_interfaces_recover_after_timeout",
+        "packages/flip-core/tests/test_m45_agent_portable.py::test_combined_15_stage_journey_preserves_original_and_prior_evidence",
+        "packages/flip-core/tests/test_m45_agent_portable.py::test_cancellation_before_and_immediately_before_commit",
+        "packages/flip-core/tests/test_m45_agent_portable.py::test_cli_api_parity_and_both_legacy_dispatchers_survive",
+        "packages/flip-core/tests/test_m45_agent_portable.py::test_repeated_apply_failure_never_commits_the_partial_revision",
+        "--junitxml=.test-tmp/v2b0/retries/python.xml",
+        "-o",
+        "junit_family=legacy"
+      ],
+      "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+      "seconds": 182.032,
+      "exitCode": 0
+    }
+  ],
+  "limitations": [
+    "Initial local run spanned implementation/test refinements; per-command HEADs retained. Python production code stayed byte-identical to accepted main.",
+    "Initial full Python: 691 passed, 11 failed. Separate 11-case retry passed; do not relabel original M3/M4 reports or fabricate a clean 702-test local run.",
+    "Initial target-test trace was not separately saved before the runner reused its output directory; text/JSON reports remain. First full browser failure trace was separately saved.",
+    "An unpinned scratch evaluation-order probe raced with edits; excluded from acceptance. Git-blob-pinned before/after probes are the accepted evidence.",
+    "New wiring transaction/UI/gesture/AT/touch behavior not implemented; seam specified only.",
+    "SEC-01 OPEN/HIGH; F1/F2 independent closure pending OpenCode review."
+  ]
+}

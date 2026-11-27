@@ -1,0 +1,37 @@
+
+Running 28 tests using 1 worker
+
+(node:33408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+  ok  1 apps\showcase\tests\acceptance.spec.mjs:21:1 › OpenCode research retains every original Git blob and conclusion (1.1s)
+  ok  2 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-01: rejects unapproved recording claim (Misleading CURRENT) (1.7s)
+  ok  3 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-02: rejects unapproved recording claim (Equivalent from vectors) (1.2s)
+  ok  4 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-03: rejects unapproved recording claim (Equivalent from checksum) (1.5s)
+  ok  5 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-04: rejects unapproved recording claim (Deployment claim) (1.4s)
+  ok  6 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-05: rejects unapproved recording claim (Verified correction from preparation) (1.3s)
+  ok  7 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-06: rejects unapproved recording claim (Stale evidence as current) (1.3s)
+  ok  8 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-07: rejects unapproved recording claim (UNKNOWN relabeled) (1.2s)
+  ok  9 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-08: rejects unapproved recording claim (Unique fault attribution) (1.3s)
+  ok 10 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-09: rejects unapproved recording claim (Engine identity ignored) (1.3s)
+  ok 11 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-10: rejects unapproved recording claim (Partial catalog as complete) (1.3s)
+  ok 12 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-11: rejects unapproved recording claim (Wallet or publication success) (1.2s)
+  ok 13 apps\showcase\tests\acceptance.spec.mjs:51:2 › N-12: rejects unapproved recording claim (Descriptive metadata as authority) (1.3s)
+  ok 14 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: none (2.0s)
+  ok 15 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: current-source (3.1s)
+  ok 16 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: static-output (1.5s)
+  ok 17 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: inventory (2.3s)
+  ok 18 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: unknown-path (2.7s)
+  ok 19 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: missing-history (3.5s)
+
+  ok 20 apps\showcase\tests\release-guard.spec.mjs:49:2 › R3 source scope preserves fail-closed checks: wrong-history (1.6s)
+  ok 21 apps\showcase\tests\release-guard.spec.mjs:79:1 › independent original attacks reject at the intended integrity boundaries (6.8s)
+  ok 22 apps\showcase\tests\release-guard.spec.mjs:90:1 › coordinated checker and metadata tamper is rejected by the actual CI trust anchor (1.3s)
+  ok 23 apps\showcase\tests\showcase.spec.mjs:24:1 › offline file walkthrough has no backend, network or sensitive capability calls (1.6s)
+  ok 24 apps\showcase\tests\showcase.spec.mjs:83:1 › recorded witness, non-unique paths, correction and revision match source artifacts (731ms)
+  ok 25 apps\showcase\tests\showcase.spec.mjs:126:1 › all seven file pages pass axe at desktop and 390px with reduced motion (18.5s)
+  ok 26 apps\showcase\tests\showcase.spec.mjs:174:1 › keyboard skip, step links and native disclosure work with JavaScript disabled (518ms)
+  ok 27 apps\showcase\tests\showcase.spec.mjs:199:1 › recorded project link opens the exact packaged JSON offline (509ms)
+  ok 28 apps\showcase\tests\showcase.spec.mjs:217:1 › build integrity rejects tampering and escaping treats artifact strings only as text (234ms)
+
+  28 passed (1.1m)
