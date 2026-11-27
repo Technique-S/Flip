@@ -1,0 +1,65 @@
+{
+  "initialFull": {
+    "passed": 691,
+    "failed": 11,
+    "seconds": 2051.05
+  },
+  "retryCases": [
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_independent_benchmarks[E-05000-self]",
+      "seconds": "2.580",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_independent_benchmarks[E-05000-equivalent]",
+      "seconds": "2.507",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_independent_benchmarks[E-05000-different]",
+      "seconds": "2.897",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_custody_and_scratch_regeneration",
+      "seconds": "87.996",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_platform_fail_closed_and_repeated_cleanup",
+      "seconds": "4.132",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_supported_operation_parity[compare]",
+      "seconds": "1.313",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m3_acceptance::test_interfaces_recover_after_timeout",
+      "seconds": "0.697",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m45_agent_portable::test_combined_15_stage_journey_preserves_original_and_prior_evidence",
+      "seconds": "14.145",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m45_agent_portable::test_cancellation_before_and_immediately_before_commit",
+      "seconds": "12.465",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m45_agent_portable::test_cli_api_parity_and_both_legacy_dispatchers_survive",
+      "seconds": "39.260",
+      "pass": true
+    },
+    {
+      "name": "packages.flip-core.tests.test_m45_agent_portable::test_repeated_apply_failure_never_commits_the_partial_revision",
+      "seconds": "10.525",
+      "pass": true
+    }
+  ],
+  "claim": "11 failed cases passed in a separate 180.28s retry; this is not a clean single full 702-test local run. Original full-run M3/M4 acceptance reports remain FAIL."
+}

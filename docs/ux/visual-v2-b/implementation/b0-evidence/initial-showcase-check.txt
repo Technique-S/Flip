@@ -1,0 +1,1 @@
+Checked 19 deterministic static files; no client JavaScript, backend, native proof or network.

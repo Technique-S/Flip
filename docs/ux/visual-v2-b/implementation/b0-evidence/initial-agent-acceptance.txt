@@ -1,0 +1,10 @@
+{
+  "total": 27,
+  "errors": []
+}
+independent_acceptance: 27/27 exact semantic checks PASS
+{
+  "total": 10,
+  "exceptions": []
+}
+authorization_checks: 10/10 exact semantic checks PASS

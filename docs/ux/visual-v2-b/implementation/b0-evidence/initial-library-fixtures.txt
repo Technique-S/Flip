@@ -1,0 +1,22 @@
+{
+  "caseFiles": 12,
+  "caseIds": [
+    "M45-2L-C01",
+    "M45-2L-C02",
+    "M45-2L-C03",
+    "M45-2L-C04",
+    "M45-2L-C05",
+    "M45-2L-C06",
+    "M45-2L-C07",
+    "M45-2L-C08",
+    "M45-2L-C09",
+    "M45-2L-C10",
+    "M45-2L-C11",
+    "M45-2L-C12"
+  ],
+  "errors": [],
+  "manifestFiles": 19,
+  "observationFiles": 1,
+  "result": "PASS",
+  "seedFiles": 1
+}

@@ -1,0 +1,2 @@
+R3 historical source provenance at 7ecfb9b74933eacb03f1b6ebf7c18a13fd02230f: apps/web/package.json, apps/web/package-lock.json. All other source pins and static artifacts checked in current checkout; this does not validate current workbench dependencies.
+PASS: 19 checksummed inert files, 130 local links; no scripts, server, imports, native binaries, RPC, wallet or publication surface.

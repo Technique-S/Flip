@@ -1,0 +1,48 @@
+[
+  {
+    "name": "browser",
+    "args": [
+      "npm.cmd",
+      "test"
+    ],
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "seconds": 225.772,
+    "exitCode": 0
+  },
+  {
+    "name": "showcase",
+    "args": [
+      "node",
+      "apps/showcase/test.mjs"
+    ],
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "seconds": 69.611,
+    "exitCode": 0
+  },
+  {
+    "name": "python-failed",
+    "args": [
+      "C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-self]",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-equivalent]",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-different]",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_custody_and_scratch_regeneration",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_platform_fail_closed_and_repeated_cleanup",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[compare]",
+      "packages/flip-core/tests/test_m3_acceptance.py::test_interfaces_recover_after_timeout",
+      "packages/flip-core/tests/test_m45_agent_portable.py::test_combined_15_stage_journey_preserves_original_and_prior_evidence",
+      "packages/flip-core/tests/test_m45_agent_portable.py::test_cancellation_before_and_immediately_before_commit",
+      "packages/flip-core/tests/test_m45_agent_portable.py::test_cli_api_parity_and_both_legacy_dispatchers_survive",
+      "packages/flip-core/tests/test_m45_agent_portable.py::test_repeated_apply_failure_never_commits_the_partial_revision",
+      "--junitxml=.test-tmp/v2b0/retries/python.xml",
+      "-o",
+      "junit_family=legacy"
+    ],
+    "headSha": "35d997aa161fa7ce5fa1e156453bb69f33ef80c1",
+    "seconds": 182.032,
+    "exitCode": 0
+  }
+]

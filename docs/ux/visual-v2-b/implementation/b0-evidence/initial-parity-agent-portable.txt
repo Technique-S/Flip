@@ -1,0 +1,1 @@
+Adapter Python/Node canonical plan and package pins PASS

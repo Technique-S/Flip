@@ -1,0 +1,1 @@
+PASS: CLI/API canonical bytes, CLI exit 6, real ASGI liveness and HTTP 501; no RPC.

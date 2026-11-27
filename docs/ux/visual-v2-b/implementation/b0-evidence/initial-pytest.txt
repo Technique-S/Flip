@@ -1,0 +1,396 @@
+........................................................................ [ 10%]
+........................................................................ [ 20%]
+........................................................................ [ 30%]
+........................................................................ [ 41%]
+..........................FFFFF.F..F.................................... [ 51%]
+..................................................F.............F..F.... [ 61%]
+......F................................................................. [ 71%]
+........................................................................ [ 82%]
+........................................................................ [ 92%]
+......................................................                   [100%]
+================================== FAILURES ===================================
+__________________ test_independent_benchmarks[E-05000-self] __________________
+
+spec = {'actual_gates': 5000, 'construction': '1250 REF(XOR#1) records chained over 1251 inputs; each REF flattens to 4 NAND ...ected': {'different': 'DIFFERENT', 'equivalent': 'EQUIVALENT', 'self': 'EQUIVALENT'}, 'generation_seed': 20261118, ...}
+mode = 'self'
+record_property = <function record_property.<locals>.append_property at 0x0000023913A40BF0>
+
+    @pytest.mark.parametrize(
+        "spec,mode",
+        [(s, m) for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+        ids=[f"{s['id']}-{m}" for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+    )
+    def test_independent_benchmarks(spec, mode, record_property):
+        request = recipe_request(spec["variants"]["self"], spec["variants"][mode])
+        assert compose(request)["netlist"] == spec["variants"][mode]["netlist_hex"]
+        result = compare(request)
+        proof = result["report"]["verification"]
+>       assert proof["verdict"] == spec["expected"][mode], result["resources"]
+E       AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}
+E       assert 'UNKNOWN' == 'EQUIVALENT'
+E         
+E         - EQUIVALENT
+E         + UNKNOWN
+
+packages\flip-core\tests\test_m3_acceptance.py:365: AssertionError
+_______________ test_independent_benchmarks[E-05000-equivalent] _______________
+
+spec = {'actual_gates': 5000, 'construction': '1250 REF(XOR#1) records chained over 1251 inputs; each REF flattens to 4 NAND ...ected': {'different': 'DIFFERENT', 'equivalent': 'EQUIVALENT', 'self': 'EQUIVALENT'}, 'generation_seed': 20261118, ...}
+mode = 'equivalent'
+record_property = <function record_property.<locals>.append_property at 0x0000023913A40E00>
+
+    @pytest.mark.parametrize(
+        "spec,mode",
+        [(s, m) for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+        ids=[f"{s['id']}-{m}" for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+    )
+    def test_independent_benchmarks(spec, mode, record_property):
+        request = recipe_request(spec["variants"]["self"], spec["variants"][mode])
+        assert compose(request)["netlist"] == spec["variants"][mode]["netlist_hex"]
+        result = compare(request)
+        proof = result["report"]["verification"]
+>       assert proof["verdict"] == spec["expected"][mode], result["resources"]
+E       AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}
+E       assert 'UNKNOWN' == 'EQUIVALENT'
+E         
+E         - EQUIVALENT
+E         + UNKNOWN
+
+packages\flip-core\tests\test_m3_acceptance.py:365: AssertionError
+_______________ test_independent_benchmarks[E-05000-different] ________________
+
+spec = {'actual_gates': 5000, 'construction': '1250 REF(XOR#1) records chained over 1251 inputs; each REF flattens to 4 NAND ...ected': {'different': 'DIFFERENT', 'equivalent': 'EQUIVALENT', 'self': 'EQUIVALENT'}, 'generation_seed': 20261118, ...}
+mode = 'different'
+record_property = <function record_property.<locals>.append_property at 0x0000023913A41D20>
+
+    @pytest.mark.parametrize(
+        "spec,mode",
+        [(s, m) for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+        ids=[f"{s['id']}-{m}" for s in BENCHMARKS for m in ("self", "equivalent", "different")],
+    )
+    def test_independent_benchmarks(spec, mode, record_property):
+        request = recipe_request(spec["variants"]["self"], spec["variants"][mode])
+        assert compose(request)["netlist"] == spec["variants"][mode]["netlist_hex"]
+        result = compare(request)
+        proof = result["report"]["verification"]
+>       assert proof["verdict"] == spec["expected"][mode], result["resources"]
+E       AssertionError: {'candidateGates': 5000, 'clauses': 30007, 'containment': 'WINDOWS_JOB_COMMIT', 'outcome': 'INTERRUPTED', ...}
+E       assert 'UNKNOWN' == 'DIFFERENT'
+E         
+E         - DIFFERENT
+E         + UNKNOWN
+
+packages\flip-core\tests\test_m3_acceptance.py:365: AssertionError
+____________________ test_custody_and_scratch_regeneration ____________________
+
+tmp_path = WindowsPath('C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/packages/flip-core/.test-tmp/test_custody_and_scratch_regen0')
+record_property = <function record_property.<locals>.append_property at 0x0000023913A41010>
+
+    def test_custody_and_scratch_regeneration(tmp_path, record_property):
+        commit = "4822a05163166ec67b791328e2d1de490fa1c35f"
+        paths = subprocess.check_output(
+            ["git", "diff", "--name-only", commit + "^", commit], cwd=ROOT, text=True
+        ).splitlines()
+        for path in paths:
+            assert (ROOT / path).read_bytes() == subprocess.check_output(
+                ["git", "show", f"{commit}:{path}"], cwd=ROOT
+            )
+        manifest = json.loads((CORPUS / "MANIFEST.json").read_bytes())
+        for item in [*manifest["authored_files"], *manifest["result_files"], manifest["build_info"]]:
+            raw = (ROOT / item["path"]).read_bytes()
+            assert len(raw) == item["bytes"] and hashlib.sha256(raw).hexdigest() == item["sha256"]
+        target = tmp_path / "fixtures/m3-verification/generators"
+        shutil.copytree(CORPUS / "generators", target, ignore=shutil.ignore_patterns("__pycache__"))
+        # Exact independent script runs only in scratch; never overwrite custody bytes.
+        shutil.copytree(
+            CORPUS,
+            tmp_path / "fixtures/m3-verification",
+            dirs_exist_ok=True,
+            ignore=shutil.ignore_patterns("__pycache__"),
+        )
+        shutil.copytree(
+            ROOT / "docs/evidence/m3-verification", tmp_path / "docs/evidence/m3-verification"
+        )
+>       completed = subprocess.run(
+            [sys.executable, str(target / "verify_corpus.py")],
+            cwd=tmp_path,
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+
+packages\flip-core\tests\test_m3_acceptance.py:404: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py:557: in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py:1221: in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Popen: returncode: 1 args: ['C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-...>
+input = None, endtime = 1179040.1526617, orig_timeout = 120
+
+    def _communicate(self, input, endtime, orig_timeout):
+        # Start reader threads feeding into a list hanging off of this
+        # object, unless they've already been started.
+        if self.stdout and not hasattr(self, "_stdout_buff"):
+            self._stdout_buff = []
+            self.stdout_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stdout, self._stdout_buff))
+            self.stdout_thread.daemon = True
+            self.stdout_thread.start()
+        if self.stderr and not hasattr(self, "_stderr_buff"):
+            self._stderr_buff = []
+            self.stderr_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stderr, self._stderr_buff))
+            self.stderr_thread.daemon = True
+            self.stderr_thread.start()
+    
+        # Start writer thread to send input to stdin, unless already
+        # started.  The thread writes input and closes stdin when done,
+        # or continues in the background on timeout.
+        if self.stdin and not hasattr(self, "_stdin_thread"):
+            self._stdin_thread = \
+                    threading.Thread(target=self._writerthread,
+                                     args=(input,))
+            self._stdin_thread.daemon = True
+            self._stdin_thread.start()
+    
+        # Wait for the writer thread, or time out.  If we time out, the
+        # thread remains writing and the fd left open in case the user
+        # calls communicate again.
+        if hasattr(self, "_stdin_thread"):
+            self._stdin_thread.join(self._remaining_time(endtime))
+            if self._stdin_thread.is_alive():
+                raise TimeoutExpired(self.args, orig_timeout)
+    
+        # Wait for the reader threads, or time out.  If we time out, the
+        # threads remain reading and the fds left open in case the user
+        # calls communicate again.
+        if self.stdout is not None:
+            self.stdout_thread.join(self._remaining_time(endtime))
+            if self.stdout_thread.is_alive():
+>               raise TimeoutExpired(self.args, orig_timeout)
+E               subprocess.TimeoutExpired: Command '['C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\.venv\\Scripts\\python.exe', 'C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\packages\\flip-core\\.test-tmp\\test_custody_and_scratch_regen0\\fixtures\\m3-verification\\generators\\verify_corpus.py']' timed out after 120 seconds
+
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py:1664: TimeoutExpired
+_______________ test_platform_fail_closed_and_repeated_cleanup ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000239136150F0>
+record_property = <function record_property.<locals>.append_property at 0x0000023913A41BC0>
+
+    def test_platform_fail_closed_and_repeated_cleanup(monkeypatch, record_property):
+        import flip_core.isolation as isolation
+    
+        with monkeypatch.context() as patch:
+            patch.setattr(isolation, "os", SimpleNamespace(name="unsupported"))
+            patch.setattr(isolation, "sys", SimpleNamespace(platform="unsupported"))
+            result = isolation.run_worker([], [], Limits())
+            assert result["outcome"] == "INTERRUPTED" and result["reason"] == "RESOURCE_LIMIT"
+        spawned = []
+        original_popen = isolation.subprocess.Popen
+    
+        def tracked_popen(*args, **kwargs):
+            process = original_popen(*args, **kwargs)
+            spawned.append(process)
+            return process
+    
+        monkeypatch.setattr(isolation.subprocess, "Popen", tracked_popen)
+        for mode in ("timeout-probe", "crash-probe", "memory-probe"):
+            result = run_worker(
+                [], [], Limits(solverTimeoutMs=500 if mode == "timeout-probe" else 5000), _probe=mode
+            )
+            if mode == "memory-probe":
+                assert result["probe"] == "MEMORY_BLOCKED"
+            else:
+                assert result["outcome"] == "INTERRUPTED"
+            for _ in range(3):
+>               assert run_worker([[1]], [1], Limits())["outcome"] == "SAT"
+E               AssertionError: assert 'INTERRUPTED' == 'SAT'
+E                 
+E                 - SAT
+E                 + INTERRUPTED
+
+packages\flip-core\tests\test_m3_acceptance.py:449: AssertionError
+__________________ test_supported_operation_parity[compare] ___________________
+
+operation = 'compare'
+proof_bases = {'B02': (VerificationRequest(schemaVersion='m3-1.0.0', kind='M3_EXECUTION', project=LocalProject(schemaVersion='m3-1.0... ...}, 'context': 'LOCAL_OFFLINE_REPLAY_SINGLE_RPC_ASSERTIONS_NOT_REVALIDATED', 'correctness': 'INTENT_UNKNOWN', ...})}
+tmp_path = WindowsPath('C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/packages/flip-core/.test-tmp/test_supported_operation_parit1')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002391309FB90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000239130AEEB0>
+record_property = <function record_property.<locals>.append_property at 0x000002391399E610>
+
+    @pytest.mark.parametrize("operation", ["compose", "compare", "vectors", "consume"])
+    def test_supported_operation_parity(
+        operation, proof_bases, tmp_path, capsys, monkeypatch, record_property
+    ):
+        from flip_core.verification import bitvector
+    
+        request, result = proof_bases["B02"]
+        payload = request.model_dump(mode="json")
+        expected_exit = 1 if operation in ("compare", "consume") else 0
+        if operation == "vectors":
+            witness = next(w for w in WITNESSES if w["case"] == "B02")
+            payload["vectors"] = [
+                {
+                    "inputs": bitvector(witness["distinguishing_input"]).model_dump(mode="json"),
+                    "outputs": bitvector(witness["candidate_output_flat"]).model_dump(mode="json"),
+                }
+            ]
+        elif operation == "consume":
+            payload = {
+                "schemaVersion": "m3-1.0.0",
+                "kind": "M3_CONSUMPTION",
+                "executionRequest": payload,
+                "claimedResult": result,
+                "expectedProjectHash": content_hash(request.project),
+                "expectedReferenceHash": result["report"]["referenceManifestHash"],
+            }
+        path = tmp_path / "request.json"
+        path.write_bytes(canonical_bytes(payload))
+>       assert cli([operation, "--project", str(path)]) == expected_exit
+E       AssertionError: assert <ExitCode.UNKNOWN: 2> == 1
+E        +  where <ExitCode.UNKNOWN: 2> = cli(['compare', '--project', 'C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\packages\\flip-core\\.test-tmp\\test_supported_operation_parit1\\request.json'])
+
+packages\flip-core\tests\test_m3_acceptance.py:501: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"candidateIdentity":{"kind":"LOCAL_COMPOSITION","netlistHash":"0xb51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1"},"candidateManifest":{"dependencies":[{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"}],"expandedGates":8,"freshness":"HISTORICAL","kind":"LOCAL_COMPOSITION","nIn":2,"nOut":2,"nState":0,"netlistHash":"0xb51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1","projectHash":"0x9475427a071684143f09eb0bfe15302692d51a38ed30ea6e35067b1fd2287b4c","registration":"HISTORICAL_IMPORTED_ASSERTIONS","schemaVersion":"m3-1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"sourceManifestHashes":["0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86"]},"context":"LOCAL_OFFLINE_REPLAY_SINGLE_RPC_ASSERTIONS_NOT_REVALIDATED","correctness":"INTENT_UNKNOWN","coverage":"INCONCLUSIVE","engine":{"nativeSolverHash":"0xd00aa5946dd1f444cb269aea1518ca74a586d43ad04dcab2a58927f019214413","profile":"flip-m3-engine-v1","pythonSatVersion":"1.9.dev23","pythonVersion":"3.14.6","solverWrapperHash":"0x91d6f6f803716fe453a7a25ca58b5cb42d97b33c25d5a886060acf45e70b2120","sources":{"abi.py":"0x968a22c50bcd779fc82a49ba93df7f6f803ac28770add66407a6b40a6dcd5ffa","canonical.py":"0x8cb414632e63098312844fa2010698e470329f3795b7a64d33ec66331973ec8c","cnf.py":"0x45c4ecf0f92c125e5d35ff76b5c5983e6a30a6e0a76d439d4f7e79e86b9b99cf","composition.py":"0xd42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0","composition_models.py":"0x6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4","execution.py":"0x090e43a1b99d1ef5083b961869c1516fddd51c47f72b0ee837549f1c9768d9f2","import_models.py":"0xa264d7d6eb5b43045cebe6b7730a0002dfe0096c5f564c5d10c2af76fc3d2d2f","importer.py":"0x69f40e0df2c4dde41c8ee3511b53a36ecaee8cd8000f284c74c9834951f25f9e","isolation.py":"0x28801fdbfdf6ef7f7d6eb1465421b96c3224f347e3523554e5f829bdc5736693","models.py":"0x5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72","solver_worker.py":"0x136ac35f6315e4fa9d91beb75fac22b2c95d1a82b868832d04113d2a5d663b59","tap02.py":"0x9e81c4f6011ed081168cf6b81a3b78f77727ed2b11e7a66f577a9ed820c157ca","verification.py":"0xcb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b"}},"engineHash":"0x3b73fe1b75d47956f1e7e2c1bfd0bd5616360f39d2bc87656fc164e39878a649","kind":"TRUSTED_LOCAL_COMPARISON","referenceIdentity":{"kind":"LOCAL_COMPOSITION","netlistHash":"0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"},"referenceManifest":{"dependencies":[{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"}],"expandedGates":8,"freshness":"HISTORICAL","kind":"LOCAL_COMPOSITION","nIn":2,"nOut":2,"nState":0,"netlistHash":"0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce","projectHash":"0x56cec19bcb99decd5142f290d80cae3d0312ee553f004f214882ff052cc82092","registration":"HISTORICAL_IMPORTED_ASSERTIONS","schemaVersion":"m3-1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"sourceManifestHashes":["0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86"]},"relation":"BEHAVIORAL","report":{"candidateManifestHash":"0xd38bc45815dcd6fa7617d54fbf4dd73cda88731634e15ffe7791075fab222f40","chainId":196,"inputMap":[0,1],"integrity":{"checkedBlock":null,"freshness":"HISTORICAL"},"intent":"UNDECLARED","limits":{"gateCap":5000,"refDepthCap":64,"solverMemoryMiB":64,"solverTimeoutMs":5000},"outputMap":[0,1],"projectHash":"0x9475427a071684143f09eb0bfe15302692d51a38ed30ea6e35067b1fd2287b4c","referenceManifestHash":"0x8a480f79d33ab8712989f22889785259129151f9ac8c835d359c849badb5ed81","schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0","trustAssertion":null,"verification":{"candidateNState":0,"kind":"PAIRWISE_EQUIVALENCE","mappingValidation":"PASSED","reasonCode":"SOLVER_TIMEOUT","referenceNState":0,"solverBackend":"Minisat22","solverOutcome":"INTERRUPTED","sourceValidation":"PASSED","verdict":"UNKNOWN","witness":null}},"reproduction":{"imports":[{"circuits":[{"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"netlist":"0x00000002000003000000020000040000000300000400000005000006"}],"integrity":{"checkedBlock":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"freshness":"CURRENT"},"kind":"CIRCUIT_IMPORT","manifest":{"block":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"chainId":196,"dependencies":[],"edges":[],"observation":"SINGLE_RPC","root":{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},"schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0"},"manifestHash":"0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86","pinning":"NUMBER_WITH_HEADER_RECHECK","schemaVersion":"1.0.0","trust":"SINGLE_RPC_OBSERVATION"},{"circuits":[{"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"netlist":"0x000000020000030000000400000400000005000005"}],"integrity":{"checkedBlock":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"freshness":"CURRENT"},"kind":"CIRCUIT_IMPORT","manifest":{"block":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"chainId":196,"dependencies":[],"edges":[],"observation":"SINGLE_RPC","root":{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"},"schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0"},"manifestHash":"0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","pinning":"NUMBER_WITH_HEADER_RECHECK","schemaVersion":"1.0.0","trust":"SINGLE_RPC_OBSERVATION"}],"kind":"M3_EXECUTION","project":{"candidate":{"components":[{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node0","kind":"REF","sourceAlias":"source1"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":0}],"instanceId":"node1","kind":"NAND"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node2","kind":"REF","sourceAlias":"source0"}],"nIn":2,"outputs":[{"component":"node1","pin":0},{"component":"node2","pin":0}]},"chainId":196,"comparison":{"inputMap":[0,1],"intent":"UNDECLARED","kind":"PAIRWISE_EQUIVALENCE","outputMap":[0,1],"referenceAlias":null,"trustAssertion":null},"limits":{"gateCap":5000,"refDepthCap":64,"solverMemoryMiB":64,"solverTimeoutMs":5000},"projectId":"independentCorpus","referenceCandidate":{"components":[{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node0","kind":"REF","sourceAlias":"source1"},{"inputs":[{"component":"node0","pin":0},{"component":"node0","pin":0}],"instanceId":"node1","kind":"NAND"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node2","kind":"REF","sourceAlias":"source0"}],"nIn":2,"outputs":[{"component":"node1","pin":0},{"component":"node2","pin":0}]},"schemaVersion":"m3-1.0.0","sources":[{"alias":"source0","identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"manifestHash":"0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86","nIn":2,"nOut":1,"nState":0},{"alias":"source1","identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"manifestHash":"0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","nIn":2,"nOut":1,"nState":0}],"toolVersion":"0.1.0"},"relation":"BEHAVIORAL","schemaVersion":"m3-1.0.0"},"requestHash":"0xc232eb19fa1a88c48e7238e106f554861bcfb971c96b185e15e46a99cbf7d80a","resources":{"candidateGates":8,"clauses":59,"containment":"WINDOWS_JOB_COMMIT","outcome":"INTERRUPTED","reason":"SOLVER_TIMEOUT","referenceGates":8,"totalMs":7029,"variables":22,"wallMs":5719},"schemaVersion":"m3-1.0.0","verifiedAt":"2026-11-26T23:43:27.981295+00:00"}
+____________________ test_interfaces_recover_after_timeout ____________________
+
+proof_bases = {'B02': (VerificationRequest(schemaVersion='m3-1.0.0', kind='M3_EXECUTION', project=LocalProject(schemaVersion='m3-1.0... ...}, 'context': 'LOCAL_OFFLINE_REPLAY_SINGLE_RPC_ASSERTIONS_NOT_REVALIDATED', 'correctness': 'INTENT_UNKNOWN', ...})}
+tmp_path = WindowsPath('C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/packages/flip-core/.test-tmp/test_interfaces_recover_after_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x00000239130CBB70>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000239117199B0>
+record_property = <function record_property.<locals>.append_property at 0x00000239130C9380>
+
+    def test_interfaces_recover_after_timeout(
+        proof_bases, tmp_path, capsys, monkeypatch, record_property
+    ):
+        monkeypatch.setenv("FLIP_LOCAL_SOLVER", "1")
+        client = TestClient(app, client=("127.0.0.1", 1))
+        for base, exit_code, verdict in (("B17", 2, "UNKNOWN"), ("B02", 1, "DIFFERENT")):
+            request, _ = proof_bases[base]
+            raw = canonical_bytes(request)
+            path = tmp_path / "request.json"
+            path.write_bytes(raw)
+>           assert cli(["compare", "--project", str(path)]) == exit_code
+E           AssertionError: assert <ExitCode.UNKNOWN: 2> == 1
+E            +  where <ExitCode.UNKNOWN: 2> = cli(['compare', '--project', 'C:\\Users\\Kazi\\Documents\\Flip\\flip-visual-v2-b0\\packages\\flip-core\\.test-tmp\\test_interfaces_recover_after_0\\request.json'])
+
+packages\flip-core\tests\test_m3_acceptance.py:532: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"candidateIdentity":{"kind":"LOCAL_COMPOSITION","netlistHash":"0xb51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1"},"candidateManifest":{"dependencies":[{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"}],"expandedGates":8,"freshness":"HISTORICAL","kind":"LOCAL_COMPOSITION","nIn":2,"nOut":2,"nState":0,"netlistHash":"0xb51527eaa5637dd4303f26afa685897906224f4c6808ecb750aa46120c2bd4b1","projectHash":"0x9475427a071684143f09eb0bfe15302692d51a38ed30ea6e35067b1fd2287b4c","registration":"HISTORICAL_IMPORTED_ASSERTIONS","schemaVersion":"m3-1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"sourceManifestHashes":["0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86"]},"context":"LOCAL_OFFLINE_REPLAY_SINGLE_RPC_ASSERTIONS_NOT_REVALIDATED","correctness":"INTENT_UNKNOWN","coverage":"INCONCLUSIVE","engine":{"nativeSolverHash":"0xd00aa5946dd1f444cb269aea1518ca74a586d43ad04dcab2a58927f019214413","profile":"flip-m3-engine-v1","pythonSatVersion":"1.9.dev23","pythonVersion":"3.14.6","solverWrapperHash":"0x91d6f6f803716fe453a7a25ca58b5cb42d97b33c25d5a886060acf45e70b2120","sources":{"abi.py":"0x968a22c50bcd779fc82a49ba93df7f6f803ac28770add66407a6b40a6dcd5ffa","canonical.py":"0x8cb414632e63098312844fa2010698e470329f3795b7a64d33ec66331973ec8c","cnf.py":"0x45c4ecf0f92c125e5d35ff76b5c5983e6a30a6e0a76d439d4f7e79e86b9b99cf","composition.py":"0xd42d134d75683c4bf6414de00efbfcbbca46e511427425be49d1e4b64592efb0","composition_models.py":"0x6dd0613a669653a08a57d157be9c333c7bcc65151b68e628184029bb52bdffb4","execution.py":"0x090e43a1b99d1ef5083b961869c1516fddd51c47f72b0ee837549f1c9768d9f2","import_models.py":"0xa264d7d6eb5b43045cebe6b7730a0002dfe0096c5f564c5d10c2af76fc3d2d2f","importer.py":"0x69f40e0df2c4dde41c8ee3511b53a36ecaee8cd8000f284c74c9834951f25f9e","isolation.py":"0x28801fdbfdf6ef7f7d6eb1465421b96c3224f347e3523554e5f829bdc5736693","models.py":"0x5e4161e5aabd881c9be430a43c1f06f0ecb39923f56ec20e32b4fb30f9343a72","solver_worker.py":"0x136ac35f6315e4fa9d91beb75fac22b2c95d1a82b868832d04113d2a5d663b59","tap02.py":"0x9e81c4f6011ed081168cf6b81a3b78f77727ed2b11e7a66f577a9ed820c157ca","verification.py":"0xcb4bdd5b59a9620e806cd48cd8bbb276b7dcd2e87ab958fc98e9dd9b913e063b"}},"engineHash":"0x3b73fe1b75d47956f1e7e2c1bfd0bd5616360f39d2bc87656fc164e39878a649","kind":"TRUSTED_LOCAL_COMPARISON","referenceIdentity":{"kind":"LOCAL_COMPOSITION","netlistHash":"0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce"},"referenceManifest":{"dependencies":[{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"}],"expandedGates":8,"freshness":"HISTORICAL","kind":"LOCAL_COMPOSITION","nIn":2,"nOut":2,"nState":0,"netlistHash":"0x3dbb65a615e1f12be2325bdcad12b4a970a7ef721311452b5e09ac255ffc23ce","projectHash":"0x56cec19bcb99decd5142f290d80cae3d0312ee553f004f214882ff052cc82092","registration":"HISTORICAL_IMPORTED_ASSERTIONS","schemaVersion":"m3-1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"sourceManifestHashes":["0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86"]},"relation":"BEHAVIORAL","report":{"candidateManifestHash":"0xd38bc45815dcd6fa7617d54fbf4dd73cda88731634e15ffe7791075fab222f40","chainId":196,"inputMap":[0,1],"integrity":{"checkedBlock":null,"freshness":"HISTORICAL"},"intent":"UNDECLARED","limits":{"gateCap":5000,"refDepthCap":64,"solverMemoryMiB":64,"solverTimeoutMs":5000},"outputMap":[0,1],"projectHash":"0x9475427a071684143f09eb0bfe15302692d51a38ed30ea6e35067b1fd2287b4c","referenceManifestHash":"0x8a480f79d33ab8712989f22889785259129151f9ac8c835d359c849badb5ed81","schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0","trustAssertion":null,"verification":{"candidateNState":0,"kind":"PAIRWISE_EQUIVALENCE","mappingValidation":"PASSED","reasonCode":"SOLVER_TIMEOUT","referenceNState":0,"solverBackend":"Minisat22","solverOutcome":"INTERRUPTED","sourceValidation":"PASSED","verdict":"UNKNOWN","witness":null}},"reproduction":{"imports":[{"circuits":[{"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"netlist":"0x00000002000003000000020000040000000300000400000005000006"}],"integrity":{"checkedBlock":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"freshness":"CURRENT"},"kind":"CIRCUIT_IMPORT","manifest":{"block":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"chainId":196,"dependencies":[],"edges":[],"observation":"SINGLE_RPC","root":{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":4,"identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0xd3f8f3a8316a49023a82436e92607f77a51e7f1b96b614b3d71417372f3f6a9f"},"schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0"},"manifestHash":"0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86","pinning":"NUMBER_WITH_HEADER_RECHECK","schemaVersion":"1.0.0","trust":"SINGLE_RPC_OBSERVATION"},{"circuits":[{"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"netlist":"0x000000020000030000000400000400000005000005"}],"integrity":{"checkedBlock":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"freshness":"CURRENT"},"kind":"CIRCUIT_IMPORT","manifest":{"block":{"hash":"0x1111111111111111111111111111111111111111111111111111111111111111","number":"100"},"chainId":196,"dependencies":[],"edges":[],"observation":"SINGLE_RPC","root":{"environment":{"beacon":{"address":"0xf70d1ed4f62cf3780157b0b421b7e2f45bd0991c","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"beaconImplementation":{"address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factory":{"address":"0x1f09daefa827f02cbb40967cc91b259763760761","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementation":{"address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","codeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"factoryImplementationSlot":"0x000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","factorySealed":false,"processorCodeHash":"0x33d34248ed4f2b6266d6fc2f4fa6be82f843c439534b3ac929e88f252292e23a"},"expandedGates":3,"identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"nIn":2,"nOut":1,"nState":0,"netlistHash":"0x91c81eb018919169c97a8b7e10f4ab9bb2792960f53c0f4de3e3d2681939fd8e"},"schemaVersion":"1.0.0","semantics":{"encoding":"tap02-lsb0-v1","referenceHash":"0x0e8515948981361c7db57373e8986eab63056f1ce0fad5a3ec070c1887919fa9","specificationHash":"0x8db03f6298c58aae5a9adeaa3774c30ecdf9db1f276c3efd0079648444d8850f","tap02Version":"draft-2026-10-04","testSuiteHash":"0x1a02f5cf991c130a22dc6cc6ee93d0f8fe0720afed081665fa8b8018aefd203b"},"toolVersion":"0.1.0"},"manifestHash":"0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","pinning":"NUMBER_WITH_HEADER_RECHECK","schemaVersion":"1.0.0","trust":"SINGLE_RPC_OBSERVATION"}],"kind":"M3_EXECUTION","project":{"candidate":{"components":[{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node0","kind":"REF","sourceAlias":"source1"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":0}],"instanceId":"node1","kind":"NAND"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node2","kind":"REF","sourceAlias":"source0"}],"nIn":2,"outputs":[{"component":"node1","pin":0},{"component":"node2","pin":0}]},"chainId":196,"comparison":{"inputMap":[0,1],"intent":"UNDECLARED","kind":"PAIRWISE_EQUIVALENCE","outputMap":[0,1],"referenceAlias":null,"trustAssertion":null},"limits":{"gateCap":5000,"refDepthCap":64,"solverMemoryMiB":64,"solverTimeoutMs":5000},"projectId":"independentCorpus","referenceCandidate":{"components":[{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node0","kind":"REF","sourceAlias":"source1"},{"inputs":[{"component":"node0","pin":0},{"component":"node0","pin":0}],"instanceId":"node1","kind":"NAND"},{"inputs":[{"component":null,"pin":0},{"component":null,"pin":1}],"instanceId":"node2","kind":"REF","sourceAlias":"source0"}],"nIn":2,"outputs":[{"component":"node1","pin":0},{"component":"node2","pin":0}]},"schemaVersion":"m3-1.0.0","sources":[{"alias":"source0","identity":{"chainId":196,"circuitId":"1","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"manifestHash":"0x1a988da79c68d801044d6029aa5d0fb10865f62b2a2dea389e329b7d3a606b86","nIn":2,"nOut":1,"nState":0},{"alias":"source1","identity":{"chainId":196,"circuitId":"2","processor":"0x839bdd6fa7a66416a609a735e11de5411b98574e","schemaVersion":"1.0.0"},"manifestHash":"0x11c11a1800c885b4ef429f9272bd4ccf23846556df7be4e670b96233e66729ca","nIn":2,"nOut":1,"nState":0}],"toolVersion":"0.1.0"},"relation":"BEHAVIORAL","schemaVersion":"m3-1.0.0"},"requestHash":"0xc232eb19fa1a88c48e7238e106f554861bcfb971c96b185e15e46a99cbf7d80a","resources":{"candidateGates":8,"clauses":59,"containment":"WINDOWS_JOB_COMMIT","outcome":"INTERRUPTED","reason":"SOLVER_TIMEOUT","referenceGates":8,"totalMs":5275,"variables":22,"wallMs":5174},"schemaVersion":"m3-1.0.0","verifiedAt":"2026-11-26T23:43:52.388790+00:00"}
+____ test_combined_15_stage_journey_preserves_original_and_prior_evidence _____
+
+    def test_combined_15_stage_journey_preserves_original_and_prior_evidence():
+        raw = prior()
+        old = product(
+            "export", dict(schemaVersion="m4-1.0.0", kind="PRODUCT_REQUEST", executionRequest=raw)
+        )
+        ref = dict(
+            kind="FLIP_EVIDENCE",
+            digest=old["contentHash"],
+            executionRequestHash=content_hash(raw),
+            reproduce=old["reproduce"],
+            engineHash=old["comparison"]["engineHash"],
+        )
+        package = create_package(raw, tests=named_vectors(), evidence_refs=[ref])
+        original = copy.deepcopy(package)
+        body = prepared(package)
+        body["evidenceArtifacts"] = {ref["digest"]: old}
+        body["continueOnEvidenceDifference"] = True
+        untouched = copy.deepcopy(body)
+        result = adapter.execute(body)
+>       assert result["status"] == "COMPLETE", result["error"]
+E       AssertionError: {'code': 'OPERATION_DEADLINE', 'message': 'Operation stopped; no revision accepted.'}
+E       assert 'BUDGET_EXHAUSTED' == 'COMPLETE'
+E         
+E         - COMPLETE
+E         + BUDGET_EXHAUSTED
+
+packages\flip-core\tests\test_m45_agent_portable.py:84: AssertionError
+___________ test_cancellation_before_and_immediately_before_commit ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000239139B1F60>
+
+    def test_cancellation_before_and_immediately_before_commit(monkeypatch):
+        body = prepared()
+        result = adapter.execute(body, cancelled=lambda: True)
+        assert result["status"] == "CANCELLED" and result["receipt"] is None
+        stopped = threading.Event()
+        original = adapter.create_package
+    
+        def cancel_after_hashing(*args, **kwargs):
+            value = original(*args, **kwargs)
+            stopped.set()
+            return value
+    
+        monkeypatch.setattr(adapter, "create_package", cancel_after_hashing)
+        result = adapter.execute(body, cancelled=stopped.is_set)
+>       assert result["status"] == "CANCELLED" and result["revisedPackage"] is None
+E       AssertionError: assert ('BUDGET_EXHAUSTED' == 'CANCELLED'
+E         
+E         - CANCELLED
+E         + BUDGET_EXHAUSTED)
+
+packages\flip-core\tests\test_m45_agent_portable.py:203: AssertionError
+___________ test_cli_api_parity_and_both_legacy_dispatchers_survive ___________
+
+tmp_path = WindowsPath('C:/Users/Kazi/Documents/Flip/flip-visual-v2-b0/packages/flip-core/.test-tmp/test_cli_api_parity_and_both_l0')
+capsysbinary = <_pytest.capture.CaptureFixture object at 0x00000239130D2CC0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000023911E48EC0>
+
+    def test_cli_api_parity_and_both_legacy_dispatchers_survive(tmp_path, capsysbinary, monkeypatch):
+        monkeypatch.setenv("FLIP_LOCAL_SOLVER", "1")
+        body = prepared()
+        file = tmp_path / "adapter.json"
+        file.write_bytes(canonical_bytes(body))
+        assert (
+            main(["agent-portable", "--request", str(file), "--out", str(tmp_path / "result.json")])
+            == 0
+        )
+        cli = json.loads(capsysbinary.readouterr().out)
+        client = TestClient(app, client=("127.0.0.1", 1))
+        response = client.post("/api/agent/v1/portable", json=body)
+        assert response.status_code == 200
+        api = response.json()
+>       assert cli["reproductionHash"] == api["reproductionHash"]
+E       AssertionError: assert '0xf56bcfebad...157a04c9607af' == '0x4c9283ba67...f34c95586cb8f'
+E         
+E         - 0x4c9283ba67f646d183906d05b54dcd8983d606e532ba62e9016f34c95586cb8f
+E         + 0xf56bcfebad548c5be508ce2bf2b554843f276a258c4fdb76a5c157a04c9607af
+
+packages\flip-core\tests\test_m45_agent_portable.py:240: AssertionError
+_______ test_repeated_apply_failure_never_commits_the_partial_revision ________
+
+    def test_repeated_apply_failure_never_commits_the_partial_revision():
+        body = prepared()
+        again = copy.deepcopy(body["workflow"]["steps"][-1])
+        again["id"] = "applyAgain"
+        body["workflow"]["steps"].append(again)
+        result = adapter.execute(body)
+>       assert result["status"] == "STALE" and result["revisedPackage"] is None
+E       AssertionError: assert ('BUDGET_EXHAUSTED' == 'STALE'
+E         
+E         - STALE
+E         + BUDGET_EXHAUSTED)
+
+packages\flip-core\tests\test_m45_agent_portable.py:436: AssertionError
+=========================== short test summary info ===========================
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-self]
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-equivalent]
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_independent_benchmarks[E-05000-different]
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_custody_and_scratch_regeneration
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_platform_fail_closed_and_repeated_cleanup
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_supported_operation_parity[compare]
+FAILED packages/flip-core/tests/test_m3_acceptance.py::test_interfaces_recover_after_timeout
+FAILED packages/flip-core/tests/test_m45_agent_portable.py::test_combined_15_stage_journey_preserves_original_and_prior_evidence
+FAILED packages/flip-core/tests/test_m45_agent_portable.py::test_cancellation_before_and_immediately_before_commit
+FAILED packages/flip-core/tests/test_m45_agent_portable.py::test_cli_api_parity_and_both_legacy_dispatchers_survive
+FAILED packages/flip-core/tests/test_m45_agent_portable.py::test_repeated_apply_failure_never_commits_the_partial_revision
+11 failed, 691 passed in 2051.05s (0:34:11)

@@ -1,0 +1,4 @@
+
+> flip-workbench@0.1.0 build
+> tsc --noEmit && node build.mjs
+

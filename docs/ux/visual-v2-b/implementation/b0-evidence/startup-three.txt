@@ -1,0 +1,12 @@
+
+> flip-workbench@0.1.0 test
+> playwright test tests/visual-wiring.spec.ts -g pure commands initiate --repeat-each=3
+
+
+Running 3 tests using 1 worker
+
+  ok 1 tests\visual-wiring.spec.ts:653:1 › B0 pure commands initiate no fetch, and the live canvas remains read-only (4.1s)
+  ok 2 tests\visual-wiring.spec.ts:653:1 › B0 pure commands initiate no fetch, and the live canvas remains read-only (2.0s)
+  ok 3 tests\visual-wiring.spec.ts:653:1 › B0 pure commands initiate no fetch, and the live canvas remains read-only (3.8s)
+
+  3 passed (1.4m)

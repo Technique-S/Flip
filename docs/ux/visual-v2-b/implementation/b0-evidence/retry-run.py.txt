@@ -1,0 +1,21 @@
+import subprocess,json,time,xml.etree.ElementTree as E
+from pathlib import Path
+root=Path.cwd();out=root/'.test-tmp/v2b0/retries';out.mkdir(parents=True,exist_ok=True)
+py=str(root/'.venv/Scripts/python.exe')
+failed=[]
+for t in E.parse(root/'.test-tmp/v2b0/full/python.xml').getroot().iter('testcase'):
+ if t.find('failure') is not None or t.find('error') is not None:
+  path=t.attrib['classname'].replace('.','/')+'.py'
+  assert path in ['packages/flip-core/tests/test_m3_acceptance.py','packages/flip-core/tests/test_m45_agent_portable.py']
+  failed.append(path+'::'+t.attrib['name'])
+commands=[('browser',['npm.cmd','test'],root/'apps/web'),('showcase',['node','apps/showcase/test.mjs'],root),('python-failed',[py,'-m','pytest','-q',*failed,'--junitxml=.test-tmp/v2b0/retries/python.xml','-o','junit_family=legacy'],root)]
+rows=[]
+for name,args,cwd in commands:
+ t=time.monotonic()
+ with (out/(name+'.txt')).open('w',encoding='utf-8') as f:p=subprocess.run(args,cwd=cwd,stdout=f,stderr=subprocess.STDOUT)
+ row={'name':name,'args':args,'headSha':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'seconds':round(time.monotonic()-t,3),'exitCode':p.returncode};rows.append(row)
+ (out/'commands.json').write_text(json.dumps(rows,indent=2),encoding='utf-8',newline='\n')
+ if name=='browser':(out/'browser.json').write_bytes((root/'.test-tmp/m4-browser.json').read_bytes())
+ if name=='showcase':(out/'showcase-results.json').write_bytes((root/'.test-tmp/r3/showcase-results.json').read_bytes())
+ print(name,p.returncode,flush=True)
+print('RETRIES COMPLETE',flush=True)
